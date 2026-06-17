@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-17T21:29:18.600Z",
+  "lastUpdated": "2026-06-17T22:57:54.279Z",
   "matches": [
     {
       "stage": "GROUP_STAGE",
@@ -213,11 +213,11 @@
     },
     {
       "stage": "GROUP_STAGE",
-      "status": "IN_PLAY",
+      "status": "FINISHED",
       "utcDate": "2026-06-17T20:00:00Z",
       "homeTeam": "England",
       "awayTeam": "Croatia",
-      "homeScore": 3,
+      "homeScore": 4,
       "awayScore": 2,
       "winner": "HOME_TEAM"
     },
