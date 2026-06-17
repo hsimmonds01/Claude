@@ -18,10 +18,7 @@ const normalize = (s) =>
 
 function matchesTeam(apiName, aliases) {
   const n = normalize(apiName);
-  return aliases.some((alias) => {
-    const a = normalize(alias);
-    return n.includes(a) || a.includes(n);
-  });
+  return aliases.some((alias) => normalize(alias) === n);
 }
 
 function scoreTeam(team, matches) {

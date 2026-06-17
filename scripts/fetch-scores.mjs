@@ -26,7 +26,7 @@ const trackedAliases = players.flatMap((p) =>
 
 const isTracked = (teamName) => {
   const n = normalize(teamName || "");
-  return trackedAliases.some((alias) => n.includes(alias) || alias.includes(n));
+  return trackedAliases.some((alias) => alias === n);
 };
 
 const res = await fetch("https://api.football-data.org/v4/competitions/WC/matches", {
