@@ -79,7 +79,7 @@ function renderLeaderboard(players, matches) {
     row.className = "player-row";
     row.innerHTML = `
       <span class="rank ${i === 0 ? "gold" : ""}">${i + 1}</span>
-      <span class="player-name">${player.name}</span>
+      <span class="player-name">${i === 0 ? '<span class="leader-trophy" aria-label="Leader">🏆</span>' : ""}${player.name}</span>
       <span class="player-total">${player.total} pts</span>
       <span class="chevron">▶</span>
     `;
@@ -106,6 +106,63 @@ function renderLeaderboard(players, matches) {
   }
 }
 
+const STAGE_LABELS = {
+  GROUP_STAGE: "Group",
+  ROUND_OF_32: "R32",
+  LAST_32: "R32",
+  ROUND_OF_16: "R16",
+  LAST_16: "R16",
+  QUARTER_FINALS: "QF",
+  SEMI_FINALS: "SF",
+  THIRD_PLACE: "3rd",
+  FINAL: "Final",
+};
+
+function renderResults(matches) {
+  const list = document.getElementById("results");
+  list.innerHTML = "";
+
+  const sorted = [...matches].sort((a, b) => new Date(b.utcDate) - new Date(a.utcDate));
+
+  if (sorted.length === 0) {
+    list.innerHTML = '<p class="empty-state">No match data yet.</p>';
+    return;
+  }
+
+  list.innerHTML = sorted
+    .map((m) => {
+      const stageLabel = STAGE_LABELS[m.stage] || m.stage;
+      const isLive = m.status === "IN_PLAY" || m.status === "PAUSED";
+      const isFinished = m.status === "FINISHED" || isLive;
+      const scoreOrTime = isFinished
+        ? `${m.homeScore ?? "-"} : ${m.awayScore ?? "-"}`
+        : new Date(m.utcDate).toLocaleString([], { dateStyle: "short", timeStyle: "short" });
+      const statusText = isLive ? "LIVE" : m.status === "FINISHED" ? "Full time" : "Upcoming";
+
+      return `
+        <div class="result-row">
+          <span class="result-stage">${stageLabel}</span>
+          <span class="result-teams">${m.homeTeam} vs ${m.awayTeam}</span>
+          <span class="result-score">${scoreOrTime}</span>
+          <span class="result-status ${isLive ? "live" : ""}">${statusText}</span>
+        </div>`;
+    })
+    .join("");
+}
+
+function setupTabs() {
+  const buttons = document.querySelectorAll(".tab-btn");
+  buttons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      buttons.forEach((b) => b.classList.remove("active"));
+      btn.classList.add("active");
+      document.querySelectorAll(".tab-panel").forEach((panel) => {
+        panel.hidden = panel.id !== btn.dataset.tab;
+      });
+    });
+  });
+}
+
 function formatTimestamp(iso) {
   if (!iso) return "Not yet synced";
   const d = new Date(iso);
@@ -128,6 +185,7 @@ async function loadData() {
     const { lastUpdated, matches } = await standingsRes.json();
 
     renderLeaderboard(players, matches || []);
+    renderResults(matches || []);
     statusEl.textContent = formatTimestamp(lastUpdated);
   } catch (err) {
     statusEl.textContent = "Unable to load standings — showing last known state.";
@@ -136,4 +194,5 @@ async function loadData() {
 }
 
 document.getElementById("refresh-btn").addEventListener("click", loadData);
+setupTabs();
 loadData();
