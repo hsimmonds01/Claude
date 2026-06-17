@@ -171,6 +171,9 @@ function formatTimestamp(iso) {
 
 async function loadData() {
   const statusEl = document.getElementById("last-updated");
+  const refreshBtn = document.getElementById("refresh-btn");
+  refreshBtn.disabled = true;
+  refreshBtn.textContent = "Refreshing…";
   try {
     const [playersRes, standingsRes] = await Promise.all([
       fetch("config/players.json", { cache: "no-store" }),
@@ -190,6 +193,9 @@ async function loadData() {
   } catch (err) {
     statusEl.textContent = "Unable to load standings — showing last known state.";
     console.error(err);
+  } finally {
+    refreshBtn.disabled = false;
+    refreshBtn.textContent = "Refresh";
   }
 }
 
