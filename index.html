@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>World Cup Fantasy Tracker</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="trophy" aria-hidden="true">🏆</div>
+    <div>
+      <h1>World Cup Fantasy Tracker</h1>
+      <p class="subtitle">Live standings for the group's team draft</p>
+    </div>
+  </header>
+
+  <main>
+    <section class="status-bar">
+      <span id="last-updated">Loading standings…</span>
+      <button id="refresh-btn" type="button">Refresh</button>
+    </section>
+
+    <section id="leaderboard" aria-label="Player leaderboard"></section>
+
+    <section class="rules">
+      <h2>Scoring</h2>
+      <div class="rules-grid">
+        <div>
+          <h3>Group stage (per match)</h3>
+          <p>Win: 3 &nbsp;&nbsp; Draw: 1</p>
+        </div>
+        <div>
+          <h3>Knockout (best round won)</h3>
+          <p>R32: 4 &nbsp; R16: 6 &nbsp; QF: 10 &nbsp; SF: 15 &nbsp; Final: 23</p>
+        </div>
+        <div>
+          <h3>Third place playoff</h3>
+          <p>Win: +2 (on top of group points)</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Auto-refreshes from football-data.org via a scheduled GitHub Action.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
