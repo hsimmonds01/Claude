@@ -1,4 +1,1035 @@
 {
-  "lastUpdated": null,
-  "matches": []
+  "lastUpdated": "2026-06-17T17:59:11.140Z",
+  "matches": [
+    {
+      "stage": "GROUP_STAGE",
+      "status": "FINISHED",
+      "utcDate": "2026-06-11T19:00:00Z",
+      "homeTeam": "Mexico",
+      "awayTeam": "South Africa",
+      "homeScore": 2,
+      "awayScore": 0,
+      "winner": "HOME_TEAM"
+    },
+    {
+      "stage": "GROUP_STAGE",
+      "status": "FINISHED",
+      "utcDate": "2026-06-12T02:00:00Z",
+      "homeTeam": "South Korea",
+      "awayTeam": "Czechia",
+      "homeScore": 2,
+      "awayScore": 1,
+      "winner": "HOME_TEAM"
+    },
+    {
+      "stage": "GROUP_STAGE",
+      "status": "FINISHED",
+      "utcDate": "2026-06-12T19:00:00Z",
+      "homeTeam": "Canada",
+      "awayTeam": "Bosnia-Herzegovina",
+      "homeScore": 1,
+      "awayScore": 1,
+      "winner": "DRAW"
+    },
+    {
+      "stage": "GROUP_STAGE",
+      "status": "FINISHED",
+      "utcDate": "2026-06-13T01:00:00Z",
+      "homeTeam": "United States",
+      "awayTeam": "Paraguay",
+      "homeScore": 4,
+      "awayScore": 1,
+      "winner": "HOME_TEAM"
+    },
+    {
+      "stage": "GROUP_STAGE",
+      "status": "FINISHED",
+      "utcDate": "2026-06-13T19:00:00Z",
+      "homeTeam": "Qatar",
+      "awayTeam": "Switzerland",
+      "homeScore": 1,
+      "awayScore": 1,
+      "winner": "DRAW"
+    },
+    {
+      "stage": "GROUP_STAGE",
+      "status": "FINISHED",
+      "utcDate": "2026-06-13T22:00:00Z",
+      "homeTeam": "Brazil",
+      "awayTeam": "Morocco",
+      "homeScore": 1,
+      "awayScore": 1,
+      "winner": "DRAW"
+    },
+    {
+      "stage": "GROUP_STAGE",
+      "status": "FINISHED",
+      "utcDate": "2026-06-14T01:00:00Z",
+      "homeTeam": "Haiti",
+      "awayTeam": "Scotland",
+      "homeScore": 0,
+      "awayScore": 1,
+      "winner": "AWAY_TEAM"
+    },
+    {
+      "stage": "GROUP_STAGE",
+      "status": "FINISHED",
+      "utcDate": "2026-06-14T04:00:00Z",
+      "homeTeam": "Australia",
+      "awayTeam": "Turkey",
+      "homeScore": 2,
+      "awayScore": 0,
+      "winner": "HOME_TEAM"
+    },
+    {
+      "stage": "GROUP_STAGE",
+      "status": "FINISHED",
+      "utcDate": "2026-06-14T17:00:00Z",
+      "homeTeam": "Germany",
+      "awayTeam": "Curaçao",
+      "homeScore": 7,
+      "awayScore": 1,
+      "winner": "HOME_TEAM"
+    },
+    {
+      "stage": "GROUP_STAGE",
+      "status": "FINISHED",
+      "utcDate": "2026-06-14T20:00:00Z",
+      "homeTeam": "Netherlands",
+      "awayTeam": "Japan",
+      "homeScore": 2,
+      "awayScore": 2,
+      "winner": "DRAW"
+    },
+    {
+      "stage": "GROUP_STAGE",
+      "status": "FINISHED",
+      "utcDate": "2026-06-14T23:00:00Z",
+      "homeTeam": "Ivory Coast",
+      "awayTeam": "Ecuador",
+      "homeScore": 1,
+      "awayScore": 0,
+      "winner": "HOME_TEAM"
+    },
+    {
+      "stage": "GROUP_STAGE",
+      "status": "FINISHED",
+      "utcDate": "2026-06-15T02:00:00Z",
+      "homeTeam": "Sweden",
+      "awayTeam": "Tunisia",
+      "homeScore": 5,
+      "awayScore": 1,
+      "winner": "HOME_TEAM"
+    },
+    {
+      "stage": "GROUP_STAGE",
+      "status": "FINISHED",
+      "utcDate": "2026-06-15T16:00:00Z",
+      "homeTeam": "Spain",
+      "awayTeam": "Cape Verde Islands",
+      "homeScore": 0,
+      "awayScore": 0,
+      "winner": "DRAW"
+    },
+    {
+      "stage": "GROUP_STAGE",
+      "status": "FINISHED",
+      "utcDate": "2026-06-15T19:00:00Z",
+      "homeTeam": "Belgium",
+      "awayTeam": "Egypt",
+      "homeScore": 1,
+      "awayScore": 1,
+      "winner": "DRAW"
+    },
+    {
+      "stage": "GROUP_STAGE",
+      "status": "FINISHED",
+      "utcDate": "2026-06-15T22:00:00Z",
+      "homeTeam": "Saudi Arabia",
+      "awayTeam": "Uruguay",
+      "homeScore": 1,
+      "awayScore": 1,
+      "winner": "DRAW"
+    },
+    {
+      "stage": "GROUP_STAGE",
+      "status": "FINISHED",
+      "utcDate": "2026-06-16T01:00:00Z",
+      "homeTeam": "Iran",
+      "awayTeam": "New Zealand",
+      "homeScore": 2,
+      "awayScore": 2,
+      "winner": "DRAW"
+    },
+    {
+      "stage": "GROUP_STAGE",
+      "status": "FINISHED",
+      "utcDate": "2026-06-16T19:00:00Z",
+      "homeTeam": "France",
+      "awayTeam": "Senegal",
+      "homeScore": 3,
+      "awayScore": 1,
+      "winner": "HOME_TEAM"
+    },
+    {
+      "stage": "GROUP_STAGE",
+      "status": "FINISHED",
+      "utcDate": "2026-06-16T22:00:00Z",
+      "homeTeam": "Iraq",
+      "awayTeam": "Norway",
+      "homeScore": 1,
+      "awayScore": 4,
+      "winner": "AWAY_TEAM"
+    },
+    {
+      "stage": "GROUP_STAGE",
+      "status": "FINISHED",
+      "utcDate": "2026-06-17T01:00:00Z",
+      "homeTeam": "Argentina",
+      "awayTeam": "Algeria",
+      "homeScore": 3,
+      "awayScore": 0,
+      "winner": "HOME_TEAM"
+    },
+    {
+      "stage": "GROUP_STAGE",
+      "status": "FINISHED",
+      "utcDate": "2026-06-17T04:00:00Z",
+      "homeTeam": "Austria",
+      "awayTeam": "Jordan",
+      "homeScore": 3,
+      "awayScore": 1,
+      "winner": "HOME_TEAM"
+    },
+    {
+      "stage": "GROUP_STAGE",
+      "status": "IN_PLAY",
+      "utcDate": "2026-06-17T17:00:00Z",
+      "homeTeam": "Portugal",
+      "awayTeam": "Congo DR",
+      "homeScore": 1,
+      "awayScore": 1,
+      "winner": "DRAW"
+    },
+    {
+      "stage": "GROUP_STAGE",
+      "status": "TIMED",
+      "utcDate": "2026-06-17T20:00:00Z",
+      "homeTeam": "England",
+      "awayTeam": "Croatia",
+      "homeScore": null,
+      "awayScore": null,
+      "winner": null
+    },
+    {
+      "stage": "GROUP_STAGE",
+      "status": "TIMED",
+      "utcDate": "2026-06-17T23:00:00Z",
+      "homeTeam": "Ghana",
+      "awayTeam": "Panama",
+      "homeScore": null,
+      "awayScore": null,
+      "winner": null
+    },
+    {
+      "stage": "GROUP_STAGE",
+      "status": "TIMED",
+      "utcDate": "2026-06-18T02:00:00Z",
+      "homeTeam": "Uzbekistan",
+      "awayTeam": "Colombia",
+      "homeScore": null,
+      "awayScore": null,
+      "winner": null
+    },
+    {
+      "stage": "GROUP_STAGE",
+      "status": "TIMED",
+      "utcDate": "2026-06-18T16:00:00Z",
+      "homeTeam": "Czechia",
+      "awayTeam": "South Africa",
+      "homeScore": null,
+      "awayScore": null,
+      "winner": null
+    },
+    {
+      "stage": "GROUP_STAGE",
+      "status": "TIMED",
+      "utcDate": "2026-06-18T19:00:00Z",
+      "homeTeam": "Switzerland",
+      "awayTeam": "Bosnia-Herzegovina",
+      "homeScore": null,
+      "awayScore": null,
+      "winner": null
+    },
+    {
+      "stage": "GROUP_STAGE",
+      "status": "TIMED",
+      "utcDate": "2026-06-18T22:00:00Z",
+      "homeTeam": "Canada",
+      "awayTeam": "Qatar",
+      "homeScore": null,
+      "awayScore": null,
+      "winner": null
+    },
+    {
+      "stage": "GROUP_STAGE",
+      "status": "TIMED",
+      "utcDate": "2026-06-19T01:00:00Z",
+      "homeTeam": "Mexico",
+      "awayTeam": "South Korea",
+      "homeScore": null,
+      "awayScore": null,
+      "winner": null
+    },
+    {
+      "stage": "GROUP_STAGE",
+      "status": "TIMED",
+      "utcDate": "2026-06-19T19:00:00Z",
+      "homeTeam": "United States",
+      "awayTeam": "Australia",
+      "homeScore": null,
+      "awayScore": null,
+      "winner": null
+    },
+    {
+      "stage": "GROUP_STAGE",
+      "status": "TIMED",
+      "utcDate": "2026-06-19T22:00:00Z",
+      "homeTeam": "Scotland",
+      "awayTeam": "Morocco",
+      "homeScore": null,
+      "awayScore": null,
+      "winner": null
+    },
+    {
+      "stage": "GROUP_STAGE",
+      "status": "TIMED",
+      "utcDate": "2026-06-20T00:30:00Z",
+      "homeTeam": "Brazil",
+      "awayTeam": "Haiti",
+      "homeScore": null,
+      "awayScore": null,
+      "winner": null
+    },
+    {
+      "stage": "GROUP_STAGE",
+      "status": "TIMED",
+      "utcDate": "2026-06-20T03:00:00Z",
+      "homeTeam": "Turkey",
+      "awayTeam": "Paraguay",
+      "homeScore": null,
+      "awayScore": null,
+      "winner": null
+    },
+    {
+      "stage": "GROUP_STAGE",
+      "status": "TIMED",
+      "utcDate": "2026-06-20T17:00:00Z",
+      "homeTeam": "Netherlands",
+      "awayTeam": "Sweden",
+      "homeScore": null,
+      "awayScore": null,
+      "winner": null
+    },
+    {
+      "stage": "GROUP_STAGE",
+      "status": "TIMED",
+      "utcDate": "2026-06-20T20:00:00Z",
+      "homeTeam": "Germany",
+      "awayTeam": "Ivory Coast",
+      "homeScore": null,
+      "awayScore": null,
+      "winner": null
+    },
+    {
+      "stage": "GROUP_STAGE",
+      "status": "TIMED",
+      "utcDate": "2026-06-21T00:00:00Z",
+      "homeTeam": "Ecuador",
+      "awayTeam": "Curaçao",
+      "homeScore": null,
+      "awayScore": null,
+      "winner": null
+    },
+    {
+      "stage": "GROUP_STAGE",
+      "status": "TIMED",
+      "utcDate": "2026-06-21T04:00:00Z",
+      "homeTeam": "Tunisia",
+      "awayTeam": "Japan",
+      "homeScore": null,
+      "awayScore": null,
+      "winner": null
+    },
+    {
+      "stage": "GROUP_STAGE",
+      "status": "TIMED",
+      "utcDate": "2026-06-21T16:00:00Z",
+      "homeTeam": "Spain",
+      "awayTeam": "Saudi Arabia",
+      "homeScore": null,
+      "awayScore": null,
+      "winner": null
+    },
+    {
+      "stage": "GROUP_STAGE",
+      "status": "TIMED",
+      "utcDate": "2026-06-21T19:00:00Z",
+      "homeTeam": "Belgium",
+      "awayTeam": "Iran",
+      "homeScore": null,
+      "awayScore": null,
+      "winner": null
+    },
+    {
+      "stage": "GROUP_STAGE",
+      "status": "TIMED",
+      "utcDate": "2026-06-21T22:00:00Z",
+      "homeTeam": "Uruguay",
+      "awayTeam": "Cape Verde Islands",
+      "homeScore": null,
+      "awayScore": null,
+      "winner": null
+    },
+    {
+      "stage": "GROUP_STAGE",
+      "status": "TIMED",
+      "utcDate": "2026-06-22T01:00:00Z",
+      "homeTeam": "New Zealand",
+      "awayTeam": "Egypt",
+      "homeScore": null,
+      "awayScore": null,
+      "winner": null
+    },
+    {
+      "stage": "GROUP_STAGE",
+      "status": "TIMED",
+      "utcDate": "2026-06-22T17:00:00Z",
+      "homeTeam": "Argentina",
+      "awayTeam": "Austria",
+      "homeScore": null,
+      "awayScore": null,
+      "winner": null
+    },
+    {
+      "stage": "GROUP_STAGE",
+      "status": "TIMED",
+      "utcDate": "2026-06-22T21:00:00Z",
+      "homeTeam": "France",
+      "awayTeam": "Iraq",
+      "homeScore": null,
+      "awayScore": null,
+      "winner": null
+    },
+    {
+      "stage": "GROUP_STAGE",
+      "status": "TIMED",
+      "utcDate": "2026-06-23T00:00:00Z",
+      "homeTeam": "Norway",
+      "awayTeam": "Senegal",
+      "homeScore": null,
+      "awayScore": null,
+      "winner": null
+    },
+    {
+      "stage": "GROUP_STAGE",
+      "status": "TIMED",
+      "utcDate": "2026-06-23T03:00:00Z",
+      "homeTeam": "Jordan",
+      "awayTeam": "Algeria",
+      "homeScore": null,
+      "awayScore": null,
+      "winner": null
+    },
+    {
+      "stage": "GROUP_STAGE",
+      "status": "TIMED",
+      "utcDate": "2026-06-23T17:00:00Z",
+      "homeTeam": "Portugal",
+      "awayTeam": "Uzbekistan",
+      "homeScore": null,
+      "awayScore": null,
+      "winner": null
+    },
+    {
+      "stage": "GROUP_STAGE",
+      "status": "TIMED",
+      "utcDate": "2026-06-23T20:00:00Z",
+      "homeTeam": "England",
+      "awayTeam": "Ghana",
+      "homeScore": null,
+      "awayScore": null,
+      "winner": null
+    },
+    {
+      "stage": "GROUP_STAGE",
+      "status": "TIMED",
+      "utcDate": "2026-06-23T23:00:00Z",
+      "homeTeam": "Panama",
+      "awayTeam": "Croatia",
+      "homeScore": null,
+      "awayScore": null,
+      "winner": null
+    },
+    {
+      "stage": "GROUP_STAGE",
+      "status": "TIMED",
+      "utcDate": "2026-06-24T02:00:00Z",
+      "homeTeam": "Colombia",
+      "awayTeam": "Congo DR",
+      "homeScore": null,
+      "awayScore": null,
+      "winner": null
+    },
+    {
+      "stage": "GROUP_STAGE",
+      "status": "TIMED",
+      "utcDate": "2026-06-24T19:00:00Z",
+      "homeTeam": "Switzerland",
+      "awayTeam": "Canada",
+      "homeScore": null,
+      "awayScore": null,
+      "winner": null
+    },
+    {
+      "stage": "GROUP_STAGE",
+      "status": "TIMED",
+      "utcDate": "2026-06-24T19:00:00Z",
+      "homeTeam": "Bosnia-Herzegovina",
+      "awayTeam": "Qatar",
+      "homeScore": null,
+      "awayScore": null,
+      "winner": null
+    },
+    {
+      "stage": "GROUP_STAGE",
+      "status": "TIMED",
+      "utcDate": "2026-06-24T22:00:00Z",
+      "homeTeam": "Morocco",
+      "awayTeam": "Haiti",
+      "homeScore": null,
+      "awayScore": null,
+      "winner": null
+    },
+    {
+      "stage": "GROUP_STAGE",
+      "status": "TIMED",
+      "utcDate": "2026-06-24T22:00:00Z",
+      "homeTeam": "Scotland",
+      "awayTeam": "Brazil",
+      "homeScore": null,
+      "awayScore": null,
+      "winner": null
+    },
+    {
+      "stage": "GROUP_STAGE",
+      "status": "TIMED",
+      "utcDate": "2026-06-25T01:00:00Z",
+      "homeTeam": "Czechia",
+      "awayTeam": "Mexico",
+      "homeScore": null,
+      "awayScore": null,
+      "winner": null
+    },
+    {
+      "stage": "GROUP_STAGE",
+      "status": "TIMED",
+      "utcDate": "2026-06-25T01:00:00Z",
+      "homeTeam": "South Africa",
+      "awayTeam": "South Korea",
+      "homeScore": null,
+      "awayScore": null,
+      "winner": null
+    },
+    {
+      "stage": "GROUP_STAGE",
+      "status": "TIMED",
+      "utcDate": "2026-06-25T20:00:00Z",
+      "homeTeam": "Ecuador",
+      "awayTeam": "Germany",
+      "homeScore": null,
+      "awayScore": null,
+      "winner": null
+    },
+    {
+      "stage": "GROUP_STAGE",
+      "status": "TIMED",
+      "utcDate": "2026-06-25T20:00:00Z",
+      "homeTeam": "Curaçao",
+      "awayTeam": "Ivory Coast",
+      "homeScore": null,
+      "awayScore": null,
+      "winner": null
+    },
+    {
+      "stage": "GROUP_STAGE",
+      "status": "TIMED",
+      "utcDate": "2026-06-25T23:00:00Z",
+      "homeTeam": "Tunisia",
+      "awayTeam": "Netherlands",
+      "homeScore": null,
+      "awayScore": null,
+      "winner": null
+    },
+    {
+      "stage": "GROUP_STAGE",
+      "status": "TIMED",
+      "utcDate": "2026-06-25T23:00:00Z",
+      "homeTeam": "Japan",
+      "awayTeam": "Sweden",
+      "homeScore": null,
+      "awayScore": null,
+      "winner": null
+    },
+    {
+      "stage": "GROUP_STAGE",
+      "status": "TIMED",
+      "utcDate": "2026-06-26T02:00:00Z",
+      "homeTeam": "Turkey",
+      "awayTeam": "United States",
+      "homeScore": null,
+      "awayScore": null,
+      "winner": null
+    },
+    {
+      "stage": "GROUP_STAGE",
+      "status": "TIMED",
+      "utcDate": "2026-06-26T02:00:00Z",
+      "homeTeam": "Paraguay",
+      "awayTeam": "Australia",
+      "homeScore": null,
+      "awayScore": null,
+      "winner": null
+    },
+    {
+      "stage": "GROUP_STAGE",
+      "status": "TIMED",
+      "utcDate": "2026-06-26T19:00:00Z",
+      "homeTeam": "Norway",
+      "awayTeam": "France",
+      "homeScore": null,
+      "awayScore": null,
+      "winner": null
+    },
+    {
+      "stage": "GROUP_STAGE",
+      "status": "TIMED",
+      "utcDate": "2026-06-26T19:00:00Z",
+      "homeTeam": "Senegal",
+      "awayTeam": "Iraq",
+      "homeScore": null,
+      "awayScore": null,
+      "winner": null
+    },
+    {
+      "stage": "GROUP_STAGE",
+      "status": "TIMED",
+      "utcDate": "2026-06-27T00:00:00Z",
+      "homeTeam": "Uruguay",
+      "awayTeam": "Spain",
+      "homeScore": null,
+      "awayScore": null,
+      "winner": null
+    },
+    {
+      "stage": "GROUP_STAGE",
+      "status": "TIMED",
+      "utcDate": "2026-06-27T03:00:00Z",
+      "homeTeam": "New Zealand",
+      "awayTeam": "Belgium",
+      "homeScore": null,
+      "awayScore": null,
+      "winner": null
+    },
+    {
+      "stage": "GROUP_STAGE",
+      "status": "TIMED",
+      "utcDate": "2026-06-27T03:00:00Z",
+      "homeTeam": "Egypt",
+      "awayTeam": "Iran",
+      "homeScore": null,
+      "awayScore": null,
+      "winner": null
+    },
+    {
+      "stage": "GROUP_STAGE",
+      "status": "TIMED",
+      "utcDate": "2026-06-27T21:00:00Z",
+      "homeTeam": "Panama",
+      "awayTeam": "England",
+      "homeScore": null,
+      "awayScore": null,
+      "winner": null
+    },
+    {
+      "stage": "GROUP_STAGE",
+      "status": "TIMED",
+      "utcDate": "2026-06-27T21:00:00Z",
+      "homeTeam": "Croatia",
+      "awayTeam": "Ghana",
+      "homeScore": null,
+      "awayScore": null,
+      "winner": null
+    },
+    {
+      "stage": "GROUP_STAGE",
+      "status": "TIMED",
+      "utcDate": "2026-06-27T23:30:00Z",
+      "homeTeam": "Colombia",
+      "awayTeam": "Portugal",
+      "homeScore": null,
+      "awayScore": null,
+      "winner": null
+    },
+    {
+      "stage": "GROUP_STAGE",
+      "status": "TIMED",
+      "utcDate": "2026-06-27T23:30:00Z",
+      "homeTeam": "Congo DR",
+      "awayTeam": "Uzbekistan",
+      "homeScore": null,
+      "awayScore": null,
+      "winner": null
+    },
+    {
+      "stage": "GROUP_STAGE",
+      "status": "TIMED",
+      "utcDate": "2026-06-28T02:00:00Z",
+      "homeTeam": "Jordan",
+      "awayTeam": "Argentina",
+      "homeScore": null,
+      "awayScore": null,
+      "winner": null
+    },
+    {
+      "stage": "GROUP_STAGE",
+      "status": "TIMED",
+      "utcDate": "2026-06-28T02:00:00Z",
+      "homeTeam": "Algeria",
+      "awayTeam": "Austria",
+      "homeScore": null,
+      "awayScore": null,
+      "winner": null
+    },
+    {
+      "stage": "LAST_32",
+      "status": "TIMED",
+      "utcDate": "2026-06-28T19:00:00Z",
+      "homeTeam": "TBD",
+      "awayTeam": "TBD",
+      "homeScore": null,
+      "awayScore": null,
+      "winner": null
+    },
+    {
+      "stage": "LAST_32",
+      "status": "TIMED",
+      "utcDate": "2026-06-29T17:00:00Z",
+      "homeTeam": "TBD",
+      "awayTeam": "TBD",
+      "homeScore": null,
+      "awayScore": null,
+      "winner": null
+    },
+    {
+      "stage": "LAST_32",
+      "status": "TIMED",
+      "utcDate": "2026-06-29T20:30:00Z",
+      "homeTeam": "TBD",
+      "awayTeam": "TBD",
+      "homeScore": null,
+      "awayScore": null,
+      "winner": null
+    },
+    {
+      "stage": "LAST_32",
+      "status": "TIMED",
+      "utcDate": "2026-06-30T01:00:00Z",
+      "homeTeam": "TBD",
+      "awayTeam": "TBD",
+      "homeScore": null,
+      "awayScore": null,
+      "winner": null
+    },
+    {
+      "stage": "LAST_32",
+      "status": "TIMED",
+      "utcDate": "2026-06-30T17:00:00Z",
+      "homeTeam": "TBD",
+      "awayTeam": "TBD",
+      "homeScore": null,
+      "awayScore": null,
+      "winner": null
+    },
+    {
+      "stage": "LAST_32",
+      "status": "TIMED",
+      "utcDate": "2026-06-30T21:00:00Z",
+      "homeTeam": "TBD",
+      "awayTeam": "TBD",
+      "homeScore": null,
+      "awayScore": null,
+      "winner": null
+    },
+    {
+      "stage": "LAST_32",
+      "status": "TIMED",
+      "utcDate": "2026-07-01T01:00:00Z",
+      "homeTeam": "TBD",
+      "awayTeam": "TBD",
+      "homeScore": null,
+      "awayScore": null,
+      "winner": null
+    },
+    {
+      "stage": "LAST_32",
+      "status": "TIMED",
+      "utcDate": "2026-07-01T16:00:00Z",
+      "homeTeam": "TBD",
+      "awayTeam": "TBD",
+      "homeScore": null,
+      "awayScore": null,
+      "winner": null
+    },
+    {
+      "stage": "LAST_32",
+      "status": "TIMED",
+      "utcDate": "2026-07-01T20:00:00Z",
+      "homeTeam": "TBD",
+      "awayTeam": "TBD",
+      "homeScore": null,
+      "awayScore": null,
+      "winner": null
+    },
+    {
+      "stage": "LAST_32",
+      "status": "TIMED",
+      "utcDate": "2026-07-02T00:00:00Z",
+      "homeTeam": "TBD",
+      "awayTeam": "TBD",
+      "homeScore": null,
+      "awayScore": null,
+      "winner": null
+    },
+    {
+      "stage": "LAST_32",
+      "status": "TIMED",
+      "utcDate": "2026-07-02T19:00:00Z",
+      "homeTeam": "TBD",
+      "awayTeam": "TBD",
+      "homeScore": null,
+      "awayScore": null,
+      "winner": null
+    },
+    {
+      "stage": "LAST_32",
+      "status": "TIMED",
+      "utcDate": "2026-07-02T23:00:00Z",
+      "homeTeam": "TBD",
+      "awayTeam": "TBD",
+      "homeScore": null,
+      "awayScore": null,
+      "winner": null
+    },
+    {
+      "stage": "LAST_32",
+      "status": "TIMED",
+      "utcDate": "2026-07-03T03:00:00Z",
+      "homeTeam": "TBD",
+      "awayTeam": "TBD",
+      "homeScore": null,
+      "awayScore": null,
+      "winner": null
+    },
+    {
+      "stage": "LAST_32",
+      "status": "TIMED",
+      "utcDate": "2026-07-03T18:00:00Z",
+      "homeTeam": "TBD",
+      "awayTeam": "TBD",
+      "homeScore": null,
+      "awayScore": null,
+      "winner": null
+    },
+    {
+      "stage": "LAST_32",
+      "status": "TIMED",
+      "utcDate": "2026-07-03T22:00:00Z",
+      "homeTeam": "TBD",
+      "awayTeam": "TBD",
+      "homeScore": null,
+      "awayScore": null,
+      "winner": null
+    },
+    {
+      "stage": "LAST_32",
+      "status": "TIMED",
+      "utcDate": "2026-07-04T01:30:00Z",
+      "homeTeam": "TBD",
+      "awayTeam": "TBD",
+      "homeScore": null,
+      "awayScore": null,
+      "winner": null
+    },
+    {
+      "stage": "LAST_16",
+      "status": "TIMED",
+      "utcDate": "2026-07-04T17:00:00Z",
+      "homeTeam": "TBD",
+      "awayTeam": "TBD",
+      "homeScore": null,
+      "awayScore": null,
+      "winner": null
+    },
+    {
+      "stage": "LAST_16",
+      "status": "TIMED",
+      "utcDate": "2026-07-04T21:00:00Z",
+      "homeTeam": "TBD",
+      "awayTeam": "TBD",
+      "homeScore": null,
+      "awayScore": null,
+      "winner": null
+    },
+    {
+      "stage": "LAST_16",
+      "status": "TIMED",
+      "utcDate": "2026-07-05T20:00:00Z",
+      "homeTeam": "TBD",
+      "awayTeam": "TBD",
+      "homeScore": null,
+      "awayScore": null,
+      "winner": null
+    },
+    {
+      "stage": "LAST_16",
+      "status": "TIMED",
+      "utcDate": "2026-07-06T00:00:00Z",
+      "homeTeam": "TBD",
+      "awayTeam": "TBD",
+      "homeScore": null,
+      "awayScore": null,
+      "winner": null
+    },
+    {
+      "stage": "LAST_16",
+      "status": "TIMED",
+      "utcDate": "2026-07-06T19:00:00Z",
+      "homeTeam": "TBD",
+      "awayTeam": "TBD",
+      "homeScore": null,
+      "awayScore": null,
+      "winner": null
+    },
+    {
+      "stage": "LAST_16",
+      "status": "TIMED",
+      "utcDate": "2026-07-07T00:00:00Z",
+      "homeTeam": "TBD",
+      "awayTeam": "TBD",
+      "homeScore": null,
+      "awayScore": null,
+      "winner": null
+    },
+    {
+      "stage": "LAST_16",
+      "status": "TIMED",
+      "utcDate": "2026-07-07T16:00:00Z",
+      "homeTeam": "TBD",
+      "awayTeam": "TBD",
+      "homeScore": null,
+      "awayScore": null,
+      "winner": null
+    },
+    {
+      "stage": "LAST_16",
+      "status": "TIMED",
+      "utcDate": "2026-07-07T20:00:00Z",
+      "homeTeam": "TBD",
+      "awayTeam": "TBD",
+      "homeScore": null,
+      "awayScore": null,
+      "winner": null
+    },
+    {
+      "stage": "QUARTER_FINALS",
+      "status": "TIMED",
+      "utcDate": "2026-07-09T20:00:00Z",
+      "homeTeam": "TBD",
+      "awayTeam": "TBD",
+      "homeScore": null,
+      "awayScore": null,
+      "winner": null
+    },
+    {
+      "stage": "QUARTER_FINALS",
+      "status": "TIMED",
+      "utcDate": "2026-07-10T19:00:00Z",
+      "homeTeam": "TBD",
+      "awayTeam": "TBD",
+      "homeScore": null,
+      "awayScore": null,
+      "winner": null
+    },
+    {
+      "stage": "QUARTER_FINALS",
+      "status": "TIMED",
+      "utcDate": "2026-07-11T21:00:00Z",
+      "homeTeam": "TBD",
+      "awayTeam": "TBD",
+      "homeScore": null,
+      "awayScore": null,
+      "winner": null
+    },
+    {
+      "stage": "QUARTER_FINALS",
+      "status": "TIMED",
+      "utcDate": "2026-07-12T01:00:00Z",
+      "homeTeam": "TBD",
+      "awayTeam": "TBD",
+      "homeScore": null,
+      "awayScore": null,
+      "winner": null
+    },
+    {
+      "stage": "SEMI_FINALS",
+      "status": "TIMED",
+      "utcDate": "2026-07-14T19:00:00Z",
+      "homeTeam": "TBD",
+      "awayTeam": "TBD",
+      "homeScore": null,
+      "awayScore": null,
+      "winner": null
+    },
+    {
+      "stage": "SEMI_FINALS",
+      "status": "TIMED",
+      "utcDate": "2026-07-15T19:00:00Z",
+      "homeTeam": "TBD",
+      "awayTeam": "TBD",
+      "homeScore": null,
+      "awayScore": null,
+      "winner": null
+    },
+    {
+      "stage": "THIRD_PLACE",
+      "status": "TIMED",
+      "utcDate": "2026-07-18T21:00:00Z",
+      "homeTeam": "TBD",
+      "awayTeam": "TBD",
+      "homeScore": null,
+      "awayScore": null,
+      "winner": null
+    },
+    {
+      "stage": "FINAL",
+      "status": "TIMED",
+      "utcDate": "2026-07-19T19:00:00Z",
+      "homeTeam": "TBD",
+      "awayTeam": "TBD",
+      "homeScore": null,
+      "awayScore": null,
+      "winner": null
+    }
+  ]
 }
