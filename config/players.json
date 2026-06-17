@@ -1,0 +1,94 @@
+{
+  "players": [
+    {
+      "name": "George",
+      "teams": [
+        { "label": "Morocco", "aliases": ["morocco"] },
+        { "label": "USA", "aliases": ["united states", "usa", "us"] },
+        { "label": "Ecuador", "aliases": ["ecuador"] },
+        { "label": "Tunisia", "aliases": ["tunisia"] }
+      ]
+    },
+    {
+      "name": "Barry",
+      "teams": [
+        { "label": "Spain", "aliases": ["spain"] },
+        { "label": "Mexico", "aliases": ["mexico"] },
+        { "label": "Ivory Coast", "aliases": ["ivory coast", "cote d'ivoire", "côte d'ivoire", "cote divoire"] },
+        { "label": "Czechia", "aliases": ["czechia", "czech republic"] }
+      ]
+    },
+    {
+      "name": "Val",
+      "teams": [
+        { "label": "Netherlands", "aliases": ["netherlands", "holland"] },
+        { "label": "Switzerland", "aliases": ["switzerland"] },
+        { "label": "Austria", "aliases": ["austria"] },
+        { "label": "New Zealand", "aliases": ["new zealand"] }
+      ]
+    },
+    {
+      "name": "Ed",
+      "teams": [
+        { "label": "Portugal", "aliases": ["portugal"] },
+        { "label": "Japan", "aliases": ["japan"] },
+        { "label": "Senegal", "aliases": ["senegal"] },
+        { "label": "DR Congo", "aliases": ["dr congo", "congo dr", "democratic republic of the congo", "congo-kinshasa"] }
+      ]
+    },
+    {
+      "name": "Johnny",
+      "teams": [
+        { "label": "Argentina", "aliases": ["argentina"] },
+        { "label": "Turkey", "aliases": ["turkey", "turkiye", "türkiye"] },
+        { "label": "Egypt", "aliases": ["egypt"] },
+        { "label": "Iran", "aliases": ["iran", "ir iran"] }
+      ]
+    },
+    {
+      "name": "Clare",
+      "teams": [
+        { "label": "England", "aliases": ["england"] },
+        { "label": "Canada", "aliases": ["canada"] },
+        { "label": "Scotland", "aliases": ["scotland"] },
+        { "label": "Bosnia", "aliases": ["bosnia", "bosnia and herzegovina"] }
+      ]
+    },
+    {
+      "name": "Joe",
+      "teams": [
+        { "label": "Brazil", "aliases": ["brazil"] },
+        { "label": "Norway", "aliases": ["norway"] },
+        { "label": "Australia", "aliases": ["australia"] },
+        { "label": "Haiti", "aliases": ["haiti"] }
+      ]
+    },
+    {
+      "name": "Will",
+      "teams": [
+        { "label": "Belgium", "aliases": ["belgium"] },
+        { "label": "Uruguay", "aliases": ["uruguay"] },
+        { "label": "South Korea", "aliases": ["south korea", "korea republic", "korea, republic of"] },
+        { "label": "Ghana", "aliases": ["ghana"] }
+      ]
+    },
+    {
+      "name": "Andrew",
+      "teams": [
+        { "label": "Germany", "aliases": ["germany"] },
+        { "label": "Croatia", "aliases": ["croatia"] },
+        { "label": "Algeria", "aliases": ["algeria"] },
+        { "label": "Paraguay", "aliases": ["paraguay"] }
+      ]
+    },
+    {
+      "name": "Harry",
+      "teams": [
+        { "label": "France", "aliases": ["france"] },
+        { "label": "Colombia", "aliases": ["colombia"] },
+        { "label": "Sweden", "aliases": ["sweden"] },
+        { "label": "South Africa", "aliases": ["south africa"] }
+      ]
+    }
+  ]
+}
