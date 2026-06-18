@@ -118,36 +118,58 @@ const STAGE_LABELS = {
   FINAL: "Final",
 };
 
+const LIVE_WINDOW_MS = 3 * 60 * 60 * 1000; // covers 90min + ET/pens + stoppage + fetch delay margin
+
+function isMatchPlausiblyLive(m) {
+  if (m.status !== "IN_PLAY" && m.status !== "PAUSED") return false;
+  const kickoff = new Date(m.utcDate).getTime();
+  if (Number.isNaN(kickoff)) return false;
+  return Date.now() - kickoff <= LIVE_WINDOW_MS;
+}
+
+function hasStarted(m) {
+  return m.status === "FINISHED" || m.status === "IN_PLAY" || m.status === "PAUSED";
+}
+
+function renderResultRow(m) {
+  const stageLabel = STAGE_LABELS[m.stage] || m.stage;
+  const isLive = isMatchPlausiblyLive(m);
+  const started = hasStarted(m);
+  const scoreOrTime = started
+    ? `${m.homeScore ?? "-"} : ${m.awayScore ?? "-"}`
+    : new Date(m.utcDate).toLocaleString([], { dateStyle: "short", timeStyle: "short" });
+  const statusText = isLive ? "LIVE" : started ? "Full time" : "Upcoming";
+
+  return `
+    <div class="result-row">
+      <span class="result-stage">${stageLabel}</span>
+      <span class="result-teams">${m.homeTeam} vs ${m.awayTeam}</span>
+      <span class="result-score">${scoreOrTime}</span>
+      <span class="result-status ${isLive ? "live" : ""}">${statusText}</span>
+    </div>`;
+}
+
 function renderResults(matches) {
   const list = document.getElementById("results");
-  list.innerHTML = "";
 
-  const sorted = [...matches].sort((a, b) => new Date(b.utcDate) - new Date(a.utcDate));
+  const recent = matches
+    .filter(hasStarted)
+    .sort((a, b) => new Date(b.utcDate) - new Date(a.utcDate));
 
-  if (sorted.length === 0) {
+  const upcoming = matches
+    .filter((m) => m.status === "TIMED" || m.status === "SCHEDULED")
+    .sort((a, b) => new Date(a.utcDate) - new Date(b.utcDate))
+    .slice(0, 5);
+
+  if (recent.length === 0 && upcoming.length === 0) {
     list.innerHTML = '<p class="empty-state">No match data yet.</p>';
     return;
   }
 
-  list.innerHTML = sorted
-    .map((m) => {
-      const stageLabel = STAGE_LABELS[m.stage] || m.stage;
-      const isLive = m.status === "IN_PLAY" || m.status === "PAUSED";
-      const isFinished = m.status === "FINISHED" || isLive;
-      const scoreOrTime = isFinished
-        ? `${m.homeScore ?? "-"} : ${m.awayScore ?? "-"}`
-        : new Date(m.utcDate).toLocaleString([], { dateStyle: "short", timeStyle: "short" });
-      const statusText = isLive ? "LIVE" : m.status === "FINISHED" ? "Full time" : "Upcoming";
+  const section = (title, rows) =>
+    rows.length === 0 ? "" : `<h2 class="results-section-heading">${title}</h2>${rows.map(renderResultRow).join("")}`;
 
-      return `
-        <div class="result-row">
-          <span class="result-stage">${stageLabel}</span>
-          <span class="result-teams">${m.homeTeam} vs ${m.awayTeam}</span>
-          <span class="result-score">${scoreOrTime}</span>
-          <span class="result-status ${isLive ? "live" : ""}">${statusText}</span>
-        </div>`;
-    })
-    .join("");
+  list.innerHTML = section("Recent Results", recent) + section("Upcoming", upcoming);
 }
 
 function setupTabs() {
