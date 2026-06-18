@@ -221,6 +221,19 @@ main {
   font-size: 0.88rem;
 }
 
+.results-section-heading {
+  margin: 1.2rem 0 0.6rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--blue);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.results-section-heading:first-child {
+  margin-top: 0;
+}
+
 .result-row {
   background: var(--card-bg);
   border-radius: 10px;
