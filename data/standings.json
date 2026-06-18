@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-18T12:41:07.719Z",
+  "lastUpdated": "2026-06-18T16:16:58.102Z",
   "matches": [
     {
       "stage": "GROUP_STAGE",
@@ -243,13 +243,13 @@
     },
     {
       "stage": "GROUP_STAGE",
-      "status": "TIMED",
+      "status": "IN_PLAY",
       "utcDate": "2026-06-18T16:00:00Z",
       "homeTeam": "Czechia",
       "awayTeam": "South Africa",
-      "homeScore": null,
-      "awayScore": null,
-      "winner": null
+      "homeScore": 1,
+      "awayScore": 0,
+      "winner": "HOME_TEAM"
     },
     {
       "stage": "GROUP_STAGE",
