@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-18T18:37:10.202Z",
+  "lastUpdated": "2026-06-18T21:13:42.700Z",
   "matches": [
     {
       "stage": "GROUP_STAGE",
@@ -253,13 +253,13 @@
     },
     {
       "stage": "GROUP_STAGE",
-      "status": "TIMED",
+      "status": "FINISHED",
       "utcDate": "2026-06-18T19:00:00Z",
       "homeTeam": "Switzerland",
       "awayTeam": "Bosnia-Herzegovina",
-      "homeScore": null,
-      "awayScore": null,
-      "winner": null
+      "homeScore": 4,
+      "awayScore": 1,
+      "winner": "HOME_TEAM"
     },
     {
       "stage": "GROUP_STAGE",
