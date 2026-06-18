@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-17T22:57:54.279Z",
+  "lastUpdated": "2026-06-18T05:04:17.350Z",
   "matches": [
     {
       "stage": "GROUP_STAGE",
@@ -223,23 +223,23 @@
     },
     {
       "stage": "GROUP_STAGE",
-      "status": "TIMED",
+      "status": "IN_PLAY",
       "utcDate": "2026-06-17T23:00:00Z",
       "homeTeam": "Ghana",
       "awayTeam": "Panama",
-      "homeScore": null,
-      "awayScore": null,
-      "winner": null
+      "homeScore": 1,
+      "awayScore": 0,
+      "winner": "HOME_TEAM"
     },
     {
       "stage": "GROUP_STAGE",
-      "status": "TIMED",
+      "status": "FINISHED",
       "utcDate": "2026-06-18T02:00:00Z",
       "homeTeam": "Uzbekistan",
       "awayTeam": "Colombia",
-      "homeScore": null,
-      "awayScore": null,
-      "winner": null
+      "homeScore": 1,
+      "awayScore": 3,
+      "winner": "AWAY_TEAM"
     },
     {
       "stage": "GROUP_STAGE",
