@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-19T18:55:42.652Z",
+  "lastUpdated": "2026-06-19T20:26:24.124Z",
   "matches": [
     {
       "stage": "GROUP_STAGE",
@@ -283,13 +283,13 @@
     },
     {
       "stage": "GROUP_STAGE",
-      "status": "TIMED",
+      "status": "IN_PLAY",
       "utcDate": "2026-06-19T19:00:00Z",
       "homeTeam": "United States",
       "awayTeam": "Australia",
-      "homeScore": null,
-      "awayScore": null,
-      "winner": null
+      "homeScore": 2,
+      "awayScore": 0,
+      "winner": "HOME_TEAM"
     },
     {
       "stage": "GROUP_STAGE",
