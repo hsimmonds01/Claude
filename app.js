@@ -275,6 +275,51 @@ function renderResults(matches) {
   list.innerHTML = section("Recent Results", recent) + section("Upcoming", upcoming);
 }
 
+const BRACKET_STAGES = [
+  { label: "Round of 32", codes: ["ROUND_OF_32", "LAST_32"] },
+  { label: "Round of 16", codes: ["ROUND_OF_16", "LAST_16"] },
+  { label: "Quarter-Finals", codes: ["QUARTER_FINALS"] },
+  { label: "Semi-Finals", codes: ["SEMI_FINALS"] },
+  { label: "Third Place", codes: ["THIRD_PLACE"] },
+  { label: "Final", codes: ["FINAL"] },
+];
+
+function renderBracketMatch(m) {
+  const started = hasStarted(m);
+  const score = started ? `${m.homeScore ?? "-"} : ${m.awayScore ?? "-"}` : "vs";
+  const homeWon = m.winner === "HOME_TEAM";
+  const awayWon = m.winner === "AWAY_TEAM";
+
+  return `
+    <div class="bracket-match">
+      <div class="bracket-team ${homeWon ? "winner" : ""}">${flagFor(m.homeTeam)} ${m.homeTeam}</div>
+      <div class="bracket-score">${score}</div>
+      <div class="bracket-team ${awayWon ? "winner" : ""}">${flagFor(m.awayTeam)} ${m.awayTeam}</div>
+    </div>`;
+}
+
+function renderBracket(matches) {
+  const container = document.getElementById("bracket");
+
+  const columns = BRACKET_STAGES.map(({ label, codes }) => {
+    const stageMatches = matches.filter((m) => codes.includes(m.stage));
+    if (stageMatches.length === 0) return "";
+    return `
+      <div class="bracket-column">
+        <h3 class="bracket-stage-label">${label}</h3>
+        ${stageMatches.map(renderBracketMatch).join("")}
+      </div>`;
+  }).join("");
+
+  if (!columns.trim()) {
+    container.innerHTML =
+      '<p class="empty-state">No knockout matches yet — check back once the group stage wraps up.</p>';
+    return;
+  }
+
+  container.innerHTML = `<div class="bracket-columns">${columns}</div>`;
+}
+
 function setupTabs() {
   const buttons = document.querySelectorAll(".tab-btn");
   buttons.forEach((btn) => {
@@ -315,6 +360,7 @@ async function loadData() {
     buildFlagLookup(players);
     renderLeaderboard(players, matches || []);
     renderResults(matches || []);
+    renderBracket(matches || []);
     statusEl.textContent = formatTimestamp(lastUpdated);
   } catch (err) {
     statusEl.textContent = "Unable to load standings — showing last known state.";

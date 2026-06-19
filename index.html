@@ -48,6 +48,10 @@
       <div id="results" aria-label="Match results"></div>
     </section>
 
+    <section id="bracket-panel" class="tab-panel" hidden>
+      <div id="bracket" aria-label="Knockout bracket"></div>
+    </section>
+
     <footer>
       <p>Auto-refreshes from football-data.org via a scheduled GitHub Action.</p>
     </footer>
@@ -56,6 +60,7 @@
   <nav class="tab-bar">
     <button type="button" class="tab-btn active" data-tab="leaderboard-panel">🏆 Leaderboard</button>
     <button type="button" class="tab-btn" data-tab="results-panel">⚽ Results</button>
+    <button type="button" class="tab-btn" data-tab="bracket-panel">🗂 Bracket</button>
   </nav>
 
   <script src="app.js"></script>
