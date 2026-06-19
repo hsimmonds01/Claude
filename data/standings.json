@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-18T23:05:35.452Z",
+  "lastUpdated": "2026-06-19T02:06:05.872Z",
   "matches": [
     {
       "stage": "GROUP_STAGE",
@@ -263,23 +263,23 @@
     },
     {
       "stage": "GROUP_STAGE",
-      "status": "PAUSED",
+      "status": "FINISHED",
       "utcDate": "2026-06-18T22:00:00Z",
       "homeTeam": "Canada",
       "awayTeam": "Qatar",
-      "homeScore": 3,
+      "homeScore": 6,
       "awayScore": 0,
       "winner": "HOME_TEAM"
     },
     {
       "stage": "GROUP_STAGE",
-      "status": "TIMED",
+      "status": "PAUSED",
       "utcDate": "2026-06-19T01:00:00Z",
       "homeTeam": "Mexico",
       "awayTeam": "South Korea",
-      "homeScore": null,
-      "awayScore": null,
-      "winner": null
+      "homeScore": 0,
+      "awayScore": 0,
+      "winner": "DRAW"
     },
     {
       "stage": "GROUP_STAGE",
