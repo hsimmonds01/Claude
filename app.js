@@ -325,6 +325,26 @@ async function loadData() {
   }
 }
 
+const THEME_KEY = "wc-fantasy-theme";
+
+function applyTheme(theme) {
+  document.documentElement.dataset.theme = theme;
+  document.getElementById("theme-toggle").textContent = theme === "dark" ? "☀️" : "🌙";
+}
+
+function setupThemeToggle() {
+  const stored = localStorage.getItem(THEME_KEY);
+  const preferred = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  applyTheme(stored || preferred);
+
+  document.getElementById("theme-toggle").addEventListener("click", () => {
+    const next = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+    localStorage.setItem(THEME_KEY, next);
+    applyTheme(next);
+  });
+}
+
 document.getElementById("refresh-btn").addEventListener("click", loadData);
 setupTabs();
+setupThemeToggle();
 loadData();
