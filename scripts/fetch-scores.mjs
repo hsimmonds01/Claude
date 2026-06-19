@@ -39,8 +39,9 @@ if (!res.ok) {
 }
 
 const body = await res.json();
+const allMatches = body.matches || [];
 
-const matches = (body.matches || [])
+const matches = allMatches
   .filter((m) => isTracked(m.homeTeam?.name) || isTracked(m.awayTeam?.name))
   .map((m) => ({
     stage: m.stage,
@@ -53,9 +54,40 @@ const matches = (body.matches || [])
     winner: m.score?.winner ?? null,
   }));
 
+// Canonical stage buckets, computed from the *full* (unfiltered) match
+// list so knockout-round dates are known even before any tracked team
+// has been slotted into a knockout fixture (those entries have TBD
+// teams but a real scheduled stage + utcDate).
+const STAGE_GROUPS = {
+  GROUP_STAGE: "GROUP_STAGE",
+  ROUND_OF_32: "ROUND_OF_32",
+  LAST_32: "ROUND_OF_32",
+  ROUND_OF_16: "ROUND_OF_16",
+  LAST_16: "ROUND_OF_16",
+  QUARTER_FINALS: "QUARTER_FINALS",
+  SEMI_FINALS: "SEMI_FINALS",
+  THIRD_PLACE: "THIRD_PLACE",
+  FINAL: "FINAL",
+};
+
+const stages = {};
+for (const m of allMatches) {
+  const canon = STAGE_GROUPS[m.stage];
+  if (!canon || !m.utcDate) continue;
+  if (!stages[canon]) {
+    stages[canon] = { total: 0, finished: 0, startDate: m.utcDate, endDate: m.utcDate };
+  }
+  const s = stages[canon];
+  s.total += 1;
+  if (m.status === "FINISHED") s.finished += 1;
+  if (m.utcDate < s.startDate) s.startDate = m.utcDate;
+  if (m.utcDate > s.endDate) s.endDate = m.utcDate;
+}
+
 const output = {
   lastUpdated: new Date().toISOString(),
   matches,
+  stages,
 };
 
 await writeFile(
