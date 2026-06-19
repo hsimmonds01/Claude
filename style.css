@@ -286,6 +286,18 @@ main {
   font-size: 0.88rem;
 }
 
+.results-search {
+  display: block;
+  width: 100%;
+  margin-bottom: 1rem;
+  padding: 0.5rem 0.8rem;
+  font-size: 0.9rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--card-bg);
+  color: var(--text);
+}
+
 .results-section-heading {
   margin: 1.2rem 0 0.6rem;
   font-size: 0.95rem;

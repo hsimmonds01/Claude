@@ -252,20 +252,35 @@ function renderResultRow(m) {
     </div>`;
 }
 
+let latestMatches = [];
+
+function filterMatchesByTeam(matches, query) {
+  const nq = normalize(query);
+  if (!nq) return matches;
+  return matches.filter(
+    (m) => normalize(m.homeTeam).includes(nq) || normalize(m.awayTeam).includes(nq)
+  );
+}
+
 function renderResults(matches) {
+  latestMatches = matches;
+  const query = document.getElementById("results-search").value;
+  const filtered = filterMatchesByTeam(matches, query);
   const list = document.getElementById("results");
 
-  const recent = matches
+  const recent = filtered
     .filter(hasStarted)
     .sort((a, b) => new Date(b.utcDate) - new Date(a.utcDate));
 
-  const upcoming = matches
+  const upcoming = filtered
     .filter((m) => m.status === "TIMED" || m.status === "SCHEDULED")
     .sort((a, b) => new Date(a.utcDate) - new Date(b.utcDate))
     .slice(0, 5);
 
   if (recent.length === 0 && upcoming.length === 0) {
-    list.innerHTML = '<p class="empty-state">No match data yet.</p>';
+    list.innerHTML = matches.length === 0
+      ? '<p class="empty-state">No match data yet.</p>'
+      : '<p class="empty-state">No matches found for that search.</p>';
     return;
   }
 
@@ -391,6 +406,9 @@ function setupThemeToggle() {
 }
 
 document.getElementById("refresh-btn").addEventListener("click", loadData);
+document.getElementById("results-search").addEventListener("input", () => {
+  renderResults(latestMatches);
+});
 setupTabs();
 setupThemeToggle();
 loadData();
