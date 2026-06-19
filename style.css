@@ -8,6 +8,24 @@
   --text: #1a1a1a;
   --muted: #6b7280;
   --shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --border: #eeeeee;
+  --tab-bar-bg: #ffffff;
+  --tab-bar-border: #e5e5e5;
+  --tab-active-bg: #f0f7f1;
+  --badge-bg: #f0f0f0;
+}
+
+[data-theme="dark"] {
+  --bg: #14181a;
+  --card-bg: #1f2528;
+  --text: #e8eaeb;
+  --muted: #9aa3a8;
+  --shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  --border: #2d3437;
+  --tab-bar-bg: #1f2528;
+  --tab-bar-border: #2d3437;
+  --tab-active-bg: #1a2e22;
+  --badge-bg: #2d3437;
 }
 
 * {
@@ -46,6 +64,24 @@ body {
   font-size: 2.5rem;
 }
 
+#theme-toggle {
+  margin-left: auto;
+  background: rgba(255, 255, 255, 0.15);
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 1.3rem;
+  width: 2.4rem;
+  height: 2.4rem;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background 0.2s ease;
+}
+
+#theme-toggle:hover {
+  background: rgba(255, 255, 255, 0.28);
+}
+
 main {
   max-width: 880px;
   margin: 0 auto;
@@ -58,8 +94,8 @@ main {
   left: 0;
   right: 0;
   display: flex;
-  background: white;
-  border-top: 1px solid #e5e5e5;
+  background: var(--tab-bar-bg);
+  border-top: 1px solid var(--tab-bar-border);
   box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.08);
   z-index: 10;
 }
@@ -78,7 +114,7 @@ main {
 
 .tab-btn.active {
   color: var(--green-dark);
-  background: #f0f7f1;
+  background: var(--tab-active-bg);
   border-top: 3px solid var(--gold);
 }
 
@@ -166,7 +202,7 @@ main {
   font-size: 0.8rem;
   font-weight: 600;
   color: var(--muted);
-  background: #f0f0f0;
+  background: var(--badge-bg);
   border-radius: 999px;
   padding: 0.15rem 0.55rem;
   flex-shrink: 0;
@@ -189,7 +225,7 @@ main {
 
 .team-breakdown {
   display: none;
-  border-top: 1px solid #eee;
+  border-top: 1px solid var(--border);
   padding: 0.5rem 1.1rem 0.9rem;
 }
 
@@ -202,7 +238,7 @@ main {
   justify-content: space-between;
   padding: 0.35rem 0;
   font-size: 0.92rem;
-  border-bottom: 1px dashed #eee;
+  border-bottom: 1px dashed var(--border);
 }
 
 .team-row:last-child {
