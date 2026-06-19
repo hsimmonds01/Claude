@@ -149,6 +149,19 @@ main {
   margin-right: 0.3rem;
 }
 
+.rank-change {
+  margin-left: 0.4rem;
+  font-size: 0.8rem;
+}
+
+.rank-change.up {
+  color: var(--green);
+}
+
+.rank-change.down {
+  color: #c0392b;
+}
+
 .games-badge {
   font-size: 0.8rem;
   font-weight: 600;

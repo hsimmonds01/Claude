@@ -62,6 +62,16 @@ function scoreTeam(team, matches) {
   };
 }
 
+const PREV_RANKS_KEY = "wc-fantasy-prev-ranks";
+
+function renderRankChange(name, rank, prevRanks) {
+  const prevRank = prevRanks[name];
+  if (prevRank === undefined || prevRank === rank) return "";
+  return prevRank > rank
+    ? '<span class="rank-change up" title="Moved up since last refresh">▲</span>'
+    : '<span class="rank-change down" title="Moved down since last refresh">▼</span>';
+}
+
 function renderLeaderboard(players, matches) {
   const board = document.getElementById("leaderboard");
   board.innerHTML = "";
@@ -75,15 +85,18 @@ function renderLeaderboard(players, matches) {
     })
     .sort((a, b) => b.total - a.total);
 
+  const prevRanks = JSON.parse(localStorage.getItem(PREV_RANKS_KEY) || "{}");
+
   scored.forEach((player, i) => {
+    const rank = i + 1;
     const card = document.createElement("div");
     card.className = "player-card";
 
     const row = document.createElement("div");
     row.className = "player-row";
     row.innerHTML = `
-      <span class="rank ${i === 0 ? "gold" : ""}">${i + 1}</span>
-      <span class="player-name">${i === 0 ? '<span class="leader-trophy" aria-label="Leader">🏆</span>' : ""}${player.name}</span>
+      <span class="rank ${i === 0 ? "gold" : ""}">${rank}</span>
+      <span class="player-name">${i === 0 ? '<span class="leader-trophy" aria-label="Leader">🏆</span>' : ""}${player.name}${renderRankChange(player.name, rank, prevRanks)}</span>
       <span class="games-badge" title="Games played by this player's teams">⚽ ${player.gamesPlayed}</span>
       <span class="player-total">${player.total} pts</span>
       <span class="chevron">▶</span>
@@ -109,6 +122,12 @@ function renderLeaderboard(players, matches) {
   if (scored.length === 0) {
     board.innerHTML = '<p class="empty-state">No player data found.</p>';
   }
+
+  const currentRanks = {};
+  scored.forEach((player, i) => {
+    currentRanks[player.name] = i + 1;
+  });
+  localStorage.setItem(PREV_RANKS_KEY, JSON.stringify(currentRanks));
 }
 
 const STAGE_LABELS = {
