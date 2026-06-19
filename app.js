@@ -444,8 +444,7 @@ function applyTheme(theme) {
 
 function setupThemeToggle() {
   const stored = localStorage.getItem(THEME_KEY);
-  const preferred = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-  applyTheme(stored || preferred);
+  applyTheme(stored || "light");
 
   document.getElementById("theme-toggle").addEventListener("click", () => {
     const next = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
