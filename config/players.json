@@ -51,7 +51,7 @@
         { "label": "England", "aliases": ["england"] },
         { "label": "Canada", "aliases": ["canada"] },
         { "label": "Scotland", "aliases": ["scotland"] },
-        { "label": "Bosnia", "aliases": ["bosnia", "bosnia and herzegovina"] }
+        { "label": "Bosnia", "aliases": ["bosnia", "bosnia and herzegovina", "bosnia-herzegovina", "bosnia herzegovina"] }
       ]
     },
     {
