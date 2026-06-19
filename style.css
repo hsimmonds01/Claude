@@ -286,6 +286,79 @@ main {
   font-size: 0.88rem;
 }
 
+.tournament-timeline {
+  margin-bottom: 1.2rem;
+}
+
+.timeline-track {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  background: var(--card-bg);
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+  padding: 1rem 0.8rem 0.8rem;
+  overflow-x: auto;
+}
+
+.timeline-milestone {
+  flex: 1;
+  min-width: 4.5rem;
+  text-align: center;
+  position: relative;
+}
+
+.timeline-milestone:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 0.55rem;
+  left: 50%;
+  width: 100%;
+  height: 2px;
+  background: var(--border);
+  z-index: 0;
+}
+
+.timeline-milestone.complete:not(:last-child)::after {
+  background: var(--green);
+}
+
+.timeline-dot {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.1rem;
+  height: 1.1rem;
+  border-radius: 50%;
+  background: var(--border);
+  color: white;
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.timeline-milestone.complete .timeline-dot {
+  background: var(--green);
+}
+
+.timeline-milestone.current .timeline-dot {
+  background: var(--gold);
+  box-shadow: 0 0 0 3px rgba(245, 184, 0, 0.3);
+}
+
+.timeline-label {
+  display: block;
+  margin-top: 0.4rem;
+  font-size: 0.72rem;
+  color: var(--muted);
+}
+
+.timeline-milestone.current .timeline-label {
+  color: var(--text);
+  font-weight: 700;
+}
+
 .results-search {
   display: block;
   width: 100%;
