@@ -62,6 +62,85 @@ function scoreTeam(team, matches) {
   };
 }
 
+const ISO_CODE_BY_LABEL = {
+  Morocco: "MA",
+  USA: "US",
+  Ecuador: "EC",
+  Tunisia: "TN",
+  Spain: "ES",
+  Mexico: "MX",
+  "Ivory Coast": "CI",
+  Czechia: "CZ",
+  Netherlands: "NL",
+  Switzerland: "CH",
+  Austria: "AT",
+  "New Zealand": "NZ",
+  Portugal: "PT",
+  Japan: "JP",
+  Senegal: "SN",
+  "DR Congo": "CD",
+  Argentina: "AR",
+  Turkey: "TR",
+  Egypt: "EG",
+  Iran: "IR",
+  Canada: "CA",
+  Bosnia: "BA",
+  Brazil: "BR",
+  Norway: "NO",
+  Australia: "AU",
+  Haiti: "HT",
+  Belgium: "BE",
+  Uruguay: "UY",
+  "South Korea": "KR",
+  Ghana: "GH",
+  Germany: "DE",
+  Croatia: "HR",
+  Algeria: "DZ",
+  Paraguay: "PY",
+  France: "FR",
+  Colombia: "CO",
+  Sweden: "SE",
+  "South Africa": "ZA",
+};
+
+const SPECIAL_FLAGS_BY_LABEL = {
+  England: "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+  Scotland: "🏴󠁧󠁢󠁳󠁣󠁴󠁿",
+};
+
+function flagFromIsoCode(code) {
+  return code
+    .toUpperCase()
+    .split("")
+    .map((c) => String.fromCodePoint(0x1f1e6 + c.charCodeAt(0) - 65))
+    .join("");
+}
+
+function flagForLabel(label) {
+  if (SPECIAL_FLAGS_BY_LABEL[label]) return SPECIAL_FLAGS_BY_LABEL[label];
+  const code = ISO_CODE_BY_LABEL[label];
+  return code ? flagFromIsoCode(code) : "";
+}
+
+let flagByNormalizedAlias = new Map();
+
+function buildFlagLookup(players) {
+  flagByNormalizedAlias = new Map();
+  for (const player of players) {
+    for (const team of player.teams) {
+      const flag = flagForLabel(team.label);
+      if (!flag) continue;
+      for (const alias of team.aliases) {
+        flagByNormalizedAlias.set(normalize(alias), flag);
+      }
+    }
+  }
+}
+
+function flagFor(name) {
+  return flagByNormalizedAlias.get(normalize(name)) || "";
+}
+
 const PREV_RANKS_KEY = "wc-fantasy-prev-ranks";
 
 function renderRankChange(name, rank, prevRanks) {
@@ -109,7 +188,7 @@ function renderLeaderboard(players, matches) {
       .map(
         (t) => `
         <div class="team-row">
-          <span>${t.displayName} <span class="team-games">(${t.gamesPlayed} played)</span></span>
+          <span>${flagFor(t.displayName)} ${t.displayName} <span class="team-games">(${t.gamesPlayed} played)</span></span>
           <span class="team-points">${t.groupPoints} group + ${t.knockoutBonus} round + ${t.thirdPlaceBonus} 3rd = <strong>${t.total}</strong></span>
         </div>`
       )
@@ -167,7 +246,7 @@ function renderResultRow(m) {
   return `
     <div class="result-row">
       <span class="result-stage">${stageLabel}</span>
-      <span class="result-teams">${m.homeTeam} vs ${m.awayTeam}</span>
+      <span class="result-teams">${flagFor(m.homeTeam)} ${m.homeTeam} vs ${flagFor(m.awayTeam)} ${m.awayTeam}</span>
       <span class="result-score">${scoreOrTime}</span>
       <span class="result-status ${isLive ? "live" : ""}">${statusText}</span>
     </div>`;
@@ -233,6 +312,7 @@ async function loadData() {
     const { players } = await playersRes.json();
     const { lastUpdated, matches } = await standingsRes.json();
 
+    buildFlagLookup(players);
     renderLeaderboard(players, matches || []);
     renderResults(matches || []);
     statusEl.textContent = formatTimestamp(lastUpdated);
