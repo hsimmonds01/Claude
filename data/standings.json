@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-19T21:44:03.273Z",
+  "lastUpdated": "2026-06-19T22:38:06.539Z",
   "matches": [
     {
       "stage": "GROUP_STAGE",
@@ -293,13 +293,13 @@
     },
     {
       "stage": "GROUP_STAGE",
-      "status": "TIMED",
+      "status": "IN_PLAY",
       "utcDate": "2026-06-19T22:00:00Z",
       "homeTeam": "Scotland",
       "awayTeam": "Morocco",
-      "homeScore": null,
-      "awayScore": null,
-      "winner": null
+      "homeScore": 0,
+      "awayScore": 1,
+      "winner": "AWAY_TEAM"
     },
     {
       "stage": "GROUP_STAGE",
