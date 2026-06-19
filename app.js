@@ -336,41 +336,51 @@ function renderBracket(matches) {
 }
 
 const TIMELINE_STAGES = [
-  { key: "GROUP_STAGE", label: "Group Stage" },
-  { key: "ROUND_OF_32", label: "Round of 32" },
-  { key: "ROUND_OF_16", label: "Round of 16" },
-  { key: "QUARTER_FINALS", label: "Quarter-Finals" },
-  { key: "SEMI_FINALS", label: "Semi-Finals" },
-  { key: "THIRD_PLACE", label: "3rd Place" },
+  { key: "GROUP_STAGE", label: "Group" },
+  { key: "ROUND_OF_32", label: "R32" },
+  { key: "ROUND_OF_16", label: "R16" },
+  { key: "QUARTER_FINALS", label: "QF" },
+  { key: "SEMI_FINALS", label: "SF" },
+  { key: "THIRD_PLACE", label: "3rd" },
   { key: "FINAL", label: "Final" },
 ];
-
-function stageStatus(stage) {
-  if (!stage) return "upcoming";
-  if (stage.total > 0 && stage.finished === stage.total) return "complete";
-  if (Date.now() >= new Date(stage.startDate).getTime()) return "current";
-  return "upcoming";
-}
 
 function renderTimeline(stages) {
   const container = document.getElementById("timeline");
 
-  if (!stages || Object.keys(stages).length === 0) {
+  const present = TIMELINE_STAGES.filter(({ key }) => stages && stages[key]);
+  const totalMatches = present.reduce((sum, { key }) => sum + stages[key].total, 0);
+
+  if (totalMatches === 0) {
     container.innerHTML = "";
     return;
   }
 
-  const milestones = TIMELINE_STAGES.map(({ key, label }) => {
-    const status = stageStatus(stages[key]);
-    const icon = status === "complete" ? "✓" : status === "current" ? "●" : "";
-    return `
-      <div class="timeline-milestone ${status}">
-        <span class="timeline-dot">${icon}</span>
-        <span class="timeline-label">${label}</span>
-      </div>`;
-  }).join("");
+  const finishedMatches = present.reduce((sum, { key }) => sum + stages[key].finished, 0);
+  const ballPct = Math.min(100, (finishedMatches / totalMatches) * 100);
 
-  container.innerHTML = `<div class="timeline-track">${milestones}</div>`;
+  let cumulative = 0;
+  const milestones = present
+    .map(({ key, label }) => {
+      const pct = (cumulative / totalMatches) * 100;
+      cumulative += stages[key].total;
+      const reached = pct <= ballPct;
+      return `
+        <div class="progress-milestone ${reached ? "reached" : ""}" style="left: ${pct}%">
+          <span class="milestone-tick"></span>
+          <span class="milestone-label">${label}</span>
+        </div>`;
+    })
+    .join("");
+
+  container.innerHTML = `
+    <div class="progress-track">
+      <div class="progress-rail">
+        <div class="progress-fill" style="width: ${ballPct}%"></div>
+        <div class="progress-ball" style="left: ${ballPct}%">⚽</div>
+        ${milestones}
+      </div>
+    </div>`;
 }
 
 function setupTabs() {

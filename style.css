@@ -290,71 +290,67 @@ main {
   margin-bottom: 1.2rem;
 }
 
-.timeline-track {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
+.progress-track {
   background: var(--card-bg);
   border-radius: 10px;
   box-shadow: var(--shadow);
-  padding: 1rem 0.8rem 0.8rem;
-  overflow-x: auto;
+  padding: 1.8rem 1rem 2.4rem;
 }
 
-.timeline-milestone {
-  flex: 1;
-  min-width: 4.5rem;
-  text-align: center;
+.progress-rail {
   position: relative;
+  height: 4px;
+  background: var(--border);
+  border-radius: 2px;
 }
 
-.timeline-milestone:not(:last-child)::after {
-  content: "";
+.progress-fill {
   position: absolute;
-  top: 0.55rem;
-  left: 50%;
-  width: 100%;
-  height: 2px;
-  background: var(--border);
-  z-index: 0;
-}
-
-.timeline-milestone.complete:not(:last-child)::after {
+  top: 0;
+  left: 0;
+  height: 4px;
   background: var(--green);
+  border-radius: 2px;
+  transition: width 0.3s ease;
 }
 
-.timeline-dot {
-  position: relative;
-  z-index: 1;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 1.1rem;
-  height: 1.1rem;
-  border-radius: 50%;
-  background: var(--border);
-  color: white;
-  font-size: 0.7rem;
-  font-weight: 700;
+.progress-ball {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.4rem;
+  line-height: 1;
+  transition: left 0.3s ease;
 }
 
-.timeline-milestone.complete .timeline-dot {
-  background: var(--green);
+.progress-milestone {
+  position: absolute;
+  top: 0;
+  transform: translateX(-50%);
+  text-align: center;
 }
 
-.timeline-milestone.current .timeline-dot {
-  background: var(--gold);
-  box-shadow: 0 0 0 3px rgba(245, 184, 0, 0.3);
-}
-
-.timeline-label {
+.milestone-tick {
   display: block;
-  margin-top: 0.4rem;
-  font-size: 0.72rem;
-  color: var(--muted);
+  width: 2px;
+  height: 0.5rem;
+  margin: 0 auto;
+  background: var(--border);
 }
 
-.timeline-milestone.current .timeline-label {
+.progress-milestone.reached .milestone-tick {
+  background: var(--green);
+}
+
+.milestone-label {
+  display: block;
+  margin-top: 0.3rem;
+  font-size: 0.68rem;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.progress-milestone.reached .milestone-label {
   color: var(--text);
   font-weight: 700;
 }
