@@ -25,6 +25,7 @@ function scoreTeam(team, matches) {
   let groupPoints = 0;
   let knockoutBonus = 0;
   let thirdPlaceBonus = 0;
+  let gamesPlayed = 0;
   let displayName = team.label;
 
   for (const m of matches) {
@@ -34,6 +35,7 @@ function scoreTeam(team, matches) {
     if (!isHome && !isAway) continue;
 
     displayName = isHome ? m.homeTeam : m.awayTeam;
+    gamesPlayed += 1;
 
     const won =
       (isHome && m.winner === "HOME_TEAM") || (isAway && m.winner === "AWAY_TEAM");
@@ -55,6 +57,7 @@ function scoreTeam(team, matches) {
     groupPoints,
     knockoutBonus,
     thirdPlaceBonus,
+    gamesPlayed,
     total: groupPoints + knockoutBonus + thirdPlaceBonus,
   };
 }
@@ -67,7 +70,8 @@ function renderLeaderboard(players, matches) {
     .map((player) => {
       const teams = player.teams.map((t) => scoreTeam(t, matches));
       const total = teams.reduce((sum, t) => sum + t.total, 0);
-      return { name: player.name, teams, total };
+      const gamesPlayed = teams.reduce((sum, t) => sum + t.gamesPlayed, 0);
+      return { name: player.name, teams, total, gamesPlayed };
     })
     .sort((a, b) => b.total - a.total);
 
@@ -80,6 +84,7 @@ function renderLeaderboard(players, matches) {
     row.innerHTML = `
       <span class="rank ${i === 0 ? "gold" : ""}">${i + 1}</span>
       <span class="player-name">${i === 0 ? '<span class="leader-trophy" aria-label="Leader">🏆</span>' : ""}${player.name}</span>
+      <span class="games-badge" title="Games played by this player's teams">⚽ ${player.gamesPlayed}</span>
       <span class="player-total">${player.total} pts</span>
       <span class="chevron">▶</span>
     `;
@@ -91,7 +96,7 @@ function renderLeaderboard(players, matches) {
       .map(
         (t) => `
         <div class="team-row">
-          <span>${t.displayName}</span>
+          <span>${t.displayName} <span class="team-games">(${t.gamesPlayed} played)</span></span>
           <span class="team-points">${t.groupPoints} group + ${t.knockoutBonus} round + ${t.thirdPlaceBonus} 3rd = <strong>${t.total}</strong></span>
         </div>`
       )

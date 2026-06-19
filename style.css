@@ -149,6 +149,16 @@ main {
   margin-right: 0.3rem;
 }
 
+.games-badge {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--muted);
+  background: #f0f0f0;
+  border-radius: 999px;
+  padding: 0.15rem 0.55rem;
+  flex-shrink: 0;
+}
+
 .player-total {
   font-weight: 700;
   font-size: 1.15rem;
@@ -188,6 +198,12 @@ main {
 
 .team-points {
   color: var(--muted);
+}
+
+.team-games {
+  color: var(--muted);
+  font-weight: 400;
+  font-size: 0.85rem;
 }
 
 .rules {
