@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-20T20:14:55.157Z",
+  "lastUpdated": "2026-06-20T21:40:37.869Z",
   "matches": [
     {
       "stage": "GROUP_STAGE",
@@ -337,8 +337,8 @@
       "utcDate": "2026-06-20T20:00:00Z",
       "homeTeam": "Germany",
       "awayTeam": "Ivory Coast",
-      "homeScore": 0,
-      "awayScore": 0,
+      "homeScore": 1,
+      "awayScore": 1,
       "winner": "DRAW"
     },
     {
