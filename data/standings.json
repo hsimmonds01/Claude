@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-20T17:26:37.273Z",
+  "lastUpdated": "2026-06-20T18:54:35.859Z",
   "matches": [
     {
       "stage": "GROUP_STAGE",
@@ -327,8 +327,8 @@
       "utcDate": "2026-06-20T17:00:00Z",
       "homeTeam": "Netherlands",
       "awayTeam": "Sweden",
-      "homeScore": 2,
-      "awayScore": 0,
+      "homeScore": 4,
+      "awayScore": 1,
       "winner": "HOME_TEAM"
     },
     {
