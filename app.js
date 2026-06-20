@@ -356,14 +356,24 @@ function renderTimeline(stages) {
     return;
   }
 
-  const finishedMatches = present.reduce((sum, { key }) => sum + stages[key].finished, 0);
-  const ballPct = Math.min(100, (finishedMatches / totalMatches) * 100);
+  const n = present.length;
+  const positions = present.map((_, i) => (n === 1 ? 0 : (i / (n - 1)) * 100));
 
-  let cumulative = 0;
+  let ballPct = 100;
+  for (let i = 0; i < n; i++) {
+    const stage = stages[present[i].key];
+    if (stage.finished < stage.total) {
+      const stageProgress = stage.total > 0 ? stage.finished / stage.total : 0;
+      const start = positions[i];
+      const end = i + 1 < n ? positions[i + 1] : 100;
+      ballPct = start + (end - start) * stageProgress;
+      break;
+    }
+  }
+
   const milestones = present
-    .map(({ key, label }) => {
-      const pct = (cumulative / totalMatches) * 100;
-      cumulative += stages[key].total;
+    .map(({ label }, i) => {
+      const pct = positions[i];
       const reached = pct <= ballPct;
       return `
         <div class="progress-milestone ${reached ? "reached" : ""}" style="left: ${pct}%">
