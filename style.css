@@ -295,11 +295,13 @@ main {
   border-radius: 10px;
   box-shadow: var(--shadow);
   padding: 1.8rem 1rem 2.4rem;
+  overflow-x: auto;
 }
 
 .progress-rail {
   position: relative;
   height: 4px;
+  min-width: 500px;
   background: var(--border);
   border-radius: 2px;
 }
