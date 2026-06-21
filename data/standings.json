@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-21T22:15:09.685Z",
+  "lastUpdated": "2026-06-21T23:45:23.575Z",
   "matches": [
     {
       "stage": "GROUP_STAGE",
@@ -387,8 +387,8 @@
       "utcDate": "2026-06-21T22:00:00Z",
       "homeTeam": "Uruguay",
       "awayTeam": "Cape Verde Islands",
-      "homeScore": 0,
-      "awayScore": 0,
+      "homeScore": 2,
+      "awayScore": 2,
       "winner": "DRAW"
     },
     {
