@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-21T19:41:26.251Z",
+  "lastUpdated": "2026-06-21T20:58:41.983Z",
   "matches": [
     {
       "stage": "GROUP_STAGE",
@@ -367,7 +367,7 @@
       "utcDate": "2026-06-21T16:00:00Z",
       "homeTeam": "Spain",
       "awayTeam": "Saudi Arabia",
-      "homeScore": 5,
+      "homeScore": 4,
       "awayScore": 0,
       "winner": "HOME_TEAM"
     },
@@ -378,8 +378,8 @@
       "homeTeam": "Belgium",
       "awayTeam": "Iran",
       "homeScore": 0,
-      "awayScore": 1,
-      "winner": "AWAY_TEAM"
+      "awayScore": 0,
+      "winner": "DRAW"
     },
     {
       "stage": "GROUP_STAGE",
