@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-21T20:58:41.983Z",
+  "lastUpdated": "2026-06-21T22:15:09.685Z",
   "matches": [
     {
       "stage": "GROUP_STAGE",
@@ -373,7 +373,7 @@
     },
     {
       "stage": "GROUP_STAGE",
-      "status": "IN_PLAY",
+      "status": "FINISHED",
       "utcDate": "2026-06-21T19:00:00Z",
       "homeTeam": "Belgium",
       "awayTeam": "Iran",
@@ -383,13 +383,13 @@
     },
     {
       "stage": "GROUP_STAGE",
-      "status": "TIMED",
+      "status": "IN_PLAY",
       "utcDate": "2026-06-21T22:00:00Z",
       "homeTeam": "Uruguay",
       "awayTeam": "Cape Verde Islands",
-      "homeScore": null,
-      "awayScore": null,
-      "winner": null
+      "homeScore": 0,
+      "awayScore": 0,
+      "winner": "DRAW"
     },
     {
       "stage": "GROUP_STAGE",
@@ -715,7 +715,7 @@
   "stages": {
     "GROUP_STAGE": {
       "total": 72,
-      "finished": 37,
+      "finished": 38,
       "startDate": "2026-06-11T19:00:00Z",
       "endDate": "2026-06-28T02:00:00Z"
     },
