@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-20T22:49:28.569Z",
+  "lastUpdated": "2026-06-21T00:06:19.221Z",
   "matches": [
     {
       "stage": "GROUP_STAGE",
@@ -27,9 +27,9 @@
       "utcDate": "2026-06-12T19:00:00Z",
       "homeTeam": "Canada",
       "awayTeam": "Bosnia-Herzegovina",
-      "homeScore": 1,
-      "awayScore": 1,
-      "winner": "DRAW"
+      "homeScore": null,
+      "awayScore": null,
+      "winner": null
     },
     {
       "stage": "GROUP_STAGE",
@@ -343,13 +343,13 @@
     },
     {
       "stage": "GROUP_STAGE",
-      "status": "TIMED",
+      "status": "IN_PLAY",
       "utcDate": "2026-06-21T00:00:00Z",
       "homeTeam": "Ecuador",
       "awayTeam": "Curaçao",
-      "homeScore": null,
-      "awayScore": null,
-      "winner": null
+      "homeScore": 0,
+      "awayScore": 0,
+      "winner": "DRAW"
     },
     {
       "stage": "GROUP_STAGE",
