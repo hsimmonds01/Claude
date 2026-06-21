@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-21T05:18:32.230Z",
+  "lastUpdated": "2026-06-21T09:04:19.656Z",
   "matches": [
     {
       "stage": "GROUP_STAGE",
@@ -353,12 +353,12 @@
     },
     {
       "stage": "GROUP_STAGE",
-      "status": "IN_PLAY",
+      "status": "FINISHED",
       "utcDate": "2026-06-21T04:00:00Z",
       "homeTeam": "Tunisia",
       "awayTeam": "Japan",
       "homeScore": 0,
-      "awayScore": 2,
+      "awayScore": 4,
       "winner": "AWAY_TEAM"
     },
     {
@@ -715,7 +715,7 @@
   "stages": {
     "GROUP_STAGE": {
       "total": 72,
-      "finished": 35,
+      "finished": 36,
       "startDate": "2026-06-11T19:00:00Z",
       "endDate": "2026-06-28T02:00:00Z"
     },
