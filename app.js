@@ -160,7 +160,7 @@ function renderLeaderboard(players, matches) {
       const teams = player.teams.map((t) => scoreTeam(t, matches));
       const total = teams.reduce((sum, t) => sum + t.total, 0);
       const gamesPlayed = teams.reduce((sum, t) => sum + t.gamesPlayed, 0);
-      return { name: player.name, teams, total, gamesPlayed };
+      return { name: player.name, paid: player.paid, teams, total, gamesPlayed };
     })
     .sort((a, b) => b.total - a.total);
 
@@ -176,6 +176,7 @@ function renderLeaderboard(players, matches) {
     row.innerHTML = `
       <span class="rank ${i === 0 ? "gold" : ""}">${rank}</span>
       <span class="player-name">${i === 0 ? '<span class="leader-trophy" aria-label="Leader">🏆</span>' : ""}${player.name}${renderRankChange(player.name, rank, prevRanks)}</span>
+      <span class="paid-badge ${player.paid ? "paid" : "unpaid"}">${player.paid ? "✅ Paid" : "Unpaid"}</span>
       <span class="games-badge" title="Games played by this player's teams">⚽ ${player.gamesPlayed}</span>
       <span class="player-total">${player.total} pts</span>
       <span class="chevron">▶</span>
