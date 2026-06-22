@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-22T20:48:46.839Z",
+  "lastUpdated": "2026-06-22T22:27:04.517Z",
   "matches": [
     {
       "stage": "GROUP_STAGE",
@@ -413,13 +413,13 @@
     },
     {
       "stage": "GROUP_STAGE",
-      "status": "TIMED",
+      "status": "PAUSED",
       "utcDate": "2026-06-22T21:00:00Z",
       "homeTeam": "France",
       "awayTeam": "Iraq",
-      "homeScore": null,
-      "awayScore": null,
-      "winner": null
+      "homeScore": 1,
+      "awayScore": 0,
+      "winner": "HOME_TEAM"
     },
     {
       "stage": "GROUP_STAGE",
