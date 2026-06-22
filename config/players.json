@@ -7,7 +7,8 @@
         { "label": "USA", "aliases": ["united states", "usa", "us"] },
         { "label": "Ecuador", "aliases": ["ecuador"] },
         { "label": "Tunisia", "aliases": ["tunisia"] }
-      ]
+      ],
+      "paid": false
     },
     {
       "name": "Barry",
@@ -16,7 +17,8 @@
         { "label": "Mexico", "aliases": ["mexico"] },
         { "label": "Ivory Coast", "aliases": ["ivory coast", "cote d'ivoire", "côte d'ivoire", "cote divoire"] },
         { "label": "Czechia", "aliases": ["czechia", "czech republic"] }
-      ]
+      ],
+      "paid": false
     },
     {
       "name": "Val",
@@ -25,7 +27,8 @@
         { "label": "Switzerland", "aliases": ["switzerland"] },
         { "label": "Austria", "aliases": ["austria"] },
         { "label": "New Zealand", "aliases": ["new zealand"] }
-      ]
+      ],
+      "paid": true
     },
     {
       "name": "Ed",
@@ -34,7 +37,8 @@
         { "label": "Japan", "aliases": ["japan"] },
         { "label": "Senegal", "aliases": ["senegal"] },
         { "label": "DR Congo", "aliases": ["dr congo", "congo dr", "democratic republic of the congo", "congo-kinshasa"] }
-      ]
+      ],
+      "paid": false
     },
     {
       "name": "Johnny",
@@ -43,7 +47,8 @@
         { "label": "Turkey", "aliases": ["turkey", "turkiye", "türkiye"] },
         { "label": "Egypt", "aliases": ["egypt"] },
         { "label": "Iran", "aliases": ["iran", "ir iran"] }
-      ]
+      ],
+      "paid": false
     },
     {
       "name": "Clare",
@@ -52,7 +57,8 @@
         { "label": "Canada", "aliases": ["canada"] },
         { "label": "Scotland", "aliases": ["scotland"] },
         { "label": "Bosnia", "aliases": ["bosnia", "bosnia and herzegovina", "bosnia-herzegovina", "bosnia herzegovina"] }
-      ]
+      ],
+      "paid": false
     },
     {
       "name": "Joe",
@@ -61,7 +67,8 @@
         { "label": "Norway", "aliases": ["norway"] },
         { "label": "Australia", "aliases": ["australia"] },
         { "label": "Haiti", "aliases": ["haiti"] }
-      ]
+      ],
+      "paid": false
     },
     {
       "name": "Will",
@@ -70,7 +77,8 @@
         { "label": "Uruguay", "aliases": ["uruguay"] },
         { "label": "South Korea", "aliases": ["south korea", "korea republic", "korea, republic of"] },
         { "label": "Ghana", "aliases": ["ghana"] }
-      ]
+      ],
+      "paid": false
     },
     {
       "name": "Andrew",
@@ -79,7 +87,8 @@
         { "label": "Croatia", "aliases": ["croatia"] },
         { "label": "Algeria", "aliases": ["algeria"] },
         { "label": "Paraguay", "aliases": ["paraguay"] }
-      ]
+      ],
+      "paid": false
     },
     {
       "name": "Harry",
@@ -88,7 +97,8 @@
         { "label": "Colombia", "aliases": ["colombia"] },
         { "label": "Sweden", "aliases": ["sweden"] },
         { "label": "South Africa", "aliases": ["south africa"] }
-      ]
+      ],
+      "paid": true
     }
   ]
 }
