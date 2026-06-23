@@ -38,7 +38,7 @@
         { "label": "Senegal", "aliases": ["senegal"] },
         { "label": "DR Congo", "aliases": ["dr congo", "congo dr", "democratic republic of the congo", "congo-kinshasa"] }
       ],
-      "paid": false
+      "paid": true
     },
     {
       "name": "Johnny",
@@ -68,7 +68,7 @@
         { "label": "Australia", "aliases": ["australia"] },
         { "label": "Haiti", "aliases": ["haiti"] }
       ],
-      "paid": false
+      "paid": true
     },
     {
       "name": "Will",
@@ -78,7 +78,7 @@
         { "label": "South Korea", "aliases": ["south korea", "korea republic", "korea, republic of"] },
         { "label": "Ghana", "aliases": ["ghana"] }
       ],
-      "paid": false
+      "paid": true
     },
     {
       "name": "Andrew",
