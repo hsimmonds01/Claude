@@ -48,7 +48,7 @@
         { "label": "Egypt", "aliases": ["egypt"] },
         { "label": "Iran", "aliases": ["iran", "ir iran"] }
       ],
-      "paid": false
+      "paid": true
     },
     {
       "name": "Clare",
@@ -58,7 +58,7 @@
         { "label": "Scotland", "aliases": ["scotland"] },
         { "label": "Bosnia", "aliases": ["bosnia", "bosnia and herzegovina", "bosnia-herzegovina", "bosnia herzegovina"] }
       ],
-      "paid": false
+      "paid": true
     },
     {
       "name": "Joe",
@@ -88,7 +88,7 @@
         { "label": "Algeria", "aliases": ["algeria"] },
         { "label": "Paraguay", "aliases": ["paraguay"] }
       ],
-      "paid": false
+      "paid": true
     },
     {
       "name": "Harry",
