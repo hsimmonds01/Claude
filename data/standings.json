@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-23T16:10:39.796Z",
+  "lastUpdated": "2026-06-23T18:14:45.779Z",
   "matches": [
     {
       "stage": "GROUP_STAGE",
@@ -443,13 +443,13 @@
     },
     {
       "stage": "GROUP_STAGE",
-      "status": "TIMED",
+      "status": "PAUSED",
       "utcDate": "2026-06-23T17:00:00Z",
       "homeTeam": "Portugal",
       "awayTeam": "Uzbekistan",
-      "homeScore": null,
-      "awayScore": null,
-      "winner": null
+      "homeScore": 3,
+      "awayScore": 0,
+      "winner": "HOME_TEAM"
     },
     {
       "stage": "GROUP_STAGE",
