@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-23T03:34:33.686Z",
+  "lastUpdated": "2026-06-23T07:05:40.958Z",
   "matches": [
     {
       "stage": "GROUP_STAGE",
@@ -433,13 +433,13 @@
     },
     {
       "stage": "GROUP_STAGE",
-      "status": "IN_PLAY",
+      "status": "FINISHED",
       "utcDate": "2026-06-23T03:00:00Z",
       "homeTeam": "Jordan",
       "awayTeam": "Algeria",
-      "homeScore": 0,
-      "awayScore": 0,
-      "winner": "DRAW"
+      "homeScore": 1,
+      "awayScore": 2,
+      "winner": "AWAY_TEAM"
     },
     {
       "stage": "GROUP_STAGE",
@@ -710,42 +710,12 @@
       "homeScore": null,
       "awayScore": null,
       "winner": null
-    },
-    {
-      "stage": "LAST_32",
-      "status": "TIMED",
-      "utcDate": "2026-06-29T20:30:00Z",
-      "homeTeam": "Germany",
-      "awayTeam": "TBD",
-      "homeScore": null,
-      "awayScore": null,
-      "winner": null
-    },
-    {
-      "stage": "LAST_32",
-      "status": "TIMED",
-      "utcDate": "2026-07-01T01:00:00Z",
-      "homeTeam": "Mexico",
-      "awayTeam": "TBD",
-      "homeScore": null,
-      "awayScore": null,
-      "winner": null
-    },
-    {
-      "stage": "LAST_32",
-      "status": "TIMED",
-      "utcDate": "2026-07-02T00:00:00Z",
-      "homeTeam": "United States",
-      "awayTeam": "TBD",
-      "homeScore": null,
-      "awayScore": null,
-      "winner": null
     }
   ],
   "stages": {
     "GROUP_STAGE": {
       "total": 72,
-      "finished": 43,
+      "finished": 44,
       "startDate": "2026-06-11T19:00:00Z",
       "endDate": "2026-06-28T02:00:00Z"
     },
