@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-24T19:14:40.332Z",
+  "lastUpdated": "2026-06-24T20:56:19.052Z",
   "matches": [
     {
       "stage": "GROUP_STAGE",
@@ -487,9 +487,9 @@
       "utcDate": "2026-06-24T19:00:00Z",
       "homeTeam": "Switzerland",
       "awayTeam": "Canada",
-      "homeScore": 0,
-      "awayScore": 0,
-      "winner": "DRAW"
+      "homeScore": 2,
+      "awayScore": 1,
+      "winner": "HOME_TEAM"
     },
     {
       "stage": "GROUP_STAGE",
@@ -497,9 +497,9 @@
       "utcDate": "2026-06-24T19:00:00Z",
       "homeTeam": "Bosnia-Herzegovina",
       "awayTeam": "Qatar",
-      "homeScore": 0,
-      "awayScore": 0,
-      "winner": "DRAW"
+      "homeScore": 3,
+      "awayScore": 1,
+      "winner": "HOME_TEAM"
     },
     {
       "stage": "GROUP_STAGE",
