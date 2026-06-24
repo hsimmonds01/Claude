@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-24T13:29:50.209Z",
+  "lastUpdated": "2026-06-24T15:42:26.957Z",
   "matches": [
     {
       "stage": "GROUP_STAGE",
@@ -27,9 +27,9 @@
       "utcDate": "2026-06-12T19:00:00Z",
       "homeTeam": "Canada",
       "awayTeam": "Bosnia-Herzegovina",
-      "homeScore": 1,
-      "awayScore": 1,
-      "winner": "DRAW"
+      "homeScore": null,
+      "awayScore": null,
+      "winner": null
     },
     {
       "stage": "GROUP_STAGE",
