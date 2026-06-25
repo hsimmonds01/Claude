@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-25T01:49:46.083Z",
+  "lastUpdated": "2026-06-25T06:07:39.552Z",
   "matches": [
     {
       "stage": "GROUP_STAGE",
@@ -523,23 +523,23 @@
     },
     {
       "stage": "GROUP_STAGE",
-      "status": "TIMED",
+      "status": "FINISHED",
       "utcDate": "2026-06-25T01:00:00Z",
       "homeTeam": "Czechia",
       "awayTeam": "Mexico",
-      "homeScore": null,
-      "awayScore": null,
-      "winner": null
+      "homeScore": 0,
+      "awayScore": 3,
+      "winner": "AWAY_TEAM"
     },
     {
       "stage": "GROUP_STAGE",
-      "status": "TIMED",
+      "status": "FINISHED",
       "utcDate": "2026-06-25T01:00:00Z",
       "homeTeam": "South Africa",
       "awayTeam": "South Korea",
-      "homeScore": null,
-      "awayScore": null,
-      "winner": null
+      "homeScore": 1,
+      "awayScore": 0,
+      "winner": "HOME_TEAM"
     },
     {
       "stage": "GROUP_STAGE",
@@ -755,7 +755,7 @@
   "stages": {
     "GROUP_STAGE": {
       "total": 72,
-      "finished": 52,
+      "finished": 54,
       "startDate": "2026-06-11T19:00:00Z",
       "endDate": "2026-06-28T02:00:00Z"
     },
