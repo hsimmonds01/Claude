@@ -48,8 +48,13 @@ ALERT_COOLDOWN_MINUTES = 30
 
 # ntfy.sh topic. Override with the NTFY_TOPIC env var if you want to change
 # it without editing code (e.g. via a GitHub Actions repo variable).
+#
+# GitHub Actions sets NTFY_TOPIC to an empty string (not absent) when the
+# repo variable isn't configured, so `os.environ.get(..., DEFAULT)` alone
+# would silently send to the topic-less "https://ntfy.sh/" -- use `or` to
+# treat an empty value the same as unset.
 DEFAULT_NTFY_TOPIC = "harry-tooley-docks-5494e935"
-NTFY_TOPIC = os.environ.get("NTFY_TOPIC", DEFAULT_NTFY_TOPIC)
+NTFY_TOPIC = os.environ.get("NTFY_TOPIC") or DEFAULT_NTFY_TOPIC
 NTFY_URL = f"https://ntfy.sh/{NTFY_TOPIC}"
 
 # Morning monitoring window, in Europe/London local time.
