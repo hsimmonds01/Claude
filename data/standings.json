@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-25T19:24:12.260Z",
+  "lastUpdated": "2026-06-25T21:11:33.991Z",
   "matches": [
     {
       "stage": "GROUP_STAGE",
@@ -543,23 +543,23 @@
     },
     {
       "stage": "GROUP_STAGE",
-      "status": "TIMED",
+      "status": "LIVE",
       "utcDate": "2026-06-25T20:00:00Z",
       "homeTeam": "Ecuador",
       "awayTeam": "Germany",
-      "homeScore": null,
-      "awayScore": null,
-      "winner": null
+      "homeScore": 1,
+      "awayScore": 1,
+      "winner": "DRAW"
     },
     {
       "stage": "GROUP_STAGE",
-      "status": "TIMED",
+      "status": "LIVE",
       "utcDate": "2026-06-25T20:00:00Z",
       "homeTeam": "Curaçao",
       "awayTeam": "Ivory Coast",
-      "homeScore": null,
-      "awayScore": null,
-      "winner": null
+      "homeScore": 0,
+      "awayScore": 1,
+      "winner": "AWAY_TEAM"
     },
     {
       "stage": "GROUP_STAGE",
