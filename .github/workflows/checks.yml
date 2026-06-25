@@ -1,0 +1,78 @@
+name: Tooley Street dock check
+
+# GitHub Actions cron always runs in UTC, and has no concept of UK's
+# GMT/BST switch. Instead of trying to maintain two separate sets of cron
+# lines that flip on the clock-change date, we cast a wide net in UTC
+# (06:40-08:50 UTC, every 5 minutes, Mon-Thu) and let check_docks.py decide
+# -- using Python's zoneinfo for Europe/London, which knows about DST --
+# whether "now" is actually inside the 07:45 summary slot or the
+# 08:00-08:45 check window. Runs outside those windows exit immediately
+# without calling the TfL API or sending a notification, so the extra
+# invocations are cheap.
+#
+# 06:40-08:50 UTC comfortably covers both:
+#   - BST (summer, UTC+1): 07:45-08:45 local = 06:45-07:45 UTC
+#   - GMT (winter, UTC+0): 07:45-08:45 local = 07:45-08:45 UTC
+on:
+  schedule:
+    - cron: "40-59/5 6 * * 1-4"
+    - cron: "*/5 7 * * 1-4"
+    - cron: "0-50/5 8 * * 1-4"
+  workflow_dispatch:
+    inputs:
+      force_mode:
+        description: "Override mode for manual testing"
+        type: choice
+        options:
+          - auto
+          - summary
+          - check
+        default: auto
+      dry_run:
+        description: "Dry run (don't send notification or write state)"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: tooley-street-dock-check
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        working-directory: dock-alerter
+        run: pip install -r requirements.txt
+
+      - name: Run dock check
+        working-directory: dock-alerter
+        env:
+          NTFY_TOPIC: ${{ vars.NTFY_TOPIC }}
+        run: |
+          ARGS="--force-mode ${{ inputs.force_mode || 'auto' }}"
+          if [ "${{ inputs.dry_run }}" = "true" ]; then
+            ARGS="$ARGS --dry-run"
+          fi
+          python check_docks.py $ARGS
+
+      - name: Commit updated state (if changed)
+        run: |
+          if ! git diff --quiet -- dock-alerter/state.json; then
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git add dock-alerter/state.json
+            git commit -m "Update dock alert state"
+            git push
+          else
+            echo "No state change, nothing to commit."
+          fi
