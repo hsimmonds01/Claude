@@ -144,7 +144,9 @@ def send_notification(title: str, message: str, priority: str = "default", tags:
         "Priority": priority,
         "Tags": tags,
     }
-    requests.post(NTFY_URL, data=message.encode("utf-8"), headers=headers, timeout=REQUEST_TIMEOUT_SECONDS)
+    response = requests.post(NTFY_URL, data=message.encode("utf-8"), headers=headers, timeout=REQUEST_TIMEOUT_SECONDS)
+    print(f"ntfy POST to {NTFY_URL} -> {response.status_code}: {response.text[:300]}")
+    response.raise_for_status()
 
 
 def run(mode: str, dry_run: bool) -> None:
