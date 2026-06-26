@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-26T17:18:18.693Z",
+  "lastUpdated": "2026-06-26T19:07:54.152Z",
   "matches": [
     {
       "stage": "GROUP_STAGE",
@@ -603,23 +603,23 @@
     },
     {
       "stage": "GROUP_STAGE",
-      "status": "TIMED",
+      "status": "LIVE",
       "utcDate": "2026-06-26T19:00:00Z",
       "homeTeam": "Norway",
       "awayTeam": "France",
-      "homeScore": null,
-      "awayScore": null,
-      "winner": null
+      "homeScore": 0,
+      "awayScore": 0,
+      "winner": "DRAW"
     },
     {
       "stage": "GROUP_STAGE",
-      "status": "TIMED",
+      "status": "LIVE",
       "utcDate": "2026-06-26T19:00:00Z",
       "homeTeam": "Senegal",
       "awayTeam": "Iraq",
-      "homeScore": null,
-      "awayScore": null,
-      "winner": null
+      "homeScore": 0,
+      "awayScore": 0,
+      "winner": "DRAW"
     },
     {
       "stage": "GROUP_STAGE",
