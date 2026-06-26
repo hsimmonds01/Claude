@@ -29,6 +29,7 @@ day -- see `is_muted_today`. Manual runs via --force-mode bypass it.
 from __future__ import annotations
 
 import argparse
+import csv
 import json
 import os
 import sys
@@ -95,6 +96,7 @@ ACTIVE_WEEKDAYS = {0, 1, 2, 3}
 
 STATE_FILE = Path(__file__).parent / "state.json"
 MUTE_FILE = Path(__file__).parent / "mute.flag"
+HISTORY_FILE = Path(__file__).parent / "history.csv"
 LONDON = ZoneInfo("Europe/London")
 REQUEST_TIMEOUT_SECONDS = 10
 
@@ -239,6 +241,19 @@ def fetch_secondary_bikes() -> tuple[int, str] | None:
         return None
 
 
+def log_history(mode: str, metric: str, value: int, station_name: str) -> None:
+    """Append one row to history.csv -- a running log of every reading, for
+    spotting patterns later (e.g. a future dashboard or trend-based alerts).
+    Writes a header row the first time the file is created.
+    """
+    is_new_file = not HISTORY_FILE.exists()
+    with HISTORY_FILE.open("a", newline="") as f:
+        writer = csv.writer(f)
+        if is_new_file:
+            writer.writerow(["timestamp_utc", "mode", "metric", "value", "station"])
+        writer.writerow([datetime.now(ZoneInfo("UTC")).isoformat(), mode, metric, value, station_name])
+
+
 def send_notification(title: str, message: str, priority: str = "default", tags: str = "bike") -> None:
     headers = {
         "Title": title,
@@ -257,6 +272,8 @@ def run(mode: str, dry_run: bool) -> None:
     if mode == "summary":
         empty_docks, station_name = fetch_empty_docks()
         print(f"[{mode}] {station_name}: {empty_docks} empty docks")
+        if not dry_run:
+            log_history(mode, "empty_docks", empty_docks, station_name)
 
         title = "Tooley Street docks - morning check"
         message = f"{empty_docks} empty docks available right now."
@@ -276,6 +293,8 @@ def run(mode: str, dry_run: bool) -> None:
     if mode == "check":
         empty_docks, station_name = fetch_empty_docks()
         print(f"[{mode}] {station_name}: {empty_docks} empty docks")
+        if not dry_run:
+            log_history(mode, "empty_docks", empty_docks, station_name)
 
         if empty_docks < LOW_DOCKS_THRESHOLD:
             cooldown_active = False
@@ -315,6 +334,8 @@ def run(mode: str, dry_run: bool) -> None:
     if mode == "evening_summary":
         bikes, station_name = fetch_available_bikes()
         print(f"[{mode}] {station_name}: {bikes} bikes available")
+        if not dry_run:
+            log_history(mode, "available_bikes", bikes, station_name)
 
         title = "Tooley Street bikes - evening check"
         message = f"{bikes} bikes available right now."
@@ -334,6 +355,8 @@ def run(mode: str, dry_run: bool) -> None:
     if mode == "evening_check":
         bikes, station_name = fetch_available_bikes()
         print(f"[{mode}] {station_name}: {bikes} bikes available")
+        if not dry_run:
+            log_history(mode, "available_bikes", bikes, station_name)
 
         if bikes < LOW_BIKES_THRESHOLD:
             cooldown_active = False

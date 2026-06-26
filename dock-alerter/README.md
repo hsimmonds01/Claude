@@ -74,6 +74,25 @@ Shortcut that commits the file via the GitHub Contents API:
 3. **Add the Shortcut to your Home Screen** (share sheet -> Add to Home
    Screen) for a 1-tap mute icon.
 
+### Checking on demand
+
+Outside the scheduled windows, you can trigger a one-off check any time
+via **Actions -> Tooley Street dock check -> Run workflow**, picking
+`check` or `evening_check` as `force_mode`. There's also an optional 1-tap
+iOS Shortcut for this -- see the chat history / ask for the setup steps if
+you want it added to your Home Screen, since it needs an extra permission
+on your existing GitHub token (Actions: Read and write, in addition to
+Contents: Read and write for the mute toggle).
+
+### History log
+
+Every real (non-dry-run) check appends a row to `dock-alerter/history.csv`
+-- timestamp, mode, metric (`empty_docks` or `available_bikes`), value,
+and station name. Committed back to the repo the same way as `state.json`.
+This is just a running log for now (nothing reads it yet) -- a natural
+base for a future dashboard or trend-based alerting, without needing to
+backfill data once you decide to build one.
+
 ### Timezone / DST handling
 
 GitHub Actions cron runs in UTC and has no idea about the UK's GMT/BST
