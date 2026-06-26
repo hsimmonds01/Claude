@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-26T03:50:35.402Z",
+  "lastUpdated": "2026-06-26T07:53:06.591Z",
   "matches": [
     {
       "stage": "GROUP_STAGE",
@@ -583,17 +583,17 @@
     },
     {
       "stage": "GROUP_STAGE",
-      "status": "IN_PLAY",
+      "status": "FINISHED",
       "utcDate": "2026-06-26T02:00:00Z",
       "homeTeam": "Turkey",
       "awayTeam": "United States",
-      "homeScore": 2,
+      "homeScore": 3,
       "awayScore": 2,
-      "winner": "DRAW"
+      "winner": "HOME_TEAM"
     },
     {
       "stage": "GROUP_STAGE",
-      "status": "IN_PLAY",
+      "status": "FINISHED",
       "utcDate": "2026-06-26T02:00:00Z",
       "homeTeam": "Paraguay",
       "awayTeam": "Australia",
@@ -714,9 +714,39 @@
     {
       "stage": "LAST_32",
       "status": "TIMED",
+      "utcDate": "2026-06-28T19:00:00Z",
+      "homeTeam": "South Africa",
+      "awayTeam": "Canada",
+      "homeScore": null,
+      "awayScore": null,
+      "winner": null
+    },
+    {
+      "stage": "LAST_32",
+      "status": "TIMED",
+      "utcDate": "2026-06-29T17:00:00Z",
+      "homeTeam": "Brazil",
+      "awayTeam": "Japan",
+      "homeScore": null,
+      "awayScore": null,
+      "winner": null
+    },
+    {
+      "stage": "LAST_32",
+      "status": "TIMED",
       "utcDate": "2026-06-29T20:30:00Z",
       "homeTeam": "Germany",
       "awayTeam": "TBD",
+      "homeScore": null,
+      "awayScore": null,
+      "winner": null
+    },
+    {
+      "stage": "LAST_32",
+      "status": "TIMED",
+      "utcDate": "2026-06-30T01:00:00Z",
+      "homeTeam": "Netherlands",
+      "awayTeam": "Morocco",
       "homeScore": null,
       "awayScore": null,
       "winner": null
@@ -736,6 +766,26 @@
       "status": "TIMED",
       "utcDate": "2026-07-02T00:00:00Z",
       "homeTeam": "United States",
+      "awayTeam": "Bosnia-Herzegovina",
+      "homeScore": null,
+      "awayScore": null,
+      "winner": null
+    },
+    {
+      "stage": "LAST_32",
+      "status": "TIMED",
+      "utcDate": "2026-07-03T03:00:00Z",
+      "homeTeam": "Switzerland",
+      "awayTeam": "TBD",
+      "homeScore": null,
+      "awayScore": null,
+      "winner": null
+    },
+    {
+      "stage": "LAST_32",
+      "status": "TIMED",
+      "utcDate": "2026-07-03T18:00:00Z",
+      "homeTeam": "Australia",
       "awayTeam": "TBD",
       "homeScore": null,
       "awayScore": null,
@@ -755,7 +805,7 @@
   "stages": {
     "GROUP_STAGE": {
       "total": 72,
-      "finished": 58,
+      "finished": 60,
       "startDate": "2026-06-11T19:00:00Z",
       "endDate": "2026-06-28T02:00:00Z"
     },
