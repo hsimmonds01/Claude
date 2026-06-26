@@ -10,18 +10,69 @@ account needed).
 
 ## How it works
 
+**Morning (outbound commute) -- watches empty docks**, so you know if
+you'll be able to dock your bike at Tooley Street later:
+
 - **07:45** (Europe/London time) -- a one-off morning summary: current
   empty-dock count, sent regardless of how full the station is.
 - **08:00-08:45** -- checked every 5 minutes.
   - If empty docks drop below `LOW_DOCKS_THRESHOLD` (default **3**), you
     get a high-priority alert.
-  - Once it recovers to `ALL_CLEAR_THRESHOLD` (default **5**) or more
+  - Once it recovers to `ALL_CLEAR_DOCKS_THRESHOLD` (default **5**) or more
     *after* an alert was sent, you get an "all clear" notification.
-  - Repeated low-dock alerts are throttled to once every
-    `ALERT_COOLDOWN_MINUTES` (default **30**).
+
+**Evening (return commute) -- watches available bikes**, so you know if
+you'll be able to pick one up to ride home:
+
+- **17:15** -- a one-off evening summary: current available-bikes count.
+- **17:30-18:00** -- checked every 5 minutes.
+  - If available bikes drop below `LOW_BIKES_THRESHOLD` (default **3**),
+    you get a high-priority alert. The alert also looks up **Snowsfields,
+    London Bridge** as a nearby backup and includes its bike count, e.g.
+    *"Only 2 bikes left at Tooley Street. Snowsfields, London Bridge has
+    10 bikes available as a backup."* (best-effort -- if that lookup
+    fails for any reason, the main alert still sends without it).
+  - Once it recovers to `ALL_CLEAR_BIKES_THRESHOLD` (default **5**) or
+    more *after* an alert was sent, you get an "all clear" notification.
+
+Both windows:
+- Repeated low alerts are throttled to once every `ALERT_COOLDOWN_MINUTES`
+  (default **30**), tracked independently for morning vs evening.
 - Runs **Monday-Thursday only**.
 - All thresholds/timings live as constants at the top of `check_docks.py`
   -- edit them there.
+
+### Muting for the day
+
+Drop a file at `dock-alerter/mute.flag` containing today's date (e.g.
+`2026-06-26`, Europe/London) and every *automatic* (cron-driven) run for
+the rest of that day is silently skipped -- no alerts, no API calls. It
+resets itself automatically at midnight (tomorrow's date won't match, no
+cleanup needed). Manual `--force-mode` runs (e.g. via "Run workflow" in
+the Actions tab) bypass the mute, so you can still test things on a muted
+day.
+
+The easiest way to set this day's mute flag from your phone is a 1-tap iOS
+Shortcut that commits the file via the GitHub Contents API:
+
+1. **Create a fine-grained GitHub Personal Access Token**: GitHub ->
+   Settings -> Developer settings -> Personal access tokens -> Fine-grained
+   tokens -> Generate new token. Scope it to **only this repository**,
+   permission **Contents: Read and write**, and set a long expiry.
+2. **Build the Shortcut** (Shortcuts app -> + -> Add Action -> "Get
+   Contents of URL"):
+   - URL: `https://api.github.com/repos/hsimmonds01/Claude/contents/dock-alerter/mute.flag`
+   - Method: `PUT`
+   - Headers: `Authorization: Bearer <your token>`, `Accept: application/vnd.github+json`
+   - Request body (JSON): `{"message": "Mute today", "content": "<base64 of today's date>", "branch": "main"}`
+     -- since the date needs base64-encoding and the file may already
+     exist (requiring its current `sha` to update), build this with a few
+     extra Shortcuts actions: "Get Contents of URL" (GET, same URL) to fetch
+     the existing file's `sha` first (ignore errors if it 404s -- that
+     just means no flag is set yet), then "Base64 Encode" the current
+     date text, then assemble the JSON body with `sha` included if found.
+3. **Add the Shortcut to your Home Screen** (share sheet -> Add to Home
+   Screen) for a 1-tap mute icon.
 
 ### Timezone / DST handling
 
@@ -104,31 +155,23 @@ missing, so a schema change won't fail silently.
 5. **Test it manually:**
    - In GitHub, go to **Actions -> Tooley Street dock check -> Run workflow**.
    - Leave `force_mode` as `auto` to test the real time-window logic, or
-     pick `summary`/`check` to force a run right now regardless of time of
-     day.
+     pick `summary`/`check`/`evening_summary`/`evening_check` to force a
+     run right now regardless of time of day.
    - Tick `dry_run` first time if you just want to see console output
      without a real phone notification.
-   - Check the workflow run logs for the empty-dock count, and check your
+   - Check the workflow run logs for the dock/bike count, and check your
      phone for the notification (if not a dry run).
 
 6. Once you're happy, leave it -- it'll run automatically Mon-Thu,
-   07:45-08:45 London time, no further action needed.
+   07:45-08:45 and 17:15-18:00 London time, no further action needed.
 
 ## Running locally
 
 ```bash
 cd dock-alerter
 pip install -r requirements.txt
-python check_docks.py --force-mode summary --dry-run   # see the API + logic work, no notification sent
-python check_docks.py --force-mode check                # forces a real check + real notification
+python check_docks.py --force-mode summary --dry-run          # morning summary, no notification sent
+python check_docks.py --force-mode check                       # morning check + real notification
+python check_docks.py --force-mode evening_summary --dry-run   # evening summary, no notification sent
+python check_docks.py --force-mode evening_check                # evening check + real notification
 ```
-
-## TODO -- not built yet
-
-- A second, evening schedule for the reverse commute: summary at 17:00,
-  checks every 5 minutes from 17:30-18:00. Should mirror the morning logic
-  in `determine_mode`/`run` with its own window constants, kept as a
-  separate `mode` value so the morning behaviour isn't disturbed.
-- A "mute today" toggle -- e.g. a checked-in flag file or a repository
-  variable read at the top of `main()` that, if set, short-circuits the
-  whole run for the rest of the current London day.
