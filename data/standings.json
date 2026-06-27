@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-27T05:38:48.357Z",
+  "lastUpdated": "2026-06-27T08:17:28.290Z",
   "matches": [
     {
       "stage": "GROUP_STAGE",
@@ -747,6 +747,16 @@
       "utcDate": "2026-06-30T01:00:00Z",
       "homeTeam": "Netherlands",
       "awayTeam": "Morocco",
+      "homeScore": null,
+      "awayScore": null,
+      "winner": null
+    },
+    {
+      "stage": "LAST_32",
+      "status": "TIMED",
+      "utcDate": "2026-06-30T17:00:00Z",
+      "homeTeam": "Ivory Coast",
+      "awayTeam": "TBD",
       "homeScore": null,
       "awayScore": null,
       "winner": null
