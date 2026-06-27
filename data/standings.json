@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-27T22:35:45.604Z",
+  "lastUpdated": "2026-06-27T23:41:44.776Z",
   "matches": [
     {
       "stage": "GROUP_STAGE",
@@ -653,7 +653,7 @@
     },
     {
       "stage": "GROUP_STAGE",
-      "status": "IN_PLAY",
+      "status": "FINISHED",
       "utcDate": "2026-06-27T21:00:00Z",
       "homeTeam": "Panama",
       "awayTeam": "England",
@@ -663,33 +663,33 @@
     },
     {
       "stage": "GROUP_STAGE",
-      "status": "IN_PLAY",
+      "status": "FINISHED",
       "utcDate": "2026-06-27T21:00:00Z",
       "homeTeam": "Croatia",
       "awayTeam": "Ghana",
-      "homeScore": 1,
-      "awayScore": 0,
+      "homeScore": 2,
+      "awayScore": 1,
       "winner": "HOME_TEAM"
     },
     {
       "stage": "GROUP_STAGE",
-      "status": "TIMED",
+      "status": "LIVE",
       "utcDate": "2026-06-27T23:30:00Z",
       "homeTeam": "Colombia",
       "awayTeam": "Portugal",
-      "homeScore": null,
-      "awayScore": null,
-      "winner": null
+      "homeScore": 0,
+      "awayScore": 0,
+      "winner": "DRAW"
     },
     {
       "stage": "GROUP_STAGE",
-      "status": "TIMED",
+      "status": "LIVE",
       "utcDate": "2026-06-27T23:30:00Z",
       "homeTeam": "Congo DR",
       "awayTeam": "Uzbekistan",
-      "homeScore": null,
-      "awayScore": null,
-      "winner": null
+      "homeScore": 0,
+      "awayScore": 0,
+      "winner": "DRAW"
     },
     {
       "stage": "GROUP_STAGE",
@@ -815,7 +815,7 @@
   "stages": {
     "GROUP_STAGE": {
       "total": 72,
-      "finished": 66,
+      "finished": 68,
       "startDate": "2026-06-11T19:00:00Z",
       "endDate": "2026-06-28T02:00:00Z"
     },
