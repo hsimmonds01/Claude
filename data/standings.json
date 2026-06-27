@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-26T23:34:41.392Z",
+  "lastUpdated": "2026-06-27T01:34:43.928Z",
   "matches": [
     {
       "stage": "GROUP_STAGE",
@@ -623,13 +623,13 @@
     },
     {
       "stage": "GROUP_STAGE",
-      "status": "TIMED",
+      "status": "IN_PLAY",
       "utcDate": "2026-06-27T00:00:00Z",
       "homeTeam": "Uruguay",
       "awayTeam": "Spain",
-      "homeScore": null,
-      "awayScore": null,
-      "winner": null
+      "homeScore": 0,
+      "awayScore": 1,
+      "winner": "AWAY_TEAM"
     },
     {
       "stage": "GROUP_STAGE",
