@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-27T21:19:31.940Z",
+  "lastUpdated": "2026-06-27T22:35:45.604Z",
   "matches": [
     {
       "stage": "GROUP_STAGE",
@@ -658,18 +658,18 @@
       "homeTeam": "Panama",
       "awayTeam": "England",
       "homeScore": 0,
-      "awayScore": 0,
-      "winner": "DRAW"
+      "awayScore": 2,
+      "winner": "AWAY_TEAM"
     },
     {
       "stage": "GROUP_STAGE",
-      "status": "LIVE",
+      "status": "IN_PLAY",
       "utcDate": "2026-06-27T21:00:00Z",
       "homeTeam": "Croatia",
       "awayTeam": "Ghana",
-      "homeScore": 0,
+      "homeScore": 1,
       "awayScore": 0,
-      "winner": "DRAW"
+      "winner": "HOME_TEAM"
     },
     {
       "stage": "GROUP_STAGE",
