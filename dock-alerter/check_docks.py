@@ -221,6 +221,28 @@ def fetch_available_bikes() -> tuple[int, str]:
     return int(props["NbBikes"]), station_name
 
 
+def fetch_status() -> tuple[int, int, str]:
+    """Return (empty_docks, available_bikes, station_name) for Tooley Street
+    in a single API call -- for the anytime on-demand status check, which
+    cares about both numbers and isn't tied to morning/evening semantics."""
+    data = _fetch_bikepoint(STATION_ID)
+    station_name = data.get("commonName", "")
+    if EXPECTED_NAME_FRAGMENT not in station_name:
+        print(
+            f"WARNING: station name '{station_name}' does not contain "
+            f"'{EXPECTED_NAME_FRAGMENT}' -- check STATION_ID is still correct.",
+            file=sys.stderr,
+        )
+
+    props = _props(data)
+    if "NbEmptyDocks" not in props or "NbBikes" not in props:
+        raise RuntimeError(
+            "NbEmptyDocks/NbBikes not found in additionalProperties -- TfL API "
+            "shape may have changed. Raw response: " + json.dumps(data)[:500]
+        )
+    return int(props["NbEmptyDocks"]), int(props["NbBikes"]), station_name
+
+
 def fetch_secondary_bikes() -> tuple[int, str] | None:
     """Best-effort lookup of the backup station's bike count.
 
@@ -396,6 +418,21 @@ def run(mode: str, dry_run: bool) -> None:
             state.save(STATE_FILE)
         return
 
+    if mode == "status":
+        empty_docks, bikes, station_name = fetch_status()
+        print(f"[{mode}] {station_name}: {empty_docks} empty docks, {bikes} bikes available")
+        if not dry_run:
+            log_history(mode, "empty_docks", empty_docks, station_name)
+            log_history(mode, "available_bikes", bikes, station_name)
+
+        title = "Tooley Street - status check"
+        message = f"{empty_docks} empty docks, {bikes} bikes available right now."
+        if dry_run:
+            print(f"DRY RUN -- would send: {title} / {message}")
+        else:
+            send_notification(title, message, priority="default", tags="bike,mag")
+        return
+
     raise ValueError(f"Unknown mode: {mode}")
 
 
@@ -403,7 +440,7 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
         "--force-mode",
-        choices=["auto", "summary", "check", "evening_summary", "evening_check"],
+        choices=["auto", "summary", "check", "evening_summary", "evening_check", "status"],
         default="auto",
         help="Override the time-based mode detection, e.g. for manual testing.",
     )

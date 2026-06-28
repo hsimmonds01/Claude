@@ -77,12 +77,26 @@ Shortcut that commits the file via the GitHub Contents API:
 ### Checking on demand
 
 Outside the scheduled windows, you can trigger a one-off check any time
-via **Actions -> Tooley Street dock check -> Run workflow**, picking
-`check` or `evening_check` as `force_mode`. There's also an optional 1-tap
-iOS Shortcut for this -- see the chat history / ask for the setup steps if
-you want it added to your Home Screen, since it needs an extra permission
-on your existing GitHub token (Actions: Read and write, in addition to
-Contents: Read and write for the mute toggle).
+via **Actions -> Tooley Street dock check -> Run workflow**, picking a
+`force_mode`:
+
+- `status` -- the one to use for an anytime check. Reports both empty
+  docks and available bikes together in a single notification, regardless
+  of time of day. No thresholds, no alert/all-clear logic, no effect on
+  the morning/evening alert state -- just "here's what it looks like right
+  now."
+- `check` / `evening_check` -- the same logic the scheduled morning/evening
+  windows use (threshold alerts, cooldowns, all-clears). Still available
+  to force manually, but they're tied to morning-docks/evening-bikes
+  semantics respectively, so `status` is usually what you want for a
+  spontaneous check.
+
+There's also a 1-tap iOS Shortcut for this (see the chat history / ask for
+the setup steps if you want it added to your Home Screen). It needs an
+extra permission on your existing GitHub token (Actions: Read and write,
+in addition to Contents: Read and write for the mute toggle), and should
+POST `{"ref": "main", "inputs": {"force_mode": "status", "dry_run": "false"}}`
+to the workflow's dispatch endpoint.
 
 ### History log
 
@@ -193,4 +207,6 @@ python check_docks.py --force-mode summary --dry-run          # morning summary,
 python check_docks.py --force-mode check                       # morning check + real notification
 python check_docks.py --force-mode evening_summary --dry-run   # evening summary, no notification sent
 python check_docks.py --force-mode evening_check                # evening check + real notification
+python check_docks.py --force-mode status --dry-run             # anytime docks+bikes status, no notification sent
+python check_docks.py --force-mode status                       # anytime docks+bikes status + real notification
 ```
