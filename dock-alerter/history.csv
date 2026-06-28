@@ -2,3 +2,4 @@ timestamp_utc,mode,metric,value,station
 2026-06-27T17:48:10.890912+00:00,check,empty_docks,1,"Tooley Street, Bermondsey"
 2026-06-27T23:40:29.342823+00:00,check,empty_docks,15,"Tooley Street, Bermondsey"
 2026-06-28T09:29:56.988836+00:00,check,empty_docks,10,"Tooley Street, Bermondsey"
+2026-06-28T09:35:56.587532+00:00,check,empty_docks,10,"Tooley Street, Bermondsey"
