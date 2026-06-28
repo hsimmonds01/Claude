@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-28T20:46:26.571Z",
+  "lastUpdated": "2026-06-28T21:46:05.525Z",
   "matches": [
     {
       "stage": "GROUP_STAGE",
@@ -713,13 +713,13 @@
     },
     {
       "stage": "LAST_32",
-      "status": "PAUSED",
+      "status": "FINISHED",
       "utcDate": "2026-06-28T19:00:00Z",
       "homeTeam": "South Africa",
       "awayTeam": "Canada",
       "homeScore": 0,
-      "awayScore": 0,
-      "winner": "DRAW"
+      "awayScore": 1,
+      "winner": "AWAY_TEAM"
     },
     {
       "stage": "LAST_32",
@@ -881,7 +881,7 @@
     },
     "ROUND_OF_32": {
       "total": 16,
-      "finished": 0,
+      "finished": 1,
       "startDate": "2026-06-28T19:00:00Z",
       "endDate": "2026-07-04T01:30:00Z"
     },
