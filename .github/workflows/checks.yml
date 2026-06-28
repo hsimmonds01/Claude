@@ -35,6 +35,7 @@ on:
           - check
           - evening_summary
           - evening_check
+          - status
         default: auto
       dry_run:
         description: "Dry run (don't send notification or write state)"
