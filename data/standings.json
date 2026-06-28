@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-28T18:17:59.690Z",
+  "lastUpdated": "2026-06-28T19:48:26.835Z",
   "matches": [
     {
       "stage": "GROUP_STAGE",
@@ -713,13 +713,13 @@
     },
     {
       "stage": "LAST_32",
-      "status": "TIMED",
+      "status": "IN_PLAY",
       "utcDate": "2026-06-28T19:00:00Z",
       "homeTeam": "South Africa",
       "awayTeam": "Canada",
-      "homeScore": null,
-      "awayScore": null,
-      "winner": null
+      "homeScore": 0,
+      "awayScore": 0,
+      "winner": "DRAW"
     },
     {
       "stage": "LAST_32",
