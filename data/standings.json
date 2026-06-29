@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-29T22:40:46.986Z",
+  "lastUpdated": "2026-06-29T23:41:43.468Z",
   "matches": [
     {
       "stage": "GROUP_STAGE",
@@ -733,13 +733,13 @@
     },
     {
       "stage": "LAST_32",
-      "status": "IN_PLAY",
+      "status": "FINISHED",
       "utcDate": "2026-06-29T20:30:00Z",
       "homeTeam": "Germany",
       "awayTeam": "Paraguay",
-      "homeScore": 1,
-      "awayScore": 1,
-      "winner": "DRAW"
+      "homeScore": 5,
+      "awayScore": 6,
+      "winner": null
     },
     {
       "stage": "LAST_32",
@@ -891,7 +891,7 @@
     },
     "ROUND_OF_32": {
       "total": 16,
-      "finished": 2,
+      "finished": 3,
       "startDate": "2026-06-28T19:00:00Z",
       "endDate": "2026-07-04T01:30:00Z"
     },
