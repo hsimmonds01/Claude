@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-29T21:44:05.888Z",
+  "lastUpdated": "2026-06-29T22:40:46.986Z",
   "matches": [
     {
       "stage": "GROUP_STAGE",
@@ -737,9 +737,9 @@
       "utcDate": "2026-06-29T20:30:00Z",
       "homeTeam": "Germany",
       "awayTeam": "Paraguay",
-      "homeScore": 0,
+      "homeScore": 1,
       "awayScore": 1,
-      "winner": "AWAY_TEAM"
+      "winner": "DRAW"
     },
     {
       "stage": "LAST_32",
