@@ -8,6 +8,9 @@ Data comes from the [TfL Unified API](https://api.tfl.gov.uk/) (no API key
 needed). Notifications are sent via [ntfy.sh](https://ntfy.sh) (free, no
 account needed).
 
+See [`ARCHITECTURE.md`](ARCHITECTURE.md) for diagrams of how the pieces fit
+together and how a day's checks play out over time.
+
 ## How it works
 
 **Morning (outbound commute) -- watches empty docks**, so you know if
