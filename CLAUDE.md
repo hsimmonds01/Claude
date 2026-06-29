@@ -39,3 +39,41 @@
 - A `409` response on a Contents API PUT means auth succeeded (token is
   fine) but the `sha` was stale/missing -- different root cause than
   `401`/`403`.
+
+## External scheduling (cron-job.org)
+- GitHub Actions' native `schedule` trigger proved unreliable in practice
+  (seen >1hr delays on both the morning and evening window on the same day),
+  so cron-job.org pings the same `workflow_dispatch` endpoint as a more
+  reliable primary trigger. GitHub's native schedule is left in place as a
+  harmless backup -- `check_docks.py`'s own window-gating and alert cooldowns
+  make duplicate/overlapping triggers safe (extra runs just no-op or get
+  throttled, never double-alert).
+- One cron-job.org job covers both windows by selecting multiple individual
+  hours (6, 7, 8, 16, 17, 18 UTC) rather than needing two separate jobs --
+  check whether the scheduler UI offers per-hour checkboxes vs. only a single
+  continuous range before assuming two jobs are required.
+- Reuses the same fine-grained PAT already issued for the iOS Shortcuts --
+  no need for a separate token.
+
+## Communication / working style preferences
+- The user is not a developer -- when a step requires action on their end
+  (third-party site setup, iOS Shortcuts, GitHub UI clicks), give complete,
+  plain-language, numbered instructions naming exact buttons/labels to look
+  for, not technical shorthand. Don't assume familiarity with cron syntax,
+  HTTP, tokens, etc. -- explain inline the first time, briefly.
+- Don't take the easy/assumed answer when something doesn't work as
+  expected (e.g. "nothing happened," a PR stuck on `dirty`) -- verify against
+  real evidence (Actions run logs, job timestamps, actual merge attempts)
+  before concluding root cause, even if that means a second or third check.
+  This was the pattern across diagnosing the stale-token Shortcut failures,
+  the GitHub Actions scheduling delays, and the PR #25 merge conflict.
+- The user values visual/diagram explanations of how the system works, not
+  just prose -- prefers color-coded A4 diagrams: portrait for
+  component/architecture views, landscape for time-based flow views. Built
+  via HTML/CSS rendered through headless Chromium (Playwright is
+  pre-installed in this environment) rather than an AI image generator,
+  since accurate text/arrows/layout matter more than illustrative style.
+- Default working rhythm: implement/fix -> ship via the standard PR cycle
+  above -> proactively suggest 2-3 concrete "what's next" options scoped
+  with rough effort, rather than waiting to be asked. The user is happy to
+  pick from a short list rather than be handed one prescribed plan.
