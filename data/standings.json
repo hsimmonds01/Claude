@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-29T18:00:47.143Z",
+  "lastUpdated": "2026-06-29T20:04:36.371Z",
   "matches": [
     {
       "stage": "GROUP_STAGE",
@@ -723,13 +723,13 @@
     },
     {
       "stage": "LAST_32",
-      "status": "PAUSED",
+      "status": "FINISHED",
       "utcDate": "2026-06-29T17:00:00Z",
       "homeTeam": "Brazil",
       "awayTeam": "Japan",
-      "homeScore": 0,
+      "homeScore": 2,
       "awayScore": 1,
-      "winner": "AWAY_TEAM"
+      "winner": "HOME_TEAM"
     },
     {
       "stage": "LAST_32",
@@ -891,7 +891,7 @@
     },
     "ROUND_OF_32": {
       "total": 16,
-      "finished": 1,
+      "finished": 2,
       "startDate": "2026-06-28T19:00:00Z",
       "endDate": "2026-07-04T01:30:00Z"
     },
