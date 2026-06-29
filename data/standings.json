@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-29T01:56:47.219Z",
+  "lastUpdated": "2026-06-29T06:48:03.956Z",
   "matches": [
     {
       "stage": "GROUP_STAGE",
@@ -867,6 +867,16 @@
       "utcDate": "2026-07-04T01:30:00Z",
       "homeTeam": "Colombia",
       "awayTeam": "Ghana",
+      "homeScore": null,
+      "awayScore": null,
+      "winner": null
+    },
+    {
+      "stage": "LAST_16",
+      "status": "TIMED",
+      "utcDate": "2026-07-04T17:00:00Z",
+      "homeTeam": "Canada",
+      "awayTeam": "TBD",
       "homeScore": null,
       "awayScore": null,
       "winner": null
