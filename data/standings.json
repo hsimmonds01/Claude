@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-29T23:41:43.468Z",
+  "lastUpdated": "2026-06-30T01:49:48.746Z",
   "matches": [
     {
       "stage": "GROUP_STAGE",
@@ -737,19 +737,19 @@
       "utcDate": "2026-06-29T20:30:00Z",
       "homeTeam": "Germany",
       "awayTeam": "Paraguay",
-      "homeScore": 5,
-      "awayScore": 6,
+      "homeScore": 4,
+      "awayScore": 5,
       "winner": null
     },
     {
       "stage": "LAST_32",
-      "status": "TIMED",
+      "status": "IN_PLAY",
       "utcDate": "2026-06-30T01:00:00Z",
       "homeTeam": "Netherlands",
       "awayTeam": "Morocco",
-      "homeScore": null,
-      "awayScore": null,
-      "winner": null
+      "homeScore": 0,
+      "awayScore": 0,
+      "winner": "DRAW"
     },
     {
       "stage": "LAST_32",
