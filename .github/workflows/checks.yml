@@ -35,6 +35,7 @@ on:
           - morning_bikes
           - check
           - evening_summary
+          - evening_second_summary
           - evening_check
           - status
         default: auto
