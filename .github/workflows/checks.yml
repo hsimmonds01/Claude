@@ -32,6 +32,7 @@ on:
         options:
           - auto
           - summary
+          - morning_bikes
           - check
           - evening_summary
           - evening_check
