@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-30T20:56:40.765Z",
+  "lastUpdated": "2026-06-30T22:14:57.152Z",
   "matches": [
     {
       "stage": "GROUP_STAGE",
@@ -763,13 +763,13 @@
     },
     {
       "stage": "LAST_32",
-      "status": "TIMED",
+      "status": "IN_PLAY",
       "utcDate": "2026-06-30T21:00:00Z",
       "homeTeam": "France",
       "awayTeam": "Sweden",
-      "homeScore": null,
-      "awayScore": null,
-      "winner": null
+      "homeScore": 1,
+      "awayScore": 0,
+      "winner": "HOME_TEAM"
     },
     {
       "stage": "LAST_32",
