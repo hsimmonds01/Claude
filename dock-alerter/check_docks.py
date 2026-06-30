@@ -62,10 +62,18 @@ LOW_DOCKS_THRESHOLD = 3
 ALL_CLEAR_DOCKS_THRESHOLD = 5
 
 # Evening: alert when available bikes drop below this number.
-LOW_BIKES_THRESHOLD = 3
+LOW_BIKES_THRESHOLD = 5
+# Evening: second, more urgent alert when bikes drop even further.
+CRITICAL_BIKES_THRESHOLD = 3
 # Evening: send "all clear" once available bikes recover to at least this
 # number (only if we'd previously sent a low-bikes alert).
-ALL_CLEAR_BIKES_THRESHOLD = 5
+ALL_CLEAR_BIKES_THRESHOLD = 6
+
+# Set True to count only standard (non-electric) bikes. TfL returns NbEBikes
+# alongside NbBikes; when True, the reported count is NbBikes - NbEBikes.
+# If the NbEBikes field is ever missing from the API response, the script
+# falls back silently to using NbBikes unchanged rather than erroring.
+EXCLUDE_EBIKES = True
 
 # Set True to count only standard (non-electric) bikes. TfL returns NbEBikes
 # alongside NbBikes; when True, the reported count is NbBikes - NbEBikes.
@@ -89,6 +97,7 @@ NTFY_URL = f"https://ntfy.sh/{NTFY_TOPIC}"
 
 # Morning monitoring window, in Europe/London local time.
 MORNING_SUMMARY_TIME = time(7, 45)
+MORNING_BIKES_TIME = time(8, 20)  # one-off mid-morning bike count snapshot
 MORNING_CHECK_START = time(8, 0)
 MORNING_CHECK_END = time(8, 45)
 
@@ -112,6 +121,7 @@ class State:
     alerted: bool = False
     last_alert_time: str | None = None  # ISO 8601, UTC
     evening_alerted: bool = False
+    evening_critical_alerted: bool = False  # True once the second-tier critical alert fires
     evening_last_alert_time: str | None = None  # ISO 8601, UTC
 
     @classmethod
@@ -158,6 +168,8 @@ def determine_mode(now_london: datetime, force_mode: str | None) -> str | None:
 
     if starts_window(MORNING_SUMMARY_TIME):
         return "summary"
+    if starts_window(MORNING_BIKES_TIME):
+        return "morning_bikes"
     if MORNING_CHECK_START <= t <= MORNING_CHECK_END:
         return "check"
     if starts_window(EVENING_SUMMARY_TIME):
@@ -370,6 +382,21 @@ def run(mode: str, dry_run: bool) -> None:
             state.save(STATE_FILE)
         return
 
+    if mode == "morning_bikes":
+        bikes, station_name = fetch_available_bikes()
+        bike_label = "standard bikes" if EXCLUDE_EBIKES else "bikes"
+        print(f"[{mode}] {station_name}: {bikes} {bike_label} available")
+        if not dry_run:
+            log_history(mode, "available_bikes", bikes, station_name)
+
+        title = "Tooley Street bikes - 08:20 check"
+        message = f"{bikes} {bike_label} available right now."
+        if dry_run:
+            print(f"DRY RUN -- would send: {title} / {message}")
+        else:
+            send_notification(title, message, priority="default", tags="bike,mag")
+        return
+
     if mode == "evening_summary":
         bikes, station_name = fetch_available_bikes()
         print(f"[{mode}] {station_name}: {bikes} bikes available")
@@ -398,14 +425,35 @@ def run(mode: str, dry_run: bool) -> None:
         if not dry_run:
             log_history(mode, "available_bikes", bikes, station_name)
 
-        if bikes < LOW_BIKES_THRESHOLD:
-            cooldown_active = False
-            if state.evening_alerted and state.evening_last_alert_time:
-                last_alert = datetime.fromisoformat(state.evening_last_alert_time)
-                cooldown_active = (now_utc - last_alert) < timedelta(minutes=ALERT_COOLDOWN_MINUTES)
+        bike_label = "standard bikes" if EXCLUDE_EBIKES else "bikes"
 
-            if not cooldown_active:
-                bike_label = "standard bikes" if EXCLUDE_EBIKES else "bikes"
+        def cooldown_active() -> bool:
+            if state.evening_last_alert_time:
+                last = datetime.fromisoformat(state.evening_last_alert_time)
+                return (now_utc - last) < timedelta(minutes=ALERT_COOLDOWN_MINUTES)
+            return False
+
+        if bikes < CRITICAL_BIKES_THRESHOLD and not state.evening_critical_alerted:
+            # Second-tier critical alert -- fires the moment we drop to critical
+            # level even if still within cooldown of the first-tier low alert.
+            title = "Tooley Street bikes - CRITICAL"
+            message = f"Only {bikes} {bike_label} left at Tooley Street!"
+
+            secondary = fetch_secondary_bikes()
+            if secondary is not None:
+                secondary_bikes, secondary_name = secondary
+                message += f" {secondary_name} has {secondary_bikes} {bike_label} as a backup."
+
+            if dry_run:
+                print(f"DRY RUN -- would send: {title} / {message}")
+            else:
+                send_notification(title, message, priority="urgent", tags="bike,rotating_light")
+            state.evening_alerted = True
+            state.evening_critical_alerted = True
+            state.evening_last_alert_time = now_utc.isoformat()
+
+        elif bikes < LOW_BIKES_THRESHOLD:
+            if not state.evening_alerted or not cooldown_active():
                 title = "Tooley Street bikes - LOW"
                 message = f"Only {bikes} {bike_label} left at Tooley Street (threshold {LOW_BIKES_THRESHOLD})."
 
@@ -432,6 +480,7 @@ def run(mode: str, dry_run: bool) -> None:
             else:
                 send_notification(title, message, priority="default", tags="bike,white_check_mark")
             state.evening_alerted = False
+            state.evening_critical_alerted = False
             state.evening_last_alert_time = None
 
         if not dry_run:
@@ -461,7 +510,7 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
         "--force-mode",
-        choices=["auto", "summary", "check", "evening_summary", "evening_check", "status"],
+        choices=["auto", "summary", "morning_bikes", "check", "evening_summary", "evening_check", "status"],
         default="auto",
         help="Override the time-based mode detection, e.g. for manual testing.",
     )
