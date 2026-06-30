@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-30T06:12:44.938Z",
+  "lastUpdated": "2026-06-30T10:01:00.608Z",
   "matches": [
     {
       "stage": "GROUP_STAGE",
@@ -739,7 +739,7 @@
       "awayTeam": "Paraguay",
       "homeScore": 4,
       "awayScore": 5,
-      "winner": null
+      "winner": "AWAY_TEAM"
     },
     {
       "stage": "LAST_32",
@@ -747,9 +747,9 @@
       "utcDate": "2026-06-30T01:00:00Z",
       "homeTeam": "Netherlands",
       "awayTeam": "Morocco",
-      "homeScore": 4,
+      "homeScore": 3,
       "awayScore": 4,
-      "winner": null
+      "winner": "AWAY_TEAM"
     },
     {
       "stage": "LAST_32",
@@ -876,6 +876,26 @@
       "status": "TIMED",
       "utcDate": "2026-07-04T17:00:00Z",
       "homeTeam": "Canada",
+      "awayTeam": "Morocco",
+      "homeScore": null,
+      "awayScore": null,
+      "winner": null
+    },
+    {
+      "stage": "LAST_16",
+      "status": "TIMED",
+      "utcDate": "2026-07-04T21:00:00Z",
+      "homeTeam": "Paraguay",
+      "awayTeam": "TBD",
+      "homeScore": null,
+      "awayScore": null,
+      "winner": null
+    },
+    {
+      "stage": "LAST_16",
+      "status": "TIMED",
+      "utcDate": "2026-07-05T20:00:00Z",
+      "homeTeam": "Brazil",
       "awayTeam": "TBD",
       "homeScore": null,
       "awayScore": null,
