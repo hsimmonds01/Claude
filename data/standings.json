@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-30T18:56:23.276Z",
+  "lastUpdated": "2026-06-30T20:56:40.765Z",
   "matches": [
     {
       "stage": "GROUP_STAGE",
@@ -753,7 +753,7 @@
     },
     {
       "stage": "LAST_32",
-      "status": "IN_PLAY",
+      "status": "FINISHED",
       "utcDate": "2026-06-30T17:00:00Z",
       "homeTeam": "Ivory Coast",
       "awayTeam": "Norway",
@@ -911,7 +911,7 @@
     },
     "ROUND_OF_32": {
       "total": 16,
-      "finished": 4,
+      "finished": 5,
       "startDate": "2026-06-28T19:00:00Z",
       "endDate": "2026-07-04T01:30:00Z"
     },
