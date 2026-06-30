@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-30T22:14:57.152Z",
+  "lastUpdated": "2026-06-30T23:37:56.404Z",
   "matches": [
     {
       "stage": "GROUP_STAGE",
@@ -763,11 +763,11 @@
     },
     {
       "stage": "LAST_32",
-      "status": "IN_PLAY",
+      "status": "FINISHED",
       "utcDate": "2026-06-30T21:00:00Z",
       "homeTeam": "France",
       "awayTeam": "Sweden",
-      "homeScore": 1,
+      "homeScore": 3,
       "awayScore": 0,
       "winner": "HOME_TEAM"
     },
@@ -911,7 +911,7 @@
     },
     "ROUND_OF_32": {
       "total": 16,
-      "finished": 5,
+      "finished": 6,
       "startDate": "2026-06-28T19:00:00Z",
       "endDate": "2026-07-04T01:30:00Z"
     },
