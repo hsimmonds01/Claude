@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-29T21:44:05.888Z",
+  "lastUpdated": "2026-06-30T06:12:44.938Z",
   "matches": [
     {
       "stage": "GROUP_STAGE",
@@ -733,22 +733,22 @@
     },
     {
       "stage": "LAST_32",
-      "status": "IN_PLAY",
+      "status": "FINISHED",
       "utcDate": "2026-06-29T20:30:00Z",
       "homeTeam": "Germany",
       "awayTeam": "Paraguay",
-      "homeScore": 0,
-      "awayScore": 1,
-      "winner": "AWAY_TEAM"
+      "homeScore": 4,
+      "awayScore": 5,
+      "winner": null
     },
     {
       "stage": "LAST_32",
-      "status": "TIMED",
+      "status": "FINISHED",
       "utcDate": "2026-06-30T01:00:00Z",
       "homeTeam": "Netherlands",
       "awayTeam": "Morocco",
-      "homeScore": null,
-      "awayScore": null,
+      "homeScore": 4,
+      "awayScore": 4,
       "winner": null
     },
     {
@@ -891,7 +891,7 @@
     },
     "ROUND_OF_32": {
       "total": 16,
-      "finished": 2,
+      "finished": 4,
       "startDate": "2026-06-28T19:00:00Z",
       "endDate": "2026-07-04T01:30:00Z"
     },

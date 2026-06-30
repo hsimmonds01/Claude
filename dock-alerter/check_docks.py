@@ -75,6 +75,12 @@ ALL_CLEAR_BIKES_THRESHOLD = 6
 # falls back silently to using NbBikes unchanged rather than erroring.
 EXCLUDE_EBIKES = True
 
+# Set True to count only standard (non-electric) bikes. TfL returns NbEBikes
+# alongside NbBikes; when True, the reported count is NbBikes - NbEBikes.
+# If the NbEBikes field is ever missing from the API response, the script
+# falls back silently to using NbBikes unchanged rather than erroring.
+EXCLUDE_EBIKES = True
+
 # Don't send more than one low-docks/low-bikes alert within this many minutes.
 ALERT_COOLDOWN_MINUTES = 30
 
@@ -466,6 +472,7 @@ def run(mode: str, dry_run: bool) -> None:
                 print("Low bikes, but still within cooldown -- not re-alerting.")
 
         elif bikes >= ALL_CLEAR_BIKES_THRESHOLD and state.evening_alerted:
+            bike_label = "standard bikes" if EXCLUDE_EBIKES else "bikes"
             title = "Tooley Street bikes - all clear"
             message = f"Back up to {bikes} {bike_label} available."
             if dry_run:
