@@ -67,6 +67,12 @@ LOW_BIKES_THRESHOLD = 3
 # number (only if we'd previously sent a low-bikes alert).
 ALL_CLEAR_BIKES_THRESHOLD = 5
 
+# Set True to count only standard (non-electric) bikes. TfL returns NbEBikes
+# alongside NbBikes; when True, the reported count is NbBikes - NbEBikes.
+# If the NbEBikes field is ever missing from the API response, the script
+# falls back silently to using NbBikes unchanged rather than erroring.
+EXCLUDE_EBIKES = True
+
 # Don't send more than one low-docks/low-bikes alert within this many minutes.
 ALERT_COOLDOWN_MINUTES = 30
 
@@ -201,6 +207,17 @@ def fetch_empty_docks() -> tuple[int, str]:
     return int(props["NbEmptyDocks"]), station_name
 
 
+def _count_bikes(props: dict) -> int:
+    """Return the bike count to use, optionally excluding e-bikes."""
+    total = int(props.get("NbBikes", 0))
+    if not EXCLUDE_EBIKES:
+        return total
+    ebikes = int(props.get("NbEBikes", 0))
+    if "NbEBikes" not in props:
+        print("WARNING: NbEBikes not in API response -- falling back to NbBikes total.", file=sys.stderr)
+    return max(0, total - ebikes)
+
+
 def fetch_available_bikes() -> tuple[int, str]:
     """Return (available_bike_count, station_name) for Tooley Street."""
     data = _fetch_bikepoint(STATION_ID)
@@ -218,7 +235,7 @@ def fetch_available_bikes() -> tuple[int, str]:
             "NbBikes not found in additionalProperties -- TfL API shape "
             "may have changed. Raw response: " + json.dumps(data)[:500]
         )
-    return int(props["NbBikes"]), station_name
+    return _count_bikes(props), station_name
 
 
 def fetch_status() -> tuple[int, int, str]:
@@ -240,7 +257,7 @@ def fetch_status() -> tuple[int, int, str]:
             "NbEmptyDocks/NbBikes not found in additionalProperties -- TfL API "
             "shape may have changed. Raw response: " + json.dumps(data)[:500]
         )
-    return int(props["NbEmptyDocks"]), int(props["NbBikes"]), station_name
+    return int(props["NbEmptyDocks"]), _count_bikes(props), station_name
 
 
 def fetch_secondary_bikes() -> tuple[int, str] | None:
@@ -257,7 +274,7 @@ def fetch_secondary_bikes() -> tuple[int, str] | None:
         props = _props(data)
         if "NbBikes" not in props:
             return None
-        return int(props["NbBikes"]), data.get("commonName", SECONDARY_STATION_QUERY)
+        return _count_bikes(props), data.get("commonName", SECONDARY_STATION_QUERY)
     except requests.RequestException as exc:
         print(f"WARNING: secondary station lookup failed: {exc}", file=sys.stderr)
         return None
@@ -359,8 +376,9 @@ def run(mode: str, dry_run: bool) -> None:
         if not dry_run:
             log_history(mode, "available_bikes", bikes, station_name)
 
+        bike_label = "standard bikes" if EXCLUDE_EBIKES else "bikes"
         title = "Tooley Street bikes - evening check"
-        message = f"{bikes} bikes available right now."
+        message = f"{bikes} {bike_label} available right now."
         if dry_run:
             print(f"DRY RUN -- would send: {title} / {message}")
         else:
@@ -387,13 +405,14 @@ def run(mode: str, dry_run: bool) -> None:
                 cooldown_active = (now_utc - last_alert) < timedelta(minutes=ALERT_COOLDOWN_MINUTES)
 
             if not cooldown_active:
+                bike_label = "standard bikes" if EXCLUDE_EBIKES else "bikes"
                 title = "Tooley Street bikes - LOW"
-                message = f"Only {bikes} bikes left at Tooley Street (threshold {LOW_BIKES_THRESHOLD})."
+                message = f"Only {bikes} {bike_label} left at Tooley Street (threshold {LOW_BIKES_THRESHOLD})."
 
                 secondary = fetch_secondary_bikes()
                 if secondary is not None:
                     secondary_bikes, secondary_name = secondary
-                    message += f" {secondary_name} has {secondary_bikes} bikes available as a backup."
+                    message += f" {secondary_name} has {secondary_bikes} {bike_label} available as a backup."
 
                 if dry_run:
                     print(f"DRY RUN -- would send: {title} / {message}")
@@ -405,8 +424,9 @@ def run(mode: str, dry_run: bool) -> None:
                 print("Low bikes, but still within cooldown -- not re-alerting.")
 
         elif bikes >= ALL_CLEAR_BIKES_THRESHOLD and state.evening_alerted:
+            bike_label = "standard bikes" if EXCLUDE_EBIKES else "bikes"
             title = "Tooley Street bikes - all clear"
-            message = f"Back up to {bikes} bikes available."
+            message = f"Back up to {bikes} {bike_label} available."
             if dry_run:
                 print(f"DRY RUN -- would send: {title} / {message}")
             else:
@@ -425,8 +445,9 @@ def run(mode: str, dry_run: bool) -> None:
             log_history(mode, "empty_docks", empty_docks, station_name)
             log_history(mode, "available_bikes", bikes, station_name)
 
+        bike_label = "standard bikes" if EXCLUDE_EBIKES else "bikes"
         title = "Tooley Street - status check"
-        message = f"{empty_docks} empty docks, {bikes} bikes available right now."
+        message = f"{empty_docks} empty docks, {bikes} {bike_label} available right now."
         if dry_run:
             print(f"DRY RUN -- would send: {title} / {message}")
         else:
