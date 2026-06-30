@@ -75,12 +75,6 @@ ALL_CLEAR_BIKES_THRESHOLD = 6
 # falls back silently to using NbBikes unchanged rather than erroring.
 EXCLUDE_EBIKES = True
 
-# Set True to count only standard (non-electric) bikes. TfL returns NbEBikes
-# alongside NbBikes; when True, the reported count is NbBikes - NbEBikes.
-# If the NbEBikes field is ever missing from the API response, the script
-# falls back silently to using NbBikes unchanged rather than erroring.
-EXCLUDE_EBIKES = True
-
 # Don't send more than one low-docks/low-bikes alert within this many minutes.
 ALERT_COOLDOWN_MINUTES = 30
 
@@ -103,6 +97,7 @@ MORNING_CHECK_END = time(8, 45)
 
 # Evening monitoring window, in Europe/London local time.
 EVENING_SUMMARY_TIME = time(17, 15)
+EVENING_SECOND_SUMMARY_TIME = time(17, 40)  # one-off mid-evening bike count snapshot
 EVENING_CHECK_START = time(17, 30)
 EVENING_CHECK_END = time(18, 0)
 
@@ -174,6 +169,8 @@ def determine_mode(now_london: datetime, force_mode: str | None) -> str | None:
         return "check"
     if starts_window(EVENING_SUMMARY_TIME):
         return "evening_summary"
+    if starts_window(EVENING_SECOND_SUMMARY_TIME):
+        return "evening_second_summary"
     if EVENING_CHECK_START <= t <= EVENING_CHECK_END:
         return "evening_check"
 
@@ -419,6 +416,21 @@ def run(mode: str, dry_run: bool) -> None:
             state.save(STATE_FILE)
         return
 
+    if mode == "evening_second_summary":
+        bikes, station_name = fetch_available_bikes()
+        bike_label = "standard bikes" if EXCLUDE_EBIKES else "bikes"
+        print(f"[{mode}] {station_name}: {bikes} {bike_label} available")
+        if not dry_run:
+            log_history(mode, "available_bikes", bikes, station_name)
+
+        title = "Tooley Street bikes - 17:40 check"
+        message = f"{bikes} {bike_label} available right now."
+        if dry_run:
+            print(f"DRY RUN -- would send: {title} / {message}")
+        else:
+            send_notification(title, message, priority="default", tags="bike,mag")
+        return
+
     if mode == "evening_check":
         bikes, station_name = fetch_available_bikes()
         print(f"[{mode}] {station_name}: {bikes} bikes available")
@@ -510,7 +522,7 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
         "--force-mode",
-        choices=["auto", "summary", "morning_bikes", "check", "evening_summary", "evening_check", "status"],
+        choices=["auto", "summary", "morning_bikes", "check", "evening_summary", "evening_second_summary", "evening_check", "status"],
         default="auto",
         help="Override the time-based mode detection, e.g. for manual testing.",
     )
