@@ -47,3 +47,5 @@ timestamp_utc,mode,metric,value,station
 2026-07-01T07:40:47.635824+00:00,check,empty_docks,3,"Tooley Street, Bermondsey"
 2026-07-01T12:16:46.050336+00:00,status,empty_docks,1,"Tooley Street, Bermondsey"
 2026-07-01T12:16:46.050443+00:00,status,available_bikes,16,"Tooley Street, Bermondsey"
+2026-07-01T12:20:59.606220+00:00,status,empty_docks,1,"Tooley Street, Bermondsey"
+2026-07-01T12:20:59.606457+00:00,status,available_bikes,16,"Tooley Street, Bermondsey"
