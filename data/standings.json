@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-01T01:56:43.816Z",
+  "lastUpdated": "2026-07-01T06:27:04.813Z",
   "matches": [
     {
       "stage": "GROUP_STAGE",
@@ -753,13 +753,13 @@
     },
     {
       "stage": "LAST_32",
-      "status": "TIMED",
+      "status": "FINISHED",
       "utcDate": "2026-06-30T17:00:00Z",
       "homeTeam": "Ivory Coast",
       "awayTeam": "Norway",
-      "homeScore": null,
-      "awayScore": null,
-      "winner": null
+      "homeScore": 1,
+      "awayScore": 2,
+      "winner": "AWAY_TEAM"
     },
     {
       "stage": "LAST_32",
@@ -773,13 +773,13 @@
     },
     {
       "stage": "LAST_32",
-      "status": "IN_PLAY",
+      "status": "FINISHED",
       "utcDate": "2026-07-01T01:00:00Z",
       "homeTeam": "Mexico",
       "awayTeam": "Ecuador",
-      "homeScore": 0,
+      "homeScore": 2,
       "awayScore": 0,
-      "winner": "DRAW"
+      "winner": "HOME_TEAM"
     },
     {
       "stage": "LAST_32",
@@ -886,7 +886,7 @@
       "status": "TIMED",
       "utcDate": "2026-07-04T21:00:00Z",
       "homeTeam": "Paraguay",
-      "awayTeam": "TBD",
+      "awayTeam": "France",
       "homeScore": null,
       "awayScore": null,
       "winner": null
@@ -896,7 +896,7 @@
       "status": "TIMED",
       "utcDate": "2026-07-05T20:00:00Z",
       "homeTeam": "Brazil",
-      "awayTeam": "TBD",
+      "awayTeam": "Norway",
       "homeScore": null,
       "awayScore": null,
       "winner": null
@@ -911,7 +911,7 @@
     },
     "ROUND_OF_32": {
       "total": 16,
-      "finished": 5,
+      "finished": 7,
       "startDate": "2026-06-28T19:00:00Z",
       "endDate": "2026-07-04T01:30:00Z"
     },
