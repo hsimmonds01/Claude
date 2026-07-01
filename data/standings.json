@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-01T15:56:00.388Z",
+  "lastUpdated": "2026-07-01T17:55:33.942Z",
   "matches": [
     {
       "stage": "GROUP_STAGE",
@@ -783,13 +783,13 @@
     },
     {
       "stage": "LAST_32",
-      "status": "TIMED",
+      "status": "IN_PLAY",
       "utcDate": "2026-07-01T16:00:00Z",
       "homeTeam": "England",
       "awayTeam": "Congo DR",
-      "homeScore": null,
-      "awayScore": null,
-      "winner": null
+      "homeScore": 2,
+      "awayScore": 1,
+      "winner": "HOME_TEAM"
     },
     {
       "stage": "LAST_32",
