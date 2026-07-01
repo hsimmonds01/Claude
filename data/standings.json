@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-01T19:55:35.167Z",
+  "lastUpdated": "2026-07-01T21:28:32.100Z",
   "matches": [
     {
       "stage": "GROUP_STAGE",
@@ -793,13 +793,13 @@
     },
     {
       "stage": "LAST_32",
-      "status": "TIMED",
+      "status": "IN_PLAY",
       "utcDate": "2026-07-01T20:00:00Z",
       "homeTeam": "Belgium",
       "awayTeam": "Senegal",
-      "homeScore": null,
-      "awayScore": null,
-      "winner": null
+      "homeScore": 0,
+      "awayScore": 2,
+      "winner": "AWAY_TEAM"
     },
     {
       "stage": "LAST_32",
