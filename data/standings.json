@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-02T19:51:43.734Z",
+  "lastUpdated": "2026-07-02T21:06:24.731Z",
   "matches": [
     {
       "stage": "GROUP_STAGE",
@@ -813,11 +813,11 @@
     },
     {
       "stage": "LAST_32",
-      "status": "TIMED",
+      "status": "FINISHED",
       "utcDate": "2026-07-02T19:00:00Z",
       "homeTeam": "Spain",
       "awayTeam": "Austria",
-      "homeScore": 1,
+      "homeScore": 3,
       "awayScore": 0,
       "winner": "HOME_TEAM"
     },
@@ -931,7 +931,7 @@
     },
     "ROUND_OF_32": {
       "total": 16,
-      "finished": 10,
+      "finished": 11,
       "startDate": "2026-06-28T19:00:00Z",
       "endDate": "2026-07-04T01:30:00Z"
     },
