@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-02T03:35:18.922Z",
+  "lastUpdated": "2026-07-02T06:56:38.108Z",
   "matches": [
     {
       "stage": "GROUP_STAGE",
@@ -897,6 +897,26 @@
       "utcDate": "2026-07-05T20:00:00Z",
       "homeTeam": "Brazil",
       "awayTeam": "Norway",
+      "homeScore": null,
+      "awayScore": null,
+      "winner": null
+    },
+    {
+      "stage": "LAST_16",
+      "status": "TIMED",
+      "utcDate": "2026-07-06T00:00:00Z",
+      "homeTeam": "Mexico",
+      "awayTeam": "England",
+      "homeScore": null,
+      "awayScore": null,
+      "winner": null
+    },
+    {
+      "stage": "LAST_16",
+      "status": "TIMED",
+      "utcDate": "2026-07-07T00:00:00Z",
+      "homeTeam": "United States",
+      "awayTeam": "Belgium",
       "homeScore": null,
       "awayScore": null,
       "winner": null
