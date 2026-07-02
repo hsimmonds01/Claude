@@ -107,6 +107,7 @@ ACTIVE_WEEKDAYS = {0, 1, 2, 3}
 
 STATE_FILE = Path(__file__).parent / "state.json"
 MUTE_FILE = Path(__file__).parent / "mute.flag"
+FRIDAY_FLAG_FILE = Path(__file__).parent / "friday.flag"
 HISTORY_FILE = Path(__file__).parent / "history.csv"
 LONDON = ZoneInfo("Europe/London")
 REQUEST_TIMEOUT_SECONDS = 15
@@ -145,6 +146,24 @@ def is_muted_today(now_london: datetime) -> bool:
     return flagged_date == now_london.date().isoformat()
 
 
+def is_friday_enabled(now_london: datetime) -> bool:
+    """True if today is Friday and friday.flag contains today's date.
+
+    The flag is set (via an iOS Shortcut or manually) with the target Friday's
+    date, so it can be created on Thursday afternoon for the next morning and
+    auto-resets -- tomorrow's date won't match, so no cleanup needed.
+    """
+    if now_london.weekday() != 4:  # 4 = Friday
+        return False
+    if not FRIDAY_FLAG_FILE.exists():
+        return False
+    try:
+        flagged_date = FRIDAY_FLAG_FILE.read_text().strip()
+    except OSError:
+        return False
+    return flagged_date == now_london.date().isoformat()
+
+
 def determine_mode(now_london: datetime, force_mode: str | None) -> str | None:
     """Decide what to do right now: one of 'summary', 'check',
     'evening_summary', 'evening_check', or None (do nothing)."""
@@ -152,7 +171,8 @@ def determine_mode(now_london: datetime, force_mode: str | None) -> str | None:
         return force_mode
 
     if now_london.weekday() not in ACTIVE_WEEKDAYS:
-        return None
+        if not is_friday_enabled(now_london):
+            return None
 
     t = now_london.time()
 
