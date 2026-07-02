@@ -33,6 +33,7 @@ import csv
 import json
 import os
 import sys
+import time as _time  # stdlib time module; `time` in this file is datetime.time
 from dataclasses import dataclass, asdict
 from datetime import datetime, time, timedelta
 from pathlib import Path
@@ -108,7 +109,7 @@ STATE_FILE = Path(__file__).parent / "state.json"
 MUTE_FILE = Path(__file__).parent / "mute.flag"
 HISTORY_FILE = Path(__file__).parent / "history.csv"
 LONDON = ZoneInfo("Europe/London")
-REQUEST_TIMEOUT_SECONDS = 10
+REQUEST_TIMEOUT_SECONDS = 15
 
 
 @dataclass
@@ -179,9 +180,17 @@ def determine_mode(now_london: datetime, force_mode: str | None) -> str | None:
 
 def _fetch_bikepoint(station_id: str) -> dict:
     url = f"{TFL_BASE_URL}/{station_id}"
-    response = requests.get(url, timeout=REQUEST_TIMEOUT_SECONDS)
-    response.raise_for_status()
-    return response.json()
+    for attempt in range(2):
+        try:
+            response = requests.get(url, timeout=REQUEST_TIMEOUT_SECONDS)
+            response.raise_for_status()
+            return response.json()
+        except (requests.exceptions.Timeout, requests.exceptions.ConnectionError) as exc:
+            if attempt == 0:
+                print(f"WARNING: TfL API request failed ({exc.__class__.__name__}), retrying in 3 s...", file=sys.stderr)
+                _time.sleep(3)
+            else:
+                raise
 
 
 def _search_bikepoint(name_query: str) -> dict | None:
@@ -380,14 +389,13 @@ def run(mode: str, dry_run: bool) -> None:
         return
 
     if mode == "morning_bikes":
-        bikes, station_name = fetch_available_bikes()
-        bike_label = "standard bikes" if EXCLUDE_EBIKES else "bikes"
-        print(f"[{mode}] {station_name}: {bikes} {bike_label} available")
+        empty_docks, station_name = fetch_empty_docks()
+        print(f"[{mode}] {station_name}: {empty_docks} empty docks")
         if not dry_run:
-            log_history(mode, "available_bikes", bikes, station_name)
+            log_history(mode, "empty_docks", empty_docks, station_name)
 
-        title = "Tooley Street bikes - 08:20 check"
-        message = f"{bikes} {bike_label} available right now."
+        title = "Tooley Street docks - 08:20 check"
+        message = f"{empty_docks} empty docks available right now."
         if dry_run:
             print(f"DRY RUN -- would send: {title} / {message}")
         else:
