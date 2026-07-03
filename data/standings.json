@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-03T19:41:28.228Z",
+  "lastUpdated": "2026-07-03T20:43:42.506Z",
   "matches": [
     {
       "stage": "GROUP_STAGE",
@@ -843,13 +843,13 @@
     },
     {
       "stage": "LAST_32",
-      "status": "IN_PLAY",
+      "status": "PAUSED",
       "utcDate": "2026-07-03T18:00:00Z",
       "homeTeam": "Australia",
       "awayTeam": "Egypt",
       "homeScore": 1,
       "awayScore": 1,
-      "winner": "DRAW"
+      "winner": null
     },
     {
       "stage": "LAST_32",
