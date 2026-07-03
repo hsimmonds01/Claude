@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-03T01:11:37.976Z",
+  "lastUpdated": "2026-07-03T04:57:19.381Z",
   "matches": [
     {
       "stage": "GROUP_STAGE",
@@ -823,23 +823,23 @@
     },
     {
       "stage": "LAST_32",
-      "status": "IN_PLAY",
+      "status": "FINISHED",
       "utcDate": "2026-07-02T23:00:00Z",
       "homeTeam": "Portugal",
       "awayTeam": "Croatia",
       "homeScore": 2,
-      "awayScore": 2,
-      "winner": "DRAW"
+      "awayScore": 1,
+      "winner": "HOME_TEAM"
     },
     {
       "stage": "LAST_32",
-      "status": "TIMED",
+      "status": "IN_PLAY",
       "utcDate": "2026-07-03T03:00:00Z",
       "homeTeam": "Switzerland",
       "awayTeam": "Algeria",
-      "homeScore": null,
-      "awayScore": null,
-      "winner": null
+      "homeScore": 2,
+      "awayScore": 0,
+      "winner": "HOME_TEAM"
     },
     {
       "stage": "LAST_32",
@@ -931,7 +931,7 @@
     },
     "ROUND_OF_32": {
       "total": 16,
-      "finished": 11,
+      "finished": 12,
       "startDate": "2026-06-28T19:00:00Z",
       "endDate": "2026-07-04T01:30:00Z"
     },
