@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-03T04:57:19.381Z",
+  "lastUpdated": "2026-07-03T08:08:42.377Z",
   "matches": [
     {
       "stage": "GROUP_STAGE",
@@ -833,7 +833,7 @@
     },
     {
       "stage": "LAST_32",
-      "status": "IN_PLAY",
+      "status": "FINISHED",
       "utcDate": "2026-07-03T03:00:00Z",
       "homeTeam": "Switzerland",
       "awayTeam": "Algeria",
@@ -931,7 +931,7 @@
     },
     "ROUND_OF_32": {
       "total": 16,
-      "finished": 12,
+      "finished": 13,
       "startDate": "2026-06-28T19:00:00Z",
       "endDate": "2026-07-04T01:30:00Z"
     },
