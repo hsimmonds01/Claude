@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-02T23:32:09.007Z",
+  "lastUpdated": "2026-07-03T01:11:37.976Z",
   "matches": [
     {
       "stage": "GROUP_STAGE",
@@ -827,8 +827,8 @@
       "utcDate": "2026-07-02T23:00:00Z",
       "homeTeam": "Portugal",
       "awayTeam": "Croatia",
-      "homeScore": 0,
-      "awayScore": 0,
+      "homeScore": 2,
+      "awayScore": 2,
       "winner": "DRAW"
     },
     {
