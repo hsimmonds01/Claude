@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-03T21:45:29.745Z",
+  "lastUpdated": "2026-07-03T22:43:02.988Z",
   "matches": [
     {
       "stage": "GROUP_STAGE",
@@ -853,13 +853,13 @@
     },
     {
       "stage": "LAST_32",
-      "status": "TIMED",
+      "status": "IN_PLAY",
       "utcDate": "2026-07-03T22:00:00Z",
       "homeTeam": "Argentina",
       "awayTeam": "Cape Verde Islands",
-      "homeScore": null,
-      "awayScore": null,
-      "winner": null
+      "homeScore": 1,
+      "awayScore": 0,
+      "winner": "HOME_TEAM"
     },
     {
       "stage": "LAST_32",
