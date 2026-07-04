@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-03T23:42:47.246Z",
+  "lastUpdated": "2026-07-04T01:16:58.823Z",
   "matches": [
     {
       "stage": "GROUP_STAGE",
@@ -853,13 +853,13 @@
     },
     {
       "stage": "LAST_32",
-      "status": "IN_PLAY",
+      "status": "FINISHED",
       "utcDate": "2026-07-03T22:00:00Z",
       "homeTeam": "Argentina",
       "awayTeam": "Cape Verde Islands",
-      "homeScore": 1,
-      "awayScore": 1,
-      "winner": "DRAW"
+      "homeScore": 3,
+      "awayScore": 2,
+      "winner": "HOME_TEAM"
     },
     {
       "stage": "LAST_32",
@@ -931,7 +931,7 @@
     },
     "ROUND_OF_32": {
       "total": 16,
-      "finished": 14,
+      "finished": 15,
       "startDate": "2026-06-28T19:00:00Z",
       "endDate": "2026-07-04T01:30:00Z"
     },
