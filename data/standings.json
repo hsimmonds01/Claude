@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-04T17:36:49.106Z",
+  "lastUpdated": "2026-07-04T18:41:17.976Z",
   "matches": [
     {
       "stage": "GROUP_STAGE",
@@ -878,8 +878,8 @@
       "homeTeam": "Canada",
       "awayTeam": "Morocco",
       "homeScore": 0,
-      "awayScore": 0,
-      "winner": "DRAW"
+      "awayScore": 1,
+      "winner": "AWAY_TEAM"
     },
     {
       "stage": "LAST_16",
