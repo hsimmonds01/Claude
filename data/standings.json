@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-04T04:53:38.805Z",
+  "lastUpdated": "2026-07-04T07:45:59.839Z",
   "matches": [
     {
       "stage": "GROUP_STAGE",
@@ -849,7 +849,7 @@
       "awayTeam": "Egypt",
       "homeScore": 3,
       "awayScore": 5,
-      "winner": null
+      "winner": "AWAY_TEAM"
     },
     {
       "stage": "LAST_32",
@@ -914,9 +914,39 @@
     {
       "stage": "LAST_16",
       "status": "TIMED",
+      "utcDate": "2026-07-06T19:00:00Z",
+      "homeTeam": "Portugal",
+      "awayTeam": "Spain",
+      "homeScore": null,
+      "awayScore": null,
+      "winner": null
+    },
+    {
+      "stage": "LAST_16",
+      "status": "TIMED",
       "utcDate": "2026-07-07T00:00:00Z",
       "homeTeam": "United States",
       "awayTeam": "Belgium",
+      "homeScore": null,
+      "awayScore": null,
+      "winner": null
+    },
+    {
+      "stage": "LAST_16",
+      "status": "TIMED",
+      "utcDate": "2026-07-07T16:00:00Z",
+      "homeTeam": "Argentina",
+      "awayTeam": "Egypt",
+      "homeScore": null,
+      "awayScore": null,
+      "winner": null
+    },
+    {
+      "stage": "LAST_16",
+      "status": "TIMED",
+      "utcDate": "2026-07-07T20:00:00Z",
+      "homeTeam": "Switzerland",
+      "awayTeam": "Colombia",
       "homeScore": null,
       "awayScore": null,
       "winner": null
