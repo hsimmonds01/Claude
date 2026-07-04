@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>Tooley Street – Dock Alerter</title>
+  <style>
+    /* ── Design tokens ─────────────────────────────────────────── */
+    :root {
+      --surface: #fcfcfb;
+      --page:    #f9f9f7;
+      --ink-1:   #0b0b0b;
+      --ink-2:   #52514e;
+      --ink-m:   #898781;
+      --grid:    #e1e0d9;
+      --axis:    #c3c2b7;
+      --docks:   #2a78d6;
+      --bikes:   #1baf7a;
+      --good:    #0ca30c;
+      --warn:    #fab219;
+      --bad:     #d03b3b;
+      --r:       10px;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --surface: #1a1a19;
+        --page:    #0d0d0d;
+        --ink-1:   #ffffff;
+        --ink-2:   #c3c2b7;
+        --ink-m:   #898781;
+        --grid:    #2c2c2a;
+        --axis:    #383835;
+        --docks:   #3987e5;
+        --bikes:   #199e70;
+      }
+    }
+
+    /* ── Reset ─────────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+      font-size: 15px;
+      background: var(--page);
+      color: var(--ink-1);
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 0 0 40px;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    /* ── Header ─────────────────────────────────────────────────── */
+    header {
+      padding: 16px 16px 12px;
+      border-bottom: 1px solid var(--grid);
+    }
+    header h1 {
+      font-size: 17px;
+      font-weight: 600;
+      letter-spacing: -0.2px;
+    }
+    #last-updated {
+      font-size: 12px;
+      color: var(--ink-m);
+      margin-top: 3px;
+    }
+    #refresh-btn {
+      float: right;
+      margin-top: 1px;
+      background: none;
+      border: 1px solid var(--grid);
+      border-radius: 6px;
+      padding: 5px 11px;
+      font-size: 12px;
+      font-family: inherit;
+      color: var(--ink-2);
+      cursor: pointer;
+      line-height: 1;
+    }
+    #refresh-btn:active { opacity: 0.6; }
+
+    /* ── Card sections ──────────────────────────────────────────── */
+    section {
+      background: var(--surface);
+      margin: 12px 12px 0;
+      border-radius: var(--r);
+      padding: 14px 14px 16px;
+      border: 1px solid var(--grid);
+    }
+    section h2 {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--ink-m);
+      text-transform: uppercase;
+      letter-spacing: 0.7px;
+      margin-bottom: 12px;
+    }
+
+    /* ── Stat tiles ─────────────────────────────────────────────── */
+    .tiles {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .tile {
+      background: var(--page);
+      border-radius: 8px;
+      padding: 12px 14px 13px;
+      border: 1px solid var(--grid);
+    }
+    .tile-label {
+      font-size: 11px;
+      color: var(--ink-m);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 5px;
+    }
+    .tile-value {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: -1.5px;
+      color: var(--ink-1);
+    }
+    .tile-value.c-good { color: var(--good); }
+    .tile-value.c-warn { color: var(--warn); }
+    .tile-value.c-bad  { color: var(--bad);  }
+    .tile-value.c-dock { color: var(--docks); }
+    .tile-value.c-bike { color: var(--bikes); }
+    .tile-sub {
+      font-size: 11px;
+      color: var(--ink-m);
+      margin-top: 4px;
+    }
+
+    /* ── Chart anatomy ──────────────────────────────────────────── */
+    .chart-block { margin-bottom: 16px; }
+    .chart-block:last-child { margin-bottom: 0; }
+    .chart-series-label {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--ink-2);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .chart-series-label .swatch {
+      display: inline-block;
+      width: 12px;
+      height: 2px;
+      border-radius: 1px;
+    }
+    .chart-wrap {
+      width: 100%;
+      position: relative;
+      overflow: visible;
+    }
+    .chart-wrap svg { width: 100%; display: block; overflow: visible; }
+
+    /* Tooltip */
+    .tip {
+      position: absolute;
+      background: var(--ink-1);
+      color: var(--surface);
+      font-size: 11px;
+      padding: 4px 9px;
+      border-radius: 5px;
+      pointer-events: none;
+      white-space: nowrap;
+      opacity: 0;
+      transition: opacity 0.08s;
+      transform: translate(-50%, calc(-100% - 8px));
+      z-index: 20;
+    }
+    .tip.show { opacity: 1; }
+
+    /* ── Pattern tabs ───────────────────────────────────────────── */
+    .tabs {
+      display: flex;
+      gap: 0;
+      border-radius: 7px;
+      background: var(--page);
+      border: 1px solid var(--grid);
+      padding: 2px;
+      margin-bottom: 12px;
+    }
+    .tab-btn {
+      flex: 1;
+      border: none;
+      background: none;
+      padding: 6px 8px;
+      font-size: 12px;
+      font-weight: 500;
+      font-family: inherit;
+      color: var(--ink-2);
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .tab-btn.active {
+      background: var(--surface);
+      color: var(--ink-1);
+      font-weight: 600;
+      box-shadow: 0 1px 3px rgba(0,0,0,.08);
+    }
+
+    /* ── Sparse / empty state ───────────────────────────────────── */
+    .sparse {
+      text-align: center;
+      padding: 20px 8px 14px;
+      color: var(--ink-m);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+    .sparse strong {
+      display: block;
+      font-size: 14px;
+      color: var(--ink-2);
+      margin-bottom: 4px;
+    }
+
+    /* ── Log table ──────────────────────────────────────────────── */
+    .log-tbl {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12px;
+      font-variant-numeric: tabular-nums;
+    }
+    .log-tbl th {
+      text-align: left;
+      color: var(--ink-m);
+      font-weight: 500;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      padding: 0 0 7px;
+      border-bottom: 1px solid var(--grid);
+    }
+    .log-tbl td {
+      padding: 6px 0;
+      border-bottom: 1px solid var(--grid);
+      color: var(--ink-2);
+      vertical-align: middle;
+    }
+    .log-tbl tr:last-child td { border-bottom: none; }
+    .log-tbl .v { color: var(--ink-1); font-weight: 600; }
+    .log-tbl .dot {
+      display: inline-block;
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      margin-right: 4px;
+      vertical-align: middle;
+    }
+
+    .note { font-size: 12px; color: var(--ink-m); }
+  </style>
+</head>
+<body>
+
+<header>
+  <button id="refresh-btn">↻ Refresh</button>
+  <h1>Tooley Street, Bermondsey</h1>
+  <div id="last-updated">Loading…</div>
+</header>
+
+<!-- Live status -->
+<section>
+  <h2>Right now</h2>
+  <div class="tiles">
+    <div class="tile">
+      <div class="tile-label">Empty docks</div>
+      <div class="tile-value" id="v-docks">–</div>
+      <div class="tile-sub" id="s-docks"></div>
+    </div>
+    <div class="tile">
+      <div class="tile-label">Bikes available</div>
+      <div class="tile-value" id="v-bikes">–</div>
+      <div class="tile-sub" id="s-bikes">standard only</div>
+    </div>
+  </div>
+</section>
+
+<!-- This week -->
+<section>
+  <h2>This week</h2>
+  <div class="chart-block">
+    <div class="chart-series-label">
+      <span class="swatch" style="background:var(--docks)"></span>Morning — empty docks
+    </div>
+    <div class="chart-wrap" id="cw-morning"></div>
+  </div>
+  <div class="chart-block">
+    <div class="chart-series-label">
+      <span class="swatch" style="background:var(--bikes)"></span>Evening — bikes available
+    </div>
+    <div class="chart-wrap" id="cw-evening"></div>
+  </div>
+</section>
+
+<!-- When does it run out -->
+<section>
+  <h2>When does it run out?</h2>
+  <div class="tabs">
+    <button class="tab-btn active" data-tab="eve">Evening bikes</button>
+    <button class="tab-btn" data-tab="morn">Morning docks</button>
+  </div>
+  <div id="p-eve"></div>
+  <div id="p-morn" style="display:none"></div>
+  <p class="note" style="margin-top:10px">Averages across all history for the monitoring window. Builds up over a few weeks.</p>
+</section>
+
+<!-- Log -->
+<section>
+  <h2>Recent readings</h2>
+  <div id="log-wrap"><span class="note">Loading…</span></div>
+</section>
+
+<script>
+/* ── Constants ─────────────────────────────────────────────────── */
+const TFL_URL     = 'https://api.tfl.gov.uk/BikePoint/BikePoints_278';
+const HIST_URL    = 'https://raw.githubusercontent.com/hsimmonds01/Claude/main/dock-alerter/history.csv';
+const LOW_DOCKS   = 3,  CLEAR_DOCKS = 5;
+const LOW_BIKES   = 5,  CRIT_BIKES  = 3,  CLEAR_BIKES = 6;
+const SVG = 'http://www.w3.org/2000/svg';
+const DOCK_COLOR  = '#2a78d6';
+const BIKE_COLOR  = '#1baf7a';
+const WARN_COLOR  = '#fab219';
+const BAD_COLOR   = '#d03b3b';
+const GRID_COLOR  = 'var(--grid)';
+const INK_M       = 'var(--ink-m)';
+const SURFACE     = 'var(--surface)';
+
+function el(tag, attrs, ns) {
+  const e = ns ? document.createElementNS(ns, tag) : document.createElement(tag);
+  if (attrs) for (const [k,v] of Object.entries(attrs)) e.setAttribute(k, v);
+  return e;
+}
+function sv(tag, attrs) { return el(tag, attrs, SVG); }
+
+/* ── Live status ──────────────────────────────────────────────── */
+async function fetchLive() {
+  const r = await fetch(TFL_URL);
+  if (!r.ok) throw new Error('TfL ' + r.status);
+  const d = await r.json();
+  const p = Object.fromEntries((d.additionalProperties||[]).map(x=>[x.key,x.value]));
+  const bikes = Math.max(0, parseInt(p.NbBikes||0) - parseInt(p.NbEBikes||0));
+  return { docks: parseInt(p.NbEmptyDocks||0), bikes, total: parseInt(p.NbDocks||0) };
+}
+
+function renderLive(s) {
+  const dEl = document.getElementById('v-docks');
+  const bEl = document.getElementById('v-bikes');
+  dEl.textContent = s.docks;
+  dEl.className   = 'tile-value ' + (s.docks < LOW_DOCKS ? 'c-bad' : s.docks < CLEAR_DOCKS ? 'c-warn' : 'c-dock');
+  document.getElementById('s-docks').textContent = 'of ' + s.total + ' docks total';
+  bEl.textContent = s.bikes;
+  bEl.className   = 'tile-value ' + (s.bikes < CRIT_BIKES ? 'c-bad' : s.bikes < LOW_BIKES ? 'c-warn' : 'c-bike');
+}
+
+/* ── History CSV ──────────────────────────────────────────────── */
+async function fetchHistory() {
+  const r = await fetch(HIST_URL);
+  if (!r.ok) throw new Error('History ' + r.status);
+  const lines = (await r.text()).trim().split('\n');
+  if (lines.length < 2) return [];
+  const hdrs = lines[0].split(',').map(h=>h.trim());
+  return lines.slice(1).map(line => {
+    const vals = line.split(',');
+    const row  = Object.fromEntries(hdrs.map((h,i)=>[h, (vals[i]||'').trim()]));
+    row.ts     = new Date(row.timestamp_utc);
+    row.value  = parseInt(row.value)||0;
+    // Derive London time components from the UTC timestamp
+    const lon  = new Date(row.ts.toLocaleString('en-GB',{timeZone:'Europe/London'}));
+    row.dateStr = lon.getFullYear() + '-' +
+                  String(lon.getMonth()+1).padStart(2,'0') + '-' +
+                  String(lon.getDate()).padStart(2,'0');
+    row.hhmm    = lon.getHours()*60 + lon.getMinutes();
+    return row;
+  });
+}
+
+function weekMonday() {
+  const now = new Date();
+  const lon = new Date(now.toLocaleString('en-GB',{timeZone:'Europe/London'}));
+  const dow = lon.getDay(); // 0=Sun
+  lon.setDate(lon.getDate() - (dow === 0 ? 6 : dow - 1));
+  lon.setHours(0,0,0,0);
+  return lon;
+}
+
+/* ── SVG chart builders ───────────────────────────────────────── */
+
+// Line chart: one dot per date (avg of that date's readings)
+function lineChart(wrap, rows, color, thresh) {
+  wrap.innerHTML = '';
+  if (!rows.length) {
+    wrap.innerHTML = '<div class="sparse"><strong>No readings yet</strong>Will appear once monitoring has run this week.</div>';
+    return;
+  }
+
+  const W  = wrap.clientWidth || 300;
+  const H  = 110, PL = 30, PR = 8, PT = 10, PB = 22;
+  const pw = W - PL - PR, ph = H - PT - PB;
+
+  // Average by date
+  const map = {};
+  for (const r of rows) {
+    if (!map[r.dateStr]) map[r.dateStr] = [];
+    map[r.dateStr].push(r.value);
+  }
+  const dates = Object.keys(map).sort();
+  const avgs  = dates.map(d => Math.round(map[d].reduce((a,b)=>a+b,0)/map[d].length));
+  const vMax  = Math.max(...avgs, thresh.clear + 2, 10);
+  const xOf   = i  => PL + (dates.length < 2 ? pw/2 : i/(dates.length-1)*pw);
+  const yOf   = v  => PT + ph - (v/vMax)*ph;
+
+  const svg = sv('svg', {viewBox:`0 0 ${W} ${H}`, height:H});
+
+  // Gridlines + y-ticks
+  const step = vMax <= 8 ? 2 : vMax <= 20 ? 5 : 10;
+  for (let v = 0; v <= vMax; v += step) {
+    const y = yOf(v);
+    svg.appendChild(sv('line',{x1:PL,y1:y,x2:W-PR,y2:y,stroke:GRID_COLOR,'stroke-width':'1'}));
+    const t = sv('text',{x:PL-4,y:y+3.5,'text-anchor':'end',fill:INK_M,'font-size':'9','font-variant-numeric':'tabular-nums'});
+    t.textContent = v; svg.appendChild(t);
+  }
+
+  // Threshold reference lines
+  if (thresh.low != null) {
+    const y = yOf(thresh.low);
+    svg.appendChild(sv('line',{x1:PL,y1:y,x2:W-PR,y2:y,stroke:WARN_COLOR,'stroke-width':'1',opacity:'0.45'}));
+  }
+  if (thresh.crit != null) {
+    const y = yOf(thresh.crit);
+    svg.appendChild(sv('line',{x1:PL,y1:y,x2:W-PR,y2:y,stroke:BAD_COLOR,'stroke-width':'1',opacity:'0.45'}));
+  }
+
+  // Connector line
+  if (dates.length > 1) {
+    const pts = dates.map((_,i)=>`${xOf(i)},${yOf(avgs[i])}`).join(' ');
+    svg.appendChild(sv('polyline',{points:pts,fill:'none',stroke:color,'stroke-width':'2','stroke-linecap':'round','stroke-linejoin':'round'}));
+  }
+
+  // Dots (surface ring + filled)
+  const pts = dates.map((d,i)=>({x:xOf(i),y:yOf(avgs[i]),v:avgs[i],d}));
+  for (const p of pts) {
+    svg.appendChild(sv('circle',{cx:p.x,cy:p.y,r:'6',fill:SURFACE}));
+    svg.appendChild(sv('circle',{cx:p.x,cy:p.y,r:'4',fill:color}));
+  }
+
+  // X labels
+  for (let i = 0; i < dates.length; i++) {
+    const t = sv('text',{x:xOf(i),y:H-4,'text-anchor':'middle',fill:INK_M,'font-size':'9'});
+    const d = new Date(dates[i]+'T12:00:00');
+    t.textContent = d.toLocaleDateString('en-GB',{weekday:'short'});
+    svg.appendChild(t);
+  }
+
+  // Tooltip
+  const tip = el('div'); tip.className = 'tip';
+  wrap.style.position = 'relative';
+  wrap.appendChild(svg);
+  wrap.appendChild(tip);
+
+  svg.addEventListener('pointermove', e => {
+    const r  = svg.getBoundingClientRect();
+    const mx = (e.clientX - r.left) * (W / r.width);
+    let best = null, bd = Infinity;
+    for (const p of pts) { const d = Math.abs(p.x-mx); if (d < bd) { bd = d; best = p; } }
+    if (best && bd < 40) {
+      const dLabel = new Date(best.d+'T12:00:00').toLocaleDateString('en-GB',{weekday:'short',day:'numeric',month:'short'});
+      tip.textContent = dLabel + ': ' + best.v;
+      tip.style.left  = (best.x/W*100)+'%';
+      tip.style.top   = best.y+'px';
+      tip.classList.add('show');
+    } else tip.classList.remove('show');
+  });
+  svg.addEventListener('pointerleave', () => tip.classList.remove('show'));
+}
+
+// Bar chart: average value per 5-min time slot
+function barChart(wrap, rows, color, thresh) {
+  wrap.innerHTML = '';
+  if (rows.length < 6) {
+    wrap.innerHTML = '<div class="sparse"><strong>Building up…</strong>Needs a week or two of check-window readings to show useful patterns. Come back soon.</div>';
+    return;
+  }
+
+  const map = {};
+  for (const r of rows) {
+    const slot = Math.floor(r.hhmm/5)*5;
+    if (!map[slot]) map[slot] = [];
+    map[slot].push(r.value);
+  }
+  const slots = Object.keys(map).map(Number).sort((a,b)=>a-b);
+  const avgs  = slots.map(s => Math.round(map[s].reduce((a,b)=>a+b,0)/map[s].length));
+
+  const W  = wrap.clientWidth || 300;
+  const H  = 120, PL = 30, PR = 8, PT = 10, PB = 28;
+  const pw = W - PL - PR, ph = H - PT - PB;
+  const vMax = Math.max(...avgs, thresh.clear + 2, 10);
+  const yOf  = v => PT + ph - (v/vMax)*ph;
+  const bW   = Math.max(4, Math.floor(pw/slots.length) - 2);
+  const xOf  = i => PL + (i+0.5)*(pw/slots.length);
+
+  const svg = sv('svg',{viewBox:`0 0 ${W} ${H}`,height:H});
+
+  // Gridlines
+  const step = vMax <= 8 ? 2 : 5;
+  for (let v = 0; v <= vMax; v += step) {
+    const y = yOf(v);
+    svg.appendChild(sv('line',{x1:PL,y1:y,x2:W-PR,y2:y,stroke:GRID_COLOR,'stroke-width':'1'}));
+    const t = sv('text',{x:PL-4,y:y+3.5,'text-anchor':'end',fill:INK_M,'font-size':'9','font-variant-numeric':'tabular-nums'});
+    t.textContent = v; svg.appendChild(t);
+  }
+
+  // Threshold lines
+  if (thresh.low != null) {
+    const y = yOf(thresh.low);
+    svg.appendChild(sv('line',{x1:PL,y1:y,x2:W-PR,y2:y,stroke:WARN_COLOR,'stroke-width':'1',opacity:'0.45'}));
+  }
+  if (thresh.crit != null) {
+    const y = yOf(thresh.crit);
+    svg.appendChild(sv('line',{x1:PL,y1:y,x2:W-PR,y2:y,stroke:BAD_COLOR,'stroke-width':'1',opacity:'0.45'}));
+  }
+
+  // Bars
+  const bars = [];
+  for (let i = 0; i < slots.length; i++) {
+    const x = xOf(i) - bW/2, y = yOf(avgs[i]);
+    const bh = PT + ph - y;
+    const bc = avgs[i] < (thresh.crit ?? -1) ? BAD_COLOR : avgs[i] < (thresh.low ?? -1) ? WARN_COLOR : color;
+    const rect = sv('rect',{x,y,width:bW,height:Math.max(1,bh),fill:bc,rx:'2'});
+    svg.appendChild(rect);
+    bars.push({rect, x:xOf(i), y, v:avgs[i], slot:slots[i]});
+  }
+
+  // X axis labels (every other slot)
+  for (let i = 0; i < slots.length; i++) {
+    if (i % 2 !== 0) continue;
+    const h = Math.floor(slots[i]/60), m = slots[i]%60;
+    const t = sv('text',{x:xOf(i),y:H-6,'text-anchor':'middle',fill:INK_M,'font-size':'8'});
+    t.textContent = String(h).padStart(2,'0')+':'+String(m).padStart(2,'0');
+    svg.appendChild(t);
+  }
+
+  // Tooltip
+  const tip = el('div'); tip.className = 'tip';
+  wrap.style.position = 'relative';
+  wrap.appendChild(svg);
+  wrap.appendChild(tip);
+
+  svg.addEventListener('pointermove', e => {
+    const r  = svg.getBoundingClientRect();
+    const mx = (e.clientX - r.left)*(W/r.width);
+    let best = null, bd = Infinity;
+    for (const b of bars) { const d = Math.abs(b.x-mx); if (d < bd) { bd = d; best = b; } }
+    if (best && bd < bW+6) {
+      const h = Math.floor(best.slot/60), m = best.slot%60;
+      tip.textContent = String(h).padStart(2,'0')+':'+String(m).padStart(2,'0')+' avg: '+best.v;
+      tip.style.left = (best.x/W*100)+'%';
+      tip.style.top  = best.y+'px';
+      tip.classList.add('show');
+    } else tip.classList.remove('show');
+  });
+  svg.addEventListener('pointerleave', () => tip.classList.remove('show'));
+}
+
+/* ── Log table ────────────────────────────────────────────────── */
+function renderLog(rows) {
+  const wrap = document.getElementById('log-wrap');
+  if (!rows.length) { wrap.innerHTML = '<span class="note">No readings yet.</span>'; return; }
+  const last = [...rows].reverse().slice(0, 25);
+  const tbl = el('table'); tbl.className = 'log-tbl';
+  const thead = el('thead');
+  thead.innerHTML = '<tr><th>Time (London)</th><th>Mode</th><th>Reading</th></tr>';
+  tbl.appendChild(thead);
+  const tbody = el('tbody');
+  for (const r of last) {
+    const tr = el('tr');
+    const ts = r.ts.toLocaleString('en-GB',{timeZone:'Europe/London',weekday:'short',day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'});
+    const isDocks = r.metric === 'empty_docks';
+    const dotColor = isDocks ? DOCK_COLOR : BIKE_COLOR;
+    const unit = isDocks ? 'docks' : 'bikes';
+    const td0 = el('td'); td0.textContent = ts;
+    const td1 = el('td'); td1.textContent = r.mode.replace(/_/g,' ');
+    const td2 = el('td');
+    const dot = el('span'); dot.className = 'dot'; dot.style.background = dotColor;
+    const val = el('span'); val.className = 'v'; val.textContent = r.value;
+    const unt = el('span'); unt.textContent = ' '+unit; unt.style.color='var(--ink-m)';
+    td2.append(dot, val, unt);
+    tr.append(td0, td1, td2);
+    tbody.appendChild(tr);
+  }
+  tbl.appendChild(tbody);
+  wrap.innerHTML = '';
+  wrap.appendChild(tbl);
+}
+
+/* ── Main ─────────────────────────────────────────────────────── */
+async function init() {
+  // Live status
+  try {
+    const live = await fetchLive();
+    renderLive(live);
+    const now = new Date().toLocaleString('en-GB',{timeZone:'Europe/London',hour:'2-digit',minute:'2-digit'});
+    document.getElementById('last-updated').textContent = 'Updated ' + now;
+  } catch (e) {
+    document.getElementById('last-updated').textContent = 'Live status unavailable';
+  }
+
+  // History
+  try {
+    const all  = await fetchHistory();
+    const mon  = weekMonday();
+    const week = all.filter(r => r.ts >= mon);
+
+    lineChart(
+      document.getElementById('cw-morning'),
+      week.filter(r => r.metric === 'empty_docks'),
+      DOCK_COLOR,
+      {low: LOW_DOCKS, clear: CLEAR_DOCKS}
+    );
+    lineChart(
+      document.getElementById('cw-evening'),
+      week.filter(r => r.metric === 'available_bikes'),
+      BIKE_COLOR,
+      {low: LOW_BIKES, crit: CRIT_BIKES, clear: CLEAR_BIKES}
+    );
+
+    barChart(
+      document.getElementById('p-eve'),
+      all.filter(r => r.mode === 'evening_check' && r.metric === 'available_bikes'),
+      BIKE_COLOR,
+      {low: LOW_BIKES, crit: CRIT_BIKES, clear: CLEAR_BIKES}
+    );
+    barChart(
+      document.getElementById('p-morn'),
+      all.filter(r => r.mode === 'check' && r.metric === 'empty_docks'),
+      DOCK_COLOR,
+      {low: LOW_DOCKS, clear: CLEAR_DOCKS}
+    );
+
+    renderLog(all);
+  } catch (e) {
+    console.error(e);
+    ['cw-morning','cw-evening'].forEach(id => {
+      document.getElementById(id).innerHTML = '<span class="note">Could not load history.</span>';
+    });
+    document.getElementById('log-wrap').innerHTML = '<span class="note">Could not load history.</span>';
+  }
+}
+
+// Tab switcher
+for (const btn of document.querySelectorAll('.tab-btn')) {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const tab = btn.dataset.tab;
+    document.getElementById('p-eve').style.display  = tab === 'eve'  ? '' : 'none';
+    document.getElementById('p-morn').style.display = tab === 'morn' ? '' : 'none';
+  });
+}
+
+// Refresh button
+document.getElementById('refresh-btn').addEventListener('click', init);
+
+init();
+</script>
+</body>
+</html>
