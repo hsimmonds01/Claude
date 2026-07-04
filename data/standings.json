@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-04T20:57:42.792Z",
+  "lastUpdated": "2026-07-04T21:58:20.480Z",
   "matches": [
     {
       "stage": "GROUP_STAGE",
@@ -883,13 +883,13 @@
     },
     {
       "stage": "LAST_16",
-      "status": "TIMED",
+      "status": "PAUSED",
       "utcDate": "2026-07-04T21:00:00Z",
       "homeTeam": "Paraguay",
       "awayTeam": "France",
-      "homeScore": null,
-      "awayScore": null,
-      "winner": null
+      "homeScore": 0,
+      "awayScore": 0,
+      "winner": "DRAW"
     },
     {
       "stage": "LAST_16",
