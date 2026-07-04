@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-04T01:16:58.823Z",
+  "lastUpdated": "2026-07-04T04:53:38.805Z",
   "matches": [
     {
       "stage": "GROUP_STAGE",
@@ -863,13 +863,13 @@
     },
     {
       "stage": "LAST_32",
-      "status": "TIMED",
+      "status": "FINISHED",
       "utcDate": "2026-07-04T01:30:00Z",
       "homeTeam": "Colombia",
       "awayTeam": "Ghana",
-      "homeScore": null,
-      "awayScore": null,
-      "winner": null
+      "homeScore": 1,
+      "awayScore": 0,
+      "winner": "HOME_TEAM"
     },
     {
       "stage": "LAST_16",
@@ -931,7 +931,7 @@
     },
     "ROUND_OF_32": {
       "total": 16,
-      "finished": 15,
+      "finished": 16,
       "startDate": "2026-06-28T19:00:00Z",
       "endDate": "2026-07-04T01:30:00Z"
     },
