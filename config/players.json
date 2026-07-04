@@ -18,7 +18,7 @@
         { "label": "Ivory Coast", "aliases": ["ivory coast", "cote d'ivoire", "côte d'ivoire", "cote divoire"] },
         { "label": "Czechia", "aliases": ["czechia", "czech republic"] }
       ],
-      "paid": false
+      "paid": true
     },
     {
       "name": "Val",
