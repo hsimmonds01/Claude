@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-04T18:41:17.976Z",
+  "lastUpdated": "2026-07-04T19:54:18.371Z",
   "matches": [
     {
       "stage": "GROUP_STAGE",
@@ -873,12 +873,12 @@
     },
     {
       "stage": "LAST_16",
-      "status": "IN_PLAY",
+      "status": "FINISHED",
       "utcDate": "2026-07-04T17:00:00Z",
       "homeTeam": "Canada",
       "awayTeam": "Morocco",
       "homeScore": 0,
-      "awayScore": 1,
+      "awayScore": 3,
       "winner": "AWAY_TEAM"
     },
     {
@@ -967,7 +967,7 @@
     },
     "ROUND_OF_16": {
       "total": 8,
-      "finished": 0,
+      "finished": 1,
       "startDate": "2026-07-04T17:00:00Z",
       "endDate": "2026-07-07T20:00:00Z"
     },
