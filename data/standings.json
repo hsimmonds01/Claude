@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-05T21:41:27.755Z",
+  "lastUpdated": "2026-07-05T22:40:08.676Z",
   "matches": [
     {
       "stage": "GROUP_STAGE",
@@ -893,13 +893,13 @@
     },
     {
       "stage": "LAST_16",
-      "status": "LIVE",
+      "status": "FINISHED",
       "utcDate": "2026-07-05T20:00:00Z",
       "homeTeam": "Brazil",
       "awayTeam": "Norway",
-      "homeScore": 0,
-      "awayScore": 0,
-      "winner": "DRAW"
+      "homeScore": 1,
+      "awayScore": 2,
+      "winner": "AWAY_TEAM"
     },
     {
       "stage": "LAST_16",
@@ -977,7 +977,7 @@
     },
     "ROUND_OF_16": {
       "total": 8,
-      "finished": 2,
+      "finished": 3,
       "startDate": "2026-07-04T17:00:00Z",
       "endDate": "2026-07-07T20:00:00Z"
     },
