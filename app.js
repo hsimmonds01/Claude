@@ -143,6 +143,16 @@ function flagFor(name) {
 
 const PREV_RANKS_KEY = "wc-fantasy-prev-ranks";
 
+function buildEliminatedSet(matches) {
+  const eliminated = new Set();
+  for (const m of matches) {
+    if (m.stage === "GROUP_STAGE" || m.status !== "FINISHED") continue;
+    if (m.winner === "HOME_TEAM") eliminated.add(normalize(m.awayTeam));
+    else if (m.winner === "AWAY_TEAM") eliminated.add(normalize(m.homeTeam));
+  }
+  return eliminated;
+}
+
 function renderRankChange(name, rank, prevRanks) {
   const prevRank = prevRanks[name];
   if (prevRank === undefined || prevRank === rank) return "";
@@ -154,6 +164,8 @@ function renderRankChange(name, rank, prevRanks) {
 function renderLeaderboard(players, matches) {
   const board = document.getElementById("leaderboard");
   board.innerHTML = "";
+
+  const eliminated = buildEliminatedSet(matches);
 
   const scored = players
     .map((player) => {
@@ -186,13 +198,14 @@ function renderLeaderboard(players, matches) {
     const breakdown = document.createElement("div");
     breakdown.className = "team-breakdown";
     breakdown.innerHTML = player.teams
-      .map(
-        (t) => `
-        <div class="team-row">
+      .map((t) => {
+        const isElim = eliminated.has(normalize(t.displayName));
+        return `
+        <div class="team-row${isElim ? " eliminated" : ""}">
           <span>${flagFor(t.displayName)} ${t.displayName} <span class="team-games">(${t.gamesPlayed} played)</span></span>
           <span class="team-points">${t.groupPoints} group + ${t.knockoutBonus} round + ${t.thirdPlaceBonus} 3rd = <strong>${t.total}</strong></span>
-        </div>`
-      )
+        </div>`;
+      })
       .join("");
 
     card.append(row, breakdown);

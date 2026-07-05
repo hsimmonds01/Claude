@@ -263,6 +263,10 @@ main {
   border-bottom: none;
 }
 
+.team-row.eliminated {
+  opacity: 0.4;
+}
+
 .team-points {
   color: var(--muted);
 }
