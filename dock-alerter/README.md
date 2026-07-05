@@ -77,6 +77,30 @@ Shortcut that commits the file via the GitHub Contents API:
 3. **Add the Shortcut to your Home Screen** (share sheet -> Add to Home
    Screen) for a 1-tap mute icon.
 
+### Enabling a one-off Friday
+
+Monitoring normally runs Mon-Thu only. To include a specific Friday, drop a
+file at `dock-alerter/friday.flag` containing that Friday's date (e.g.
+`2026-07-10`). You can set it any time in advance (e.g. Thursday afternoon)
+and it resets itself automatically -- any other Friday won't match, so
+there's nothing to clean up. Works via the same 1-tap iOS Shortcut pattern
+as the mute flag (same GitHub token, just targeting `friday.flag` and
+writing tomorrow's date). If both `friday.flag` and `mute.flag` are set for
+the same day, the mute wins.
+
+### Dashboard
+
+`dock-alerter/dashboard.html` is a self-contained phone-friendly dashboard
+(no build step, no external libraries) served via GitHub Pages:
+
+    https://hsimmonds01.github.io/Claude/dock-alerter/dashboard.html
+
+It shows live dock/bike status straight from the TfL API, this week's daily
+lows for each monitoring window, a typical-availability-by-time-of-day
+pattern built from `history.csv`, and a log of recent readings. Open it in
+Safari and use "Add to Home Screen" for a 1-tap icon; it re-fetches live
+data automatically whenever you re-open it.
+
 ### Checking on demand
 
 Outside the scheduled windows, you can trigger a one-off check any time

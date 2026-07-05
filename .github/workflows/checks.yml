@@ -68,10 +68,17 @@ jobs:
       - name: Run dock check
         working-directory: dock-alerter
         env:
-          NTFY_TOPIC: ${{ vars.NTFY_TOPIC }}
+          # Prefer a repo *secret* over a variable: secrets are masked in the
+          # (publicly visible) Actions logs, variables are not.
+          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC || vars.NTFY_TOPIC }}
+          # Pass inputs via env rather than interpolating into the script --
+          # choice/boolean inputs are validated by GitHub, but env indirection
+          # removes the shell-injection pattern entirely.
+          FORCE_MODE: ${{ inputs.force_mode || 'auto' }}
+          DRY_RUN: ${{ inputs.dry_run }}
         run: |
-          ARGS="--force-mode ${{ inputs.force_mode || 'auto' }}"
-          if [ "${{ inputs.dry_run }}" = "true" ]; then
+          ARGS="--force-mode ${FORCE_MODE}"
+          if [ "${DRY_RUN}" = "true" ]; then
             ARGS="$ARGS --dry-run"
           fi
           python check_docks.py $ARGS

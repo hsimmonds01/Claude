@@ -338,7 +338,9 @@ def send_notification(title: str, message: str, priority: str = "default", tags:
         "Tags": tags,
     }
     response = requests.post(NTFY_URL, data=message.encode("utf-8"), headers=headers, timeout=REQUEST_TIMEOUT_SECONDS)
-    print(f"ntfy POST to {NTFY_URL} -> {response.status_code}: {response.text[:300]}")
+    # Don't echo the URL or response body: this repo is public, so Actions
+    # logs are public too, and both would reveal the ntfy topic string.
+    print(f"ntfy POST -> {response.status_code}")
     response.raise_for_status()
 
 

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Tooley Street – Dock Alerter</title>
   <style>
     /* ── Design tokens ─────────────────────────────────────────── */
@@ -17,9 +17,13 @@
       --docks:   #2a78d6;
       --bikes:   #1baf7a;
       --good:    #0ca30c;
-      --warn:    #fab219;
+      --good-bg: rgba(12,163,12,0.10);
+      --warn:    #b97f00;
+      --warn-bg: rgba(250,178,25,0.16);
       --bad:     #d03b3b;
-      --r:       10px;
+      --bad-bg:  rgba(208,59,59,0.10);
+      --warn-line: #fab219;
+      --bad-line:  #d03b3b;
     }
     @media (prefers-color-scheme: dark) {
       :root {
@@ -32,639 +36,831 @@
         --axis:    #383835;
         --docks:   #3987e5;
         --bikes:   #199e70;
+        --warn:    #fab219;
       }
     }
 
-    /* ── Reset ─────────────────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { -webkit-text-size-adjust: 100%; }
     body {
       font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
       font-size: 15px;
+      line-height: 1.45;
       background: var(--page);
       color: var(--ink-1);
-      max-width: 500px;
+      max-width: 560px;
       margin: 0 auto;
-      padding: 0 0 40px;
-      -webkit-text-size-adjust: 100%;
+      padding: 0 0 48px;
     }
 
     /* ── Header ─────────────────────────────────────────────────── */
     header {
-      padding: 16px 16px 12px;
-      border-bottom: 1px solid var(--grid);
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 18px 16px 12px;
     }
-    header h1 {
-      font-size: 17px;
-      font-weight: 600;
-      letter-spacing: -0.2px;
-    }
-    #last-updated {
-      font-size: 12px;
-      color: var(--ink-m);
-      margin-top: 3px;
-    }
+    header h1 { font-size: 18px; font-weight: 650; letter-spacing: -0.2px; }
+    header .sub { font-size: 12.5px; color: var(--ink-m); margin-top: 2px; }
     #refresh-btn {
-      float: right;
-      margin-top: 1px;
-      background: none;
+      flex: none;
+      background: var(--surface);
       border: 1px solid var(--grid);
-      border-radius: 6px;
-      padding: 5px 11px;
-      font-size: 12px;
+      border-radius: 7px;
+      padding: 7px 13px;
+      font-size: 13px;
       font-family: inherit;
-      color: var(--ink-2);
+      font-weight: 500;
+      color: var(--ink-1);
       cursor: pointer;
-      line-height: 1;
     }
     #refresh-btn:active { opacity: 0.6; }
 
-    /* ── Card sections ──────────────────────────────────────────── */
+    /* ── Cards ──────────────────────────────────────────────────── */
     section {
       background: var(--surface);
-      margin: 12px 12px 0;
-      border-radius: var(--r);
-      padding: 14px 14px 16px;
+      margin: 10px 12px 0;
+      border-radius: 12px;
+      padding: 16px;
       border: 1px solid var(--grid);
     }
-    section h2 {
-      font-size: 11px;
-      font-weight: 600;
-      color: var(--ink-m);
-      text-transform: uppercase;
-      letter-spacing: 0.7px;
-      margin-bottom: 12px;
-    }
+    .sec-title { font-size: 15px; font-weight: 650; letter-spacing: -0.1px; }
+    .sec-sub   { font-size: 12.5px; color: var(--ink-m); margin: 2px 0 14px; }
 
     /* ── Stat tiles ─────────────────────────────────────────────── */
-    .tiles {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-    }
+    .tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
     .tile {
       background: var(--page);
-      border-radius: 8px;
-      padding: 12px 14px 13px;
       border: 1px solid var(--grid);
+      border-radius: 10px;
+      padding: 12px 14px 12px;
     }
-    .tile-label {
-      font-size: 11px;
-      color: var(--ink-m);
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      margin-bottom: 5px;
-    }
+    .tile-label { font-size: 12.5px; font-weight: 550; color: var(--ink-2); }
     .tile-value {
-      font-size: 40px;
+      font-size: 42px;
       font-weight: 700;
-      line-height: 1;
+      line-height: 1.1;
       letter-spacing: -1.5px;
-      color: var(--ink-1);
+      margin: 2px 0 4px;
     }
-    .tile-value.c-good { color: var(--good); }
-    .tile-value.c-warn { color: var(--warn); }
-    .tile-value.c-bad  { color: var(--bad);  }
-    .tile-value.c-dock { color: var(--docks); }
-    .tile-value.c-bike { color: var(--bikes); }
-    .tile-sub {
-      font-size: 11px;
-      color: var(--ink-m);
-      margin-top: 4px;
+    .tile-sub { font-size: 11.5px; color: var(--ink-m); }
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 11.5px;
+      font-weight: 600;
+      border-radius: 20px;
+      padding: 2px 9px;
+      margin-bottom: 6px;
+    }
+    .chip::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+    .chip.good { color: var(--good); background: var(--good-bg); }
+    .chip.warn { color: var(--warn); background: var(--warn-bg); }
+    .chip.bad  { color: var(--bad);  background: var(--bad-bg); }
+    .chip.na   { color: var(--ink-m); background: var(--page); border: 1px solid var(--grid); }
+    #backup-row {
+      margin-top: 10px;
+      font-size: 12.5px;
+      color: var(--ink-2);
+      display: none;
+    }
+    #backup-row strong { font-weight: 650; }
+
+    /* ── Controls (toggles / tabs) ──────────────────────────────── */
+    .seg {
+      display: flex;
+      background: var(--page);
+      border: 1px solid var(--grid);
+      border-radius: 8px;
+      padding: 2px;
+      margin-bottom: 14px;
+    }
+    .seg button {
+      flex: 1;
+      border: none;
+      background: none;
+      padding: 7px 8px;
+      font-size: 13px;
+      font-weight: 500;
+      font-family: inherit;
+      color: var(--ink-2);
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .seg button.active {
+      background: var(--surface);
+      color: var(--ink-1);
+      font-weight: 600;
+      box-shadow: 0 1px 2px rgba(0,0,0,.10);
     }
 
     /* ── Chart anatomy ──────────────────────────────────────────── */
-    .chart-block { margin-bottom: 16px; }
-    .chart-block:last-child { margin-bottom: 0; }
-    .chart-series-label {
-      font-size: 11px;
+    .chart-block { margin-bottom: 18px; }
+    .chart-block:last-child { margin-bottom: 4px; }
+    .chart-title {
+      font-size: 13px;
       font-weight: 600;
-      color: var(--ink-2);
-      margin-bottom: 6px;
+      color: var(--ink-1);
       display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 7px;
     }
-    .chart-series-label .swatch {
-      display: inline-block;
-      width: 12px;
-      height: 2px;
-      border-radius: 1px;
-    }
-    .chart-wrap {
-      width: 100%;
-      position: relative;
-      overflow: visible;
-    }
+    .chart-title .key { width: 14px; height: 3px; border-radius: 2px; flex: none; }
+    .chart-note { font-size: 11.5px; color: var(--ink-m); margin: 1px 0 8px 21px; }
+    .chart-wrap { position: relative; width: 100%; }
     .chart-wrap svg { width: 100%; display: block; overflow: visible; }
 
-    /* Tooltip */
+    .thresh-legend {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      font-size: 11px;
+      color: var(--ink-m);
+      margin-top: 10px;
+    }
+    .thresh-legend span { display: inline-flex; align-items: center; gap: 5px; }
+    .tl-line { width: 16px; border-top: 1.5px dashed; flex: none; }
+
     .tip {
       position: absolute;
       background: var(--ink-1);
       color: var(--surface);
-      font-size: 11px;
-      padding: 4px 9px;
-      border-radius: 5px;
+      font-size: 11.5px;
+      line-height: 1.35;
+      padding: 5px 9px;
+      border-radius: 6px;
       pointer-events: none;
       white-space: nowrap;
       opacity: 0;
       transition: opacity 0.08s;
-      transform: translate(-50%, calc(-100% - 8px));
+      transform: translate(-50%, calc(-100% - 10px));
       z-index: 20;
     }
+    .tip strong { font-weight: 650; }
     .tip.show { opacity: 1; }
 
-    /* ── Pattern tabs ───────────────────────────────────────────── */
-    .tabs {
-      display: flex;
-      gap: 0;
-      border-radius: 7px;
-      background: var(--page);
-      border: 1px solid var(--grid);
-      padding: 2px;
-      margin-bottom: 12px;
-    }
-    .tab-btn {
-      flex: 1;
-      border: none;
-      background: none;
-      padding: 6px 8px;
-      font-size: 12px;
-      font-weight: 500;
-      font-family: inherit;
-      color: var(--ink-2);
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    .tab-btn.active {
-      background: var(--surface);
-      color: var(--ink-1);
-      font-weight: 600;
-      box-shadow: 0 1px 3px rgba(0,0,0,.08);
-    }
-
-    /* ── Sparse / empty state ───────────────────────────────────── */
     .sparse {
       text-align: center;
-      padding: 20px 8px 14px;
+      padding: 18px 8px 12px;
       color: var(--ink-m);
       font-size: 13px;
-      line-height: 1.5;
     }
-    .sparse strong {
-      display: block;
-      font-size: 14px;
-      color: var(--ink-2);
-      margin-bottom: 4px;
+    .sparse strong { display: block; font-size: 14px; color: var(--ink-2); margin-bottom: 3px; }
+
+    /* ── Notices ────────────────────────────────────────────────── */
+    .notice {
+      display: none;
+      margin: 10px 12px 0;
+      padding: 10px 14px;
+      border-radius: 10px;
+      font-size: 13px;
+      background: var(--warn-bg);
+      color: var(--warn);
+      border: 1px solid rgba(250,178,25,0.35);
     }
 
     /* ── Log table ──────────────────────────────────────────────── */
     .log-tbl {
       width: 100%;
       border-collapse: collapse;
-      font-size: 12px;
-      font-variant-numeric: tabular-nums;
+      font-size: 12.5px;
     }
     .log-tbl th {
       text-align: left;
       color: var(--ink-m);
-      font-weight: 500;
-      font-size: 10px;
+      font-weight: 550;
+      font-size: 10.5px;
       text-transform: uppercase;
       letter-spacing: 0.4px;
       padding: 0 0 7px;
       border-bottom: 1px solid var(--grid);
     }
+    .log-tbl th:last-child, .log-tbl td:last-child { text-align: right; }
     .log-tbl td {
-      padding: 6px 0;
+      padding: 7px 0;
       border-bottom: 1px solid var(--grid);
       color: var(--ink-2);
-      vertical-align: middle;
+      font-variant-numeric: tabular-nums;
     }
     .log-tbl tr:last-child td { border-bottom: none; }
-    .log-tbl .v { color: var(--ink-1); font-weight: 600; }
+    .log-tbl .v { color: var(--ink-1); font-weight: 650; }
     .log-tbl .dot {
       display: inline-block;
       width: 7px; height: 7px;
       border-radius: 50%;
-      margin-right: 4px;
-      vertical-align: middle;
+      margin-right: 6px;
+    }
+    #log-more {
+      display: none;
+      width: 100%;
+      margin-top: 10px;
+      background: none;
+      border: 1px solid var(--grid);
+      border-radius: 7px;
+      padding: 7px;
+      font-size: 12.5px;
+      font-family: inherit;
+      color: var(--ink-2);
+      cursor: pointer;
     }
 
     .note { font-size: 12px; color: var(--ink-m); }
+    footer { margin: 18px 16px 0; font-size: 11.5px; color: var(--ink-m); line-height: 1.5; }
   </style>
 </head>
 <body>
 
 <header>
-  <button id="refresh-btn">↻ Refresh</button>
-  <h1>Tooley Street, Bermondsey</h1>
-  <div id="last-updated">Loading…</div>
+  <div>
+    <h1>Tooley Street, Bermondsey</h1>
+    <div class="sub" id="last-updated">Loading…</div>
+  </div>
+  <button id="refresh-btn" type="button">Refresh</button>
 </header>
+
+<div class="notice" id="stale-notice"></div>
 
 <!-- Live status -->
 <section>
-  <h2>Right now</h2>
+  <div class="sec-title">Right now</div>
+  <div class="sec-sub">Live from TfL — updates each time you open or refresh</div>
   <div class="tiles">
     <div class="tile">
       <div class="tile-label">Empty docks</div>
       <div class="tile-value" id="v-docks">–</div>
-      <div class="tile-sub" id="s-docks"></div>
+      <span class="chip na" id="c-docks">…</span>
+      <div class="tile-sub" id="s-docks">for docking your bike</div>
     </div>
     <div class="tile">
-      <div class="tile-label">Bikes available</div>
+      <div class="tile-label">Standard bikes</div>
       <div class="tile-value" id="v-bikes">–</div>
-      <div class="tile-sub" id="s-bikes">standard only</div>
+      <span class="chip na" id="c-bikes">…</span>
+      <div class="tile-sub" id="s-bikes">for riding home</div>
     </div>
   </div>
+  <div id="backup-row"></div>
 </section>
 
 <!-- This week -->
 <section>
-  <h2>This week</h2>
+  <div class="sec-title" id="week-title">This week</div>
+  <div class="sec-sub">The lowest reading recorded each day during the monitored window — the “worst moment” of that day</div>
+  <div class="seg" id="week-seg">
+    <button type="button" class="active" data-week="0">This week</button>
+    <button type="button" data-week="1">Last week</button>
+  </div>
   <div class="chart-block">
-    <div class="chart-series-label">
-      <span class="swatch" style="background:var(--docks)"></span>Morning — empty docks
-    </div>
+    <div class="chart-title"><span class="key" style="background:var(--docks)"></span>Morning · empty docks</div>
+    <div class="chart-note">Daily low between 07:45 and 08:45</div>
     <div class="chart-wrap" id="cw-morning"></div>
   </div>
   <div class="chart-block">
-    <div class="chart-series-label">
-      <span class="swatch" style="background:var(--bikes)"></span>Evening — bikes available
-    </div>
+    <div class="chart-title"><span class="key" style="background:var(--bikes)"></span>Evening · standard bikes</div>
+    <div class="chart-note">Daily low between 17:15 and 18:00</div>
     <div class="chart-wrap" id="cw-evening"></div>
+  </div>
+  <div class="thresh-legend">
+    <span><span class="tl-line" style="border-color:var(--warn-line)"></span>alert threshold</span>
+    <span><span class="tl-line" style="border-color:var(--bad-line)"></span>critical (evening only)</span>
   </div>
 </section>
 
-<!-- When does it run out -->
+<!-- Typical pattern -->
 <section>
-  <h2>When does it run out?</h2>
-  <div class="tabs">
-    <button class="tab-btn active" data-tab="eve">Evening bikes</button>
-    <button class="tab-btn" data-tab="morn">Morning docks</button>
+  <div class="sec-title">Typical availability by time of day</div>
+  <div class="sec-sub" id="pattern-sub">Average across all recorded weekdays</div>
+  <div class="seg" id="pattern-seg">
+    <button type="button" class="active" data-tab="eve">Evening bikes</button>
+    <button type="button" data-tab="morn">Morning docks</button>
   </div>
   <div id="p-eve"></div>
   <div id="p-morn" style="display:none"></div>
-  <p class="note" style="margin-top:10px">Averages across all history for the monitoring window. Builds up over a few weeks.</p>
 </section>
 
 <!-- Log -->
 <section>
-  <h2>Recent readings</h2>
+  <div class="sec-title">Recent readings</div>
+  <div class="sec-sub">Every check the alerter has logged, newest first (London time)</div>
   <div id="log-wrap"><span class="note">Loading…</span></div>
+  <button id="log-more" type="button">Show more</button>
 </section>
 
-<script>
-/* ── Constants ─────────────────────────────────────────────────── */
-const TFL_URL     = 'https://api.tfl.gov.uk/BikePoint/BikePoints_278';
-const HIST_URL    = 'https://raw.githubusercontent.com/hsimmonds01/Claude/main/dock-alerter/history.csv';
-const LOW_DOCKS   = 3,  CLEAR_DOCKS = 5;
-const LOW_BIKES   = 5,  CRIT_BIKES  = 3,  CLEAR_BIKES = 6;
-const SVG = 'http://www.w3.org/2000/svg';
-const DOCK_COLOR  = '#2a78d6';
-const BIKE_COLOR  = '#1baf7a';
-const WARN_COLOR  = '#fab219';
-const BAD_COLOR   = '#d03b3b';
-const GRID_COLOR  = 'var(--grid)';
-const INK_M       = 'var(--ink-m)';
-const SURFACE     = 'var(--surface)';
+<footer>
+  Readings are recorded Mon–Thu during the monitoring windows (morning
+  07:45–08:45, evening 17:15–18:00). Docks are watched in the morning so you
+  can dock at Tooley Street; bikes in the evening so you can ride home.
+  E-bikes are excluded from bike counts.
+</footer>
 
-function el(tag, attrs, ns) {
-  const e = ns ? document.createElementNS(ns, tag) : document.createElement(tag);
-  if (attrs) for (const [k,v] of Object.entries(attrs)) e.setAttribute(k, v);
+<script>
+"use strict";
+
+/* ── Constants (mirror check_docks.py) ─────────────────────────── */
+const TFL_BASE   = 'https://api.tfl.gov.uk/BikePoint';
+const STATION_ID = 'BikePoints_278';
+const BACKUP_QUERY = 'Snowsfields';
+const HIST_URL   = 'https://raw.githubusercontent.com/hsimmonds01/Claude/main/dock-alerter/history.csv';
+const LOW_DOCKS = 3, CLEAR_DOCKS = 5;
+const LOW_BIKES = 5, CRIT_BIKES = 3, CLEAR_BIKES = 6;
+const MORNING_START = 7*60+45, MORNING_END = 8*60+45;
+const EVENING_START = 17*60+15, EVENING_END = 18*60;
+
+const SVGNS = 'http://www.w3.org/2000/svg';
+const css = name => getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+
+function el(tag, attrs) {
+  const e = document.createElement(tag);
+  if (attrs) for (const [k, v] of Object.entries(attrs)) e.setAttribute(k, v);
   return e;
 }
-function sv(tag, attrs) { return el(tag, attrs, SVG); }
+function sv(tag, attrs) {
+  const e = document.createElementNS(SVGNS, tag);
+  if (attrs) for (const [k, v] of Object.entries(attrs)) e.setAttribute(k, v);
+  return e;
+}
 
-/* ── Live status ──────────────────────────────────────────────── */
+/* ── London time helpers ───────────────────────────────────────── */
+// Intl gives correct Europe/London wall-clock parts for any instant --
+// never round-trip through Date-string parsing (locale strings are
+// ambiguous and en-GB day/month order is misparsed by new Date()).
+const LON_FMT = new Intl.DateTimeFormat('en-GB', {
+  timeZone: 'Europe/London', hourCycle: 'h23',
+  year: 'numeric', month: '2-digit', day: '2-digit',
+  hour: '2-digit', minute: '2-digit',
+});
+function londonParts(date) {
+  const p = {};
+  for (const part of LON_FMT.formatToParts(date)) p[part.type] = part.value;
+  return {
+    key:  `${p.year}-${p.month}-${p.day}`,   // e.g. "2026-07-01"
+    mins: Number(p.hour) * 60 + Number(p.minute),
+  };
+}
+function keyToUTC(key) {
+  const [y, m, d] = key.split('-').map(Number);
+  return Date.UTC(y, m - 1, d);
+}
+function keyWeekday(key, style) {
+  return new Date(keyToUTC(key)).toLocaleDateString('en-GB', { weekday: style, timeZone: 'UTC' });
+}
+function addDays(key, n) {
+  return new Date(keyToUTC(key) + n * 86400000).toISOString().slice(0, 10);
+}
+function mondayOf(key) {
+  const dow = new Date(keyToUTC(key)).getUTCDay(); // 0=Sun
+  return addDays(key, -(dow === 0 ? 6 : dow - 1));
+}
+function fmtSlot(mins) {
+  return String(Math.floor(mins / 60)).padStart(2, '0') + ':' + String(mins % 60).padStart(2, '0');
+}
+function fmtDayLong(key) {
+  return new Date(keyToUTC(key)).toLocaleDateString('en-GB',
+    { weekday: 'short', day: 'numeric', month: 'short', timeZone: 'UTC' });
+}
+
+/* ── Data fetching ─────────────────────────────────────────────── */
+function stationCounts(data) {
+  const p = Object.fromEntries((data.additionalProperties || []).map(x => [x.key, x.value]));
+  const total  = parseInt(p.NbBikes || 0, 10);
+  const ebikes = parseInt(p.NbEBikes || 0, 10);
+  return {
+    docks:  parseInt(p.NbEmptyDocks || 0, 10),
+    bikes:  Math.max(0, total - ebikes),
+    ebikes,
+    slots:  parseInt(p.NbDocks || 0, 10),
+    name:   data.commonName || '',
+  };
+}
+
 async function fetchLive() {
-  const r = await fetch(TFL_URL);
+  const r = await fetch(`${TFL_BASE}/${STATION_ID}`);
   if (!r.ok) throw new Error('TfL ' + r.status);
-  const d = await r.json();
-  const p = Object.fromEntries((d.additionalProperties||[]).map(x=>[x.key,x.value]));
-  const bikes = Math.max(0, parseInt(p.NbBikes||0) - parseInt(p.NbEBikes||0));
-  return { docks: parseInt(p.NbEmptyDocks||0), bikes, total: parseInt(p.NbDocks||0) };
+  return stationCounts(await r.json());
+}
+
+async function fetchBackup() {
+  const s = await fetch(`${TFL_BASE}/Search?query=${encodeURIComponent(BACKUP_QUERY)}`);
+  if (!s.ok) throw new Error('search ' + s.status);
+  const hits = await s.json();
+  if (!hits.length) throw new Error('no match');
+  const r = await fetch(`${TFL_BASE}/${encodeURIComponent(hits[0].id)}`);
+  if (!r.ok) throw new Error('detail ' + r.status);
+  return stationCounts(await r.json());
+}
+
+// Minimal RFC-4180-ish parser: handles quoted fields (station names
+// contain commas, e.g. "Tooley Street, Bermondsey").
+function parseCSV(text) {
+  const rows = [];
+  let field = '', row = [], inQ = false;
+  for (let i = 0; i < text.length; i++) {
+    const c = text[i];
+    if (inQ) {
+      if (c === '"' && text[i + 1] === '"') { field += '"'; i++; }
+      else if (c === '"') inQ = false;
+      else field += c;
+    } else if (c === '"') inQ = true;
+    else if (c === ',') { row.push(field); field = ''; }
+    else if (c === '\n' || c === '\r') {
+      if (field !== '' || row.length) { row.push(field); rows.push(row); }
+      field = ''; row = [];
+      if (c === '\r' && text[i + 1] === '\n') i++;
+    } else field += c;
+  }
+  if (field !== '' || row.length) { row.push(field); rows.push(row); }
+  return rows;
+}
+
+async function fetchHistory() {
+  const r = await fetch(HIST_URL, { cache: 'no-store' });
+  if (!r.ok) throw new Error('history ' + r.status);
+  const rows = parseCSV(await r.text());
+  if (rows.length < 2) return [];
+  const hdrs = rows[0];
+  return rows.slice(1).map(vals => {
+    const rec = Object.fromEntries(hdrs.map((h, i) => [h, vals[i] ?? '']));
+    const ts  = new Date(rec.timestamp_utc);
+    if (Number.isNaN(ts.getTime())) return null;
+    const lon = londonParts(ts);
+    return { ts, mode: rec.mode, metric: rec.metric,
+             value: parseInt(rec.value, 10) || 0,
+             dateKey: lon.key, mins: lon.mins };
+  }).filter(Boolean);
+}
+
+/* ── Live status rendering ─────────────────────────────────────── */
+function setChip(id, cls, text) {
+  const c = document.getElementById(id);
+  c.className = 'chip ' + cls;
+  c.textContent = text;
 }
 
 function renderLive(s) {
-  const dEl = document.getElementById('v-docks');
-  const bEl = document.getElementById('v-bikes');
-  dEl.textContent = s.docks;
-  dEl.className   = 'tile-value ' + (s.docks < LOW_DOCKS ? 'c-bad' : s.docks < CLEAR_DOCKS ? 'c-warn' : 'c-dock');
-  document.getElementById('s-docks').textContent = 'of ' + s.total + ' docks total';
-  bEl.textContent = s.bikes;
-  bEl.className   = 'tile-value ' + (s.bikes < CRIT_BIKES ? 'c-bad' : s.bikes < LOW_BIKES ? 'c-warn' : 'c-bike');
+  document.getElementById('v-docks').textContent = s.docks;
+  document.getElementById('s-docks').textContent = `of ${s.slots} docks · for docking`;
+  if (s.docks < LOW_DOCKS)        setChip('c-docks', 'bad',  'Very low');
+  else if (s.docks < CLEAR_DOCKS) setChip('c-docks', 'warn', 'Getting low');
+  else                            setChip('c-docks', 'good', 'OK');
+
+  document.getElementById('v-bikes').textContent = s.bikes;
+  document.getElementById('s-bikes').textContent =
+    s.ebikes > 0 ? `plus ${s.ebikes} e-bike${s.ebikes === 1 ? '' : 's'} (not counted)` : 'e-bikes excluded';
+  if (s.bikes < CRIT_BIKES)      setChip('c-bikes', 'bad',  'Critical');
+  else if (s.bikes < LOW_BIKES)  setChip('c-bikes', 'warn', 'Getting low');
+  else                           setChip('c-bikes', 'good', 'OK');
 }
 
-/* ── History CSV ──────────────────────────────────────────────── */
-async function fetchHistory() {
-  const r = await fetch(HIST_URL);
-  if (!r.ok) throw new Error('History ' + r.status);
-  const lines = (await r.text()).trim().split('\n');
-  if (lines.length < 2) return [];
-  const hdrs = lines[0].split(',').map(h=>h.trim());
-  return lines.slice(1).map(line => {
-    const vals = line.split(',');
-    const row  = Object.fromEntries(hdrs.map((h,i)=>[h, (vals[i]||'').trim()]));
-    row.ts     = new Date(row.timestamp_utc);
-    row.value  = parseInt(row.value)||0;
-    // Derive London time components from the UTC timestamp
-    const lon  = new Date(row.ts.toLocaleString('en-GB',{timeZone:'Europe/London'}));
-    row.dateStr = lon.getFullYear() + '-' +
-                  String(lon.getMonth()+1).padStart(2,'0') + '-' +
-                  String(lon.getDate()).padStart(2,'0');
-    row.hhmm    = lon.getHours()*60 + lon.getMinutes();
-    return row;
-  });
+function renderBackup(s) {
+  const rowEl = document.getElementById('backup-row');
+  rowEl.textContent = '';
+  rowEl.append('Backup — ');
+  const strong = el('strong');
+  strong.textContent = s.name || 'Snowsfields';
+  rowEl.append(strong, `: ${s.bikes} standard bikes, ${s.docks} empty docks`);
+  rowEl.style.display = 'block';
 }
 
-function weekMonday() {
-  const now = new Date();
-  const lon = new Date(now.toLocaleString('en-GB',{timeZone:'Europe/London'}));
-  const dow = lon.getDay(); // 0=Sun
-  lon.setDate(lon.getDate() - (dow === 0 ? 6 : dow - 1));
-  lon.setHours(0,0,0,0);
-  return lon;
-}
-
-/* ── SVG chart builders ───────────────────────────────────────── */
-
-// Line chart: one dot per date (avg of that date's readings)
-function lineChart(wrap, rows, color, thresh) {
-  wrap.innerHTML = '';
-  if (!rows.length) {
-    wrap.innerHTML = '<div class="sparse"><strong>No readings yet</strong>Will appear once monitoring has run this week.</div>';
-    return;
-  }
-
-  const W  = wrap.clientWidth || 300;
-  const H  = 110, PL = 30, PR = 8, PT = 10, PB = 22;
-  const pw = W - PL - PR, ph = H - PT - PB;
-
-  // Average by date
-  const map = {};
-  for (const r of rows) {
-    if (!map[r.dateStr]) map[r.dateStr] = [];
-    map[r.dateStr].push(r.value);
-  }
-  const dates = Object.keys(map).sort();
-  const avgs  = dates.map(d => Math.round(map[d].reduce((a,b)=>a+b,0)/map[d].length));
-  const vMax  = Math.max(...avgs, thresh.clear + 2, 10);
-  const xOf   = i  => PL + (dates.length < 2 ? pw/2 : i/(dates.length-1)*pw);
-  const yOf   = v  => PT + ph - (v/vMax)*ph;
-
-  const svg = sv('svg', {viewBox:`0 0 ${W} ${H}`, height:H});
-
-  // Gridlines + y-ticks
+/* ── Chart shared pieces ───────────────────────────────────────── */
+function axisAndGrid(svg, geo, vMax) {
   const step = vMax <= 8 ? 2 : vMax <= 20 ? 5 : 10;
   for (let v = 0; v <= vMax; v += step) {
-    const y = yOf(v);
-    svg.appendChild(sv('line',{x1:PL,y1:y,x2:W-PR,y2:y,stroke:GRID_COLOR,'stroke-width':'1'}));
-    const t = sv('text',{x:PL-4,y:y+3.5,'text-anchor':'end',fill:INK_M,'font-size':'9','font-variant-numeric':'tabular-nums'});
-    t.textContent = v; svg.appendChild(t);
-  }
-
-  // Threshold reference lines
-  if (thresh.low != null) {
-    const y = yOf(thresh.low);
-    svg.appendChild(sv('line',{x1:PL,y1:y,x2:W-PR,y2:y,stroke:WARN_COLOR,'stroke-width':'1',opacity:'0.45'}));
-  }
-  if (thresh.crit != null) {
-    const y = yOf(thresh.crit);
-    svg.appendChild(sv('line',{x1:PL,y1:y,x2:W-PR,y2:y,stroke:BAD_COLOR,'stroke-width':'1',opacity:'0.45'}));
-  }
-
-  // Connector line
-  if (dates.length > 1) {
-    const pts = dates.map((_,i)=>`${xOf(i)},${yOf(avgs[i])}`).join(' ');
-    svg.appendChild(sv('polyline',{points:pts,fill:'none',stroke:color,'stroke-width':'2','stroke-linecap':'round','stroke-linejoin':'round'}));
-  }
-
-  // Dots (surface ring + filled)
-  const pts = dates.map((d,i)=>({x:xOf(i),y:yOf(avgs[i]),v:avgs[i],d}));
-  for (const p of pts) {
-    svg.appendChild(sv('circle',{cx:p.x,cy:p.y,r:'6',fill:SURFACE}));
-    svg.appendChild(sv('circle',{cx:p.x,cy:p.y,r:'4',fill:color}));
-  }
-
-  // X labels
-  for (let i = 0; i < dates.length; i++) {
-    const t = sv('text',{x:xOf(i),y:H-4,'text-anchor':'middle',fill:INK_M,'font-size':'9'});
-    const d = new Date(dates[i]+'T12:00:00');
-    t.textContent = d.toLocaleDateString('en-GB',{weekday:'short'});
+    const y = geo.yOf(v);
+    svg.appendChild(sv('line', { x1: geo.PL, y1: y, x2: geo.W - geo.PR, y2: y,
+      stroke: css('--grid'), 'stroke-width': '1' }));
+    const t = sv('text', { x: geo.PL - 6, y: y + 3.5, 'text-anchor': 'end',
+      fill: css('--ink-m'), 'font-size': '10', 'font-variant-numeric': 'tabular-nums' });
+    t.textContent = v;
     svg.appendChild(t);
   }
+}
 
-  // Tooltip
+function threshLine(svg, geo, v, color) {
+  if (v == null || v > geo.vMax) return;
+  const y = geo.yOf(v);
+  svg.appendChild(sv('line', { x1: geo.PL, y1: y, x2: geo.W - geo.PR, y2: y,
+    stroke: color, 'stroke-width': '1.5', 'stroke-dasharray': '5 4', opacity: '0.8' }));
+}
+
+function attachTip(wrap, svg, W, points, radius, contentOf) {
   const tip = el('div'); tip.className = 'tip';
-  wrap.style.position = 'relative';
-  wrap.appendChild(svg);
   wrap.appendChild(tip);
-
-  svg.addEventListener('pointermove', e => {
-    const r  = svg.getBoundingClientRect();
+  const move = e => {
+    const r = svg.getBoundingClientRect();
     const mx = (e.clientX - r.left) * (W / r.width);
     let best = null, bd = Infinity;
-    for (const p of pts) { const d = Math.abs(p.x-mx); if (d < bd) { bd = d; best = p; } }
-    if (best && bd < 40) {
-      const dLabel = new Date(best.d+'T12:00:00').toLocaleDateString('en-GB',{weekday:'short',day:'numeric',month:'short'});
-      tip.textContent = dLabel + ': ' + best.v;
-      tip.style.left  = (best.x/W*100)+'%';
-      tip.style.top   = best.y+'px';
+    for (const p of points) { const d = Math.abs(p.x - mx); if (d < bd) { bd = d; best = p; } }
+    if (best && bd < radius) {
+      tip.textContent = '';
+      contentOf(best, tip);
+      tip.style.left = (best.x / W * 100) + '%';
+      tip.style.top = best.y + 'px';
       tip.classList.add('show');
     } else tip.classList.remove('show');
-  });
+  };
+  svg.addEventListener('pointermove', move);
   svg.addEventListener('pointerleave', () => tip.classList.remove('show'));
 }
 
-// Bar chart: average value per 5-min time slot
-function barChart(wrap, rows, color, thresh) {
-  wrap.innerHTML = '';
-  if (rows.length < 6) {
-    wrap.innerHTML = '<div class="sparse"><strong>Building up…</strong>Needs a week or two of check-window readings to show useful patterns. Come back soon.</div>';
+/* ── Week chart: daily LOW per weekday ─────────────────────────── */
+function weekChart(wrap, rows, mondayKey, color, thresh) {
+  wrap.textContent = '';
+  // Fixed Mon-Thu slots (plus Fri if a Friday run happened that week)
+  const dayKeys = [0, 1, 2, 3].map(i => addDays(mondayKey, i));
+  const friKey = addDays(mondayKey, 4);
+  if (rows.some(r => r.dateKey === friKey)) dayKeys.push(friKey);
+
+  const byDay = dayKeys.map(k => {
+    const vals = rows.filter(r => r.dateKey === k).map(r => r.value);
+    if (!vals.length) return { key: k, n: 0 };
+    return {
+      key: k, n: vals.length,
+      low: Math.min(...vals),
+      avg: Math.round(vals.reduce((a, b) => a + b, 0) / vals.length * 10) / 10,
+    };
+  });
+
+  if (byDay.every(d => d.n === 0)) {
+    const div = el('div'); div.className = 'sparse';
+    const st = el('strong'); st.textContent = 'No readings for this week yet';
+    div.append(st, 'Data appears after each monitored weekday.');
+    wrap.appendChild(div);
     return;
   }
 
-  const map = {};
-  for (const r of rows) {
-    const slot = Math.floor(r.hhmm/5)*5;
-    if (!map[slot]) map[slot] = [];
-    map[slot].push(r.value);
-  }
-  const slots = Object.keys(map).map(Number).sort((a,b)=>a-b);
-  const avgs  = slots.map(s => Math.round(map[s].reduce((a,b)=>a+b,0)/map[s].length));
-
-  const W  = wrap.clientWidth || 300;
-  const H  = 120, PL = 30, PR = 8, PT = 10, PB = 28;
+  const W = wrap.clientWidth || 480, H = 120;
+  const PL = 30, PR = 10, PT = 8, PB = 20;
   const pw = W - PL - PR, ph = H - PT - PB;
-  const vMax = Math.max(...avgs, thresh.clear + 2, 10);
-  const yOf  = v => PT + ph - (v/vMax)*ph;
-  const bW   = Math.max(4, Math.floor(pw/slots.length) - 2);
-  const xOf  = i => PL + (i+0.5)*(pw/slots.length);
+  const vMax = Math.max(...byDay.filter(d => d.n).map(d => d.low), thresh.clear + 2, 8);
+  const geo = { W, PL, PR, vMax, yOf: v => PT + ph - (v / vMax) * ph };
+  const xOf = i => PL + (i + 0.5) * (pw / dayKeys.length);
 
-  const svg = sv('svg',{viewBox:`0 0 ${W} ${H}`,height:H});
+  const svg = sv('svg', { viewBox: `0 0 ${W} ${H}`, height: H });
+  axisAndGrid(svg, geo, vMax);
+  threshLine(svg, geo, thresh.low, css('--warn-line'));
+  threshLine(svg, geo, thresh.crit, css('--bad-line'));
 
-  // Gridlines
-  const step = vMax <= 8 ? 2 : 5;
-  for (let v = 0; v <= vMax; v += step) {
-    const y = yOf(v);
-    svg.appendChild(sv('line',{x1:PL,y1:y,x2:W-PR,y2:y,stroke:GRID_COLOR,'stroke-width':'1'}));
-    const t = sv('text',{x:PL-4,y:y+3.5,'text-anchor':'end',fill:INK_M,'font-size':'9','font-variant-numeric':'tabular-nums'});
-    t.textContent = v; svg.appendChild(t);
+  const pts = byDay.map((d, i) => d.n ? { ...d, x: xOf(i), y: geo.yOf(d.low) } : null).filter(Boolean);
+
+  if (pts.length > 1) {
+    svg.appendChild(sv('polyline', {
+      points: pts.map(p => `${p.x},${p.y}`).join(' '),
+      fill: 'none', stroke: color, 'stroke-width': '2',
+      'stroke-linecap': 'round', 'stroke-linejoin': 'round' }));
   }
-
-  // Threshold lines
-  if (thresh.low != null) {
-    const y = yOf(thresh.low);
-    svg.appendChild(sv('line',{x1:PL,y1:y,x2:W-PR,y2:y,stroke:WARN_COLOR,'stroke-width':'1',opacity:'0.45'}));
-  }
-  if (thresh.crit != null) {
-    const y = yOf(thresh.crit);
-    svg.appendChild(sv('line',{x1:PL,y1:y,x2:W-PR,y2:y,stroke:BAD_COLOR,'stroke-width':'1',opacity:'0.45'}));
-  }
-
-  // Bars
-  const bars = [];
-  for (let i = 0; i < slots.length; i++) {
-    const x = xOf(i) - bW/2, y = yOf(avgs[i]);
-    const bh = PT + ph - y;
-    const bc = avgs[i] < (thresh.crit ?? -1) ? BAD_COLOR : avgs[i] < (thresh.low ?? -1) ? WARN_COLOR : color;
-    const rect = sv('rect',{x,y,width:bW,height:Math.max(1,bh),fill:bc,rx:'2'});
-    svg.appendChild(rect);
-    bars.push({rect, x:xOf(i), y, v:avgs[i], slot:slots[i]});
-  }
-
-  // X axis labels (every other slot)
-  for (let i = 0; i < slots.length; i++) {
-    if (i % 2 !== 0) continue;
-    const h = Math.floor(slots[i]/60), m = slots[i]%60;
-    const t = sv('text',{x:xOf(i),y:H-6,'text-anchor':'middle',fill:INK_M,'font-size':'8'});
-    t.textContent = String(h).padStart(2,'0')+':'+String(m).padStart(2,'0');
+  for (const p of pts) {
+    svg.appendChild(sv('circle', { cx: p.x, cy: p.y, r: '6.5', fill: css('--surface') }));
+    svg.appendChild(sv('circle', { cx: p.x, cy: p.y, r: '4.5', fill: color }));
+    const t = sv('text', { x: p.x, y: p.y - 10, 'text-anchor': 'middle',
+      fill: css('--ink-2'), 'font-size': '10.5', 'font-weight': '600' });
+    t.textContent = p.low;
     svg.appendChild(t);
   }
-
-  // Tooltip
-  const tip = el('div'); tip.className = 'tip';
-  wrap.style.position = 'relative';
-  wrap.appendChild(svg);
-  wrap.appendChild(tip);
-
-  svg.addEventListener('pointermove', e => {
-    const r  = svg.getBoundingClientRect();
-    const mx = (e.clientX - r.left)*(W/r.width);
-    let best = null, bd = Infinity;
-    for (const b of bars) { const d = Math.abs(b.x-mx); if (d < bd) { bd = d; best = b; } }
-    if (best && bd < bW+6) {
-      const h = Math.floor(best.slot/60), m = best.slot%60;
-      tip.textContent = String(h).padStart(2,'0')+':'+String(m).padStart(2,'0')+' avg: '+best.v;
-      tip.style.left = (best.x/W*100)+'%';
-      tip.style.top  = best.y+'px';
-      tip.classList.add('show');
-    } else tip.classList.remove('show');
+  dayKeys.forEach((k, i) => {
+    const t = sv('text', { x: xOf(i), y: H - 5, 'text-anchor': 'middle',
+      fill: css('--ink-m'), 'font-size': '10' });
+    t.textContent = keyWeekday(k, 'short');
+    svg.appendChild(t);
   });
-  svg.addEventListener('pointerleave', () => tip.classList.remove('show'));
+
+  wrap.appendChild(svg);
+  attachTip(wrap, svg, W, pts, pw / dayKeys.length / 2 + 6, (p, tip) => {
+    const strong = el('strong');
+    strong.textContent = `low ${p.low}`;
+    tip.append(fmtDayLong(p.key) + ' — ', strong, ` · avg ${p.avg} (${p.n} readings)`);
+  });
 }
 
-/* ── Log table ────────────────────────────────────────────────── */
+/* ── Pattern chart: average per 5-min slot ─────────────────────── */
+function patternChart(wrap, rows, color, thresh) {
+  wrap.textContent = '';
+  const days = new Set(rows.map(r => r.dateKey)).size;
+  if (days < 3) {
+    const div = el('div'); div.className = 'sparse';
+    const st = el('strong'); st.textContent = 'Still building up';
+    div.append(st, `Only ${days} day${days === 1 ? '' : 's'} of readings so far — patterns need a week or two to mean anything.`);
+    wrap.appendChild(div);
+    return;
+  }
+
+  const bySlot = new Map();
+  for (const r of rows) {
+    const slot = Math.floor(r.mins / 5) * 5;
+    if (!bySlot.has(slot)) bySlot.set(slot, []);
+    bySlot.get(slot).push(r.value);
+  }
+  const slots = [...bySlot.keys()].sort((a, b) => a - b);
+  const avgs = slots.map(s => {
+    const v = bySlot.get(s);
+    return Math.round(v.reduce((a, b) => a + b, 0) / v.length * 10) / 10;
+  });
+
+  const W = wrap.clientWidth || 480, H = 130;
+  const PL = 30, PR = 10, PT = 8, PB = 26;
+  const pw = W - PL - PR, ph = H - PT - PB;
+  const vMax = Math.max(...avgs, thresh.clear + 2, 8);
+  const geo = { W, PL, PR, vMax, yOf: v => PT + ph - (v / vMax) * ph };
+  const slotW = pw / slots.length;
+  const bW = Math.min(22, Math.max(5, Math.floor(slotW) - 2));
+  const xOf = i => PL + (i + 0.5) * slotW;
+
+  const svg = sv('svg', { viewBox: `0 0 ${W} ${H}`, height: H });
+  axisAndGrid(svg, geo, vMax);
+
+  const bars = slots.map((s, i) => {
+    const y = geo.yOf(avgs[i]);
+    svg.appendChild(sv('rect', {
+      x: xOf(i) - bW / 2, y, width: bW, height: Math.max(1, PT + ph - y),
+      fill: color, rx: '2.5' }));
+    return { x: xOf(i), y, slot: s, avg: avgs[i], n: bySlot.get(s).length };
+  });
+
+  threshLine(svg, geo, thresh.low, css('--warn-line'));
+  threshLine(svg, geo, thresh.crit, css('--bad-line'));
+
+  const labelEvery = Math.ceil(slots.length / 6);
+  slots.forEach((s, i) => {
+    if (i % labelEvery !== 0 && i !== slots.length - 1) return;
+    const t = sv('text', { x: xOf(i), y: H - 6, 'text-anchor': 'middle',
+      fill: css('--ink-m'), 'font-size': '9.5' });
+    t.textContent = fmtSlot(s);
+    svg.appendChild(t);
+  });
+
+  wrap.appendChild(svg);
+  attachTip(wrap, svg, W, bars, slotW / 2 + 4, (b, tip) => {
+    const strong = el('strong');
+    strong.textContent = `avg ${b.avg}`;
+    tip.append(fmtSlot(b.slot) + ' — ', strong, ` (${b.n} readings)`);
+  });
+}
+
+/* ── Log table ─────────────────────────────────────────────────── */
+const MODE_LABELS = {
+  summary: 'Morning summary', morning_bikes: '08:20 snapshot', check: 'Morning check',
+  evening_summary: 'Evening summary', evening_second_summary: '17:40 snapshot',
+  evening_check: 'Evening check', status: 'On-demand status',
+};
+let logExpanded = false;
+
 function renderLog(rows) {
   const wrap = document.getElementById('log-wrap');
-  if (!rows.length) { wrap.innerHTML = '<span class="note">No readings yet.</span>'; return; }
-  const last = [...rows].reverse().slice(0, 25);
+  const moreBtn = document.getElementById('log-more');
+  wrap.textContent = '';
+  if (!rows.length) {
+    const s = el('span'); s.className = 'note'; s.textContent = 'No readings yet.';
+    wrap.appendChild(s);
+    return;
+  }
+  const all = [...rows].reverse();
+  const shown = logExpanded ? all.slice(0, 200) : all.slice(0, 12);
+
   const tbl = el('table'); tbl.className = 'log-tbl';
-  const thead = el('thead');
-  thead.innerHTML = '<tr><th>Time (London)</th><th>Mode</th><th>Reading</th></tr>';
-  tbl.appendChild(thead);
+  const thead = el('thead'); const hr = el('tr');
+  for (const h of ['When', 'Check', 'Reading']) {
+    const th = el('th'); th.textContent = h; hr.appendChild(th);
+  }
+  thead.appendChild(hr); tbl.appendChild(thead);
+
   const tbody = el('tbody');
-  for (const r of last) {
+  for (const r of shown) {
     const tr = el('tr');
-    const ts = r.ts.toLocaleString('en-GB',{timeZone:'Europe/London',weekday:'short',day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'});
+    const when = el('td');
+    when.textContent = r.ts.toLocaleString('en-GB', { timeZone: 'Europe/London',
+      weekday: 'short', day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' });
+    const mode = el('td');
+    mode.textContent = MODE_LABELS[r.mode] || r.mode;
+    const val = el('td');
     const isDocks = r.metric === 'empty_docks';
-    const dotColor = isDocks ? DOCK_COLOR : BIKE_COLOR;
-    const unit = isDocks ? 'docks' : 'bikes';
-    const td0 = el('td'); td0.textContent = ts;
-    const td1 = el('td'); td1.textContent = r.mode.replace(/_/g,' ');
-    const td2 = el('td');
-    const dot = el('span'); dot.className = 'dot'; dot.style.background = dotColor;
-    const val = el('span'); val.className = 'v'; val.textContent = r.value;
-    const unt = el('span'); unt.textContent = ' '+unit; unt.style.color='var(--ink-m)';
-    td2.append(dot, val, unt);
-    tr.append(td0, td1, td2);
+    const dot = el('span'); dot.className = 'dot';
+    dot.style.background = isDocks ? css('--docks') : css('--bikes');
+    const num = el('span'); num.className = 'v'; num.textContent = r.value;
+    const unit = el('span'); unit.textContent = isDocks ? ' docks' : ' bikes';
+    val.append(dot, num, unit);
+    tr.append(when, mode, val);
     tbody.appendChild(tr);
   }
   tbl.appendChild(tbody);
-  wrap.innerHTML = '';
   wrap.appendChild(tbl);
+
+  moreBtn.style.display = all.length > 12 && !logExpanded ? 'block' : 'none';
 }
 
-/* ── Main ─────────────────────────────────────────────────────── */
-async function init() {
-  // Live status
+/* ── Staleness notice ──────────────────────────────────────────── */
+function renderStale(rows) {
+  const n = document.getElementById('stale-notice');
+  if (!rows.length) { n.style.display = 'none'; return; }
+  const newest = rows[rows.length - 1].ts;
+  const ageDays = (Date.now() - newest.getTime()) / 86400000;
+  // Weekends produce a legitimate ~3-day gap (Thu evening -> Mon morning)
+  if (ageDays > 4) {
+    n.textContent = `No new readings since ${fmtDayLong(londonParts(newest).key)} — the scheduled checks may not be running. Check the Actions tab on GitHub.`;
+    n.style.display = 'block';
+  } else n.style.display = 'none';
+}
+
+/* ── Orchestration ─────────────────────────────────────────────── */
+let history = [];
+let weekOffset = 0; // 0 = this week, 1 = last week
+
+function isMorningDocks(r) { return r.metric === 'empty_docks' && r.mins >= MORNING_START - 5 && r.mins <= MORNING_END + 5; }
+function isEveningBikes(r) { return r.metric === 'available_bikes' && r.mins >= EVENING_START - 5 && r.mins <= EVENING_END + 5; }
+
+function renderWeek() {
+  const todayKey = londonParts(new Date()).key;
+  const monday = addDays(mondayOf(todayKey), -7 * weekOffset);
+  const sunday = addDays(monday, 6);
+  const wk = history.filter(r => r.dateKey >= monday && r.dateKey <= sunday);
+
+  const mondayLabel = new Date(keyToUTC(monday)).toLocaleDateString('en-GB',
+    { day: 'numeric', month: 'long', timeZone: 'UTC' });
+  document.getElementById('week-title').textContent =
+    (weekOffset === 0 ? 'This week' : 'Last week') + ' · w/c ' + mondayLabel;
+
+  weekChart(document.getElementById('cw-morning'), wk.filter(isMorningDocks), monday,
+    css('--docks'), { low: LOW_DOCKS, clear: CLEAR_DOCKS });
+  weekChart(document.getElementById('cw-evening'), wk.filter(isEveningBikes), monday,
+    css('--bikes'), { low: LOW_BIKES, crit: CRIT_BIKES, clear: CLEAR_BIKES });
+}
+
+function renderPattern() {
+  const morn = history.filter(isMorningDocks);
+  const eve  = history.filter(isEveningBikes);
+  const days = new Set(history.map(r => r.dateKey)).size;
+  document.getElementById('pattern-sub').textContent =
+    `Average reading per 5-minute slot, across all recorded weekdays (${days} day${days === 1 ? '' : 's'} of data so far)`;
+  patternChart(document.getElementById('p-eve'), eve,
+    css('--bikes'), { low: LOW_BIKES, crit: CRIT_BIKES, clear: CLEAR_BIKES });
+  patternChart(document.getElementById('p-morn'), morn,
+    css('--docks'), { low: LOW_DOCKS, clear: CLEAR_DOCKS });
+}
+
+async function loadLive() {
   try {
-    const live = await fetchLive();
-    renderLive(live);
-    const now = new Date().toLocaleString('en-GB',{timeZone:'Europe/London',hour:'2-digit',minute:'2-digit'});
-    document.getElementById('last-updated').textContent = 'Updated ' + now;
+    renderLive(await fetchLive());
+    const now = new Date().toLocaleString('en-GB',
+      { timeZone: 'Europe/London', weekday: 'short', hour: '2-digit', minute: '2-digit' });
+    document.getElementById('last-updated').textContent = 'Live · updated ' + now;
   } catch (e) {
-    document.getElementById('last-updated').textContent = 'Live status unavailable';
+    document.getElementById('last-updated').textContent = 'Live status unavailable — check signal and retry';
+    setChip('c-docks', 'na', 'No data'); setChip('c-bikes', 'na', 'No data');
   }
+  fetchBackup().then(renderBackup).catch(() => {}); // best-effort
+}
 
-  // History
+async function loadHistory() {
   try {
-    const all  = await fetchHistory();
-    const mon  = weekMonday();
-    const week = all.filter(r => r.ts >= mon);
-
-    lineChart(
-      document.getElementById('cw-morning'),
-      week.filter(r => r.metric === 'empty_docks'),
-      DOCK_COLOR,
-      {low: LOW_DOCKS, clear: CLEAR_DOCKS}
-    );
-    lineChart(
-      document.getElementById('cw-evening'),
-      week.filter(r => r.metric === 'available_bikes'),
-      BIKE_COLOR,
-      {low: LOW_BIKES, crit: CRIT_BIKES, clear: CLEAR_BIKES}
-    );
-
-    barChart(
-      document.getElementById('p-eve'),
-      all.filter(r => r.mode === 'evening_check' && r.metric === 'available_bikes'),
-      BIKE_COLOR,
-      {low: LOW_BIKES, crit: CRIT_BIKES, clear: CLEAR_BIKES}
-    );
-    barChart(
-      document.getElementById('p-morn'),
-      all.filter(r => r.mode === 'check' && r.metric === 'empty_docks'),
-      DOCK_COLOR,
-      {low: LOW_DOCKS, clear: CLEAR_DOCKS}
-    );
-
-    renderLog(all);
+    history = await fetchHistory();
+    renderWeek();
+    renderPattern();
+    renderLog(history);
+    renderStale(history);
   } catch (e) {
     console.error(e);
-    ['cw-morning','cw-evening'].forEach(id => {
-      document.getElementById(id).innerHTML = '<span class="note">Could not load history.</span>';
-    });
-    document.getElementById('log-wrap').innerHTML = '<span class="note">Could not load history.</span>';
+    for (const id of ['cw-morning', 'cw-evening', 'log-wrap']) {
+      const t = document.getElementById(id);
+      t.textContent = '';
+      const s = el('span'); s.className = 'note'; s.textContent = 'Could not load history.';
+      t.appendChild(s);
+    }
   }
 }
 
-// Tab switcher
-for (const btn of document.querySelectorAll('.tab-btn')) {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    const tab = btn.dataset.tab;
-    document.getElementById('p-eve').style.display  = tab === 'eve'  ? '' : 'none';
-    document.getElementById('p-morn').style.display = tab === 'morn' ? '' : 'none';
-  });
-}
+function loadAll() { loadLive(); loadHistory(); }
 
-// Refresh button
-document.getElementById('refresh-btn').addEventListener('click', init);
+/* Controls */
+document.getElementById('refresh-btn').addEventListener('click', loadAll);
 
-init();
+document.getElementById('week-seg').addEventListener('click', e => {
+  const btn = e.target.closest('button'); if (!btn) return;
+  document.querySelectorAll('#week-seg button').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  weekOffset = Number(btn.dataset.week);
+  renderWeek();
+});
+
+document.getElementById('pattern-seg').addEventListener('click', e => {
+  const btn = e.target.closest('button'); if (!btn) return;
+  document.querySelectorAll('#pattern-seg button').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('p-eve').style.display  = btn.dataset.tab === 'eve'  ? '' : 'none';
+  document.getElementById('p-morn').style.display = btn.dataset.tab === 'morn' ? '' : 'none';
+});
+
+document.getElementById('log-more').addEventListener('click', () => {
+  logExpanded = true;
+  renderLog(history);
+});
+
+/* Re-fetch live data when the saved page is re-opened from the Home
+   Screen (iOS restores the old render), and every 5 min while visible. */
+document.addEventListener('visibilitychange', () => {
+  if (document.visibilityState === 'visible') loadAll();
+});
+setInterval(() => { if (document.visibilityState === 'visible') loadLive(); }, 5 * 60 * 1000);
+
+loadAll();
 </script>
 </body>
 </html>
