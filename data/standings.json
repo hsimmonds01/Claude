@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-05T23:45:16.138Z",
+  "lastUpdated": "2026-07-06T01:24:44.441Z",
   "matches": [
     {
       "stage": "GROUP_STAGE",
@@ -903,13 +903,13 @@
     },
     {
       "stage": "LAST_16",
-      "status": "2026-07-06 01:00:00Z",
+      "status": "IN_PLAY",
       "utcDate": "2026-07-06T01:00:00Z",
       "homeTeam": "Mexico",
       "awayTeam": "England",
-      "homeScore": null,
-      "awayScore": null,
-      "winner": null
+      "homeScore": 0,
+      "awayScore": 0,
+      "winner": "DRAW"
     },
     {
       "stage": "LAST_16",
