@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-06T19:06:05.038Z",
+  "lastUpdated": "2026-07-06T21:01:25.648Z",
   "matches": [
     {
       "stage": "GROUP_STAGE",
@@ -913,13 +913,13 @@
     },
     {
       "stage": "LAST_16",
-      "status": "LIVE",
+      "status": "IN_PLAY",
       "utcDate": "2026-07-06T19:00:00Z",
       "homeTeam": "Portugal",
       "awayTeam": "Spain",
       "homeScore": 0,
-      "awayScore": 0,
-      "winner": "DRAW"
+      "awayScore": 1,
+      "winner": "AWAY_TEAM"
     },
     {
       "stage": "LAST_16",
