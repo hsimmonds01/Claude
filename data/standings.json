@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-06T21:01:25.648Z",
+  "lastUpdated": "2026-07-06T22:18:45.215Z",
   "matches": [
     {
       "stage": "GROUP_STAGE",
@@ -913,7 +913,7 @@
     },
     {
       "stage": "LAST_16",
-      "status": "IN_PLAY",
+      "status": "FINISHED",
       "utcDate": "2026-07-06T19:00:00Z",
       "homeTeam": "Portugal",
       "awayTeam": "Spain",
@@ -987,7 +987,7 @@
     },
     "ROUND_OF_16": {
       "total": 8,
-      "finished": 4,
+      "finished": 5,
       "startDate": "2026-07-04T17:00:00Z",
       "endDate": "2026-07-07T20:00:00Z"
     },
