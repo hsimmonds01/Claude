@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-06T01:24:44.441Z",
+  "lastUpdated": "2026-07-06T05:56:49.827Z",
   "matches": [
     {
       "stage": "GROUP_STAGE",
@@ -903,13 +903,13 @@
     },
     {
       "stage": "LAST_16",
-      "status": "IN_PLAY",
+      "status": "FINISHED",
       "utcDate": "2026-07-06T01:00:00Z",
       "homeTeam": "Mexico",
       "awayTeam": "England",
-      "homeScore": 0,
-      "awayScore": 0,
-      "winner": "DRAW"
+      "homeScore": 2,
+      "awayScore": 3,
+      "winner": "AWAY_TEAM"
     },
     {
       "stage": "LAST_16",
@@ -977,7 +977,7 @@
     },
     "ROUND_OF_16": {
       "total": 8,
-      "finished": 3,
+      "finished": 4,
       "startDate": "2026-07-04T17:00:00Z",
       "endDate": "2026-07-07T20:00:00Z"
     },
