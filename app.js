@@ -145,11 +145,33 @@ const PREV_RANKS_KEY = "wc-fantasy-prev-ranks";
 
 function buildEliminatedSet(matches) {
   const eliminated = new Set();
+
+  // Teams that lost a finished knockout match
   for (const m of matches) {
     if (m.stage === "GROUP_STAGE" || m.status !== "FINISHED") continue;
     if (m.winner === "HOME_TEAM") eliminated.add(normalize(m.awayTeam));
     else if (m.winner === "AWAY_TEAM") eliminated.add(normalize(m.homeTeam));
   }
+
+  // Once knockout rounds exist, teams that played group stage but never
+  // appeared in any knockout match were eliminated at the group stage
+  const knockoutMatches = matches.filter((m) => m.stage !== "GROUP_STAGE");
+  if (knockoutMatches.length > 0) {
+    const inKnockout = new Set();
+    for (const m of knockoutMatches) {
+      if (m.homeTeam !== "TBD") inKnockout.add(normalize(m.homeTeam));
+      if (m.awayTeam !== "TBD") inKnockout.add(normalize(m.awayTeam));
+    }
+    for (const m of matches) {
+      if (m.stage === "GROUP_STAGE" && m.status === "FINISHED") {
+        const home = normalize(m.homeTeam);
+        const away = normalize(m.awayTeam);
+        if (!inKnockout.has(home)) eliminated.add(home);
+        if (!inKnockout.has(away)) eliminated.add(away);
+      }
+    }
+  }
+
   return eliminated;
 }
 
