@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-07T01:19:08.025Z",
+  "lastUpdated": "2026-07-07T05:37:39.963Z",
   "matches": [
     {
       "stage": "GROUP_STAGE",
@@ -923,12 +923,12 @@
     },
     {
       "stage": "LAST_16",
-      "status": "IN_PLAY",
+      "status": "FINISHED",
       "utcDate": "2026-07-07T00:00:00Z",
       "homeTeam": "United States",
       "awayTeam": "Belgium",
       "homeScore": 1,
-      "awayScore": 2,
+      "awayScore": 4,
       "winner": "AWAY_TEAM"
     },
     {
@@ -987,7 +987,7 @@
     },
     "ROUND_OF_16": {
       "total": 8,
-      "finished": 5,
+      "finished": 6,
       "startDate": "2026-07-04T17:00:00Z",
       "endDate": "2026-07-07T20:00:00Z"
     },
