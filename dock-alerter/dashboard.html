@@ -313,7 +313,7 @@
   </div>
   <div class="chart-block">
     <div class="chart-title"><span class="key" style="background:var(--docks)"></span>Morning · empty docks</div>
-    <div class="chart-note">Daily low between 07:45 and 08:45</div>
+    <div class="chart-note">Daily low between 08:00 and 08:45</div>
     <div class="chart-wrap" id="cw-morning"></div>
   </div>
   <div class="chart-block">
@@ -349,7 +349,7 @@
 
 <footer>
   Readings are recorded Mon–Thu during the monitoring windows (morning
-  07:45–08:45, evening 17:15–18:00). Docks are watched in the morning so you
+  08:00–08:45, evening 17:15–18:00). Docks are watched in the morning so you
   can dock at Tooley Street; bikes in the evening so you can ride home.
   E-bikes are excluded from bike counts.
 </footer>
@@ -364,7 +364,7 @@ const BACKUP_QUERY = 'Snowsfields';
 const HIST_URL   = 'https://raw.githubusercontent.com/hsimmonds01/Claude/main/dock-alerter/history.csv';
 const LOW_DOCKS = 3, CLEAR_DOCKS = 5;
 const LOW_BIKES = 5, CRIT_BIKES = 3, CLEAR_BIKES = 6;
-const MORNING_START = 7*60+45, MORNING_END = 8*60+45;
+const MORNING_START = 8*60, MORNING_END = 8*60+45;
 const EVENING_START = 17*60+15, EVENING_END = 18*60;
 
 const SVGNS = 'http://www.w3.org/2000/svg';
@@ -698,7 +698,7 @@ function patternChart(wrap, rows, color, thresh) {
 
 /* ── Log table ─────────────────────────────────────────────────── */
 const MODE_LABELS = {
-  summary: 'Morning summary', morning_bikes: '08:20 snapshot', check: 'Morning check',
+  summary: 'Morning summary', morning_bikes: '08:25 snapshot', check: 'Morning check',
   evening_summary: 'Evening summary', evening_second_summary: '17:40 snapshot',
   evening_check: 'Evening check', status: 'On-demand status',
 };

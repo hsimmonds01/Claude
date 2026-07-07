@@ -10,8 +10,8 @@ name: Tooley Street dock check
 # invocations are cheap.
 #
 # Morning: 06:40-08:50 UTC comfortably covers both:
-#   - BST (summer, UTC+1): 07:45-08:45 local = 06:45-07:45 UTC
-#   - GMT (winter, UTC+0): 07:45-08:45 local = 07:45-08:45 UTC
+#   - BST (summer, UTC+1): 08:00-08:45 local = 07:00-07:45 UTC
+#   - GMT (winter, UTC+0): 08:00-08:45 local = 08:00-08:45 UTC
 #
 # Evening: 16:10-18:10 UTC comfortably covers both:
 #   - BST (summer, UTC+1): 17:15-18:00 local = 16:15-17:00 UTC

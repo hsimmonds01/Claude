@@ -16,13 +16,15 @@ together and how a day's checks play out over time.
 **Morning (outbound commute) -- watches empty docks**, so you know if
 you'll be able to dock your bike at Tooley Street later:
 
-- **07:45** (Europe/London time) -- a one-off morning summary: current
-  empty-dock count, sent regardless of how full the station is.
+- **08:10** and **08:25** (Europe/London time) -- two one-off snapshots:
+  current empty-dock count, sent regardless of how full the station is.
 - **08:00-08:45** -- checked every 5 minutes.
   - If empty docks drop below `LOW_DOCKS_THRESHOLD` (default **3**), you
     get a high-priority alert.
   - Once it recovers to `ALL_CLEAR_DOCKS_THRESHOLD` (default **5**) or more
     *after* an alert was sent, you get an "all clear" notification.
+  - The 08:10 and 08:25 snapshot slots take the place of that slot's
+    threshold check (they report the count anyway).
 
 **Evening (return commute) -- watches available bikes**, so you know if
 you'll be able to pick one up to ride home:
@@ -141,7 +143,7 @@ clock change. Rather than maintaining two cron schedules and remembering
 to swap them around the clock-change weekends, the workflow schedule
 (`.github/workflows/checks.yml`) just runs **more often than needed** --
 every 5 minutes from 06:40 to 08:50 UTC, which covers the target
-07:45-08:45 London window in both BST and GMT. `check_docks.py` then uses
+08:00-08:45 London window in both BST and GMT. `check_docks.py` then uses
 Python's `zoneinfo` (`Europe/London`) to work out the *actual* local time
 on every invocation and only acts if it's really inside the summary or
 check window; otherwise it exits immediately without calling the TfL API
@@ -223,7 +225,7 @@ missing, so a schema change won't fail silently.
      phone for the notification (if not a dry run).
 
 6. Once you're happy, leave it -- it'll run automatically Mon-Thu,
-   07:45-08:45 and 17:15-18:00 London time, no further action needed.
+   08:00-08:45 and 17:15-18:00 London time, no further action needed.
 
 ## Running locally
 
