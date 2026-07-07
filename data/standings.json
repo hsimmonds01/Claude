@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-06T23:32:58.147Z",
+  "lastUpdated": "2026-07-07T01:19:08.025Z",
   "matches": [
     {
       "stage": "GROUP_STAGE",
@@ -923,13 +923,13 @@
     },
     {
       "stage": "LAST_16",
-      "status": "TIMED",
+      "status": "IN_PLAY",
       "utcDate": "2026-07-07T00:00:00Z",
       "homeTeam": "United States",
       "awayTeam": "Belgium",
-      "homeScore": null,
-      "awayScore": null,
-      "winner": null
+      "homeScore": 1,
+      "awayScore": 2,
+      "winner": "AWAY_TEAM"
     },
     {
       "stage": "LAST_16",
