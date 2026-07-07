@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-07T16:56:48.149Z",
+  "lastUpdated": "2026-07-07T19:02:08.814Z",
   "matches": [
     {
       "stage": "GROUP_STAGE",
@@ -933,13 +933,13 @@
     },
     {
       "stage": "LAST_16",
-      "status": "LIVE",
+      "status": "FINISHED",
       "utcDate": "2026-07-07T16:00:00Z",
       "homeTeam": "Argentina",
       "awayTeam": "Egypt",
-      "homeScore": 0,
-      "awayScore": 1,
-      "winner": "AWAY_TEAM"
+      "homeScore": 3,
+      "awayScore": 2,
+      "winner": "HOME_TEAM"
     },
     {
       "stage": "LAST_16",
@@ -997,7 +997,7 @@
     },
     "ROUND_OF_16": {
       "total": 8,
-      "finished": 6,
+      "finished": 7,
       "startDate": "2026-07-04T17:00:00Z",
       "endDate": "2026-07-07T20:00:00Z"
     },
