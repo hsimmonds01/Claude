@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-07T20:53:53.839Z",
+  "lastUpdated": "2026-07-07T22:10:39.675Z",
   "matches": [
     {
       "stage": "GROUP_STAGE",
@@ -943,7 +943,7 @@
     },
     {
       "stage": "LAST_16",
-      "status": "PAUSED",
+      "status": "FINISHED",
       "utcDate": "2026-07-07T20:00:00Z",
       "homeTeam": "Switzerland",
       "awayTeam": "Colombia",
@@ -997,7 +997,7 @@
     },
     "ROUND_OF_16": {
       "total": 8,
-      "finished": 7,
+      "finished": 8,
       "startDate": "2026-07-04T17:00:00Z",
       "endDate": "2026-07-07T20:00:00Z"
     },
