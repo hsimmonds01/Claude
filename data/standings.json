@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-07T22:10:39.675Z",
+  "lastUpdated": "2026-07-07T23:14:30.654Z",
   "matches": [
     {
       "stage": "GROUP_STAGE",
@@ -947,9 +947,9 @@
       "utcDate": "2026-07-07T20:00:00Z",
       "homeTeam": "Switzerland",
       "awayTeam": "Colombia",
-      "homeScore": 0,
-      "awayScore": 0,
-      "winner": "DRAW"
+      "homeScore": 4,
+      "awayScore": 3,
+      "winner": null
     },
     {
       "stage": "QUARTER_FINALS",
