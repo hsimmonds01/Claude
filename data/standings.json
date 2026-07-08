@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-08T03:44:02.140Z",
+  "lastUpdated": "2026-07-08T06:15:33.600Z",
   "matches": [
     {
       "stage": "GROUP_STAGE",
@@ -949,7 +949,7 @@
       "awayTeam": "Colombia",
       "homeScore": 4,
       "awayScore": 3,
-      "winner": null
+      "winner": "HOME_TEAM"
     },
     {
       "stage": "QUARTER_FINALS",
@@ -977,6 +977,16 @@
       "utcDate": "2026-07-11T21:00:00Z",
       "homeTeam": "Norway",
       "awayTeam": "England",
+      "homeScore": null,
+      "awayScore": null,
+      "winner": null
+    },
+    {
+      "stage": "QUARTER_FINALS",
+      "status": "TIMED",
+      "utcDate": "2026-07-12T01:00:00Z",
+      "homeTeam": "Argentina",
+      "awayTeam": "Switzerland",
       "homeScore": null,
       "awayScore": null,
       "winner": null
