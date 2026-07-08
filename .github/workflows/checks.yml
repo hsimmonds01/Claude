@@ -10,8 +10,8 @@ name: Tooley Street dock check
 # invocations are cheap.
 #
 # Morning: 06:40-08:50 UTC comfortably covers both:
-#   - BST (summer, UTC+1): 07:45-08:45 local = 06:45-07:45 UTC
-#   - GMT (winter, UTC+0): 07:45-08:45 local = 07:45-08:45 UTC
+#   - BST (summer, UTC+1): 08:00-08:45 local = 07:00-07:45 UTC
+#   - GMT (winter, UTC+0): 08:00-08:45 local = 08:00-08:45 UTC
 #
 # Evening: 16:10-18:10 UTC comfortably covers both:
 #   - BST (summer, UTC+1): 17:15-18:00 local = 16:15-17:00 UTC
@@ -68,10 +68,17 @@ jobs:
       - name: Run dock check
         working-directory: dock-alerter
         env:
-          NTFY_TOPIC: ${{ vars.NTFY_TOPIC }}
+          # Prefer a repo *secret* over a variable: secrets are masked in the
+          # (publicly visible) Actions logs, variables are not.
+          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC || vars.NTFY_TOPIC }}
+          # Pass inputs via env rather than interpolating into the script --
+          # choice/boolean inputs are validated by GitHub, but env indirection
+          # removes the shell-injection pattern entirely.
+          FORCE_MODE: ${{ inputs.force_mode || 'auto' }}
+          DRY_RUN: ${{ inputs.dry_run }}
         run: |
-          ARGS="--force-mode ${{ inputs.force_mode || 'auto' }}"
-          if [ "${{ inputs.dry_run }}" = "true" ]; then
+          ARGS="--force-mode ${FORCE_MODE}"
+          if [ "${DRY_RUN}" = "true" ]; then
             ARGS="$ARGS --dry-run"
           fi
           python check_docks.py $ARGS

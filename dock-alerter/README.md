@@ -16,13 +16,15 @@ together and how a day's checks play out over time.
 **Morning (outbound commute) -- watches empty docks**, so you know if
 you'll be able to dock your bike at Tooley Street later:
 
-- **07:45** (Europe/London time) -- a one-off morning summary: current
-  empty-dock count, sent regardless of how full the station is.
+- **08:10** and **08:25** (Europe/London time) -- two one-off snapshots:
+  current empty-dock count, sent regardless of how full the station is.
 - **08:00-08:45** -- checked every 5 minutes.
   - If empty docks drop below `LOW_DOCKS_THRESHOLD` (default **3**), you
     get a high-priority alert.
   - Once it recovers to `ALL_CLEAR_DOCKS_THRESHOLD` (default **5**) or more
     *after* an alert was sent, you get an "all clear" notification.
+  - The 08:10 and 08:25 snapshot slots take the place of that slot's
+    threshold check (they report the count anyway).
 
 **Evening (return commute) -- watches available bikes**, so you know if
 you'll be able to pick one up to ride home:
@@ -77,6 +79,30 @@ Shortcut that commits the file via the GitHub Contents API:
 3. **Add the Shortcut to your Home Screen** (share sheet -> Add to Home
    Screen) for a 1-tap mute icon.
 
+### Enabling a one-off Friday
+
+Monitoring normally runs Mon-Thu only. To include a specific Friday, drop a
+file at `dock-alerter/friday.flag` containing that Friday's date (e.g.
+`2026-07-10`). You can set it any time in advance (e.g. Thursday afternoon)
+and it resets itself automatically -- any other Friday won't match, so
+there's nothing to clean up. Works via the same 1-tap iOS Shortcut pattern
+as the mute flag (same GitHub token, just targeting `friday.flag` and
+writing tomorrow's date). If both `friday.flag` and `mute.flag` are set for
+the same day, the mute wins.
+
+### Dashboard
+
+`dock-alerter/dashboard.html` is a self-contained phone-friendly dashboard
+(no build step, no external libraries) served via GitHub Pages:
+
+    https://hsimmonds01.github.io/Claude/dock-alerter/dashboard.html
+
+It shows live dock/bike status straight from the TfL API, this week's daily
+lows for each monitoring window, a typical-availability-by-time-of-day
+pattern built from `history.csv`, and a log of recent readings. Open it in
+Safari and use "Add to Home Screen" for a 1-tap icon; it re-fetches live
+data automatically whenever you re-open it.
+
 ### Checking on demand
 
 Outside the scheduled windows, you can trigger a one-off check any time
@@ -117,7 +143,7 @@ clock change. Rather than maintaining two cron schedules and remembering
 to swap them around the clock-change weekends, the workflow schedule
 (`.github/workflows/checks.yml`) just runs **more often than needed** --
 every 5 minutes from 06:40 to 08:50 UTC, which covers the target
-07:45-08:45 London window in both BST and GMT. `check_docks.py` then uses
+08:00-08:45 London window in both BST and GMT. `check_docks.py` then uses
 Python's `zoneinfo` (`Europe/London`) to work out the *actual* local time
 on every invocation and only acts if it's really inside the summary or
 check window; otherwise it exits immediately without calling the TfL API
@@ -199,7 +225,7 @@ missing, so a schema change won't fail silently.
      phone for the notification (if not a dry run).
 
 6. Once you're happy, leave it -- it'll run automatically Mon-Thu,
-   07:45-08:45 and 17:15-18:00 London time, no further action needed.
+   08:00-08:45 and 17:15-18:00 London time, no further action needed.
 
 ## Running locally
 

@@ -91,8 +91,11 @@ NTFY_TOPIC = os.environ.get("NTFY_TOPIC") or DEFAULT_NTFY_TOPIC
 NTFY_URL = f"https://ntfy.sh/{NTFY_TOPIC}"
 
 # Morning monitoring window, in Europe/London local time.
-MORNING_SUMMARY_TIME = time(7, 45)
-MORNING_BIKES_TIME = time(8, 20)  # one-off mid-morning bike count snapshot
+# Note both one-off snapshots sit INSIDE the 08:00-08:45 check window: a run
+# landing in a snapshot's 5-minute slot does the snapshot instead of a
+# threshold check that slot (the snapshot reports the count anyway).
+MORNING_SUMMARY_TIME = time(8, 10)
+MORNING_BIKES_TIME = time(8, 25)  # second one-off dock count snapshot
 MORNING_CHECK_START = time(8, 0)
 MORNING_CHECK_END = time(8, 45)
 
@@ -338,7 +341,9 @@ def send_notification(title: str, message: str, priority: str = "default", tags:
         "Tags": tags,
     }
     response = requests.post(NTFY_URL, data=message.encode("utf-8"), headers=headers, timeout=REQUEST_TIMEOUT_SECONDS)
-    print(f"ntfy POST to {NTFY_URL} -> {response.status_code}: {response.text[:300]}")
+    # Don't echo the URL or response body: this repo is public, so Actions
+    # logs are public too, and both would reveal the ntfy topic string.
+    print(f"ntfy POST -> {response.status_code}")
     response.raise_for_status()
 
 
@@ -359,10 +364,18 @@ def run(mode: str, dry_run: bool) -> None:
         else:
             send_notification(title, message, priority="default", tags="bike,sunny")
 
-        # Fresh monitoring window starting -- clear any stale morning alert
-        # state, leaving the evening state untouched.
-        state.alerted = False
-        state.last_alert_time = None
+        # Clear stale morning alert state (e.g. yesterday's), leaving the
+        # evening state untouched. The summary now runs INSIDE the check
+        # window (08:10), so only reset if the last alert is old -- wiping a
+        # minutes-old alert would cancel its cooldown and cause a duplicate
+        # alert on the next check.
+        stale = True
+        if state.last_alert_time:
+            last_alert = datetime.fromisoformat(state.last_alert_time)
+            stale = (now_utc - last_alert) > timedelta(hours=2)
+        if stale:
+            state.alerted = False
+            state.last_alert_time = None
         if not dry_run:
             state.save(STATE_FILE)
         return
@@ -414,7 +427,7 @@ def run(mode: str, dry_run: bool) -> None:
         if not dry_run:
             log_history(mode, "empty_docks", empty_docks, station_name)
 
-        title = "Tooley Street docks - 08:20 check"
+        title = "Tooley Street docks - 08:25 check"
         message = f"{empty_docks} empty docks available right now."
         if dry_run:
             print(f"DRY RUN -- would send: {title} / {message}")
