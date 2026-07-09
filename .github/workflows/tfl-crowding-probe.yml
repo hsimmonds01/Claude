@@ -25,6 +25,23 @@ jobs:
       # every request; otherwise requests are made keyless.
       TFL_APP_KEY: ${{ secrets.TFL_APP_KEY }}
     steps:
+      - name: Resolve Colliers Wood ID and dump raw live JSON for ambiguous stations
+        run: |
+          set +e
+          set -u
+          echo "########## SEARCH Colliers Wood (tube) ##########"
+          curl -sS -m 30 "https://api.tfl.gov.uk/StopPoint/Search?query=Colliers%20Wood&modes=tube" \
+            | jq '{total, matches: [.matches[] | {id, name, modes}]}'
+
+          echo ""
+          echo "########## RAW live JSON (distinguish false vs missing) ##########"
+          for id in 940GZZLUTBY 940GZZLUTBC 940GZZLUBLM 940GZZLUCPS; do
+            echo "--- $id ---"
+            curl -sS -m 30 "https://api.tfl.gov.uk/crowding/$id/Live"
+            echo ""
+          done
+          echo "########## RESOLVE DONE ##########"
+
       - name: Verify NaPTAN IDs and live data for all seven corridor stations
         run: |
           # errexit is on by default (bash -e); turn it off so a single curl/jq
