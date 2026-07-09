@@ -8,6 +8,14 @@ name: TfL crowding probe
 
 on:
   workflow_dispatch:
+  # workflow_dispatch is not registered by GitHub until the file reaches the
+  # default branch, so while this probe lives only on the feature branch it
+  # is triggered by pushes to that branch instead.
+  push:
+    branches:
+      - claude/northern-line-busyness-rn7d9m
+    paths:
+      - .github/workflows/tfl-crowding-probe.yml
 
 jobs:
   probe:
