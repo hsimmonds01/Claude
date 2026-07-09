@@ -108,21 +108,11 @@ jobs:
               echo "$json" | head -c 500
               return 0
             fi
-            echo "$json" | python3 -c '
-import sys, json, re, html
-data = json.load(sys.stdin)
-posts = data.get("post_stream", {}).get("posts", [])
-print(f"Total posts in thread: {len(posts)}")
-for p in posts:
-    author = p.get("username", "?")
-    cooked = p.get("cooked", "")
-    text = re.sub(r"<[^>]+>", " ", cooked)
-    text = html.unescape(text)
-    text = re.sub(r"[ \t]+", " ", text)
-    text = re.sub(r"\n\s*\n+", "\n", text).strip()
-    print(f"\n--- post by {author} ---")
-    print(text[:2500])
-'
+            echo "Total posts: $(echo "$json" | jq '.post_stream.posts | length')"
+            echo "$json" \
+              | jq -r '.post_stream.posts[] | "\n--- post by " + .username + " ---\n" + (.cooked | gsub("<[^>]+>"; " ") | gsub("[ \t]+"; " "))' \
+              | sed -e 's/&amp;/\&/g' -e 's/&quot;/"/g' -e "s/&#39;/'/g" -e 's/&lt;/</g' -e 's/&gt;/>/g' \
+              | cut -c1-4000
           }
 
           fetch_thread "Data drop: near-real-time crowding data API" \
