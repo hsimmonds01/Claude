@@ -27,6 +27,9 @@ jobs:
     steps:
       - name: Verify NaPTAN IDs and live data for all seven corridor stations
         run: |
+          # errexit is on by default (bash -e); turn it off so a single curl/jq
+          # hiccup mid-loop doesn't abort the whole diagnostic before it prints.
+          set +e
           set -u
           keyparam=""
           if [ -n "$TFL_APP_KEY" ]; then
