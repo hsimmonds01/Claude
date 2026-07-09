@@ -1,0 +1,79 @@
+# TEMPORARY probe workflow -- verifies TfL Crowding API data for Balham and
+# Clapham South before the Northern line busyness tracker is built.
+# The development sandbox cannot reach api.tfl.gov.uk, so this runs the
+# verification from a GitHub Actions runner and the results are read from the
+# job log. Delete once the real tracker workflow exists.
+
+name: TfL crowding probe
+
+on:
+  workflow_dispatch:
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    env:
+      # Optional: if a TFL_APP_KEY secret is configured it is appended to
+      # every request; otherwise requests are made keyless.
+      TFL_APP_KEY: ${{ secrets.TFL_APP_KEY }}
+    steps:
+      - name: Probe TfL StopPoint search and Crowding endpoints
+        run: |
+          set -u
+          keyparam=""
+          if [ -n "$TFL_APP_KEY" ]; then
+            keyparam="app_key=$TFL_APP_KEY"
+            echo "== Using TFL_APP_KEY secret (value not shown) =="
+          else
+            echo "== No TFL_APP_KEY secret set; all requests keyless =="
+          fi
+
+          fetch () {
+            # $1 = label, $2 = url (without key), $3 = jq filter for summary
+            local url="$2"
+            if [ -n "$keyparam" ]; then
+              case "$url" in
+                *\?*) url="$url&$keyparam" ;;
+                *)    url="$url?$keyparam" ;;
+              esac
+            fi
+            echo ""
+            echo "########## $1 ##########"
+            echo "URL (key redacted): $2"
+            local body http
+            body=$(curl -sS -m 30 -w '\n%{http_code}' "$url") || { echo "CURL FAILED"; return 0; }
+            http=$(echo "$body" | tail -n1)
+            body=$(echo "$body" | sed '$d')
+            echo "HTTP status: $http"
+            echo "--- raw first 1200 chars ---"
+            echo "$body" | head -c 1200
+            echo ""
+            echo "--- jq summary ($3) ---"
+            echo "$body" | jq "$3" 2>&1 | head -c 3000 || true
+            echo ""
+          }
+
+          fetch "SEARCH Balham (tube)" \
+            "https://api.tfl.gov.uk/StopPoint/Search?query=Balham&modes=tube" \
+            '{total: .total, matches: [.matches[] | {id, name, modes}]}'
+
+          fetch "SEARCH Clapham South (tube)" \
+            "https://api.tfl.gov.uk/StopPoint/Search?query=Clapham%20South&modes=tube" \
+            '{total: .total, matches: [.matches[] | {id, name, modes}]}'
+
+          for id in 940GZZLUBLM 940GZZLUCPS; do
+            fetch "LIVE crowding $id" \
+              "https://api.tfl.gov.uk/crowding/$id/Live" \
+              '.'
+
+            fetch "TYPICAL crowding $id (structure summary)" \
+              "https://api.tfl.gov.uk/crowding/$id" \
+              'if type == "object" then
+                 {topLevelKeys: keys,
+                  daysOfWeek: (try [.daysOfWeek[].dayOfWeek] catch "n/a"),
+                  sampleDay: (try (.daysOfWeek[0] | {dayOfWeek, amPeakTimeBand, pmPeakTimeBand, timeBandCount: (.timeBands|length), firstTimeBands: .timeBands[0:3]}) catch "n/a")}
+               else . end'
+          done
+
+          echo ""
+          echo "########## DONE ##########"
