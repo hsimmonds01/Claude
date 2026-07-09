@@ -61,6 +61,10 @@ jobs:
             echo ""
           }
 
+          fetch "IDENTITY check 940GZZLUBLM (search only returned hub HUBBAL)" \
+            "https://api.tfl.gov.uk/StopPoint/940GZZLUBLM" \
+            '{id, commonName, modes, lines: (try [.lines[].name] catch "n/a")}'
+
           fetch "SEARCH Balham (tube)" \
             "https://api.tfl.gov.uk/StopPoint/Search?query=Balham&modes=tube" \
             '{total: .total, matches: [.matches[] | {id, name, modes}]}'
