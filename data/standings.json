@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-09T20:18:37.796Z",
+  "lastUpdated": "2026-07-09T21:49:03.150Z",
   "matches": [
     {
       "stage": "GROUP_STAGE",
@@ -957,9 +957,9 @@
       "utcDate": "2026-07-09T20:00:00Z",
       "homeTeam": "France",
       "awayTeam": "Morocco",
-      "homeScore": 0,
+      "homeScore": 2,
       "awayScore": 0,
-      "winner": "DRAW"
+      "winner": "HOME_TEAM"
     },
     {
       "stage": "QUARTER_FINALS",
