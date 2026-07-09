@@ -1,5 +1,5 @@
-# TEMPORARY probe workflow -- verifies TfL Crowding API data for Balham and
-# Clapham South before the Northern line busyness tracker is built.
+# TEMPORARY probe workflow -- verifies TfL Crowding API data for the seven
+# Northern line commute-corridor stations before the busyness tracker is built.
 # The development sandbox cannot reach api.tfl.gov.uk, so this runs the
 # verification from a GitHub Actions runner and the results are read from the
 # job log. Delete once the real tracker workflow exists.
@@ -25,7 +25,7 @@ jobs:
       # every request; otherwise requests are made keyless.
       TFL_APP_KEY: ${{ secrets.TFL_APP_KEY }}
     steps:
-      - name: Probe TfL StopPoint search and Crowding endpoints
+      - name: Verify NaPTAN IDs and live data for all seven corridor stations
         run: |
           set -u
           keyparam=""
@@ -36,99 +36,62 @@ jobs:
             echo "== No TFL_APP_KEY secret set; all requests keyless =="
           fi
 
-          fetch () {
-            # $1 = label, $2 = url (without key), $3 = jq filter for summary
-            local url="$2"
+          add_key () {
+            local url="$1"
             if [ -n "$keyparam" ]; then
               case "$url" in
-                *\?*) url="$url&$keyparam" ;;
-                *)    url="$url?$keyparam" ;;
+                *\?*) echo "$url&$keyparam" ;;
+                *)    echo "$url?$keyparam" ;;
               esac
+            else
+              echo "$url"
             fi
-            echo ""
-            echo "########## $1 ##########"
-            echo "URL (key redacted): $2"
-            local body http
-            body=$(curl -sS -m 30 -w '\n%{http_code}' "$url") || { echo "CURL FAILED"; return 0; }
-            http=$(echo "$body" | tail -n1)
-            body=$(echo "$body" | sed '$d')
-            echo "HTTP status: $http"
-            echo "--- raw first 1200 chars ---"
-            echo "$body" | head -c 1200
-            echo ""
-            echo "--- jq summary ($3) ---"
-            echo "$body" | jq "$3" 2>&1 | head -c 3000 || true
-            echo ""
           }
 
-          fetch "IDENTITY check 940GZZLUBLM (search only returned hub HUBBAL)" \
-            "https://api.tfl.gov.uk/StopPoint/940GZZLUBLM" \
-            '{id, commonName, modes, lines: (try [.lines[].name] catch "n/a")}'
+          # Candidate standard NaPTAN IDs (label|id). Verified below by name.
+          stations="Colliers Wood|940GZZLUCWD
+          Tooting Broadway|940GZZLUTBY
+          Tooting Bec|940GZZLUTBC
+          Balham|940GZZLUBLM
+          Clapham South|940GZZLUCPS
+          Clapham Common|940GZZLUCPC
+          Clapham North|940GZZLUCPN"
 
-          fetch "SEARCH Balham (tube)" \
-            "https://api.tfl.gov.uk/StopPoint/Search?query=Balham&modes=tube" \
-            '{total: .total, matches: [.matches[] | {id, name, modes}]}'
+          echo ""
+          printf '%-18s %-14s %-8s %-28s %-8s %-10s %s\n' \
+            "EXPECTED" "NAPTAN" "SP_HTTP" "API_NAME" "LV_HTTP" "AVAILABLE" "LIVE_VALUE"
+          echo "--------------------------------------------------------------------------------------------------"
 
-          fetch "SEARCH Clapham South (tube)" \
-            "https://api.tfl.gov.uk/StopPoint/Search?query=Clapham%20South&modes=tube" \
-            '{total: .total, matches: [.matches[] | {id, name, modes}]}'
+          while IFS='|' read -r label id; do
+            label=$(echo "$label" | xargs)   # trim whitespace
+            id=$(echo "$id" | xargs)
+            [ -z "$id" ] && continue
 
-          for id in 940GZZLUBLM 940GZZLUCPS; do
-            fetch "LIVE crowding $id" \
-              "https://api.tfl.gov.uk/crowding/$id/Live" \
-              '.'
+            # StopPoint identity: confirm the ID resolves to the right station + Northern line
+            sp=$(curl -sS -m 30 -w '\n%{http_code}' "$(add_key "https://api.tfl.gov.uk/StopPoint/$id")")
+            sp_http=$(echo "$sp" | tail -n1)
+            sp_body=$(echo "$sp" | sed '$d')
+            api_name=$(echo "$sp_body" | jq -r '.commonName // "?"' 2>/dev/null)
+            lines=$(echo "$sp_body" | jq -r '[.lines[].name] | join(",")' 2>/dev/null)
 
-            fetch "TYPICAL crowding $id (structure summary)" \
-              "https://api.tfl.gov.uk/crowding/$id" \
-              'if type == "object" then
-                 {topLevelKeys: keys,
-                  daysOfWeek: (try [.daysOfWeek[].dayOfWeek] catch "n/a"),
-                  sampleDay: (try (.daysOfWeek[0] | {dayOfWeek, amPeakTimeBand, pmPeakTimeBand, timeBandCount: (.timeBands|length), firstTimeBands: .timeBands[0:3]}) catch "n/a")}
-               else . end'
+            # Live crowding
+            lv=$(curl -sS -m 30 -w '\n%{http_code}' "$(add_key "https://api.tfl.gov.uk/crowding/$id/Live")")
+            lv_http=$(echo "$lv" | tail -n1)
+            lv_body=$(echo "$lv" | sed '$d')
+            avail=$(echo "$lv_body" | jq -r '.dataAvailable // "?"' 2>/dev/null)
+            value=$(echo "$lv_body" | jq -r '.percentageOfBaseline // "?"' 2>/dev/null)
+
+            printf '%-18s %-14s %-8s %-28s %-8s %-10s %s\n' \
+              "$label" "$id" "$sp_http" "$api_name" "$lv_http" "$avail" "$value"
+            echo "    lines: $lines"
+          done <<< "$stations"
+
+          echo ""
+          echo "########## Typical-profile availability (isFound / isAlwaysQuiet) ##########"
+          for id in 940GZZLUCWD 940GZZLUTBY 940GZZLUTBC 940GZZLUBLM 940GZZLUCPS 940GZZLUCPC 940GZZLUCPN; do
+            t=$(curl -sS -m 30 "$(add_key "https://api.tfl.gov.uk/crowding/$id")")
+            echo "$id -> $(echo "$t" | jq -c '{isFound, isAlwaysQuiet, days: ([.daysOfWeek[].dayOfWeek] | length), bandsPerDay: (.daysOfWeek[0].timeBands | length)}' 2>&1 | head -c 300)"
           done
 
           echo ""
           echo "########## DONE ##########"
-
-      - name: Fetch TfL tech forum threads on crowding methodology (Discourse JSON API)
-        run: |
-          set -u
-          fetch_thread () {
-            # $1 = label, $2 = discourse topic json url
-            echo ""
-            echo "########## $1 ##########"
-            echo "URL: $2"
-            local json
-            json=$(curl -sS -m 30 -w '\n%{http_code}' "$2")
-            local http
-            http=$(echo "$json" | tail -n1)
-            json=$(echo "$json" | sed '$d')
-            echo "HTTP status: $http"
-            if [ "$http" != "200" ]; then
-              echo "$json" | head -c 500
-              return 0
-            fi
-            echo "Total posts: $(echo "$json" | jq '.post_stream.posts | length')"
-            echo "$json" \
-              | jq -r '.post_stream.posts[] | "\n--- post by " + .username + " ---\n" + (.cooked | gsub("<[^>]+>"; " ") | gsub("[ \t]+"; " "))' \
-              | sed -e 's/&amp;/\&/g' -e 's/&quot;/"/g' -e "s/&#39;/'/g" -e 's/&lt;/</g' -e 's/&gt;/>/g' \
-              | cut -c1-4000
-          }
-
-          fetch_thread "Data drop: near-real-time crowding data API" \
-            "https://techforum.tfl.gov.uk/t/data-drop-near-real-time-crowding-data-api/1916.json"
-
-          fetch_thread "Queries and observations on Crowding data" \
-            "https://techforum.tfl.gov.uk/t/queries-and-observations-on-crowding-data/1272.json"
-
-          fetch_thread "Get crowding information" \
-            "https://techforum.tfl.gov.uk/t/get-crowding-information/1766.json"
-
-          fetch_thread "Crowding data availability" \
-            "https://techforum.tfl.gov.uk/t/crowding-data-availability/2078.json"
-
-          fetch_thread "Crowding Information (older thread)" \
-            "https://techforum.tfl.gov.uk/t/crowding-information/617.json"
-
-          echo ""
-          echo "########## FORUM FETCH DONE ##########"
