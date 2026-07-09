@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Northern line busyness – Balham/Clapham corridor</title>
+  <style>
+    /* ── Design tokens (shared look with the dock-alerter dashboard) ── */
+    :root {
+      --surface: #fcfcfb;
+      --page:    #f9f9f7;
+      --ink-1:   #0b0b0b;
+      --ink-2:   #52514e;
+      --ink-m:   #898781;
+      --grid:    #e1e0d9;
+      --axis:    #c3c2b7;
+      --line:    #2a78d6;
+      --typ:     #9a97b8;
+      --quiet:   #0ca30c;
+      --quiet-bg: rgba(12,163,12,0.10);
+      --busy:    #b97f00;
+      --busy-bg: rgba(250,178,25,0.16);
+      --vbusy:   #d03b3b;
+      --vbusy-bg: rgba(208,59,59,0.10);
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --surface: #1a1a19;
+        --page:    #0d0d0d;
+        --ink-1:   #ffffff;
+        --ink-2:   #c3c2b7;
+        --ink-m:   #898781;
+        --grid:    #2c2c2a;
+        --axis:    #383835;
+        --line:    #3987e5;
+        --typ:     #6f6c8e;
+        --quiet:   #17b517;
+        --busy:    #fab219;
+        --vbusy:   #e5544f;
+      }
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { -webkit-text-size-adjust: 100%; }
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+      font-size: 15px; line-height: 1.45;
+      background: var(--page); color: var(--ink-1);
+      max-width: 680px; margin: 0 auto; padding: 0 14px 48px;
+    }
+    header { padding: 20px 0 6px; }
+    h1 { font-size: 21px; font-weight: 650; letter-spacing: -0.01em; }
+    .sub { color: var(--ink-2); font-size: 13px; margin-top: 3px; }
+    .updated { color: var(--ink-m); font-size: 12px; margin-top: 6px; }
+    h2 { font-size: 14px; font-weight: 600; color: var(--ink-2);
+         text-transform: uppercase; letter-spacing: 0.04em;
+         margin: 26px 0 10px; }
+
+    /* ── Live station tiles ─────────────────────────────────────── */
+    .tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    @media (max-width: 460px) { .tiles { grid-template-columns: 1fr; } }
+    .tile {
+      background: var(--surface); border: 1px solid var(--grid);
+      border-radius: 12px; padding: 12px 14px; cursor: pointer;
+      display: flex; flex-direction: column; gap: 4px;
+      border-left-width: 4px;
+    }
+    .tile.sel { outline: 2px solid var(--line); outline-offset: 1px; }
+    .tile .name { font-weight: 600; font-size: 14px; }
+    .tile .val { font-size: 26px; font-weight: 680; letter-spacing: -0.02em; }
+    .tile .band { font-size: 12px; font-weight: 600; }
+    .tile .vs { font-size: 12px; color: var(--ink-2); }
+    .tile.quiet  { border-left-color: var(--quiet);  }
+    .tile.busy   { border-left-color: var(--busy);   }
+    .tile.vbusy  { border-left-color: var(--vbusy);  }
+    .tile.none   { border-left-color: var(--axis);   }
+    .band.quiet  { color: var(--quiet); }
+    .band.busy   { color: var(--busy); }
+    .band.vbusy  { color: var(--vbusy); }
+    .band.none   { color: var(--ink-m); }
+
+    .chartwrap { background: var(--surface); border: 1px solid var(--grid);
+                 border-radius: 12px; padding: 14px 12px 8px; }
+    .chart-title { font-size: 14px; font-weight: 600; margin: 0 2px 4px; }
+    .chart-sub { font-size: 12px; color: var(--ink-2); margin: 0 2px 8px; }
+    svg { display: block; width: 100%; height: auto; overflow: visible; }
+    .legend { display: flex; gap: 16px; font-size: 12px; color: var(--ink-2);
+              margin: 6px 2px 0; flex-wrap: wrap; }
+    .legend span { display: inline-flex; align-items: center; gap: 5px; }
+    .swatch { width: 12px; height: 3px; border-radius: 2px; display: inline-block; }
+
+    .note { background: var(--surface); border: 1px solid var(--grid);
+            border-radius: 12px; padding: 12px 14px; font-size: 13px;
+            color: var(--ink-2); }
+    .err { color: var(--vbusy); }
+    footer { margin-top: 30px; font-size: 12px; color: var(--ink-m);
+             border-top: 1px solid var(--grid); padding-top: 12px; }
+    a { color: var(--line); }
+    code { background: var(--busy-bg); padding: 1px 5px; border-radius: 4px;
+           font-size: 12px; }
+  </style>
+</head>
+<body>
+<header>
+  <h1>Northern line busyness</h1>
+  <div class="sub">Balham / Clapham commute corridor · live from the TfL crowding feed</div>
+  <div class="updated" id="updated">Loading…</div>
+</header>
+
+<h2>Right now</h2>
+<div class="tiles" id="tiles"></div>
+
+<h2>Typical day · <span id="detailName">—</span></h2>
+<div class="chartwrap">
+  <div class="chart-sub" id="detailSub">Tap a station above to see its typical busyness through the day.</div>
+  <svg id="profile" viewBox="0 0 640 240" role="img" aria-label="Typical busyness profile"></svg>
+  <div class="legend">
+    <span><span class="swatch" style="background:var(--typ)"></span>typical (this weekday)</span>
+    <span><span class="swatch" style="background:var(--line)"></span>now</span>
+    <span><span class="swatch" style="background:var(--busy)"></span>busy 0.4</span>
+    <span><span class="swatch" style="background:var(--vbusy)"></span>very busy 0.7</span>
+  </div>
+</div>
+
+<h2>Logged trend</h2>
+<div id="trendHost"></div>
+
+<footer>
+  <p><strong>What the number means.</strong> A station-level busyness index from
+  TfL's anonymised, aggregated station WiFi data — a fraction of that station's
+  busiest week since July 2019 (so <em>not</em> a headcount, and not comparable
+  between stations). TfL's bands: &lt;0.4 quiet · 0.4–0.7 busy · &gt;0.7 very busy.</p>
+  <p>Live &amp; typical read straight from <code>api.tfl.gov.uk/crowding</code> each
+  time you open this page. The logged trend comes from <code>history.csv</code>,
+  which a GitHub Action fills in every ~5 min during commute windows.</p>
+</footer>
+
+<script>
+"use strict";
+
+/* ── Config (mirrors check_crowding.py) ─────────────────────────── */
+const STATIONS = [
+  ["940GZZLUCSD", "Colliers Wood"],
+  ["940GZZLUTBY", "Tooting Broadway"],
+  ["940GZZLUTBC", "Tooting Bec"],
+  ["940GZZLUBLM", "Balham"],
+  ["940GZZLUCPS", "Clapham South"],
+  ["940GZZLUCPC", "Clapham Common"],
+  ["940GZZLUCPN", "Clapham North"],
+];
+const CROWD = "https://api.tfl.gov.uk/crowding";
+const HIST_URL = "https://raw.githubusercontent.com/hsimmonds01/Claude/main/crowding-tracker/history.csv";
+const QUIET_BELOW = 0.4, BUSY_BELOW = 0.7;
+const SVGNS = "http://www.w3.org/2000/svg";
+const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+const DOW = ["SUN","MON","TUE","WED","THU","FRI","SAT"];
+
+function sv(tag, attrs) {
+  const e = document.createElementNS(SVGNS, tag);
+  if (attrs) for (const [k, v] of Object.entries(attrs)) e.setAttribute(k, v);
+  return e;
+}
+function bandOf(p) {
+  if (p == null) return "none";
+  if (p < QUIET_BELOW) return "quiet";
+  if (p <= BUSY_BELOW) return "busy";
+  return "vbusy";
+}
+const bandLabel = { quiet: "quiet", busy: "busy", vbusy: "very busy", none: "no live data" };
+
+/* London wall-clock parts for any instant (never parse locale strings). */
+const LON = new Intl.DateTimeFormat("en-GB", {
+  timeZone: "Europe/London", hourCycle: "h23", weekday: "short",
+  hour: "2-digit", minute: "2-digit",
+});
+function londonNow(date) {
+  const p = {};
+  for (const part of LON.formatToParts(date)) p[part.type] = part.value;
+  return { dow: p.weekday.toUpperCase().slice(0,3), mins: +p.hour * 60 + +p.minute };
+}
+
+/* ── State ──────────────────────────────────────────────────────── */
+const live = {};     // naptan -> {p|null, available, name}
+const typical = {};  // naptan -> daysOfWeek array
+let selected = STATIONS[3][0];  // default: Balham
+
+/* ── Fetch ──────────────────────────────────────────────────────── */
+async function getJSON(url) {
+  const r = await fetch(url);
+  if (!r.ok) throw new Error(url.split("/crowding")[1] + " → " + r.status);
+  return r.json();
+}
+async function loadLive() {
+  await Promise.all(STATIONS.map(async ([id, name]) => {
+    try {
+      const d = await getJSON(`${CROWD}/${id}/Live`);
+      const ok = d && d.dataAvailable === true && typeof d.percentageOfBaseline === "number";
+      live[id] = { p: ok ? d.percentageOfBaseline : null, available: !!(d && d.dataAvailable), name };
+    } catch (e) {
+      live[id] = { p: null, available: false, name, err: String(e.message || e) };
+    }
+  }));
+}
+async function loadTypical(id) {
+  if (typical[id]) return typical[id];
+  const d = await getJSON(`${CROWD}/${id}`);
+  typical[id] = (d && d.daysOfWeek) || [];
+  return typical[id];
+}
+
+/* Typical value for a station at a given weekday + minutes-past-midnight. */
+function typicalAt(days, dow, mins) {
+  const day = (days || []).find(d => (d.dayOfWeek || "").toUpperCase().startsWith(dow));
+  if (!day || !day.timeBands) return null;
+  for (const b of day.timeBands) {
+    const [a, z] = (b.timeBand || "").split("-");
+    if (!a || !z) continue;
+    const s = (+a.slice(0,2)) * 60 + (+a.slice(3,5));
+    const e = (+z.slice(0,2)) * 60 + (+z.slice(3,5));
+    const end = e === 0 ? 24*60 : e;
+    if (mins >= s && mins < end) return b.percentageOfBaseLine;
+  }
+  return null;
+}
+
+/* ── Render: live tiles ─────────────────────────────────────────── */
+function renderTiles() {
+  const host = document.getElementById("tiles");
+  host.innerHTML = "";
+  const now = londonNow(new Date());
+  for (const [id, name] of STATIONS) {
+    const L = live[id] || { p: null, available: false };
+    const band = bandOf(L.p);
+    const tile = document.createElement("div");
+    tile.className = `tile ${band}` + (id === selected ? " sel" : "");
+    tile.onclick = () => selectStation(id);
+
+    const nm = document.createElement("div"); nm.className = "name"; nm.textContent = name;
+    const val = document.createElement("div"); val.className = "val";
+    val.textContent = L.p == null ? "—" : Math.round(L.p * 100) + "%";
+    const bd = document.createElement("div"); bd.className = `band ${band}`;
+    bd.textContent = bandLabel[band];
+
+    const vs = document.createElement("div"); vs.className = "vs";
+    const days = typical[id];
+    const typ = days ? typicalAt(days, now.dow, now.mins) : null;
+    if (L.p != null && typ != null) {
+      const diff = Math.round((L.p - typ) * 100);
+      vs.textContent = diff === 0 ? "as usual for now"
+        : `${Math.abs(diff)}% ${diff > 0 ? "busier" : "quieter"} than usual`;
+    } else if (!L.available) {
+      vs.textContent = "no live reading";
+    } else {
+      vs.textContent = "";
+    }
+    tile.append(nm, val, bd, vs);
+    host.append(tile);
+  }
+}
+
+/* ── Render: typical-day profile for the selected station ───────── */
+function renderProfile() {
+  const [, name] = STATIONS.find(s => s[0] === selected) || [null, "—"];
+  document.getElementById("detailName").textContent = name;
+  const svg = document.getElementById("profile");
+  svg.innerHTML = "";
+  const days = typical[selected];
+  const now = londonNow(new Date());
+  const sub = document.getElementById("detailSub");
+  if (!days || !days.length) { sub.textContent = "Typical profile unavailable for this station."; return; }
+  const day = days.find(d => (d.dayOfWeek || "").toUpperCase().startsWith(now.dow));
+  if (!day) { sub.textContent = "No typical profile for today."; return; }
+  sub.textContent = `Typical ${new Date().toLocaleDateString("en-GB",{weekday:"long"})}, 15-min bands. `
+    + `Baseline 1.0 = the station's busiest week since 2019.`;
+
+  const W = 640, H = 240, ml = 34, mr = 8, mt = 10, mb = 22;
+  const iw = W - ml - mr, ih = H - mt - mb;
+  const bands = day.timeBands;
+  const maxV = Math.max(0.8, ...bands.map(b => b.percentageOfBaseLine || 0)) * 1.1;
+  const x = i => ml + (i / (bands.length - 1)) * iw;
+  const y = v => mt + ih - (v / maxV) * ih;
+
+  // gridlines + threshold lines at 0.4 / 0.7
+  for (const [v, col] of [[0.4, css("--busy")], [0.7, css("--vbusy")]]) {
+    if (v > maxV) continue;
+    svg.append(sv("line", { x1: ml, y1: y(v), x2: W - mr, y2: y(v),
+      stroke: col, "stroke-width": 1, "stroke-dasharray": "4 4", opacity: 0.7 }));
+  }
+  // y axis labels
+  for (let v = 0; v <= maxV; v += 0.2) {
+    svg.append(sv("line", { x1: ml, y1: y(v), x2: W - mr, y2: y(v),
+      stroke: css("--grid"), "stroke-width": 1, opacity: 0.6 }));
+    const t = sv("text", { x: ml - 5, y: y(v) + 3, "text-anchor": "end",
+      "font-size": 10, fill: css("--ink-m") });
+    t.textContent = v.toFixed(1); svg.append(t);
+  }
+  // x axis labels every 3h
+  for (let h = 0; h <= 24; h += 3) {
+    const i = Math.min(bands.length - 1, Math.round((h * 60 / (24 * 60)) * (bands.length - 1)));
+    const t = sv("text", { x: x(i), y: H - 6, "text-anchor": "middle",
+      "font-size": 10, fill: css("--ink-m") });
+    t.textContent = String(h).padStart(2, "0"); svg.append(t);
+  }
+  // typical line
+  const pts = bands.map((b, i) => `${x(i)},${y(b.percentageOfBaseLine || 0)}`).join(" ");
+  svg.append(sv("polyline", { points: pts, fill: "none",
+    stroke: css("--typ"), "stroke-width": 2 }));
+
+  // "now" marker + live dot
+  const nowI = Math.min(bands.length - 1, Math.round((now.mins / (24 * 60)) * (bands.length - 1)));
+  svg.append(sv("line", { x1: x(nowI), y1: mt, x2: x(nowI), y2: mt + ih,
+    stroke: css("--line"), "stroke-width": 1.5, opacity: 0.5 }));
+  const L = live[selected];
+  if (L && L.p != null) {
+    svg.append(sv("circle", { cx: x(nowI), cy: y(L.p), r: 5,
+      fill: css("--line") }));
+  }
+}
+
+function selectStation(id) {
+  selected = id;
+  renderTiles();
+  loadTypical(id).then(renderProfile).catch(() => renderProfile());
+}
+
+/* ── Render: logged trend from history.csv ──────────────────────── */
+function parseCSV(text) {
+  const lines = text.trim().split(/\r?\n/);
+  const head = lines.shift().split(",");
+  return lines.map(line => {
+    // history.csv has no embedded commas in our columns, simple split is safe
+    const cells = line.split(",");
+    const row = {};
+    head.forEach((h, i) => row[h] = cells[i]);
+    return row;
+  });
+}
+async function loadTrend() {
+  const host = document.getElementById("trendHost");
+  let rows;
+  try {
+    const r = await fetch(HIST_URL, { cache: "no-store" });
+    if (!r.ok) throw new Error(r.status);
+    rows = parseCSV(await r.text());
+  } catch (e) {
+    host.innerHTML = `<div class="note">No logged history yet — the trend chart fills
+      in once the GitHub Action has run through a commute window or two.</div>`;
+    return;
+  }
+  const forStation = rows.filter(r => r.naptan === selected && r.percentage_of_baseline !== "");
+  if (!forStation.length) {
+    host.innerHTML = `<div class="note">No readings logged for
+      <strong>${(STATIONS.find(s=>s[0]===selected)||[])[1]||""}</strong> yet
+      (${rows.length} total rows). Check back after a commute window.</div>`;
+    return;
+  }
+  // Show the most recent ~3 days of this station's logged points, by local time-of-day.
+  const recent = forStation.slice(-300);
+  const W = 640, H = 200, ml = 34, mr = 8, mt = 10, mb = 22;
+  const iw = W - ml - mr, ih = H - mt - mb;
+  const xs = recent.map(r => {
+    const hm = (r.timestamp_local || "").slice(11, 16);
+    return (+hm.slice(0,2)) * 60 + (+hm.slice(3,5));
+  });
+  const ys = recent.map(r => +r.percentage_of_baseline);
+  const maxV = Math.max(0.8, ...ys) * 1.1;
+  const x = m => ml + (m / (24*60)) * iw;
+  const y = v => mt + ih - (v / maxV) * ih;
+  const svg = sv("svg", { viewBox: `0 0 ${W} ${H}` });
+  for (const [v, col] of [[0.4, css("--busy")], [0.7, css("--vbusy")]]) {
+    svg.append(sv("line", { x1: ml, y1: y(v), x2: W-mr, y2: y(v),
+      stroke: col, "stroke-width": 1, "stroke-dasharray": "4 4", opacity: 0.7 }));
+  }
+  for (let h = 0; h <= 24; h += 3) {
+    const t = sv("text", { x: x(h*60), y: H-6, "text-anchor": "middle",
+      "font-size": 10, fill: css("--ink-m") });
+    t.textContent = String(h).padStart(2,"0"); svg.append(t);
+  }
+  recent.forEach((r, i) => {
+    svg.append(sv("circle", { cx: x(xs[i]), cy: y(ys[i]), r: 2.5,
+      fill: css("--line"), opacity: 0.55 }));
+  });
+  const wrap = document.createElement("div");
+  wrap.className = "chartwrap";
+  const cap = document.createElement("div");
+  cap.className = "chart-sub";
+  cap.textContent = `${forStation.length} logged readings · busyness by time of day (most recent ${recent.length})`;
+  wrap.append(cap, svg);
+  host.innerHTML = "";
+  host.append(wrap);
+}
+
+/* ── Boot ───────────────────────────────────────────────────────── */
+async function boot() {
+  const upd = document.getElementById("updated");
+  try {
+    await loadLive();
+    await loadTypical(selected).catch(() => {});
+    // warm typical for all tiles' "vs usual" (best-effort, parallel)
+    Promise.all(STATIONS.map(s => loadTypical(s[0]).catch(() => {}))).then(renderTiles);
+    renderTiles();
+    renderProfile();
+    loadTrend();
+    upd.textContent = "Updated " + new Date().toLocaleTimeString("en-GB",
+      { hour: "2-digit", minute: "2-digit", timeZone: "Europe/London" }) + " (London)";
+  } catch (e) {
+    upd.innerHTML = `<span class="err">Couldn't load live data: ${e.message}. `
+      + `TfL may be rate-limiting — refresh in a moment.</span>`;
+  }
+}
+boot();
+</script>
+</body>
+</html>
