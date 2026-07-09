@@ -1,0 +1,94 @@
+name: Northern line crowding log
+
+# GitHub Actions cron always runs in UTC and has no concept of the UK's
+# GMT/BST switch. Rather than maintain two DST-dependent sets of cron lines,
+# we cast a wide net in UTC and let check_crowding.py decide -- via Python's
+# zoneinfo Europe/London, which knows about DST -- whether "now" is actually
+# inside a commute window. Runs outside the windows exit immediately without
+# writing anything, so the extra invocations are cheap.
+#
+# Target commute windows (Europe/London): 07:00-09:30 and 16:30-19:00, Mon-Fri.
+#
+#   Morning 07:00-09:30 local:
+#     BST (summer, UTC+1) = 06:00-08:30 UTC
+#     GMT (winter, UTC+0) = 07:00-09:30 UTC   -> union 06:00-09:30 UTC
+#   Evening 16:30-19:00 local:
+#     BST = 15:30-18:00 UTC
+#     GMT = 16:30-19:00 UTC                   -> union 15:30-19:00 UTC
+#
+# The hour-range crons below are slightly wider than those unions; the extra
+# slots simply no-op inside the script.
+#
+# NOTE: GitHub's native `schedule` is best-effort and can run late or skip
+# (the sibling dock-alerter has seen >1hr delays). For a logger the odd
+# missed 5-min sample is harmless. If gaps prove annoying, point an external
+# pinger (e.g. cron-job.org) at the workflow_dispatch endpoint as a more
+# reliable trigger -- the window-gating here makes duplicate triggers safe.
+on:
+  schedule:
+    - cron: "*/5 6-9 * * 1-5"    # morning net (UTC)
+    - cron: "*/5 15-19 * * 1-5"  # evening net (UTC)
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "Run mode"
+        type: choice
+        options:
+          - live
+          - status
+        default: live
+      force:
+        description: "live mode: bypass the window gate and log now"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+# Serialise runs so concurrent appends never race on the git push. Queue
+# rather than cancel, so a delayed run still gets a chance to log.
+concurrency:
+  group: northern-line-crowding-log
+  cancel-in-progress: false
+
+jobs:
+  log:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        working-directory: crowding-tracker
+        run: pip install -r requirements.txt
+
+      - name: Poll crowding
+        working-directory: crowding-tracker
+        env:
+          # Optional Unified API key. Prefer a secret over a variable so it is
+          # masked in the (publicly visible) Actions logs.
+          TFL_APP_KEY: ${{ secrets.TFL_APP_KEY }}
+          MODE: ${{ inputs.mode || 'live' }}
+          FORCE: ${{ inputs.force }}
+        run: |
+          ARGS="--mode ${MODE}"
+          if [ "${FORCE}" = "true" ]; then
+            ARGS="$ARGS --force"
+          fi
+          python check_crowding.py $ARGS
+
+      - name: Commit new readings (if any)
+        if: ${{ (inputs.mode || 'live') == 'live' }}
+        run: |
+          git add crowding-tracker/history.csv
+          if ! git diff --cached --quiet; then
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git commit -m "Log Northern line crowding readings"
+            git push
+          else
+            echo "No new readings (outside window), nothing to commit."
+          fi
