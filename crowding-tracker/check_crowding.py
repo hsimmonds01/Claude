@@ -144,6 +144,18 @@ def _with_key(url: str) -> str:
     return f"{url}{sep}app_key={TFL_APP_KEY}"
 
 
+def _redact(text: str) -> str:
+    """Strip a leaked app_key from a string before it is printed.
+
+    requests exception messages embed the request URL, which carries
+    ?app_key=... -- keep it out of logs (which are public in CI) and local
+    terminals. GitHub also masks registered secrets, but don't rely on that.
+    """
+    if not TFL_APP_KEY:
+        return text
+    return text.replace(TFL_APP_KEY, "***")
+
+
 def fetch_live(naptan: str) -> dict:
     """GET the live crowding JSON for one station, with a single retry."""
     url = _with_key(f"{TFL_BASE_URL}/{naptan}/Live")
@@ -173,7 +185,7 @@ def read_station(naptan: str, station: str) -> Reading:
     try:
         data = fetch_live(naptan)
     except requests.exceptions.RequestException as exc:
-        print(f"WARNING: giving up on {station} ({naptan}): {exc}", file=sys.stderr)
+        print(f"WARNING: giving up on {station} ({naptan}): {_redact(str(exc))}", file=sys.stderr)
         return Reading(naptan, station, False, None, None)
 
     available = bool(data.get("dataAvailable"))
