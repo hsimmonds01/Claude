@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-09T21:49:03.150Z",
+  "lastUpdated": "2026-07-09T22:58:04.197Z",
   "matches": [
     {
       "stage": "GROUP_STAGE",
@@ -953,7 +953,7 @@
     },
     {
       "stage": "QUARTER_FINALS",
-      "status": "IN_PLAY",
+      "status": "FINISHED",
       "utcDate": "2026-07-09T20:00:00Z",
       "homeTeam": "France",
       "awayTeam": "Morocco",
@@ -1013,7 +1013,7 @@
     },
     "QUARTER_FINALS": {
       "total": 4,
-      "finished": 0,
+      "finished": 1,
       "startDate": "2026-07-09T20:00:00Z",
       "endDate": "2026-07-12T01:00:00Z"
     },
