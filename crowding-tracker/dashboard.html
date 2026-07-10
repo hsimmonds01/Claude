@@ -193,7 +193,11 @@ async function loadLive() {
   await Promise.all(STATIONS.map(async ([id, name]) => {
     try {
       const d = await getJSON(`${CROWD}/${id}/Live`);
-      const ok = d && d.dataAvailable === true && typeof d.percentageOfBaseline === "number";
+      // Treat an exact 0 as no reading: on this feed a dataAvailable:true with
+      // percentageOfBaseline===0 is a sparse-coverage placeholder (Clapham
+      // Common/North), not a genuine empty station. Mirrors check_crowding.py.
+      const ok = d && d.dataAvailable === true
+        && typeof d.percentageOfBaseline === "number" && d.percentageOfBaseline !== 0;
       live[id] = { p: ok ? d.percentageOfBaseline : null, available: !!(d && d.dataAvailable), name };
     } catch (e) {
       live[id] = { p: null, available: false, name, err: String(e.message || e) };

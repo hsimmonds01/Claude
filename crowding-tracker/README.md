@@ -40,6 +40,20 @@ Consequences worth remembering:
   that the station is empty. Off-peak, Tooting Bec/Broadway were seen
   returning this. The logger records such readings as **blank**, never as 0,
   so they don't drag the trends down with fake zeros.
+- **An exact `percentageOfBaseline: 0` with `dataAvailable: true`** is also
+  treated as no reading (logged blank). On this feed that value is a
+  sparse-coverage placeholder, not a genuine empty station — a real reading
+  during a commute window is never exactly zero. The row keeps
+  `data_available=true` so it's distinguishable in the CSV from the
+  `dataAvailable:false` case.
+
+**Feed reliability by station (observed):** Colliers Wood, Tooting Broadway,
+Tooting Bec, Balham and Clapham South return solid data. **Clapham Common and
+Clapham North are flaky** on the crowding feed — they frequently return "no
+data" or the placeholder zero, and only intermittently a real value. They're
+kept in the tracker (they *do* report sometimes), but expect gaps in their
+trend lines. If they prove near-useless over time, they're easy to drop from
+`STATIONS`.
 
 ## Two kinds of "history"
 

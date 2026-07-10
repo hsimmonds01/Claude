@@ -202,6 +202,22 @@ def read_station(naptan: str, station: str) -> Reading:
         )
         return Reading(naptan, station, True, None, data.get("timeUtc"))
 
+    # An exact 0.0 with dataAvailable=true is, in practice, a placeholder from
+    # stations with sparse WiFi coverage on this feed (observed repeatedly at
+    # Clapham Common / Clapham North), NOT a genuine "empty station". A real
+    # reading during a commute window is never exactly zero -- the reliable
+    # stations have not once returned 0. Treat it as no reading so it doesn't
+    # log a misleading 0% and drag the trend down with fake zeros. We keep
+    # data_available=True to record that TfL *claimed* data (distinguishing it
+    # in the CSV from the dataAvailable:false case).
+    if float(raw) == 0.0:
+        print(
+            f"NOTE: {station} dataAvailable=true but percentageOfBaseline=0 "
+            f"(sparse-coverage placeholder); logging as blank.",
+            file=sys.stderr,
+        )
+        return Reading(naptan, station, True, None, data.get("timeUtc"))
+
     return Reading(naptan, station, True, float(raw), data.get("timeUtc"))
 
 
