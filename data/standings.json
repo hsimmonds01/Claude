@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-10T20:25:48.042Z",
+  "lastUpdated": "2026-07-10T21:34:40.605Z",
   "matches": [
     {
       "stage": "GROUP_STAGE",
@@ -963,13 +963,13 @@
     },
     {
       "stage": "QUARTER_FINALS",
-      "status": "IN_PLAY",
+      "status": "FINISHED",
       "utcDate": "2026-07-10T19:00:00Z",
       "homeTeam": "Spain",
       "awayTeam": "Belgium",
-      "homeScore": 1,
+      "homeScore": 2,
       "awayScore": 1,
-      "winner": "DRAW"
+      "winner": "HOME_TEAM"
     },
     {
       "stage": "QUARTER_FINALS",
@@ -1023,7 +1023,7 @@
     },
     "QUARTER_FINALS": {
       "total": 4,
-      "finished": 1,
+      "finished": 2,
       "startDate": "2026-07-09T20:00:00Z",
       "endDate": "2026-07-12T01:00:00Z"
     },
