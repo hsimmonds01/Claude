@@ -88,6 +88,16 @@
     .legend span { display: inline-flex; align-items: center; gap: 5px; }
     .swatch { width: 12px; height: 3px; border-radius: 2px; display: inline-block; }
 
+    .daypicker { display: flex; gap: 6px; margin-top: 12px; flex-wrap: wrap; }
+    .daybtn { flex: 1 1 0; min-width: 40px; text-align: center;
+              padding: 8px 4px; border: 1px solid var(--grid);
+              border-radius: 8px; background: var(--surface);
+              color: var(--ink-2); font-size: 13px; font-weight: 600;
+              cursor: pointer; -webkit-appearance: none; }
+    .daybtn.today { border-color: var(--line); }
+    .daybtn.sel { background: var(--line); color: #fff; border-color: var(--line); }
+    .daypicker-hint { font-size: 12px; color: var(--ink-m); margin: 8px 2px 0; }
+
     .note { background: var(--surface); border: 1px solid var(--grid);
             border-radius: 12px; padding: 12px 14px; font-size: 13px;
             color: var(--ink-2); }
@@ -114,11 +124,13 @@
   <div class="chart-sub" id="detailSub">Tap a station above to see its typical busyness through the day.</div>
   <svg id="profile" viewBox="0 0 640 240" role="img" aria-label="Typical busyness profile"></svg>
   <div class="legend">
-    <span><span class="swatch" style="background:var(--typ)"></span>typical (this weekday)</span>
-    <span><span class="swatch" style="background:var(--line)"></span>now</span>
+    <span><span class="swatch" style="background:var(--typ)"></span>typical</span>
+    <span><span class="swatch" style="background:var(--line)"></span>now (today only)</span>
     <span><span class="swatch" style="background:var(--busy)"></span>busy 0.4</span>
     <span><span class="swatch" style="background:var(--vbusy)"></span>very busy 0.7</span>
   </div>
+  <div class="daypicker" id="dayPicker"></div>
+  <div class="daypicker-hint">Tap a day to see its typical average · today is outlined</div>
 </div>
 
 <h2>Logged trend</h2>
@@ -182,6 +194,11 @@ function londonNow(date) {
 const live = {};     // naptan -> {p|null, available, name}
 const typical = {};  // naptan -> daysOfWeek array
 let selected = STATIONS[3][0];  // default: Balham
+let selectedDay = londonNow(new Date()).dow;  // profile day-of-week, default today
+const DAYS = [["MON","Mon"],["TUE","Tue"],["WED","Wed"],["THU","Thu"],
+              ["FRI","Fri"],["SAT","Sat"],["SUN","Sun"]];
+const DAY_FULL = { MON:"Monday", TUE:"Tuesday", WED:"Wednesday", THU:"Thursday",
+                   FRI:"Friday", SAT:"Saturday", SUN:"Sunday" };
 
 /* ── Fetch ──────────────────────────────────────────────────────── */
 async function getJSON(url) {
@@ -264,16 +281,19 @@ function renderTiles() {
 /* ── Render: typical-day profile for the selected station ───────── */
 function renderProfile() {
   const [, name] = STATIONS.find(s => s[0] === selected) || [null, "—"];
-  document.getElementById("detailName").textContent = name;
+  const now = londonNow(new Date());
+  const dow = selectedDay;
+  const fullDay = DAY_FULL[dow] || dow;
+  const isToday = dow === now.dow;
+  document.getElementById("detailName").textContent = `${fullDay} · ${name}`;
   const svg = document.getElementById("profile");
   svg.innerHTML = "";
   const days = typical[selected];
-  const now = londonNow(new Date());
   const sub = document.getElementById("detailSub");
   if (!days || !days.length) { sub.textContent = "Typical profile unavailable for this station."; return; }
-  const day = days.find(d => (d.dayOfWeek || "").toUpperCase().startsWith(now.dow));
-  if (!day) { sub.textContent = "No typical profile for today."; return; }
-  sub.textContent = `Typical ${new Date().toLocaleDateString("en-GB",{weekday:"long"})}, 15-min bands. `
+  const day = days.find(d => (d.dayOfWeek || "").toUpperCase().startsWith(dow));
+  if (!day) { sub.textContent = `No typical profile for ${fullDay}.`; return; }
+  sub.textContent = `Typical ${fullDay}, 15-min bands. `
     + `Baseline 1.0 = the station's busiest week since 2019.`;
 
   const W = 640, H = 240, ml = 34, mr = 8, mt = 10, mb = 22;
@@ -309,15 +329,36 @@ function renderProfile() {
   svg.append(sv("polyline", { points: pts, fill: "none",
     stroke: css("--typ"), "stroke-width": 2 }));
 
-  // "now" marker + live dot
-  const nowI = Math.min(bands.length - 1, Math.round((now.mins / (24 * 60)) * (bands.length - 1)));
-  svg.append(sv("line", { x1: x(nowI), y1: mt, x2: x(nowI), y2: mt + ih,
-    stroke: css("--line"), "stroke-width": 1.5, opacity: 0.5 }));
-  const L = live[selected];
-  if (L && L.p != null) {
-    svg.append(sv("circle", { cx: x(nowI), cy: y(L.p), r: 5,
-      fill: css("--line") }));
+  // "now" marker + live dot -- only meaningful when viewing today's profile
+  if (isToday) {
+    const nowI = Math.min(bands.length - 1, Math.round((now.mins / (24 * 60)) * (bands.length - 1)));
+    svg.append(sv("line", { x1: x(nowI), y1: mt, x2: x(nowI), y2: mt + ih,
+      stroke: css("--line"), "stroke-width": 1.5, opacity: 0.5 }));
+    const L = live[selected];
+    if (L && L.p != null) {
+      svg.append(sv("circle", { cx: x(nowI), cy: y(L.p), r: 5,
+        fill: css("--line") }));
+    }
   }
+}
+
+/* Day-of-week picker under the typical-day chart. */
+function renderDayPicker() {
+  const host = document.getElementById("dayPicker");
+  host.innerHTML = "";
+  const today = londonNow(new Date()).dow;
+  for (const [dow, label] of DAYS) {
+    const b = document.createElement("button");
+    b.className = "daybtn" + (dow === selectedDay ? " sel" : "") + (dow === today ? " today" : "");
+    b.textContent = label;
+    b.onclick = () => selectDay(dow);
+    host.append(b);
+  }
+}
+function selectDay(dow) {
+  selectedDay = dow;
+  renderDayPicker();
+  renderProfile();
 }
 
 function selectStation(id) {
@@ -402,6 +443,7 @@ async function boot() {
     // warm typical for all tiles' "vs usual" (best-effort, parallel)
     Promise.all(STATIONS.map(s => loadTypical(s[0]).catch(() => {}))).then(renderTiles);
     renderTiles();
+    renderDayPicker();
     renderProfile();
     loadTrend();
     upd.textContent = "Updated " + new Date().toLocaleTimeString("en-GB",
