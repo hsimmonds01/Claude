@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-11T21:06:28.180Z",
+  "lastUpdated": "2026-07-11T22:08:19.564Z",
   "matches": [
     {
       "stage": "GROUP_STAGE",
@@ -903,7 +903,7 @@
     },
     {
       "stage": "LAST_16",
-      "status": "FINISHED",
+      "status": "2026-07-06 01:00:00Z",
       "utcDate": "2026-07-06T01:00:00Z",
       "homeTeam": "Mexico",
       "awayTeam": "England",
@@ -973,12 +973,12 @@
     },
     {
       "stage": "QUARTER_FINALS",
-      "status": "IN_PLAY",
+      "status": "PAUSED",
       "utcDate": "2026-07-11T21:00:00Z",
       "homeTeam": "Norway",
       "awayTeam": "England",
-      "homeScore": 0,
-      "awayScore": 0,
+      "homeScore": 1,
+      "awayScore": 1,
       "winner": "DRAW"
     },
     {
@@ -1017,7 +1017,7 @@
     },
     "ROUND_OF_16": {
       "total": 8,
-      "finished": 8,
+      "finished": 7,
       "startDate": "2026-07-04T17:00:00Z",
       "endDate": "2026-07-07T20:00:00Z"
     },
