@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-11T20:09:04.579Z",
+  "lastUpdated": "2026-07-11T21:06:28.180Z",
   "matches": [
     {
       "stage": "GROUP_STAGE",
@@ -973,13 +973,13 @@
     },
     {
       "stage": "QUARTER_FINALS",
-      "status": "TIMED",
+      "status": "IN_PLAY",
       "utcDate": "2026-07-11T21:00:00Z",
       "homeTeam": "Norway",
       "awayTeam": "England",
-      "homeScore": null,
-      "awayScore": null,
-      "winner": null
+      "homeScore": 0,
+      "awayScore": 0,
+      "winner": "DRAW"
     },
     {
       "stage": "QUARTER_FINALS",
