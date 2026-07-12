@@ -4,6 +4,7 @@
     "https://www.betweenthebridges.co.uk/events-btb/bad-bunny-party-25-july",
     "https://www.betweenthebridges.co.uk/events-btb/dirty-dancing-brunch-27-june-5n65b",
     "https://www.betweenthebridges.co.uk/events-btb/drag-brunch-23-may-9gmfp",
+    "https://www.betweenthebridges.co.uk/events-btb/england-argentina-15-jul",
     "https://www.betweenthebridges.co.uk/events-btb/england-norway-11-july",
     "https://www.betweenthebridges.co.uk/events-btb/france-spain-14-july",
     "https://www.betweenthebridges.co.uk/events-btb/hits-different-01-august",
@@ -29,7 +30,9 @@
     "https://www.betweenthebridges.co.uk/events-btb/swiftogeddon-17-july",
     "https://www.betweenthebridges.co.uk/events-btb/the-chai-festival"
   ],
-  "notified": {},
+  "notified": {
+    "https://www.betweenthebridges.co.uk/events-btb/england-argentina-15-jul::soldout": "2026-07-12T08:21:03.807757+00:00"
+  },
   "consecutive_fetch_failures": 0,
   "fetch_failure_notified": false
 }
