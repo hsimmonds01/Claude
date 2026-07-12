@@ -1,0 +1,71 @@
+name: England v Argentina ticket watch
+
+# Watches betweenthebridges.co.uk for the England v Argentina (Wed 15 July
+# 2026) event page / ticket link going live, and pushes an ntfy notification.
+#
+# GitHub's native `schedule` is best-effort and has been seen running >1hr
+# late on this repo, so -- as with the dock-alerter -- an external pinger
+# (cron-job.org) hitting the workflow_dispatch endpoint every few minutes is
+# the reliable primary trigger; the schedule below is the backup net.
+# check_tickets.py only ever sends each alert once (state.json) and no-ops
+# after the match starts, so overlapping/duplicate triggers are safe, and the
+# date-restricted cron lines mean the schedule dies on its own after 16 July.
+on:
+  schedule:
+    - cron: "*/10 * 12-16 7 *"   # every 10 min, 12-16 July only (UTC)
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Dry run (don't send notification or write state)"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+# Serialise runs so concurrent triggers never race on the state.json push.
+concurrency:
+  group: england-argentina-ticket-watch
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        working-directory: ticket-alerter
+        run: pip install -r requirements.txt
+
+      - name: Check for tickets
+        working-directory: ticket-alerter
+        env:
+          # Prefer a repo *secret* over a variable: secrets are masked in the
+          # (publicly visible) Actions logs, variables are not.
+          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC || vars.NTFY_TOPIC }}
+          DRY_RUN: ${{ inputs.dry_run }}
+        run: |
+          ARGS=""
+          if [ "${DRY_RUN}" = "true" ]; then
+            ARGS="--dry-run"
+          fi
+          python check_tickets.py $ARGS
+
+      - name: Commit updated state (if changed)
+        run: |
+          git add ticket-alerter/state.json
+          if ! git diff --cached --quiet; then
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git commit -m "Update ticket watch state"
+            # Another run may have pushed between our checkout and now.
+            git pull --rebase origin main || true
+            git push
+          else
+            echo "No state change, nothing to commit."
+          fi
