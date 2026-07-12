@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-12T00:11:09.670Z",
+  "lastUpdated": "2026-07-12T03:57:15.764Z",
   "matches": [
     {
       "stage": "GROUP_STAGE",
@@ -983,13 +983,13 @@
     },
     {
       "stage": "QUARTER_FINALS",
-      "status": "TIMED",
+      "status": "FINISHED",
       "utcDate": "2026-07-12T01:00:00Z",
       "homeTeam": "Argentina",
       "awayTeam": "Switzerland",
-      "homeScore": null,
-      "awayScore": null,
-      "winner": null
+      "homeScore": 3,
+      "awayScore": 1,
+      "winner": "HOME_TEAM"
     },
     {
       "stage": "SEMI_FINALS",
@@ -1023,7 +1023,7 @@
     },
     "QUARTER_FINALS": {
       "total": 4,
-      "finished": 3,
+      "finished": 4,
       "startDate": "2026-07-09T20:00:00Z",
       "endDate": "2026-07-12T01:00:00Z"
     },
