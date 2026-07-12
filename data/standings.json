@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-12T03:57:15.764Z",
+  "lastUpdated": "2026-07-12T06:32:35.909Z",
   "matches": [
     {
       "stage": "GROUP_STAGE",
@@ -903,7 +903,7 @@
     },
     {
       "stage": "LAST_16",
-      "status": "2026-07-06 01:00:00Z",
+      "status": "FINISHED",
       "utcDate": "2026-07-06T01:00:00Z",
       "homeTeam": "Mexico",
       "awayTeam": "England",
@@ -1000,6 +1000,16 @@
       "homeScore": null,
       "awayScore": null,
       "winner": null
+    },
+    {
+      "stage": "SEMI_FINALS",
+      "status": "TIMED",
+      "utcDate": "2026-07-15T19:00:00Z",
+      "homeTeam": "England",
+      "awayTeam": "Argentina",
+      "homeScore": null,
+      "awayScore": null,
+      "winner": null
     }
   ],
   "stages": {
@@ -1017,7 +1027,7 @@
     },
     "ROUND_OF_16": {
       "total": 8,
-      "finished": 7,
+      "finished": 8,
       "startDate": "2026-07-04T17:00:00Z",
       "endDate": "2026-07-07T20:00:00Z"
     },
