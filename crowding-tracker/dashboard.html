@@ -98,6 +98,37 @@
     .daybtn.sel { background: var(--line); color: #fff; border-color: var(--line); }
     .daypicker-hint { font-size: 12px; color: var(--ink-m); margin: 8px 2px 0; }
 
+    /* Explore view */
+    #tabbar { position: sticky; bottom: 0; z-index: 5; display: flex; gap: 8px;
+              background: var(--page); border-top: 1px solid var(--grid);
+              padding: 8px 0 10px; margin-top: 26px; }
+    .tabbtn { flex: 1; padding: 11px; border: 1px solid var(--grid);
+              border-radius: 10px; background: var(--surface); color: var(--ink-2);
+              font-size: 14px; font-weight: 650; cursor: pointer; -webkit-appearance: none; }
+    .tabbtn.active { background: var(--line); color: #fff; border-color: var(--line); }
+    .ex-controls { display: flex; flex-direction: column; gap: 10px; margin-bottom: 12px; }
+    .ex-field { font-size: 12px; color: var(--ink-2); display: flex; flex-direction: column; gap: 4px; }
+    .ex-field select { font-size: 15px; padding: 9px; border: 1px solid var(--grid);
+                       border-radius: 8px; background: var(--surface); color: var(--ink-1); }
+    .rangepicker { display: flex; gap: 6px; flex-wrap: wrap; }
+    .rangebtn { flex: 1 1 0; min-width: 60px; text-align: center; padding: 8px 4px;
+                border: 1px solid var(--grid); border-radius: 8px; background: var(--surface);
+                color: var(--ink-2); font-size: 12px; font-weight: 600; cursor: pointer;
+                -webkit-appearance: none; }
+    .rangebtn.sel { background: var(--line); color: #fff; border-color: var(--line); }
+    .ex-readout { font-size: 14px; font-weight: 650; margin: 10px 2px 0;
+                  min-height: 20px; color: var(--ink-1); }
+    #exploreChart { touch-action: none; }
+    .sumrow { display: flex; align-items: center; gap: 9px; padding: 9px 4px;
+              font-size: 14px; border-bottom: 1px solid var(--grid); }
+    .sumrow:last-child { border-bottom: none; }
+    .sumrow .dot { width: 10px; height: 10px; border-radius: 50%; flex: 0 0 auto; }
+    .dot.vbusy { background: var(--vbusy); } .dot.busy { background: var(--busy); }
+    .dot.quiet { background: var(--quiet); } .dot.peak { background: var(--line); }
+    .sumrow.card { background: var(--surface); border: 1px solid var(--grid);
+                   border-radius: 10px; margin-bottom: 6px; border-bottom: 1px solid var(--grid); }
+    .sum-none { color: var(--ink-m); }
+
     .note { background: var(--surface); border: 1px solid var(--grid);
             border-radius: 12px; padding: 12px 14px; font-size: 13px;
             color: var(--ink-2); }
@@ -116,6 +147,7 @@
   <div class="updated" id="updated">Loading…</div>
 </header>
 
+<section id="view-overview">
 <h2>Right now</h2>
 <div class="tiles" id="tiles"></div>
 
@@ -145,6 +177,38 @@
   time you open this page. The logged trend comes from <code>history.csv</code>,
   which a GitHub Action fills in every ~5 min during commute windows.</p>
 </footer>
+</section>
+
+<section id="view-explore" hidden>
+  <h2>Explore typical profiles</h2>
+  <div class="ex-controls">
+    <label class="ex-field">Station
+      <select id="exStation"></select>
+    </label>
+    <div class="daypicker" id="exDayPicker"></div>
+    <div class="rangepicker" id="exRangePicker"></div>
+  </div>
+  <div class="chartwrap">
+    <div class="chart-sub" id="exStationName">—</div>
+    <svg id="exploreChart" viewBox="0 0 640 300" role="img" aria-label="Typical profile detail"></svg>
+    <div class="ex-readout" id="exploreReadout">Tap or drag across the chart to read any time.</div>
+    <div class="legend">
+      <span><span class="swatch" style="background:var(--typ)"></span>typical</span>
+      <span><span class="swatch" style="background:var(--line);opacity:0.3"></span>AM/PM peak window</span>
+      <span><span class="swatch" style="background:var(--busy)"></span>busy 0.4</span>
+      <span><span class="swatch" style="background:var(--vbusy)"></span>very busy 0.7</span>
+    </div>
+  </div>
+  <h2>Busy hours</h2>
+  <div id="exploreSummary"></div>
+  <p class="daypicker-hint">All times Europe/London. Values are that day's typical
+    average since 2019 — a per-station index, not comparable between stations.</p>
+</section>
+
+<nav id="tabbar">
+  <button class="tabbtn active" data-view="overview" type="button">Overview</button>
+  <button class="tabbtn" data-view="explore" type="button">Explore</button>
+</nav>
 
 <script>
 "use strict";
@@ -367,6 +431,164 @@ function selectStation(id) {
   loadTypical(id).then(renderProfile).catch(() => renderProfile());
 }
 
+/* ── Explore view: detailed typical-profile browser ─────────────── */
+let exStation = STATIONS[3][0];            // default: Balham
+let exDay = londonNow(new Date()).dow;     // default: today
+let exRange = "all";
+let exCtx = null;                          // render context for the scrub handler
+const RANGES = { all: [0, 1440], morning: [300, 720], afternoon: [660, 1080], evening: [960, 1440] };
+const RANGE_ORDER = [["all", "All day"], ["morning", "Morning"], ["afternoon", "Afternoon"], ["evening", "Evening"]];
+
+function bandStart(b) {
+  const s = (b.timeBand || "").slice(0, 5);
+  return (+s.slice(0, 2)) * 60 + (+s.slice(3, 5));
+}
+function fmtMin(m) {
+  m = Math.round(m); if (m > 1440) m = 1440;
+  return String(Math.floor(m / 60)).padStart(2, "0") + ":" + String(m % 60).padStart(2, "0");
+}
+function contiguous(bands, thr) {
+  const out = []; let start = null;
+  for (const b of bands) {
+    const on = (b.v || 0) >= thr;
+    if (on && start === null) start = b.mins;
+    else if (!on && start !== null) { out.push([start, b.mins]); start = null; }
+  }
+  if (start !== null) out.push([start, 1440]);
+  return out;
+}
+function labelFor(v) { return v < 0.4 ? "quiet" : v <= 0.7 ? "busy" : "very busy"; }
+
+function populateExStation() {
+  const sel = document.getElementById("exStation");
+  if (sel.options.length !== STATIONS.length) {
+    sel.innerHTML = "";
+    for (const [id, name] of STATIONS) {
+      const o = document.createElement("option"); o.value = id; o.textContent = name; sel.append(o);
+    }
+    sel.onchange = () => { exStation = sel.value; loadTypical(exStation).then(renderExplore).catch(renderExplore); };
+  }
+  sel.value = exStation;
+}
+function renderExChips() {
+  const dh = document.getElementById("exDayPicker"); dh.innerHTML = "";
+  const today = londonNow(new Date()).dow;
+  for (const [dow, label] of DAYS) {
+    const b = document.createElement("button");
+    b.className = "daybtn" + (dow === exDay ? " sel" : "") + (dow === today ? " today" : "");
+    b.textContent = label; b.onclick = () => { exDay = dow; renderExplore(); }; dh.append(b);
+  }
+  const rh = document.getElementById("exRangePicker"); rh.innerHTML = "";
+  for (const [key, label] of RANGE_ORDER) {
+    const b = document.createElement("button");
+    b.className = "rangebtn" + (key === exRange ? " sel" : "");
+    b.textContent = label; b.onclick = () => { exRange = key; renderExplore(); }; rh.append(b);
+  }
+}
+
+function renderExplore() {
+  populateExStation(); renderExChips();
+  const nm = STATIONS.find(s => s[0] === exStation);
+  const chart = document.getElementById("exploreChart"); chart.innerHTML = "";
+  const sum = document.getElementById("exploreSummary");
+  const readout = document.getElementById("exploreReadout");
+  document.getElementById("exStationName").textContent =
+    (nm ? nm[1] : "") + " · typical " + (DAY_FULL[exDay] || exDay);
+  exCtx = null; readout.textContent = "Tap or drag across the chart to read any time.";
+  const days = typical[exStation];
+  if (!days || !days.length) { sum.innerHTML = '<div class="note">Typical profile unavailable for this station.</div>'; return; }
+  const day = days.find(d => (d.dayOfWeek || "").toUpperCase().startsWith(exDay));
+  if (!day) { sum.innerHTML = '<div class="note">No typical profile for this day.</div>'; return; }
+
+  const all = (day.timeBands || []).map(b => ({ v: b.percentageOfBaseLine || 0, mins: bandStart(b) }));
+  const [rlo, rhi] = RANGES[exRange];
+  const bands = all.filter(b => b.mins >= rlo && b.mins < rhi);
+  if (!bands.length) { sum.innerHTML = '<div class="note">No data in this range.</div>'; return; }
+
+  const W = 640, H = 300, ml = 36, mr = 10, mt = 12, mb = 26, iw = W - ml - mr, ih = H - mt - mb;
+  const maxV = Math.max(0.8, ...all.map(b => b.v)) * 1.1;
+  const x = m => ml + ((m - rlo) / (rhi - rlo)) * iw;
+  const y = v => mt + ih - (v / maxV) * ih;
+
+  // shade AM/PM peak windows from TfL's own fields
+  for (const key of ["amPeakTimeBand", "pmPeakTimeBand"]) {
+    const pb = day[key]; if (!pb) continue;
+    const [a, z] = pb.split("-"); if (!a || !z) continue;
+    const s = (+a.slice(0, 2)) * 60 + (+a.slice(3, 5)), e = (+z.slice(0, 2)) * 60 + (+z.slice(3, 5));
+    const cs = Math.max(s, rlo), ce = Math.min(e, rhi); if (ce <= cs) continue;
+    chart.append(sv("rect", { x: x(cs), y: mt, width: x(ce) - x(cs), height: ih, fill: css("--line"), opacity: 0.08 }));
+  }
+  for (const [v, col] of [[0.4, css("--busy")], [0.7, css("--vbusy")]]) {
+    if (v > maxV) continue;
+    chart.append(sv("line", { x1: ml, y1: y(v), x2: W - mr, y2: y(v), stroke: col,
+      "stroke-width": 1, "stroke-dasharray": "4 4", opacity: 0.75 }));
+  }
+  for (let v = 0; v <= maxV; v += 0.2) {
+    chart.append(sv("line", { x1: ml, y1: y(v), x2: W - mr, y2: y(v), stroke: css("--grid"), "stroke-width": 1, opacity: 0.6 }));
+    const t = sv("text", { x: ml - 5, y: y(v) + 3, "text-anchor": "end", "font-size": 10, fill: css("--ink-m") });
+    t.textContent = v.toFixed(1); chart.append(t);
+  }
+  const step = (rhi - rlo) <= 480 ? 60 : 180;
+  for (let m = Math.ceil(rlo / step) * step; m <= rhi; m += step) {
+    chart.append(sv("line", { x1: x(m), y1: mt, x2: x(m), y2: mt + ih, stroke: css("--grid"), "stroke-width": 1, opacity: 0.4 }));
+    const t = sv("text", { x: x(m), y: H - 8, "text-anchor": "middle", "font-size": 10, fill: css("--ink-m") });
+    t.textContent = fmtMin(m); chart.append(t);
+  }
+  chart.append(sv("polyline", { points: bands.map(b => `${x(b.mins)},${y(b.v)}`).join(" "),
+    fill: "none", stroke: css("--typ"), "stroke-width": 2 }));
+
+  const cur = sv("g", {}); cur.style.display = "none";
+  const cline = sv("line", { stroke: css("--line"), "stroke-width": 1.5, opacity: 0.6 });
+  const cdot = sv("circle", { r: 5, fill: css("--line") });
+  cur.append(cline, cdot); chart.append(cur);
+  exCtx = { bands, x, y, ml, mt, ih, cline, cdot, cur, readout, chart };
+
+  // Busy-hours summary (computed over the FULL day regardless of zoom)
+  const busiest = all.reduce((a, b) => b.v > a.v ? b : a, all[0]);
+  const daytime = all.filter(b => b.mins >= 360 && b.mins <= 1320);
+  const quietest = daytime.reduce((a, b) => b.v < a.v ? b : a, daytime[0]);
+  const rlist = rs => rs.length ? rs.map(([s, e]) => `${fmtMin(s)}–${fmtMin(e)}`).join(", ") : '<span class="sum-none">none</span>';
+  sum.innerHTML =
+    `<div class="sumrow card"><span class="dot peak"></span><b>Busiest</b>: ${fmtMin(busiest.mins)}–${fmtMin(busiest.mins + 15)} · ${(busiest.v * 100).toFixed(0)}%</div>` +
+    `<div class="sumrow"><span class="dot vbusy"></span><b>Very busy</b> (&gt;70%): ${rlist(contiguous(all, 0.7))}</div>` +
+    `<div class="sumrow"><span class="dot busy"></span><b>Busy or worse</b> (&gt;40%): ${rlist(contiguous(all, 0.4))}</div>` +
+    `<div class="sumrow"><span class="dot quiet"></span><b>Quietest daytime</b>: ${fmtMin(quietest.mins)}–${fmtMin(quietest.mins + 15)} · ${(quietest.v * 100).toFixed(0)}%</div>` +
+    `<div class="sumrow"><span class="dot" style="background:var(--ink-m)"></span>TfL peak windows: AM ${day.amPeakTimeBand || "—"} · PM ${day.pmPeakTimeBand || "—"}</div>`;
+}
+
+function exScrub(ev) {
+  if (!exCtx) return;
+  const { bands, x, y, ml, mt, ih, cline, cdot, cur, readout, chart } = exCtx;
+  const rect = chart.getBoundingClientRect();
+  const ratio = 640 / rect.width;
+  const clientX = ev.touches ? ev.touches[0].clientX : ev.clientX;
+  const sx = (clientX - rect.left) * ratio;
+  let best = bands[0], bd = Infinity;
+  for (const b of bands) { const d = Math.abs(x(b.mins) - sx); if (d < bd) { bd = d; best = b; } }
+  cur.style.display = "";
+  cline.setAttribute("x1", x(best.mins)); cline.setAttribute("x2", x(best.mins));
+  cline.setAttribute("y1", mt); cline.setAttribute("y2", mt + ih);
+  cdot.setAttribute("cx", x(best.mins)); cdot.setAttribute("cy", y(best.v));
+  readout.textContent = `${fmtMin(best.mins)}–${fmtMin(best.mins + 15)} · ${(best.v * 100).toFixed(0)}% · ${labelFor(best.v)}`;
+  if (ev.cancelable) ev.preventDefault();
+}
+function initExplore() {
+  const chart = document.getElementById("exploreChart");
+  chart.addEventListener("pointerdown", exScrub);
+  chart.addEventListener("pointermove", ev => { if (ev.pointerType !== "mouse" || ev.buttons) exScrub(ev); });
+  chart.addEventListener("mousemove", exScrub);
+  for (const b of document.querySelectorAll("#tabbar .tabbtn")) {
+    b.onclick = () => showView(b.dataset.view);
+  }
+}
+function showView(name) {
+  document.getElementById("view-overview").hidden = name !== "overview";
+  document.getElementById("view-explore").hidden = name !== "explore";
+  for (const b of document.querySelectorAll("#tabbar .tabbtn")) b.classList.toggle("active", b.dataset.view === name);
+  if (name === "explore") loadTypical(exStation).then(renderExplore).catch(renderExplore);
+  window.scrollTo(0, 0);
+}
+
 /* ── Render: logged trend from history.csv ──────────────────────── */
 function parseCSV(text) {
   const lines = text.trim().split(/\r?\n/);
@@ -437,6 +659,7 @@ async function loadTrend() {
 /* ── Boot ───────────────────────────────────────────────────────── */
 async function boot() {
   const upd = document.getElementById("updated");
+  initExplore();
   try {
     await loadLive();
     await loadTypical(selected).catch(() => {});
