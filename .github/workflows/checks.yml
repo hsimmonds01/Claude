@@ -93,7 +93,20 @@ jobs:
             git config user.name "github-actions[bot]"
             git config user.email "github-actions[bot]@users.noreply.github.com"
             git commit -m "Update dock alert state and history"
-            git push
+            # main is shared with other unrelated automations that also
+            # commit-and-push on their own schedule (e.g. a Northern line
+            # crowding logger). If one of them pushes in the moment between
+            # our checkout and our push, `git push` is rejected as
+            # non-fast-forward -- retry a few times with a rebase pull
+            # rather than losing this run's reading.
+            for attempt in 1 2 3 4 5; do
+              if git push; then
+                break
+              fi
+              echo "Push rejected (attempt $attempt/5) -- pulling and retrying..."
+              sleep $((attempt * 2))
+              git pull --rebase
+            done
           else
             echo "No state change, nothing to commit."
           fi
