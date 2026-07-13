@@ -48,7 +48,9 @@ permissions:
   contents: write
 
 concurrency:
-  group: tooley-street-dock-check
+  # Shared with the crowding logger so the two workflows that push to main
+  # queue one-after-another instead of racing (one push rejecting the other).
+  group: main-git-writer
   cancel-in-progress: false
 
 jobs:
