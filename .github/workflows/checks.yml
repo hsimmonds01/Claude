@@ -47,8 +47,14 @@ on:
 permissions:
   contents: write
 
+# Shared group name (not workflow-specific) so this serializes against
+# OTHER workflows in this repo that also commit-and-push to main -- not
+# just against this workflow's own runs. Currently shared with the
+# Northern line crowding logger (tfl-crowding-probe.yml, a separate
+# project) to eliminate the git-push race between the two. If you add
+# another workflow that commits to main, give it this same group name too.
 concurrency:
-  group: tooley-street-dock-check
+  group: main-git-writer
   cancel-in-progress: false
 
 jobs:
