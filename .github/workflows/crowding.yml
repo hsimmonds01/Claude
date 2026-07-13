@@ -45,10 +45,13 @@ on:
 permissions:
   contents: write
 
-# Serialise runs so concurrent appends never race on the git push. Queue
-# rather than cancel, so a delayed run still gets a chance to log.
+# Serialise git-writing runs so concurrent pushes to main never race. This
+# group is SHARED with the other workflows that commit to main (the
+# dock-alerter) so GitHub queues them one after another instead of letting
+# their pushes collide. Queue rather than cancel, so a delayed run still gets
+# a chance to log (and so one workflow can't cancel another mid-run).
 concurrency:
-  group: northern-line-crowding-log
+  group: main-git-writer
   cancel-in-progress: false
 
 jobs:

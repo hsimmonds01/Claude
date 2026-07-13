@@ -9,7 +9,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: update-scores
+  group: main-git-writer
   cancel-in-progress: false
 
 jobs:
