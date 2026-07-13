@@ -16,6 +16,43 @@
   weekday)` in the logs, which confirms the script behaved correctly and the
   scheduler was just late.
 
+## Shared repo infrastructure (multiple projects, one repo)
+- This repo (`hsimmonds01/Claude`) hosts several independent projects side
+  by side, each on its own long-lived branch: dock-alerter
+  (`claude/santander-cycles-alerter-krn8d0`), a World Cup fantasy tracker
+  (root `index.html`/`app.js`/`config`/`data`/`scripts`), and a Northern
+  line crowding tracker (`crowding-tracker/`, branch
+  `claude/northern-line-busyness-rn7d9m`). Each has its own GitHub Actions
+  workflow that commits state/history back to `main` on a repeating
+  schedule.
+- Any workflow that commits and pushes to `main` MUST join the
+  `main-git-writer` concurrency group (`cancel-in-progress: false`) --
+  otherwise its push can race another project's workflow and get rejected
+  as non-fast-forward (`! [rejected] main -> main (fetch first)`). Found
+  this on 2026-07-13: three workflows (dock-alerter, the crowding logger,
+  and the World Cup updater) were colliding, and the fix rolled out to all
+  three in separate commits minutes apart, leaving one unprotected in
+  between and still failing. Add the group name to any NEW workflow's
+  `concurrency:` block up front -- don't wait for a collision to discover
+  it's needed. Notifications/side-effects sent earlier in a run are
+  unaffected by a later push failure (e.g. dock-alerter's ntfy alert fires
+  before the git commit step), so a push race is usually just a lost log
+  row, not a lost alert -- still worth fixing, but not urgent/scary when
+  it happens.
+- Because these projects share one repo, root-level `CLAUDE.md` is
+  effectively already the "all sessions read this first" file -- a new
+  session starting from `main` picks it up automatically. It only fails to
+  reach a session that's already running on a different, not-yet-synced
+  branch (that session needs to merge/rebase onto `main` to see updates
+  made elsewhere).
+- When something in one project looks broken, check whether a SIBLING
+  project's automation is the actual cause before assuming a bug in the
+  project under discussion -- e.g. `git log` across ALL commits to `main`
+  around the relevant time (not just the project's own files) to see what
+  else touched the branch. This is how the git-push-race above was found:
+  the failing commit's author was the right bot, but the colliding push
+  turned out to belong to a different project's workflow entirely.
+
 ## Git / GitHub workflow preferences
 - Standard cycle: implement -> test locally (mock external APIs where the
   sandbox has no network access) -> commit -> push to
@@ -77,3 +114,14 @@
   above -> proactively suggest 2-3 concrete "what's next" options scoped
   with rough effort, rather than waiting to be asked. The user is happy to
   pick from a short list rather than be handed one prescribed plan.
+- Runs Claude Code sessions primarily via phone/web rather than a local
+  CLI -- keep this in mind when reasoning about what persists between
+  sessions (repo-committed files, e.g. `CLAUDE.md`, yes; local machine
+  state or a personal/global config outside the repo, not reliably, since
+  each session is a fresh container).
+- Enjoys real-world analogies when learning git/GitHub mechanics, and asks
+  good follow-up questions when curious rather than just accepting "it's
+  done" -- e.g. branch = a photocopy taken to work on, PR = an approval
+  note clipped to the photocopy, merge = copying the approved changes into
+  the master document. Lean into this style for infrastructure/process
+  explanations rather than pure technical definitions.
