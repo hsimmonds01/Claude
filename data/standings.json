@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-14T20:59:45.904Z",
+  "lastUpdated": "2026-07-14T21:58:40.551Z",
   "matches": [
     {
       "stage": "GROUP_STAGE",
@@ -993,7 +993,7 @@
     },
     {
       "stage": "SEMI_FINALS",
-      "status": "IN_PLAY",
+      "status": "FINISHED",
       "utcDate": "2026-07-14T19:00:00Z",
       "homeTeam": "France",
       "awayTeam": "Spain",
@@ -1039,7 +1039,7 @@
     },
     "SEMI_FINALS": {
       "total": 2,
-      "finished": 0,
+      "finished": 1,
       "startDate": "2026-07-14T19:00:00Z",
       "endDate": "2026-07-15T19:00:00Z"
     },
