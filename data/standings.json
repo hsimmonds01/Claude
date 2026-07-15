@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-15T18:37:28.885Z",
+  "lastUpdated": "2026-07-15T19:51:21.558Z",
   "matches": [
     {
       "stage": "GROUP_STAGE",
@@ -1003,13 +1003,13 @@
     },
     {
       "stage": "SEMI_FINALS",
-      "status": "TIMED",
+      "status": "IN_PLAY",
       "utcDate": "2026-07-15T19:00:00Z",
       "homeTeam": "England",
       "awayTeam": "Argentina",
-      "homeScore": null,
-      "awayScore": null,
-      "winner": null
+      "homeScore": 0,
+      "awayScore": 0,
+      "winner": "DRAW"
     },
     {
       "stage": "THIRD_PLACE",
