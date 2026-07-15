@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-15T19:51:21.558Z",
+  "lastUpdated": "2026-07-15T21:00:03.790Z",
   "matches": [
     {
       "stage": "GROUP_STAGE",
@@ -1007,9 +1007,9 @@
       "utcDate": "2026-07-15T19:00:00Z",
       "homeTeam": "England",
       "awayTeam": "Argentina",
-      "homeScore": 0,
-      "awayScore": 0,
-      "winner": "DRAW"
+      "homeScore": 1,
+      "awayScore": 2,
+      "winner": "AWAY_TEAM"
     },
     {
       "stage": "THIRD_PLACE",
