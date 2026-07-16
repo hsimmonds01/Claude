@@ -64,7 +64,12 @@ jobs:
 
       - name: Commit updated state (if changed)
         run: |
-          git add voxi-drop-alerter/state.json
+          # Recon/dry-run modes (and failed fetches before the first real
+          # check) leave no state.json -- a bare `git add` of a missing path
+          # is fatal and failed run #1.
+          if [ -f voxi-drop-alerter/state.json ]; then
+            git add voxi-drop-alerter/state.json
+          fi
           if ! git diff --cached --quiet; then
             git config user.name "github-actions[bot]"
             git config user.email "github-actions[bot]@users.noreply.github.com"
