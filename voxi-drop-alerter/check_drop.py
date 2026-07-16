@@ -248,6 +248,19 @@ def notify_once(state: State, key: str, title: str, message: str, priority: str,
         state.notified[key] = datetime.now(ZoneInfo("UTC")).isoformat()
 
 
+def send_test_notification() -> None:
+    """Send a real ntfy notification through the exact same code path and
+    settings the drop alert uses, clearly labelled as a test. No state is
+    read or written, so it can be fired any number of times."""
+    send_notification(
+        "TEST: VOXI Drop alert",
+        "This is a practice run of the VOXI Drop alert - the real one will "
+        f"look like this when the drop lands.\n{DROP_URL}",
+        priority="urgent",
+        tags="rotating_light,gift",
+    )
+
+
 def run(dry_run: bool, recon_mode: bool) -> None:
     state = State.load(STATE_FILE)
     month = datetime.now(ZoneInfo("Europe/London")).strftime("%Y-%m")
@@ -342,7 +355,11 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--dry-run", action="store_true", help="don't send notifications or write state")
     parser.add_argument("--recon", action="store_true", help="print page analysis for tuning, no alerts, no state")
+    parser.add_argument("--test-notification", action="store_true", help="send a labelled test alert via the real path")
     args = parser.parse_args()
+    if args.test_notification:
+        send_test_notification()
+        return
     run(dry_run=args.dry_run, recon_mode=args.recon)
 
 

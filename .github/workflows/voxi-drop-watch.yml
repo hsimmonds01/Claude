@@ -22,6 +22,7 @@ on:
           - check
           - dry_run
           - recon
+          - test_notification
         default: check
 
 permissions:
@@ -59,6 +60,8 @@ jobs:
             ARGS="--dry-run"
           elif [ "${MODE}" = "recon" ]; then
             ARGS="--recon"
+          elif [ "${MODE}" = "test_notification" ]; then
+            ARGS="--test-notification"
           fi
           python check_drop.py $ARGS
 
