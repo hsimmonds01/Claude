@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-16T06:04:49.786Z",
+  "lastUpdated": "2026-07-16T08:34:13.349Z",
   "matches": [
     {
       "stage": "GROUP_STAGE",
@@ -1016,7 +1016,7 @@
       "status": "TIMED",
       "utcDate": "2026-07-18T21:00:00Z",
       "homeTeam": "France",
-      "awayTeam": "TBD",
+      "awayTeam": "England",
       "homeScore": null,
       "awayScore": null,
       "winner": null
@@ -1026,7 +1026,7 @@
       "status": "TIMED",
       "utcDate": "2026-07-19T19:00:00Z",
       "homeTeam": "Spain",
-      "awayTeam": "TBD",
+      "awayTeam": "Argentina",
       "homeScore": null,
       "awayScore": null,
       "winner": null
