@@ -1,0 +1,77 @@
+name: VOXI Drop watch
+
+# Watches voxi.co.uk/voxi-drop for the monthly Drop going live and pushes an
+# ntfy notification. The Drop lands on a random day each month and is
+# first-come first-served, so this runs all month, every month.
+#
+# GitHub's native `schedule` is best-effort and has been seen running >1hr
+# late (or not at all) on this repo, so -- as with the dock-alerter -- a
+# cron-job.org job hitting the workflow_dispatch endpoint every 5 minutes is
+# the reliable primary trigger; the schedule below is the backup net.
+# check_drop.py sends each alert at most once per month (state.json), so
+# overlapping/duplicate triggers are safe.
+on:
+  schedule:
+    - cron: "*/10 * * * *"
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "Run mode"
+        type: choice
+        options:
+          - check
+          - dry_run
+          - recon
+        default: check
+
+permissions:
+  contents: write
+
+# Serialise runs so concurrent triggers never race on the state.json push.
+concurrency:
+  group: voxi-drop-watch
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        working-directory: voxi-drop-alerter
+        run: pip install -r requirements.txt
+
+      - name: Check the Drop page
+        working-directory: voxi-drop-alerter
+        env:
+          # Prefer a repo *secret* over a variable: secrets are masked in the
+          # (publicly visible) Actions logs, variables are not.
+          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC || vars.NTFY_TOPIC }}
+          MODE: ${{ inputs.mode || 'check' }}
+        run: |
+          ARGS=""
+          if [ "${MODE}" = "dry_run" ]; then
+            ARGS="--dry-run"
+          elif [ "${MODE}" = "recon" ]; then
+            ARGS="--recon"
+          fi
+          python check_drop.py $ARGS
+
+      - name: Commit updated state (if changed)
+        run: |
+          git add voxi-drop-alerter/state.json
+          if ! git diff --cached --quiet; then
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git commit -m "Update VOXI Drop watch state"
+            # Another run may have pushed between our checkout and now.
+            git pull --rebase origin main || true
+            git push
+          else
+            echo "No state change, nothing to commit."
+          fi
