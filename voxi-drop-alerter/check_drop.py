@@ -42,43 +42,38 @@ import requests
 
 DROP_URL = "https://www.voxi.co.uk/voxi-drop"
 
-# Keyword sets for classifying the page. Deliberately generous on first
-# deploy -- tune against --recon output from a real run. Matched against
-# lowercased raw HTML, so embedded JSON/app-state counts too.
+# Keyword sets for classifying the page, tuned against --recon output from
+# the real page (Actions run 29482910576, 16 Jul 2026). The idle page
+# PERMANENTLY contains "sign in to claim rewards", "claim a reward",
+# "get your code", "all codes have been claimed", "keep an eye on our
+# socials" and a countdown component -- none of those phrases may appear in
+# any list, or the idle page misclassifies. Matched against lowercased raw
+# HTML, so embedded JSON/app-state counts too.
 LIVE_KEYWORDS = [
     "claim now",
-    "claim your reward",
-    "claim reward",
-    "get your code",
-    "get the code",
+    "drop is live",
+    "drop is here",
+    "it's here",
+    "it's live",
+    "now live",
     "grab yours",
     "redeem now",
-    "sign in to claim",
-    "log in to claim",
-    "drop is live",
-    "it's live",
 ]
 CLOSED_KEYWORDS = [
     "you missed",
     "you've missed",
     "missed this month",
     "come back next month",
-    "next drop",
     "drop has ended",
     "drop is closed",
     "all gone",
-    "been claimed",
-    "keep your eyes peeled",
-    "keep an eye on",
 ]
 TEASER_KEYWORDS = [
     "dropping tomorrow",
     "drops tomorrow",
     "dropping soon",
     "drops soon",
-    "coming soon",
     "get ready",
-    "countdown",
 ]
 
 CTA_TEXT_PATTERN = re.compile(
@@ -165,10 +160,27 @@ def classify(html: str) -> tuple[str, dict[str, list[str]]]:
     return "unknown", matches
 
 
-def fingerprint(matches: dict[str, list[str]]) -> str:
-    """A stable digest of which drop-related keywords are on the page, so we
-    can notice meaningful wording changes without diffing volatile HTML."""
-    canonical = json.dumps(matches, sort_keys=True)
+def visible_text(html: str) -> str:
+    stripped = re.sub(r"<(script|style)\b.*?</\1>", " ", html, flags=re.IGNORECASE | re.DOTALL)
+    return re.sub(r"\s+", " ", unescape(TAG_STRIP_PATTERN.sub(" ", stripped))).strip()
+
+
+DROP_WORDS = ("drop", "claim", "reward", "redeem", "code")
+
+
+def drop_fragments(html: str) -> list[str]:
+    """Visible-text sentence fragments that mention the drop. These are what
+    change when VOXI updates the page (new banner, countdown copy, etc.),
+    while ignoring volatile parts of the HTML like asset hashes."""
+    fragments = re.split(r"[.!?]", visible_text(html).lower())
+    return sorted({f.strip() for f in fragments if any(w in f for w in DROP_WORDS)})
+
+
+def fingerprint(matches: dict[str, list[str]], html: str) -> str:
+    """A stable digest of the page's drop-related keywords AND visible
+    drop-related wording, so meaningful changes get noticed even when no
+    keyword list matches them."""
+    canonical = json.dumps([matches, drop_fragments(html)], sort_keys=True)
     return hashlib.sha256(canonical.encode()).hexdigest()[:16]
 
 
@@ -197,8 +209,21 @@ def recon(html: str | None) -> None:
         print(f"RECON:   - {t}")
     for w in words:
         print(f"RECON: raw count of '{w}': {h.count(w)}")
-    visible = re.sub(r"\s+", " ", TAG_STRIP_PATTERN.sub(" ", re.sub(
-        r"<(script|style)\b.*?</\1>", " ", html, flags=re.IGNORECASE | re.DOTALL)))
+    # Context snippets: the live/idle distinction probably lives in embedded
+    # app-state JSON (countdown targets, flags), not visible copy.
+    interesting = [
+        "countdown", "timer", "islive", "is_live", "live", "launch",
+        "startdate", "start_date", "enddate", "end_date", "drop",
+    ]
+    for token in interesting:
+        positions = [m.start() for m in re.finditer(re.escape(token), h)][:4]
+        for pos in positions:
+            snippet = re.sub(r"\s+", " ", html[max(0, pos - 120):pos + 180])
+            print(f"RECON: context '{token}' @ {pos}: ...{snippet}...")
+    for m in list(re.finditer(r"\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}", html))[:10]:
+        snippet = re.sub(r"\s+", " ", html[max(0, m.start() - 120):m.end() + 120])
+        print(f"RECON: datetime {m.group(0)}: ...{snippet}...")
+    visible = visible_text(html)
     print(f"RECON: visible text ({len(visible)} chars), first 1500:")
     print("RECON: " + visible[:1500])
 
@@ -267,7 +292,7 @@ def run(dry_run: bool, recon_mode: bool) -> None:
     state.consecutive_fetch_failures = 0
 
     classification, matches = classify(html)
-    fp = fingerprint(matches)
+    fp = fingerprint(matches, html)
     print(f"classification={classification} fingerprint={fp} matches={matches}")
 
     if classification == "live":
