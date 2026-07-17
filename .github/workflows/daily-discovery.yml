@@ -25,6 +25,7 @@ on:
           - test_email
           - force_send
           - list_models
+          - diagnose
         default: send
 
 permissions:
@@ -66,6 +67,8 @@ jobs:
             ARGS="--force"
           elif [ "${MODE}" = "list_models" ]; then
             ARGS="--list-models"
+          elif [ "${MODE}" = "diagnose" ]; then
+            ARGS="--diagnose"
           fi
           python discover.py $ARGS
 

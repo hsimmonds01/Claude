@@ -210,6 +210,27 @@ def list_available_models(api_key: str) -> None:
             print(f"  {m['name']}  (display: {m.get('displayName', '?')})")
 
 
+def diagnose(api_key: str) -> None:
+    """Diagnostic only -- isolate whether failures come from the model
+    itself or specifically from the Google Search grounding tool, so a fix
+    is based on which call actually works rather than another guess."""
+    model = "gemini-2.5-flash"
+    for label, tools in (("WITHOUT google_search tool", None), ("WITH google_search tool", [{"google_search": {}}])):
+        body = {"contents": [{"parts": [{"text": "Say hello in one word."}]}]}
+        if tools:
+            body["tools"] = tools
+        print(f"--- {label} ---")
+        try:
+            response = requests.post(
+                GEMINI_URL.format(model=model), params={"key": api_key}, json=body,
+                timeout=REQUEST_TIMEOUT_SECONDS,
+            )
+            print(f"HTTP {response.status_code}: {response.text[:500]}")
+        except Exception as exc:  # noqa: BLE001
+            print(f"exception: {exc}")
+        print()
+
+
 def parse_items(text: str) -> list[dict]:
     """Pull the JSON array out of the model's reply, tolerating stray prose."""
     fence = re.search(r"```(?:json)?\s*(\[.*?\])\s*```", text, re.DOTALL)
@@ -421,10 +442,14 @@ def main() -> None:
     parser.add_argument("--test-email", action="store_true", help="send a sample digest via the real Resend path")
     parser.add_argument("--force", action="store_true", help="send even if already sent today")
     parser.add_argument("--list-models", action="store_true", help="print models this key can use, then exit")
+    parser.add_argument("--diagnose", action="store_true", help="test flash with/without search tool, then exit")
     args = parser.parse_args()
 
     if args.list_models:
         list_available_models(os.environ["GEMINI_API_KEY"])
+        return
+    if args.diagnose:
+        diagnose(os.environ["GEMINI_API_KEY"])
         return
 
     try:
