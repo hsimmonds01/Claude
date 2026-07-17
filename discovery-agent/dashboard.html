@@ -1,0 +1,641 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Daily Discovery — Archive</title>
+<style>
+  :root {
+    --bg: #faf6ef;
+    --bg-elevated: #ffffff;
+    --border: #e6ddcc;
+    --shadow: 0 1px 2px rgba(60, 45, 25, 0.05), 0 4px 14px rgba(60, 45, 25, 0.06);
+    --text: #2a241c;
+    --text-dim: #6b6252;
+    --text-faint: #8c8370;
+    --accent: #b5502f;
+    --accent-text: #ffffff;
+    --pill-bg: #f1e9d9;
+    --pill-border: #e0d5bc;
+    --chip-bg: #efe7d6;
+    --header-bg: rgba(250, 246, 239, 0.82);
+    --act-fast-fg: #9a2515;
+    --act-fast-bg: #fbe2da;
+    --act-fast-border: #eec3b4;
+    --this-week-fg: #8a5a10;
+    --this-week-bg: #faedd2;
+    --this-week-border: #edd9a4;
+    --heads-up-fg: #1d4f8a;
+    --heads-up-bg: #dfeaf7;
+    --heads-up-border: #bcd6ee;
+    --focus-ring: #b5502f;
+  }
+  :root[data-theme="dark"] {
+    --bg: #1c1a17;
+    --bg-elevated: #262320;
+    --border: #3a352d;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 4px 16px rgba(0, 0, 0, 0.35);
+    --text: #ede7db;
+    --text-dim: #b3a996;
+    --text-faint: #8f8672;
+    --accent: #e08159;
+    --accent-text: #241209;
+    --pill-bg: #2e2a24;
+    --pill-border: #423c31;
+    --chip-bg: #322d25;
+    --header-bg: rgba(28, 26, 23, 0.82);
+    --act-fast-fg: #ffb4a1;
+    --act-fast-bg: #3d2019;
+    --act-fast-border: #5c2e22;
+    --this-week-fg: #f2cd82;
+    --this-week-bg: #3a2f16;
+    --this-week-border: #59481f;
+    --heads-up-fg: #a9cdf2;
+    --heads-up-bg: #182a3d;
+    --heads-up-border: #234164;
+    --focus-ring: #e08159;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #1c1a17;
+      --bg-elevated: #262320;
+      --border: #3a352d;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 4px 16px rgba(0, 0, 0, 0.35);
+      --text: #ede7db;
+      --text-dim: #b3a996;
+      --text-faint: #8f8672;
+      --accent: #e08159;
+      --accent-text: #241209;
+      --pill-bg: #2e2a24;
+      --pill-border: #423c31;
+      --chip-bg: #322d25;
+      --header-bg: rgba(28, 26, 23, 0.82);
+      --act-fast-fg: #ffb4a1;
+      --act-fast-bg: #3d2019;
+      --act-fast-border: #5c2e22;
+      --this-week-fg: #f2cd82;
+      --this-week-bg: #3a2f16;
+      --this-week-border: #59481f;
+      --heads-up-fg: #a9cdf2;
+      --heads-up-bg: #182a3d;
+      --heads-up-border: #234164;
+      --focus-ring: #e08159;
+    }
+  }
+
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
+    color: var(--text);
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--accent); }
+
+  .wrap {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 0 20px 64px;
+  }
+
+  header.site {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: var(--header-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  header.site .inner {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 18px 20px 16px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  header.site h1 {
+    margin: 0;
+    font-size: 1.5rem;
+    letter-spacing: -0.01em;
+  }
+  header.site p.subtitle {
+    margin: 4px 0 0;
+    color: var(--text-dim);
+    font-size: 0.92rem;
+  }
+  header.site p.counts {
+    margin: 6px 0 0;
+    color: var(--text-faint);
+    font-size: 0.85rem;
+    font-variant-numeric: tabular-nums;
+  }
+
+  #theme-toggle {
+    flex-shrink: 0;
+    border: 1px solid var(--pill-border);
+    background: var(--pill-bg);
+    color: var(--text);
+    border-radius: 999px;
+    padding: 8px 12px;
+    font-size: 1rem;
+    cursor: pointer;
+    line-height: 1;
+  }
+  #theme-toggle:hover { background: var(--chip-bg); }
+
+  button:focus-visible,
+  a:focus-visible,
+  input:focus-visible {
+    outline: 2px solid var(--focus-ring);
+    outline-offset: 2px;
+  }
+
+  .controls {
+    margin-top: 22px;
+  }
+
+  .search-box {
+    position: relative;
+    margin-bottom: 14px;
+  }
+  .search-box svg {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.55;
+    pointer-events: none;
+  }
+  #search {
+    width: 100%;
+    font-size: 1rem;
+    padding: 12px 14px 12px 40px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    background: var(--bg-elevated);
+    color: var(--text);
+    font-family: inherit;
+  }
+  #search::placeholder { color: var(--text-faint); }
+
+  .pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+  .pill {
+    font-family: inherit;
+    font-size: 0.86rem;
+    font-weight: 600;
+    border: 1px solid var(--pill-border);
+    background: var(--pill-bg);
+    color: var(--text-dim);
+    border-radius: 999px;
+    padding: 7px 14px;
+    cursor: pointer;
+    transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease, transform 0.1s ease;
+    white-space: nowrap;
+  }
+  .pill:hover { background: var(--chip-bg); color: var(--text); }
+  .pill:active { transform: scale(0.97); }
+  .pill[aria-pressed="true"] {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--accent-text);
+  }
+
+  .legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    font-size: 0.8rem;
+    color: var(--text-faint);
+    margin: 4px 0 24px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border);
+  }
+  .legend .dot {
+    display: inline-block;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    margin-right: 5px;
+    vertical-align: middle;
+  }
+  .legend .dot.act-fast { background: var(--act-fast-fg); }
+  .legend .dot.this-week { background: var(--this-week-fg); }
+  .legend .dot.heads-up { background: var(--heads-up-fg); }
+
+  .day-group { margin-top: 30px; }
+  .day-group:first-of-type { margin-top: 8px; }
+  .day-heading {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin: 0 0 14px;
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .day-heading .count {
+    font-weight: 500;
+    font-size: 0.82rem;
+    color: var(--text-faint);
+  }
+
+  .cards { display: flex; flex-direction: column; gap: 14px; }
+
+  .card {
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 16px 18px;
+    box-shadow: var(--shadow);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .card:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(60, 45, 25, 0.08), 0 8px 22px rgba(60, 45, 25, 0.1);
+  }
+  :root[data-theme="dark"] .card:hover {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.35), 0 8px 22px rgba(0, 0, 0, 0.4);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) .card:hover {
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.35), 0 8px 22px rgba(0, 0, 0, 0.4);
+    }
+  }
+
+  .card-top {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+  }
+
+  .badge {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    border-radius: 999px;
+    padding: 3px 10px;
+    border: 1px solid transparent;
+  }
+  .badge.act-fast { color: var(--act-fast-fg); background: var(--act-fast-bg); border-color: var(--act-fast-border); }
+  .badge.this-week { color: var(--this-week-fg); background: var(--this-week-bg); border-color: var(--this-week-border); }
+  .badge.heads-up { color: var(--heads-up-fg); background: var(--heads-up-bg); border-color: var(--heads-up-border); }
+
+  .chip {
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    background: var(--chip-bg);
+    border-radius: 999px;
+    padding: 3px 10px;
+  }
+
+  .card h3 {
+    margin: 0 0 6px;
+    font-size: 1.08rem;
+    line-height: 1.3;
+  }
+  .card p.summary {
+    margin: 0 0 8px;
+    color: var(--text-dim);
+    font-size: 0.94rem;
+  }
+  .card p.date-info {
+    margin: 0 0 8px;
+    font-size: 0.86rem;
+    color: var(--text-faint);
+  }
+  .card a.open-link {
+    font-size: 0.88rem;
+    font-weight: 600;
+    text-decoration: none;
+  }
+  .card a.open-link:hover { text-decoration: underline; }
+
+  .empty-state, .error-state {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--text-dim);
+  }
+  .empty-state .glyph, .error-state .glyph {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+  }
+  .error-state a {
+    display: inline-block;
+    margin-top: 10px;
+    word-break: break-all;
+  }
+  .loading {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--text-faint);
+  }
+
+  @media (max-width: 480px) {
+    .wrap { padding: 0 14px 48px; }
+    header.site .inner { padding: 14px 14px 14px; flex-direction: column; }
+    #theme-toggle { align-self: flex-end; margin-top: -34px; }
+    header.site h1 { font-size: 1.3rem; }
+    .card { padding: 14px; }
+  }
+</style>
+</head>
+<body>
+<header class="site">
+  <div class="inner">
+    <div>
+      <h1>✨ Daily Discovery</h1>
+      <p class="subtitle">Every find the scout has sent, newest first</p>
+      <p class="counts" id="counts"></p>
+    </div>
+    <button id="theme-toggle" type="button" aria-label="Toggle light/dark theme">🌓</button>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="controls">
+    <div class="search-box">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+        <circle cx="7" cy="7" r="5.5" stroke="currentColor" stroke-width="1.5"/>
+        <line x1="11.2" y1="11.2" x2="15" y2="15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+      <input id="search" type="text" placeholder="Search titles and summaries…" aria-label="Search finds">
+    </div>
+    <div class="pills" id="pills" role="group" aria-label="Filter by category"></div>
+    <div class="legend">
+      <span><span class="dot act-fast"></span>Act fast — sale/deadline imminent</span>
+      <span><span class="dot this-week"></span>This week — worth planning around</span>
+      <span><span class="dot heads-up"></span>Heads up — no rush, just interesting</span>
+    </div>
+  </div>
+
+  <main id="main">
+    <div class="loading" id="loading">Loading the archive…</div>
+  </main>
+</div>
+
+<script>
+(function () {
+  "use strict";
+
+  var HISTORY_URL = "https://raw.githubusercontent.com/hsimmonds01/Claude/main/discovery-agent/history.json";
+
+  var CATEGORIES = [
+    { key: "all", label: "All" },
+    { key: "film", label: "Film" },
+    { key: "drop", label: "Drop" },
+    { key: "event", label: "Event" },
+    { key: "product", label: "Product" },
+    { key: "other", label: "Other" }
+  ];
+
+  var URGENCY_LABEL = {
+    "act-fast": "ACT FAST",
+    "this-week": "THIS WEEK",
+    "heads-up": "HEADS UP"
+  };
+
+  var state = {
+    digests: [],
+    query: "",
+    category: "all"
+  };
+
+  var mainEl = document.getElementById("main");
+  var countsEl = document.getElementById("counts");
+  var pillsEl = document.getElementById("pills");
+  var searchEl = document.getElementById("search");
+
+  // ---- theme ----
+  (function initTheme() {
+    var saved = null;
+    try { saved = localStorage.getItem("dd-theme"); } catch (e) {}
+    if (saved === "dark" || saved === "light") {
+      document.documentElement.setAttribute("data-theme", saved);
+    }
+    document.getElementById("theme-toggle").addEventListener("click", function () {
+      var current = document.documentElement.getAttribute("data-theme");
+      var isDark;
+      if (current) {
+        isDark = current === "dark";
+      } else {
+        isDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+      }
+      var next = isDark ? "light" : "dark";
+      document.documentElement.setAttribute("data-theme", next);
+      try { localStorage.setItem("dd-theme", next); } catch (e) {}
+    });
+  })();
+
+  function escapeHtml(str) {
+    return String(str == null ? "" : str).replace(/[&<>"']/g, function (c) {
+      return ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c];
+    });
+  }
+
+  function normCategory(cat) {
+    var c = (cat || "").toString().trim().toLowerCase();
+    var known = ["film", "drop", "event", "product"];
+    return known.indexOf(c) !== -1 ? c : "other";
+  }
+
+  function normUrgency(u) {
+    var v = (u || "").toString().trim().toLowerCase();
+    return URGENCY_LABEL[v] ? v : null;
+  }
+
+  function parseDateHeading(dateStr) {
+    // dateStr expected "YYYY-MM-DD"; tolerate weirdness.
+    var m = /^(\d{4})-(\d{2})-(\d{2})$/.exec((dateStr || "").trim());
+    if (!m) return dateStr || "Unknown date";
+    var d = new Date(Date.UTC(+m[1], +m[2] - 1, +m[3]));
+    if (isNaN(d.getTime())) return dateStr;
+    var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    return days[d.getUTCDay()] + " " + d.getUTCDate() + " " + months[d.getUTCMonth()] + " " + d.getUTCFullYear();
+  }
+
+  function buildPills(counts, total) {
+    pillsEl.innerHTML = "";
+    CATEGORIES.forEach(function (cat) {
+      var n = cat.key === "all" ? total : (counts[cat.key] || 0);
+      var btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "pill";
+      btn.setAttribute("aria-pressed", state.category === cat.key ? "true" : "false");
+      btn.textContent = cat.label + " (" + n + ")";
+      btn.addEventListener("click", function () {
+        state.category = cat.key;
+        render();
+      });
+      pillsEl.appendChild(btn);
+    });
+  }
+
+  function itemMatches(item) {
+    if (state.category !== "all" && normCategory(item.category) !== state.category) return false;
+    if (state.query) {
+      var q = state.query;
+      var hay = ((item.title || "") + " " + (item.summary || "")).toLowerCase();
+      if (hay.indexOf(q) === -1) return false;
+    }
+    return true;
+  }
+
+  function renderCard(item) {
+    var urgency = normUrgency(item.urgency);
+    var category = normCategory(item.category);
+    var catLabelMap = { film: "Film", drop: "Drop", event: "Event", product: "Product", other: "Other" };
+
+    var html = '<div class="card-top">';
+    if (urgency) {
+      html += '<span class="badge ' + urgency + '">' + URGENCY_LABEL[urgency] + '</span>';
+    }
+    html += '<span class="chip">' + catLabelMap[category] + '</span>';
+    html += '</div>';
+
+    html += '<h3>' + escapeHtml(item.title || "Untitled") + '</h3>';
+
+    if (item.summary) {
+      html += '<p class="summary">' + escapeHtml(item.summary) + '</p>';
+    }
+    if (item.date_info) {
+      html += '<p class="date-info">📅 ' + escapeHtml(item.date_info) + '</p>';
+    }
+    var url = String(item.url || "");
+    if (/^https?:\/\//i.test(url)) {
+      html += '<a class="open-link" href="' + escapeHtml(url) + '" target="_blank" rel="noopener">Open link →</a>';
+    }
+
+    var card = document.createElement("article");
+    card.className = "card";
+    card.innerHTML = html;
+    return card;
+  }
+
+  function render() {
+    // Category counts computed across ALL items (unaffected by search),
+    // per spec: pills show per-category counts.
+    var catCounts = { film: 0, drop: 0, event: 0, product: 0, other: 0 };
+    var totalItems = 0;
+    state.digests.forEach(function (d) {
+      (d.items || []).forEach(function (item) {
+        catCounts[normCategory(item.category)]++;
+        totalItems++;
+      });
+    });
+
+    buildPills(catCounts, totalItems);
+    countsEl.textContent = totalItems + " find" + (totalItems === 1 ? "" : "s") +
+      " across " + state.digests.length + " day" + (state.digests.length === 1 ? "" : "s");
+
+    mainEl.innerHTML = "";
+
+    if (state.digests.length === 0) {
+      var empty = document.createElement("div");
+      empty.className = "empty-state";
+      empty.innerHTML = '<div class="glyph">🔭</div><p>No finds archived yet — the first digest will appear here.</p>';
+      mainEl.appendChild(empty);
+      return;
+    }
+
+    var anyRendered = false;
+
+    state.digests.forEach(function (digest) {
+      var items = (digest.items || []).filter(itemMatches);
+      if (items.length === 0) return;
+      anyRendered = true;
+
+      var group = document.createElement("section");
+      group.className = "day-group";
+
+      var heading = document.createElement("h2");
+      heading.className = "day-heading";
+      heading.innerHTML = '<span>' + escapeHtml(parseDateHeading(digest.date)) + '</span>' +
+        '<span class="count">' + items.length + ' find' + (items.length === 1 ? "" : "s") + '</span>';
+      group.appendChild(heading);
+
+      var cardsWrap = document.createElement("div");
+      cardsWrap.className = "cards";
+      items.forEach(function (item) {
+        cardsWrap.appendChild(renderCard(item));
+      });
+      group.appendChild(cardsWrap);
+
+      mainEl.appendChild(group);
+    });
+
+    if (!anyRendered) {
+      var noMatch = document.createElement("div");
+      noMatch.className = "empty-state";
+      noMatch.innerHTML = '<div class="glyph">🔍</div><p>Nothing matches your search or filter. Try clearing them.</p>';
+      mainEl.appendChild(noMatch);
+    }
+  }
+
+  searchEl.addEventListener("input", function () {
+    state.query = searchEl.value.trim().toLowerCase();
+    render();
+  });
+
+  function showError(message, rawUrl) {
+    mainEl.innerHTML = "";
+    var err = document.createElement("div");
+    err.className = "error-state";
+    err.innerHTML = '<div class="glyph">⚠️</div><p>' + escapeHtml(message) + '</p>' +
+      '<a href="' + escapeHtml(rawUrl) + '" target="_blank" rel="noopener">' + escapeHtml(rawUrl) + '</a>';
+    mainEl.appendChild(err);
+    countsEl.textContent = "";
+    buildPills({}, 0);
+  }
+
+  function sortDigests(digests) {
+    return digests.slice().sort(function (a, b) {
+      var da = (a && a.date) || "";
+      var db = (b && b.date) || "";
+      if (da < db) return 1;
+      if (da > db) return -1;
+      return 0;
+    });
+  }
+
+  fetch(HISTORY_URL, { cache: "no-store" })
+    .then(function (res) {
+      if (!res.ok) throw new Error("Server responded with " + res.status);
+      return res.json();
+    })
+    .then(function (data) {
+      var digests = (data && Array.isArray(data.digests)) ? data.digests : [];
+      state.digests = sortDigests(digests);
+      render();
+    })
+    .catch(function (err) {
+      showError(
+        "Couldn't load the archive (" + (err && err.message ? err.message : "unknown error") + "). You can try the raw file directly:",
+        HISTORY_URL
+      );
+    });
+})();
+</script>
+</body>
+</html>

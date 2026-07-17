@@ -20,9 +20,13 @@
 - This repo (`hsimmonds01/Claude`) hosts several independent projects side
   by side, each on its own long-lived branch: dock-alerter
   (`claude/santander-cycles-alerter-krn8d0`), a World Cup fantasy tracker
-  (root `index.html`/`app.js`/`config`/`data`/`scripts`), and a Northern
+  (root `index.html`/`app.js`/`config`/`data`/`scripts`), a Northern
   line crowding tracker (`crowding-tracker/`, branch
-  `claude/northern-line-busyness-rn7d9m`). Each has its own GitHub Actions
+  `claude/northern-line-busyness-rn7d9m`), page-watchers (`ticket-alerter/`
+  retired, `voxi-drop-alerter/`), and a Daily Discovery email digest
+  (`discovery-agent/`, branch `claude/daily-discovery-agent-estimate-qasmi1`:
+  Gemini free API + Google Search grounding -> Resend email; taste profile
+  lives in `discovery-agent/interests.md`). Each has its own GitHub Actions
   workflow that commits state/history back to `main` on a repeating
   schedule.
 - Any workflow that commits and pushes to `main` MUST join the
