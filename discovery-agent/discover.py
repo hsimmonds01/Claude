@@ -50,6 +50,7 @@ HISTORY_PATH = BASE_DIR / "history.json"
 # free-tier quota is exhausted. Swapping models later is a one-line edit here.
 GEMINI_MODELS = ["gemini-2.5-pro", "gemini-2.5-flash"]
 GEMINI_URL = "https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"
+GEMINI_LIST_MODELS_URL = "https://generativelanguage.googleapis.com/v1beta/models"
 
 RESEND_URL = "https://api.resend.com/emails"
 # Resend's free tier sends from their shared address until a personal domain
@@ -193,6 +194,20 @@ def call_gemini(api_key: str, prompt: str) -> tuple[str, str]:
             print(f"[gemini] {model} failed: {exc}", file=sys.stderr)
             time.sleep(3)
     raise RuntimeError(f"All Gemini models failed. Last error: {last_error}")
+
+
+def list_available_models(api_key: str) -> None:
+    """Diagnostic only -- print every model this key can call generateContent
+    on, so model-ID fixes are based on what Google actually reports rather
+    than another guess."""
+    response = requests.get(GEMINI_LIST_MODELS_URL, params={"key": api_key}, timeout=REQUEST_TIMEOUT_SECONDS)
+    response.raise_for_status()
+    models = response.json().get("models", [])
+    print(f"{len(models)} models visible to this key:\n")
+    for m in sorted(models, key=lambda m: m.get("name", "")):
+        methods = m.get("supportedGenerationMethods", [])
+        if "generateContent" in methods:
+            print(f"  {m['name']}  (display: {m.get('displayName', '?')})")
 
 
 def parse_items(text: str) -> list[dict]:
@@ -405,7 +420,12 @@ def main() -> None:
     parser.add_argument("--dry-run", action="store_true", help="research and print, no email, no state writes")
     parser.add_argument("--test-email", action="store_true", help="send a sample digest via the real Resend path")
     parser.add_argument("--force", action="store_true", help="send even if already sent today")
+    parser.add_argument("--list-models", action="store_true", help="print models this key can use, then exit")
     args = parser.parse_args()
+
+    if args.list_models:
+        list_available_models(os.environ["GEMINI_API_KEY"])
+        return
 
     try:
         if args.test_email:

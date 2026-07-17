@@ -24,6 +24,7 @@ on:
           - dry_run
           - test_email
           - force_send
+          - list_models
         default: send
 
 permissions:
@@ -63,6 +64,8 @@ jobs:
             ARGS="--test-email"
           elif [ "${MODE}" = "force_send" ]; then
             ARGS="--force"
+          elif [ "${MODE}" = "list_models" ]; then
+            ARGS="--list-models"
           fi
           python discover.py $ARGS
 
