@@ -1,0 +1,87 @@
+name: Daily Discovery digest
+
+# Emails a morning digest of newly-announced cool things (ticket releases,
+# limited drops, London events, notable products), researched by Gemini with
+# Google Search grounding and delivered via Resend.
+#
+# GitHub's native `schedule` is best-effort and has been seen running >1hr
+# late (or not at all) on this repo, so -- as with the sibling alerters -- a
+# cron-job.org job hitting the workflow_dispatch endpoint at the chosen hour
+# is the reliable primary trigger; the schedule below is the backup net.
+# discover.py sends at most one digest per day (state.json last_sent_date),
+# so duplicate/overlapping triggers are safe.
+on:
+  schedule:
+    # Backup only: 07:20 UTC = 8:20am UK in summer, 7:20am in winter.
+    - cron: "20 7 * * *"
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "Run mode"
+        type: choice
+        options:
+          - send
+          - dry_run
+          - test_email
+          - force_send
+        default: send
+
+permissions:
+  contents: write
+
+# Multiple projects in this repo push to main on schedules; serialising all
+# of them in one group prevents non-fast-forward push races (see CLAUDE.md).
+concurrency:
+  group: main-git-writer
+  cancel-in-progress: false
+
+jobs:
+  digest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        working-directory: discovery-agent
+        run: pip install -r requirements.txt
+
+      - name: Run the discovery digest
+        working-directory: discovery-agent
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          MODE: ${{ inputs.mode || 'send' }}
+        run: |
+          ARGS=""
+          if [ "${MODE}" = "dry_run" ]; then
+            ARGS="--dry-run"
+          elif [ "${MODE}" = "test_email" ]; then
+            ARGS="--test-email"
+          elif [ "${MODE}" = "force_send" ]; then
+            ARGS="--force"
+          fi
+          python discover.py $ARGS
+
+      - name: Commit updated state (if changed)
+        run: |
+          # Dry-run/test modes leave no state changes; a bare `git add` of a
+          # missing path is fatal, so guard each file.
+          for f in discovery-agent/state.json discovery-agent/history.json; do
+            if [ -f "$f" ]; then
+              git add "$f"
+            fi
+          done
+          if ! git diff --cached --quiet; then
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git commit -m "Archive today's discovery digest"
+            # Another project's run may have pushed between checkout and now.
+            git pull --rebase origin main || true
+            git push
+          else
+            echo "No state change, nothing to commit."
+          fi
