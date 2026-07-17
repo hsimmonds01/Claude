@@ -47,8 +47,12 @@ STATE_PATH = BASE_DIR / "state.json"
 HISTORY_PATH = BASE_DIR / "history.json"
 
 # Pro first for taste, Flash as the automatic fallback if Pro errors or the
-# free-tier quota is exhausted. Swapping models later is a one-line edit here.
-GEMINI_MODELS = ["gemini-2.5-pro", "gemini-2.5-flash"]
+# free-tier quota is exhausted. Use Google's rolling "-latest" aliases, not a
+# pinned generation number -- a hardcoded "gemini-2.5-flash" broke outright
+# when Google retired 2.5 models for new API keys (confirmed via --diagnose:
+# "This model ... is no longer available to new users"). The aliases always
+# point at whatever Google currently recommends, so this can't recur.
+GEMINI_MODELS = ["gemini-pro-latest", "gemini-flash-latest"]
 GEMINI_URL = "https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"
 GEMINI_LIST_MODELS_URL = "https://generativelanguage.googleapis.com/v1beta/models"
 

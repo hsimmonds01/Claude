@@ -183,10 +183,10 @@ def test_force_overrides_guard(tmp_path):
 @in_temp_dir
 def test_pro_quota_falls_back_to_flash(tmp_path):
     set_env()
-    fake = FakeRequests(gemini_text=GOOD_REPLY, gemini_fail_models=("gemini-2.5-pro",))
+    fake = FakeRequests(gemini_text=GOOD_REPLY, gemini_fail_models=(discover.GEMINI_MODELS[0],))
     discover.requests = fake
     discover.run_digest(dry_run=False, force=False)
-    assert fake.models_called == ["gemini-2.5-pro", "gemini-2.5-flash"]
+    assert fake.models_called == discover.GEMINI_MODELS
     assert len(fake.sent_emails) == 1
 
 
