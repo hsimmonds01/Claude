@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-18T21:22:45.888Z",
+  "lastUpdated": "2026-07-18T22:22:21.346Z",
   "matches": [
     {
       "stage": "GROUP_STAGE",
@@ -1017,8 +1017,8 @@
       "utcDate": "2026-07-18T21:00:00Z",
       "homeTeam": "France",
       "awayTeam": "England",
-      "homeScore": 0,
-      "awayScore": 1,
+      "homeScore": 1,
+      "awayScore": 4,
       "winner": "AWAY_TEAM"
     },
     {
