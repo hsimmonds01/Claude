@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-18T22:22:21.346Z",
+  "lastUpdated": "2026-07-18T23:26:04.780Z",
   "matches": [
     {
       "stage": "GROUP_STAGE",
@@ -1013,12 +1013,12 @@
     },
     {
       "stage": "THIRD_PLACE",
-      "status": "IN_PLAY",
+      "status": "FINISHED",
       "utcDate": "2026-07-18T21:00:00Z",
       "homeTeam": "France",
       "awayTeam": "England",
-      "homeScore": 1,
-      "awayScore": 4,
+      "homeScore": 4,
+      "awayScore": 6,
       "winner": "AWAY_TEAM"
     },
     {
@@ -1065,7 +1065,7 @@
     },
     "THIRD_PLACE": {
       "total": 1,
-      "finished": 0,
+      "finished": 1,
       "startDate": "2026-07-18T21:00:00Z",
       "endDate": "2026-07-18T21:00:00Z"
     },
