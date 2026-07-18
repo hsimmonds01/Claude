@@ -32,19 +32,33 @@ class FakeResponse:
             raise RuntimeError(f"HTTP {self.status_code}")
 
 
-class FakeRequests:
-    """Routes gemini/resend URLs to canned responses and records sends."""
+class FakeTextResponse:
+    def __init__(self, text, status=200):
+        self.text = text
+        self.status_code = status
 
-    def __init__(self, gemini_text=None, gemini_fail_models=()):
+    def raise_for_status(self):
+        if self.status_code >= 400:
+            raise RuntimeError(f"HTTP {self.status_code}")
+
+
+class FakeRequests:
+    """Routes gemini/resend/feed URLs to canned responses and records sends."""
+
+    def __init__(self, gemini_text=None, gemini_fail_models=(), feed_xml=None, feed_fail=False):
         self.gemini_text = gemini_text
         self.gemini_fail_models = gemini_fail_models
+        self.feed_xml = feed_xml  # single XML string served for every feed URL
+        self.feed_fail = feed_fail
         self.sent_emails = []
         self.models_called = []
+        self.last_gemini_body = None
 
     def post(self, url, **kwargs):
         if "generativelanguage" in url:
             model = url.split("/models/")[1].split(":")[0]
             self.models_called.append(model)
+            self.last_gemini_body = kwargs.get("json")
             if model in self.gemini_fail_models:
                 return FakeResponse({"error": "quota"}, status=429)
             return FakeResponse(
@@ -54,6 +68,11 @@ class FakeRequests:
             self.sent_emails.append(kwargs["json"])
             return FakeResponse({"id": "email_123"})
         raise AssertionError(f"unexpected URL {url}")
+
+    def get(self, url, **kwargs):
+        if self.feed_fail:
+            raise RuntimeError("simulated feed fetch failure")
+        return FakeTextResponse(self.feed_xml or "<rss><channel></channel></rss>")
 
 
 GOOD_REPLY = """Here are the finds:
@@ -94,6 +113,36 @@ def set_env(monkey=None):
     os.environ["RESEND_API_KEY"] = "test-resend"
 
 
+def _rfc822(dt):
+    from email.utils import format_datetime
+    return format_datetime(dt)
+
+
+RSS_FIXTURE_TEMPLATE = """<?xml version="1.0"?>
+<rss version="2.0"><channel><title>Test Feed</title>
+<item><title>Recent RSS item</title><link>https://example.com/recent</link>
+<pubDate>{recent}</pubDate></item>
+<item><title>Stale RSS item</title><link>https://example.com/stale</link>
+<pubDate>{stale}</pubDate></item>
+</channel></rss>"""
+
+ATOM_FIXTURE_TEMPLATE = """<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Test Atom Feed</title>
+<entry><title>Recent Atom entry</title><link href="https://example.com/atom-recent"/>
+<updated>{recent}</updated></entry>
+</feed>"""
+
+
+def _fresh_and_stale_xml(template, use_iso=False):
+    import datetime as dt
+    now = dt.datetime.now(dt.timezone.utc)
+    recent = now - dt.timedelta(days=1)
+    stale = now - dt.timedelta(days=discover.FEED_MAX_AGE_DAYS + 5)
+    if use_iso:
+        return template.format(recent=recent.isoformat().replace("+00:00", "Z"))
+    return template.format(recent=_rfc822(recent), stale=_rfc822(stale))
+
+
 # ── Parsing ────────────────────────────────────────────────────────────
 
 def test_parse_fenced_json():
@@ -132,6 +181,84 @@ def test_prune_seen_caps_and_ages():
     pruned = discover.prune_seen(old + recent)
     assert len(pruned) == discover.SEEN_CAP
     assert all(e["date"] != "2020-01-01" for e in pruned)
+
+
+# ── Free news feeds ───────────────────────────────────────────────────
+
+def test_parse_rss_filters_stale_items():
+    xml = _fresh_and_stale_xml(RSS_FIXTURE_TEMPLATE)
+    items = discover._parse_feed_xml(xml, "example.com")
+    titles = [i["title"] for i in items]
+    assert "Recent RSS item" in titles
+    assert "Stale RSS item" not in titles  # older than FEED_MAX_AGE_DAYS -- dropped
+
+
+def test_parse_atom_feed():
+    xml = _fresh_and_stale_xml(ATOM_FIXTURE_TEMPLATE, use_iso=True)
+    items = discover._parse_feed_xml(xml, "example.com")
+    assert len(items) == 1
+    assert items[0]["title"] == "Recent Atom entry"
+    assert items[0]["link"] == "https://example.com/atom-recent"
+
+
+def test_parse_feed_xml_malformed_returns_empty():
+    assert discover._parse_feed_xml("not xml at all <<<", "example.com") == []
+    assert discover._parse_feed_xml("<rss><channel></channel></rss>", "example.com") == []
+
+
+def test_parse_feed_xml_unparseable_date_is_kept():
+    xml = """<rss><channel><item><title>Undated item</title>
+      <link>https://example.com/x</link><pubDate>not a real date</pubDate>
+    </item></channel></rss>"""
+    items = discover._parse_feed_xml(xml, "example.com")
+    assert len(items) == 1  # can't tell it's stale -- keep it rather than drop
+
+
+def test_fetch_feed_items_aggregates_across_feeds():
+    xml = _fresh_and_stale_xml(RSS_FIXTURE_TEMPLATE)
+    fake = FakeRequests(feed_xml=xml)
+    discover.requests = fake
+    items = discover.fetch_feed_items()
+    # One "Recent RSS item" per feed URL queried (same fixture served everywhere)
+    assert len(items) == len(discover._feed_urls())
+    assert all(i["title"] == "Recent RSS item" for i in items)
+
+
+def test_fetch_feed_items_survives_total_failure():
+    fake = FakeRequests(feed_fail=True)
+    discover.requests = fake
+    assert discover.fetch_feed_items() == []  # degrades, doesn't raise
+
+
+def test_build_prompt_embeds_feed_headlines():
+    feed_items = [{"title": "Cool drop happening", "link": "https://x.com/d", "source": "x.com"}]
+    prompt = discover.build_prompt("taste profile text", [], feed_items)
+    assert "Cool drop happening" in prompt
+    assert "https://x.com/d" in prompt
+
+
+def test_build_prompt_no_feeds_is_conservative():
+    prompt = discover.build_prompt("taste profile text", [], [])
+    assert "no feed headlines fetched" in prompt.lower()
+
+
+def test_search_tool_omitted_by_default():
+    assert discover.GEMINI_ENABLE_SEARCH is False  # default: no env var set
+    fake = FakeRequests(gemini_text=GOOD_REPLY)
+    discover.requests = fake
+    discover.call_gemini("key", "prompt")
+    assert "tools" not in fake.last_gemini_body
+
+
+def test_search_tool_included_when_enabled():
+    discover.GEMINI_ENABLE_SEARCH = True
+    try:
+        fake = FakeRequests(gemini_text=GOOD_REPLY)
+        discover.requests = fake
+        discover.call_gemini("key", "prompt")
+        assert fake.last_gemini_body["tools"] == [{"google_search": {}}]
+    finally:
+        discover.GEMINI_ENABLE_SEARCH = False  # restore for later tests
 
 
 # ── Full flow ──────────────────────────────────────────────────────────
