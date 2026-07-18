@@ -218,12 +218,12 @@ def diagnose(api_key: str) -> None:
     """Diagnostic only -- isolate whether failures come from the model
     itself or specifically from the Google Search grounding tool, so a fix
     is based on which call actually works rather than another guess."""
-    model = "gemini-2.5-flash"
+    model = GEMINI_MODELS[-1]  # cheapest/most-permissive model, currently gemini-flash-latest
     for label, tools in (("WITHOUT google_search tool", None), ("WITH google_search tool", [{"google_search": {}}])):
         body = {"contents": [{"parts": [{"text": "Say hello in one word."}]}]}
         if tools:
             body["tools"] = tools
-        print(f"--- {label} ---")
+        print(f"--- {model}: {label} ---")
         try:
             response = requests.post(
                 GEMINI_URL.format(model=model), params={"key": api_key}, json=body,
