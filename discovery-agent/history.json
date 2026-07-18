@@ -1,3 +1,58 @@
 {
-  "digests": []
+  "digests": [
+    {
+      "date": "2026-07-18",
+      "model": "gemini-flash-latest",
+      "items": [
+        {
+          "title": "McLaren Racing: Live in Conversation London Tickets",
+          "category": "event",
+          "summary": "Tickets for this exclusive live-in-conversation event with McLaren Racing in London go on sale this morning. Given the massive F1 fanbase in the UK, these are highly likely to sell out instantly.",
+          "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE9sR3U1a2RRWDY2VDZtQnJTQmRNYVpwVVVfUm9CR09zeWlLNFJNeE9mV3J2Yl9OcTdSWWJ5Z0lpWHZFYzJQNVBPNE9hcWwwdEd2RVFGazd2djU1LVJBbWc?oc=5",
+          "date_info": "Tickets on sale Sat 18 Jul, 10am UK",
+          "urgency": "act-fast"
+        },
+        {
+          "title": "The Odyssey: IMAX 70mm Screenings",
+          "category": "film",
+          "summary": "The highly anticipated IMAX release of 'The Odyssey' has triggered an absolute ticket frenzy, with film buffs paying hundreds on resale markets. Grab your tickets directly through Odeon (which operates the BFI IMAX) before they are completely gone.",
+          "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTFA2UzlONXBMTGxuV3RhU2llRGxxVTY1eno5TnE0LU9wVlBPNVk4WVNwYk5QWm5LR2xSbXdiLW1kenhEZkdVX21kbllvQVJORGlZbG1xSG9CdW5WZDhUTzRZZGgzaw?oc=5",
+          "date_info": "Released Fri 17 Jul",
+          "urgency": "act-fast"
+        },
+        {
+          "title": "Fabric Curates High-Altitude Parties at London's Tallest Skyscraper",
+          "category": "event",
+          "summary": "Legendary Farringdon nightclub Fabric is taking over the top of London’s tallest skyscraper (Horizon 22) for a series of curated high-altitude parties. This is a massive, unique nightlife collaboration that is guaranteed to sell out fast.",
+          "url": "https://www.timeout.com/london/news/legendary-nightclub-fabric-is-curating-events-at-the-top-of-londons-tallest-skyscraper-071726",
+          "date_info": "Announced Fri 17 Jul",
+          "urgency": "heads-up"
+        },
+        {
+          "title": "Action Bronson's BAKLAVA x New Balance 2811 'Mikročpske'",
+          "category": "drop",
+          "summary": "Action Bronson is back with New Balance to debut his brand-new signature silhouette, the 2811. Volume 1 of this collaboration is a major moment for sneakerheads looking for something genuinely unique.",
+          "url": "https://hypebeast.com/2026/7/action-bronson-baklava-new-balance-2811-mikrocpske-signature-series-volume-1-release-info",
+          "date_info": "Announced Jul 2026",
+          "urgency": "heads-up"
+        },
+        {
+          "title": "Whitaker Group x adidas BW Army Mundial",
+          "category": "drop",
+          "summary": "This stunning collaboration fuses classic football heritage with a high-fashion, Margiela-coded aesthetic. It is a incredibly sharp, terrace-friendly sneaker that perfectly bridges the gap between streetwear and football culture.",
+          "url": "https://www.highsnobiety.com/p/whitaker-group-adidas-bw-army-mundial/",
+          "date_info": "Released Jul 2026",
+          "urgency": "this-week"
+        },
+        {
+          "title": "Sourdough Sophia Opens in Covent Garden",
+          "category": "other",
+          "summary": "The incredibly hyped North London bakery Sourdough Sophia is finally opening its very first central London location in Covent Garden. It's a quick trip from SE London to score some of the best artisanal pastries and bakes in the city.",
+          "url": "https://www.timeout.com/london/news/sourdough-sophia-bakery-covent-garden-071726",
+          "date_info": "Announced Fri 17 Jul",
+          "urgency": "this-week"
+        }
+      ]
+    }
+  ]
 }
