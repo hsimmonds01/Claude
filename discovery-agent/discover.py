@@ -449,11 +449,13 @@ def main() -> None:
     parser.add_argument("--diagnose", action="store_true", help="test flash with/without search tool, then exit")
     args = parser.parse_args()
 
-    if args.list_models:
-        list_available_models(os.environ["GEMINI_API_KEY"])
-        return
-    if args.diagnose:
-        diagnose(os.environ["GEMINI_API_KEY"])
+    if args.list_models or args.diagnose:
+        # Diagnostic modes: fail with a readable message, not a KeyError.
+        key = os.environ.get("GEMINI_API_KEY")
+        if not key:
+            print("GEMINI_API_KEY is not set", file=sys.stderr)
+            sys.exit(1)
+        list_available_models(key) if args.list_models else diagnose(key)
         return
 
     try:
