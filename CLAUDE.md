@@ -95,6 +95,15 @@
   continuous range before assuming two jobs are required.
 - Reuses the same fine-grained PAT already issued for the iOS Shortcuts --
   no need for a separate token.
+- The user's cron-job.org account has its jobs' schedule timezone set to a
+  Europe zone (e.g. Europe/London), not UTC -- this means cron-job.org
+  itself handles the BST/GMT clock change, so a job scheduled for "8am"
+  fires at 8am UK time year-round with no manual DST adjustment needed.
+  This applies across all cron-job.org jobs in this account (dock-alerter,
+  Daily Discovery, etc.) -- don't flag the UTC/BST drift as a concern for
+  cron-job.org-triggered schedules; it only applies to GitHub's native
+  `schedule:` cron (which is always UTC and has no timezone setting) kept
+  as the backup trigger.
 
 ## Communication / working style preferences
 - The user is not a developer -- when a step requires action on their end
@@ -129,3 +138,26 @@
   note clipped to the photocopy, merge = copying the approved changes into
   the master document. Lean into this style for infrastructure/process
   explanations rather than pure technical definitions.
+
+## About the user
+- Lives in south-east London, Bermondsey/Elephant and Castle area -- London
+  events and drops near there land best; the dock-alerter's own location
+  (Tooley Street, Bermondsey) is a good landmark for "near me."
+- Interests feeding `discovery-agent/interests.md` (the taste profile for
+  the Daily Discovery digest -- edit that file directly to retune, this is
+  just the source-of-truth summary): big-screen film events (IMAX
+  releases/re-releases, e.g. wanted to know about "The Odyssey" IMAX
+  tickets); limited-edition drops and collabs (streetwear/caps, e.g. the
+  Wynwood x Strawberry Stellar Ottawa hats); football; tech and new
+  product releases, especially affordable ones; milkshakes and good food,
+  including discounts/deals; London events near Elephant and Castle.
+- Particularly likes free-to-enter promos that add real value rather than
+  just marketing noise -- example given: Nando's ran a World Cup
+  score-prediction game with rewards during the tournament. Surface this
+  kind of thing (free sign-up, low effort, genuine perk) alongside paid
+  ticket/drop finds in the digest, not just things that cost money.
+- Not a developer; runs Claude Code sessions primarily via phone/web (see
+  Communication preferences above) but is comfortable following clear
+  numbered instructions for third-party site setup (Google AI Studio,
+  Resend, GitHub secrets, cron-job.org) and has an existing cron-job.org
+  account already used for the dock-alerter.

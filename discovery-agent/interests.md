@@ -18,14 +18,29 @@ changes automatically.
   exhibitions, immersive experiences, secret cinema-type things, big sports
   screenings. If tickets are released on a specific date, tell me BEFORE
   that date, not after.
-- **Cool new products actually worth buying**: genuinely interesting tech,
-  clever gadgets, beautiful design objects — the "how did I not know this
-  existed" category. Not routine product refreshes.
+- **Cool new products actually worth buying**: genuinely interesting tech
+  and new releases, especially affordable ones — clever gadgets, beautiful
+  design objects, the "how did I not know this existed" category. Not
+  routine product refreshes (a new phone colour isn't news; a genuinely
+  clever cheap gadget is).
+- **Football**: notable matches, transfer news that's actually big, ticket
+  releases for London games, watch-alongs/screenings for major matches.
+- **Free sign-up stuff that adds real value**: low-effort, free-to-enter
+  promos with genuine perks — not marketing noise. Perfect catch: Nando's
+  ran a World Cup score-prediction game with real rewards during the
+  tournament. If a brand is giving away something worth having just for
+  signing up or playing along, that's exactly the kind of thing I want to
+  hear about, ticket or no ticket involved.
+- **Milkshakes, nice food, and food deals**: new/interesting food spots,
+  milkshake places, discounts and deals worth planning around — this
+  doesn't need to be a "drop," just genuinely good food news.
 
 ## Where I am
 
-London (south-east London / Bermondsey area). London events are the most
-useful; UK-wide is fine for big things; online drops can be from anywhere.
+London (south-east London), specifically around Bermondsey and Elephant
+and Castle — things near there are extra good catches. London events are
+the most useful generally; UK-wide is fine for big things; online drops
+and free promos can be from anywhere.
 
 ## What I do NOT want
 

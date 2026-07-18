@@ -1,8 +1,17 @@
 """Daily Discovery digest.
 
-Asks Gemini (with Google Search grounding) for the coolest newly-announced
-things matching interests.md -- ticket releases, limited drops, London events,
-genuinely interesting products -- then emails a styled digest via Resend.
+Fetches today's headlines from free, keyless RSS/Atom feeds (Google News
+searches plus a handful of culture/drop outlets), hands the pile to Gemini
+to pick the coolest genuinely-new things matching interests.md -- ticket
+releases, limited drops, London events, interesting products -- then emails
+a styled digest via Resend. Entirely free: no billing anywhere.
+
+Optionally, once GEMINI_ENABLE_SEARCH=true is set (after adding a billing
+method to the Gemini project with a spend cap -- see README), Gemini's own
+Google Search tool is layered on top of the feed headlines, so it can look
+beyond what the curated feeds happened to cover. The feed layer works
+identically either way -- enabling search only adds a second source, it
+never replaces the free one.
 
 Designed to run headless from GitHub Actions, triggered by cron-job.org
 hitting the workflow_dispatch endpoint (GitHub's native schedule is the
@@ -22,7 +31,8 @@ Modes:
   --force            send even if state says today's digest already went out
 
 Env vars: GEMINI_API_KEY (required), RESEND_API_KEY (required unless
---dry-run), DIGEST_TO (defaults to the address below).
+--dry-run), DIGEST_TO (defaults to the address below), GEMINI_ENABLE_SEARCH
+(optional -- "true" layers on live Google Search once billing is set up).
 """
 
 from __future__ import annotations
@@ -36,8 +46,10 @@ import re
 import sys
 import time
 import traceback
+import xml.etree.ElementTree as ET
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
+from urllib.parse import quote_plus
 
 import requests
 
@@ -47,9 +59,14 @@ STATE_PATH = BASE_DIR / "state.json"
 HISTORY_PATH = BASE_DIR / "history.json"
 
 # Pro first for taste, Flash as the automatic fallback if Pro errors or the
-# free-tier quota is exhausted. Swapping models later is a one-line edit here.
-GEMINI_MODELS = ["gemini-2.5-pro", "gemini-2.5-flash"]
+# free-tier quota is exhausted. Use Google's rolling "-latest" aliases, not a
+# pinned generation number -- a hardcoded "gemini-2.5-flash" broke outright
+# when Google retired 2.5 models for new API keys (confirmed via --diagnose:
+# "This model ... is no longer available to new users"). The aliases always
+# point at whatever Google currently recommends, so this can't recur.
+GEMINI_MODELS = ["gemini-pro-latest", "gemini-flash-latest"]
 GEMINI_URL = "https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"
+GEMINI_LIST_MODELS_URL = "https://generativelanguage.googleapis.com/v1beta/models"
 
 RESEND_URL = "https://api.resend.com/emails"
 # Resend's free tier sends from their shared address until a personal domain
@@ -74,6 +91,32 @@ URGENCY_STYLES = {
     "this-week": ("THIS WEEK", "#b45309", "#fef3c7"),
     "heads-up": ("HEADS UP", "#1d4ed8", "#dbeafe"),
 }
+
+GEMINI_ENABLE_SEARCH = os.environ.get("GEMINI_ENABLE_SEARCH", "").strip().lower() in ("1", "true", "yes")
+
+# Free, keyless RSS/Atom feeds -- the primary research source. No account,
+# no billing, no API key: this is what makes the digest free by default.
+# Google News search feeds cover breaking, press-worthy things (guaranteed
+# for anything like a major IMAX release); the direct outlet feeds add
+# depth on smaller drops/streetwear that a general news search often misses.
+GOOGLE_NEWS_SEARCH_QUERIES = [
+    "IMAX tickets on sale",
+    "limited edition drop collab sneakers streetwear",
+    "London event tickets on sale",
+    "new tech gadget launch affordable",
+    "football tickets on sale London",
+    "free competition giveaway prize UK",
+]
+DIRECT_FEEDS = [
+    "https://hypebeast.com/feed",
+    "https://www.highsnobiety.com/feed/",
+    "https://sneakernews.com/feed/",
+    "https://www.timeout.com/london/feed.rss",
+    "https://www.designboom.com/feed/",
+]
+FEED_TIMEOUT_SECONDS = 20
+FEED_ITEMS_PER_SOURCE = 8
+FEED_MAX_AGE_DAYS = 5
 
 
 def today_str() -> str:
@@ -124,15 +167,133 @@ def is_seen(title: str, seen: list[dict]) -> bool:
     return False
 
 
+# ── Free news feeds ───────────────────────────────────────────────────
+
+
+def _feed_urls() -> list[str]:
+    news_search = [
+        f"https://news.google.com/rss/search?q={quote_plus(q)}&hl=en-GB&gl=GB&ceid=GB:en"
+        for q in GOOGLE_NEWS_SEARCH_QUERIES
+    ]
+    return news_search + DIRECT_FEEDS
+
+
+def _parse_feed_date(raw: str) -> datetime | None:
+    """Tries RSS's RFC-822 pubDate, then Atom's ISO-8601 updated/published."""
+    if not raw:
+        return None
+    from email.utils import parsedate_to_datetime
+
+    for parser in (parsedate_to_datetime, lambda s: datetime.fromisoformat(s.replace("Z", "+00:00"))):
+        try:
+            dt = parser(raw)
+            if dt.tzinfo is None:
+                dt = dt.replace(tzinfo=timezone.utc)
+            return dt
+        except (ValueError, TypeError):
+            continue
+    return None
+
+
+def _local_children(el, name: str) -> list[ET.Element]:
+    """Direct children matching `name`, ignoring any XML namespace -- Atom's
+    default xmlns means ElementTree's namespace-strict el.find("title")
+    silently returns None even though the element is right there."""
+    return [c for c in el if c.tag.rsplit("}", 1)[-1] == name]
+
+
+def _parse_feed_xml(xml_text: str, source: str) -> list[dict]:
+    """Parses either RSS 2.0 (<item>) or Atom (<entry>) into a common shape.
+    Unparseable dates are kept rather than dropped -- better a stray old
+    item in the prompt than silently losing a feed to one weird date."""
+    try:
+        root = ET.fromstring(xml_text)
+    except ET.ParseError:
+        return []
+
+    items: list[dict] = []
+    cutoff = datetime.now(timezone.utc) - timedelta(days=FEED_MAX_AGE_DAYS)
+
+    for entry in root.iter():
+        tag = entry.tag.rsplit("}", 1)[-1]
+        if tag not in ("item", "entry"):
+            continue
+        title_els = _local_children(entry, "title")
+        title = (title_els[0].text or "").strip() if title_els and title_els[0].text else ""
+        if not title:
+            continue
+
+        link = ""
+        link_els = _local_children(entry, "link")
+        if link_els:
+            link = (link_els[0].get("href") or link_els[0].text or "").strip()
+
+        date_raw = ""
+        for date_tag in ("pubDate", "updated", "published"):
+            date_els = _local_children(entry, date_tag)
+            if date_els and date_els[0].text:
+                date_raw = date_els[0].text.strip()
+                break
+        published = _parse_feed_date(date_raw)
+        if published is not None and published < cutoff:
+            continue
+
+        items.append({"title": title, "link": link, "published": date_raw, "source": source})
+        if len(items) >= FEED_ITEMS_PER_SOURCE:
+            break
+    return items
+
+
+def fetch_feed_items() -> list[dict]:
+    """Best-effort: a broken/blocked individual feed is skipped, not fatal --
+    the digest should still run on whatever feeds did respond."""
+    all_items: list[dict] = []
+    for url in _feed_urls():
+        try:
+            response = requests.get(
+                url, headers={"User-Agent": "Mozilla/5.0 (compatible; DailyDiscoveryBot/1.0)"},
+                timeout=FEED_TIMEOUT_SECONDS,
+            )
+            response.raise_for_status()
+            source = url.split("/")[2]
+            items = _parse_feed_xml(response.text, source)
+            all_items.extend(items)
+        except Exception as exc:  # noqa: BLE001 -- one bad feed shouldn't sink the run
+            print(f"[feeds] {url} failed: {exc}", file=sys.stderr)
+    print(f"[feeds] {len(all_items)} items from {len(_feed_urls())} feeds")
+    return all_items
+
+
 # ── Gemini ─────────────────────────────────────────────────────────────
 
 
-def build_prompt(interests: str, seen: list[dict]) -> str:
+def build_prompt(interests: str, seen: list[dict], feed_items: list[dict]) -> str:
     recent_titles = "\n".join(f"- {s['title']}" for s in seen[-80:]) or "(none yet)"
     now = datetime.now(timezone.utc)
+
+    if feed_items:
+        headlines = "\n".join(f"- [{i['source']}] {i['title']} — {i['link']}" for i in feed_items)
+    else:
+        headlines = "(no feed headlines fetched today -- work from general knowledge only, and be conservative)"
+
+    if GEMINI_ENABLE_SEARCH:
+        research_instructions = f"""TODAY'S PRE-FETCHED HEADLINES (from free news/culture feeds):
+{headlines}
+
+You ALSO have a live Google Search tool. Use the headlines above as a
+starting point, then search to fill gaps the feeds may have missed
+(especially smaller drops/collabs), verify details, and find direct
+booking/product links rather than news-article links where possible."""
+    else:
+        research_instructions = f"""TODAY'S PRE-FETCHED HEADLINES (your only research source today --
+no live web search is available, so work ONLY from this list plus your own
+general knowledge; do not invent specifics, dates, or links you cannot see
+here or reliably know):
+{headlines}"""
+
     return f"""You are a sharp, plugged-in personal culture scout. Today is \
-{now.strftime("%A %d %B %Y")}. Use Google Search to find the coolest things \
-your client would genuinely want to know about TODAY.
+{now.strftime("%A %d %B %Y")}. Find the coolest things your client would \
+genuinely want to know about TODAY.
 
 YOUR CLIENT'S TASTE PROFILE:
 {interests}
@@ -143,9 +304,7 @@ WHAT COUNTS AS A FIND (all must hold):
 - Actionable: there is a link and, wherever possible, a date/time to act.
 - Matches the taste profile, including its exclusions.
 
-SEARCH STRATEGY: run several distinct searches across the profile's themes
-(film/IMAX ticket on-sales, limited drops/collabs, London event announcements,
-notable product launches). Prefer primary sources and reputable coverage.
+{research_instructions}
 
 ALREADY REPORTED -- do NOT repeat any of these (or near-duplicates):
 {recent_titles}
@@ -167,16 +326,23 @@ No prose before or after the JSON."""
 def call_gemini(api_key: str, prompt: str) -> tuple[str, str]:
     """Returns (response_text, model_used). Tries Pro, falls back to Flash."""
     last_error: Exception | None = None
+    body = {
+        "contents": [{"parts": [{"text": prompt}]}],
+        "generationConfig": {"temperature": 0.7},
+    }
+    if GEMINI_ENABLE_SEARCH:
+        # Opt-in only -- Google requires a billing method on the project
+        # before it allows any grounded search, even within the free tier
+        # (confirmed via --diagnose: plain generation works with no
+        # billing, adding this tool 429s "check your billing" instantly).
+        # Left off by default so the digest is free with zero setup.
+        body["tools"] = [{"google_search": {}}]
     for model in GEMINI_MODELS:
         try:
             response = requests.post(
                 GEMINI_URL.format(model=model),
                 params={"key": api_key},
-                json={
-                    "contents": [{"parts": [{"text": prompt}]}],
-                    "tools": [{"google_search": {}}],
-                    "generationConfig": {"temperature": 0.7},
-                },
+                json=body,
                 timeout=REQUEST_TIMEOUT_SECONDS,
             )
             if response.status_code in (429, 500, 503):
@@ -193,6 +359,41 @@ def call_gemini(api_key: str, prompt: str) -> tuple[str, str]:
             print(f"[gemini] {model} failed: {exc}", file=sys.stderr)
             time.sleep(3)
     raise RuntimeError(f"All Gemini models failed. Last error: {last_error}")
+
+
+def list_available_models(api_key: str) -> None:
+    """Diagnostic only -- print every model this key can call generateContent
+    on, so model-ID fixes are based on what Google actually reports rather
+    than another guess."""
+    response = requests.get(GEMINI_LIST_MODELS_URL, params={"key": api_key}, timeout=REQUEST_TIMEOUT_SECONDS)
+    response.raise_for_status()
+    models = response.json().get("models", [])
+    print(f"{len(models)} models visible to this key:\n")
+    for m in sorted(models, key=lambda m: m.get("name", "")):
+        methods = m.get("supportedGenerationMethods", [])
+        if "generateContent" in methods:
+            print(f"  {m['name']}  (display: {m.get('displayName', '?')})")
+
+
+def diagnose(api_key: str) -> None:
+    """Diagnostic only -- isolate whether failures come from the model
+    itself or specifically from the Google Search grounding tool, so a fix
+    is based on which call actually works rather than another guess."""
+    model = GEMINI_MODELS[-1]  # cheapest/most-permissive model, currently gemini-flash-latest
+    for label, tools in (("WITHOUT google_search tool", None), ("WITH google_search tool", [{"google_search": {}}])):
+        body = {"contents": [{"parts": [{"text": "Say hello in one word."}]}]}
+        if tools:
+            body["tools"] = tools
+        print(f"--- {model}: {label} ---")
+        try:
+            response = requests.post(
+                GEMINI_URL.format(model=model), params={"key": api_key}, json=body,
+                timeout=REQUEST_TIMEOUT_SECONDS,
+            )
+            print(f"HTTP {response.status_code}: {response.text[:500]}")
+        except Exception as exc:  # noqa: BLE001
+            print(f"exception: {exc}")
+        print()
 
 
 def parse_items(text: str) -> list[dict]:
@@ -276,7 +477,7 @@ def render_email_html(items: list[dict], model_used: str, note: str = "") -> str
     {note_html}
     {cards}
     <div style="text-align:center;padding:16px 8px;font-size:11px;color:#9ca3af;line-height:1.6;">
-      Scouted by {model_used} &middot; <a href="{DASHBOARD_URL}" style="color:#6b7280;">browse past finds</a><br>
+      Scouted by {model_used} ({"feeds + live search" if GEMINI_ENABLE_SEARCH else "free news feeds"}) &middot; <a href="{DASHBOARD_URL}" style="color:#6b7280;">browse past finds</a><br>
       Tune what appears here by editing <b>discovery-agent/interests.md</b> in the repo.
     </div>
   </div>
@@ -336,7 +537,8 @@ def run_digest(dry_run: bool, force: bool) -> None:
     interests = INTERESTS_PATH.read_text(encoding="utf-8")
     state["seen"] = prune_seen(state["seen"])
 
-    text, model_used = call_gemini(gemini_key, build_prompt(interests, state["seen"]))
+    feed_items = fetch_feed_items()
+    text, model_used = call_gemini(gemini_key, build_prompt(interests, state["seen"], feed_items))
     items = parse_items(text)
     note = ""
     if not items:
@@ -405,7 +607,18 @@ def main() -> None:
     parser.add_argument("--dry-run", action="store_true", help="research and print, no email, no state writes")
     parser.add_argument("--test-email", action="store_true", help="send a sample digest via the real Resend path")
     parser.add_argument("--force", action="store_true", help="send even if already sent today")
+    parser.add_argument("--list-models", action="store_true", help="print models this key can use, then exit")
+    parser.add_argument("--diagnose", action="store_true", help="test flash with/without search tool, then exit")
     args = parser.parse_args()
+
+    if args.list_models or args.diagnose:
+        # Diagnostic modes: fail with a readable message, not a KeyError.
+        key = os.environ.get("GEMINI_API_KEY")
+        if not key:
+            print("GEMINI_API_KEY is not set", file=sys.stderr)
+            sys.exit(1)
+        list_available_models(key) if args.list_models else diagnose(key)
+        return
 
     try:
         if args.test_email:
