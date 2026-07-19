@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-19T21:24:23.758Z",
+  "lastUpdated": "2026-07-19T22:26:01.848Z",
   "matches": [
     {
       "stage": "GROUP_STAGE",
@@ -1023,13 +1023,13 @@
     },
     {
       "stage": "FINAL",
-      "status": "PAUSED",
+      "status": "FINISHED",
       "utcDate": "2026-07-19T19:00:00Z",
       "homeTeam": "Spain",
       "awayTeam": "Argentina",
-      "homeScore": 0,
+      "homeScore": 1,
       "awayScore": 0,
-      "winner": "DRAW"
+      "winner": "HOME_TEAM"
     }
   ],
   "stages": {
@@ -1071,7 +1071,7 @@
     },
     "FINAL": {
       "total": 1,
-      "finished": 0,
+      "finished": 1,
       "startDate": "2026-07-19T19:00:00Z",
       "endDate": "2026-07-19T19:00:00Z"
     }
