@@ -53,6 +53,60 @@
           "urgency": "this-week"
         }
       ]
+    },
+    {
+      "date": "2026-07-19",
+      "model": "gemini-flash-latest",
+      "items": [
+        {
+          "title": "Book Avengers: Doomsday Tickets Five Months Early",
+          "category": "film",
+          "summary": "You can already book your tickets for the massive next installment of the Avengers franchise. This is the ultimate heads-up to lock in prime IMAX and premium screen seats before the general public frenzy begins.",
+          "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOVUhqN0x2M1FPYlhqNDdkc2ttd0Y2WHpmM2p4VlB6OHBQRzFmZWVqRDZfczBtTF9RaHhwRDRtWmNlTGc1OVkwcFUtSDhsTGhyajlPcjlEemExNXJCeXdKR0xCVHRtblViLW1YeU9ZUXRPVkxUYXNIT0tHS0RtdVdnX0pXTG9zZmF6SHpwRm9PbDVydTBhVTRjUlNNenFoWm4wNnRXMG8tREpMLUIwbm9vVw?oc=5",
+          "date_info": "Tickets on sale now",
+          "urgency": "act-fast"
+        },
+        {
+          "title": "August: Osage County West End Debut",
+          "category": "event",
+          "summary": "Lesley Manville and Anna Maxwell Martin are set to star in the first-ever West End production of this Pulitzer-winning masterpiece. This will undoubtedly be one of London's hottest and fastest-selling theatre tickets of the season.",
+          "url": "https://www.timeout.com/london/news/first-west-end-august-osage-county-lesley-manville-anna-maxwell-martin-071726",
+          "date_info": "Announced 17 Jul 2026",
+          "urgency": "heads-up"
+        },
+        {
+          "title": "Nike SB PS8 'Safari'",
+          "category": "drop",
+          "summary": "Tinker Hatfield's legendary 1987 'Safari' print is being fused with Nike SB's highly technical, modern PS8 skate model. A perfect blend of heritage design and cutting-edge streetwear utility.",
+          "url": "https://sneakernews.com/2026/07/18/nike-sb-ps8-safari-ir0460-001/",
+          "date_info": "Revealed 18 Jul 2026",
+          "urgency": "heads-up"
+        },
+        {
+          "title": "Zeteo UK Live Launch Event in London",
+          "category": "event",
+          "summary": "Tickets are now live for Zeteo's official UK launch event featuring Mehdi Hasan and Zack Polanski. Expect a sharp, high-profile evening that is bound to sell out its seating quickly.",
+          "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE1GS0NFdjhLTnNCY0ZnQ1Y4ZElPcGxFMy1lWTdWVWRIZHVIenhUTXAxcTBhTmVmNzhxZDNEXy0tcjV2d05objRrWkVQNFN0V1M0YTJCUFVaMjZmbUpuYlVZejkzVV9oVVk?oc=5",
+          "date_info": "Tickets on sale now",
+          "urgency": "act-fast"
+        },
+        {
+          "title": "Radial: A New Grassroots Music Venue in North London",
+          "category": "event",
+          "summary": "A brand-new grassroots music venue is opening in Tottenham. Keep this on your radar for intimate gigs, launch parties, and fresh club nights in a space dedicated to supporting live music.",
+          "url": "https://www.timeout.com/london/news/radial-grassroots-music-venue-tottenham-071826",
+          "date_info": "Announced 18 Jul 2026",
+          "urgency": "heads-up"
+        },
+        {
+          "title": "adidas Handball Spezial 'Denim & Pony Hair'",
+          "category": "drop",
+          "summary": "An incredibly unique, textured spin on the classic Spezial silhouette, clashing raw denim panels with premium black pony hair details.",
+          "url": "https://sneakernews.com/2026/07/18/adidas-handball-spezial-denim-pony-hair-kk4860/",
+          "date_info": "Revealed 18 Jul 2026",
+          "urgency": "heads-up"
+        }
+      ]
     }
   ]
 }
