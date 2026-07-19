@@ -6,12 +6,13 @@ to pick the coolest genuinely-new things matching interests.md -- ticket
 releases, limited drops, London events, interesting products -- then emails
 a styled digest via Resend. Entirely free: no billing anywhere.
 
-Optionally, once GEMINI_ENABLE_SEARCH=true is set (after adding a billing
-method to the Gemini project with a spend cap -- see README), Gemini's own
-Google Search tool is layered on top of the feed headlines, so it can look
-beyond what the curated feeds happened to cover. The feed layer works
-identically either way -- enabling search only adds a second source, it
-never replaces the free one.
+Live Google Search is layered on top when available, so Gemini can look
+beyond what the curated feeds happened to cover. Two ways to unlock it,
+tried in this order: GEMINI_API_KEY_LEGACY (an older, grandfathered Gemini
+key that still gets free grounded search -- see README), or
+GEMINI_ENABLE_SEARCH=true on the primary key once billing + a spend cap
+are added. The feed layer runs identically either way -- these only add a
+second source, never replace the free one.
 
 Designed to run headless from GitHub Actions, triggered by cron-job.org
 hitting the workflow_dispatch endpoint (GitHub's native schedule is the
@@ -31,8 +32,10 @@ Modes:
   --force            send even if state says today's digest already went out
 
 Env vars: GEMINI_API_KEY (required), RESEND_API_KEY (required unless
---dry-run), DIGEST_TO (defaults to the address below), GEMINI_ENABLE_SEARCH
-(optional -- "true" layers on live Google Search once billing is set up).
+--dry-run), DIGEST_TO (defaults to the address below), GEMINI_API_KEY_LEGACY
+(optional -- grandfathered key with free grounded search), GEMINI_ENABLE_SEARCH
+(optional -- "true" layers on live Google Search on the primary key once
+billing is set up).
 """
 
 from __future__ import annotations
@@ -93,6 +96,15 @@ URGENCY_STYLES = {
 }
 
 GEMINI_ENABLE_SEARCH = os.environ.get("GEMINI_ENABLE_SEARCH", "").strip().lower() in ("1", "true", "yes")
+# An older key from a project created before Google closed the 2.5
+# generation to new users. Confirmed via --diagnose: this key gets a clean
+# HTTP 200 with the google_search tool on gemini-2.5-flash (grandfathered
+# free grounding, per Google's pricing page) -- the primary key gets 404
+# (model retired for new users) or 429 (zero free grounding quota) on
+# every model it can reach. When set, this becomes the first thing tried.
+GEMINI_API_KEY_LEGACY = os.environ.get("GEMINI_API_KEY_LEGACY", "").strip()
+GEMINI_GROUNDING_MODEL = "gemini-2.5-flash"
+SEARCH_LIKELY_AVAILABLE = bool(GEMINI_API_KEY_LEGACY) or GEMINI_ENABLE_SEARCH
 
 # Free, keyless RSS/Atom feeds -- the primary research source. No account,
 # no billing, no API key: this is what makes the digest free by default.
@@ -279,7 +291,7 @@ def build_prompt(interests: str, seen: list[dict], feed_items: list[dict]) -> st
     else:
         headlines = "(no feed headlines fetched today -- work from general knowledge only, and be conservative)"
 
-    if GEMINI_ENABLE_SEARCH:
+    if SEARCH_LIKELY_AVAILABLE:
         research_instructions = f"""TODAY'S PRE-FETCHED HEADLINES (from free news/culture feeds):
 {headlines}
 
@@ -326,36 +338,60 @@ if only 3 things are genuinely great, return 3. Each item:
 No prose before or after the JSON."""
 
 
-def call_gemini(api_key: str, prompt: str) -> tuple[str, str]:
-    """Returns (response_text, model_used). Tries Pro, falls back to Flash."""
-    last_error: Exception | None = None
+def _gemini_request(api_key: str, model: str, prompt: str, use_search: bool) -> str:
+    """One call + parse. Raises on any failure so callers can try the next
+    option (retryable HTTP codes and 404 -- a retired/unavailable model on
+    this key -- are both treated as "try something else")."""
     body = {
         "contents": [{"parts": [{"text": prompt}]}],
         "generationConfig": {"temperature": 0.7},
     }
-    if GEMINI_ENABLE_SEARCH:
-        # Opt-in only -- Google requires a billing method on the project
-        # before it allows any grounded search, even within the free tier
-        # (confirmed via --diagnose: plain generation works with no
-        # billing, adding this tool 429s "check your billing" instantly).
-        # Left off by default so the digest is free with zero setup.
+    if use_search:
         body["tools"] = [{"google_search": {}}]
+    response = requests.post(
+        GEMINI_URL.format(model=model), params={"key": api_key}, json=body,
+        timeout=REQUEST_TIMEOUT_SECONDS,
+    )
+    if response.status_code in (404, 429, 500, 503):
+        raise RuntimeError(f"{model} returned HTTP {response.status_code}: {response.text[:300]}")
+    response.raise_for_status()
+    payload = response.json()
+    parts = payload["candidates"][0]["content"]["parts"]
+    text = "".join(p.get("text", "") for p in parts)
+    if not text.strip():
+        raise RuntimeError(f"{model} returned an empty response")
+    return text
+
+
+def call_gemini(api_key: str, prompt: str) -> tuple[str, str]:
+    """Returns (response_text, model_used).
+
+    Preference order:
+      1. GEMINI_API_KEY_LEGACY + gemini-2.5-flash + live search -- confirmed
+         via --diagnose to get a clean HTTP 200 with grounding on a
+         grandfathered project (Google's documented 500 free searches/day),
+         while the primary key gets 404/429 on every model it can reach.
+         Best outcome: real web search on top of the feeds, still free.
+      2. Primary key, GEMINI_MODELS in order (Pro then Flash), with the
+         search tool only if GEMINI_ENABLE_SEARCH is set (needs billing on
+         the primary project). This is the always-available fallback --
+         feeds already fetched upstream carry most of the research load
+         either way, so losing live search here is a quality step-down,
+         not a failure.
+    """
+    last_error: Exception | None = None
+
+    if GEMINI_API_KEY_LEGACY:
+        try:
+            text = _gemini_request(GEMINI_API_KEY_LEGACY, GEMINI_GROUNDING_MODEL, prompt, use_search=True)
+            return text, f"{GEMINI_GROUNDING_MODEL} (legacy key, live search)"
+        except Exception as exc:  # noqa: BLE001 -- fall through to the primary key
+            last_error = exc
+            print(f"[gemini] legacy-key grounded search failed: {exc}", file=sys.stderr)
+
     for model in GEMINI_MODELS:
         try:
-            response = requests.post(
-                GEMINI_URL.format(model=model),
-                params={"key": api_key},
-                json=body,
-                timeout=REQUEST_TIMEOUT_SECONDS,
-            )
-            if response.status_code in (429, 500, 503):
-                raise RuntimeError(f"{model} returned HTTP {response.status_code}: {response.text[:300]}")
-            response.raise_for_status()
-            payload = response.json()
-            parts = payload["candidates"][0]["content"]["parts"]
-            text = "".join(p.get("text", "") for p in parts)
-            if not text.strip():
-                raise RuntimeError(f"{model} returned an empty response")
+            text = _gemini_request(api_key, model, prompt, use_search=GEMINI_ENABLE_SEARCH)
             return text, model
         except Exception as exc:  # noqa: BLE001 -- any failure means try the next model
             last_error = exc
@@ -492,6 +528,11 @@ def render_item_html(item: dict) -> str:
 def render_email_html(items: list[dict], model_used: str, note: str = "") -> str:
     date_line = datetime.now(timezone.utc).strftime("%A %d %B %Y")
     cards = "\n".join(render_item_html(item) for item in items)
+    # model_used already says "(legacy key, live search)" when that path
+    # actually ran (see call_gemini) -- fall back to the config flag only
+    # for the plain-model-name case, so this always reflects what happened
+    # on THIS run rather than what was merely configured.
+    search_label = "feeds + live search" if ("live search" in model_used or GEMINI_ENABLE_SEARCH) else "free news feeds"
     note_html = (
         f'<div style="font-size:12px;color:#92400e;background:#fef3c7;border-radius:8px;padding:10px 14px;margin-bottom:14px;">{note}</div>'
         if note
@@ -508,7 +549,7 @@ def render_email_html(items: list[dict], model_used: str, note: str = "") -> str
     {note_html}
     {cards}
     <div style="text-align:center;padding:16px 8px;font-size:11px;color:#9ca3af;line-height:1.6;">
-      Scouted by {model_used} ({"feeds + live search" if GEMINI_ENABLE_SEARCH else "free news feeds"}) &middot; <a href="{DASHBOARD_URL}" style="color:#6b7280;">browse past finds</a><br>
+      Scouted by {model_used} ({search_label}) &middot; <a href="{DASHBOARD_URL}" style="color:#6b7280;">browse past finds</a><br>
       Tune what appears here by editing <b>discovery-agent/interests.md</b> in the repo.
     </div>
   </div>
