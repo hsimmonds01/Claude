@@ -261,6 +261,31 @@ def test_search_tool_included_when_enabled():
         discover.GEMINI_ENABLE_SEARCH = False  # restore for later tests
 
 
+def test_legacy_key_tried_first_and_used_when_it_works():
+    discover.GEMINI_API_KEY_LEGACY = "legacy-key-value"
+    try:
+        fake = FakeRequests(gemini_text=GOOD_REPLY)
+        discover.requests = fake
+        text, model_used = discover.call_gemini("primary-key", "prompt")
+        assert fake.models_called == [discover.GEMINI_GROUNDING_MODEL]  # primary key never tried
+        assert "legacy key, live search" in model_used
+        assert fake.last_gemini_body["tools"] == [{"google_search": {}}]
+    finally:
+        discover.GEMINI_API_KEY_LEGACY = ""  # restore for later tests
+
+
+def test_legacy_key_failure_falls_back_to_primary():
+    discover.GEMINI_API_KEY_LEGACY = "legacy-key-value"
+    try:
+        fake = FakeRequests(gemini_text=GOOD_REPLY, gemini_fail_models=(discover.GEMINI_GROUNDING_MODEL,))
+        discover.requests = fake
+        text, model_used = discover.call_gemini("primary-key", "prompt")
+        assert fake.models_called[0] == discover.GEMINI_GROUNDING_MODEL  # tried first
+        assert model_used in discover.GEMINI_MODELS  # then fell back to the primary key's models
+    finally:
+        discover.GEMINI_API_KEY_LEGACY = ""  # restore for later tests
+
+
 # ── Full flow ──────────────────────────────────────────────────────────
 
 @in_temp_dir
