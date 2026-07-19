@@ -55,7 +55,11 @@ jobs:
         working-directory: discovery-agent
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          # Optional older key from a pre-cutoff Google project -- if set,
+          # `diagnose` also probes it for grandfathered free grounded search.
+          GEMINI_API_KEY_LEGACY: ${{ secrets.GEMINI_API_KEY_LEGACY }}
           RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          GEMINI_ENABLE_SEARCH: ${{ vars.GEMINI_ENABLE_SEARCH }}
           MODE: ${{ inputs.mode || 'send' }}
         run: |
           ARGS=""
