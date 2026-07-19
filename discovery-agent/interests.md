@@ -11,8 +11,9 @@ changes automatically.
   re-releases of classics, film festivals, preview/Q&A screenings.
   (Example of a perfect catch: tickets going on sale for "The Odyssey" at
   the IMAX — I'd want to know the moment the on-sale date is announced.)
-- **Limited-edition drops and collabs**: streetwear, caps/hats, trainers,
-  designer collaborations, small-brand limited runs.
+- **Limited-edition drops and collabs**: streetwear, caps/hats, designer
+  collaborations, small-brand limited runs. NOT trainers/sneakers — see
+  exclusions below, I don't buy those.
   (Example of a perfect catch: the Wynwood x Strawberry Stellar Ottawa hats.)
 - **London events with tickets that sell out**: gigs, pop-ups, food events,
   exhibitions, immersive experiences, secret cinema-type things, big sports
@@ -44,6 +45,9 @@ and free promos can be from anywhere.
 
 ## What I do NOT want
 
+- **Sneaker/trainer collabs and drops** — I don't buy shoes, so skip these
+  entirely no matter how hyped (e.g. brand x adidas/Nike/New Balance
+  colourway releases). This is the one category to actively cut back on.
 - Generic gig listings or "what's on this weekend" filler
 - Routine product updates (a new phone colour is not news)
 - Anything already sold out with no resale/waitlist route

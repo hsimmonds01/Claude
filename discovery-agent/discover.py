@@ -101,16 +101,19 @@ GEMINI_ENABLE_SEARCH = os.environ.get("GEMINI_ENABLE_SEARCH", "").strip().lower(
 # depth on smaller drops/streetwear that a general news search often misses.
 GOOGLE_NEWS_SEARCH_QUERIES = [
     "IMAX tickets on sale",
-    "limited edition drop collab sneakers streetwear",
+    "limited edition drop collab streetwear caps apparel",
     "London event tickets on sale",
     "new tech gadget launch affordable",
     "football tickets on sale London",
     "free competition giveaway prize UK",
 ]
 DIRECT_FEEDS = [
+    # Hypebeast/Highsnobiety cover general streetwear, not sneakers
+    # exclusively -- kept. Sneaker News dropped: it's ~100% trainer drops,
+    # which interests.md now excludes outright, so fetching it was pure
+    # waste (and diluted the pool with content Gemini would just discard).
     "https://hypebeast.com/feed",
     "https://www.highsnobiety.com/feed/",
-    "https://sneakernews.com/feed/",
     "https://www.timeout.com/london/feed.rss",
     "https://www.designboom.com/feed/",
 ]
@@ -375,25 +378,53 @@ def list_available_models(api_key: str) -> None:
             print(f"  {m['name']}  (display: {m.get('displayName', '?')})")
 
 
+# Candidates for --diagnose's grounding sweep. gemini-2.5-flash-lite is
+# Google's documented free-grounding workhorse (500 requests/day free,
+# per Google's own pricing page) and is distinct from gemini-2.5-flash
+# (confirmed retired for new keys) -- worth testing on its own rather than
+# assuming the whole 2.5 generation is unavailable. The -latest aliases are
+# included for comparison against whatever's currently configured.
+GROUNDING_TEST_MODELS = ["gemini-2.5-flash-lite", "gemini-2.5-flash", *GEMINI_MODELS]
+
+
+def _probe_grounding(api_key: str, model: str) -> None:
+    body = {
+        "contents": [{"parts": [{"text": "What is today's date? Answer in one sentence."}]}],
+        "tools": [{"google_search": {}}],
+    }
+    print(f"--- {model}: WITH google_search tool ---")
+    try:
+        response = requests.post(
+            GEMINI_URL.format(model=model), params={"key": api_key}, json=body,
+            timeout=REQUEST_TIMEOUT_SECONDS,
+        )
+        print(f"HTTP {response.status_code}: {response.text[:500]}")
+    except Exception as exc:  # noqa: BLE001
+        print(f"exception: {exc}")
+    print()
+
+
 def diagnose(api_key: str) -> None:
-    """Diagnostic only -- isolate whether failures come from the model
-    itself or specifically from the Google Search grounding tool, so a fix
-    is based on which call actually works rather than another guess."""
-    model = GEMINI_MODELS[-1]  # cheapest/most-permissive model, currently gemini-flash-latest
-    for label, tools in (("WITHOUT google_search tool", None), ("WITH google_search tool", [{"google_search": {}}])):
-        body = {"contents": [{"parts": [{"text": "Say hello in one word."}]}]}
-        if tools:
-            body["tools"] = tools
-        print(f"--- {model}: {label} ---")
-        try:
-            response = requests.post(
-                GEMINI_URL.format(model=model), params={"key": api_key}, json=body,
-                timeout=REQUEST_TIMEOUT_SECONDS,
-            )
-            print(f"HTTP {response.status_code}: {response.text[:500]}")
-        except Exception as exc:  # noqa: BLE001
-            print(f"exception: {exc}")
-        print()
+    """Diagnostic only -- sweep candidate models with the google_search tool
+    to find which ones (if any) actually get free grounding, rather than
+    assuming from a single data point.
+
+    If GEMINI_API_KEY_LEGACY is set (an older key from a project created
+    before Google closed the 2.5 generation to new users), the same probe
+    runs against it -- per Google's pricing page, grandfathered 2.5 access
+    includes 500 free grounded searches/day, which would unlock real web
+    search for the digest with no billing anywhere."""
+    print("=== PRIMARY KEY ===\n")
+    for model in GROUNDING_TEST_MODELS:
+        _probe_grounding(api_key, model)
+
+    legacy_key = os.environ.get("GEMINI_API_KEY_LEGACY", "").strip()
+    if legacy_key:
+        print("=== LEGACY KEY (grandfathered project) ===\n")
+        for model in ("gemini-2.5-flash", "gemini-2.5-flash-lite"):
+            _probe_grounding(legacy_key, model)
+    else:
+        print("(GEMINI_API_KEY_LEGACY not set -- legacy-key grounding test skipped)")
 
 
 def parse_items(text: str) -> list[dict]:
