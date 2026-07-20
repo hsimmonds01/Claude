@@ -107,6 +107,52 @@
           "urgency": "heads-up"
         }
       ]
+    },
+    {
+      "date": "2026-07-20",
+      "model": "gemini-2.5-flash (legacy key, live search)",
+      "items": [
+        {
+          "title": "Track London Tube's Hidden Labyrinths with New Free App",
+          "category": "product",
+          "summary": "A new, free iPhone and Android app called 'Mind the Maze' lets you discover and 'collect' all 272 unique Mark Wallinger labyrinth artworks hidden across every London Underground station. It's a clever gadget that adds real value to exploring the city's transport network, turning your commute into a game.",
+          "url": "https://mindthemaze.app/",
+          "date_info": "Released July 19, 2026",
+          "urgency": "heads-up"
+        },
+        {
+          "title": "GBL Drops Limited 'Porco Rosso' T-Shirt Capsule",
+          "category": "drop",
+          "summary": "Studio Ghibli's streetwear label GBL has released a three-piece capsule of limited-edition T-shirts featuring iconic scenes from the film 'Porco Rosso'. These are available now through Donguri Republic while stocks last, offering a unique blend of film and streetwear for collectors.",
+          "url": "https://www.donguri-sora.com/",
+          "date_info": "Available now, while stocks last",
+          "urgency": "act-fast"
+        },
+        {
+          "title": "Levi's x URBAN RESEARCH Denim Capsule Pre-Orders Open",
+          "category": "drop",
+          "summary": "Pre-orders are now open for the new four-piece denim capsule collection from Levi's and Japanese brand URBAN RESEARCH. The collection features various denim styles, with staggered release dates in August, making it a limited-edition collaboration worth securing ahead of time.",
+          "url": "https://www.urban-research.jp/",
+          "date_info": "Pre-orders open now; releases August 7 & 21, 2026",
+          "urgency": "this-week"
+        },
+        {
+          "title": "Literary Sport Unveils Cozy & Technical FW26 Collection",
+          "category": "drop",
+          "summary": "Literary Sport has launched its Fall/Winter 2026 collection, featuring a range of cozy and technical activewear with deep lapis and tartan checks. This new collection offers well-designed streetwear pieces that are available to purchase now.",
+          "url": "https://literarysport.com/",
+          "date_info": "Available now",
+          "urgency": "heads-up"
+        },
+        {
+          "title": "Johnny Boy's: New SoCal Comfort Food Spot in Stoke Newington",
+          "category": "food",
+          "summary": "Johnny Boy's, a new California-inspired neighborhood restaurant from Julian Denis (Facing Heaven, Easy 8), has opened in Stoke Newington. It offers a unique menu of SoCal comfort food like breakfast burritos, patty melts, and bottomless filter coffee, perfect for exploring new food spots in London.",
+          "url": "https://www.eatatjohnnyboys.com/",
+          "date_info": "Opened July 4, 2026",
+          "urgency": "heads-up"
+        }
+      ]
     }
   ]
 }
