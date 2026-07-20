@@ -97,11 +97,32 @@ the same day, the mute wins.
 
     https://hsimmonds01.github.io/Claude/dock-alerter/dashboard.html
 
-It shows live dock/bike status straight from the TfL API, this week's daily
-lows for each monitoring window, a typical-availability-by-time-of-day
-pattern built from `history.csv`, and a log of recent readings. Open it in
-Safari and use "Add to Home Screen" for a 1-tap icon; it re-fetches live
-data automatically whenever you re-open it.
+It has four views, switched with the bar along the bottom:
+
+- **Now** — live dock/bike status straight from the TfL API (plus the
+  Snowsfields backup station), and a "Coming up" strip summarising the
+  forecast for the next monitored morning and evening windows.
+- **Forecast** — a prediction for the next monitored morning (empty docks)
+  and evening (standard bikes), built from `history.csv`. It blends the
+  average for that weekday with the average across all recorded weekdays,
+  weighted by how much same-weekday data exists, and shows the full range
+  seen so far as a shaded band. Headline = the tightest point of the
+  window, with an OK / getting-low / critical chip against the alert
+  thresholds. Forecasts appear once there are ~3 days of data and sharpen
+  as more accumulates. If `friday.flag` is set for the coming Friday, that
+  Friday is included as a forecastable day.
+- **Patterns** — "a typical day here": average reading at each check time
+  for the morning and evening windows, filterable to a single weekday
+  (All / Mon / Tue / Wed / Thu), with the observed range as a band and the
+  alert thresholds shaded.
+- **History** — daily lows for this week / last week per window, plus the
+  full log of recent readings.
+
+Every chart has a "See the numbers" table underneath it, and tapping/
+hovering a chart shows exact values. Open the page in Safari and use "Add
+to Home Screen" for a 1-tap icon; it re-fetches live data automatically
+whenever you re-open it, and shows a warning banner if the scheduled
+checks appear to have stopped logging.
 
 ### Checking on demand
 
