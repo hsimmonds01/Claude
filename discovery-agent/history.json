@@ -153,6 +153,44 @@
           "urgency": "heads-up"
         }
       ]
+    },
+    {
+      "date": "2026-07-21",
+      "model": "gemini-2.5-flash (legacy key, live search)",
+      "items": [
+        {
+          "title": "Keith Haring Pop Shop BE@RBRICK Speaker Drop",
+          "category": "drop",
+          "summary": "Celebrate the 40th anniversary of Keith Haring's iconic Pop Shop with a limited-edition BE@RBRICK 400% Bluetooth speaker. This collectible tech features vibrant 1987 Tokyo sticker graphics and advanced omnidirectional sound. Early access is available on July 29th, with a public release the following day.",
+          "url": "https://hypebeast.com/2026/7/keith-haring-bearbrick-audio-speaker-collaboration-release-info",
+          "date_info": "Early access drop: Wed 29 Jul, 8am EDT; Public launch: Thu 30 Jul, 8am EDT",
+          "urgency": "act-fast"
+        },
+        {
+          "title": "Plated West London Food Festival Offers",
+          "category": "food",
+          "summary": "Explore London's newest food festival, 'Plated,' taking over King's Road and Knightsbridge for the entire month of August. Over 30 upscale restaurants, bars, and hotels will offer exclusive menus, significant discounts, and unique dining experiences, including special set menus at Hawksmoor and lobster deals at Rabbit.",
+          "url": "https://www.timeout.com/london/news/a-new-west-london-food-festival-has-great-deals-at-these-excellent-restaurants-072026",
+          "date_info": "Runs from Sat 1 Aug - Mon 31 Aug 2026",
+          "urgency": "heads-up"
+        },
+        {
+          "title": "Hidizs AP30 Music Boy: Retro Hi-Fi Handheld",
+          "category": "product",
+          "summary": "Get ready for the launch of the Hidizs AP30 Music Boy, an affordable and genuinely clever retro-inspired handheld music player designed for hi-fi audio. It combines a Game Boy-like aesthetic with high-quality sound, perfect for escaping phone distractions. Look out for 'Super Early Bird' pricing on Kickstarter.",
+          "url": "https://notebookcheck.net/Music-Boy-launches-as-affordable-retro-handheld-for-hi-fi-music.841575.0.html",
+          "date_info": "Kickstarter funding starts Thu 23 Jul 2026",
+          "urgency": "act-fast"
+        },
+        {
+          "title": "Ana Mendieta Retrospective at Tate Modern",
+          "category": "event",
+          "summary": "Discover the powerful and influential work of Ana Mendieta at Tate Modern's first major UK exhibition dedicated to the artist in over a decade. Running through January 2027, the retrospective features over 120 works, including her renowned 'Silueta Series,' exploring themes of body, land, and identity.",
+          "url": "https://www.tate.org.uk/whats-on/tate-modern/ana-mendieta",
+          "date_info": "Exhibition runs 15 Jul 2026 – 17 Jan 2027",
+          "urgency": "heads-up"
+        }
+      ]
     }
   ]
 }
