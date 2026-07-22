@@ -98,20 +98,57 @@ jobs:
           if ! git diff --cached --quiet; then
             git config user.name "github-actions[bot]"
             git config user.email "github-actions[bot]@users.noreply.github.com"
+
+            # Snapshot exactly what THIS run changed, before committing. If
+            # a later rebase hits a real content conflict -- two runs
+            # appending to history.csv within the same few seconds, seen
+            # 2026-07-21 when an on-demand check fired twice in a row --
+            # we fall back to replaying just this snapshot on top of the
+            # latest main instead of trying to patch a stale diff through
+            # content that has since moved on.
+            cp dock-alerter/state.json /tmp/_state_snapshot.json
+            NEW_ROWS=$(git diff --cached -- dock-alerter/history.csv | grep '^+' | grep -v '^+++' | sed 's/^+//' || true)
+
             git commit -m "Update dock alert state and history"
+
             # main is shared with other unrelated automations that also
             # commit-and-push on their own schedule (e.g. a Northern line
-            # crowding logger). If one of them pushes in the moment between
-            # our checkout and our push, `git push` is rejected as
-            # non-fast-forward -- retry a few times with a rebase pull
-            # rather than losing this run's reading.
+            # crowding logger), and on-demand checks can occasionally fire
+            # twice within seconds of each other. If one of them pushes in
+            # the moment between our checkout and our push, `git push` is
+            # rejected as non-fast-forward -- retry a few times, rebasing
+            # onto the latest main each time rather than losing this run's
+            # reading.
             for attempt in 1 2 3 4 5; do
               if git push; then
                 break
               fi
               echo "Push rejected (attempt $attempt/5) -- pulling and retrying..."
               sleep $((attempt * 2))
-              git pull --rebase
+              git fetch origin main
+              if git rebase origin/main; then
+                continue
+              fi
+              # A real content conflict, not just a fast-forward race --
+              # almost always two runs appending to history.csv in the same
+              # window. Don't try to hand-resolve a stale diff: drop this
+              # attempt's commit, reset cleanly onto the new tip, and
+              # reapply just this run's own change (state.json snapshot +
+              # our new history.csv rows) on top of whatever is there now.
+              echo "Rebase hit a real conflict -- reapplying this run's change on the latest main instead."
+              git rebase --abort
+              git reset --hard origin/main
+              cp /tmp/_state_snapshot.json dock-alerter/state.json
+              git add dock-alerter/state.json
+              if [ -n "$NEW_ROWS" ]; then
+                printf '%s\n' "$NEW_ROWS" >> dock-alerter/history.csv
+                git add dock-alerter/history.csv
+              fi
+              if git diff --cached --quiet; then
+                echo "Nothing left to add on top of the latest main -- another run already recorded this."
+                break
+              fi
+              git commit -m "Update dock alert state and history"
             done
           else
             echo "No state change, nothing to commit."
