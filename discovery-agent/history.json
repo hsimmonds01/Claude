@@ -191,6 +191,68 @@
           "urgency": "heads-up"
         }
       ]
+    },
+    {
+      "date": "2026-07-22",
+      "model": "gemini-2.5-flash (legacy key, live search)",
+      "items": [
+        {
+          "title": "Get Painless Permanent Tattoos at CipherX London Pop-Ups",
+          "category": "product",
+          "summary": "Experience a fundamentally new way of getting permanent microdot tattoos with minimal discomfort, available at pop-up events in London. Purchase designs online and redeem them at upcoming sessions.",
+          "url": "https://www.cipherx.tech/",
+          "date_info": "Pop-ups on Thu 23 Jul (Kachette Annex, E2 8AA) & Thu 30 Jul (Scale Space, W12 7RZ), 10am-midnight & 6-10pm respectively.",
+          "urgency": "act-fast"
+        },
+        {
+          "title": "Explore Disused Aldwych Tube Station on Hidden London Tours",
+          "category": "event",
+          "summary": "Step into the abandoned Aldwych Tube station, closed for over 30 years, and discover its history as a wartime shelter and film set on these special access tours. Tickets are likely to sell out.",
+          "url": "https://www.ltmuseum.co.uk/whats-on/hidden-london/aldwych",
+          "date_info": "Multiple dates in July and August 2026.",
+          "urgency": "this-week"
+        },
+        {
+          "title": "Morgan Rogers Joins Chelsea in £117m Record Transfer",
+          "category": "football",
+          "summary": "England international Morgan Rogers has completed a sensational £117 million move from Aston Villa to Chelsea, becoming the Blues' record signing and a major boost for the London club.",
+          "url": "https://www.skysports.com/football/news/11095/13170701/summer-transfer-window-2026-premier-league-deals-ins-and-outs",
+          "date_info": "Deal announced July 22, 2026.",
+          "urgency": "heads-up"
+        },
+        {
+          "title": "Randomevent x Timberland 3-Eye Classic Lug Drops in \"Sand-Dune Yellow\"",
+          "category": "drop",
+          "summary": "A limited-edition collaboration reimagines the iconic Timberland 3-Eye Classic Lug shoe in a desert-inspired \"Sand-Dune Yellow\" colorway, featuring exclusive graphics. This is a Japan-exclusive release.",
+          "url": "https://hypebeast.com/2026/7/randomevent-timberland-3-eye-boat-shoe-a6f6waha-collaboration-release-info",
+          "date_info": "In-store release July 24, online release July 27.",
+          "urgency": "this-week"
+        },
+        {
+          "title": "New London Museum Smithfield to Feature Robin Gill and Mr Lyan Food & Drink Concepts",
+          "category": "food",
+          "summary": "The highly anticipated new London Museum, opening this November, will house four distinct food and drink venues curated by celebrated chef Robin Gill and award-winning bartender Mr Lyan.",
+          "url": "https://www.museumoflondon.org.uk/london-museum-smithfield",
+          "date_info": "Opening November 28, 2026.",
+          "urgency": "heads-up"
+        },
+        {
+          "title": "New Bakery, Bistro & Wine Bar No. Forty Nine Opens in St John's Wood",
+          "category": "food",
+          "summary": "From the team behind Cinder, No. Forty Nine is an all-day spot offering fresh pastries, New York-meets-Mediterranean bistro dishes, and a wine bar, now open in North London.",
+          "url": "https://www.thenudge.com/london-restaurants/no-forty-nine/",
+          "date_info": "Opened May/June 2026.",
+          "urgency": "heads-up"
+        },
+        {
+          "title": "Get a Free £10 Welcome Bonus for Signing Up to Cashback.co.uk",
+          "category": "other",
+          "summary": "Sign up to Cashback.co.uk and receive a free £10 welcome bonus for new members, offering a low-effort way to gain genuine perks.",
+          "url": "https://www.cashback.co.uk/",
+          "date_info": "Ongoing.",
+          "urgency": "heads-up"
+        }
+      ]
     }
   ]
 }
