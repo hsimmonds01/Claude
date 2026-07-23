@@ -253,6 +253,36 @@
           "urgency": "heads-up"
         }
       ]
+    },
+    {
+      "date": "2026-07-23",
+      "model": "gemini-2.5-flash (legacy key, live search)",
+      "items": [
+        {
+          "title": "Donmar Warehouse Winter Season Tickets Go On Sale Soon",
+          "category": "event",
+          "summary": "Public booking for the Donmar Warehouse's exciting 2026/27 winter season, featuring Harold Pinter's 'No Man's Land' starring Rupert Everett and Simon Russell Beale, and the world premiere of 'The King's Ransom' (a dark comedy about attempting to steal Elvis Presley's corpse), opens next week. This is a prime opportunity to secure tickets for highly anticipated London theatre.",
+          "url": "https://www.donmarwarehouse.com/whats-on/the-kings-ransom/",
+          "date_info": "Public booking opens Fri 31 Jul, 12pm BST",
+          "urgency": "this-week"
+        },
+        {
+          "title": "Arsenal vs Man City Community Shield Ballot Open",
+          "category": "football",
+          "summary": "A ballot for Arsenal Silver and Red Members with 10+ away points to purchase tickets for the FA Community Shield clash against Manchester City at Cardiff's Principality Stadium is currently open. This is a crucial window for dedicated fans to secure seats for the first game of the 2026/27 season.",
+          "url": "https://www.arsenal.com/tickets/ticket-information/arsenal-v-manchester-city-fa-community-shield-2026-27",
+          "date_info": "Ballot closes Fri 24 Jul, 12pm BST",
+          "urgency": "act-fast"
+        },
+        {
+          "title": "England vs Spain Wembley Tickets: Sales Dates Announced",
+          "category": "football",
+          "summary": "Tickets for England's UEFA Nations League match against World Cup winners Spain at Wembley Stadium on September 26, 2026, will go on sale in early August. England Supporters Travel Club members get first access from August 3, followed by England+ members, with general sale commencing on August 13.",
+          "url": "https://www.wembleystadium.com/events/2026/england-v-spain",
+          "date_info": "Tickets on sale to England Supporters Travel Club members Mon 3 Aug; General sale Thu 13 Aug",
+          "urgency": "heads-up"
+        }
+      ]
     }
   ]
 }
