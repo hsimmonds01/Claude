@@ -1,33 +1,15 @@
 name: Northern line crowding log
 
-# GitHub Actions cron always runs in UTC and has no concept of the UK's
-# GMT/BST switch. Rather than maintain two DST-dependent sets of cron lines,
-# we cast a wide net in UTC and let check_crowding.py decide -- via Python's
-# zoneinfo Europe/London, which knows about DST -- whether "now" is actually
-# inside a commute window. Runs outside the windows exit immediately without
-# writing anything, so the extra invocations are cheap.
+# Trigger: an external cron-job.org job POSTs to the workflow_dispatch
+# endpoint every 5 minutes during the commute hours. GitHub's native
+# `schedule` was removed -- it ran late/skipped, and its extra runs collided
+# with the other main-committing workflows on the git push (causing failure
+# emails). cron-job.org is the sole, reliable trigger now.
 #
-# Target commute windows (Europe/London): 07:00-09:30 and 16:30-19:00, Mon-Fri.
-#
-#   Morning 07:00-09:30 local:
-#     BST (summer, UTC+1) = 06:00-08:30 UTC
-#     GMT (winter, UTC+0) = 07:00-09:30 UTC   -> union 06:00-09:30 UTC
-#   Evening 16:30-19:00 local:
-#     BST = 15:30-18:00 UTC
-#     GMT = 16:30-19:00 UTC                   -> union 15:30-19:00 UTC
-#
-# The hour-range crons below are slightly wider than those unions; the extra
-# slots simply no-op inside the script.
-#
-# NOTE: GitHub's native `schedule` is best-effort and can run late or skip
-# (the sibling dock-alerter has seen >1hr delays). For a logger the odd
-# missed 5-min sample is harmless. If gaps prove annoying, point an external
-# pinger (e.g. cron-job.org) at the workflow_dispatch endpoint as a more
-# reliable trigger -- the window-gating here makes duplicate triggers safe.
+# The script itself decides -- via zoneinfo Europe/London, which knows about
+# DST -- whether "now" is inside a commute window (07:00-09:30 / 16:30-19:00,
+# Mon-Fri) and no-ops otherwise, so extra pings are cheap and safe.
 on:
-  schedule:
-    - cron: "*/5 6-9 * * 1-5"    # morning net (UTC)
-    - cron: "*/5 15-19 * * 1-5"  # evening net (UTC)
   workflow_dispatch:
     inputs:
       mode:

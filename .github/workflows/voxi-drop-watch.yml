@@ -28,9 +28,12 @@ on:
 permissions:
   contents: write
 
-# Serialise runs so concurrent triggers never race on the state.json push.
+# Shared with the other workflows in this repo that commit-and-push to main
+# (dock-alerter, crowding logger, daily-discovery) so GitHub queues them one
+# after another instead of letting their pushes collide. cancel-in-progress
+# stays false so a queued run waits its turn rather than being dropped.
 concurrency:
-  group: voxi-drop-watch
+  group: main-git-writer
   cancel-in-progress: false
 
 jobs:
