@@ -283,6 +283,60 @@
           "urgency": "heads-up"
         }
       ]
+    },
+    {
+      "date": "2026-07-24",
+      "model": "gemini-2.5-flash (legacy key, live search)",
+      "items": [
+        {
+          "title": "Chrome Hearts x Mikimoto Unveil New 22K Gold Pearl Collection",
+          "category": "drop",
+          "summary": "The highly anticipated second installment of the Chrome Hearts x Mikimoto collaboration, a five-piece 22K yellow gold capsule collection featuring Akoya pearls and natural diamonds, has just dropped. These ultra-limited edition pieces are available at Chrome Hearts flagship stores in London.",
+          "url": "https://hypebeast.com/2026/7/mikimoto-and-chrome-hearts-reconvene-for-a-22k-gold-jewelry-capsule",
+          "date_info": "Available now in limited quantities",
+          "urgency": "act-fast"
+        },
+        {
+          "title": "Beni: The All-Terrain 4K Camera Robot That Follows You",
+          "category": "product",
+          "summary": "Meet Beni, a clever new gadget from Mondo Robotics: a portable, all-terrain camera robot that autonomously follows you and your pets, filming in stabilized 4K. It's currently available for early bird pledges on Kickstarter, offering a significant discount before its retail launch.",
+          "url": "https://www.kickstarter.com/projects/mondorobotics/beni-all-terrain-camera-robot",
+          "date_info": "Kickstarter campaign live until early August 2026",
+          "urgency": "this-week"
+        },
+        {
+          "title": "Dezeen Awards 2026 Party Tickets at Royal Opera House",
+          "category": "event",
+          "summary": "Tickets for the prestigious Dezeen Awards 2026 party, held at London's Royal Opera House, go on sale next month. Secure your spot to celebrate the best in design and architecture, with a limited number of early-bird tickets available.",
+          "url": "https://www.dezeen.com/awards/2026/party/",
+          "date_info": "Tickets on sale Tuesday 18 August",
+          "urgency": "heads-up"
+        },
+        {
+          "title": "Open House Festival 2026: Free Access to London's Iconic Buildings",
+          "category": "event",
+          "summary": "London's annual Open House Festival returns this September, offering free access to hundreds of buildings across the city. Mark your calendar, as bookings for popular ticketed activities open next month and tend to sell out quickly.",
+          "url": "https://openhouse.org.uk/festival/",
+          "date_info": "Bookings for ticketed activities go live Wednesday 19 August, midday",
+          "urgency": "heads-up"
+        },
+        {
+          "title": "London Transport Museum: Vintage Train Rides This Weekend",
+          "category": "event",
+          "summary": "Experience a bygone era with special vintage train rides on the Metropolitan line this weekend, featuring 1950s coaches hauled by the Sarah Siddons electric locomotive and a restored 1938 art deco train. Tickets are on sale now for various routes departing from Amersham.",
+          "url": "https://www.ltmuseum.co.uk/whats-on/special-events/vintage-train-rides",
+          "date_info": "Tickets available for Friday 24, Saturday 25, and Sunday 26 July 2026",
+          "urgency": "act-fast"
+        },
+        {
+          "title": "The Maria Alexander: London's New Private Floating Spa Experience",
+          "category": "product",
+          "summary": "Discover a unique wellness escape on London's waterways with The Maria Alexander, a new private floating spa moored at Limehouse Basin. Enjoy a hot tub, wood-fired sauna, and restorative treatments in a tranquil setting, perfect for a relaxing experience.",
+          "url": "https://www.mariaalexander.co.uk/floating-spa",
+          "date_info": "",
+          "urgency": "this-week"
+        }
+      ]
     }
   ]
 }
