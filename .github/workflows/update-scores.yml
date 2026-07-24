@@ -1,8 +1,12 @@
 name: Update World Cup standings
 
+# World Cup 2026 finished -- scheduled polling paused to stop burning Actions
+# minutes and API quota on a tournament that's over. Re-add the `schedule:`
+# block below (same cron, or adjust) to reactivate for the next tournament.
+# workflow_dispatch stays enabled so it can still be run manually if needed.
 on:
-  schedule:
-    - cron: "4,19,34,49 * * * *"
+  # schedule:
+  #   - cron: "4,19,34,49 * * * *"
   workflow_dispatch: {}
 
 permissions:
