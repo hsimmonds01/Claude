@@ -337,6 +337,52 @@
           "urgency": "this-week"
         }
       ]
+    },
+    {
+      "date": "2026-07-25",
+      "model": "gemini-2.5-flash (legacy key, live search)",
+      "items": [
+        {
+          "title": "Marvel and HUF Launch '90s Spider-Man Capsule Collection",
+          "category": "drop",
+          "summary": "HUF and Marvel have reunited for a '90s-inspired Spider-Man capsule collection, featuring graphic tees, hoodies, web-embroidered work jackets, and skate decks. This limited-edition streetwear drop is available now, but be quick as some items, like the blind bag skate decks, have already sold out.",
+          "url": "https://www.hufworldwide.com/collections/huf-x-marvel-spider-man",
+          "date_info": "Available now (released July 23-24, 2026)",
+          "urgency": "act-fast"
+        },
+        {
+          "title": "Saturdays NYC Drops Lacoste \"L.12.12\" Polo Collaboration",
+          "category": "drop",
+          "summary": "Saturdays NYC has teamed up with Lacoste for a limited-edition six-color custom collaboration of the iconic \"L.12.12\" polo shirt. The collection features unique fade processing for a vintage feel and is available now, blending classic design with modern streetwear.",
+          "url": "https://www.saturdaysnyc.com/collections/collaborations",
+          "date_info": "Available now",
+          "urgency": "act-fast"
+        },
+        {
+          "title": "London's Science Gallery to Close Permanently on July 31",
+          "category": "event",
+          "summary": "Science Gallery London, an innovative space for art and science exhibitions near London Bridge, is permanently closing its doors next week on Friday, July 31, 2026. This is your last chance to visit its current thought-provoking exhibitions before it's gone for good.",
+          "url": "https://london.sciencegallery.com/visit/",
+          "date_info": "Closes permanently Friday, July 31, 2026",
+          "urgency": "act-fast"
+        },
+        {
+          "title": "Vote for the New Euro Banknote Designs",
+          "category": "other",
+          "summary": "The European Central Bank has launched a public survey, inviting you to vote on ten shortlisted design proposals for the next series of euro banknotes. You can choose between themes like 'European culture' featuring historical figures or 'Rivers and birds' depicting Europe's natural heritage.",
+          "url": "https://www.thejournal.ie/euro-banknote-designs-vote-6126602-Jul2026/",
+          "date_info": "Voting open until September 21, 2026",
+          "urgency": "this-week"
+        },
+        {
+          "title": "Bethnal Green's Satan's Whiskers Crowned World's Best Cocktail Bar",
+          "category": "other",
+          "summary": "East London's Satan's Whiskers, a popular Bethnal Green spot known for its exceptional classic cocktails and hip-hop soundtrack, has just been named the best cocktail bar in the world. It's a fantastic destination for a quality drink or an intimate evening.",
+          "url": "https://www.satanswhiskers.com/",
+          "date_info": "Award announced July 24, 2026",
+          "urgency": "heads-up"
+        }
+      ]
     }
   ]
 }
