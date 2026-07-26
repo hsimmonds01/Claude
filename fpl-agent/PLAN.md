@@ -72,10 +72,17 @@ doesn't matter, because recommending those is the agent's job anyway — it
 just always recommends from scratch rather than saying "change your
 captain from A to B".
 
-**Setup needed from you: your FPL team ID.** Log in at
-fantasy.premierleague.com, click "Points" or "Pick Team", and the URL will
-read `.../entry/1234567/event/1` — that number is it. One-off, then it lives
-in a config file.
+**Setup needed from you: your FPL team ID.** Note that the obvious page,
+`fantasy.premierleague.com/en/my-team`, is the one place the ID *isn't* in
+the URL. Two routes that do work:
+
+1. **Works right now, including pre-season.** Logged in on the same browser,
+   visit `https://fantasy.premierleague.com/api/me/`. It returns raw text;
+   find `"entry":` and the number immediately after it is the team ID.
+2. **Once GW1 has been played.** Click the **Points** tab — the URL becomes
+   `.../entry/1234567/event/1`.
+
+One-off; after that it lives in a config file.
 
 ---
 
@@ -168,6 +175,8 @@ model's forecasts, a constrained optimiser answers the real questions:
 - **Chip strategy** — tracks both chip sets and the GW19 expiry, watches for
   announced double and blank gameweeks, and starts nudging when a chip is at
   risk of being wasted.
+- **Ownership gap** — see §5a; the primary risk metric for a template-led
+  strategy.
 - **Wildcard / initial squad** — a full squad optimiser (linear programming)
   that builds the best legal £100m 15 for a given horizon. This is what
   powers the GW1 squad recommendation.
@@ -178,27 +187,94 @@ never asked to invent a projection. That's what keeps the emails trustworthy.
 
 ---
 
+## 5a. Strategy: template-led, with controlled differentials
+
+**Decided:** mainly template, with room for differentials. That is a
+measurable strategy, not a mood, so it's implemented as one.
+
+**Ownership gap is the primary risk metric.** Each week the agent lists the
+players above a high ownership threshold (roughly 25–30%+) that you *don't*
+own, and quantifies the exposure: if that player hauls, what does it cost
+you in rank? For a template-led manager, missing players is a bigger
+long-term threat than owning a bad one, and it's the thing most people track
+by feel. Filling template holes therefore ranks above speculative upgrades
+when the optimiser breaks a tie.
+
+**Differentials get a budget, not a veto.** Two or three squad slots are
+treated as licensed for sub-10%-owned players, and a differential is only
+proposed when the model's projection genuinely beats the template
+alternative — not merely because it's contrarian. Being different is a cost
+the projection has to pay for.
+
+**Captaincy is where template discipline matters most**, so the captain
+section always shows both: the safe (high effective-ownership) pick, and the
+differential, with the projected gain *and* the rank downside if it misses.
+You make the call with both numbers in front of you.
+
+All of this is tunable in plain English in `strategy.md` — including
+hard rules like "never take a −8" — and the balance can shift as the season
+develops (protecting a good rank in April is a different game from chasing
+in September).
+
+---
+
 ## 6. What lands in your inbox
 
 | Email | When | Contains |
 |---|---|---|
-| **Main deadline email** | ~36h before (Thu evening for a Sat deadline) | Recommended transfers with reasoning, captain shortlist, starting XI, price-change warnings, chip advice, model vs. news conflicts |
-| **Final check** | ~2–3h before the deadline, **only if something changed** | Late injury, a flagged player in your XI, a press-conference bombshell, a manager's "he's a doubt" |
-| **Midweek alert** | As needed | Big injury to one of your players, a player of yours about to rise/fall in price, double/blank gameweek confirmed, a must-act transfer window on a rising asset |
-| **Post-gameweek review** | Mon/Tue | How you did, rank movement, what the model got right and wrong, where points were left on the bench |
+| **Main deadline email** | 18–36h before the deadline, scaled to congestion (see below) | Recommended transfers with reasoning, captain shortlist, starting XI, ownership gap, price warnings, chip advice, model vs. news conflicts |
+| **Final check** | ~3h before the deadline, **only if something changed** | Late injury, a flagged player in your XI, a press-conference bombshell, a manager's "he's a doubt" |
+| **Midweek alert** | As needed | Big injury to one of your players, a player of yours about to rise/fall in price, double/blank gameweek confirmed, a must-act window on a rising asset |
+| **Post-gameweek review** | When the gameweek's points go final (**not** a fixed weekday) | How you did, rank movement, what the model got right and wrong, points left on the bench |
 
-The main email is timed for after Thursday/Friday press conferences, which
-is when the injury news that actually matters lands. 36h rather than 48h
-because a 48h email is often stale by deadline.
+**Decided:** the review is a guaranteed email, not conditional. So the
+baseline is two per gameweek — recommendations, then review — plus
+conditional extras.
 
-Volume is deliberately low: one guaranteed email a week, the rest only when
-they earn the interruption. All thresholds tunable.
+### Handling midweek gameweeks
+
+Nothing is scheduled by day of the week. The API publishes every deadline,
+and a `data_checked` flag that flips true once a gameweek's points are final
+(bonus applied, no further changes). The agent runs a check every few hours
+and asks only "is an email due right now?" — so a Saturday round, a Tuesday
+round and a festive pile-up are all handled by the same logic, with no
+special cases and nothing to adjust by hand.
+
+**Lead time scales with congestion.** A fixed 36h breaks in midweek rounds:
+for a Tuesday 18:30 deadline it lands Monday breakfast, *before* the Monday
+afternoon press conference — missing the news the timing exists to capture.
+
+| Gap since previous deadline | Main email | Final check |
+|---|---|---|
+| ≥6 days (normal week) | 36h before | 3h before |
+| 3–5 days (midweek round) | 24h before | 3h before |
+| <3 days (festive crush) | 18h before | only if your XI is affected |
+
+**The review fires on data, not on a weekday** — when the previous
+gameweek's points go final. Typically Tuesday after a weekend round;
+Thursday after a midweek one.
+
+**Emails merge when they would collide.** If a review comes due within 24h
+of the next main email, they combine into one — "here's how last week went,
+and here's what to do next". During a congested run that becomes the normal
+case, which is the right outcome: in a midweek week you want one good email,
+not three fragments.
+
+**Hard cap of 3 emails per rolling 72 hours**, with one override that always
+sends: your captain or a starting player becoming a doubt.
+
+### Tone and depth
+
+**Decided:** well-rounded and thorough. The main email is a full briefing,
+not a one-line tip — recommended move *and* the case for doing nothing,
+costed; a ranked captain shortlist rather than a single name; the ownership
+gap; the 5-gameweek fixture ticker; and an explicit section wherever the
+model and the news disagree. The headline verdict sits at the top so it's
+skimmable on a phone, with the reasoning underneath for when you want it.
 
 Same delivery stack already proven in this repo: Resend for email, and a
 `strategy.md` file (the equivalent of `discovery-agent/interests.md`) where
-you write your own preferences in plain English — "I like differentials",
-"never take a −8", "I'm chasing my mini-league leader" — and the agent
-respects them.
+you set preferences in plain English and the agent respects them.
 
 ---
 
@@ -223,10 +299,12 @@ fpl-agent/
 ```
 
 A single GitHub Actions workflow (`.github/workflows/fpl-agent.yml`) that:
-- runs on a **daily-ish schedule and decides for itself what to do** by
-  reading the real deadline from the API — the same window-gating trick
-  `check_docks.py` uses, because GitHub's own scheduler is unreliable
-  (documented in `CLAUDE.md`);
+- runs as a **"tick" every few hours and decides for itself what to do** by
+  reading the real deadlines and `data_checked` flags from the API (§6) —
+  the same window-gating trick `check_docks.py` uses, because GitHub's own
+  scheduler is unreliable (documented in `CLAUDE.md`). `state.json` records
+  what has already been sent, so overlapping or duplicate triggers can never
+  double-email — the same guard `discover.py` uses;
 - is triggered primarily by **cron-job.org** hitting `workflow_dispatch`
   (your existing account and PAT already do this for two other projects),
   with GitHub's native schedule as backup;
@@ -259,14 +337,16 @@ Expected points model, 5-gameweek horizon, transfer/captain/XI optimiser,
 the main deadline email, and the automated schedule. This is the core
 product. After this it runs itself every week.
 
-**Phase 3 — News and late-breaking alerts.** *(~1 session, by ~GW3)*
-RSS + Gemini research layer merged into the recommendations, the final-check
-email, and midweek injury/price alerts.
+**Phase 3 — News, review email, late-breaking alerts.** *(~1 session, by ~GW2)*
+RSS + Gemini research layer merged into the recommendations, the guaranteed
+post-gameweek review email, the merge-when-colliding logic, the final-check
+email, and midweek injury/price alerts. Pulled earlier than originally
+planned now that the review is a fixed weekly email rather than optional.
 
-**Phase 4 — Memory and review.** *(~1 session, by ~GW6)*
-Post-gameweek review emails, the history archive, the browsable dashboard,
-and model calibration against past seasons so the projections measurably
-improve rather than just existing.
+**Phase 4 — Memory and calibration.** *(~1 session, by ~GW6)*
+History archive, the browsable dashboard, and model calibration against past
+seasons — scoring the agent's own past projections against what actually
+happened, so the model measurably improves rather than just existing.
 
 **Phase 5 — Chip and season strategy.** *(~1 session, autumn)*
 Double/blank gameweek detection, chip planning against the GW19 expiry,
@@ -298,18 +378,23 @@ during the season without disruption.
 
 ---
 
-## 10. Open questions for you
+## 10. Decisions made, and what's still open
 
-1. **Team ID** — needed before Phase 1 can be pointed at your actual team
-   (see §2 for where to find it). If FPL 2026/27 hasn't opened yet, or you
-   haven't made a team, Phase 1 still builds fine and we plug the ID in
-   later.
-2. **Email volume** — the plan above is one guaranteed weekly email plus
-   conditional extras. Happy to make it two guaranteed (add the post-GW
-   review as fixed) or strip it back to one, no extras.
-3. **Style** — how aggressive should it be? Template-safe (own what
-   everyone owns, protect your rank) vs. differential-hunting (chase rank,
-   accept variance). This becomes the first line of `strategy.md` and is
-   changeable any time.
+**Settled:**
+- **Email volume** — two guaranteed per gameweek (recommendations + review),
+  plus conditional final-check and midweek alerts, capped at 3 per 72h (§6).
+- **Midweek gameweeks** — no weekday scheduling anywhere; congestion-scaled
+  lead times, data-driven review timing, and automatic merging when emails
+  would collide (§6).
+- **Style** — template-led with a controlled differential budget, tracked via
+  the ownership-gap metric (§5a).
+- **Depth** — thorough full briefings, headline verdict first for phone
+  skimming (§6).
 
-None of these block starting Phase 1.
+**Still open:**
+1. **Team ID** — the one input needed to point Phase 1 at your real team.
+   See §2: `fantasy.premierleague.com/api/me/` while logged in, find
+   `"entry":`. Phase 1 builds fine without it if the game hasn't opened yet;
+   it just plugs into a config file when you have it.
+
+Nothing blocks starting Phase 1.
