@@ -1,0 +1,9 @@
+{
+  "emails": [],
+  "failures": [
+    {
+      "at": "2026-07-27T15:32:17.623053+00:00",
+      "error": "RuntimeError: Not configured: RESEND_API_KEY, FPL_EMAIL_TO missing. These live in GitHub Secrets (Settings -> Secrets and variables -> Actions), never in the repo."
+    }
+  ]
+}

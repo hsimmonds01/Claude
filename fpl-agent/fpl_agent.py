@@ -339,7 +339,14 @@ def send_email(subject: str, html_body: str) -> None:
         json={"from": EMAIL_FROM, "to": [recipient], "subject": subject, "html": html_body},
         timeout=60,
     )
-    response.raise_for_status()
+    if response.status_code >= 400:
+        # raise_for_status() discards the body, which is where Resend puts the
+        # actual reason -- and its 403s are usually a specific, fixable rule
+        # (most often: the free shared sender can only deliver to the address
+        # that owns the Resend account). Losing that message turns a
+        # two-minute fix into a guessing exercise.
+        detail = response.text[:500]
+        raise RuntimeError(f"Resend returned HTTP {response.status_code}: {detail}")
     print(f"[agent] sent '{subject}' (id {response.json().get('id', '?')})")
 
 
@@ -364,7 +371,26 @@ def record(state: dict, decision: dict, subject: str, now: datetime) -> None:
     HISTORY_PATH.write_text(json.dumps(history, indent=2) + "\n", encoding="utf-8")
 
 
+def check_config(dry_run: bool) -> None:
+    """Fail immediately on a misconfiguration rather than after the work.
+
+    The first live run did everything -- snapshot, projections, news -- and
+    only then discovered the destination address was one Resend refuses to
+    deliver to. Checking first turns a confusing late failure into an
+    immediate, readable one.
+    """
+    if dry_run:
+        return
+    missing = [name for name in ("RESEND_API_KEY", "FPL_EMAIL_TO")
+               if not os.environ.get(name, "").strip()]
+    if missing:
+        raise RuntimeError(
+            f"Not configured: {', '.join(missing)} missing. These live in GitHub Secrets "
+            f"(Settings -> Secrets and variables -> Actions), never in the repo.")
+
+
 def run(dry_run: bool, force: str | None) -> None:
+    check_config(dry_run)
     events = read_csv("events.csv")
     events_by_id = {int(e["id"]): e for e in events}
     players, _ = load_projections()
@@ -402,13 +428,33 @@ def run(dry_run: bool, force: str | None) -> None:
     record(state, decision, subject, now)
 
 
-def send_failure_email(reason: str) -> None:
-    """A silent failure before a deadline is the worst outcome -- no email
-    must always mean 'check the logs', never 'nothing to say'."""
+def record_failure(reason: str) -> None:
+    """Write the failure somewhere durable, then try to email it.
+
+    The email is attempted second and deliberately cannot be relied on: it
+    goes through the same function that just failed, so a misconfigured or
+    rejected sender takes out the alarm along with the thing it was meant to
+    warn about. That happened on the first live run and left no trace
+    anywhere except the Actions log. history.json is committed by the
+    workflow, so a failure is visible in the repo even when nothing can be
+    delivered.
+    """
+    history = load_json(HISTORY_PATH, {"emails": []})
+    history.setdefault("failures", []).append({
+        "at": datetime.now(timezone.utc).isoformat(),
+        "error": reason.strip().splitlines()[-1][:300] if reason.strip() else "unknown",
+    })
+    history["failures"] = history["failures"][-50:]
+    try:
+        HISTORY_PATH.write_text(json.dumps(history, indent=2) + "\n", encoding="utf-8")
+        print(f"[agent] failure recorded in history.json", file=sys.stderr)
+    except OSError as exc:
+        print(f"[agent] could not record failure: {exc}", file=sys.stderr)
+
     try:
         send_email("⚠️ FPL agent failed", f"<pre>{render.esc(reason)}</pre>")
-    except Exception as exc:  # noqa: BLE001
-        print(f"[agent] failure email also failed: {exc}", file=sys.stderr)
+    except Exception as exc:  # noqa: BLE001 -- expected when sending is what broke
+        print(f"[agent] failure email could not be sent either: {exc}", file=sys.stderr)
 
 
 def main() -> None:
@@ -433,7 +479,7 @@ def main() -> None:
         reason = traceback.format_exc()
         print(reason, file=sys.stderr)
         if not args.dry_run:
-            send_failure_email(reason)
+            record_failure(reason)
         sys.exit(1)
 
 
