@@ -46,6 +46,10 @@ TIMEOUT_SECONDS = 120
 KEEP = [
     "name", "position", "team", "element", "round", "fixture", "opponent_team",
     "was_home", "kickoff_time", "value", "selected",
+    # Price-change calibration: how many managers moved a player in or out
+    # over a gameweek, against how his price moved. Lets the threshold be
+    # fitted from thousands of past observations instead of guessed.
+    "transfers_in", "transfers_out", "transfers_balance",
     "minutes", "starts", "total_points", "goals_scored", "assists",
     "clean_sheets", "goals_conceded", "saves", "bonus", "bps",
     "yellow_cards", "red_cards", "own_goals",
