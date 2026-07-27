@@ -19,6 +19,8 @@ from dataclasses import dataclass
 
 import requests
 
+from . import redact
+
 log = logging.getLogger(__name__)
 
 MODELS = ["gemini-flash-latest", "gemini-2.5-flash", "gemini-flash-lite-latest"]
@@ -232,10 +234,17 @@ def _score_batch(api_key: str, jobs, steering) -> list[Verdict]:
             return _parse_response(_request(api_key, model, prompt), jobs)
         except (ScoringError, requests.RequestException) as exc:
             last_error = exc
-            log.warning("[gemini] %s failed: %s", model, exc)
+            # Scrubbed: the key travels as a query parameter, so any status
+            # not short-circuited above reaches raise_for_status(), whose
+            # message embeds the fully-rendered URL -- key included.
+            log.warning("[gemini] %s failed: %s", model, redact.scrub(str(exc)))
             time.sleep(2)
 
-    raise ScoringError(f"every model failed; last error: {last_error}")
+    # Scrubbed here too, so the secret never even enters the message: this
+    # string is logged again by the caller.
+    raise ScoringError(
+        f"every model failed; last error: {redact.scrub(str(last_error))}"
+    )
 
 
 def score(api_key: str, jobs, steering) -> list[Verdict]:
@@ -257,7 +266,9 @@ def score(api_key: str, jobs, steering) -> list[Verdict]:
             verdicts.extend(_score_batch(api_key, batch, steering))
         except ScoringError as exc:
             log.error(
-                "[gemini] batch of %d skipped, will retry next run: %s", len(batch), exc
+                "[gemini] batch of %d skipped, will retry next run: %s",
+                len(batch),
+                redact.scrub(str(exc)),
             )
     log.info("[gemini] scored %d of %d jobs", len(verdicts), len(jobs))
     return verdicts
