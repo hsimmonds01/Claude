@@ -1,0 +1,74 @@
+# NOTE: this file sits under job-agent/.github/ inside the public build repo,
+# where GitHub ignores it -- workflows only run from a repo's ROOT .github
+# directory. That is deliberate: the agent must not run in the build repo. It
+# becomes live the moment the folder is copied to the root of her own repo.
+
+name: Job agent
+
+on:
+  # cron-job.org pokes this endpoint. GitHub's own schedule is the backup net
+  # only -- it has run over an hour late on the sibling projects, which for a
+  # 7am job alert means missing the morning entirely.
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "send | dry_run"
+        required: false
+        default: send
+  schedule:
+    - cron: "0 7,12,16,18 * * *"
+
+# Any workflow that pushes to its default branch must sit in a named group, or
+# two runs can race and one push gets rejected as non-fast-forward. Learned
+# the expensive way in the build repo -- add it up front, not after a collision.
+concurrency:
+  group: main-git-writer
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    # Private repos meter Actions minutes (2,000/month on the free plan). One
+    # hung IMAP fetch without this could burn the month in an afternoon.
+    timeout-minutes: 10
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - run: pip install -r requirements.txt
+
+      - name: Run the agent
+        env:
+          ADZUNA_APP_ID: ${{ secrets.ADZUNA_APP_ID }}
+          ADZUNA_APP_KEY: ${{ secrets.ADZUNA_APP_KEY }}
+          REED_API_KEY: ${{ secrets.REED_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GMAIL_ADDRESS: ${{ secrets.GMAIL_ADDRESS }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+          DIGEST_TO: ${{ secrets.DIGEST_TO }}
+        run: |
+          if [ "${{ inputs.mode }}" = "dry_run" ]; then
+            python run.py --dry-run
+          else
+            python run.py
+          fi
+
+      # Runs even if the step above failed, so a crash mid-run still records
+      # whatever state was written before it broke.
+      - name: Save state back to the repo
+        if: always()
+        run: |
+          git config user.name "job-agent"
+          git config user.email "job-agent@users.noreply.github.com"
+          git add seen.json || true
+          git diff --staged --quiet || git commit -m "Record roles seen"
+          git push || echo "Push failed -- alerts already sent, only the log row is lost."

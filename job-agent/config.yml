@@ -1,0 +1,200 @@
+# =====================================================================
+#  Job agent — settings
+# =====================================================================
+#
+#  The knobs. Edit from the GitHub app: tap the file, tap the pencil,
+#  change a value, tap "Commit changes". Next run picks it up.
+#
+#  Two rules so you can't break it:
+#    1. Keep the spacing exactly as it is. The indents matter here in a
+#       way they don't in the .md files.
+#    2. true / false must be lowercase.
+#
+#  If a run fails, you get an email saying so — it won't fail silently.
+# =====================================================================
+
+
+# ---------------------------------------------------------------------
+#  MASTER SWITCH
+# ---------------------------------------------------------------------
+#  false = the agent still runs and still collects jobs quietly, but
+#  sends you nothing. For holidays, or a week you don't want the noise.
+#  Nothing is lost — you get the backlog when you switch it back on.
+
+enabled: true
+
+
+# ---------------------------------------------------------------------
+#  WHEN IT RUNS
+# ---------------------------------------------------------------------
+#  Hours of the day, 24-hour clock, UK time.
+#  Changing these also means changing the timer at cron-job.org —
+#  cron-job.org is the alarm clock, this list is what the agent expects.
+#  They must agree.
+
+schedule:
+  run_hours: [7, 12, 16, 18]
+  timezone: Europe/London
+
+
+# ---------------------------------------------------------------------
+#  SCORING
+# ---------------------------------------------------------------------
+#  Every job gets a mark out of 10 against your CV, profile.md and
+#  feedback.md. A job is scored once, the first time it's seen, and that
+#  score sticks — so the same job can't drift up and down day to day.
+
+scoring:
+  # Below this, you never hear about it at all.
+  min_score_to_keep: 6
+
+  # At or above this, it's worth interrupting you for a push alert.
+  # Starting at 8. If you're getting pinged too often, put it to 9.
+  # If a fortnight goes by with no pushes, drop it to 7.
+  push_threshold: 8
+
+  # Ask the AI to explain each score in one line. Makes the digest much
+  # more useful and makes it obvious when it's got the wrong end of the
+  # stick. Costs nothing. Recommend leaving on.
+  explain_scores: true
+
+
+# ---------------------------------------------------------------------
+#  PUSH ALERTS  (the phone buzz)
+# ---------------------------------------------------------------------
+
+push:
+  enabled: true
+
+  # Hard ceiling per day, regardless of how many great jobs appear.
+  max_per_day: 2
+
+  # Discretion. true = the lock screen only ever says something like
+  # "2 new matches". No company name, no job title, nothing readable
+  # over your shoulder. Detail appears only after you tap and unlock.
+  # Leave this on while you're still in your current job.
+  vague_wording: true
+
+  # No buzzing between these times. Anything that would have fired is
+  # held and rolled into the next digest instead.
+  quiet_hours:
+    start: "21:30"
+    end: "07:30"
+
+
+# ---------------------------------------------------------------------
+#  EMAIL DIGESTS
+# ---------------------------------------------------------------------
+
+email:
+  enabled: true
+
+  # Which of the run_hours above also send a digest.
+  # These MUST be hours that appear in schedule.run_hours — the agent is
+  # asleep at any other time. It'll warn you in the log if they disagree.
+  send_on_run_hours: [7, 18]
+
+  # Longest a digest gets. Best-scoring first, so the cut only ever
+  # loses the weakest ones.
+  max_roles_per_digest: 12
+
+  # false = no email on a quiet run. true = a short "nothing today" note,
+  # which is reassuring early on when you're still learning to trust it.
+  send_when_empty: false
+
+
+# ---------------------------------------------------------------------
+#  WHERE IT LOOKS
+# ---------------------------------------------------------------------
+
+sources:
+
+  # --- Company careers pages -----------------------------------------
+  # The best source by a distance. Roles show up here days before they
+  # reach the big job sites, and there's no recruiter noise.
+  #
+  # To add a company: go to their careers page, copy the address bar,
+  # paste it below. That's it — the agent works out the rest.
+  # If a link can't be read, the digest tells you which one and why.
+  # It never silently drops a company.
+  companies:
+    enabled: true
+    list:
+      # - name: Example Ltd
+      #   careers_url: https://boards.greenhouse.io/exampleltd
+      # - name: Another Co
+      #   careers_url: https://jobs.lever.co/anotherco
+
+
+  # --- The big UK job sites ------------------------------------------
+  # Wide net. Higher volume, more agency reposts — the scoring filters
+  # most of it out, but this is where the noise comes from if there is
+  # any.
+  adzuna:
+    enabled: true
+  reed:
+    enabled: true
+
+  # The literal words typed into those two sites. This is *searching*,
+  # not judging — keep it broader than you think you need and let the
+  # scoring do the narrowing. Too-narrow search terms are the most
+  # common reason a good job never appears at all.
+  search_terms:
+    -
+    -
+    -
+    # Examples of the right breadth — delete or replace:
+    #   - operations associate
+    #   - operations coordinator
+    #   - operations executive
+    #   - marketing and operations
+
+  # Where to search, and how far out.
+  locations:
+    - London
+  max_distance_miles: 20
+
+  # Only consider jobs posted in the last N days on a first run, so you
+  # don't get a wall of six-month-old listings on day one.
+  max_age_days: 14
+
+
+  # --- Your alert inbox ----------------------------------------------
+  # The clever bit. Set up job alerts on ANY site you like — Welcome to
+  # the Jungle, LinkedIn, Indeed, niche boards, anything — pointed at
+  # the dedicated Gmail. The agent reads that inbox and scores whatever
+  # arrives alongside everything else.
+  #
+  # This is how you add a new job site without anyone writing code:
+  # just create a saved search there and point it at that address.
+  #
+  # Note: alert emails carry less detail than the sites above (often
+  # just a title, a company and a link), so these get scored on thinner
+  # information. A slightly lower score here doesn't mean the agent
+  # dislikes that site.
+  alert_inbox:
+    enabled: true
+    # Only reads mail newer than this, so it never re-reads the archive.
+    max_age_days: 3
+    # Alert emails only reach the agent if the sender is on this list.
+    # Guards against anything else landing in that inbox being treated
+    # as a job. Add a sender here when you set up a new alert.
+    trusted_senders:
+      - welcometothejungle.com
+      - linkedin.com
+      - indeed.com
+
+
+# ---------------------------------------------------------------------
+#  HOUSEKEEPING
+# ---------------------------------------------------------------------
+
+housekeeping:
+  # How long the agent remembers a job it's already shown you. After
+  # this, a still-open role could resurface — which is usually fine,
+  # it means it's been sitting there a while.
+  seen_retention_days: 60
+
+  # Email you if a run breaks. Strongly recommend leaving on: silence
+  # should mean "nothing matched", never "it's been dead for a fortnight".
+  alert_on_failure: true
