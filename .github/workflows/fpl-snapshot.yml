@@ -69,6 +69,13 @@ jobs:
       - name: Install Chromium for browser rendering
         run: python -m playwright install --with-deps chromium
 
+      # Appends one row per player per run. Price movement can only be
+      # measured between observations, so this needs to accumulate from now
+      # rather than being switched on when the season starts.
+      - name: Record price history
+        working-directory: fpl-agent
+        run: python price.py
+
       - name: Build the knowledge base
         working-directory: fpl-agent
         run: python knowledge.py
