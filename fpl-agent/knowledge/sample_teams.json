@@ -1,0 +1,94 @@
+{
+  "_README": [
+    "Published GW1 drafts from FPL content creators, captured by hand from",
+    "their public posts on 27 July 2026.",
+    "",
+    "WHY THESE ARE USEFUL: before a ball is kicked there is no ownership data",
+    "worth trusting -- FPL's percentages move enormously in the final week.",
+    "What respected analysts are actually picking is an early read on where",
+    "the template is forming, which is exactly the signal the risk setting in",
+    "strategy.md needs and cannot get from anywhere else this early.",
+    "",
+    "WHAT IS STORED: player lists and attribution only. These are facts about",
+    "who picked whom, not the creators' written analysis -- their reasoning is",
+    "their work, and this repo is public. Follow the source link for that.",
+    "",
+    "HOW TO USE: consensus across independent drafts is a stronger signal than",
+    "any single one. A player in all three is close to essential; a player in",
+    "one is that analyst's differential, not a template pick."
+  ],
+  "captured_at": "2026-07-27",
+  "gameweek": 1,
+  "teams": [
+    {
+      "source": "fpl__raptor (Instagram)",
+      "label": "FPL 2026/27 — GW1 Bench Boost Team",
+      "note": "Built around playing Bench Boost in GW1, so the bench is stronger than a normal draft would be.",
+      "starting": [
+        {"name": "Raya", "team": "ARS", "position": "GKP"},
+        {"name": "Maguire", "team": "MUN", "position": "DEF"},
+        {"name": "Calafiori", "team": "ARS", "position": "DEF"},
+        {"name": "Mosquera", "team": "ARS", "position": "DEF"},
+        {"name": "Cunha", "team": "MUN", "position": "MID"},
+        {"name": "Semenyo", "team": "MCI", "position": "MID"},
+        {"name": "Szoboszlai", "team": "LIV", "position": "MID"},
+        {"name": "Le Fée", "team": "SUN", "position": "MID"},
+        {"name": "Haaland", "team": "MCI", "position": "FWD"},
+        {"name": "Igor Jesus", "team": "NFO", "position": "FWD"},
+        {"name": "Brobbey", "team": "SUN", "position": "FWD"}
+      ],
+      "bench": [
+        {"name": "Roefs", "team": "SUN", "position": "GKP"},
+        {"name": "Sarr", "team": "CRY", "position": "MID"},
+        {"name": "Williams", "team": "NFO", "position": "DEF"},
+        {"name": "Shaw", "team": "MUN", "position": "DEF"}
+      ]
+    },
+    {
+      "source": "letstalkfpl (Instagram)",
+      "label": "My First Draft 2026/27",
+      "note": "Two squad slots left unfilled at the time of posting (a £4.0m keeper and a £4.5m forward).",
+      "starting": [
+        {"name": "Kinsky", "team": "TOT", "position": "GKP"},
+        {"name": "Rodon", "team": "LEE", "position": "DEF"},
+        {"name": "N.Williams", "team": "NFO", "position": "DEF"},
+        {"name": "Mosquera", "team": "ARS", "position": "DEF"},
+        {"name": "B.Fernandes", "team": "MUN", "position": "MID"},
+        {"name": "Palmer", "team": "CHE", "position": "MID"},
+        {"name": "Szoboszlai", "team": "LIV", "position": "MID"},
+        {"name": "Sarr", "team": "CRY", "position": "MID"},
+        {"name": "Ndiaye", "team": "EVE", "position": "MID"},
+        {"name": "Haaland", "team": "MCI", "position": "FWD", "captain": true},
+        {"name": "Calvert-Lewin", "team": "LEE", "position": "FWD"}
+      ],
+      "bench": [
+        {"name": "Robinson", "team": "FUL", "position": "DEF"},
+        {"name": "Hall", "team": "NEW", "position": "DEF"}
+      ]
+    },
+    {
+      "source": "Lazy FPL — 'The Professor'",
+      "label": "Initial draft, 2026/27 launch",
+      "note": "The creator's own caveat: 'this will change daily'. Notably has no Bruno Fernandes.",
+      "starting": [
+        {"name": "Lammens", "team": "MUN", "position": "GKP"},
+        {"name": "Shaw", "team": "MUN", "position": "DEF"},
+        {"name": "Calafiori", "team": "ARS", "position": "DEF"},
+        {"name": "N.Williams", "team": "NFO", "position": "DEF"},
+        {"name": "Rogers", "team": "CHE", "position": "MID"},
+        {"name": "Semenyo", "team": "MCI", "position": "MID"},
+        {"name": "Mbeumo", "team": "MUN", "position": "MID"},
+        {"name": "Garner", "team": "EVE", "position": "MID"},
+        {"name": "João Pedro", "team": "CHE", "position": "FWD"},
+        {"name": "Isak", "team": "LIV", "position": "FWD"},
+        {"name": "Haaland", "team": "MCI", "position": "FWD", "captain": true}
+      ],
+      "bench": [
+        {"name": "Dubravka", "team": "TOT", "position": "GKP"},
+        {"name": "Kerkez", "team": "LIV", "position": "DEF"},
+        {"name": "O'Shea", "team": "IPS", "position": "DEF"},
+        {"name": "Hughes", "team": "CRY", "position": "MID"}
+      ]
+    }
+  ]
+}

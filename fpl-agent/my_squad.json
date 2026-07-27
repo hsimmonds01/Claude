@@ -15,24 +15,85 @@
   "free_transfers": null,
   "chips_used": [],
   "squad": [
-    {"name": "Verbruggen", "team": "BHA", "position": "GKP"},
-    {"name": "Steele", "team": "BHA", "position": "GKP"},
-    {"name": "Mosquera", "team": "ARS", "position": "DEF"},
-    {"name": "Shaw", "team": "MUN", "position": "DEF"},
-    {"name": "N.Williams", "team": "NFO", "position": "DEF"},
-    {"name": "Diop", "team": "IPS", "position": "DEF"},
-    {"name": "Konsa", "team": "AVL", "position": "DEF"},
-    {"name": "B.Fernandes", "team": "MUN", "position": "MID"},
-    {"name": "Szoboszlai", "team": "LIV", "position": "MID"},
-    {"name": "Wilson", "team": "LEE", "position": "MID"},
-    {"name": "Semenyo", "team": "MCI", "position": "MID"},
-    {"name": "Hughes", "team": "CRY", "position": "MID"},
-    {"name": "Haaland", "team": "MCI", "position": "FWD"},
-    {"name": "João Pedro", "team": "CHE", "position": "FWD"},
-    {"name": "Calvert-Lewin", "team": "LEE", "position": "FWD"}
+    {
+      "name": "Verbruggen",
+      "team": "BHA",
+      "position": "GKP"
+    },
+    {
+      "name": "Steele",
+      "team": "BHA",
+      "position": "GKP"
+    },
+    {
+      "name": "Mosquera",
+      "team": "ARS",
+      "position": "DEF"
+    },
+    {
+      "name": "Shaw",
+      "team": "MUN",
+      "position": "DEF"
+    },
+    {
+      "name": "N.Williams",
+      "team": "NFO",
+      "position": "DEF"
+    },
+    {
+      "name": "Mitchell",
+      "team": "CRY",
+      "position": "DEF"
+    },
+    {
+      "name": "O'Shea",
+      "team": "IPS",
+      "position": "DEF"
+    },
+    {
+      "name": "B.Fernandes",
+      "team": "MUN",
+      "position": "MID"
+    },
+    {
+      "name": "Szoboszlai",
+      "team": "LIV",
+      "position": "MID"
+    },
+    {
+      "name": "Wilson",
+      "team": "LEE",
+      "position": "MID"
+    },
+    {
+      "name": "Semenyo",
+      "team": "MCI",
+      "position": "MID"
+    },
+    {
+      "name": "Hughes",
+      "team": "CRY",
+      "position": "MID"
+    },
+    {
+      "name": "Haaland",
+      "team": "MCI",
+      "position": "FWD"
+    },
+    {
+      "name": "João Pedro",
+      "team": "CHE",
+      "position": "FWD"
+    },
+    {
+      "name": "Solanke",
+      "team": "TOT",
+      "position": "FWD"
+    }
   ],
   "history": [
     "2026-07-27: Andrey Santos (MUN, £5.0m) -> Hughes (CRY, £4.5m). Santos had 1247 minutes and 47 points last season at £5.0m; Hughes played more (1560 minutes, 19 starts) for £0.5m less. Frees £0.5m into the bank.",
-    "2026-07-27: Kept Mosquera despite 986 minutes last season -- Saliba is injured with no return date and Mosquera is expected to start at centre-back. Recorded in overrides.json."
+    "2026-07-27: Kept Mosquera despite 986 minutes last season -- Saliba is injured with no return date and Mosquera is expected to start at centre-back. Recorded in overrides.json.",
+    "2026-07-27: squad updated from the FPL app (GW1, deadline Fri 21 Aug 18:30). Diop -> O'Shea (IPS, £4.0m), Konsa -> Mitchell (CRY, £4.5m), Calvert-Lewin -> Solanke (TOT, £6.0m). Now a 3-4-3 rather than 4-4-2. Cost £99.5m, £0.5m banked. Bench Boost and Triple Captain both still available."
   ]
 }

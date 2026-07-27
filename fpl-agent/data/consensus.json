@@ -1,0 +1,482 @@
+{
+  "generated_at": "2026-07-27T20:57:44.307280+00:00",
+  "drafts_compared": 3,
+  "sources": [
+    "fpl__raptor (Instagram)",
+    "letstalkfpl (Instagram)",
+    "Lazy FPL — 'The Professor'"
+  ],
+  "all_picks": [
+    {
+      "name": "Haaland",
+      "team": "MCI",
+      "picked_by": 3,
+      "of": 3,
+      "sources": [
+        "fpl__raptor (Instagram)",
+        "letstalkfpl (Instagram)",
+        "Lazy FPL — 'The Professor'"
+      ],
+      "in_my_squad": true
+    },
+    {
+      "name": "Calafiori",
+      "team": "ARS",
+      "picked_by": 2,
+      "of": 3,
+      "sources": [
+        "fpl__raptor (Instagram)",
+        "Lazy FPL — 'The Professor'"
+      ],
+      "in_my_squad": false
+    },
+    {
+      "name": "Mosquera",
+      "team": "ARS",
+      "picked_by": 2,
+      "of": 3,
+      "sources": [
+        "fpl__raptor (Instagram)",
+        "letstalkfpl (Instagram)"
+      ],
+      "in_my_squad": true
+    },
+    {
+      "name": "N.Williams",
+      "team": "NFO",
+      "picked_by": 2,
+      "of": 3,
+      "sources": [
+        "letstalkfpl (Instagram)",
+        "Lazy FPL — 'The Professor'"
+      ],
+      "in_my_squad": true
+    },
+    {
+      "name": "Sarr",
+      "team": "CRY",
+      "picked_by": 2,
+      "of": 3,
+      "sources": [
+        "fpl__raptor (Instagram)",
+        "letstalkfpl (Instagram)"
+      ],
+      "in_my_squad": false
+    },
+    {
+      "name": "Semenyo",
+      "team": "MCI",
+      "picked_by": 2,
+      "of": 3,
+      "sources": [
+        "fpl__raptor (Instagram)",
+        "Lazy FPL — 'The Professor'"
+      ],
+      "in_my_squad": true
+    },
+    {
+      "name": "Shaw",
+      "team": "MUN",
+      "picked_by": 2,
+      "of": 3,
+      "sources": [
+        "fpl__raptor (Instagram)",
+        "Lazy FPL — 'The Professor'"
+      ],
+      "in_my_squad": true
+    },
+    {
+      "name": "Szoboszlai",
+      "team": "LIV",
+      "picked_by": 2,
+      "of": 3,
+      "sources": [
+        "fpl__raptor (Instagram)",
+        "letstalkfpl (Instagram)"
+      ],
+      "in_my_squad": true
+    },
+    {
+      "name": "B.Fernandes",
+      "team": "MUN",
+      "picked_by": 1,
+      "of": 3,
+      "sources": [
+        "letstalkfpl (Instagram)"
+      ],
+      "in_my_squad": true
+    },
+    {
+      "name": "Brobbey",
+      "team": "SUN",
+      "picked_by": 1,
+      "of": 3,
+      "sources": [
+        "fpl__raptor (Instagram)"
+      ],
+      "in_my_squad": false
+    },
+    {
+      "name": "Calvert-Lewin",
+      "team": "LEE",
+      "picked_by": 1,
+      "of": 3,
+      "sources": [
+        "letstalkfpl (Instagram)"
+      ],
+      "in_my_squad": false
+    },
+    {
+      "name": "Cunha",
+      "team": "MUN",
+      "picked_by": 1,
+      "of": 3,
+      "sources": [
+        "fpl__raptor (Instagram)"
+      ],
+      "in_my_squad": false
+    },
+    {
+      "name": "Dubravka",
+      "team": "TOT",
+      "picked_by": 1,
+      "of": 3,
+      "sources": [
+        "Lazy FPL — 'The Professor'"
+      ],
+      "in_my_squad": false
+    },
+    {
+      "name": "Garner",
+      "team": "EVE",
+      "picked_by": 1,
+      "of": 3,
+      "sources": [
+        "Lazy FPL — 'The Professor'"
+      ],
+      "in_my_squad": false
+    },
+    {
+      "name": "Hall",
+      "team": "NEW",
+      "picked_by": 1,
+      "of": 3,
+      "sources": [
+        "letstalkfpl (Instagram)"
+      ],
+      "in_my_squad": false
+    },
+    {
+      "name": "Hughes",
+      "team": "CRY",
+      "picked_by": 1,
+      "of": 3,
+      "sources": [
+        "Lazy FPL — 'The Professor'"
+      ],
+      "in_my_squad": true
+    },
+    {
+      "name": "Igor Jesus",
+      "team": "NFO",
+      "picked_by": 1,
+      "of": 3,
+      "sources": [
+        "fpl__raptor (Instagram)"
+      ],
+      "in_my_squad": false
+    },
+    {
+      "name": "Isak",
+      "team": "LIV",
+      "picked_by": 1,
+      "of": 3,
+      "sources": [
+        "Lazy FPL — 'The Professor'"
+      ],
+      "in_my_squad": false
+    },
+    {
+      "name": "João Pedro",
+      "team": "CHE",
+      "picked_by": 1,
+      "of": 3,
+      "sources": [
+        "Lazy FPL — 'The Professor'"
+      ],
+      "in_my_squad": true
+    },
+    {
+      "name": "Kerkez",
+      "team": "LIV",
+      "picked_by": 1,
+      "of": 3,
+      "sources": [
+        "Lazy FPL — 'The Professor'"
+      ],
+      "in_my_squad": false
+    },
+    {
+      "name": "Kinsky",
+      "team": "TOT",
+      "picked_by": 1,
+      "of": 3,
+      "sources": [
+        "letstalkfpl (Instagram)"
+      ],
+      "in_my_squad": false
+    },
+    {
+      "name": "Lammens",
+      "team": "MUN",
+      "picked_by": 1,
+      "of": 3,
+      "sources": [
+        "Lazy FPL — 'The Professor'"
+      ],
+      "in_my_squad": false
+    },
+    {
+      "name": "Le Fée",
+      "team": "SUN",
+      "picked_by": 1,
+      "of": 3,
+      "sources": [
+        "fpl__raptor (Instagram)"
+      ],
+      "in_my_squad": false
+    },
+    {
+      "name": "Maguire",
+      "team": "MUN",
+      "picked_by": 1,
+      "of": 3,
+      "sources": [
+        "fpl__raptor (Instagram)"
+      ],
+      "in_my_squad": false
+    },
+    {
+      "name": "Mbeumo",
+      "team": "MUN",
+      "picked_by": 1,
+      "of": 3,
+      "sources": [
+        "Lazy FPL — 'The Professor'"
+      ],
+      "in_my_squad": false
+    },
+    {
+      "name": "Ndiaye",
+      "team": "EVE",
+      "picked_by": 1,
+      "of": 3,
+      "sources": [
+        "letstalkfpl (Instagram)"
+      ],
+      "in_my_squad": false
+    },
+    {
+      "name": "O'Shea",
+      "team": "IPS",
+      "picked_by": 1,
+      "of": 3,
+      "sources": [
+        "Lazy FPL — 'The Professor'"
+      ],
+      "in_my_squad": true
+    },
+    {
+      "name": "Palmer",
+      "team": "CHE",
+      "picked_by": 1,
+      "of": 3,
+      "sources": [
+        "letstalkfpl (Instagram)"
+      ],
+      "in_my_squad": false
+    },
+    {
+      "name": "Raya",
+      "team": "ARS",
+      "picked_by": 1,
+      "of": 3,
+      "sources": [
+        "fpl__raptor (Instagram)"
+      ],
+      "in_my_squad": false
+    },
+    {
+      "name": "Robinson",
+      "team": "FUL",
+      "picked_by": 1,
+      "of": 3,
+      "sources": [
+        "letstalkfpl (Instagram)"
+      ],
+      "in_my_squad": false
+    },
+    {
+      "name": "Rodon",
+      "team": "LEE",
+      "picked_by": 1,
+      "of": 3,
+      "sources": [
+        "letstalkfpl (Instagram)"
+      ],
+      "in_my_squad": false
+    },
+    {
+      "name": "Roefs",
+      "team": "SUN",
+      "picked_by": 1,
+      "of": 3,
+      "sources": [
+        "fpl__raptor (Instagram)"
+      ],
+      "in_my_squad": false
+    },
+    {
+      "name": "Rogers",
+      "team": "CHE",
+      "picked_by": 1,
+      "of": 3,
+      "sources": [
+        "Lazy FPL — 'The Professor'"
+      ],
+      "in_my_squad": false
+    },
+    {
+      "name": "Williams",
+      "team": "NFO",
+      "picked_by": 1,
+      "of": 3,
+      "sources": [
+        "fpl__raptor (Instagram)"
+      ],
+      "in_my_squad": false
+    }
+  ],
+  "consensus_picks": [
+    {
+      "name": "Haaland",
+      "team": "MCI",
+      "picked_by": 3,
+      "of": 3,
+      "sources": [
+        "fpl__raptor (Instagram)",
+        "letstalkfpl (Instagram)",
+        "Lazy FPL — 'The Professor'"
+      ],
+      "in_my_squad": true
+    },
+    {
+      "name": "Calafiori",
+      "team": "ARS",
+      "picked_by": 2,
+      "of": 3,
+      "sources": [
+        "fpl__raptor (Instagram)",
+        "Lazy FPL — 'The Professor'"
+      ],
+      "in_my_squad": false
+    },
+    {
+      "name": "Mosquera",
+      "team": "ARS",
+      "picked_by": 2,
+      "of": 3,
+      "sources": [
+        "fpl__raptor (Instagram)",
+        "letstalkfpl (Instagram)"
+      ],
+      "in_my_squad": true
+    },
+    {
+      "name": "N.Williams",
+      "team": "NFO",
+      "picked_by": 2,
+      "of": 3,
+      "sources": [
+        "letstalkfpl (Instagram)",
+        "Lazy FPL — 'The Professor'"
+      ],
+      "in_my_squad": true
+    },
+    {
+      "name": "Sarr",
+      "team": "CRY",
+      "picked_by": 2,
+      "of": 3,
+      "sources": [
+        "fpl__raptor (Instagram)",
+        "letstalkfpl (Instagram)"
+      ],
+      "in_my_squad": false
+    },
+    {
+      "name": "Semenyo",
+      "team": "MCI",
+      "picked_by": 2,
+      "of": 3,
+      "sources": [
+        "fpl__raptor (Instagram)",
+        "Lazy FPL — 'The Professor'"
+      ],
+      "in_my_squad": true
+    },
+    {
+      "name": "Shaw",
+      "team": "MUN",
+      "picked_by": 2,
+      "of": 3,
+      "sources": [
+        "fpl__raptor (Instagram)",
+        "Lazy FPL — 'The Professor'"
+      ],
+      "in_my_squad": true
+    },
+    {
+      "name": "Szoboszlai",
+      "team": "LIV",
+      "picked_by": 2,
+      "of": 3,
+      "sources": [
+        "fpl__raptor (Instagram)",
+        "letstalkfpl (Instagram)"
+      ],
+      "in_my_squad": true
+    }
+  ],
+  "consensus_missing_from_my_squad": [
+    {
+      "name": "Calafiori",
+      "team": "ARS",
+      "picked_by": 2,
+      "of": 3,
+      "sources": [
+        "fpl__raptor (Instagram)",
+        "Lazy FPL — 'The Professor'"
+      ],
+      "in_my_squad": false
+    },
+    {
+      "name": "Sarr",
+      "team": "CRY",
+      "picked_by": 2,
+      "of": 3,
+      "sources": [
+        "fpl__raptor (Instagram)",
+        "letstalkfpl (Instagram)"
+      ],
+      "in_my_squad": false
+    }
+  ],
+  "my_players_no_draft_picked": [
+    "Mitchell",
+    "Solanke",
+    "Steele",
+    "Verbruggen",
+    "Wilson"
+  ]
+}

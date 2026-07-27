@@ -238,9 +238,13 @@ What it does:
 - The recommended changes for the current gameweek, mirroring the email.
 
 Build notes:
-- Static HTML + JS reading committed JSON, following the pattern already
-  used by `discovery-agent/dashboard.html` and `dock-alerter/dashboard.html`
-  -- no server to run or pay for.
+- Static HTML + JS reading committed JSON -- no server to run or pay for.
+- **Served by GitHub Pages**, which is already enabled on this repo
+  (`main`, root): https://hsimmonds01.github.io/Claude/fpl-agent/dashboard.html
+  Official, no rate limits, no third-party dependency. Do NOT use
+  raw.githack for this project -- it's a one-person free proxy that every
+  dashboard link would break with. (The older projects still use it; leave
+  them alone unless asked.)
 - The Gemini key cannot be embedded in a public page. Either the prompt box
   posts to a small proxy, or the dashboard stays private and the key is
   entered locally by you and kept in browser storage. Decide at build time.
