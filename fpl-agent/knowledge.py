@@ -117,6 +117,33 @@ def html_to_text(html: str) -> str:
     return "\n".join(line.strip() for line in text.splitlines()).strip()
 
 
+def render_with_browser(url: str) -> str:
+    """Fallback for JavaScript-rendered pages.
+
+    fantasy.premierleague.com is a React app: a plain fetch of /help/rules
+    returns a ~115-character shell with no rules in it. Playwright runs a real
+    browser so the page renders before we read it. Returns "" if Playwright
+    isn't installed or the render fails, so the caller just treats it as a
+    miss rather than crashing the whole knowledge build.
+    """
+    try:
+        from playwright.sync_api import sync_playwright
+    except ImportError:
+        print("[knowledge]   (playwright not installed -- skipping browser render)", file=sys.stderr)
+        return ""
+    try:
+        with sync_playwright() as playwright:
+            browser = playwright.chromium.launch()
+            page = browser.new_page(user_agent=HEADERS["User-Agent"])
+            page.goto(url, wait_until="networkidle", timeout=45000)
+            html = page.content()
+            browser.close()
+        return html
+    except Exception as exc:  # noqa: BLE001 -- a failed render is a miss, not a crash
+        print(f"[knowledge]   (browser render failed: {exc})", file=sys.stderr)
+        return ""
+
+
 def fetch_official(source: dict) -> dict:
     result = {**source, "ok": False, "chars": 0, "note": ""}
     try:
@@ -124,14 +151,25 @@ def fetch_official(source: dict) -> dict:
         result["status"] = response.status_code
         response.raise_for_status()
         text = html_to_text(response.text)
+
+        # A JS app returns a near-empty shell to a plain fetch. Re-fetch
+        # through a real browser before giving up on the page.
+        if len(text) < MIN_USEFUL_CHARS:
+            print(f"[knowledge] {source['slug']:<22} shell ({len(text)} chars) -- retrying with browser")
+            rendered = render_with_browser(source["url"])
+            if rendered:
+                text = html_to_text(rendered)
+                result["rendered"] = True
+
         result["chars"] = len(text)
 
         lowered = text.lower()
         found = [word for word in source["expect"] if word.lower() in lowered]
+        via = " (browser-rendered)" if result.get("rendered") else ""
         if len(text) < MIN_USEFUL_CHARS:
-            result["note"] = f"only {len(text)} chars -- looks like an empty shell, not saved"
+            result["note"] = f"only {len(text)} chars{via} -- looks like an empty shell, not saved"
         elif not found:
-            result["note"] = f"none of the expected words {source['expect']} present -- not saved"
+            result["note"] = f"none of the expected words {source['expect']} present{via} -- not saved"
         else:
             OFFICIAL_DIR.mkdir(parents=True, exist_ok=True)
             path = OFFICIAL_DIR / f"{source['slug']}.md"
@@ -145,7 +183,7 @@ def fetch_official(source: dict) -> dict:
             )
             path.write_text(header + text + "\n", encoding="utf-8")
             result["ok"] = True
-            result["note"] = f"saved {len(text)} chars, matched {found}"
+            result["note"] = f"saved {len(text)} chars{via}, matched {found}"
     except Exception as exc:  # noqa: BLE001 -- one dead source shouldn't sink the run
         result["note"] = f"failed: {exc}"
     print(f"[knowledge] {source['slug']:<22} {result['note']}")

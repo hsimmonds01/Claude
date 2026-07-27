@@ -1,1 +1,4 @@
 requests>=2.31.0
+# Only used by knowledge.py, to render the JavaScript-only FPL help pages
+# that a plain fetch returns as an empty shell.
+playwright>=1.40.0

@@ -55,12 +55,19 @@ jobs:
         working-directory: fpl-agent
         run: python snapshot.py --summary
 
-      # Skippable because it is by far the slowest step and past seasons
-      # don't change -- a routine snapshot refresh doesn't need it.
+      # Manual-only: by far the slowest step (~560 throttled requests), and
+      # past seasons don't change, so routine pushes shouldn't refetch it.
+      # Once the season starts this wants running weekly for the per-gameweek
+      # rows, which the agent's own schedule will handle.
       - name: Fetch per-player history
-        if: ${{ github.event_name == 'push' || inputs.include_history }}
+        if: ${{ inputs.include_history }}
         working-directory: fpl-agent
         run: python history.py
+
+      # knowledge.py falls back to a real browser for the FPL help pages,
+      # which are JavaScript-only and return an empty shell to a plain fetch.
+      - name: Install Chromium for browser rendering
+        run: python -m playwright install --with-deps chromium
 
       - name: Build the knowledge base
         working-directory: fpl-agent
