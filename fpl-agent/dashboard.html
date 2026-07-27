@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FPL Agent</title>
+<style>
+  :root{
+    --pl-purple:#37003c; --pl-purple-2:#2b002f; --pl-green:#00ff87; --pl-cyan:#04f5ff;
+    --pitch-1:#02753a; --pitch-2:#04a14f;
+    --ink:#1a1a1a; --muted:#6b7280; --line:#e5e7eb; --bg:#f4f4f6; --card:#fff;
+  }
+  @media (prefers-color-scheme:dark){
+    :root{ --ink:#f3f4f6; --muted:#9ca3af; --line:#374151; --bg:#14101a; --card:#1f1a26; }
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+       font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif}
+  .wrap{max-width:900px;margin:0 auto;padding:0 0 40px}
+  header{background:linear-gradient(135deg,var(--pl-purple),var(--pl-purple-2));color:#fff;padding:18px 16px}
+  .title{font-size:20px;font-weight:800;letter-spacing:-.2px}
+  .sub{font-size:12px;color:#c9b7d4;margin-top:3px}
+  .stats{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap}
+  .stat{background:rgba(255,255,255,.1);border-radius:10px;padding:8px 12px;flex:1;min-width:88px}
+  .stat b{display:block;font-size:17px;color:var(--pl-green)}
+  .stat span{font-size:10px;text-transform:uppercase;letter-spacing:.5px;color:#c9b7d4}
+
+  .pitch{background:repeating-linear-gradient(0deg,var(--pitch-1) 0 34px,var(--pitch-2) 34px 68px);
+         padding:16px 8px 22px;position:relative}
+  .pitch::before{content:"";position:absolute;left:50%;top:8px;transform:translateX(-50%);
+                 width:34%;height:52px;border:2px solid rgba(255,255,255,.35);border-top:none}
+  .row{display:flex;justify-content:center;gap:6px;margin:10px 0;flex-wrap:wrap}
+  .player{width:88px;background:var(--card);border-radius:8px;overflow:hidden;cursor:pointer;
+          box-shadow:0 2px 5px rgba(0,0,0,.28);transition:transform .12s;border:none;padding:0;
+          font-family:inherit;text-align:center;display:block}
+  .player:hover,.player:focus-visible{transform:translateY(-3px);outline:2px solid var(--pl-cyan)}
+  .shirt{height:34px;background:linear-gradient(160deg,var(--pl-purple),#5a1263);position:relative}
+  .shirt.gk{background:linear-gradient(160deg,#0b7a3f,#0f9d52)}
+  .badge{position:absolute;top:2px;right:3px;background:var(--pl-green);color:#000;font-size:9px;
+         font-weight:800;border-radius:3px;padding:0 3px}
+  .pname{font-size:11px;font-weight:700;padding:3px 2px 1px;white-space:nowrap;overflow:hidden;
+         text-overflow:ellipsis;color:var(--ink)}
+  .pmeta{font-size:10px;color:#fff;background:var(--pl-purple);padding:2px 0 3px}
+  .flagdot{position:absolute;top:2px;left:3px;width:8px;height:8px;border-radius:50%;background:#dc2626}
+
+  .bench{background:rgba(0,0,0,.22);padding:8px 6px 12px}
+  .bench h3{color:#fff;font-size:10px;letter-spacing:1px;text-transform:uppercase;
+            text-align:center;margin:2px 0 8px;opacity:.85}
+
+  section{padding:0 16px}
+  h2{font-size:12px;text-transform:uppercase;letter-spacing:.7px;color:var(--muted);margin:22px 0 8px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin-bottom:10px}
+  .tr{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:9px 0;
+      border-top:1px solid var(--line)}
+  .tr:first-child{border-top:none}
+  .tr .who{font-size:14px;font-weight:600}
+  .tr .why{font-size:12px;color:var(--muted);margin-top:2px}
+  .gain{font-size:14px;font-weight:800;white-space:nowrap}
+  .up{color:#0b8a45}.down{color:#b91c1c}
+  .pill{display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;
+        border-radius:999px;padding:2px 8px;margin-right:5px}
+  .high{background:#fee2e2;color:#b91c1c}.medium{background:#fef3c7;color:#b45309}
+  .low{background:#dbeafe;color:#1d4ed8}
+  .muted{color:var(--muted);font-size:12px}
+
+  dialog{border:none;border-radius:14px;padding:0;max-width:460px;width:92%;background:var(--card);
+         color:var(--ink)}
+  dialog::backdrop{background:rgba(0,0,0,.55)}
+  .dhead{background:var(--pl-purple);color:#fff;padding:14px 16px}
+  .dbody{padding:6px 16px 16px;max-height:62vh;overflow:auto}
+  .close{position:absolute;top:10px;right:12px;background:none;border:none;color:#fff;font-size:20px;
+         cursor:pointer;line-height:1}
+  textarea{width:100%;border:1px solid var(--line);border-radius:8px;padding:10px;font-family:inherit;
+           font-size:14px;background:var(--bg);color:var(--ink);resize:vertical}
+  button.action{background:var(--pl-purple);color:#fff;border:none;border-radius:8px;padding:10px 16px;
+                font-weight:700;cursor:pointer;font-size:14px}
+  button.action:disabled{opacity:.5;cursor:default}
+  input[type=password]{width:100%;padding:9px;border:1px solid var(--line);border-radius:8px;
+                       background:var(--bg);color:var(--ink);font-size:13px}
+  .answer{white-space:pre-wrap;font-size:14px;line-height:1.5;margin-top:12px;padding-top:12px;
+          border-top:1px solid var(--line)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="title">FPL Agent</div>
+    <div class="sub" id="sub">loading…</div>
+    <div class="stats" id="stats"></div>
+  </header>
+
+  <div class="pitch" id="pitch"></div>
+  <div class="bench"><h3>Substitutes</h3><div class="row" id="benchRow"></div></div>
+
+  <section>
+    <h2>Recommended transfers</h2>
+    <div class="card" id="transfers"></div>
+
+    <h2>News the numbers can't see</h2>
+    <div class="card" id="news"></div>
+
+    <h2>Template gap</h2>
+    <div class="card" id="gap"></div>
+
+    <h2>Ask the agent</h2>
+    <div class="card">
+      <div id="keyBox">
+        <div class="muted" style="margin-bottom:8px">
+          Paste a Gemini API key to enable questions. It is stored only in this browser
+          (localStorage) and never sent anywhere except Google. This page is public, so the
+          key is deliberately not built into it.
+        </div>
+        <input type="password" id="key" placeholder="Gemini API key" autocomplete="off">
+        <div style="margin-top:8px"><button class="action" id="saveKey">Save key</button></div>
+      </div>
+      <div id="askBox" hidden>
+        <textarea id="q" rows="3" placeholder="e.g. Is it worth taking a hit to get Haaland in?"></textarea>
+        <div style="margin-top:8px;display:flex;gap:8px;align-items:center">
+          <button class="action" id="ask">Ask</button>
+          <button class="action" id="forgetKey" style="background:#6b7280">Forget key</button>
+        </div>
+        <div class="answer" id="answer" hidden></div>
+      </div>
+    </div>
+    <div class="muted" id="stamp" style="margin-top:18px"></div>
+  </section>
+</div>
+
+<dialog id="dlg">
+  <div class="dhead">
+    <button class="close" id="closeDlg" aria-label="Close">&times;</button>
+    <div id="dTitle" style="font-size:16px;font-weight:800"></div>
+    <div id="dMeta" style="font-size:12px;color:#c9b7d4;margin-top:3px"></div>
+  </div>
+  <div class="dbody" id="dBody"></div>
+</dialog>
+
+<script>
+const DATA_URL = "data/dashboard.json";
+let DATA = null;
+
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c =>
+  ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+
+function shirt(p){
+  const gk = p.position === "GKP" ? " gk" : "";
+  const cap = p.role === "captain" ? '<span class="badge">C</span>' : "";
+  const flagged = (DATA.news || []).some(n => n.player === p.name);
+  const dot = flagged ? '<span class="flagdot" title="news flag"></span>' : "";
+  return `<button class="player" data-id="${esc(p.id)}">
+    <div class="shirt${gk}">${cap}${dot}</div>
+    <div class="pname">${esc(p.name)}</div>
+    <div class="pmeta">${esc(p.team)} · ${p.xp.toFixed(1)}</div>
+  </button>`;
+}
+
+function render(){
+  const d = DATA;
+  document.getElementById("sub").textContent =
+    `Gameweek ${d.next_event ?? "?"} · projections for GW${d.horizon?.from}–${d.horizon?.to}`;
+  document.getElementById("stats").innerHTML = `
+    <div class="stat"><b>${d.projected_xi.toFixed(0)}</b><span>projected XI</span></div>
+    <div class="stat"><b>£${d.bank.toFixed(1)}m</b><span>bank</span></div>
+    <div class="stat"><b>${d.free_transfers}</b><span>free transfers</span></div>
+    <div class="stat"><b>${d.risk.toFixed(2)}</b><span>risk setting</span></div>`;
+
+  const starters = d.squad.filter(p => p.role !== "bench");
+  const byPos = pos => starters.filter(p => p.position === pos);
+  document.getElementById("pitch").innerHTML = ["GKP","DEF","MID","FWD"]
+    .map(pos => `<div class="row">${byPos(pos).map(shirt).join("")}</div>`).join("");
+  document.getElementById("benchRow").innerHTML = d.squad
+    .filter(p => p.role === "bench")
+    .sort((a,b) => (a.bench_order ?? 9) - (b.bench_order ?? 9))
+    .map(shirt).join("");
+
+  document.getElementById("transfers").innerHTML = d.transfers.length
+    ? d.transfers.slice(0,5).map(t => `
+      <div class="tr"><div>
+        <div class="who">${esc(t.out.name)} → ${esc(t.in.name)}</div>
+        <div class="why">£${t.in.price.toFixed(1)}m · ${t.in.owned.toFixed(0)}% owned ·
+          bank after £${t.bank_after.toFixed(1)}m</div>
+      </div><div class="gain ${t.gain>0?"up":"down"}">${t.gain>0?"+":""}${t.gain.toFixed(1)}</div></div>`).join("")
+    : '<div class="muted">No transfer beats rolling it this week.</div>';
+
+  document.getElementById("news").innerHTML = (d.news || []).length
+    ? d.news.map(n => `<div class="tr"><div>
+        <div class="who"><span class="pill ${esc(n.severity)}">${esc(n.severity)}</span>${esc(n.player)}</div>
+        <div class="why">${esc(n.concern)}
+          ${n.source ? `<a href="${esc(n.source)}" target="_blank" rel="noopener">source</a>` : ""}</div>
+      </div></div>`).join("")
+    : '<div class="muted">Nothing flagged on your players.</div>';
+
+  document.getElementById("gap").innerHTML = (d.template_gap || []).length
+    ? d.template_gap.map(p => `<div class="tr"><div>
+        <div class="who">${esc(p.name)} <span class="muted">${esc(p.team)}</span></div>
+        <div class="why">${p.owned.toFixed(0)}% owned · £${p.price.toFixed(1)}m</div>
+      </div><div class="gain down">−${p.exposure.toFixed(1)}</div></div>`).join("")
+      + `<div class="muted" style="margin-top:8px">Exposure is what you concede to the average
+         rival by not owning him.</div>`
+    : '<div class="muted">You own the template.</div>';
+
+  document.getElementById("stamp").textContent =
+    "Generated " + new Date(d.generated_at).toLocaleString() +
+    " · numbers from the model, never from a language model.";
+}
+
+// ── player dialog ──────────────────────────────────────────────────
+const dlg = document.getElementById("dlg");
+document.getElementById("closeDlg").onclick = () => dlg.close();
+
+document.addEventListener("click", e => {
+  const btn = e.target.closest(".player");
+  if (!btn) return;
+  const p = DATA.squad.find(x => String(x.id) === btn.dataset.id);
+  if (!p) return;
+  document.getElementById("dTitle").textContent = p.name;
+  document.getElementById("dMeta").textContent =
+    `${p.team} · ${p.position} · £${p.price.toFixed(1)}m · ${p.owned.toFixed(0)}% owned · ` +
+    `${p.xp.toFixed(1)} projected`;
+
+  const flags = (DATA.news || []).filter(n => n.player === p.name);
+  const alts = p.alternatives || [];
+  document.getElementById("dBody").innerHTML = `
+    <p class="muted" style="margin:12px 0 4px"><b>Minutes:</b> ${esc(p.minutes_reason)}</p>
+    ${p.override ? `<p class="muted"><b>Your note:</b> ${esc(p.override)}</p>` : ""}
+    ${p.moved_club ? '<p class="muted">Recently joined a new club — context only, projection unchanged.</p>' : ""}
+    ${flags.map(f => `<p class="muted"><span class="pill ${esc(f.severity)}">${esc(f.severity)}</span>${esc(f.concern)}</p>`).join("")}
+    <h2 style="margin-top:16px">Swap him for</h2>
+    ${alts.length ? alts.map(a => `
+      <div class="tr"><div>
+        <div class="who">${esc(a.name)} <span class="muted">${esc(a.team)}</span></div>
+        <div class="why">£${a.price.toFixed(1)}m · ${a.owned.toFixed(0)}% owned ·
+          bank after £${a.bank_after.toFixed(1)}m</div>
+      </div><div class="gain ${a.gain>0?"up":"down"}">${a.gain>0?"+":""}${a.gain.toFixed(1)}</div></div>`).join("")
+      : '<div class="muted">Nothing affordable improves this position.</div>'}
+    <p class="muted" style="margin-top:12px">Gain is the change to your projected XI over the
+    horizon, respecting your bank, position and the 3-per-club limit.</p>`;
+  dlg.showModal();
+});
+
+// ── ask the agent ──────────────────────────────────────────────────
+// The key lives in this browser only. The page is public, so embedding a key
+// would publish it to anyone who opened the dashboard.
+const KEY_NAME = "fpl_agent_gemini_key";
+function keyState(){
+  const has = !!localStorage.getItem(KEY_NAME);
+  document.getElementById("keyBox").hidden = has;
+  document.getElementById("askBox").hidden = !has;
+}
+document.getElementById("saveKey").onclick = () => {
+  const v = document.getElementById("key").value.trim();
+  if (v) { localStorage.setItem(KEY_NAME, v); document.getElementById("key").value=""; keyState(); }
+};
+document.getElementById("forgetKey").onclick = () => { localStorage.removeItem(KEY_NAME); keyState(); };
+
+document.getElementById("ask").onclick = async () => {
+  const key = localStorage.getItem(KEY_NAME);
+  const question = document.getElementById("q").value.trim();
+  const answer = document.getElementById("answer");
+  if (!key || !question) return;
+  const button = document.getElementById("ask");
+  button.disabled = true; answer.hidden = false; answer.textContent = "Thinking…";
+
+  // The model is given our numbers and told to reason from them only, so an
+  // answer here can't contradict the email.
+  const context = {
+    squad: DATA.squad.map(p => ({name:p.name,team:p.team,pos:p.position,price:p.price,
+      owned:p.owned,projected:p.xp,role:p.role})),
+    bank: DATA.bank, free_transfers: DATA.free_transfers, risk: DATA.risk,
+    captain: DATA.captain, transfers: DATA.transfers.slice(0,5),
+    template_gap: DATA.template_gap, news: DATA.news
+  };
+  const prompt =
+    "You are an FPL assistant. Answer using ONLY the JSON below, which comes from a " +
+    "calibrated expected-points model. Never invent a projection, price or ownership " +
+    "figure; if the data doesn't answer the question, say so. Be concise and concrete.\n\n" +
+    "DATA:\n" + JSON.stringify(context) + "\n\nQUESTION: " + question;
+
+  try {
+    const res = await fetch(
+      "https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent?key="
+        + encodeURIComponent(key),
+      {method:"POST",headers:{"Content-Type":"application/json"},
+       body:JSON.stringify({contents:[{parts:[{text:prompt}]}]})});
+    if (!res.ok) throw new Error("HTTP " + res.status + " — " + (await res.text()).slice(0,200));
+    const json = await res.json();
+    answer.textContent = (json.candidates?.[0]?.content?.parts || [])
+      .map(p => p.text || "").join("") || "No answer returned.";
+  } catch (err) {
+    answer.textContent = "Failed: " + err.message;
+  } finally { button.disabled = false; }
+};
+
+fetch(DATA_URL + "?t=" + Date.now())
+  .then(r => { if(!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
+  .then(d => { DATA = d; render(); keyState(); })
+  .catch(err => {
+    document.getElementById("sub").textContent = "Could not load data: " + err.message;
+  });
+</script>
+</body>
+</html>

@@ -78,6 +78,12 @@ jobs:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: python news.py
 
+      # Regenerated every run, so the dashboard can never show different
+      # numbers from the email -- both read the same optimiser output.
+      - name: Rebuild dashboard data
+        working-directory: fpl-agent
+        run: python dashboard_data.py
+
       - name: Decide and send
         working-directory: fpl-agent
         env:
