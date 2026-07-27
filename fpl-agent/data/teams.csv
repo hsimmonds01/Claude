@@ -1,0 +1,21 @@
+id,name,short_name,strength,strength_overall_home,strength_overall_away,strength_attack_home,strength_attack_away,strength_defence_home,strength_defence_away
+1,Arsenal,ARS,,4,5,0,0,0,0
+2,Aston Villa,AVL,,3,4,0,0,0,0
+3,Bournemouth,BOU,,3,3,0,0,0,0
+4,Brentford,BRE,,3,3,0,0,0,0
+5,Brighton,BHA,,2,3,0,0,0,0
+6,Chelsea,CHE,,4,4,0,0,0,0
+7,Coventry City,COV,,2,2,0,0,0,0
+8,Crystal Palace,CRY,,3,3,0,0,0,0
+9,Everton,EVE,,3,3,0,0,0,0
+10,Fulham,FUL,,2,3,0,0,0,0
+11,Hull City,HUL,,2,2,0,0,0,0
+12,Ipswich Town,IPS,,2,2,0,0,0,0
+13,Leeds,LEE,,2,3,0,0,0,0
+14,Liverpool,LIV,,4,4,0,0,0,0
+15,Man City,MCI,,4,5,0,0,0,0
+16,Man Utd,MUN,,4,4,0,0,0,0
+17,Newcastle,NEW,,2,3,0,0,0,0
+18,Nott'm Forest,NFO,,3,3,0,0,0,0
+19,Spurs,TOT,,3,3,0,0,0,0
+20,Sunderland,SUN,,2,3,0,0,0,0
