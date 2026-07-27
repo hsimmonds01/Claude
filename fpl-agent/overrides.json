@@ -1,0 +1,29 @@
+{
+  "_README": [
+    "Human judgement the raw data cannot see. The model reads this file and",
+    "applies it on top of the statistical projection, and every applied",
+    "override is reported in the output so a projection is never quietly",
+    "adjusted without saying so.",
+    "",
+    "Keys are FPL web_name values (add \"team\" to disambiguate duplicates like",
+    "the two Hughes). Fields, all optional:",
+    "  start_prob      0-1, replaces the modelled probability of starting",
+    "  minutes_note    why -- shown in the email whenever the player appears",
+    "  system_fit_risk true = new club/role, treat attacking rates as less",
+    "                  reliable and widen the uncertainty band",
+    "  avoid           true = never recommend transferring this player IN",
+    "  note            free text carried through to the email"
+  ],
+
+  "Mosquera": {
+    "start_prob": 0.85,
+    "minutes_note": "Saliba out injured with no return date; expected to start at CB. Last season's 986 minutes describe a rotation role that no longer applies.",
+    "note": "Manager judgement, GW1: keep. Minutes history understates his current role."
+  },
+
+  "Rogers": {
+    "system_fit_risk": true,
+    "avoid": true,
+    "note": "Price implies a starter, but he has moved club and how he fits the system is unknown. Not worth the template pull until we see him play."
+  }
+}

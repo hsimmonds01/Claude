@@ -1,0 +1,102 @@
+name: FPL data snapshot
+
+# Fetches the official FPL API and commits a trimmed snapshot into
+# fpl-agent/data/.
+#
+# Why this exists as its own workflow: the Claude development sandbox is
+# blocked from reaching fantasy.premierleague.com, but Actions runners are
+# not. Running this here and committing the result is what gives development
+# sessions real prices, ownership and underlying stats to reason about.
+#
+# Triggered on push while the agent is being built (so a change to the
+# fetcher immediately produces fresh data), and manually thereafter.
+on:
+  # Daily, so price history accumulates. Price movement can only be measured
+  # BETWEEN observations, so the gap between runs is the resolution of the
+  # price watcher -- missing days can't be backfilled later.
+  # GitHub's scheduler is best-effort and often late (see CLAUDE.md); that's
+  # harmless here, since every run is an independent snapshot rather than
+  # something tied to a deadline window.
+  schedule:
+    - cron: "40 5 * * *"
+  push:
+    branches:
+      - claude/fantasy-football-agent-plan-fg86nk
+    paths:
+      - "fpl-agent/snapshot.py"
+      - "fpl-agent/history.py"
+      - "fpl-agent/knowledge.py"
+      - "fpl-agent/requirements.txt"
+      - ".github/workflows/fpl-snapshot.yml"
+  workflow_dispatch:
+    inputs:
+      include_history:
+        description: "Also refetch per-player history (~560 requests, a few minutes)"
+        type: boolean
+        default: true
+
+permissions:
+  contents: write
+
+# Shared with every other scheduled project in this repo -- see CLAUDE.md.
+# This workflow commits to its own feature branch rather than main, but it
+# joins the group anyway so it can never be the odd one out if that changes.
+concurrency:
+  group: main-git-writer
+  cancel-in-progress: false
+
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        working-directory: fpl-agent
+        run: pip install -r requirements.txt
+
+      - name: Fetch FPL snapshot
+        working-directory: fpl-agent
+        run: python snapshot.py --summary
+
+      # Manual-only: by far the slowest step (~560 throttled requests), and
+      # past seasons don't change, so routine pushes shouldn't refetch it.
+      # Once the season starts this wants running weekly for the per-gameweek
+      # rows, which the agent's own schedule will handle.
+      - name: Fetch per-player history
+        if: ${{ inputs.include_history }}
+        working-directory: fpl-agent
+        run: python history.py
+
+      # knowledge.py falls back to a real browser for the FPL help pages,
+      # which are JavaScript-only and return an empty shell to a plain fetch.
+      - name: Install Chromium for browser rendering
+        run: python -m playwright install --with-deps chromium
+
+      # Appends one row per player per run. Price movement can only be
+      # measured between observations, so this needs to accumulate from now
+      # rather than being switched on when the season starts.
+      - name: Record price history
+        working-directory: fpl-agent
+        run: python price.py
+
+      - name: Build the knowledge base
+        working-directory: fpl-agent
+        run: python knowledge.py
+
+      - name: Commit the snapshot (if changed)
+        run: |
+          git add fpl-agent/data/ fpl-agent/knowledge/ || true
+          if ! git diff --cached --quiet; then
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git commit -m "Update FPL data snapshot"
+            git pull --rebase origin "${GITHUB_REF_NAME}" || true
+            git push
+          else
+            echo "Snapshot unchanged, nothing to commit."
+          fi

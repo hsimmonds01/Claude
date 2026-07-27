@@ -1,0 +1,8 @@
+requests>=2.31.0
+# Only used by knowledge.py, to render the JavaScript-only FPL help pages
+# that a plain fetch returns as an empty shell.
+playwright>=1.40.0
+# Integer programming for squad selection. Greedy picking reliably strands
+# money in the wrong places; this solves the budget/club/formation
+# constraints exactly.
+pulp>=2.7.0

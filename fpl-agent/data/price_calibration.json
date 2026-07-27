@@ -1,0 +1,69 @@
+{
+  "calibrated_at": "2026-07-27T12:19:46.731895+00:00",
+  "seasons": [
+    "2023-24",
+    "2024-25",
+    "2025-26"
+  ],
+  "observations": 73341,
+  "window_days": 7.0,
+  "bands": [
+    {
+      "low": -0.6,
+      "high": -0.3,
+      "samples": 455,
+      "p_rise": 0.0044,
+      "p_fall": 0.4681
+    },
+    {
+      "low": -0.3,
+      "high": -0.15,
+      "samples": 2800,
+      "p_rise": 0.0025,
+      "p_fall": 0.2821
+    },
+    {
+      "low": -0.15,
+      "high": -0.05,
+      "samples": 11401,
+      "p_rise": 0.0051,
+      "p_fall": 0.1351
+    },
+    {
+      "low": -0.05,
+      "high": 0.05,
+      "samples": 49692,
+      "p_rise": 0.0064,
+      "p_fall": 0.0282
+    },
+    {
+      "low": 0.05,
+      "high": 0.15,
+      "samples": 4618,
+      "p_rise": 0.0942,
+      "p_fall": 0.0238
+    },
+    {
+      "low": 0.15,
+      "high": 0.3,
+      "samples": 2105,
+      "p_rise": 0.1663,
+      "p_fall": 0.0219
+    },
+    {
+      "low": 0.3,
+      "high": 0.6,
+      "samples": 1211,
+      "p_rise": 0.2106,
+      "p_fall": 0.0198
+    },
+    {
+      "low": 0.6,
+      "high": 99.0,
+      "samples": 1055,
+      "p_rise": 0.2408,
+      "p_fall": 0.0209
+    }
+  ],
+  "_note": "P(price change) by net-transfers-per-owner over one gameweek. Fitted by `python price.py --calibrate` from the gameweek archive. Falls trigger more easily than rises -- that asymmetry is in the data, not an artefact."
+}
