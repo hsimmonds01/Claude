@@ -219,6 +219,17 @@ silently drops one.
 
 ## D. Smaller notes
 
+- **Local-first build has one sharp edge: her repo must be created empty.**
+  PLAN.md §8 (build locally with no remote, point it at her GitHub at the
+  end) is the right call. But the default "create a repository" flow on
+  GitHub has **Add a README file** sitting there ready to tick, and ticking
+  it puts a commit on GitHub's side that the local history doesn't share.
+  The push then bounces with *"Updates were rejected because the remote
+  contains work that you do not have locally"* — mid-session, in front of
+  her, and the fix is a merge rather than a click. `SETUP.md` step 2 now
+  calls this out explicitly. (Hit exactly this failure while committing this
+  review, which is what prompted the note.)
+
 - **IMAP alert parsing is thinner than it sounds.** LinkedIn and Indeed alert
   emails wrap every link in tracking redirects, and the useful metadata
   (salary, full description) is on the far side of a page that LinkedIn will

@@ -1,5 +1,15 @@
 # Setup session — click by click
 
+> **When this happens: AFTER the agent is built, not before.** Per PLAN.md §8,
+> the whole thing gets built in a local folder with no remote first. This
+> session is the go-live — at the end of it, a finished, working agent gets
+> pushed into her brand-new repo as its first commit and starts running.
+>
+> That means you arrive with something she can poke at and react to, rather
+> than an empty checklist. It also means **Step 2 matters more than it looks**
+> — the repo has to be created completely empty or the built agent won't push
+> into it.
+
 Everything below gets created **in her name, on her devices, logged into her
 accounts.** You're there to read the steps out and troubleshoot, not to own
 anything. If you find yourself typing your own password, stop — something has
@@ -10,6 +20,16 @@ token step was added, and that one is fiddly.
 
 **What you need in front of you:** her phone, and a laptop. Most of this is
 far easier on a laptop; only steps 3 and 7 need the phone.
+
+**Needed before the session even starts** (ask her for these in advance —
+they're a conversation, not an account):
+
+- Her **CV**
+- Her **target company list**, even roughly
+- Her **`profile.md` answers** — or at least a chat through them
+
+Without those the build has nothing real to score against, and the session
+turns back into an empty checklist.
 
 ---
 
@@ -66,21 +86,30 @@ and her CV is going to live in this account.
 
 ---
 
-## Step 2 — Create the repo · 3 min
+## Step 2 — Create the repo, completely empty · 3 min
 
-The "repo" is the folder on GitHub that holds the whole thing.
+The "repo" is the folder on GitHub that holds the whole thing. The built
+agent gets pushed into it later in this session.
 
 1. Top right **+** icon → **New repository**.
 2. **Repository name:** `job-agent` (or anything — no spaces).
 3. **Description:** leave blank.
 4. **Select Private.** ← This one matters. Her CV goes in here. Do not
    leave it on Public.
-5. Tick **Add a README file**.
+5. **Leave "Add a README file" UNTICKED.** Leave the .gitignore and licence
+   dropdowns on **None**. The repo must be created with nothing in it at all.
 6. Click **Create repository**.
+7. You'll land on a page of setup instructions rather than a file list. That's
+   the right screen — it means the repo is genuinely empty.
+
+> **Why this matters:** the agent is already built, with its own history, in a
+> folder on the laptop. Pushing it in only works if GitHub's side is empty. If
+> GitHub has even one commit of its own (which ticking "Add a README" creates),
+> the push gets rejected as "updates were rejected" and it turns into a
+> merge job in the middle of the session. Easy to avoid, annoying to undo.
 
 Write the address down in the scratch note — it'll look like
-`github.com/hername/job-agent`. I need the exact username and repo name to
-build against.
+`github.com/hername/job-agent`.
 
 ---
 
@@ -310,8 +339,9 @@ entirely. cron-job.org is the dependable one.
    The word `Bearer` and one space go **before** the token.
 8. **Create** / **Save**.
 
-It will fail on its first test run. That's expected — the workflow it's
-trying to wake doesn't exist yet. We'll test it properly once there's code.
+Don't press its "test run" button yet — the code isn't pushed until Step 13.
+If you do, it'll return a 404 and that's meaningless at this point rather
+than a real failure. Step 13 tests it properly.
 
 ---
 
@@ -347,29 +377,57 @@ needed again it gets regenerated at source, not looked up.
 
 ---
 
-## Done — what to tell me
+## Step 13 — Push the agent in and watch it run · 10 min
 
-Send me these four things and I'll build against them:
+This is the moment it becomes hers. My part; she watches.
 
-1. The repo address — `github.com/username/job-agent`
-2. Which steps worked and which didn't (especially **7c**, the app password)
-3. Her **CV** (PDF is fine)
-4. Her **target company list** — even five names is enough to start. Company
-   name plus a link to their careers page. This feeds the best source in the
-   system, so rough and quick beats perfect and later.
+1. On the laptop, in the built folder, point it at her empty repo and push.
+   The whole build lands as her repo's first commit — nothing of mine
+   attached to it, no transfer, no key rotation.
+2. Refresh her repo page. Files appear.
+3. **Actions** tab → she should see the workflow listed.
+4. Go back to cron-job.org and hit **Test run** on the job now. Within a few
+   seconds the Actions tab should show a run starting.
+5. Watch it through. First real run:
+   - a test push notification should land on her phone
+   - a digest should arrive at her personal email
+6. **Have her send one thing from her own phone before you leave:** open the
+   GitHub app, find `feedback.md`, add a line, commit it. That's the loop
+   that makes the whole thing work, and it's worth her having done it once
+   with someone next to her rather than discovering it alone in a fortnight.
 
-And she should fill in `profile.md` whenever suits — it's the one that makes
-the scoring good, and it's easier to write after she's seen a first batch of
-results than from a blank page.
+If the digest lands in spam, mark it **not spam** once — it's coming from her
+own Gmail so it shouldn't, but worth checking on the first one.
+
+---
+
+## After the session — what to send me
+
+1. Which steps worked and which didn't, especially **7c** (the app password)
+   and **10** (the token permission).
+2. Anything where the button wasn't called what I said it was called.
+3. Her first reaction to the scoring after a day or two — "too generous",
+   "missing obvious ones", "keeps showing agencies". That's the tuning pass,
+   and it's much better information after real results than before.
+
+`profile.md` is easier to fill in once she's seen a batch of real results
+than from a blank page, so don't push for it to be perfect on day one.
 
 ---
 
 ## Checklist
 
+Have before starting:
+
+- [ ] Her CV
+- [ ] Target company list
+- [ ] `profile.md` answers, or a conversation through them
+- [ ] The agent built and working locally
+
 Accounts made:
 
 - [ ] GitHub, personal email, 2FA on, recovery codes saved
-- [ ] Repo created, **Private**
+- [ ] Repo created, **Private**, and **completely empty** (no README)
 - [ ] Claude Pro on her phone
 - [ ] GitHub app on her phone
 - [ ] Adzuna
@@ -397,4 +455,9 @@ Also done:
 - [ ] GitHub token made, Actions = Read and write, repo-scoped
 - [ ] cron-job.org job created with POST, body and three headers
 - [ ] Token expiry date in her calendar
+- [ ] Build pushed to her repo, Actions tab shows the workflow
+- [ ] cron-job.org test run fired a real GitHub Actions run
+- [ ] Test push notification landed on her phone
+- [ ] Test digest landed in her personal email
+- [ ] **She** edited `feedback.md` from her phone once, herself
 - [ ] Scratch note deleted
