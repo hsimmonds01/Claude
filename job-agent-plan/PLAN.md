@@ -1,12 +1,21 @@
 # Job-search agent — plan and handover notes
 
-**Status: PLANNING ONLY. Nothing has been built.**
-Written 2026-07-27 in a phone session, committed here so it survives into a
-desktop session.
+> ## READ THIS FIRST — WHERE TO BUILD
+>
+> **If your working directory is the `hsimmonds01/Claude` repo, do not create
+> any project files here.** This document is planning only; the agent is not
+> built in this repo, ever.
+>
+> Build in a **separate local folder with `git init` and no remote** — see
+> section 8. It only gets pointed at a GitHub remote at the very end, and that
+> remote will be a private repo in *her* account, not mine.
+>
+> If you find yourself inside `hsimmonds01/Claude` and about to write code,
+> stop and tell me — I've started the session in the wrong folder.
 
-Note: this folder is a *planning document only*, living in `hsimmonds01/Claude`
-because that's where the planning session ran. **The agent itself must NOT be
-built in this repo** — see "Ownership" below.
+**Status: PLANNING ONLY. Nothing has been built.**
+Written 2026-07-27 in a phone session, committed to `hsimmonds01/Claude` purely
+so it survives into a desktop session.
 
 ---
 
