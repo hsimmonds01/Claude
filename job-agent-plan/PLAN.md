@@ -187,6 +187,29 @@ Also worth stating plainly, because it was a misconception at the start:
 timer. Phones are just the remote control. The thing that needed cutting was
 never a device, it was account dependency.
 
+**Build local-first, and don't wait for her accounts.** "Not in my repo" means
+the finished thing doesn't *live* in my repo — it does not mean waiting around.
+Build the whole agent in a plain local folder with `git init` and no remote.
+Full history, everything works normally, it just has no GitHub address yet.
+When she has an account: `git remote add origin <her repo>` and push, and the
+entire build lands as her repo's first commit with nothing of mine attached.
+
+Roughly 90% of the work needs nothing from her:
+
+- All code, the workflow file, the scoring prompt, the file templates, the
+  email layout, her repo's `CLAUDE.md` and README — no accounts needed.
+- **Company ATS feeds need no key at all** — fully public, testable today.
+- **ntfy needs no account** — invent a topic, install the app, test real push
+  notifications in five minutes.
+- Adzuna, Reed and Gemini keys are free and instant. Use throwaway ones of mine
+  for the build and never ship them.
+- Test the scoring with **my own CV and preferences** as stand-in data — I'll
+  know immediately whether the roles it picks are sensible.
+
+Only her CV, company list, profile answers, the alert-inbox Gmail and the final
+go-live actually need her — and the first three don't need her GitHub account,
+just a conversation.
+
 Fallback if it ever *is* built in my account first: GitHub Settings → General →
 Danger Zone → **Transfer ownership** → her username → she accepts by email.
 Repo-level Actions secrets travel with the repo, which is exactly why keys
@@ -195,7 +218,13 @@ minutes — but it means doing the key setup twice for no reason. Avoid.
 
 ---
 
-## 9. Setup session checklist (~45–60 min, sat with her, before building)
+## 9. Setup session checklist (~45–60 min, sat with her — AFTER the build)
+
+Deliberately at the end, not the start. Turning up with a working agent she can
+poke at beats turning up with an empty checklist: she gets to react to
+something real ("that scoring's too generous", "I'd never want that job")
+before any of it is load-bearing.
+
 
 Everything created **in her name**. She is not a developer either — give
 click-by-click instructions naming exact buttons.
@@ -229,6 +258,9 @@ multiple individual hours rather than needing four jobs.
 
 ## 11. Suggested build order
 
+0. `mkdir job-agent && git init` in a local folder with **no remote**. Build
+   everything here first (see section 8). Only point it at her GitHub at the
+   very end.
 1. Repo scaffold + GitHub Actions workflow + cron-job.org trigger, end to end
    with a stub that just sends "hello" — proves the plumbing before any logic.
 2. Adzuna + Reed pulls, `seen.json` dedupe.
