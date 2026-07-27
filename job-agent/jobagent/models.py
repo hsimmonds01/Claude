@@ -38,6 +38,23 @@ _NON_ALNUM = re.compile(r"[^a-z0-9]+")
 # visible annoyance. Prefer the visible one.
 
 
+# Only these schemes are ever rendered as a clickable link. Job data is
+# third-party text -- an advert or an alert email can carry any URL it likes,
+# and "javascript:" or "data:" in an href is a live scripting payload in some
+# mail clients. Anything else is dropped rather than sanitised.
+_SAFE_URL_SCHEMES = ("https://", "http://")
+
+
+def is_safe_link(url: str) -> bool:
+    """True when a URL is safe to put in an href or a notification tap target."""
+    candidate = (url or "").strip()
+    if not candidate.casefold().startswith(_SAFE_URL_SCHEMES):
+        return False
+    # A control character can split an HTTP header or an email header, so a
+    # URL carrying one never gets used.
+    return not any(ord(char) < 32 or ord(char) == 127 for char in candidate)
+
+
 def _normalise_url(raw: str) -> str:
     """Strip tracking noise so one link doesn't look like several.
 
@@ -106,12 +123,15 @@ class Job:
 
     @property
     def is_usable(self) -> bool:
-        """Enough substance to be worth scoring.
+        """Enough substance to be worth scoring, and safe to link to.
 
         A company name is *not* required -- see `fingerprint`. A title and a
-        working link are the minimum the AI needs to say something useful.
+        safe, working link are the minimum the AI needs to say something
+        useful. An unsafe URL disqualifies the job entirely rather than being
+        stripped: a job she cannot be given a link to is of no use to her, and
+        it is not worth carrying a half-usable record through the pipeline.
         """
-        return bool(self.title.strip() and self.url.strip())
+        return bool(self.title.strip()) and is_safe_link(self.url)
 
 
 # Source preference when the same role arrives from several places. A company's

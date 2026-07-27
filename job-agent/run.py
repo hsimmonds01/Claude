@@ -20,7 +20,7 @@ from datetime import date, datetime
 from pathlib import Path
 
 from jobagent import config as config_module
-from jobagent import scoring, state, steering
+from jobagent import redact, scoring, state, steering
 from jobagent.dedupe import SeenStore, split_new
 from jobagent.models import ScoredJob, merge
 from jobagent.notify import mail, push
@@ -94,10 +94,10 @@ def _notify(cfg, scored: list[ScoredJob], run_state: state.RunState, hour: int) 
 
     if not cfg.email_enabled or not cfg.is_digest_hour(hour):
         return
-    if run_state.digest_already_sent_today(today=today):
+    if run_state.digest_already_sent(hour, today=today):
         # cron-job.org is primary and GitHub's schedule is a backup, so two
         # triggers landing in one window is expected, not exceptional.
-        log.info("[email] a digest already went today; not sending another")
+        log.info("[email] the %02d:00 digest already went today; skipping", hour)
         return
 
     for_digest = sorted(scored, key=lambda job: job.score, reverse=True)[
@@ -120,7 +120,7 @@ def _notify(cfg, scored: list[ScoredJob], run_state: state.RunState, hour: int) 
         subject=subject,
         body_html=body,
     ):
-        run_state.record_digest(today=today)
+        run_state.record_digest(hour, today=today)
 
 
 def run(args) -> int:
@@ -221,7 +221,9 @@ def _tell_her_it_broke(reason: str) -> None:
             address=os.environ.get("GMAIL_ADDRESS", ""),
             app_password=os.environ.get("GMAIL_APP_PASSWORD", ""),
             to=os.environ.get("DIGEST_TO", ""),
-            reason=reason,
+            # A traceback can carry a request URL, and Adzuna's credentials
+            # live in the query string.
+            reason=redact.scrub(reason),
         )
     except Exception:  # noqa: BLE001 -- nothing useful left to do if this fails
         log.exception("could not send the failure email either")

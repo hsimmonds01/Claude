@@ -19,10 +19,25 @@ class ConfigError(ValueError):
 
 
 def _to_minutes(clock: str) -> int:
-    """'21:30' -> 1290. Tolerates a bare hour ('21') and stray whitespace."""
-    parts = clock.strip().split(":")
-    hours = int(parts[0] or 0)
-    minutes = int(parts[1]) if len(parts) > 1 and parts[1] else 0
+    """'21:30' -> 1290. Tolerates a bare hour ('21') and stray whitespace.
+
+    Raises ConfigError rather than ValueError so a typo like "9pm" reaches her
+    as a sentence instead of a traceback.
+    """
+    parts = str(clock).strip().split(":")
+    try:
+        hours = int(parts[0] or 0)
+        minutes = int(parts[1]) if len(parts) > 1 and parts[1] else 0
+    except ValueError:
+        raise ConfigError(
+            f"Quiet hours should look like \"21:30\" on a 24-hour clock, but "
+            f"one says {clock!r}. Use 21:30 rather than 9pm."
+        ) from None
+    if not (0 <= hours <= 23 and 0 <= minutes <= 59):
+        raise ConfigError(
+            f"Quiet hours {clock!r} isn't a real time. Use a 24-hour clock, "
+            "e.g. 21:30 for half past nine at night."
+        )
     return hours * 60 + minutes
 
 
@@ -96,6 +111,24 @@ def _get(mapping: dict, path: str, default):
     return node if node is not None else default
 
 
+def _int(value, label: str) -> int:
+    """Whole number from config, with an error she can act on.
+
+    A bare int() raises ValueError, and since ConfigError subclasses
+    ValueError but not the other way round, that escaped the friendly handler
+    and reached her as a traceback -- for something as ordinary as typing
+    "twelve" into a numeric field on a phone.
+    """
+    try:
+        return int(value)
+    except (TypeError, ValueError):
+        raise ConfigError(
+            f"'{label}' should be a plain number, but it says {value!r}. "
+            "Write it as digits with no quotes, units or commas — 12, not "
+            '"twelve" and not "12 roles".'
+        ) from None
+
+
 def _clean_list(values) -> tuple[str, ...]:
     """Strings from a YAML list, dropping blanks.
 
@@ -125,6 +158,21 @@ def _hours(values, label: str) -> tuple[int, ...]:
             )
         out.append(value)
     return tuple(sorted(set(out)))
+
+
+def _quiet_hours(raw: dict) -> QuietHours:
+    """Build and eagerly validate the quiet window.
+
+    Validated at load time rather than at first use, so a typo is reported on
+    the next run instead of lying dormant until the one evening it matters.
+    """
+    quiet = QuietHours(
+        start=str(_get(raw, "push.quiet_hours.start", "21:30")),
+        end=str(_get(raw, "push.quiet_hours.end", "07:30")),
+    )
+    _to_minutes(quiet.start)
+    _to_minutes(quiet.end)
+    return quiet
 
 
 def load(path: str | Path) -> Config:
@@ -157,8 +205,8 @@ def load(path: str | Path) -> Config:
             "(No email would ever be sent as things stand.)"
         )
 
-    min_score = int(_get(raw, "scoring.min_score_to_keep", 6))
-    push_threshold = int(_get(raw, "scoring.push_threshold", 8))
+    min_score = _int(_get(raw, "scoring.min_score_to_keep", 6), "min_score_to_keep")
+    push_threshold = _int(_get(raw, "scoring.push_threshold", 8), "push_threshold")
     if not 0 <= min_score <= 10 or not 0 <= push_threshold <= 10:
         raise ConfigError("Scores must be between 0 and 10.")
     if push_threshold < min_score:
@@ -189,30 +237,27 @@ def load(path: str | Path) -> Config:
         push_threshold=push_threshold,
         explain_scores=bool(_get(raw, "scoring.explain_scores", True)),
         push_enabled=bool(_get(raw, "push.enabled", True)),
-        push_max_per_day=int(_get(raw, "push.max_per_day", 2)),
+        push_max_per_day=_int(_get(raw, "push.max_per_day", 2), "push.max_per_day"),
         push_vague_wording=bool(_get(raw, "push.vague_wording", True)),
-        quiet_hours=QuietHours(
-            start=str(_get(raw, "push.quiet_hours.start", "21:30")),
-            end=str(_get(raw, "push.quiet_hours.end", "07:30")),
-        ),
+        quiet_hours=_quiet_hours(raw),
         email_enabled=bool(_get(raw, "email.enabled", True)),
         email_digest_hours=digest_hours,
-        email_max_roles=int(_get(raw, "email.max_roles_per_digest", 12)),
+        email_max_roles=_int(_get(raw, "email.max_roles_per_digest", 12), "max_roles_per_digest"),
         email_send_when_empty=bool(_get(raw, "email.send_when_empty", False)),
         search_terms=_clean_list(_get(raw, "sources.search_terms", [])),
         locations=_clean_list(_get(raw, "sources.locations", ["London"])),
-        max_distance_miles=int(_get(raw, "sources.max_distance_miles", 20)),
-        max_age_days=int(_get(raw, "sources.max_age_days", 14)),
+        max_distance_miles=_int(_get(raw, "sources.max_distance_miles", 20), "max_distance_miles"),
+        max_age_days=_int(_get(raw, "sources.max_age_days", 14), "max_age_days"),
         adzuna_enabled=bool(_get(raw, "sources.adzuna.enabled", True)),
         reed_enabled=bool(_get(raw, "sources.reed.enabled", True)),
         companies_enabled=bool(_get(raw, "sources.companies.enabled", True)),
         companies=companies,
         inbox_enabled=bool(_get(raw, "sources.alert_inbox.enabled", True)),
-        inbox_max_age_days=int(_get(raw, "sources.alert_inbox.max_age_days", 3)),
+        inbox_max_age_days=_int(_get(raw, "sources.alert_inbox.max_age_days", 3), "alert_inbox.max_age_days"),
         inbox_trusted_senders=tuple(
             s.casefold()
             for s in _clean_list(_get(raw, "sources.alert_inbox.trusted_senders", []))
         ),
-        seen_retention_days=int(_get(raw, "housekeeping.seen_retention_days", 60)),
+        seen_retention_days=_int(_get(raw, "housekeeping.seen_retention_days", 60), "seen_retention_days"),
         alert_on_failure=bool(_get(raw, "housekeeping.alert_on_failure", True)),
     )

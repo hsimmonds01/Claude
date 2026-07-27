@@ -15,6 +15,7 @@ import logging
 
 import requests
 
+from .. import redact
 from ..models import Job
 
 log = logging.getLogger(__name__)
@@ -85,7 +86,14 @@ def fetch(app_id: str, app_key: str, config) -> list[Job]:
                     config.max_age_days,
                 )
             except (requests.RequestException, ValueError) as exc:
-                log.warning("[adzuna] '%s' in '%s' failed: %s", term, location, exc)
+                # Scrubbed: Adzuna's credentials travel in the query string,
+                # so the exception message contains the API key verbatim.
+                log.warning(
+                    "[adzuna] '%s' in '%s' failed: %s",
+                    term,
+                    location,
+                    redact.scrub(str(exc)),
+                )
                 continue
             log.info("[adzuna] '%s' in '%s': %d results", term, location, len(found))
             collected.extend(found)

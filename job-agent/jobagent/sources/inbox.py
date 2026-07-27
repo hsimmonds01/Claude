@@ -130,7 +130,6 @@ class _LinkExtractor(HTMLParser):
     def handle_starttag(self, tag, attrs):
         if tag.lower() != "a":
             return
-        self._flush_text()
         self._href = dict(attrs).get("href") or ""
         self._text = []
 
@@ -147,9 +146,6 @@ class _LinkExtractor(HTMLParser):
             self._text.append(data)
         elif data.strip():
             self.stream.append(("text", "", " ".join(data.split())))
-
-    def _flush_text(self):
-        pass
 
     def error(self, message):  # pragma: no cover - stdlib compatibility
         pass

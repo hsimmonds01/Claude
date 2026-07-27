@@ -16,6 +16,7 @@ import logging
 
 import requests
 
+from .. import redact
 from ..models import Job
 
 log = logging.getLogger(__name__)
@@ -76,7 +77,12 @@ def fetch(api_key: str, config) -> list[Job]:
             try:
                 found = _one_search(api_key, term, location, config.max_distance_miles)
             except (requests.RequestException, ValueError) as exc:
-                log.warning("[reed] '%s' in '%s' failed: %s", term, location, exc)
+                log.warning(
+                    "[reed] '%s' in '%s' failed: %s",
+                    term,
+                    location,
+                    redact.scrub(str(exc)),
+                )
                 continue
             log.info("[reed] '%s' in '%s': %d results", term, location, len(found))
             collected.extend(found)

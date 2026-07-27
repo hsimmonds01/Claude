@@ -115,6 +115,52 @@ sources:
             config_module.load(path)
 
 
+class TestFriendlyErrorsForTypos:
+    """She edits this on a phone. Every mistake must arrive as a sentence, not
+    a traceback -- ConfigError subclasses ValueError but not vice versa, so a
+    bare int() conversion escaped the friendly handler entirely."""
+
+    def test_a_word_in_a_numeric_field(self, tmp_path):
+        path = _write(tmp_path, MINIMAL + "\nemail:\n  max_roles_per_digest: twelve\n")
+
+        with pytest.raises(ConfigError, match="should be a plain number"):
+            config_module.load(path)
+
+    def test_a_number_with_units(self, tmp_path):
+        path = _write(tmp_path, MINIMAL + '\npush:\n  max_per_day: "3 a day"\n')
+
+        with pytest.raises(ConfigError, match="should be a plain number"):
+            config_module.load(path)
+
+    def test_a_twelve_hour_clock_in_quiet_hours(self, tmp_path):
+        path = _write(
+            tmp_path,
+            MINIMAL + '\npush:\n  quiet_hours:\n    start: "9pm"\n    end: "07:30"\n',
+        )
+
+        with pytest.raises(ConfigError, match="21:30 rather than 9pm"):
+            config_module.load(path)
+
+    def test_an_impossible_time(self, tmp_path):
+        path = _write(
+            tmp_path,
+            MINIMAL + '\npush:\n  quiet_hours:\n    start: "25:00"\n    end: "07:30"\n',
+        )
+
+        with pytest.raises(ConfigError, match="isn't a real time"):
+            config_module.load(path)
+
+    def test_quiet_hours_are_validated_at_load_not_first_use(self, tmp_path):
+        # Otherwise a typo lies dormant until the one evening it matters.
+        path = _write(
+            tmp_path,
+            MINIMAL + '\npush:\n  quiet_hours:\n    start: "nonsense"\n    end: "07:30"\n',
+        )
+
+        with pytest.raises(ConfigError):
+            config_module.load(path)
+
+
 class TestBlankTemplateEntries:
     """The shipped templates have bare '-' placeholders she hasn't filled in.
 

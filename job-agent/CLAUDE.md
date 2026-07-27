@@ -99,6 +99,33 @@ Do not spend time re-checking whether Indeed, Welcome to the Jungle or
 LinkedIn have usable APIs. They don't — that's settled, and the email-alert
 route exists precisely because of it.
 
+## Security invariants — don't regress these
+
+Each has a test in `tests/test_security.py`. They're all silent in
+production: a leaked key looks like a normal log line and an inflated score
+looks like a good job.
+
+- **Job adverts are untrusted input.** They're written by strangers and go
+  into a prompt that also carries her instructions. `scoring._sanitise`
+  flattens them and the prompt frames them explicitly as data, telling the
+  model to score any advert containing instructions as 0. Don't remove either
+  half.
+- **Only http/https links are ever rendered.** `models.is_safe_link` rejects
+  `javascript:`, `data:` and control characters; an unsafe URL disqualifies
+  the job in `is_usable`. Adverts and alert emails can carry any URL, and an
+  href is live in some mail clients.
+- **All job data is HTML-escaped in the digest.** It's third-party text
+  going into an email.
+- **Secrets are scrubbed from logs and the failure email** (`redact.py`).
+  Adzuna takes credentials as query parameters, so a `requests` exception
+  message contains the API key verbatim. A test reads the workflow and fails
+  if a secret is added there without being added to `SECRET_ENV_NAMES`.
+- **The mailbox is opened read-only** and only configured trusted senders are
+  treated as job sources. An empty allowlist trusts nothing — that address is
+  advertised publicly on job sites.
+- **Tracking redirects are unwrapped by string parsing, never by fetching.**
+  Following one server-side would register a click she never made.
+
 ## Testing
 
 `python -m pytest` from the repo root. Network is stubbed; tests must pass

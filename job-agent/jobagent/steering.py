@@ -94,13 +94,11 @@ def parse_feedback(text: str) -> tuple[tuple[str, ...], tuple[str, ...]]:
     # here matters more than being tidy -- silently dropping her feedback
     # would make the steering loop look broken.
     if not standing and not reactions:
-        reactions = [
-            item
-            for item in (_BULLET.match(l) for l in clean.splitlines())
-            if item
-            for item in [item.group(1).strip()]
-            if item
-        ]
+        reactions = []
+        for line in clean.splitlines():
+            match = _BULLET.match(line)
+            if match and match.group(1).strip():
+                reactions.append(match.group(1).strip())
 
     return tuple(standing), tuple(reactions[-RECENT_REACTIONS_LIMIT:])
 

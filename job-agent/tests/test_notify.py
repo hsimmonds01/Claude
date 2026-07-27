@@ -197,26 +197,50 @@ class TestRunState:
         assert run_state.pushes_left(2, today=date(2026, 7, 27)) == 0
         assert run_state.pushes_left(2, today=date(2026, 7, 28)) == 2
 
-    def test_digest_guard_blocks_a_second_send_the_same_day(self):
+    def test_digest_guard_blocks_a_repeat_of_the_same_slot(self):
         # cron-job.org is primary and GitHub's schedule is a backup, so
         # overlapping triggers are expected rather than exceptional.
         run_state = RunState()
-        run_state.record_digest(today=date(2026, 7, 27))
+        run_state.record_digest(7, today=date(2026, 7, 27))
 
-        assert run_state.digest_already_sent_today(today=date(2026, 7, 27)) is True
-        assert run_state.digest_already_sent_today(today=date(2026, 7, 28)) is False
+        assert run_state.digest_already_sent(7, today=date(2026, 7, 27)) is True
+        assert run_state.digest_already_sent(7, today=date(2026, 7, 28)) is False
+
+    def test_the_morning_digest_does_not_block_the_evening_one(self):
+        # Regression. A day-level guard meant the 7am digest silently
+        # suppressed the 6pm one for the rest of the day, so she quietly got
+        # one digest instead of the two she configured.
+        run_state = RunState()
+        run_state.record_digest(7, today=date(2026, 7, 27))
+
+        assert run_state.digest_already_sent(18, today=date(2026, 7, 27)) is False
+
+        run_state.record_digest(18, today=date(2026, 7, 27))
+
+        assert run_state.digest_already_sent(18, today=date(2026, 7, 27)) is True
+
+    def test_digest_hours_reset_on_a_new_day(self):
+        run_state = RunState()
+        run_state.record_digest(7, today=date(2026, 7, 27))
+        run_state.record_digest(18, today=date(2026, 7, 27))
+
+        run_state.record_digest(7, today=date(2026, 7, 28))
+
+        assert run_state.digest_hours == (7,)
 
     def test_round_trips_through_a_file(self, tmp_path):
         path = tmp_path / "state.json"
         run_state = RunState()
         run_state.record_pushes(1, today=date(2026, 7, 27))
-        run_state.record_digest(today=date(2026, 7, 27))
+        run_state.record_digest(7, today=date(2026, 7, 27))
+        run_state.record_digest(18, today=date(2026, 7, 27))
         run_state.save(path)
 
         reloaded = RunState.load(path)
 
         assert reloaded.push_count == 1
-        assert reloaded.last_digest_date == "2026-07-27"
+        assert reloaded.digest_date == "2026-07-27"
+        assert reloaded.digest_hours == (7, 18)
 
     def test_corrupt_state_costs_at_most_one_extra_push(self, tmp_path):
         path = tmp_path / "state.json"

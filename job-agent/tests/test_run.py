@@ -165,6 +165,39 @@ class TestThresholds:
         assert len(agent.sent["email"]) == 1
 
 
+class TestTwoDigestsADay:
+    def test_both_configured_digests_send_on_the_same_day(self, agent, monkeypatch):
+        """Regression, and the reason this is an end-to-end test.
+
+        The duplicate-trigger guard was scoped to the day rather than the
+        digest slot, so the 7am send silently suppressed the 6pm one. Every
+        unit test still passed: she just quietly got one digest a day instead
+        of two, which reads as "the agent is a bit quiet" rather than a bug.
+        """
+        morning = _job(title="Morning Role", url="https://x/am")
+        monkeypatch.setattr(run_module, "datetime", _clock(hour=7))
+        _supply(agent, [morning], [Verdict(_fingerprint(morning), 9, "strong")])
+        run_module.run(_args())
+
+        assert len(agent.sent["email"]) == 1
+
+        evening = _job(title="Evening Role", url="https://x/pm")
+        monkeypatch.setattr(run_module, "datetime", _clock(hour=18))
+        _supply(agent, [evening], [Verdict(_fingerprint(evening), 9, "strong")])
+        run_module.run(_args())
+
+        assert len(agent.sent["email"]) == 2
+
+    def test_a_repeat_trigger_in_the_same_slot_does_not_resend(self, agent, monkeypatch):
+        monkeypatch.setattr(run_module, "datetime", _clock(hour=7))
+        job = _job()
+        _supply(agent, [job], [Verdict(_fingerprint(job), 9, "strong")])
+        run_module.run(_args())
+        run_module.run(_args())
+
+        assert len(agent.sent["email"]) == 1
+
+
 class TestScheduling:
     def test_no_digest_outside_a_digest_hour(self, agent, monkeypatch):
         monkeypatch.setattr(run_module, "datetime", _clock(hour=12))
