@@ -1,6 +1,34 @@
 {
-  "generated_at": "2026-07-27T16:14:32.590783+00:00",
+  "generated_at": "2026-07-27T19:48:19.440471+00:00",
   "model": "gemini-flash-latest",
   "headlines_considered": 42,
-  "flags": []
+  "flags": [
+    {
+      "player_id": "346",
+      "player": "Calvert-Lewin",
+      "team": "LEE",
+      "concern": "Missed out on pre-season action, raising potential fitness and availability questions ahead of the season.",
+      "severity": "medium",
+      "affects": "availability",
+      "source": "https://www.fantasyfootballscout.co.uk/2026/07/27/fpl-pre-season-wilson-debut-jesus-again-why-dcl-missed-out"
+    },
+    {
+      "player_id": "40",
+      "player": "Rogers",
+      "team": "CHE",
+      "concern": "Manager commented on his situation alongside updates on returning World Cup players, which could impact early-season minutes.",
+      "severity": "low",
+      "affects": "minutes",
+      "source": "https://www.fantasyfootballscout.co.uk/2026/07/27/alonso-on-rogers-when-world-cup-players-will-be-back"
+    },
+    {
+      "player_id": "368",
+      "player": "Szoboszlai",
+      "team": "LIV",
+      "concern": "Exhibiting an increased goal threat and advanced tactical role during pre-season fixtures.",
+      "severity": "low",
+      "affects": "role",
+      "source": "https://www.fantasyfootballscout.co.uk/2026/07/27/fpl-pre-season-szoboszlai-a-threat-gomez-jacquet-injury-latest"
+    }
+  ]
 }
