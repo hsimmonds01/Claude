@@ -117,12 +117,29 @@ looks like a good job.
 - **All job data is HTML-escaped in the digest.** It's third-party text
   going into an email.
 - **Secrets are scrubbed from logs and the failure email** (`redact.py`).
-  Adzuna takes credentials as query parameters, so a `requests` exception
-  message contains the API key verbatim. A test reads the workflow and fails
-  if a secret is added there without being added to `SECRET_ENV_NAMES`.
+  Adzuna *and Gemini* both take credentials as query parameters, so any
+  `requests` exception message contains the key verbatim — including the ones
+  from `raise_for_status()` on a status that isn't explicitly short-circuited
+  (400 and 403 are the realistic ones: rotated key, project restriction, API
+  not enabled). **Any new module that calls an API with a key in the URL must
+  scrub before logging.** A test reads the workflow and fails if a secret is
+  added there without being added to `SECRET_ENV_NAMES`.
 - **The mailbox is opened read-only** and only configured trusted senders are
   treated as job sources. An empty allowlist trusts nothing — that address is
   advertised publicly on job sites.
+- **Sender identity comes from `parseaddr`, never a regex.** A From header is
+  `Display Name <address>` and the display name is free text chosen by the
+  sender, so `From: "jobalerts@linkedin.com" <careers@attacker.example>` beat
+  a regex-based check while arriving from a domain the attacker controls —
+  passing SPF/DKIM and landing in the inbox rather than spam. That put
+  attacker-chosen links into the digest and onto the lock screen. Use
+  `is_trusted_sender(message, ...)`, which parses properly, requires every
+  address in the header to be trusted, and fails closed on an unparseable
+  header. Do not "simplify" it back to string matching.
+- **Test the parsing, not just the comparison.** The bypass above existed
+  while `is_trusted` had full coverage, because every test handed it a
+  pre-parsed domain string. Security tests must build a real message and run
+  the real path.
 - **Tracking redirects are unwrapped by string parsing, never by fetching.**
   Following one server-side would register a click she never made.
 

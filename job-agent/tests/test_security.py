@@ -252,6 +252,153 @@ class TestNotificationSafety:
             assert secret not in combined
 
 
+class TestSenderSpoofing:
+    """The allowlist is the only control deciding whose links reach her.
+
+    Every test here builds a real message and runs it through the same path
+    `fetch` uses. The original tests passed pre-parsed domain strings straight
+    to `is_trusted`, which tested the comparison but never the parsing — and
+    the bug was entirely in the parsing.
+    """
+
+    def _message(self, from_header):
+        import email
+
+        return email.message_from_string(
+            f"From: {from_header}\n"
+            "Subject: 3 new jobs matching your search\n"
+            "Content-Type: text/html\n\n"
+            '<a href="https://attacker.example/jobs/ops-lead">Operations Lead</a>\n'
+        )
+
+    def test_a_trusted_address_in_the_display_name_does_not_grant_trust(self):
+        # The headline bypass. The display name is free text chosen by the
+        # sender, so this arrives from attacker.example while reading as
+        # LinkedIn — and passes SPF/DKIM, so it lands in the inbox, not spam.
+        message = self._message('"jobalerts@linkedin.com" <careers@attacker.example>')
+
+        assert inbox.is_trusted_sender(message, ("linkedin.com",)) is False
+
+    def test_an_unquoted_display_name_address_also_fails(self):
+        message = self._message("jobalerts@linkedin.com <careers@attacker.example>")
+
+        assert inbox.is_trusted_sender(message, ("linkedin.com",)) is False
+
+    def test_a_genuine_trusted_sender_is_still_accepted(self):
+        message = self._message('"LinkedIn Job Alerts" <jobalerts-noreply@linkedin.com>')
+
+        assert inbox.is_trusted_sender(message, ("linkedin.com",)) is True
+
+    def test_a_genuine_subdomain_sender_is_accepted(self):
+        message = self._message("<s-noreply@e.linkedin.com>")
+
+        assert inbox.is_trusted_sender(message, ("linkedin.com",)) is True
+
+    def test_a_bare_address_with_no_display_name_works(self):
+        message = self._message("jobalerts-noreply@linkedin.com")
+
+        assert inbox.is_trusted_sender(message, ("linkedin.com",)) is True
+
+    def test_a_missing_from_header_is_rejected(self):
+        import email
+
+        message = email.message_from_string("Subject: no sender\n\nbody\n")
+
+        assert inbox.is_trusted_sender(message, ("linkedin.com",)) is False
+
+    def test_an_unparseable_from_header_is_rejected(self):
+        # Must fail closed, not default to allowed.
+        message = self._message("not an address at all")
+
+        assert inbox.is_trusted_sender(message, ("linkedin.com",)) is False
+
+    def test_a_trusted_address_alongside_an_untrusted_one_is_rejected(self):
+        message = self._message(
+            "jobalerts@linkedin.com, careers@attacker.example"
+        )
+
+        assert inbox.is_trusted_sender(message, ("linkedin.com",)) is False
+
+    def test_a_lookalike_domain_is_rejected(self):
+        message = self._message("<alerts@linkedin.com.evil.example>")
+
+        assert inbox.is_trusted_sender(message, ("linkedin.com",)) is False
+
+    def test_an_empty_allowlist_rejects_even_a_real_sender(self):
+        message = self._message("<jobalerts-noreply@linkedin.com>")
+
+        assert inbox.is_trusted_sender(message, ()) is False
+
+
+class TestGeminiKeyRedaction:
+    def test_a_non_retryable_status_does_not_log_the_key(self, monkeypatch, caplog):
+        """400 and 403 are ordinary operational events — a rotated key, a
+        project restriction, the API not enabled. Those statuses aren't
+        short-circuited, so they reach raise_for_status(), whose message
+        embeds the full URL with the key in the query string."""
+        key = "AIzaSyFAKE-KEY-VALUE-0123456789"
+        monkeypatch.setenv("GEMINI_API_KEY", key)
+
+        class Forbidden:
+            status_code = 403
+
+            def raise_for_status(self):
+                raise requests.HTTPError(
+                    "403 Client Error: Forbidden for url: "
+                    "https://generativelanguage.googleapis.com/v1beta/models/"
+                    f"gemini-flash-latest:generateContent?key={key}"
+                )
+
+            def json(self):
+                return {}
+
+        monkeypatch.setattr(scoring.requests, "post", lambda *a, **k: Forbidden())
+        monkeypatch.setattr(scoring.time, "sleep", lambda *_: None)
+
+        job = Job(
+            source="adzuna",
+            title="Ops",
+            company="X",
+            url="https://x.com/jobs/1",
+        )
+        scoring.score(
+            key,
+            merge([job]),
+            Steering(cv="", profile="", standing_rules=(), recent_reactions=()),
+        )
+
+        assert key not in caplog.text
+        assert redact.PLACEHOLDER in caplog.text
+
+    def test_the_wrapped_error_message_never_carries_the_key(self, monkeypatch):
+        # Scrubbed at construction as well as at the log site, so the secret
+        # isn't sitting inside an exception waiting to be printed elsewhere.
+        key = "AIzaSyFAKE-KEY-VALUE-0123456789"
+        monkeypatch.setenv("GEMINI_API_KEY", key)
+
+        class Forbidden:
+            status_code = 403
+
+            def raise_for_status(self):
+                raise requests.HTTPError(f"403 for url: https://x/?key={key}")
+
+            def json(self):
+                return {}
+
+        monkeypatch.setattr(scoring.requests, "post", lambda *a, **k: Forbidden())
+        monkeypatch.setattr(scoring.time, "sleep", lambda *_: None)
+
+        job = Job(source="adzuna", title="Ops", company="X", url="https://x.com/jobs/1")
+        with pytest.raises(scoring.ScoringError) as excinfo:
+            scoring._score_batch(
+                key,
+                merge([job]),
+                Steering(cv="", profile="", standing_rules=(), recent_reactions=()),
+            )
+
+        assert key not in str(excinfo.value)
+
+
 class TestUntrustedMailboxContent:
     def test_a_spoofed_lookalike_domain_is_not_trusted(self):
         assert not inbox.is_trusted("linkedin.com.evil.example", ("linkedin.com",))

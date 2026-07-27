@@ -30,6 +30,7 @@ import re
 from datetime import date, timedelta
 from email.header import decode_header, make_header
 from email.message import Message
+from email.utils import getaddresses
 from html.parser import HTMLParser
 from urllib.parse import parse_qs, unquote, urlparse
 
@@ -270,10 +271,35 @@ def _plain_to_html(text: str) -> str:
     return re.sub(r"(https?://\S+)", r'<a href="\1">\1</a>', text)
 
 
-def _sender_domain(message: Message) -> str:
+def _sender_domains(message: Message) -> list[str]:
+    """Every domain that genuinely sent this message.
+
+    Must parse the header properly rather than pattern-matching it. A From
+    header is `Display Name <address>`, and the display name is free text
+    chosen by the sender -- so a regex search for the first email-shaped token
+    happily returns the display name instead of the real address:
+
+        From: "jobalerts@linkedin.com" <careers@attacker.example>
+
+    That read as linkedin.com and passed the allowlist, which meant anyone who
+    knew the mailbox address -- and it is advertised publicly on job sites --
+    could get their links into her digest and onto her lock screen, from a
+    domain of their own that passes SPF and DKIM and so lands in the inbox
+    rather than in spam. `parseaddr` splits the two per RFC 5322, so only the
+    real address can contribute.
+
+    Returns every address found: a From carrying several is rare and not
+    something a job board does, and `is_trusted_sender` requires all of them
+    to be trusted rather than picking one and hoping.
+    """
     raw = message.get("From", "")
-    match = re.search(r"[\w.+-]+@([\w.-]+)", raw)
-    return match.group(1).casefold() if match else ""
+    domains = []
+    for _display_name, address in getaddresses([raw]):
+        _, _, domain = address.rpartition("@")
+        domain = domain.strip().casefold()
+        if domain:
+            domains.append(domain)
+    return domains
 
 
 def _subject(message: Message) -> str:
@@ -284,7 +310,7 @@ def _subject(message: Message) -> str:
 
 
 def is_trusted(domain: str, trusted: tuple[str, ...]) -> bool:
-    """Only mail from a listed sender is treated as a source of jobs.
+    """Is one domain on the allowlist?
 
     An empty list means trust nothing. That's the safe default: this mailbox
     is publicly advertised on job sites, so anything can arrive in it, and
@@ -296,6 +322,21 @@ def is_trusted(domain: str, trusted: tuple[str, ...]) -> bool:
     return any(
         domain == allowed or domain.endswith("." + allowed) for allowed in trusted
     )
+
+
+def is_trusted_sender(message: Message, trusted: tuple[str, ...]) -> bool:
+    """Is this whole message from a sender we accept jobs from?
+
+    Requires the From header to parse to at least one address, and every
+    address in it to be trusted. Both halves matter: an unparseable From is
+    rejected rather than defaulting to allowed, and a header listing a
+    trusted address alongside an untrusted one doesn't get in on the strength
+    of the trusted half.
+    """
+    domains = _sender_domains(message)
+    if not domains:
+        return False
+    return all(is_trusted(domain, trusted) for domain in domains)
 
 
 def fetch(address: str, app_password: str, config) -> list[Job]:
@@ -335,11 +376,11 @@ def fetch(address: str, app_password: str, config) -> list[Job]:
                     continue
                 message = email.message_from_bytes(payload[0][1])
 
-                domain = _sender_domain(message)
-                if not is_trusted(domain, config.inbox_trusted_senders):
+                if not is_trusted_sender(message, config.inbox_trusted_senders):
                     skipped += 1
                     continue
 
+                domain = (_sender_domains(message) or [""])[0]
                 found = extract_jobs(
                     _body_html(message), source_label=domain, posted=""
                 )
