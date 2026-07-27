@@ -45,11 +45,13 @@ class FakeTextResponse:
 class FakeRequests:
     """Routes gemini/resend/feed URLs to canned responses and records sends."""
 
-    def __init__(self, gemini_text=None, gemini_fail_models=(), feed_xml=None, feed_fail=False):
+    def __init__(self, gemini_text=None, gemini_fail_models=(), feed_xml=None, feed_fail=False,
+                 gemini_503_countdown=None):
         self.gemini_text = gemini_text
         self.gemini_fail_models = gemini_fail_models
         self.feed_xml = feed_xml  # single XML string served for every feed URL
         self.feed_fail = feed_fail
+        self.gemini_503_countdown = dict(gemini_503_countdown or {})  # model -> 503s left before success
         self.sent_emails = []
         self.models_called = []
         self.last_gemini_body = None
@@ -59,6 +61,9 @@ class FakeRequests:
             model = url.split("/models/")[1].split(":")[0]
             self.models_called.append(model)
             self.last_gemini_body = kwargs.get("json")
+            if self.gemini_503_countdown.get(model, 0) > 0:
+                self.gemini_503_countdown[model] -= 1
+                return FakeResponse({"error": "overloaded"}, status=503)
             if model in self.gemini_fail_models:
                 return FakeResponse({"error": "quota"}, status=429)
             return FakeResponse(
@@ -284,6 +289,46 @@ def test_legacy_key_failure_falls_back_to_primary():
         assert model_used in discover.GEMINI_MODELS  # then fell back to the primary key's models
     finally:
         discover.GEMINI_API_KEY_LEGACY = ""  # restore for later tests
+
+
+def _patch_sleep():
+    """Swap out time.sleep for a recording no-op so retry tests don't
+    actually wait minutes; returns (recorded_calls, restore_fn)."""
+    calls = []
+    real_sleep = discover.time.sleep
+    discover.time.sleep = lambda s: calls.append(s)
+    return calls, (lambda: setattr(discover.time, "sleep", real_sleep))
+
+
+def test_503_retries_with_backoff_then_succeeds():
+    discover.GEMINI_API_KEY_LEGACY = "legacy-key-value"
+    sleep_calls, restore_sleep = _patch_sleep()
+    try:
+        # 503 twice, then a normal success on the third attempt
+        fake = FakeRequests(gemini_text=GOOD_REPLY, gemini_503_countdown={discover.GEMINI_GROUNDING_MODEL: 2})
+        discover.requests = fake
+        text, model_used = discover.call_gemini("primary-key", "prompt")
+        assert sleep_calls == discover.GEMINI_503_RETRY_DELAYS_SECONDS  # both backoff waits happened
+        assert "legacy key, live search" in model_used  # still resolved via the best path
+        assert fake.models_called.count(discover.GEMINI_GROUNDING_MODEL) == 3  # 1 + 2 retries
+    finally:
+        discover.GEMINI_API_KEY_LEGACY = ""
+        restore_sleep()
+
+
+def test_503_exhausts_retries_then_falls_back_to_primary():
+    discover.GEMINI_API_KEY_LEGACY = "legacy-key-value"
+    sleep_calls, restore_sleep = _patch_sleep()
+    try:
+        # 503 forever on the legacy model -- never recovers within the retry budget
+        fake = FakeRequests(gemini_text=GOOD_REPLY, gemini_503_countdown={discover.GEMINI_GROUNDING_MODEL: 99})
+        discover.requests = fake
+        text, model_used = discover.call_gemini("primary-key", "prompt")
+        assert len(sleep_calls) == len(discover.GEMINI_503_RETRY_DELAYS_SECONDS)  # gave up after the budget
+        assert model_used in discover.GEMINI_MODELS  # fell through to the primary key
+    finally:
+        discover.GEMINI_API_KEY_LEGACY = ""
+        restore_sleep()
 
 
 # ── Full flow ──────────────────────────────────────────────────────────
