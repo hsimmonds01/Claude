@@ -1,9 +1,15 @@
 # Setup session — click by click
 
 > **When this happens: AFTER the agent is built, not before.** Per PLAN.md §8,
-> the whole thing gets built in a local folder with no remote first. This
-> session is the go-live — at the end of it, a finished, working agent gets
-> pushed into her brand-new repo as its first commit and starts running.
+> the code is built first in `job-agent/` on a branch of `hsimmonds01/Claude`.
+> This session is the go-live — at the end of it, that finished, working agent
+> is copied into her brand-new empty repo as its first commit and starts
+> running. Her repo ends up with no link back to mine: no fork, no shared
+> history, nothing to unpick.
+>
+> **Her CV and her filled-in `profile.md` are created for the first time
+> during this session, inside her repo.** They are never committed to the
+> public build repo. Everything there is a blank template.
 >
 > That means you arrive with something she can poke at and react to, rather
 > than an empty checklist. It also means **Step 2 matters more than it looks**
@@ -214,9 +220,9 @@ revoked on its own at any time.
    Spaces don't matter, they get stripped.
 
 > **If that page says the option isn't available for your account:** stop,
-> don't fight it, tell me. There's a fallback (Resend for sending, and a
-> different approach for reading) — it's just more accounts, so we try this
-> way first.
+> don't fight it. It's not broken and it's not fatal — go to
+> **Appendix A** at the bottom of this file, which has three fallbacks. We try
+> this route first only because it's the one that needs no extra accounts.
 
 ---
 
@@ -461,3 +467,77 @@ Also done:
 - [ ] Test digest landed in her personal email
 - [ ] **She** edited `feedback.md` from her phone once, herself
 - [ ] Scratch note deleted
+
+---
+
+## Appendix A — if the Gmail app password doesn't work
+
+The app password does **two separate jobs**. Worth knowing which one has
+failed, because they have different fallbacks and it's rare for both to be
+blocked:
+
+| Job | What it does | Protocol |
+|---|---|---|
+| **Reading** | Pulls her job-alert emails out of the inbox so they can be scored | IMAP |
+| **Sending** | Sends her the twice-daily digest | SMTP |
+
+Neither is load-bearing for the *core* agent. Adzuna, Reed, company feeds,
+scoring and push notifications all work with no email at all. Worst case she
+gets phone alerts and no digest, which is a degraded but genuinely usable
+product. Don't let this block go-live.
+
+### Option 1 — Google App Password, in a different place *(try first, 2 min)*
+
+Most "app passwords unavailable" reports are one of three fixable things, not
+a policy block:
+
+- **2-Step Verification isn't fully on.** It must be *confirmed*, not just
+  started. Go back to step 7b and check it says "On".
+- **The account is under 24 hours old.** Google sometimes withholds app
+  passwords on brand-new accounts. Waiting a day fixes it.
+- **Advanced Protection is on**, or it's a school/work Google account.
+  Then app passwords are genuinely blocked and no amount of clicking helps.
+
+If it's the age one, the pragmatic move is: make the Gmail account a day or
+two *before* the setup session. Worth doing as standard.
+
+### Option 2 — Resend for sending, keep Gmail for reading *(10 min)*
+
+If sending is the problem, this is the proven route — it's exactly what the
+Daily Discovery project in this repo already uses.
+
+1. Laptop → **resend.com** → **Sign up** (free tier, no card).
+2. Confirm the email, sign in.
+3. Left sidebar → **API Keys** → **Create API Key**.
+4. Name it `job agent`, permission **Sending access**, → **Add**.
+5. Copy the key — it starts `re_` — into the scratch note.
+6. Add it to the repo secrets as **`RESEND_API_KEY`**.
+
+Two things to expect: it sends from `onboarding@resend.dev` until a domain is
+verified, so **the first digest may land in spam — mark it "not spam" once**
+and it behaves after. And the free tier is capped per day, which at two
+digests a day is not remotely a concern.
+
+### Option 3 — an email provider that still does app passwords *(15 min)*
+
+If *reading* is the problem — the important half, since it's the route to
+WTTJ, LinkedIn and Indeed — the answer is a different mailbox provider, not a
+different technique. She'd make the alerts mailbox somewhere that still issues
+per-app passwords for IMAP. Fastmail (paid, ~£3/mo) and Proton Mail with its
+Bridge both do; several free providers do too, though I'd want to check which
+are current at the time rather than name one from memory here.
+
+The job alerts get pointed at that address instead. Nothing else changes —
+the agent reads IMAP the same way regardless of who runs the mailbox. Only
+worth doing if Option 1 has genuinely failed, since it's a paid step for
+something Gmail does for free.
+
+### Option 4 — ship without email ingestion, add it later
+
+Perfectly reasonable. Go live on Adzuna + Reed + company feeds + push
+notifications, and treat the alert inbox as a follow-up once the mailbox
+question is settled. She gets a working agent on the day either way, and this
+is a one-file change to add afterwards — no rebuild, no re-setup.
+
+**What I'd actually do:** create the Gmail a couple of days early, so if
+Option 1's 24-hour rule is the cause we never even meet the problem.

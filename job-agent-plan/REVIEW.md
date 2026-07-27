@@ -12,6 +12,51 @@ do if left alone.
 
 ---
 
+## Status — resolved 2026-07-27
+
+Everything below has been actioned in `PLAN.md`. Kept for the reasoning.
+
+| Finding | Outcome |
+|---|---|
+| A1 digest hours never fire | **Fixed.** Runs moved to 7am / 12pm / 4pm / **6pm**; digests fire on the 7am and 6pm runs. |
+| A2 same job three times | **Fixed in plan.** Fingerprint dedupe (company + normalised title + location), sources merged not binned. Build step 2. |
+| A3 grounded search not free | **Cut entirely.** It was the only component that would ever have needed a billing card. Nothing else does. |
+| A4 unstable scores | **Fixed in plan.** Score once on first sight and freeze; push threshold 9 → **8**, config-tunable. |
+| B1 no email mechanism | **Gmail SMTP**, reusing the same app password as the IMAP read. Fallbacks in `SETUP.md` Appendix A. |
+| B2 missing token step | **Added** as `SETUP.md` step 10. |
+| B3 Actions minutes metered | **Accepted** — `timeout-minutes: 10` on the job from the first commit. |
+| B4 `seen.json` grows forever | **Accepted** — 60-day prune, mirroring `discovery-agent`. |
+| B5 `feedback.md` rots | **Fixed.** Two sections: standing rules + fading reactions. |
+| C1 build best source first | **Reversed, see below.** |
+| C2 company list wants a URL | **Kept.** She pastes a careers-page link; the code resolves the ATS. |
+
+### C1 reversed — breadth first after all
+
+I recommended building target-company feeds second, on the grounds that
+they're the highest-signal source. That was right in the abstract and wrong
+here: the target list is expected to start **thin**, and there's an explicit
+preference not to constrain the search to named companies.
+
+Worth being precise about why that preference is well-founded but aimed at
+the wrong thing: **company feeds are additive, not restrictive.** Each
+company named adds its careers page as an extra feed. Adzuna and Reed keep
+searching the whole market either way. Naming ten companies cannot narrow
+anything — it can only add.
+
+So the fear doesn't apply — but the thinness does. A source with three
+companies in it isn't worth building second. Revised order: **breadth first
+(Adzuna + Reed), then the alert inbox, then company feeds whenever the list
+exists** — including after go-live, since nothing depends on it.
+
+### New finding — this repo is public
+
+`gh repo view --json visibility` → `PUBLIC`. Discovered while committing this
+review. It doesn't change where the code gets built, but it hard-constrains
+what data may go near it, and it's now the banner at the top of `PLAN.md`.
+See section D.
+
+---
+
 ## A. Things that are wrong and would bite
 
 ### A1. The digest times can never fire — timing bug
@@ -219,6 +264,17 @@ silently drops one.
 
 ## D. Smaller notes
 
+- **`hsimmonds01/Claude` is public, and her data must never enter it.**
+  Verified 2026-07-27. This is the sharpest constraint in the project and it
+  wasn't in the original plan, because the plan assumed the build would
+  happen elsewhere. The build now happens here (it's the only thing that
+  survives between phone sessions), so the constraint has to be explicit
+  instead of implicit. Banned: her CV, a filled-in `profile.md`, her target
+  company list, her name, her email addresses, her ntfy topic. The control
+  files live here as blank templates only. Note this is the *same* rule as
+  PLAN.md §7's discretion requirements — a public commit history of "roles
+  she's targeting while still employed" is exactly the exposure §7 exists to
+  prevent. It just applies to the workshop rather than the product.
 - **Local-first build has one sharp edge: her repo must be created empty.**
   PLAN.md §8 (build locally with no remote, point it at her GitHub at the
   end) is the right call. But the default "create a repository" flow on
