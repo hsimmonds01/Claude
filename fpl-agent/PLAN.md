@@ -218,6 +218,35 @@ in September).
 
 ---
 
+## 5b. The dashboard (build later, spec now)
+
+A web dashboard that **looks and feels like the FPL app** -- the same pitch
+view and squad layout you already know -- but populated with our projections
+instead of FPL's. Requested 2026-07-27; deliberately scheduled after the
+weekly email is live, because the email is what actually changes decisions.
+
+What it does:
+- **Pitch view of your squad**, FPL-app styling, each player showing our
+  projected points, start probability and price alongside the usual info.
+- **Click a player -> "swap him out"**, and it lists affordable replacements
+  ranked by what they do to your XI projection, respecting your bank, the
+  3-per-club limit and position. This is `optimiser.py`'s
+  `suggest_transfers` with a UI on top -- the logic already exists.
+- **A prompt box wired to Gemini**, so you can ask free-text questions
+  ("is it worth taking a hit for a Man City double-up?") and get an answer
+  grounded in our actual numbers rather than the model's general knowledge.
+- The recommended changes for the current gameweek, mirroring the email.
+
+Build notes:
+- Static HTML + JS reading committed JSON, following the pattern already
+  used by `discovery-agent/dashboard.html` and `dock-alerter/dashboard.html`
+  -- no server to run or pay for.
+- The Gemini key cannot be embedded in a public page. Either the prompt box
+  posts to a small proxy, or the dashboard stays private and the key is
+  entered locally by you and kept in browser storage. Decide at build time.
+
+---
+
 ## 6. What lands in your inbox
 
 | Email | When | Contains |

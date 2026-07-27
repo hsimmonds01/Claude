@@ -1,0 +1,38 @@
+{
+  "_README": [
+    "The squad the agent reasons about. Until GW1 has been played this is",
+    "maintained by hand, because FPL keeps a team private until its first",
+    "deadline passes. Once GW1 is done, squad.py reconstructs all of this",
+    "automatically from the public endpoints (see PLAN.md section 2) and",
+    "team_id below becomes the only field that matters.",
+    "",
+    "Players are listed by FPL web_name, with team where the name is",
+    "ambiguous (there are two Hughes)."
+  ],
+  "team_id": null,
+  "team_id_note": "To be filled in after GW1 -- the Points tab URL will read /entry/<id>/event/1",
+  "bank": 0.5,
+  "free_transfers": null,
+  "chips_used": [],
+  "squad": [
+    {"name": "Verbruggen", "team": "BHA", "position": "GKP"},
+    {"name": "Steele", "team": "BHA", "position": "GKP"},
+    {"name": "Mosquera", "team": "ARS", "position": "DEF"},
+    {"name": "Shaw", "team": "MUN", "position": "DEF"},
+    {"name": "N.Williams", "team": "NFO", "position": "DEF"},
+    {"name": "Diop", "team": "IPS", "position": "DEF"},
+    {"name": "Konsa", "team": "AVL", "position": "DEF"},
+    {"name": "B.Fernandes", "team": "MUN", "position": "MID"},
+    {"name": "Szoboszlai", "team": "LIV", "position": "MID"},
+    {"name": "Wilson", "team": "LEE", "position": "MID"},
+    {"name": "Semenyo", "team": "MCI", "position": "MID"},
+    {"name": "Hughes", "team": "CRY", "position": "MID"},
+    {"name": "Haaland", "team": "MCI", "position": "FWD"},
+    {"name": "João Pedro", "team": "CHE", "position": "FWD"},
+    {"name": "Calvert-Lewin", "team": "LEE", "position": "FWD"}
+  ],
+  "history": [
+    "2026-07-27: Andrey Santos (MUN, £5.0m) -> Hughes (CRY, £4.5m). Santos had 1247 minutes and 47 points last season at £5.0m; Hughes played more (1560 minutes, 19 starts) for £0.5m less. Frees £0.5m into the bank.",
+    "2026-07-27: Kept Mosquera despite 986 minutes last season -- Saliba is injured with no return date and Mosquera is expected to start at centre-back. Recorded in overrides.json."
+  ]
+}
