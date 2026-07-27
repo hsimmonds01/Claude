@@ -43,6 +43,7 @@ BASE_DIR = Path(__file__).resolve().parent
 DATA_DIR = BASE_DIR / "data"
 SQUAD_PATH = BASE_DIR / "my_squad.json"
 OVERRIDES_PATH = BASE_DIR / "overrides.json"
+STRATEGY_PATH = BASE_DIR / "strategy.md"
 
 BUDGET = 100.0
 SQUAD_SIZE = {"GKP": 2, "DEF": 5, "MID": 5, "FWD": 3}
@@ -59,6 +60,49 @@ HIT_MARGIN = 2.0
 # Bench players only score when someone ahead of them doesn't play, so they're
 # worth a fraction of their projection when valuing a squad.
 BENCH_WEIGHT = 0.12
+
+# Ownership above this counts as "template": the players whose absence from
+# your squad is a rank bet rather than a neutral choice.
+TEMPLATE_OWNERSHIP = 20.0
+
+
+def load_strategy() -> dict:
+    """Read the `key: value` lines out of strategy.md.
+
+    Settings live in prose rather than JSON because the same file is the
+    email writer's brief -- keeping them together means the numbers and the
+    reasoning behind them can't drift apart.
+    """
+    settings = {"risk": 0.5, "max_hit": 4.0, "horizon": 5.0}
+    if not STRATEGY_PATH.exists():
+        return settings
+    for line in STRATEGY_PATH.read_text(encoding="utf-8").splitlines():
+        stripped = line.strip()
+        if ":" not in stripped or stripped.startswith("#") or stripped.startswith("-"):
+            continue
+        key, _, value = stripped.partition(":")
+        key = key.strip().lower()
+        if key in settings:
+            try:
+                settings[key] = float(value.strip())
+            except ValueError:
+                continue
+    return settings
+
+
+def template_value(player: dict, risk: float) -> float:
+    """A player's worth once rank risk is priced in.
+
+    Raw expected points answer "how many points will this score". FPL asks a
+    different question: "how will this move me against everyone else". A
+    75%-owned player who hauls gains you nothing if you own him -- but costs
+    you dearly if you don't. So his effective value carries a premium in
+    proportion to how many rivals hold him.
+
+    This is a risk preference, not an accuracy improvement, and it will lower
+    projected points on purpose. risk=0 disables it entirely.
+    """
+    return player["total"] * (1 + risk * player["selected_by"] / 100)
 
 
 def load_projections() -> tuple[dict, list[int]]:
@@ -119,7 +163,7 @@ def resolve_squad(players: dict) -> tuple[list[dict], dict]:
 
 
 def build_squad(players: dict, budget: float = BUDGET, banned: set[str] | None = None,
-                locked: set[str] | None = None) -> list[dict]:
+                locked: set[str] | None = None, risk: float = 0.0) -> list[dict]:
     """Best legal 15 by integer programming.
 
     Bench players are weighted down rather than ignored: a squad valued purely
@@ -140,10 +184,11 @@ def build_squad(players: dict, budget: float = BUDGET, banned: set[str] | None =
     # never sees the second helping his projection earns every week.
     captain = {p["player_id"]: pulp.LpVariable(f"capt_{p['player_id']}", cat="Binary") for p in pool}
 
+    value = {p["player_id"]: template_value(p, risk) for p in pool}
     problem += pulp.lpSum(
-        starting[p["player_id"]] * p["total"]
-        + captain[p["player_id"]] * p["total"]
-        + (picked[p["player_id"]] - starting[p["player_id"]]) * p["total"] * BENCH_WEIGHT
+        starting[p["player_id"]] * value[p["player_id"]]
+        + captain[p["player_id"]] * value[p["player_id"]]
+        + (picked[p["player_id"]] - starting[p["player_id"]]) * value[p["player_id"]] * BENCH_WEIGHT
         for p in pool
     )
 
@@ -299,14 +344,66 @@ def show_squad(squad: list[dict], events: list[int], label: str) -> None:
 
     flagged = [p for p in squad if p["moved_club"]]
     if flagged:
-        print("\n  recent club moves (projection discounted, system fit unknown):")
+        # Context, not a penalty. Testing found no reliable class-wide effect
+        # from a club move (see minutes.py), so the projection is unchanged --
+        # this is here for a human to weigh, and for the email to mention.
+        print("\n  recently joined a new club (context only, projection unchanged):")
         for player in flagged:
             print(f"    {player['name']} ({player['team']})")
+
+
+def ownership_gap(squad: list[dict], players: dict) -> list[dict]:
+    """Template players you don't own, with the rank exposure quantified.
+
+    For a template-led strategy this is the primary risk report: the danger
+    isn't owning someone mediocre, it's being absent when a player two-thirds
+    of the field owns returns.
+    """
+    owned = {p["player_id"] for p in squad}
+    gap = [p for p in players.values()
+           if p["selected_by"] >= TEMPLATE_OWNERSHIP and p["player_id"] not in owned]
+    for player in gap:
+        # Expected points you concede to the average rival by not owning him.
+        player["exposure"] = player["total"] * player["selected_by"] / 100
+    return sorted(gap, key=lambda p: -p["exposure"])
+
+
+def risk_curve(players: dict, overrides: dict) -> None:
+    """What each notch of risk aversion costs in projected points.
+
+    Shown rather than asserted: the trade between raw score and template
+    safety is the whole point of the setting, so it should be visible.
+    """
+    banned = {p["player_id"] for p in players.values()
+              if overrides.get(p["name"], {}).get("avoid")}
+    print(f"\n{'risk':>6}{'expected pts (inc C)':>22}{'template covered':>18}  squad character")
+    print("-" * 74)
+    for risk in (0.0, 0.25, 0.5, 0.75, 1.0):
+        squad = build_squad(players, banned=banned, risk=risk)
+        starters, bench, captain = pick_team(squad)
+        # Must match what the solver actually maximises at risk=0 -- XI, plus
+        # the captain's second helping, plus the discounted bench. Reporting
+        # any subset of that made risk=0 look worse than risk=0.25, which is
+        # impossible when risk=0 *is* the points-maximising setting. The
+        # mismatch was in the yardstick, not the optimiser.
+        points = (sum(p["total"] for p in starters) + captain["total"]
+                  + BENCH_WEIGHT * sum(p["total"] for p in bench))
+        template = [p for p in players.values() if p["selected_by"] >= TEMPLATE_OWNERSHIP]
+        owned = {p["player_id"] for p in squad}
+        covered = sum(1 for p in template if p["player_id"] in owned)
+        top = max(squad, key=lambda p: p["selected_by"])
+        print(f"{risk:>6.2f}{points:>22.1f}{f'{covered}/{len(template)}':>18}  "
+              f"most-owned pick: {top['name']} ({top['selected_by']:.0f}%)")
 
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--build", action="store_true", help="optimal 15 from scratch")
+    parser.add_argument("--risk", type=float, default=None,
+                        help="0 = pure points, 1 = full template (default: strategy.md)")
+    parser.add_argument("--risk-curve", action="store_true",
+                        help="show what each risk level costs in projected points")
+    parser.add_argument("--gap", action="store_true", help="template players you don't own")
     parser.add_argument("--squad", action="store_true", help="transfer suggestions for my_squad.json")
     parser.add_argument("--team", action="store_true", help="best XI, bench and captain for my_squad.json")
     parser.add_argument("--budget", type=float, default=BUDGET)
@@ -314,19 +411,33 @@ def main() -> None:
 
     players, events = load_projections()
     overrides = load_overrides()
+    strategy = load_strategy()
+    risk = strategy["risk"] if args.risk is None else args.risk
+
+    if args.risk_curve:
+        risk_curve(players, overrides)
 
     if args.build:
         avoid_ids = {p["player_id"] for p in players.values()
                      if overrides.get(p["name"], {}).get("avoid")}
-        squad = build_squad(players, budget=args.budget, banned=avoid_ids)
-        show_squad(squad, events, f"Optimal squad, £{args.budget:.1f}m")
+        squad = build_squad(players, budget=args.budget, banned=avoid_ids, risk=risk)
+        show_squad(squad, events, f"Optimal squad, £{args.budget:.1f}m (risk {risk:.2f})")
         if avoid_ids:
             names = sorted(players[i]["name"] for i in avoid_ids)
             print(f"\n  excluded by overrides.json: {', '.join(names)}")
 
-    if args.team or args.squad:
+    if args.team or args.squad or args.gap:
         squad, config = resolve_squad(players)
         show_squad(squad, events, "Your squad")
+
+        gap = ownership_gap(squad, players)
+        if gap:
+            print(f"\n=== template gap: {TEMPLATE_OWNERSHIP:.0f}%+ owned players you don't have ===")
+            print("  exposure = points you concede to the average rival by not owning him\n")
+            for player in gap[:6]:
+                print(f"  {player['name']:<16}{player['team']:<5}{player['position']:<5}"
+                      f"£{player['price']:>5.1f}m{player['selected_by']:>7.1f}% owned  "
+                      f"xP {player['total']:>5.1f}  exposure {player['exposure']:>5.1f}")
 
         if args.squad:
             bank = float(config.get("bank") or 0.0)
