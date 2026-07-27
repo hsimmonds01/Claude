@@ -99,8 +99,14 @@ OFFICIAL_SOURCES = [
 # and the run reports which responded. A feed means the newsletter can be
 # read without touching anyone's email account.
 COMMUNITY_FEEDS = [
+    # lazyfpl.com: tried /feed and /rss on 27 Jul 2026. Both responded but
+    # parsed to zero items -- an HTML page, not a feed -- so this newsletter
+    # does not publish RSS at the conventional paths. Left here because a
+    # zero-item feed costs one request and nothing else, and newsletter
+    # platforms add feeds; if one appears, it starts working with no change.
+    # Until then the fallback is an email-to-RSS bridge, which still keeps
+    # the agent out of any personal inbox.
     "https://www.lazyfpl.com/feed",
-    "https://www.lazyfpl.com/rss",
     "https://www.fantasyfootballscout.co.uk/feed/",
     "https://news.google.com/rss/search?q=%22Fantasy+Premier+League%22+tips&hl=en-GB&gl=GB&ceid=GB:en",
     "https://news.google.com/rss/search?q=Premier+League+injury+news+press+conference&hl=en-GB&gl=GB&ceid=GB:en",

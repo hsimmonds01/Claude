@@ -247,7 +247,22 @@ def parse_flags(text: str, players: dict[str, dict]) -> list[dict]:
         if not isinstance(entry, dict):
             continue
         name = str(entry.get("player", "")).strip()
+        # The prompt lists players as "Name (TEAM)", so the model reasonably
+        # echoes that format back. Matching only the bare name silently
+        # discarded real flags -- a live run threw away concerns about
+        # Calvert-Lewin and Rogers this way. Strip a trailing parenthetical
+        # and use it to disambiguate instead of rejecting the flag.
+        team_hint = ""
+        bracket = re.match(r"^(.*?)\s*\(([^)]+)\)\s*$", name)
+        if bracket:
+            name, team_hint = bracket.group(1).strip(), bracket.group(2).strip()
         player = by_name.get(name.lower())
+        if player and team_hint and player.get("team_name", "").lower() != team_hint.lower():
+            # Same surname, different club -- prefer the one the model meant.
+            better = next((p for p in players.values()
+                           if p["web_name"].lower() == name.lower()
+                           and p.get("team_name", "").lower() == team_hint.lower()), None)
+            player = better or player
         if not player or not entry.get("concern"):
             if name:
                 print(f"[news] dropping flag for unrecognised player '{name}'", file=sys.stderr)

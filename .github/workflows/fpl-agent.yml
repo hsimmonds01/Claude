@@ -66,6 +66,14 @@ jobs:
       # Headlines first, then the assessment that turns them into flags.
       # Both are best-effort: a news outage should not stop the email, it
       # should just mean the email has no news section.
+      # knowledge.py renders the JavaScript-only FPL help pages in a real
+      # browser. Without the binary that silently degrades: the rules pages
+      # come back as 115-character shells and get refused, dropping the
+      # capture rate from 5/5 to 2/5 with nothing failing loudly.
+      - name: Install Chromium for browser rendering
+        continue-on-error: true
+        run: python -m playwright install --with-deps chromium
+
       - name: Refresh headlines
         working-directory: fpl-agent
         continue-on-error: true
