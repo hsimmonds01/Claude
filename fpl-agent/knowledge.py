@@ -90,7 +90,17 @@ OFFICIAL_SOURCES = [
 ]
 
 # Community feeds -- headlines only, never full articles.
+#
+# lazyfpl.com is a newsletter the manager already reads and rates, and its
+# /p/<slug> URL pattern is the signature of Substack or beehiiv -- both of
+# which publish an RSS feed, usually at /feed. Which one it is can't be
+# checked from a development session (the sandbox proxy blocks the host and
+# the site returns 403 to datacentre fetchers), so the candidates are listed
+# and the run reports which responded. A feed means the newsletter can be
+# read without touching anyone's email account.
 COMMUNITY_FEEDS = [
+    "https://www.lazyfpl.com/feed",
+    "https://www.lazyfpl.com/rss",
     "https://www.fantasyfootballscout.co.uk/feed/",
     "https://news.google.com/rss/search?q=%22Fantasy+Premier+League%22+tips&hl=en-GB&gl=GB&ceid=GB:en",
     "https://news.google.com/rss/search?q=Premier+League+injury+news+press+conference&hl=en-GB&gl=GB&ceid=GB:en",
