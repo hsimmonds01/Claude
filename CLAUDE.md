@@ -26,9 +26,32 @@
   retired, `voxi-drop-alerter/`), and a Daily Discovery email digest
   (`discovery-agent/`, branch `claude/daily-discovery-agent-estimate-qasmi1`:
   Gemini free API + Google Search grounding -> Resend email; taste profile
-  lives in `discovery-agent/interests.md`). Each has its own GitHub Actions
-  workflow that commits state/history back to `main` on a repeating
-  schedule.
+  lives in `discovery-agent/interests.md`), and a Fantasy Premier League
+  agent (`fpl-agent/`, branch `claude/fantasy-football-agent-plan-fg86nk`).
+  Each has its own GitHub Actions workflow that commits state/history back
+  to `main` on a repeating schedule.
+
+## fpl-agent project
+- Expected-points model + squad optimiser for the user's FPL team, aiming at
+  deadline emails with recommended transfers. `fpl-agent/PLAN.md` is the
+  source of truth for scope and build order.
+- The dev sandbox CANNOT reach `fantasy.premierleague.com` (agent proxy
+  returns 403 on CONNECT), but Actions runners can. That's why
+  `snapshot.py`/`history.py` run as a workflow that commits data back --
+  don't try to debug the API from a session, push and read the committed
+  snapshot instead. `raw.githubusercontent.com` IS reachable, so the
+  gameweek archive (`gwdata.py`) can be fetched locally.
+- FPL's own site is a React app: `/help/rules` returns a ~115-char shell to
+  a plain fetch, so `knowledge.py` falls back to Playwright. Team
+  attack/defence strength fields are all ZERO pre-season -- use fixture
+  difficulty until results exist.
+- Model changes must be TESTED, not reasoned about. `backtest.py`,
+  `backtest_gw.py` and `minutes.py --evaluate` exist for this. Two plausible
+  ideas were already built and then removed for failing to replicate (a
+  club-move discount, an expensive-player penalty) -- `minutes.py` records
+  what was rejected and why, so they don't get reinvented. Beware judging a
+  change on one season: recency weighting looked like a clear regression on
+  2025/26 alone and was right on aggregate.
 - Any workflow that commits and pushes to `main` MUST join the
   `main-git-writer` concurrency group (`cancel-in-progress: false`) --
   otherwise its push can race another project's workflow and get rejected

@@ -11,6 +11,14 @@ name: FPL data snapshot
 # Triggered on push while the agent is being built (so a change to the
 # fetcher immediately produces fresh data), and manually thereafter.
 on:
+  # Daily, so price history accumulates. Price movement can only be measured
+  # BETWEEN observations, so the gap between runs is the resolution of the
+  # price watcher -- missing days can't be backfilled later.
+  # GitHub's scheduler is best-effort and often late (see CLAUDE.md); that's
+  # harmless here, since every run is an independent snapshot rather than
+  # something tied to a deadline window.
+  schedule:
+    - cron: "40 5 * * *"
   push:
     branches:
       - claude/fantasy-football-agent-plan-fg86nk
