@@ -16,9 +16,16 @@ on:
       - claude/fantasy-football-agent-plan-fg86nk
     paths:
       - "fpl-agent/snapshot.py"
+      - "fpl-agent/history.py"
+      - "fpl-agent/knowledge.py"
       - "fpl-agent/requirements.txt"
       - ".github/workflows/fpl-snapshot.yml"
   workflow_dispatch:
+    inputs:
+      include_history:
+        description: "Also refetch per-player history (~560 requests, a few minutes)"
+        type: boolean
+        default: true
 
 permissions:
   contents: write
@@ -48,9 +55,20 @@ jobs:
         working-directory: fpl-agent
         run: python snapshot.py --summary
 
+      # Skippable because it is by far the slowest step and past seasons
+      # don't change -- a routine snapshot refresh doesn't need it.
+      - name: Fetch per-player history
+        if: ${{ github.event_name == 'push' || inputs.include_history }}
+        working-directory: fpl-agent
+        run: python history.py
+
+      - name: Build the knowledge base
+        working-directory: fpl-agent
+        run: python knowledge.py
+
       - name: Commit the snapshot (if changed)
         run: |
-          git add fpl-agent/data/ || true
+          git add fpl-agent/data/ fpl-agent/knowledge/ || true
           if ! git diff --cached --quiet; then
             git config user.name "github-actions[bot]"
             git config user.email "github-actions[bot]@users.noreply.github.com"
