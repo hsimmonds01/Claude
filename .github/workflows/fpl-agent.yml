@@ -1,0 +1,115 @@
+name: FPL agent
+
+# Decides whether an email is due and sends it. Runs several times a day and
+# works it out from the real deadlines -- nothing here is tied to a weekday,
+# so midweek rounds, doubles and blanks need no special handling.
+#
+# fpl_agent.py records what it has sent in state.json, so overlapping or
+# duplicate triggers are safe: an extra run either no-ops or explains why.
+#
+# GitHub's own scheduler runs late often enough that it can't be the only
+# trigger for something deadline-sensitive (see CLAUDE.md), so cron-job.org
+# hits the workflow_dispatch endpoint as the reliable primary and this
+# schedule is the backup net. Running every 3 hours means a late run still
+# lands inside the lead window.
+on:
+  schedule:
+    - cron: "5 */3 * * *"
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "Run mode"
+        type: choice
+        options:
+          - auto
+          - dry_run
+          - test_email
+          - force_main
+          - force_review
+        default: auto
+
+permissions:
+  contents: write
+
+# Required for anything pushing to main in this repo -- see CLAUDE.md.
+concurrency:
+  group: main-git-writer
+  cancel-in-progress: false
+
+jobs:
+  agent:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        working-directory: fpl-agent
+        run: pip install -r requirements.txt
+
+      # Fresh prices, ownership and injury flags before deciding anything.
+      - name: Refresh snapshot
+        working-directory: fpl-agent
+        run: python snapshot.py
+
+      - name: Record price history
+        working-directory: fpl-agent
+        run: python price.py
+
+      - name: Rebuild projections
+        working-directory: fpl-agent
+        run: python model.py
+
+      # Headlines first, then the assessment that turns them into flags.
+      # Both are best-effort: a news outage should not stop the email, it
+      # should just mean the email has no news section.
+      - name: Refresh headlines
+        working-directory: fpl-agent
+        continue-on-error: true
+        run: python knowledge.py
+
+      - name: Assess the news
+        working-directory: fpl-agent
+        continue-on-error: true
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: python news.py
+
+      - name: Decide and send
+        working-directory: fpl-agent
+        env:
+          # Personal values live in Secrets, never in the repo -- this is a
+          # public repository and git history keeps anything committed.
+          FPL_TEAM_ID: ${{ secrets.FPL_TEAM_ID }}
+          FPL_EMAIL_TO: ${{ secrets.FPL_EMAIL_TO }}
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          MODE: ${{ inputs.mode || 'auto' }}
+        run: |
+          case "${MODE}" in
+            dry_run)      ARGS="--dry-run" ;;
+            test_email)   ARGS="--test-email" ;;
+            force_main)   ARGS="--force main" ;;
+            force_review) ARGS="--force review" ;;
+            *)            ARGS="" ;;
+          esac
+          python fpl_agent.py $ARGS
+
+      - name: Commit state (if changed)
+        run: |
+          for f in fpl-agent/state.json fpl-agent/history.json \
+                   fpl-agent/data/ fpl-agent/knowledge/; do
+            [ -e "$f" ] && git add "$f"
+          done
+          if ! git diff --cached --quiet; then
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git commit -m "FPL agent run"
+            git pull --rebase origin "${GITHUB_REF_NAME}" || true
+            git push
+          else
+            echo "Nothing changed."
+          fi
