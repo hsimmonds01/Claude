@@ -1,5 +1,35 @@
 # Repo notes / working preferences
 
+## THIS REPO IS PUBLIC — privacy rules (read before committing anything)
+- `hsimmonds01/Claude` is a **PUBLIC** repo. Verified 2026-07-27 via
+  `gh repo view --json visibility` -> `"PUBLIC"`. Everything committed here
+  is readable by anyone on the internet, and **stays in git history even
+  after the file is deleted** -- a later `rm` does not un-publish it.
+- **Privacy matters to the user, and they want to be told, not assumed.**
+  Before writing or committing anything containing personal information,
+  STOP and say plainly that it will be world-readable and who can see it.
+  Wait for a decision. Do not quietly commit and mention it afterwards.
+  Treat as personal information: real names, CVs, email addresses, phone
+  numbers, home/work locations, employer names, salary figures, health or
+  financial details, notification topic names, and anything identifying the
+  user's routine or whereabouts.
+- **This applies to files the user hands over too.** If they paste or upload
+  something that would be exposed by committing it, flag it before it goes
+  in -- the moment to raise it is *before* the write, not in the summary.
+  "You asked me to add it" is not a reason to skip the warning.
+- **Default to synthetic stand-ins.** Test with fabricated data and keep the
+  real thing out of the repo entirely. Where real data is genuinely needed
+  at runtime, it belongs in GitHub Actions **secrets**, never in a file.
+- **Third parties get the same protection or stricter** -- they haven't
+  chosen to have anything of theirs in a public repo. Live example: the
+  `job-agent-plan/` project is built for someone who is job-hunting while
+  still employed, so her CV, filled-in preferences, target-company list and
+  contact details are banned from this repo outright. See that folder's
+  `PLAN.md` banner.
+- Existing per-project state files (`state.json`, `history.json`, crowding
+  logs, etc.) are already public and are fine -- this rule is about not
+  making the exposure *worse*, not about auditing what's already there.
+
 ## dock-alerter project
 - Santander Cycles dock/bike alerter for Tooley Street, Bermondsey
   (`BikePoints_278`). See `dock-alerter/README.md` for full functional docs.
