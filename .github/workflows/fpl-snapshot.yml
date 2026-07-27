@@ -1,0 +1,62 @@
+name: FPL data snapshot
+
+# Fetches the official FPL API and commits a trimmed snapshot into
+# fpl-agent/data/.
+#
+# Why this exists as its own workflow: the Claude development sandbox is
+# blocked from reaching fantasy.premierleague.com, but Actions runners are
+# not. Running this here and committing the result is what gives development
+# sessions real prices, ownership and underlying stats to reason about.
+#
+# Triggered on push while the agent is being built (so a change to the
+# fetcher immediately produces fresh data), and manually thereafter.
+on:
+  push:
+    branches:
+      - claude/fantasy-football-agent-plan-fg86nk
+    paths:
+      - "fpl-agent/snapshot.py"
+      - "fpl-agent/requirements.txt"
+      - ".github/workflows/fpl-snapshot.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+# Shared with every other scheduled project in this repo -- see CLAUDE.md.
+# This workflow commits to its own feature branch rather than main, but it
+# joins the group anyway so it can never be the odd one out if that changes.
+concurrency:
+  group: main-git-writer
+  cancel-in-progress: false
+
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        working-directory: fpl-agent
+        run: pip install -r requirements.txt
+
+      - name: Fetch FPL snapshot
+        working-directory: fpl-agent
+        run: python snapshot.py --summary
+
+      - name: Commit the snapshot (if changed)
+        run: |
+          git add fpl-agent/data/ || true
+          if ! git diff --cached --quiet; then
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git commit -m "Update FPL data snapshot"
+            git pull --rebase origin "${GITHUB_REF_NAME}" || true
+            git push
+          else
+            echo "Snapshot unchanged, nothing to commit."
+          fi
