@@ -59,6 +59,11 @@ PLAYER_FIELDS = [
     "selected_by_percent", "transfers_in_event", "transfers_out_event",
     "status", "chance_of_playing_next_round", "news", "news_added",
     "ep_this", "ep_next",
+    # team_join_date is how a club move is detected. A player who has just
+    # transferred carries minutes and system-fit risk that last season's
+    # stats cannot show, so the model discounts him rather than trusting
+    # rates earned in a different side.
+    "team_join_date", "birth_date",
 ]
 
 TEAM_FIELDS = [
