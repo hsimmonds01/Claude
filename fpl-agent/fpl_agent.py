@@ -339,7 +339,14 @@ def send_email(subject: str, html_body: str) -> None:
         json={"from": EMAIL_FROM, "to": [recipient], "subject": subject, "html": html_body},
         timeout=60,
     )
-    response.raise_for_status()
+    if response.status_code >= 400:
+        # raise_for_status() discards the body, which is where Resend puts the
+        # actual reason -- and its 403s are usually a specific, fixable rule
+        # (most often: the free shared sender can only deliver to the address
+        # that owns the Resend account). Losing that message turns a
+        # two-minute fix into a guessing exercise.
+        detail = response.text[:500]
+        raise RuntimeError(f"Resend returned HTTP {response.status_code}: {detail}")
     print(f"[agent] sent '{subject}' (id {response.json().get('id', '?')})")
 
 
