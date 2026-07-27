@@ -127,6 +127,45 @@ class MergedJob:
         return self.best.url
 
 
+@dataclass(frozen=True)
+class ScoredJob:
+    """A merged role plus its frozen verdict, ready to be sent."""
+
+    job: MergedJob
+    score: int
+    reason: str
+
+    # Delegated so the notification layer doesn't have to reach through two
+    # objects to render one row.
+    @property
+    def title(self) -> str:
+        return self.job.title
+
+    @property
+    def company(self) -> str:
+        return self.job.company
+
+    @property
+    def url(self) -> str:
+        return self.job.url
+
+    @property
+    def best(self) -> Job:
+        return self.job.best
+
+    @property
+    def sources(self) -> tuple[str, ...]:
+        return self.job.sources
+
+    @property
+    def locations(self) -> tuple[str, ...]:
+        return self.job.locations
+
+    @property
+    def fingerprint(self) -> str:
+        return self.job.fingerprint
+
+
 def _rank(job: Job) -> tuple[int, int]:
     """Sort key picking the best representative of a duplicate set.
 

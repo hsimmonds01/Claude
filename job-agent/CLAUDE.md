@@ -66,6 +66,23 @@ phone alerts and email digests. Full functional docs in `README.md`.
 | Alert inbox (IMAP) | Not built yet. Reaches WTTJ, LinkedIn, Indeed. |
 | Company ATS feeds | Not built yet. Additive; she pastes a careers URL and the code resolves the ATS. |
 
+## Channels
+
+| Channel | Notes |
+|---|---|
+| ntfy push | `notify/push.py`. Vague wording is a discretion requirement. Topic name is the only access control and is never logged. |
+| Email digest | `notify/mail.py` — named `mail` because `email` is a stdlib package and shadowing it breaks smtplib. Gmail SMTP over the same app password used for IMAP. |
+| Failure email | Always attempted on a crash or a bad config, so silence only ever means "nothing matched". |
+
+## Where things live
+
+- `run.py` — orchestration, and the only place that reads environment
+  variables. Modules take values as arguments so they stay testable.
+- `seen.json` — long-lived memory of every role judged. Pruned at 60 days.
+- `state.json` — daily push counter and last-digest date. Small, churns
+  daily, harmless to lose. Kept separate so a counter update doesn't rewrite
+  the big file.
+
 Do not spend time re-checking whether Indeed, Welcome to the Jungle or
 LinkedIn have usable APIs. They don't — that's settled, and the email-alert
 route exists precisely because of it.
