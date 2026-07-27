@@ -16,7 +16,7 @@ import logging
 import os
 import sys
 import traceback
-from datetime import date, datetime
+from datetime import date
 from pathlib import Path
 
 from jobagent import config as config_module
@@ -67,10 +67,21 @@ def gather(cfg) -> list:
     return found
 
 
-def _notify(cfg, scored: list[ScoredJob], run_state: state.RunState, hour: int) -> None:
-    """Send push and digest. Neither channel can break the other."""
+def _notify(
+    cfg,
+    scored: list[ScoredJob],
+    run_state: state.RunState,
+    seen,
+    hour: int,
+    today: date,
+) -> None:
+    """Send push and digest. Neither channel can break the other.
+
+    `today` comes from her timezone rather than `date.today()`, which is the
+    runner's -- otherwise a late-evening London run rolls the daily counters a
+    day early once UTC passes midnight.
+    """
     link = feedback_url()
-    today = date.today()
 
     if cfg.push_enabled:
         quiet = cfg.quiet_hours.covers(hour)
@@ -89,6 +100,11 @@ def _notify(cfg, scored: list[ScoredJob], run_state: state.RunState, hour: int) 
                 feedback_url=link,
             ):
                 run_state.record_pushes(len(chosen), today=today)
+                # Record which roles she was actually interrupted for, so
+                # seen.json reflects what happened rather than carrying a
+                # field that is permanently False.
+                for job in chosen:
+                    seen.mark_notified(job.fingerprint)
         elif quiet:
             log.info("[ntfy] quiet hours; anything strong goes in the next digest")
 
@@ -107,7 +123,9 @@ def _notify(cfg, scored: list[ScoredJob], run_state: state.RunState, hour: int) 
         log.info("[email] nothing to send and send_when_empty is off")
         return
 
-    body = mail.render(for_digest, feedback_url=link) if for_digest else mail.render_empty()
+    body = (
+        mail.render(for_digest, feedback_url=link) if for_digest else mail.render_empty()
+    )
     subject = (
         f"{len(for_digest)} job{'s' if len(for_digest) != 1 else ''} worth a look"
         if for_digest
@@ -136,7 +154,13 @@ def run(args) -> int:
         log.info("Master switch is off in config.yml (enabled: false). Nothing to do.")
         return 0
 
-    hour = datetime.now().hour
+    # Her timezone, not the runner's. GitHub's runners are UTC while every
+    # hour in config.yml is labelled UK time, so through British Summer Time
+    # the 07:00 London trigger arrived as hour 6, matched nothing, and the run
+    # exited having done nothing -- successfully, so no failure email either.
+    now = cfg.now()
+    hour = now.hour
+    today = now.date()
     if hour not in cfg.run_hours and not args.force:
         log.info(
             "Not a scheduled hour (now %02d:00, runs at %s). Nothing to do.",
@@ -167,7 +191,12 @@ def run(args) -> int:
     fresh, _known = split_new(merged, seen)
     log.info("%d new, %d already seen", len(fresh), len(merged) - len(fresh))
 
-    verdicts = scoring.score(os.environ.get("GEMINI_API_KEY", ""), fresh, guidance)
+    verdicts = scoring.score(
+        os.environ.get("GEMINI_API_KEY", ""),
+        fresh,
+        guidance,
+        explain=cfg.explain_scores,
+    )
     by_fingerprint = {job.fingerprint: job for job in fresh}
 
     scored: list[ScoredJob] = []
@@ -178,7 +207,9 @@ def run(args) -> int:
         if verdict.score < cfg.min_score_to_keep:
             # Still recorded, so it's never scored or considered again.
             if not args.dry_run:
-                seen.remember(verdict.fingerprint, verdict.score, verdict.reason)
+                seen.remember(
+                    verdict.fingerprint, verdict.score, verdict.reason, today=today
+                )
             continue
         scored.append(ScoredJob(job=job, score=verdict.score, reason=verdict.reason))
 
@@ -199,13 +230,17 @@ def run(args) -> int:
         return 0
 
     run_state = state.RunState.load(STATE_PATH)
-    # Side effects first, state second -- a failed push must not cost the
-    # digest, and a failed git push must not cost either.
-    _notify(cfg, scored, run_state, hour)
 
+    # Record verdicts in memory first, so _notify can mark which roles she was
+    # actually interrupted for. Nothing is written to disk yet -- the
+    # side-effects-before-persistence rule is about the *save*, so a failed
+    # git push still costs a log row rather than an alert.
     for job in scored:
-        seen.remember(job.fingerprint, job.score, job.reason)
-    removed = seen.prune(cfg.seen_retention_days)
+        seen.remember(job.fingerprint, job.score, job.reason, today=today)
+
+    _notify(cfg, scored, run_state, seen, hour, today)
+
+    removed = seen.prune(cfg.seen_retention_days, today=today)
     if removed:
         log.info("pruned %d entries older than %d days", removed, cfg.seen_retention_days)
 
@@ -214,8 +249,16 @@ def run(args) -> int:
     return 0
 
 
-def _tell_her_it_broke(reason: str) -> None:
-    """Best-effort failure email. Never raises -- it's the last line of defence."""
+def _tell_her_it_broke(reason: str, cfg=None) -> None:
+    """Best-effort failure email. Never raises -- it's the last line of defence.
+
+    `cfg` is optional because the config itself may be what failed to load, and
+    a broken config is precisely when she most needs telling. In that case the
+    email is sent regardless, since there is no setting to consult.
+    """
+    if cfg is not None and not cfg.alert_on_failure:
+        log.info("alert_on_failure is off in config.yml; not emailing about this")
+        return
     try:
         mail.send_failure_notice(
             address=os.environ.get("GMAIL_ADDRESS", ""),
@@ -243,15 +286,20 @@ def main() -> int:
     )
     args = parser.parse_args()
 
-    logging.basicConfig(
-        level=logging.INFO, format="%(levelname)s %(name)s: %(message)s"
-    )
+    logging.basicConfig(level=logging.INFO, format="%(levelname)s %(name)s: %(message)s")
 
     try:
         return run(args)
     except Exception:  # noqa: BLE001 -- a crash must still reach her
         log.exception("the run failed")
-        _tell_her_it_broke(traceback.format_exc(limit=3))
+        # Best-effort re-read purely to honour alert_on_failure. If the config
+        # is itself unreadable, fall through and email anyway -- being told
+        # about a crash matters more than respecting a setting we can't read.
+        try:
+            cfg = config_module.load(CONFIG_PATH)
+        except Exception:  # noqa: BLE001
+            cfg = None
+        _tell_her_it_broke(traceback.format_exc(limit=3), cfg)
         return 1
 
 

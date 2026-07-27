@@ -15,6 +15,13 @@ on:
         description: "send | dry_run"
         required: false
         default: send
+  # NOTE: GitHub's cron is UTC-only and has no timezone setting, so through
+  # British Summer Time these fire an hour later than the config's labels
+  # (08:00, 13:00, 17:00, 19:00 London). That can't be fixed here -- it's a
+  # GitHub limitation. It's tolerable only because this is the backup: the
+  # agent no-ops outside its run hours, so a drifted backup trigger costs
+  # nothing, and cron-job.org (set to Europe/London, which handles the clock
+  # change itself) is the trigger that actually keeps time.
   schedule:
     - cron: "0 7,12,16,18 * * *"
 

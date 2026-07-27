@@ -1,2 +1,5 @@
 requests>=2.31
 PyYAML>=6.0
+# zoneinfo has no bundled tz database on Windows, and relying on the system
+# one makes behaviour differ between a laptop and the Actions runner.
+tzdata>=2024.1

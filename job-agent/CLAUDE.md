@@ -47,9 +47,25 @@ phone alerts and email digests. Full functional docs in `README.md`.
   mark the same ad twice gives two different numbers, and with a phone alert
   hanging off a threshold that means borderline roles ping on random days.
   Never rescore an existing fingerprint.
+- **All hours are in her timezone, never the runner's.** GitHub's runners are
+  UTC; every hour in `config.yml` is labelled UK time and cron-job.org is set
+  to Europe/London. Read the clock via `cfg.now()` and nothing else. Using
+  `datetime.now()` meant that through British Summer Time all four triggers
+  arrived an hour early, matched no `run_hours`, and the agent no-opped four
+  times a day — successfully, so no failure email. `tzdata` is a real
+  dependency: `zoneinfo` has no bundled database on Windows.
+  - GitHub's own `schedule:` cron is UTC-only with no timezone setting, so it
+    drifts an hour in summer. Can't be fixed in code, and it's fine — it's
+    only the backup, and an off-hour trigger just no-ops.
 - **Digest hours must be a subset of run hours.** The agent only exists at
   `run_hours`; a digest hour outside that set silently never sends. Validated
   at load time with a plain-English error.
+- **Every setting in `config.yml` must actually do something.** `explain_scores`
+  and `alert_on_failure` shipped parsed-but-unread while the file described
+  them as working controls, and `notified` was persisted while never being
+  set. She edits YAML from a phone with no way to test it, so a knob that does
+  nothing is worse than no knob — she'd conclude the agent is ignoring her.
+  If a setting isn't wired yet, say so in the file (see the companies section).
 - **Config validation errors are written for her**, not for a developer. If
   you add a setting, add a readable error for it too.
 - **A job with no company is kept, keyed by URL** (`models.py`). Alert emails
@@ -145,7 +161,22 @@ looks like a good job.
 
 ## Testing
 
-`python -m pytest` from the repo root. Network is stubbed; tests must pass
-offline. API response fixtures follow each provider's documented shape — if a
-digest goes empty in real life while tests pass, suspect a renamed field
-first.
+`python -m pytest` from the repo root. Network, SMTP and IMAP are stubbed;
+tests must pass offline. `python -m ruff check .` and `python -m black .`
+before committing.
+
+API response fixtures follow each provider's documented shape — if a digest
+goes empty in real life while tests pass, suspect a renamed field first.
+
+**Test where the value comes from, not just what it's compared against.**
+This has now caused three separate live bugs, all of which had green tests:
+
+| Bug | What was tested | What wasn't |
+|---|---|---|
+| Sender-allowlist bypass | `is_trusted("linkedin.com", ...)` | Parsing the `From` header |
+| Timezone no-op | Scheduling logic with a stubbed clock | Which clock it reads |
+| Template scaffolding sent as her answers | Hand-written fixtures | The real shipped files |
+
+When a test needs a value the code normally derives, prefer controlling the
+real source (`Config.now`, a real `email.message`, the actual template file)
+over replacing the whole module.

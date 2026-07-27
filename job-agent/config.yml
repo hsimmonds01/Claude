@@ -110,8 +110,12 @@ email:
 sources:
 
   # --- Company careers pages -----------------------------------------
-  # The best source by a distance. Roles show up here days before they
-  # reach the big job sites, and there's no recruiter noise.
+  # NOT BUILT YET. Listed here so the format is ready, but nothing reads
+  # this section at the moment -- adding companies has no effect until
+  # the feed reader is built. Everything else on this page is live.
+  #
+  # The best source by a distance once it exists. Roles show up here days
+  # before they reach the big job sites, and there's no recruiter noise.
   #
   # To add a company: go to their careers page, copy the address bar,
   # paste it below. That's it — the agent works out the rest.

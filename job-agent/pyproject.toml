@@ -1,0 +1,13 @@
+[tool.ruff]
+line-length = 90
+target-version = "py312"
+
+[tool.ruff.lint]
+# F401 unused imports and F841 unused variables are the two that would have
+# caught real findings in the last review.
+select = ["E", "F", "W", "I", "UP", "B"]
+ignore = ["E501"]  # black owns line length
+
+[tool.black]
+line-length = 90
+target-version = ["py312"]

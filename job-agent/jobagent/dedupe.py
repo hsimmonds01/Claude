@@ -36,10 +36,26 @@ class SeenEntry:
         }
 
     @staticmethod
-    def from_dict(raw: dict) -> "SeenEntry":
+    def from_dict(raw: dict) -> SeenEntry | None:
+        """Parse one row, or None if it's unusable.
+
+        Structurally valid JSON can still hold a nonsense score after a hand
+        edit or a bad merge. Catching only JSONDecodeError at the file level
+        left that case crashing the whole run -- which contradicts the reason
+        that handler exists. One dropped row costs one repeated job.
+        """
+        if not isinstance(raw, dict):
+            return None
+        fingerprint = str(raw.get("fingerprint", "")).strip()
+        if not fingerprint:
+            return None
+        try:
+            score = int(raw.get("score", 0))
+        except (TypeError, ValueError):
+            return None
         return SeenEntry(
-            fingerprint=str(raw.get("fingerprint", "")),
-            score=int(raw.get("score", 0)),
+            fingerprint=fingerprint,
+            score=score,
             reason=str(raw.get("reason", "")),
             first_seen=str(raw.get("first_seen", "")),
             notified=bool(raw.get("notified", False)),
@@ -53,7 +69,7 @@ class SeenStore:
         self._entries: dict[str, SeenEntry] = dict(entries or {})
 
     @classmethod
-    def load(cls, path: str | Path) -> "SeenStore":
+    def load(cls, path: str | Path) -> SeenStore:
         file = Path(path)
         if not file.exists():
             return cls()
@@ -65,9 +81,9 @@ class SeenStore:
             # every alert until someone notices.
             return cls()
         entries = {}
-        for item in raw.get("seen", []):
+        for item in raw.get("seen", []) or []:
             entry = SeenEntry.from_dict(item)
-            if entry.fingerprint:
+            if entry is not None:
                 entries[entry.fingerprint] = entry
         return cls(entries)
 

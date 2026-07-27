@@ -8,8 +8,9 @@ kinder than one that succeeds silently and never emails her again.
 
 from __future__ import annotations
 
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 from pathlib import Path
+from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
 
 import yaml
 
@@ -30,7 +31,7 @@ def _to_minutes(clock: str) -> int:
         minutes = int(parts[1]) if len(parts) > 1 and parts[1] else 0
     except ValueError:
         raise ConfigError(
-            f"Quiet hours should look like \"21:30\" on a 24-hour clock, but "
+            f'Quiet hours should look like "21:30" on a 24-hour clock, but '
             f"one says {clock!r}. Use 21:30 rather than 9pm."
         ) from None
     if not (0 <= hours <= 23 and 0 <= minutes <= 59):
@@ -96,6 +97,20 @@ class Config:
     def is_digest_hour(self, hour: int) -> bool:
         return hour in self.email_digest_hours
 
+    def now(self):
+        """Current time in *her* timezone, not the runner's.
+
+        GitHub's runners are UTC, but every hour in config.yml is labelled to
+        her as UK time and cron-job.org is configured in Europe/London. Using
+        the runner's clock meant that through British Summer Time the 07:00
+        London trigger arrived as hour 6, matched nothing in run_hours, and
+        the run exited having done nothing — successfully, so no failure
+        email either. Read the timezone the config actually specifies.
+        """
+        from datetime import datetime
+
+        return datetime.now(ZoneInfo(self.timezone))
+
 
 def _get(mapping: dict, path: str, default):
     """Walk a dotted path, tolerating missing intermediate sections.
@@ -151,13 +166,76 @@ def _hours(values, label: str) -> tuple[int, ...]:
         raise ConfigError(f"'{label}' must be a list of hours, e.g. [7, 12, 16, 18].")
     out = []
     for value in values:
-        if not isinstance(value, int) or not 0 <= value <= 23:
+        # `bool` is a subclass of `int`, and YAML reads bare `yes`/`on`/`true`
+        # as booleans -- so without this an accidental `- yes` became hour 1.
+        if isinstance(value, bool) or not isinstance(value, int) or not 0 <= value <= 23:
             raise ConfigError(
                 f"'{label}' contains {value!r}. Hours must be whole numbers "
                 f"from 0 to 23 on a 24-hour clock (so 6pm is 18, not 6)."
             )
         out.append(value)
     return tuple(sorted(set(out)))
+
+
+def _timezone(raw: dict) -> str:
+    """The timezone every hour in this file is expressed in."""
+    name = str(_get(raw, "schedule.timezone", "Europe/London")).strip()
+    try:
+        ZoneInfo(name)
+    except (ZoneInfoNotFoundError, ValueError):
+        raise ConfigError(
+            f"'{name}' isn't a timezone name the system recognises. Use "
+            "Europe/London (that's the one that handles the clocks going "
+            "forward and back by itself)."
+        ) from None
+    return name
+
+
+def _validate_hours(run_hours, digest_hours) -> None:
+    """The agent only exists at run_hours; a digest hour outside that set means
+    the digest silently never sends, which looks exactly like the agent being
+    broken. Caught loudly, on every run."""
+    orphans = sorted(set(digest_hours) - set(run_hours))
+    if not orphans:
+        return
+    raise ConfigError(
+        "Email digests are set to send at "
+        + ", ".join(f"{h}:00" for h in orphans)
+        + ", but the agent doesn't run at "
+        + ("that time" if len(orphans) == 1 else "those times")
+        + ". It only runs at "
+        + ", ".join(f"{h}:00" for h in run_hours)
+        + ". Either add the missing time to schedule.run_hours, or change "
+        "email.send_on_run_hours to a time that's already in that list. "
+        "(No email would ever be sent as things stand.)"
+    )
+
+
+def _validate_scores(min_score: int, push_threshold: int) -> None:
+    if not 0 <= min_score <= 10 or not 0 <= push_threshold <= 10:
+        raise ConfigError("Scores must be between 0 and 10.")
+    if push_threshold < min_score:
+        raise ConfigError(
+            f"push_threshold ({push_threshold}) is lower than min_score_to_keep "
+            f"({min_score}), so jobs could qualify for a phone alert while being "
+            "dropped for being too weak. Raise push_threshold, or lower "
+            "min_score_to_keep."
+        )
+
+
+def _companies(raw: dict) -> tuple[dict, ...]:
+    # Blank "-" placeholders parse as None; drop them rather than nagging her
+    # about an entry she hasn't filled in yet.
+    companies = tuple(
+        entry for entry in (_get(raw, "sources.companies.list", []) or []) if entry
+    )
+    for entry in companies:
+        if not isinstance(entry, dict) or "careers_url" not in entry:
+            raise ConfigError(
+                "Every company needs a 'name' and a 'careers_url'. One entry "
+                f"is missing its careers_url: {entry!r}"
+            )
+    return companies
 
 
 def _quiet_hours(raw: dict) -> QuietHours:
@@ -187,52 +265,18 @@ def load(path: str | Path) -> Config:
     digest_hours = _hours(
         _get(raw, "email.send_on_run_hours", [7, 18]), "send_on_run_hours"
     )
-
-    # The guard that matters most. The agent only exists at run_hours; a digest
-    # hour outside that set means the digest silently never sends, which looks
-    # exactly like the agent being broken. Caught here, loudly, on every run.
-    orphans = sorted(set(digest_hours) - set(run_hours))
-    if orphans:
-        raise ConfigError(
-            "Email digests are set to send at "
-            + ", ".join(f"{h}:00" for h in orphans)
-            + ", but the agent doesn't run at "
-            + ("that time" if len(orphans) == 1 else "those times")
-            + ". It only runs at "
-            + ", ".join(f"{h}:00" for h in run_hours)
-            + ". Either add the missing time to schedule.run_hours, or change "
-            "email.send_on_run_hours to a time that's already in that list. "
-            "(No email would ever be sent as things stand.)"
-        )
+    _validate_hours(run_hours, digest_hours)
 
     min_score = _int(_get(raw, "scoring.min_score_to_keep", 6), "min_score_to_keep")
     push_threshold = _int(_get(raw, "scoring.push_threshold", 8), "push_threshold")
-    if not 0 <= min_score <= 10 or not 0 <= push_threshold <= 10:
-        raise ConfigError("Scores must be between 0 and 10.")
-    if push_threshold < min_score:
-        raise ConfigError(
-            f"push_threshold ({push_threshold}) is lower than min_score_to_keep "
-            f"({min_score}), so jobs could qualify for a phone alert while being "
-            "dropped for being too weak. Raise push_threshold, or lower "
-            "min_score_to_keep."
-        )
+    _validate_scores(min_score, push_threshold)
 
-    # Blank "-" placeholders parse as None; drop them rather than nagging her
-    # about an entry she hasn't filled in yet.
-    companies = tuple(
-        entry for entry in (_get(raw, "sources.companies.list", []) or []) if entry
-    )
-    for entry in companies:
-        if not isinstance(entry, dict) or "careers_url" not in entry:
-            raise ConfigError(
-                "Every company needs a 'name' and a 'careers_url'. One entry "
-                f"is missing its careers_url: {entry!r}"
-            )
+    companies = _companies(raw)
 
     return Config(
         enabled=bool(_get(raw, "enabled", True)),
         run_hours=run_hours,
-        timezone=str(_get(raw, "schedule.timezone", "Europe/London")),
+        timezone=_timezone(raw),
         min_score_to_keep=min_score,
         push_threshold=push_threshold,
         explain_scores=bool(_get(raw, "scoring.explain_scores", True)),
@@ -242,22 +286,30 @@ def load(path: str | Path) -> Config:
         quiet_hours=_quiet_hours(raw),
         email_enabled=bool(_get(raw, "email.enabled", True)),
         email_digest_hours=digest_hours,
-        email_max_roles=_int(_get(raw, "email.max_roles_per_digest", 12), "max_roles_per_digest"),
+        email_max_roles=_int(
+            _get(raw, "email.max_roles_per_digest", 12), "max_roles_per_digest"
+        ),
         email_send_when_empty=bool(_get(raw, "email.send_when_empty", False)),
         search_terms=_clean_list(_get(raw, "sources.search_terms", [])),
         locations=_clean_list(_get(raw, "sources.locations", ["London"])),
-        max_distance_miles=_int(_get(raw, "sources.max_distance_miles", 20), "max_distance_miles"),
+        max_distance_miles=_int(
+            _get(raw, "sources.max_distance_miles", 20), "max_distance_miles"
+        ),
         max_age_days=_int(_get(raw, "sources.max_age_days", 14), "max_age_days"),
         adzuna_enabled=bool(_get(raw, "sources.adzuna.enabled", True)),
         reed_enabled=bool(_get(raw, "sources.reed.enabled", True)),
         companies_enabled=bool(_get(raw, "sources.companies.enabled", True)),
         companies=companies,
         inbox_enabled=bool(_get(raw, "sources.alert_inbox.enabled", True)),
-        inbox_max_age_days=_int(_get(raw, "sources.alert_inbox.max_age_days", 3), "alert_inbox.max_age_days"),
+        inbox_max_age_days=_int(
+            _get(raw, "sources.alert_inbox.max_age_days", 3), "alert_inbox.max_age_days"
+        ),
         inbox_trusted_senders=tuple(
             s.casefold()
             for s in _clean_list(_get(raw, "sources.alert_inbox.trusted_senders", []))
         ),
-        seen_retention_days=_int(_get(raw, "housekeeping.seen_retention_days", 60), "seen_retention_days"),
+        seen_retention_days=_int(
+            _get(raw, "housekeeping.seen_retention_days", 60), "seen_retention_days"
+        ),
         alert_on_failure=bool(_get(raw, "housekeeping.alert_on_failure", True)),
     )

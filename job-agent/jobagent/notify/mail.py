@@ -132,7 +132,9 @@ def send(
 
     try:
         context = ssl.create_default_context()
-        with smtplib.SMTP_SSL(SMTP_HOST, SMTP_PORT, timeout=TIMEOUT, context=context) as smtp:
+        with smtplib.SMTP_SSL(
+            SMTP_HOST, SMTP_PORT, timeout=TIMEOUT, context=context
+        ) as smtp:
             smtp.login(address, app_password)
             smtp.send_message(message)
     except (smtplib.SMTPException, OSError) as exc:

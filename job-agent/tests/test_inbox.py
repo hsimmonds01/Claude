@@ -111,7 +111,9 @@ class TestExtraction:
         ]
         assert jobs[0].company == "Riverbank Trust"
         assert jobs[1].company == "Halcyon Group"
-        assert jobs[0].url.startswith("https://www.linkedin.com/comm/jobs/view/3812345678")
+        assert jobs[0].url.startswith(
+            "https://www.linkedin.com/comm/jobs/view/3812345678"
+        )
 
     def test_ignores_footer_and_unsubscribe_links(self):
         jobs = inbox.extract_jobs(LINKEDIN_EMAIL, source_label="linkedin.com")
@@ -163,9 +165,7 @@ class TestExtraction:
         assert inbox.extract_jobs(html, source_label="x.com") == []
 
     def test_malformed_html_does_not_raise(self):
-        assert isinstance(
-            inbox.extract_jobs("<a href=", source_label="x.com"), list
-        )
+        assert isinstance(inbox.extract_jobs("<a href=", source_label="x.com"), list)
 
     def test_respects_the_per_message_cap(self):
         links = "".join(

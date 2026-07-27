@@ -5,8 +5,6 @@ because every one of these is silent in production: a leaked key looks like a
 normal log line, and an inflated score looks like a good job.
 """
 
-import json
-
 import pytest
 import requests
 
@@ -313,9 +311,7 @@ class TestSenderSpoofing:
         assert inbox.is_trusted_sender(message, ("linkedin.com",)) is False
 
     def test_a_trusted_address_alongside_an_untrusted_one_is_rejected(self):
-        message = self._message(
-            "jobalerts@linkedin.com, careers@attacker.example"
-        )
+        message = self._message("jobalerts@linkedin.com, careers@attacker.example")
 
         assert inbox.is_trusted_sender(message, ("linkedin.com",)) is False
 
