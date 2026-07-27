@@ -24,7 +24,7 @@ class RunState:
     digest_hours: tuple[int, ...] = ()
 
     @classmethod
-    def load(cls, path: str | Path) -> "RunState":
+    def load(cls, path: str | Path) -> RunState:
         file = Path(path)
         if not file.exists():
             return cls()
@@ -40,9 +40,17 @@ class RunState:
             except (TypeError, ValueError):
                 continue
 
+        # Same reasoning as the JSONDecodeError above: valid JSON can still
+        # hold a nonsense count after a hand edit or a bad merge, and losing
+        # the counter is far cheaper than crashing the run.
+        try:
+            push_count = int(raw.get("push_count", 0) or 0)
+        except (TypeError, ValueError):
+            push_count = 0
+
         return cls(
             push_date=str(raw.get("push_date", "")),
-            push_count=int(raw.get("push_count", 0) or 0),
+            push_count=push_count,
             digest_date=str(raw.get("digest_date", "")),
             digest_hours=tuple(hours),
         )

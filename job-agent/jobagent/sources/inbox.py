@@ -98,6 +98,7 @@ def _is_listing_or_account_page(path: str) -> bool:
     segments = {segment for segment in path.casefold().split("/") if segment}
     return bool(segments & _NOT_A_VACANCY)
 
+
 # Query parameters that wrap the real destination inside a tracking redirect.
 _REDIRECT_PARAMS = ("url", "u", "redirect", "target", "destination", "r")
 
@@ -319,9 +320,7 @@ def is_trusted(domain: str, trusted: tuple[str, ...]) -> bool:
     """
     if not domain:
         return False
-    return any(
-        domain == allowed or domain.endswith("." + allowed) for allowed in trusted
-    )
+    return any(domain == allowed or domain.endswith("." + allowed) for allowed in trusted)
 
 
 def is_trusted_sender(message: Message, trusted: tuple[str, ...]) -> bool:
@@ -381,9 +380,7 @@ def fetch(address: str, app_password: str, config) -> list[Job]:
                     continue
 
                 domain = (_sender_domains(message) or [""])[0]
-                found = extract_jobs(
-                    _body_html(message), source_label=domain, posted=""
-                )
+                found = extract_jobs(_body_html(message), source_label=domain, posted="")
                 log.info(
                     "[inbox] %-24s %-45s -> %d job(s)",
                     domain,

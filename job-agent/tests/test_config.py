@@ -66,8 +66,7 @@ class TestScoreValidation:
     def test_rejects_push_threshold_below_keep_threshold(self, tmp_path):
         path = _write(
             tmp_path,
-            MINIMAL
-            + """
+            MINIMAL + """
 scoring:
   min_score_to_keep: 8
   push_threshold: 6
@@ -102,8 +101,7 @@ class TestCompanyValidation:
     def test_rejects_company_without_careers_url(self, tmp_path):
         path = _write(
             tmp_path,
-            MINIMAL
-            + """
+            MINIMAL + """
 sources:
   companies:
     list:
@@ -154,7 +152,8 @@ class TestFriendlyErrorsForTypos:
         # Otherwise a typo lies dormant until the one evening it matters.
         path = _write(
             tmp_path,
-            MINIMAL + '\npush:\n  quiet_hours:\n    start: "nonsense"\n    end: "07:30"\n',
+            MINIMAL
+            + '\npush:\n  quiet_hours:\n    start: "nonsense"\n    end: "07:30"\n',
         )
 
         with pytest.raises(ConfigError):
@@ -171,8 +170,7 @@ class TestBlankTemplateEntries:
     def test_blank_search_terms_are_dropped(self, tmp_path):
         path = _write(
             tmp_path,
-            MINIMAL
-            + """
+            MINIMAL + """
 sources:
   search_terms:
     -
@@ -193,8 +191,7 @@ sources:
     def test_blank_company_placeholders_do_not_raise(self, tmp_path):
         path = _write(
             tmp_path,
-            MINIMAL
-            + """
+            MINIMAL + """
 sources:
   companies:
     list:

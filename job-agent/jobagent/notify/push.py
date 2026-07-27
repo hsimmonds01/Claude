@@ -43,7 +43,9 @@ def build_message(jobs, *, vague: bool) -> tuple[str, str]:
     """
     if vague:
         return "Job agent", _vague_body(len(jobs))
-    return f"{len(jobs)} strong match{'es' if len(jobs) != 1 else ''}", _detailed_body(jobs)
+    return f"{len(jobs)} strong match{'es' if len(jobs) != 1 else ''}", _detailed_body(
+        jobs
+    )
 
 
 def send(topic: str, jobs, *, vague: bool, feedback_url: str = "") -> bool:

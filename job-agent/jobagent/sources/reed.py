@@ -33,9 +33,7 @@ def _one_search(api_key: str, term: str, location: str, distance: int) -> list[J
         "distanceFromLocation": distance,
         "resultsToTake": RESULTS_PER_CALL,
     }
-    response = requests.get(
-        BASE_URL, params=params, auth=(api_key, ""), timeout=TIMEOUT
-    )
+    response = requests.get(BASE_URL, params=params, auth=(api_key, ""), timeout=TIMEOUT)
     response.raise_for_status()
     payload = response.json()
 

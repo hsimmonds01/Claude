@@ -11,7 +11,7 @@ content instead.
 from __future__ import annotations
 
 import re
-from dataclasses import dataclass, field, replace
+from dataclasses import dataclass
 
 # Suffixes companies append to their legal name that carry no identity.
 _COMPANY_SUFFIXES = re.compile(
@@ -150,13 +150,14 @@ class MergedJob:
     """One vacancy after identical roles from several sources are combined.
 
     A role appearing on three sources is a *stronger* signal, not two pieces
-    of rubbish to throw away, so every source and URL found is retained.
+    of rubbish to throw away, so every source is retained and shown in the
+    digest. Only the best link is kept -- an earlier version also carried the
+    alternates, but nothing ever rendered them.
     """
 
     fingerprint: str
     best: Job
     sources: tuple[str, ...] = ()
-    all_urls: tuple[str, ...] = ()
     locations: tuple[str, ...] = ()
 
     @property
@@ -240,7 +241,6 @@ def merge(jobs: list[Job]) -> list[MergedJob]:
                 fingerprint=fingerprint,
                 best=best,
                 sources=tuple(dict.fromkeys(j.source for j in group)),
-                all_urls=tuple(dict.fromkeys(j.url for j in group)),
                 locations=tuple(
                     dict.fromkeys(j.location for j in group if j.location.strip())
                 ),

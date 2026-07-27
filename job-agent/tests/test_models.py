@@ -59,7 +59,12 @@ class TestMerge:
         # digest with the same job three times.
         jobs = [
             _job("adzuna", "Operations Associate", "Example Ltd", "https://adz/1"),
-            _job("reed", "Operations Associate (Hybrid)", "Example Limited", "https://reed/2"),
+            _job(
+                "reed",
+                "Operations Associate (Hybrid)",
+                "Example Limited",
+                "https://reed/2",
+            ),
             _job("inbox", "Operations Associate - London", "Example", "https://li/3"),
         ]
 
@@ -69,12 +74,15 @@ class TestMerge:
         # Assert
         assert len(merged) == 1
         assert set(merged[0].sources) == {"adzuna", "reed", "inbox"}
-        assert len(merged[0].all_urls) == 3
+        # One link survives, and it's the best-ranked source's.
+        assert merged[0].url == "https://adz/1"
 
     def test_prefers_company_careers_page_as_the_link(self):
         jobs = [
             _job("reed", "Operations Associate", "Example", "https://reed/2"),
-            _job("company", "Operations Associate", "Example", "https://example.com/jobs/1"),
+            _job(
+                "company", "Operations Associate", "Example", "https://example.com/jobs/1"
+            ),
         ]
 
         merged = merge(jobs)
@@ -154,8 +162,20 @@ class TestMerge:
 
     def test_collects_every_location_seen(self):
         jobs = [
-            _job("adzuna", "Operations Associate", "Example", "https://a", location="London"),
-            _job("reed", "Operations Associate", "Example", "https://b", location="City of London"),
+            _job(
+                "adzuna",
+                "Operations Associate",
+                "Example",
+                "https://a",
+                location="London",
+            ),
+            _job(
+                "reed",
+                "Operations Associate",
+                "Example",
+                "https://b",
+                location="City of London",
+            ),
         ]
 
         merged = merge(jobs)

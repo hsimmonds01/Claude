@@ -142,7 +142,7 @@ def load(root: str | Path) -> Steering:
         profile = ""
 
     return Steering(
-        cv=_read(base / "cv.md").strip(),
+        cv=_strip_template_scaffolding(_read(base / "cv.md")).strip(),
         profile=profile,
         standing_rules=standing,
         recent_reactions=reactions,

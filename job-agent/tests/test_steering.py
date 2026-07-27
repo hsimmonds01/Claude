@@ -58,6 +58,7 @@ class TestUnfilledTemplateDetection:
 
         assert load(tmp_path).profile != ""
 
+
 TWO_SECTION = """
 # Steering
 

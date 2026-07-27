@@ -171,7 +171,9 @@ class TestEmailSending:
 
     def test_missing_destination_is_survivable(self):
         assert (
-            mail.send(address="a@b.c", app_password="p", to="", subject="x", body_html="y")
+            mail.send(
+                address="a@b.c", app_password="p", to="", subject="x", body_html="y"
+            )
             is False
         )
 

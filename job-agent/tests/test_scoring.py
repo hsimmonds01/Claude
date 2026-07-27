@@ -1,6 +1,5 @@
 import json
 
-import pytest
 import requests
 
 from jobagent import scoring
@@ -158,7 +157,9 @@ class TestResponseParsing:
         monkeypatch.setattr(
             scoring.requests,
             "post",
-            lambda *a, **k: _FakeResponse(_reply([{"job": 0, "score": 47, "reason": ""}])),
+            lambda *a, **k: _FakeResponse(
+                _reply([{"job": 0, "score": 47, "reason": ""}])
+            ),
         )
 
         assert scoring.score("key", _jobs(1), _steering())[0].score == 10
@@ -167,7 +168,9 @@ class TestResponseParsing:
         monkeypatch.setattr(
             scoring.requests,
             "post",
-            lambda *a, **k: _FakeResponse(_reply([{"job": 0, "score": 7.6, "reason": ""}])),
+            lambda *a, **k: _FakeResponse(
+                _reply([{"job": 0, "score": 7.6, "reason": ""}])
+            ),
         )
 
         assert scoring.score("key", _jobs(1), _steering())[0].score == 8

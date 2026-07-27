@@ -77,7 +77,11 @@ def _describe_job(index: int, job) -> str:
     if job.best.salary_min or job.best.salary_max:
         low = int(job.best.salary_min or 0)
         high = int(job.best.salary_max or 0)
-        salary = f"\nSalary: £{low:,} - £{high:,}" if low and high else f"\nSalary: £{low or high:,}"
+        salary = (
+            f"\nSalary: £{low:,} - £{high:,}"
+            if low and high
+            else f"\nSalary: £{low or high:,}"
+        )
 
     locations = _sanitise(", ".join(job.locations)) if job.locations else "not stated"
 
@@ -90,16 +94,20 @@ def _describe_job(index: int, job) -> str:
     )
 
 
-def build_prompt(jobs, steering) -> str:
+def build_prompt(jobs, steering, *, explain: bool = True) -> str:
     """Assemble the scoring prompt.
 
     Feedback comes *after* the profile because it's the correction layer -- it
     exists to override what the profile said when reality proved otherwise.
     """
-    parts = [
-        "You are screening job adverts for one specific person. For each job, "
+    ask = (
         "give a score from 0 to 10 for how well it suits her, and one short "
-        "sentence of no more than 20 words explaining the score.",
+        "sentence of no more than 20 words explaining the score."
+        if explain
+        else "give a score from 0 to 10 for how well it suits her."
+    )
+    parts = [
+        "You are screening job adverts for one specific person. For each job, " + ask,
         "",
         "Scoring guide:",
         "  9-10  She should look at this today.",
@@ -150,8 +158,13 @@ def build_prompt(jobs, steering) -> str:
         "",
         "--- end of untrusted advert text ---",
         "",
-        'Reply with JSON only: {"scores": [{"job": 0, "score": 7, '
-        '"reason": "..."}]}. Include every job exactly once.',
+        (
+            'Reply with JSON only: {"scores": [{"job": 0, "score": 7, '
+            '"reason": "..."}]}. Include every job exactly once.'
+            if explain
+            else 'Reply with JSON only: {"scores": [{"job": 0, "score": 7}]}. '
+            "Include every job exactly once."
+        ),
     ]
     return "\n".join(parts)
 
@@ -225,8 +238,8 @@ def _request(api_key: str, model: str, prompt: str) -> str:
     return text
 
 
-def _score_batch(api_key: str, jobs, steering) -> list[Verdict]:
-    prompt = build_prompt(jobs, steering)
+def _score_batch(api_key: str, jobs, steering, *, explain: bool = True) -> list[Verdict]:
+    prompt = build_prompt(jobs, steering, explain=explain)
     last_error: Exception | None = None
 
     for model in MODELS:
@@ -242,12 +255,10 @@ def _score_batch(api_key: str, jobs, steering) -> list[Verdict]:
 
     # Scrubbed here too, so the secret never even enters the message: this
     # string is logged again by the caller.
-    raise ScoringError(
-        f"every model failed; last error: {redact.scrub(str(last_error))}"
-    )
+    raise ScoringError(f"every model failed; last error: {redact.scrub(str(last_error))}")
 
 
-def score(api_key: str, jobs, steering) -> list[Verdict]:
+def score(api_key: str, jobs, steering, *, explain: bool = True) -> list[Verdict]:
     """Score every job. Returns verdicts for whatever succeeded.
 
     A failed batch is skipped, not fatal. Those jobs stay unrecorded, so the
@@ -263,7 +274,7 @@ def score(api_key: str, jobs, steering) -> list[Verdict]:
     for start in range(0, len(jobs), BATCH_SIZE):
         batch = jobs[start : start + BATCH_SIZE]
         try:
-            verdicts.extend(_score_batch(api_key, batch, steering))
+            verdicts.extend(_score_batch(api_key, batch, steering, explain=explain))
         except ScoringError as exc:
             log.error(
                 "[gemini] batch of %d skipped, will retry next run: %s",

@@ -168,9 +168,7 @@ class TestReed:
 
     def test_handles_a_malformed_date(self, monkeypatch):
         payload = {"results": [dict(REED_PAYLOAD["results"][0], date="")]}
-        monkeypatch.setattr(
-            reed.requests, "get", lambda *a, **k: _FakeResponse(payload)
-        )
+        monkeypatch.setattr(reed.requests, "get", lambda *a, **k: _FakeResponse(payload))
 
         assert reed.fetch("key", _config())[0].posted == ""
 
