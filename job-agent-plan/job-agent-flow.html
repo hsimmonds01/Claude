@@ -1,0 +1,169 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    width: 760px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    background: #ffffff;
+    color: #0F172A;
+    padding: 34px 30px 40px;
+  }
+  h1 { font-size: 40px; letter-spacing:-0.8px; line-height:1.1; }
+  .sub { font-size: 22px; color:#64748B; margin-top:10px; line-height:1.35; }
+  hr.rule { border:0; border-top:3px solid #E2E8F0; margin:28px 0 30px; }
+
+  .step { border-radius:18px; padding:22px 24px; border-left:14px solid; position:relative; }
+  .step .num {
+    position:absolute; top:-15px; left:20px;
+    font-size:19px; font-weight:800; color:#fff;
+    padding:4px 15px; border-radius:20px;
+  }
+  .step h2 { font-size:29px; letter-spacing:-0.4px; margin-bottom:8px; line-height:1.15; }
+  .step p  { font-size:21px; line-height:1.45; color:#334155; }
+  .step p .who { font-weight:700; color:#0F172A; }
+
+  .arrow { text-align:center; font-size:36px; line-height:1; color:#94A3B8; margin:16px 0; font-weight:700;}
+
+  /* colours */
+  .amber  { background:#FEF3C7; border-color:#D97706; }
+  .amber  .num { background:#D97706; }
+  .blue   { background:#DBEAFE; border-color:#2563EB; }
+  .blue   .num { background:#2563EB; }
+  .green  { background:#D1FAE5; border-color:#059669; }
+  .green  .num { background:#059669; }
+  .purple { background:#EDE9FE; border-color:#7C3AED; }
+  .purple .num { background:#7C3AED; }
+  .slate  { background:#E2E8F0; border-color:#475569; }
+  .slate  .num { background:#475569; }
+  .coral  { background:#FFE4E6; border-color:#DC2626; }
+  .coral  .num { background:#DC2626; }
+  .teal   { background:#CCFBF1; border-color:#0D9488; }
+  .teal   .num { background:#0D9488; }
+
+  .sources { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:16px; }
+  .src {
+    background:#fff; border:2.5px solid #6EE7B7; border-radius:12px;
+    padding:13px 15px; font-size:18.5px; line-height:1.3;
+  }
+  .src b { display:block; font-size:20px; margin-bottom:3px; color:#065F46; }
+  .src span { color:#475569; font-size:17.5px; }
+
+  .files { margin-top:16px; display:flex; flex-direction:column; gap:10px; }
+  .file {
+    background:#fff; border:2.5px solid #C4B5FD; border-radius:12px;
+    padding:12px 15px; font-size:19px; line-height:1.35;
+  }
+  .file code {
+    font-family: ui-monospace, Menlo, Consolas, monospace;
+    font-size:19px; font-weight:700; color:#5B21B6;
+  }
+  .file span { color:#475569; font-size:18px; }
+
+  .outs { display:flex; flex-direction:column; gap:12px; margin-top:16px; }
+  .out {
+    background:#fff; border:2.5px solid #FCA5A5; border-radius:12px;
+    padding:14px 16px; font-size:19px; line-height:1.35;
+  }
+  .out b { font-size:21px; color:#991B1B; }
+  .out span { display:block; color:#475569; font-size:18px; margin-top:3px; }
+
+  .loopback {
+    margin-top:26px; background:#0F172A; color:#fff; border-radius:16px;
+    padding:20px 24px; font-size:21px; line-height:1.45;
+  }
+  .loopback b { font-size:24px; display:block; margin-bottom:7px; }
+  .loopback code { font-family: ui-monospace, Menlo, Consolas, monospace; color:#5EEAD4; font-weight:700; }
+
+  .foot {
+    margin-top:30px; padding-top:22px; border-top:3px solid #E2E8F0;
+    display:flex; flex-wrap:wrap; gap:10px 22px; font-size:18.5px; color:#475569;
+  }
+  .foot div b { color:#0F172A; }
+  .cap { font-size:19px; color:#64748B; margin-top:22px; line-height:1.4; text-align:center; }
+</style>
+</head>
+<body>
+
+  <h1>Her job-finding agent</h1>
+  <div class="sub">Runs by itself 4&times; a day, on GitHub's servers.<br>Nothing runs on a phone &mdash; phones are just the remote control.</div>
+
+  <hr class="rule">
+
+  <div class="step amber">
+    <div class="num">1</div>
+    <h2>&#9200;&nbsp; The alarm clock</h2>
+    <p><span class="who">cron-job.org</span> &mdash; a free timer website. Pokes the agent awake at 7am, 12pm, 4pm and 8pm.</p>
+  </div>
+
+  <div class="arrow">&#9660;</div>
+
+  <div class="step blue">
+    <div class="num">2</div>
+    <h2>&#9881;&nbsp; The engine</h2>
+    <p><span class="who">GitHub Actions</span>, inside her own private repo. Free, and it's the bit that does the work. She owns it outright.</p>
+  </div>
+
+  <div class="arrow">&#9660;</div>
+
+  <div class="step green">
+    <div class="num">3</div>
+    <h2>&#128269;&nbsp; Go and find roles</h2>
+    <p>Four sources, pulled in together and merged into one list:</p>
+    <div class="sources">
+      <div class="src"><b>Adzuna</b><span>Free UK jobs API. Wide net.</span></div>
+      <div class="src"><b>Reed</b><span>Free UK jobs API. Wide net.</span></div>
+      <div class="src"><b>Target companies</b><span>Their careers pages, read directly. Best quality.</span></div>
+      <div class="src"><b>Alert inbox</b><span>WTTJ / LinkedIn / Indeed email alerts, read automatically.</span></div>
+    </div>
+  </div>
+
+  <div class="arrow">&#9660;</div>
+
+  <div class="step purple">
+    <div class="num">4</div>
+    <h2>&#129504;&nbsp; Score every role</h2>
+    <p>An AI reads each job against three plain-English files she controls, and gives it a mark out of 10:</p>
+    <div class="files">
+      <div class="file"><code>cv.md</code> &mdash; <span>her CV, as text</span></div>
+      <div class="file"><code>profile.md</code> &mdash; <span>what she wants: titles, salary floor, location, dealbreakers</span></div>
+      <div class="file"><code>feedback.md</code> &mdash; <span>&ldquo;more like this&rdquo; / &ldquo;too junior&rdquo; &mdash; she adds lines any time</span></div>
+    </div>
+  </div>
+
+  <div class="arrow">&#9660;</div>
+
+  <div class="step slate">
+    <div class="num">5</div>
+    <h2>&#128465;&nbsp; Bin the repeats</h2>
+    <p>Anything already sent before, or below her score cut-off, is dropped. Nothing gets shown twice.</p>
+  </div>
+
+  <div class="arrow">&#9660;</div>
+
+  <div class="step coral">
+    <div class="num">6</div>
+    <h2>&#128227;&nbsp; Tell her &mdash; max 4 a day</h2>
+    <div class="outs">
+      <div class="out"><b>&#128276;&nbsp; Push alert &mdash; up to 2 a day</b><span>Only for 9/10+ roles. Discreet wording on the lock screen. Apply-now link.</span></div>
+      <div class="out"><b>&#128233;&nbsp; Email digest &mdash; 2 a day</b><span>8am and 6pm. Everything else, sorted best-first, personal inbox only.</span></div>
+    </div>
+  </div>
+
+  <div class="loopback">
+    <b>&#9997;&nbsp; And she steers it</b>
+    Every alert carries a link straight to <code>feedback.md</code> in the GitHub app. She types one line, hits save &mdash; the next run is sharper. No code, no help needed.
+  </div>
+
+  <div class="foot">
+    <div><b>Cost:</b> &pound;0 / month</div>
+    <div><b>Repo:</b> private, hers alone</div>
+    <div><b>Scraping:</b> none &mdash; official feeds only</div>
+  </div>
+
+  <div class="cap">Her GitHub account &middot; her API keys &middot; her notifications &middot; her call.</div>
+
+</body>
+</html>
