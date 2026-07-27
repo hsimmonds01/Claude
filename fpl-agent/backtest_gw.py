@@ -41,6 +41,7 @@ from model import (
     GOAL_POINTS, SEASON_MATCHES, SHRINKAGE_MINUTES,
     clean_sheet_probability, defcon_probability, num, shrink,
 )
+from minutes import RECENT_WEIGHT, SEASON_WEIGHT, start_rates
 from optimiser import BUDGET, MAX_PER_CLUB, SQUAD_SIZE, XI_LIMITS, XI_SIZE
 
 BASE_DIR = Path(__file__).resolve().parent
@@ -106,7 +107,8 @@ def positional_means(evidence: dict[str, dict]) -> dict[str, dict]:
     return means
 
 
-def project_per_game(entry: dict, means: dict, position: str) -> float:
+def project_per_game(entry: dict, means: dict, position: str,
+                     start_prob_override: float | None = None) -> float:
     """Projected points per gameweek from evidence-season data only."""
     minutes = entry["minutes"]
     if minutes <= 0:
@@ -118,7 +120,8 @@ def project_per_game(entry: dict, means: dict, position: str) -> float:
     xa90 = shrink(entry["expected_assists"] / minutes * 90, minutes, mean["xa90"])
     defcon90 = shrink(entry["defensive_contribution"] / minutes * 90, minutes, mean["defcon90"])
     bonus90 = shrink(entry["bonus"] / minutes * 90, minutes, mean["bonus90"])
-    start_prob = min(entry["starts"] / SEASON_MATCHES, 1.0)
+    start_prob = (start_prob_override if start_prob_override is not None
+                  else min(entry["starts"] / SEASON_MATCHES, 1.0))
 
     per_start = 2.0 + xg90 * GOAL_POINTS[pos_id] + xa90 * ASSIST_POINTS + bonus90
     if CLEAN_SHEET_POINTS[pos_id]:
@@ -130,7 +133,8 @@ def project_per_game(entry: dict, means: dict, position: str) -> float:
     return start_prob * per_start
 
 
-def build_pool(target_rows: list[dict], evidence: dict, means: dict, gameweeks: int) -> list[dict]:
+def build_pool(target_rows: list[dict], evidence: dict, means: dict, gameweeks: int,
+               recency: dict | None = None) -> list[dict]:
     """Everyone available at GW1 of the target season, with their real GW1
     price, an evidence-only projection, and what they actually scored."""
     first_gw = {r["name"]: r for r in target_rows if num(r["round"]) == 1}
@@ -148,7 +152,9 @@ def build_pool(target_rows: list[dict], evidence: dict, means: dict, gameweeks: 
         if price <= 0:
             continue
         entry = evidence.get(name)
-        projected = project_per_game(entry, means, position) * gameweeks if entry else 0.0
+        override = recency.get(name, {}).get("blended") if recency else None
+        projected = (project_per_game(entry, means, position, override) * gameweeks
+                     if entry else 0.0)
         pool.append({
             "id": name, "name": name, "team": row["team"], "position": position,
             "price": price, "projected": projected, "actual": actual.get(name, 0.0),
@@ -228,11 +234,13 @@ def random_xi_score(pool: list[dict], rng: random.Random) -> float | None:
     return None
 
 
-def run(evidence_season: str, target_season: str, gameweeks: int, samples: int) -> None:
+def run(evidence_season: str, target_season: str, gameweeks: int, samples: int,
+        use_recency: bool = True) -> None:
     evidence = aggregate(load_season(evidence_season))
     target_rows = load_season(target_season)
     means = positional_means(evidence)
-    pool = build_pool(target_rows, evidence, means, gameweeks)
+    recency = start_rates(evidence_season) if use_recency else None
+    pool = build_pool(target_rows, evidence, means, gameweeks, recency)
 
     with_evidence = sum(1 for p in pool if p["had_evidence"])
     print(f"=== GW1-{gameweeks} backtest: {evidence_season} evidence -> {target_season} results ===")
@@ -289,8 +297,10 @@ def main() -> None:
     parser.add_argument("--target", default="2025-26")
     parser.add_argument("--gameweeks", type=int, default=5)
     parser.add_argument("--samples", type=int, default=1000)
+    parser.add_argument("--no-recency", action="store_true",
+                        help="use the old season-average minutes model, for comparison")
     args = parser.parse_args()
-    run(args.evidence, args.target, args.gameweeks, args.samples)
+    run(args.evidence, args.target, args.gameweeks, args.samples, use_recency=not args.no_recency)
 
 
 if __name__ == "__main__":

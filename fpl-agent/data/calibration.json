@@ -1,12 +1,12 @@
 {
-  "calibrated_at": "2026-07-27T10:31:14.481512+00:00",
+  "calibrated_at": "2026-07-27T11:43:57.082925+00:00",
   "benchmark_season": "2025/26",
   "min_minutes": 1800,
   "position_multipliers": {
-    "GKP": 1.0473,
-    "DEF": 0.8759,
-    "MID": 1.0322,
-    "FWD": 1.033
+    "GKP": 1.078,
+    "DEF": 0.8857,
+    "MID": 1.0227,
+    "FWD": 1.0405
   },
   "_note": "Measured by `python model.py --calibrate`, not hand-tuned. Corrects systematic level bias per position so the optimiser compares positions fairly. Re-run when a season's data lands."
 }

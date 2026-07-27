@@ -15,19 +15,21 @@ because a recommendation you can't interrogate is one you can't trust.
 Three things this model takes seriously that a naive one doesn't:
 
 1. MINUTES ARE THE WHOLE GAME. A brilliant player who doesn't start scores
-   nothing. Start probability comes from last season's starts, then gets
-   overridden by injury status, by a club move, and by explicit human
-   judgement in overrides.json.
+   nothing, and backtesting found 80% of this model's error came from
+   minutes rather than from misjudging players. Start probability is a
+   recency-weighted start rate (see minutes.py), then injury status, then
+   explicit human judgement in overrides.json.
 
-2. A CLUB MOVE INVALIDATES HISTORY. Rates earned in a different side, under
-   a different manager, in a different role, are weak evidence. Players who
-   have moved recently get their attacking rates pulled toward the positional
-   average and their start probability pulled toward a neutral prior -- they
-   are not assumed to be starters just because they are expensive.
-
-3. SMALL SAMPLES LIE. A player with 300 minutes of hot xG is not better than
+2. SMALL SAMPLES LIE. A player with 300 minutes of hot xG is not better than
    one with 3,000 minutes of good xG. Rates are shrunk toward the positional
    mean in proportion to how little evidence there is behind them.
+
+3. UNTESTED INTUITIONS STAY OUT. An earlier version discounted players who
+   had changed clubs, on the reasonable theory that new signings are rotation
+   risks. Tested across two seasons it did not replicate -- movers were
+   over-predicted one year and under-predicted the next -- so it was removed.
+   Club moves are still shown as a flag for a human to weigh; they no longer
+   silently move the number. minutes.py records what was tested and rejected.
 
 Pre-season caveat, honestly stated: FPL publishes team attack/defence
 strength as zeros until the season starts, so clean sheets are modelled from
@@ -51,6 +53,8 @@ import json
 import math
 from datetime import datetime, timezone
 from pathlib import Path
+
+from minutes import base_start_probability, start_rates
 
 BASE_DIR = Path(__file__).resolve().parent
 DATA_DIR = BASE_DIR / "data"
@@ -79,10 +83,10 @@ SHRINKAGE_MINUTES = 1000.0
 # A player who has just joined a club is a genuine unknown regardless of
 # reputation or price, so his rates are pulled toward average and his start
 # probability toward a neutral prior rather than assumed.
+# A club move is still surfaced as a flag on the projection -- it's real
+# context for a human reading the email -- but it no longer changes the
+# number. Tested on two season pairs and it did not replicate; see minutes.py.
 RECENT_MOVE_DAYS = 120
-MOVED_CLUB_RATE_WEIGHT = 0.55
-MOVED_CLUB_START_PRIOR = 0.65
-MOVED_CLUB_START_WEIGHT = 0.5
 
 # Injury status codes: a=available, d=doubtful, i=injured, s=suspended,
 # u=unavailable, n=on loan/not in squad.
@@ -93,6 +97,9 @@ STATUS_MULTIPLIER = {"a": 1.0, "d": 0.5, "i": 0.0, "s": 0.0, "u": 0.0, "n": 0.0}
 # sit in the range the Premier League actually produces.
 XGC_BY_DIFFICULTY = {1: 0.85, 2: 1.00, 3: 1.25, 4: 1.50, 5: 2.10}
 
+
+# Season whose gameweek-by-gameweek data feeds the minutes model.
+ARCHIVE_SEASON = "2025-26"
 
 CALIBRATION_PATH = DATA_DIR / "calibration.json"
 # Minutes a player needs before his actual points-per-gameweek is treated as
@@ -196,7 +203,8 @@ def moved_recently(player: dict, now: datetime) -> bool:
     return (now - joined).days <= RECENT_MOVE_DAYS
 
 
-def start_probability(player: dict, row: dict | None, moved: bool, override: dict) -> tuple[float, str]:
+def start_probability(player: dict, row: dict | None, moved: bool, override: dict,
+                      archive: dict) -> tuple[float, str]:
     """Returns (probability, why). The reason travels with the number so the
     email can explain a projection instead of just asserting one."""
     if "start_prob" in override:
@@ -206,20 +214,16 @@ def start_probability(player: dict, row: dict | None, moved: bool, override: dic
     if STATUS_MULTIPLIER.get(status, 1.0) == 0.0:
         return 0.0, f"unavailable (status '{status}'): {player.get('news') or 'no detail'}"
 
-    if row and num(row["minutes"]) > 0:
-        base = min(num(row["starts"]) / SEASON_MATCHES, 1.0)
-        reason = f"{num(row['starts']):.0f} starts last season"
-    else:
-        # No Premier League history -- promoted club or a first-time arrival.
-        # Price is the only signal available: FPL prices players by expected
-        # role, so an expensive newcomer is priced as a starter.
-        cost = num(player["now_cost"]) / 10
-        base = 0.75 if cost >= 6.0 else 0.55 if cost >= 5.0 else 0.35
-        reason = f"no PL history; inferred from £{cost:.1f}m price"
+    # Recency-weighted start rate from the gameweek archive -- tested to
+    # predict opening-five minutes better than a season average on both
+    # season pairs available. See minutes.py for the numbers.
+    fallback = num(row["starts"]) if row and num(row["minutes"]) > 0 else None
+    base, reason = base_start_probability(player, archive, fallback)
 
-    if moved:
-        base = MOVED_CLUB_START_WEIGHT * base + (1 - MOVED_CLUB_START_WEIGHT) * MOVED_CLUB_START_PRIOR
-        reason += "; discounted for a recent club move"
+    # NOTE: no club-move discount. It was tested and did not replicate --
+    # movers were over-predicted one season and under-predicted the next.
+    # Specific risky moves belong in overrides.json with a named reason,
+    # not in a rule that mis-ranks every new signing. See minutes.py.
 
     chance = player.get("chance_of_playing_next_round")
     if chance not in (None, "", "None"):
@@ -293,7 +297,7 @@ def defcon_probability(rate90: float, threshold: int) -> float:
 # ── Projection ─────────────────────────────────────────────────────────
 
 
-def project_player(player, row, fixture, means, moved, override, attack_multiplier):
+def project_player(player, row, fixture, means, moved, override, attack_multiplier, archive):
     pos = int(player["element_type"])
     minutes = num(row["minutes"]) if row else 0.0
     mean = means[pos]
@@ -307,13 +311,14 @@ def project_player(player, row, fixture, means, moved, override, attack_multipli
         xg90, xa90 = mean["xg90"], mean["xa90"]
         defcon90, bonus90 = mean["defcon90"], mean["bonus90"]
 
-    # A club move makes a player's own rates weaker evidence: he is in a new
-    # system, with new team-mates, possibly in a new role.
-    if moved or override.get("system_fit_risk"):
-        blend = lambda own, avg: MOVED_CLUB_RATE_WEIGHT * own + (1 - MOVED_CLUB_RATE_WEIGHT) * avg  # noqa: E731
+    # An explicit system-fit concern (a human judgement in overrides.json)
+    # still softens the attacking rates. A bare club move no longer does --
+    # that adjustment failed to replicate across seasons.
+    if override.get("system_fit_risk"):
+        blend = lambda own, avg: 0.55 * own + 0.45 * avg  # noqa: E731
         xg90, xa90 = blend(xg90, mean["xg90"]), blend(xa90, mean["xa90"])
 
-    start_prob, minutes_reason = start_probability(player, row, moved, override)
+    start_prob, minutes_reason = start_probability(player, row, moved, override, archive)
 
     goals = xg90 * attack_multiplier * GOAL_POINTS[pos]
     assists = xa90 * attack_multiplier * ASSIST_POINTS
@@ -349,6 +354,11 @@ def build_projections(horizon: int) -> list[dict]:
     last, season = latest_season_rows(history)
     means = positional_means(players, last)
     calibration = load_calibration()
+    # Gameweek-level archive for the season just gone -- the source of the
+    # recency-weighted start rates. Absent, minutes.py falls back to season
+    # totals, so this is an upgrade rather than a hard dependency.
+    archive = start_rates(ARCHIVE_SEASON)
+    print(f"[model] minutes evidence: {len(archive)} players from the {ARCHIVE_SEASON} gameweek archive")
     next_event = int(meta.get("next_event") or 1)
     by_team = upcoming_fixtures(fixtures, next_event, horizon)
     now = datetime.now(timezone.utc)
@@ -367,7 +377,7 @@ def build_projections(horizon: int) -> list[dict]:
         position = POSITIONS[int(player["element_type"])]
         factor = calibration.get(position, 1.0)
         for fixture in by_team.get(int(player["team"]), []):
-            projection = project_player(player, row, fixture, means, moved, override, 1.0)
+            projection = project_player(player, row, fixture, means, moved, override, 1.0, archive)
             projection["xp"] *= factor
             rows.append({
                 "player_id": player["id"], "web_name": player["web_name"],
