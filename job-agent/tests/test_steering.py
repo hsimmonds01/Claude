@@ -1,4 +1,62 @@
-from jobagent.steering import RECENT_REACTIONS_LIMIT, parse_feedback
+from pathlib import Path
+
+from jobagent.steering import RECENT_REACTIONS_LIMIT, load, parse_feedback
+
+REPO_ROOT = Path(__file__).parent.parent
+
+
+class TestTheActualShippedTemplates:
+    """Against the real files, not fixtures.
+
+    The fixtures all passed while the shipped feedback.md quietly fed its own
+    "useful shapes for a line" examples to the model as though she had written
+    them -- so on day one the agent believed she'd said "too junior" and
+    "wrong kind of <word that keeps matching badly>". Testing the real
+    templates is the only thing that catches that.
+    """
+
+    def test_the_shipped_templates_contain_no_guidance_yet(self):
+        steering = load(REPO_ROOT)
+
+        assert steering.standing_rules == ()
+        assert steering.recent_reactions == ()
+        assert steering.profile == ""
+        assert steering.has_any_guidance is False
+
+    def test_the_shipped_cv_is_the_fictional_one(self):
+        # If this ever fails in the build repo, a real CV has been committed
+        # to a public repository.
+        steering = load(REPO_ROOT)
+
+        assert "FICTIONAL" in steering.cv
+
+
+class TestUnfilledTemplateDetection:
+    def test_headings_and_blank_prompts_do_not_count_as_content(self, tmp_path):
+        (tmp_path / "profile.md").write_text(
+            "# What I'm looking for\n\n## Job titles\n\n-\n-\n\n> \n\n---\n",
+            encoding="utf-8",
+        )
+
+        assert load(tmp_path).profile == ""
+
+    def test_one_real_answer_is_enough(self, tmp_path):
+        (tmp_path / "profile.md").write_text(
+            "## Job titles\n\n- Operations Associate\n", encoding="utf-8"
+        )
+
+        steering = load(tmp_path)
+
+        assert "Operations Associate" in steering.profile
+        assert steering.has_any_guidance is True
+
+    def test_free_text_prose_counts(self, tmp_path):
+        (tmp_path / "profile.md").write_text(
+            "## What I actually want\n\n> I want a team where I can learn.\n",
+            encoding="utf-8",
+        )
+
+        assert load(tmp_path).profile != ""
 
 TWO_SECTION = """
 # Steering

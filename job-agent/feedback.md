@@ -36,14 +36,19 @@ Examples of what belongs here:
 are sent to the AI, so old reactions fade out by themselves — no need to
 tidy this section, and no harm in contradicting yourself later. Later wins.
 
-Useful shapes for a line:
-- `too junior` / `too senior`
-- `more like this one: <paste the link>`
-- `stop showing me anything from <company>`
-- `this is exactly right, more of these`
-- `wrong kind of <word that keeps matching badly>`
-
 Date the line if you want, or don't. Both work.
+
+<!--
+Useful shapes for a line. These are examples, not instructions --
+they're inside a comment so the agent can't mistake them for things
+you've actually said:
+
+  too junior  /  too senior
+  more like this one: <paste the link>
+  stop showing me anything from <company>
+  this is exactly right, more of these
+  wrong kind of <word that keeps matching badly>
+-->
 
 <!-- add new lines below this one -->
 

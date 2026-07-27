@@ -216,10 +216,10 @@ class TestSecretRedaction:
     def test_her_mailbox_address_is_redacted(self, monkeypatch):
         # She is job-hunting while still employed; a log line naming her
         # job-search inbox is the kind of leak the discretion rules exist for.
-        monkeypatch.setenv("GMAIL_ADDRESS", "hj.alerts.2026@gmail.com")
+        monkeypatch.setenv("GMAIL_ADDRESS", "alerts.stand.in@example.invalid")
 
-        assert "hj.alerts.2026@gmail.com" not in redact.scrub(
-            "SMTP error for hj.alerts.2026@gmail.com"
+        assert "alerts.stand.in@example.invalid" not in redact.scrub(
+            "SMTP error for alerts.stand.in@example.invalid"
         )
 
 

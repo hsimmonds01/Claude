@@ -25,7 +25,7 @@
 > - her target company list (i.e. who she's applying to)
 > - her name, her email addresses, her ntfy topic
 >
-> Those files exist here only as **blank templates** in `drafts/`. They get
+> Those files exist here only as **blank templates** in `job-agent/`. They get
 > filled in for the first time inside her own private repo, at go-live.
 >
 > Go-live is a **copy, not a GitHub "Transfer ownership"** — transfer moves an
@@ -187,8 +187,12 @@ All plain markdown, edited from the GitHub mobile app in seconds:
   max alerts per run, quiet hours, target-company list, and a master
   `enabled` kill switch for weeks she doesn't want the noise.
 
-Blank annotated drafts of all four live in `drafts/`. **They stay blank in
-this repo** — this repo is public; they're filled in inside hers.
+The live, canonical versions are in `job-agent/` -- that's what the code
+actually reads, and what gets copied to her repo. **They stay blank here**:
+this repo is public, so they're filled in for the first time inside hers.
+
+(There were duplicate copies under `job-agent-plan/drafts/`. They drifted
+from the live ones and caused a real bug, so they're gone -- one copy only.)
 
 All are read fresh on every run, so an edit takes effect within hours and
 nothing is baked in at deploy time.

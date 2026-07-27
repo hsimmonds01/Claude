@@ -215,7 +215,7 @@ file.
   "too junior" / "more like this" reflex notes.
 
 Same one-line-and-save experience for her, but the file stays sane at month
-six. Drafted this way in `drafts/feedback.md`.
+six. Built this way in `job-agent/feedback.md`.
 
 ---
 

@@ -42,7 +42,7 @@ class Steering:
         Worth knowing: scoring against an empty profile produces confident
         nonsense, so the caller should say so rather than pretend.
         """
-        return bool(self.standing_rules or self.recent_reactions or self.profile.strip())
+        return bool(self.standing_rules or self.recent_reactions or self.profile)
 
 
 def _read(path: Path) -> str:
@@ -59,6 +59,32 @@ def _strip_template_scaffolding(text: str) -> str:
     before she has said anything at all.
     """
     return _HTML_COMMENT.sub("", text)
+
+
+def _has_real_content(text: str) -> bool:
+    """True when a template has actually been filled in.
+
+    An unfilled profile.md is all headings and blank prompts, but it isn't an
+    empty string, so a plain truthiness test reported it as real guidance --
+    and the "you haven't filled this in yet" warning never fired. Count only
+    lines that carry an answer: not headings, not blockquote prompts, not
+    empty bullets, not horizontal rules.
+    """
+    for line in text.splitlines():
+        stripped = line.strip()
+        if not stripped:
+            continue
+        if stripped.startswith("#") or stripped.startswith("---"):
+            continue
+        if stripped in {">", "-", "*", "|"}:
+            continue
+        # A bare "> " prompt or an empty bullet is scaffolding, not an answer.
+        if stripped.startswith(">") and not stripped.lstrip("> ").strip():
+            continue
+        if _BULLET.match(line) and not _BULLET.match(line).group(1).strip():
+            continue
+        return True
+    return False
 
 
 def _bullets_under(text: str, heading_contains: str) -> list[str]:
@@ -106,9 +132,18 @@ def parse_feedback(text: str) -> tuple[tuple[str, ...], tuple[str, ...]]:
 def load(root: str | Path) -> Steering:
     base = Path(root)
     standing, reactions = parse_feedback(_read(base / "feedback.md"))
+
+    # An untouched profile.md is headings and blank prompts. Sending that to
+    # the model is worse than sending nothing: it reads as a filled-in profile
+    # that happens to want nothing in particular, and the model invents
+    # preferences to fill the gap.
+    profile = _strip_template_scaffolding(_read(base / "profile.md")).strip()
+    if not _has_real_content(profile):
+        profile = ""
+
     return Steering(
         cv=_read(base / "cv.md").strip(),
-        profile=_strip_template_scaffolding(_read(base / "profile.md")).strip(),
+        profile=profile,
         standing_rules=standing,
         recent_reactions=reactions,
     )
