@@ -143,6 +143,21 @@ def build_snapshot(summary: bool) -> None:
         upcoming = [e for e in events if e.get("deadline_time", "") > now.isoformat()]
         next_event = upcoming[0] if upcoming else None
 
+    # Record the API's full field list, not just the columns we keep. The
+    # model needs to know what's *available* (e.g. whether a transfer date
+    # exists to detect a club move) without another round-trip to find out,
+    # and it makes schema drift between seasons visible in the diff.
+    field_map = {
+        "elements": sorted(players[0].keys()) if players else [],
+        "teams": sorted(teams[0].keys()) if teams else [],
+        "events": sorted(events[0].keys()) if events else [],
+        "fixtures": sorted(fixtures[0].keys()) if fixtures else [],
+    }
+    (DATA_DIR / "api_fields.json").write_text(
+        json.dumps(field_map, indent=2) + "\n", encoding="utf-8"
+    )
+    print(f"[snapshot] api_fields.json: {len(field_map['elements'])} element fields available")
+
     meta = {
         "fetched_at": now.isoformat(),
         "total_players": len(players),
