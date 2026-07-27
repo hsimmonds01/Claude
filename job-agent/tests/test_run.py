@@ -69,6 +69,7 @@ def agent(tmp_path, monkeypatch):
         lambda **kw: sent["failure"].append(kw) or True,
     )
     monkeypatch.setattr(run_module.reed, "fetch", lambda *a, **k: [])
+    monkeypatch.setattr(run_module.inbox, "fetch", lambda *a, **k: [])
 
     monkeypatch.setenv("NTFY_TOPIC", "topic")
     monkeypatch.setenv("GMAIL_ADDRESS", "agent@example.invalid")

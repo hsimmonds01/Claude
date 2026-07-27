@@ -24,7 +24,7 @@ from jobagent import scoring, state, steering
 from jobagent.dedupe import SeenStore, split_new
 from jobagent.models import ScoredJob, merge
 from jobagent.notify import mail, push
-from jobagent.sources import adzuna, reed
+from jobagent.sources import adzuna, inbox, reed
 
 ROOT = Path(__file__).parent
 CONFIG_PATH = ROOT / "config.yml"
@@ -57,7 +57,12 @@ def gather(cfg) -> list:
         )
     if cfg.reed_enabled:
         found += reed.fetch(os.environ.get("REED_API_KEY", ""), cfg)
-    # TODO(build step 5): alert-inbox IMAP ingestion
+    if cfg.inbox_enabled:
+        found += inbox.fetch(
+            os.environ.get("GMAIL_ADDRESS", ""),
+            os.environ.get("GMAIL_APP_PASSWORD", ""),
+            cfg,
+        )
     # TODO(build step 6): target-company ATS feeds
     return found
 

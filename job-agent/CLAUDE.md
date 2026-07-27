@@ -52,6 +52,18 @@ phone alerts and email digests. Full functional docs in `README.md`.
   at load time with a plain-English error.
 - **Config validation errors are written for her**, not for a developer. If
   you add a setting, add a readable error for it too.
+- **A job with no company is kept, keyed by URL** (`models.py`). Alert emails
+  sometimes yield a title and a link but no employer. Dropping those loses
+  real vacancies; giving them a shared company-less fingerprint makes every
+  "Operations Associate" collide. Keying by URL means such a job can't merge
+  with its twin from an API, so she may see it twice — a much smaller failure
+  than hiding it.
+- **Alert-email job links are matched by whole path segment**
+  (`sources/inbox.py`). Anything looser eats real vacancies: substring
+  matching rejected `operations-manager` because it contains "manage", and
+  adding `endswith` rejected `head-of-search`. Job titles are ordinary words,
+  so the exclusion test has to be exact. Both cases have regression tests —
+  don't "tidy" that matcher without running them.
 - **Notifications fire before the git commit step**, so a failed push costs a
   log row rather than a missed alert.
 - **The workflow sits in a `main-git-writer` concurrency group** with
@@ -63,7 +75,7 @@ phone alerts and email digests. Full functional docs in `README.md`.
 |---|---|
 | Adzuna | Live. Free UK API, ~1,000 calls/month, so calls are budgeted. |
 | Reed | Live. Basic auth with the API key as username and an **empty** password. |
-| Alert inbox (IMAP) | Not built yet. Reaches WTTJ, LinkedIn, Indeed. |
+| Alert inbox (IMAP) | Live, but **built against synthetic emails** — patterns need checking against real alerts. Reaches WTTJ, LinkedIn, Indeed. Opens the mailbox read-only. |
 | Company ATS feeds | Not built yet. Additive; she pastes a careers URL and the code resolves the ATS. |
 
 ## Channels

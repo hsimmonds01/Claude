@@ -115,11 +115,10 @@ class TestMerge:
 
         assert len(merge(jobs)) == 2
 
-    def test_drops_entries_too_thin_to_score(self):
+    def test_drops_entries_with_no_title_or_no_link(self):
         jobs = [
-            _job("adzuna", "", "Example", "https://a"),
-            _job("adzuna", "Operations Associate", "", "https://b"),
-            _job("adzuna", "Operations Associate", "Example", ""),
+            _job("adzuna", "", "Example", "https://a"),  # no title
+            _job("adzuna", "Operations Associate", "Example", ""),  # no link
             _job("adzuna", "Operations Associate", "Example", "https://ok"),
         ]
 
@@ -127,6 +126,31 @@ class TestMerge:
 
         assert len(merged) == 1
         assert merged[0].url == "https://ok"
+
+    def test_a_job_with_no_company_is_kept_and_keyed_by_url(self):
+        # Alert emails sometimes yield a title and a link but no employer.
+        # Dropping those would lose real vacancies; giving them a shared
+        # company-less fingerprint would make every "Operations Associate"
+        # collide. Key them by URL instead.
+        jobs = [
+            _job("inbox", "Operations Associate", "", "https://x.com/jobs/1"),
+            _job("inbox", "Operations Associate", "", "https://y.com/jobs/2"),
+        ]
+
+        merged = merge(jobs)
+
+        assert len(merged) == 2
+        assert all(job.fingerprint.startswith("url:") for job in merged)
+
+    def test_tracking_parameters_do_not_create_false_duplicates(self):
+        # The same alert link arrives on different days with different
+        # campaign parameters.
+        jobs = [
+            _job("inbox", "Operations Associate", "", "https://x.com/jobs/1?utm=mon"),
+            _job("inbox", "Operations Associate", "", "https://x.com/jobs/1?utm=wed"),
+        ]
+
+        assert len(merge(jobs)) == 1
 
     def test_collects_every_location_seen(self):
         jobs = [

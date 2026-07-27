@@ -38,6 +38,17 @@ _NON_ALNUM = re.compile(r"[^a-z0-9]+")
 # visible annoyance. Prefer the visible one.
 
 
+def _normalise_url(raw: str) -> str:
+    """Strip tracking noise so one link doesn't look like several.
+
+    Alert emails append per-send campaign parameters, so the same vacancy
+    arrives on Monday and Wednesday with different query strings.
+    """
+    url = raw.split("#", 1)[0]
+    url = url.split("?", 1)[0]
+    return url.rstrip("/").casefold()
+
+
 def normalise_company(raw: str) -> str:
     """Reduce a company name to a stable identity token."""
     lowered = raw.casefold()
@@ -80,13 +91,27 @@ class Job:
         match those and let duplicates through. The cost is that a genuinely
         multi-city posting of one title collapses to a single entry, which is
         a fair trade: she still sees the role and can open it.
+
+        When the company is unknown -- which happens with alert emails, where
+        the layout sometimes yields a title and a link but no employer -- fall
+        back to the URL. Without that fallback every companyless "Operations
+        Associate" would share one fingerprint and silently swallow each
+        other. Such a job can no longer merge with its twin from an API, so
+        she may occasionally see it twice; showing a duplicate is a far
+        smaller failure than hiding a real vacancy.
         """
+        if not self.company.strip():
+            return f"url:{_normalise_url(self.url)}"
         return f"{normalise_company(self.company)}|{normalise_title(self.title)}"
 
     @property
     def is_usable(self) -> bool:
-        """Enough substance to be worth scoring."""
-        return bool(self.title.strip() and self.company.strip() and self.url.strip())
+        """Enough substance to be worth scoring.
+
+        A company name is *not* required -- see `fingerprint`. A title and a
+        working link are the minimum the AI needs to say something useful.
+        """
+        return bool(self.title.strip() and self.url.strip())
 
 
 # Source preference when the same role arrives from several places. A company's
