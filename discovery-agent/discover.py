@@ -338,29 +338,50 @@ if only 3 things are genuinely great, return 3. Each item:
 No prose before or after the JSON."""
 
 
+# 503 is Google's own "temporary, try again later" signal (distinct from
+# 429 quota-exhausted, which waiting doesn't fix, and 404 model-retired,
+# which is permanent). This is a background job with no one watching the
+# clock, so it's worth waiting generously here rather than giving up on
+# the best (search-enabled) path after one demand spike -- seen in
+# practice on 2026-07-27, where a same-day 503 + 429 + empty-response
+# combo cost a whole day's digest. Total added wait if both retries are
+# needed: ~5.5 minutes, well inside GitHub Actions' default job timeout.
+GEMINI_503_RETRY_DELAYS_SECONDS = [90, 240]
+
+
 def _gemini_request(api_key: str, model: str, prompt: str, use_search: bool) -> str:
-    """One call + parse. Raises on any failure so callers can try the next
-    option (retryable HTTP codes and 404 -- a retired/unavailable model on
-    this key -- are both treated as "try something else")."""
+    """One call (with retries on 503) + parse. Raises on any other failure
+    so callers can try the next option (retryable HTTP codes and 404 -- a
+    retired/unavailable model on this key -- are both "try something else")."""
     body = {
         "contents": [{"parts": [{"text": prompt}]}],
         "generationConfig": {"temperature": 0.7},
     }
     if use_search:
         body["tools"] = [{"google_search": {}}]
-    response = requests.post(
-        GEMINI_URL.format(model=model), params={"key": api_key}, json=body,
-        timeout=REQUEST_TIMEOUT_SECONDS,
-    )
-    if response.status_code in (404, 429, 500, 503):
-        raise RuntimeError(f"{model} returned HTTP {response.status_code}: {response.text[:300]}")
-    response.raise_for_status()
-    payload = response.json()
-    parts = payload["candidates"][0]["content"]["parts"]
-    text = "".join(p.get("text", "") for p in parts)
-    if not text.strip():
-        raise RuntimeError(f"{model} returned an empty response")
-    return text
+
+    delays = [0, *GEMINI_503_RETRY_DELAYS_SECONDS]
+    for attempt, delay in enumerate(delays):
+        if delay:
+            print(f"[gemini] {model} overloaded (503) -- waiting {delay}s before retry "
+                  f"{attempt}/{len(GEMINI_503_RETRY_DELAYS_SECONDS)}", file=sys.stderr)
+            time.sleep(delay)
+
+        response = requests.post(
+            GEMINI_URL.format(model=model), params={"key": api_key}, json=body,
+            timeout=REQUEST_TIMEOUT_SECONDS,
+        )
+        if response.status_code == 503 and attempt < len(delays) - 1:
+            continue  # genuinely temporary per Google's own message -- worth another try
+        if response.status_code in (404, 429, 500, 503):
+            raise RuntimeError(f"{model} returned HTTP {response.status_code}: {response.text[:300]}")
+        response.raise_for_status()
+        payload = response.json()
+        parts = payload["candidates"][0]["content"]["parts"]
+        text = "".join(p.get("text", "") for p in parts)
+        if not text.strip():
+            raise RuntimeError(f"{model} returned an empty response")
+        return text
 
 
 def call_gemini(api_key: str, prompt: str) -> tuple[str, str]:
