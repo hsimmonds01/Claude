@@ -57,6 +57,12 @@ PLAYER_FIELDS = [
     "expected_goals_conceded",
     "defensive_contribution",
     "selected_by_percent", "transfers_in_event", "transfers_out_event",
+    # Price-change inputs. transfers_in/out are cumulative (the event ones
+    # reset each gameweek and read zero pre-season); price_change_percent is
+    # FPL's own 2026/27 price-prediction figure, so it is worth capturing
+    # rather than reverse-engineering what the official game already publishes.
+    "transfers_in", "transfers_out", "price_change_percent",
+    "cost_change_event_fall", "cost_change_start_fall",
     "status", "chance_of_playing_next_round", "news", "news_added",
     "ep_this", "ep_next",
     # team_join_date is how a club move is detected. A player who has just
