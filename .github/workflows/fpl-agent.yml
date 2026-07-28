@@ -51,6 +51,14 @@ jobs:
         run: pip install -r requirements.txt
 
       # Fresh prices, ownership and injury flags before deciding anything.
+      # Fail the run before sending anything if the injection or scheduling
+      # guarantees have regressed.
+      - name: Run tests
+        working-directory: fpl-agent
+        run: |
+          python test_schedule.py
+          python test_injection.py
+
       - name: Refresh snapshot
         working-directory: fpl-agent
         run: python snapshot.py
