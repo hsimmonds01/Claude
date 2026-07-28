@@ -1,7 +1,7 @@
 # fpl-rules
 
 - Source: https://fantasy.premierleague.com/help/rules
-- Fetched: 2026-07-28T03:27:47.611470+00:00
+- Fetched: 2026-07-28T06:57:58.251200+00:00
 - Why it's here: Core scoring, squad, transfer and chip rules
 
 Captured automatically by `fpl-agent/knowledge.py` as reference material for the FPL agent.
@@ -55,6 +55,8 @@ Video
 Watch Live
 
 More
+
+Login
 
 Home
 

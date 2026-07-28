@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-07-28T03:28:10.655736+00:00",
+  "generated_at": "2026-07-28T06:58:54.412837+00:00",
   "model": "gemini-flash-latest",
-  "headlines_considered": 41,
+  "headlines_considered": 42,
   "flags": [
     {
       "player_id": "346",
       "player": "Calvert-Lewin",
       "team": "LEE",
-      "concern": "Missed pre-season involvement with explanations provided regarding his absence.",
+      "concern": "Pre-season reports explain why he missed out on recent match action.",
       "severity": "medium",
       "affects": "availability",
       "source": "https://www.fantasyfootballscout.co.uk/2026/07/27/fpl-pre-season-wilson-debut-jesus-again-why-dcl-missed-out"
@@ -16,19 +16,10 @@
       "player_id": "40",
       "player": "Rogers",
       "team": "CHE",
-      "concern": "Manager Xabi Alonso addressed Rogers' role alongside updates on when World Cup players will return to squad action.",
-      "severity": "medium",
+      "concern": "Manager update provided on his pre-season role alongside timelines for late-returning World Cup players.",
+      "severity": "low",
       "affects": "minutes",
       "source": "https://www.fantasyfootballscout.co.uk/2026/07/27/alonso-on-rogers-when-world-cup-players-will-be-back"
-    },
-    {
-      "player_id": "368",
-      "player": "Szoboszlai",
-      "team": "LIV",
-      "concern": "Highlighted as a key central attacking threat in Liverpool's pre-season setup.",
-      "severity": "low",
-      "affects": "role",
-      "source": "https://www.fantasyfootballscout.co.uk/2026/07/27/fpl-pre-season-szoboszlai-a-threat-gomez-jacquet-injury-latest"
     }
   ]
 }
