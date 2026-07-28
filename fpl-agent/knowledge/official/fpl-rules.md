@@ -1,7 +1,7 @@
 # fpl-rules
 
 - Source: https://fantasy.premierleague.com/help/rules
-- Fetched: 2026-07-28T16:47:17.822229+00:00
+- Fetched: 2026-07-28T19:46:37.234986+00:00
 - Why it's here: Core scoring, squad, transfer and chip rules
 
 Captured automatically by `fpl-agent/knowledge.py` as reference material for the FPL agent.
@@ -125,46 +125,6 @@ More From the PL
 Club Websites
 
 Club Websites
-
-Arsenal
-
-Villa
-
-Bournemouth
-
-Brentford
-
-Brighton
-
-Chelsea
-
-Coventry
-
-Palace
-
-Everton
-
-Fulham
-
-Hull
-
-Ipswich
-
-Leeds
-
-Liverpool
-
-Man City
-
-Man Utd
-
-Newcastle
-
-Forest
-
-Sunderland
-
-Spurs
 
 Premier League
 
