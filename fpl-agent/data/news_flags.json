@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-07-28T06:58:54.412837+00:00",
+  "generated_at": "2026-07-28T08:49:25.054256+00:00",
   "model": "gemini-flash-latest",
-  "headlines_considered": 42,
+  "headlines_considered": 41,
   "flags": [
     {
       "player_id": "346",
       "player": "Calvert-Lewin",
       "team": "LEE",
-      "concern": "Pre-season reports explain why he missed out on recent match action.",
+      "concern": "Missed out on recent pre-season fixture involvement.",
       "severity": "medium",
       "affects": "availability",
       "source": "https://www.fantasyfootballscout.co.uk/2026/07/27/fpl-pre-season-wilson-debut-jesus-again-why-dcl-missed-out"
@@ -16,10 +16,37 @@
       "player_id": "40",
       "player": "Rogers",
       "team": "CHE",
-      "concern": "Manager update provided on his pre-season role alongside timelines for late-returning World Cup players.",
+      "concern": "Manager Xabi Alonso provided updates regarding Rogers and the return timeline for World Cup players.",
       "severity": "low",
       "affects": "minutes",
       "source": "https://www.fantasyfootballscout.co.uk/2026/07/27/alonso-on-rogers-when-world-cup-players-will-be-back"
+    },
+    {
+      "player_id": "13",
+      "player": "Rice",
+      "team": "ARS",
+      "concern": "Subject to an injury fitness update ahead of upcoming match action.",
+      "severity": "medium",
+      "affects": "availability",
+      "source": ""
+    },
+    {
+      "player_id": "503",
+      "player": "Van de Ven",
+      "team": "TOT",
+      "concern": "Assessed for an injury issue ahead of the team's next match.",
+      "severity": "medium",
+      "affects": "availability",
+      "source": "https://news.google.com/rss/articles/CBMizgFBVV95cUxNWGpCV3c1QjdtVmZqV29JdnE4Mk9rQnNLcFRkeXQ1T3YyemxCS25IcHNfMy1WdEdQb0tmUEMwVWE4NzJjbWViOU5mY3pvS0VZUU5UNUxFQ1E1Q2dKNGpJRE5JRWpzR3Z4YlVGdWhPcTg4WnJRNk1NU3NVeFVNNVAwcFkyNlRBNVpILXpwVnNhZHpubERnOHlxTmhvQnkyamxTTV9OZ1h5UDJkd2xWQUZ5Sk1mTWZNZTlBamxXSmM4b2t"
+    },
+    {
+      "player_id": "88",
+      "player": "Kayode",
+      "team": "BRE",
+      "concern": "Reported as touch-and-go due to an injury concern.",
+      "severity": "medium",
+      "affects": "availability",
+      "source": ""
     }
   ]
 }
