@@ -94,6 +94,29 @@ arbitrary. Run logs print a per-run tally
 search-fallbacks means grounding metadata stopped arriving, not that the
 finds got worse.
 
+## Other hardening
+
+The digest consumes third-party feeds and model output on an unattended
+schedule, so both are treated as untrusted input:
+
+- **Secrets never travel in a URL.** The Gemini key goes in an
+  `x-goog-api-key` header. In the query string it would appear in `requests`'
+  own error messages, and `main()` emails the traceback on failure — a single
+  403 would have posted the key to the inbox. Anything key-shaped is also
+  redacted before it reaches a log or an email.
+- **The failure email escapes its traceback**, which can carry upstream
+  response text.
+- **Only Google's own redirect hosts are ever fetched** during link
+  resolution, matched exact-or-subdomain. A substring check would also match
+  `news.google.com.attacker.tld`, letting any feed link point the runner at a
+  host of someone else's choosing. Redirects are capped and destinations on
+  loopback/private/link-local addresses are discarded.
+- **Feed reads are size-capped and reject XML entity declarations**, so a
+  hostile feed can't exhaust memory with a "billion laughs" bomb.
+- **Feed headlines are fenced and labelled as data** in the prompt, with
+  whitespace flattened and bracket runs broken up so a crafted headline can't
+  forge the fence or inject its own instruction line.
+
 ## The pieces
 
 | File | What it is |
