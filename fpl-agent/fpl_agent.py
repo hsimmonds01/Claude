@@ -83,6 +83,15 @@ FINAL_CHECK_MIN_GAP_HOURS = 6.0
 MERGE_WINDOW_HOURS = 24.0
 MAX_EMAILS_PER_72H = 3
 
+# Between deadlines -- pre-season, and international breaks -- the
+# deadline-driven logic has nothing to say and the agent would go silent for
+# weeks. Squad building, price movement and injury news all matter in that
+# window, so a lighter digest goes out roughly twice a week.
+PRESEASON_INTERVAL_DAYS = 3.5
+# Only when the next deadline is far enough away that the real briefing isn't
+# imminent; the main email takes over from here and this stops on its own.
+PRESEASON_MIN_DAYS_TO_DEADLINE = 5.0
+
 
 def num(value, default: float = 0.0) -> float:
     try:
@@ -131,6 +140,18 @@ def lead_hours(gap_days: float) -> float:
 
 def already_sent(state: dict, kind: str, event: int) -> bool:
     return any(s["kind"] == kind and s["event"] == event for s in state["sent"])
+
+
+def last_sent_at(state: dict, kind: str) -> datetime | None:
+    """Most recent send of a repeating email kind.
+
+    The deadline emails dedupe on (kind, gameweek) because each fires once
+    per gameweek. A recurring digest has no such natural key, so it dedupes
+    on elapsed time instead.
+    """
+    times = [parse_time(s.get("at", "")) for s in state["sent"] if s["kind"] == kind]
+    times = [t for t in times if t]
+    return max(times) if times else None
 
 
 def recent_send_count(state: dict, now: datetime) -> int:
@@ -210,6 +231,18 @@ def decide(events: list[dict], state: dict, now: datetime, flags: list[dict],
         return {"kind": "review", "event": int(review_due["id"]),
                 "reason": f"GW{review_due['id']} points are final"}
 
+    # Nothing deadline-driven is due. In a long gap, send the digest instead
+    # of going silent.
+    if hours_to_deadline / 24 >= PRESEASON_MIN_DAYS_TO_DEADLINE:
+        last = last_sent_at(state, "preseason")
+        days_since = (now - last).total_seconds() / 86400 if last else None
+        if days_since is None or days_since >= PRESEASON_INTERVAL_DAYS:
+            return {"kind": "preseason", "event": event_id, "deadline": deadline,
+                    "gap_days": gap_days, "lead": lead,
+                    "reason": (f"{hours_to_deadline / 24:.1f} days to the GW{event_id} deadline; "
+                               + (f"last digest {days_since:.1f} days ago"
+                                  if days_since is not None else "no digest sent yet"))}
+
     final_due = (already_sent(state, "main", event_id)
                  and hours_to_deadline <= FINAL_CHECK_HOURS
                  and lead - FINAL_CHECK_HOURS >= FINAL_CHECK_MIN_GAP_HOURS
@@ -277,6 +310,42 @@ def build_email(decision: dict, players: dict, events_by_id: dict) -> tuple[str,
             verdict=f"{name} is done.",
             subtitle="Review of the gameweek just finished",
             sections=sections, footer_note="Sent when the gameweek's points went final.")
+
+    if kind == "preseason":
+        days = (decision["deadline"] - datetime.now(timezone.utc)).days
+        consensus = load_json(DATA_DIR / "consensus.json", {})
+        missing = consensus.get("consensus_missing_from_my_squad", [])
+        gap = ownership_gap(squad, players)
+        subject = f"FPL pre-season — {days} days to the GW{event} deadline"
+
+        consensus_html = ""
+        if consensus.get("drafts_compared"):
+            rows = "".join(
+                f'<div style="font-size:13px;color:#374151;padding:4px 0;">'
+                f'<b>{render.esc(m["name"])}</b> ({render.esc(m["team"])}) &middot; '
+                f'picked by {m["picked_by"]} of {m["of"]} published drafts</div>'
+                for m in missing[:5]
+            ) or ('<div style="font-size:13px;color:#374151;">You have every player that '
+                  'two or more published drafts picked.</div>')
+            consensus_html = render.card(
+                rows + f'<div style="font-size:12px;color:#6b7280;margin-top:8px;">'
+                f'Compared against {consensus["drafts_compared"]} published drafts. '
+                f'Ownership percentages swing hard in the final week, so this is the '
+                f'better early read on the template.</div>')
+
+        sections = [
+            ("your squad as it stands", render.render_team(starters, bench, captain)),
+            ("news the numbers can't see", render.render_news(squad_flags)),
+            ("what the published drafts have that you don't", consensus_html),
+            ("price watch", render.render_prices(owned_movers)),
+            ("template gap", render.render_gap(gap)),
+        ]
+        return subject, render.render_email(
+            verdict=f"{days} days to go. Squad projects {sum(p['total'] for p in starters):.0f} pts over GW1-5.",
+            subtitle=f"Pre-season digest · captain {captain['name']} · £{bank:.1f}m banked",
+            sections=sections,
+            footer_note="Sent roughly twice a week between deadlines. The full briefing "
+                        "arrives 36h before the deadline.")
 
     # main, and final-check
     transfers = suggest_transfers(squad, players, bank, free_transfers, overrides)

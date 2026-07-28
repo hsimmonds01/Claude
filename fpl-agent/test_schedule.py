@@ -113,6 +113,30 @@ flags_low = [{"player": "Haaland", "severity": "low", "concern": "rumour", "affe
 d = decide(events, state(sent), NOW, flags_low, {"Haaland"})
 check("low-severity flag does not override", d["kind"] is None, d["reason"])
 
+print("\npre-season digest fills the gap between deadlines")
+far = [event(1, NOW + timedelta(days=25))]
+d = decide(far, state(), NOW, [], set())
+check("25 days out, none sent -> preseason", d["kind"] == "preseason", d["reason"])
+
+recent = [{"kind": "preseason", "event": 1, "at": (NOW - timedelta(days=1)).isoformat()}]
+d = decide(far, state(recent), NOW, [], set())
+check("sent 1 day ago -> not again", d["kind"] is None, d["reason"])
+
+older = [{"kind": "preseason", "event": 1, "at": (NOW - timedelta(days=4)).isoformat()}]
+d = decide(far, state(older), NOW, [], set())
+check("sent 4 days ago -> send again", d["kind"] == "preseason", d["reason"])
+
+# It must stand down as the deadline nears, or it would compete with the
+# real briefing in the week that actually matters.
+near = [event(1, NOW - timedelta(days=7)), event(2, NOW + timedelta(days=3))]
+d = decide(near, state(), NOW, [], set())
+check("3 days out -> no digest (main email owns this window)", d["kind"] is None, d["reason"])
+
+# And the deadline briefing must always outrank it.
+due = [event(1, NOW - timedelta(days=7)), event(2, NOW + timedelta(hours=30))]
+d = decide(due, state(), NOW, [], set())
+check("main due -> main wins over digest", d["kind"] == "main", d["reason"])
+
 failed = [r for r in results if not r[1]]
 print(f"\n{len(results) - len(failed)}/{len(results)} passed")
 if failed:

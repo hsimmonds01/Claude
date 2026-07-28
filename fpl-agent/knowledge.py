@@ -107,6 +107,11 @@ COMMUNITY_FEEDS = [
     # Until then the fallback is an email-to-RSS bridge, which still keeps
     # the agent out of any personal inbox.
     "https://www.lazyfpl.com/feed",
+    # The bridge, set up 27 Jul 2026: the newsletter is subscribed with a
+    # generated address and each issue becomes an item in this feed. The
+    # agent reads one public URL and has no access to any mailbox -- there
+    # is no credential here to leak, and unsubscribing revokes it entirely.
+    "https://kill-the-newsletter.com/feeds/xixkgmteurdc145777l8.xml",
     "https://www.fantasyfootballscout.co.uk/feed/",
     "https://news.google.com/rss/search?q=%22Fantasy+Premier+League%22+tips&hl=en-GB&gl=GB&ceid=GB:en",
     "https://news.google.com/rss/search?q=Premier+League+injury+news+press+conference&hl=en-GB&gl=GB&ceid=GB:en",

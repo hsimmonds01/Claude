@@ -88,6 +88,14 @@ jobs:
 
       # Regenerated every run, so the dashboard can never show different
       # numbers from the email -- both read the same optimiser output.
+      # Compares the squad against published drafts. Pre-season this is a
+      # better template signal than FPL's ownership, which swings hard in
+      # the last week before a deadline.
+      - name: Rebuild draft consensus
+        working-directory: fpl-agent
+        continue-on-error: true
+        run: python consensus.py
+
       - name: Rebuild dashboard data
         working-directory: fpl-agent
         run: python dashboard_data.py
