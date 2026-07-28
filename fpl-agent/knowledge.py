@@ -34,7 +34,16 @@ from __future__ import annotations
 import json
 import re
 import sys
-import xml.etree.ElementTree as ET
+# defusedxml, not the stdlib parser. One of the feeds below is an
+# email-to-RSS bridge, so a third party can put arbitrary XML into this
+# parser at will -- it is the only input in the whole system an outsider can
+# write to. defusedxml rejects DTDs and entity declarations outright rather
+# than relying on ElementTree's defaults staying safe across versions.
+# Deliberately not wrapped in a try/except ImportError fallback: silently
+# dropping back to the unsafe parser would defeat the point. If it is
+# missing this step fails, and the workflow marks it continue-on-error, so
+# the deadline email still goes out without fresh headlines.
+from defusedxml import ElementTree as ET
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -215,7 +224,11 @@ def parse_feed(xml_text: str, source: str) -> list[dict]:
     """Handles RSS <item> and Atom <entry>, ignoring namespaces."""
     try:
         root = ET.fromstring(xml_text)
-    except ET.ParseError:
+    except Exception as exc:  # noqa: BLE001 -- includes defusedxml's refusals
+        # A refused document (entity declarations, DTD) lands here alongside
+        # ordinary malformed XML. Either way the feed is skipped, but say
+        # which so a hostile feed is distinguishable from a broken one.
+        print(f"[knowledge] {source}: XML rejected ({type(exc).__name__}: {exc})", file=sys.stderr)
         return []
 
     def safe_link(url: str) -> str:

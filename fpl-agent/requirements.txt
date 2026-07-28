@@ -6,3 +6,4 @@ playwright>=1.40.0
 # money in the wrong places; this solves the budget/club/formation
 # constraints exactly.
 pulp>=2.7.0
+defusedxml>=0.7.1  # hardened XML parsing for untrusted RSS feeds (see knowledge.py)

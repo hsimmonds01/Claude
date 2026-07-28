@@ -126,6 +126,30 @@ check("dashboard validates the scheme before building an href",
       "safeUrl(n.source)" in dash and 'href="${esc(n.source)}"' not in dash)
 check("dashboard's safeUrl only accepts http(s)", "^https?:" in dash.replace("\\", ""))
 
+print("\nthe Gemini key is not persisted on the shared github.io origin")
+dash = open("dashboard.html", encoding="utf-8").read()
+check("key is read from sessionStorage", "sessionStorage.getItem(KEY_NAME)" in dash)
+check("key is never written to localStorage", "localStorage.setItem(KEY_NAME" not in dash)
+check("a key left by the old version is migrated and removed",
+      "localStorage.removeItem(KEY_NAME)" in dash)
+# localStorage may appear only in the one-off migration that clears the old
+# key -- one read and one remove. Any other use would put it back on the
+# shared origin, which is the whole thing this is preventing.
+localstorage_calls = dash.count("localStorage.getItem") + dash.count("localStorage.setItem") \
+    + dash.count("localStorage.removeItem")
+check("localStorage used only by the migration (1 read + 1 remove)",
+      localstorage_calls == 2, f"{localstorage_calls} calls")
+
+print("\nuntrusted XML is parsed by a hardened parser")
+src = open("knowledge.py", encoding="utf-8").read()
+check("knowledge.py uses defusedxml", "from defusedxml import ElementTree" in src)
+check("no silent fallback to the stdlib parser",
+      "import xml.etree.ElementTree" not in src)
+entity = ('<?xml version="1.0"?><!DOCTYPE r [<!ENTITY a "AAAA">]>'
+          "<rss><channel><item><title>&a;</title>"
+          "<link>https://x.test/a</link></item></channel></rss>")
+check("a feed declaring entities is refused", knowledge.parse_feed(entity, "bridge") == [])
+
 failed = [r for r in results if not r[1]]
 print(f"\n{len(results) - len(failed)}/{len(results)} passed")
 if failed:

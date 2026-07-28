@@ -106,9 +106,13 @@
     <div class="card">
       <div id="keyBox">
         <div class="muted" style="margin-bottom:8px">
-          Paste a Gemini API key to enable questions. It is stored only in this browser
-          (localStorage) and never sent anywhere except Google. This page is public, so the
-          key is deliberately not built into it.
+          Paste a Gemini API key to enable questions. It is held in this tab only,
+          cleared when you close it, and sent nowhere except Google. This page is
+          public, so the key is deliberately not built into it.
+          <br><br>
+          <b>Restrict the key</b> in Google Cloud &mdash; limit it to the Generative
+          Language API and add an HTTP-referrer restriction for
+          <code>hsimmonds01.github.io</code> &mdash; so it is worth little if it ever leaks.
         </div>
         <input type="password" id="key" placeholder="Gemini API key" autocomplete="off">
         <div style="margin-top:8px"><button class="action" id="saveKey">Save key</button></div>
@@ -249,22 +253,48 @@ document.addEventListener("click", e => {
 });
 
 // ── ask the agent ──────────────────────────────────────────────────
-// The key lives in this browser only. The page is public, so embedding a key
-// would publish it to anyone who opened the dashboard.
+// The key is held in memory, with sessionStorage only so a refresh doesn't
+// lose it.
+//
+// NOT localStorage. GitHub Pages serves every project site for an account
+// from one origin -- hsimmonds01.github.io -- so localStorage here is shared
+// with every other dashboard in this repo and every other repo the account
+// publishes. Any script running on any of those pages could read the key.
+// sessionStorage is scoped to origin AND tab, so a page opened elsewhere
+// cannot reach it, and it dies with the tab.
 const KEY_NAME = "fpl_agent_gemini_key";
+let SESSION_KEY = null;
+
+function getKey(){
+  if (SESSION_KEY) return SESSION_KEY;
+  try { SESSION_KEY = sessionStorage.getItem(KEY_NAME); } catch (e) { /* private mode */ }
+  return SESSION_KEY;
+}
+function setKey(v){
+  SESSION_KEY = v;
+  try { v ? sessionStorage.setItem(KEY_NAME, v) : sessionStorage.removeItem(KEY_NAME); }
+  catch (e) { /* memory-only is fine */ }
+}
+// One-off cleanup: any key saved by an earlier version is still sitting in
+// localStorage on the shared origin. Move it across and remove it there.
+try {
+  const stale = localStorage.getItem(KEY_NAME);
+  if (stale) { setKey(stale); localStorage.removeItem(KEY_NAME); }
+} catch (e) { /* nothing to migrate */ }
+
 function keyState(){
-  const has = !!localStorage.getItem(KEY_NAME);
+  const has = !!getKey();
   document.getElementById("keyBox").hidden = has;
   document.getElementById("askBox").hidden = !has;
 }
 document.getElementById("saveKey").onclick = () => {
   const v = document.getElementById("key").value.trim();
-  if (v) { localStorage.setItem(KEY_NAME, v); document.getElementById("key").value=""; keyState(); }
+  if (v) { setKey(v); document.getElementById("key").value=""; keyState(); }
 };
-document.getElementById("forgetKey").onclick = () => { localStorage.removeItem(KEY_NAME); keyState(); };
+document.getElementById("forgetKey").onclick = () => { setKey(null); keyState(); };
 
 document.getElementById("ask").onclick = async () => {
-  const key = localStorage.getItem(KEY_NAME);
+  const key = getKey();
   const question = document.getElementById("q").value.trim();
   const answer = document.getElementById("answer");
   if (!key || !question) return;
