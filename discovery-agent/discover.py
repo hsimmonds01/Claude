@@ -52,7 +52,8 @@ import traceback
 import xml.etree.ElementTree as ET
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
-from urllib.parse import quote_plus
+from concurrent.futures import ThreadPoolExecutor
+from urllib.parse import parse_qsl, quote_plus, urlencode, urlsplit, urlunsplit
 
 import requests
 
@@ -297,14 +298,26 @@ def build_prompt(interests: str, seen: list[dict], feed_items: list[dict]) -> st
 
 You ALSO have a live Google Search tool. Use the headlines above as a
 starting point, then search to fill gaps the feeds may have missed
-(especially smaller drops/collabs), verify details, and find direct
-booking/product links rather than news-article links where possible."""
+(especially smaller drops/collabs) and verify details.
+
+CRITICAL -- LINKS: only ever give a URL you have actually seen, either in
+the headline list above or in a search result you genuinely opened. Copy it
+exactly. NEVER construct, guess, complete or "tidy up" a URL, and never
+substitute a plausible-looking homepage for a link you don't have. If you
+have no real URL for an otherwise great find, set "url" to "" and still
+include the item -- an empty url is always better than a guessed one, and a
+guessed one will be discarded anyway."""
     else:
         research_instructions = f"""TODAY'S PRE-FETCHED HEADLINES (your only research source today --
 no live web search is available, so work ONLY from this list plus your own
 general knowledge; do not invent specifics, dates, or links you cannot see
 here or reliably know):
-{headlines}"""
+{headlines}
+
+CRITICAL -- LINKS: the only URLs you may use are the ones printed in that
+list, copied exactly. NEVER construct, guess or complete a URL from memory.
+If a find has no URL in the list, set "url" to "" -- an empty url is always
+better than a guessed one, and a guessed one will be discarded anyway."""
 
     return f"""You are a sharp, plugged-in personal culture scout. Today is \
 {now.strftime("%A %d %B %Y")}. Find the coolest things your client would \
@@ -331,7 +344,7 @@ if only 3 things are genuinely great, return 3. Each item:
   "title": "short punchy headline",
   "category": "one of: film, drop, event, product, other",
   "summary": "1-2 sentences: what it is and why it's cool for THIS client",
-  "url": "the most useful single link (booking/product page beats news article)",
+  "url": "a link copied EXACTLY from the material above -- never invented, never guessed; \"\" if you genuinely don't have one",
   "date_info": "the key date/time, e.g. 'Tickets on sale Fri 19 Jul, 10am UK' -- or '' if none",
   "urgency": "one of: act-fast, this-week, heads-up"
 }}
@@ -349,10 +362,12 @@ No prose before or after the JSON."""
 GEMINI_503_RETRY_DELAYS_SECONDS = [90, 240]
 
 
-def _gemini_request(api_key: str, model: str, prompt: str, use_search: bool) -> str:
-    """One call (with retries on 503) + parse. Raises on any other failure
-    so callers can try the next option (retryable HTTP codes and 404 -- a
-    retired/unavailable model on this key -- are both "try something else")."""
+def _gemini_request(api_key: str, model: str, prompt: str, use_search: bool) -> tuple[str, list[str]]:
+    """One call (with retries on 503) + parse, returning (text, grounding_urls).
+
+    Raises on any other failure so callers can try the next option (retryable
+    HTTP codes and 404 -- a retired/unavailable model on this key -- are both
+    "try something else")."""
     body = {
         "contents": [{"parts": [{"text": prompt}]}],
         "generationConfig": {"temperature": 0.7},
@@ -381,11 +396,15 @@ def _gemini_request(api_key: str, model: str, prompt: str, use_search: bool) -> 
         text = "".join(p.get("text", "") for p in parts)
         if not text.strip():
             raise RuntimeError(f"{model} returned an empty response")
-        return text
+        return text, grounding_urls_from_payload(payload)
 
 
-def call_gemini(api_key: str, prompt: str) -> tuple[str, str]:
-    """Returns (response_text, model_used).
+def call_gemini(api_key: str, prompt: str) -> tuple[str, str, list[str]]:
+    """Returns (response_text, model_used, grounding_urls).
+
+    grounding_urls are the pages the search tool actually cited -- empty when
+    live search didn't run. They are the provenance the link verifier checks
+    the model's claimed URLs against, so a hallucinated link can't be emailed.
 
     Preference order:
       1. GEMINI_API_KEY_LEGACY + gemini-2.5-flash + live search -- confirmed
@@ -404,16 +423,16 @@ def call_gemini(api_key: str, prompt: str) -> tuple[str, str]:
 
     if GEMINI_API_KEY_LEGACY:
         try:
-            text = _gemini_request(GEMINI_API_KEY_LEGACY, GEMINI_GROUNDING_MODEL, prompt, use_search=True)
-            return text, f"{GEMINI_GROUNDING_MODEL} (legacy key, live search)"
+            text, grounding = _gemini_request(GEMINI_API_KEY_LEGACY, GEMINI_GROUNDING_MODEL, prompt, use_search=True)
+            return text, f"{GEMINI_GROUNDING_MODEL} (legacy key, live search)", grounding
         except Exception as exc:  # noqa: BLE001 -- fall through to the primary key
             last_error = exc
             print(f"[gemini] legacy-key grounded search failed: {exc}", file=sys.stderr)
 
     for model in GEMINI_MODELS:
         try:
-            text = _gemini_request(api_key, model, prompt, use_search=GEMINI_ENABLE_SEARCH)
-            return text, model
+            text, grounding = _gemini_request(api_key, model, prompt, use_search=GEMINI_ENABLE_SEARCH)
+            return text, model, grounding
         except Exception as exc:  # noqa: BLE001 -- any failure means try the next model
             last_error = exc
             print(f"[gemini] {model} failed: {exc}", file=sys.stderr)
@@ -505,6 +524,150 @@ def parse_items(text: str) -> list[dict]:
     return []
 
 
+# ── Link safety ────────────────────────────────────────────────────────
+#
+# A URL in the model's reply is UNTRUSTED INPUT, not a fact. The model is
+# asked for "the most useful link", and when it doesn't have one it will
+# happily synthesise a plausible-looking URL instead of leaving it blank --
+# confirmed in production on 2026-07-28, where a hi-fi streamer item linked
+# to youtube.com/watch?v=dQw4w9WgXcQ (the rickroll video ID -- one of the
+# most-repeated strings on the web, exactly what a model reaches for when
+# fabricating a YouTube link). Earlier digests show the same signature:
+# one-off bare domains (mindthemaze.app, cipherx.tech, literarysport.com)
+# that appear only on live-search days.
+#
+# Checking the URL merely *starts with* http(s) -- which is all the HTML
+# renderer did -- catches markup injection but says nothing about where the
+# link goes. A fabricated URL is well-formed by construction, so it sailed
+# through. The same mechanism could just as easily land on a typosquat, a
+# parked domain, or someone else's site.
+#
+# So: a link is only ever emailed if it matches a URL this run actually
+# OBSERVED -- a fetched feed item's link, or a page Gemini's own search
+# grounding cited. Anything without that provenance is replaced by a Google
+# search for the item's title, which is always safe and always works.
+LINK_TIMEOUT_SECONDS = 10
+LINK_WORKERS = 8
+MAX_GROUNDING_LINKS = 40
+# Dropped before comparing two URLs, so the same page tagged with different
+# campaign junk still matches. Deliberately excludes meaning-carrying params
+# (youtube's ?v=, eventbrite's ?e=) -- those must match exactly.
+TRACKING_PARAMS = {
+    "utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content",
+    "oc", "fbclid", "gclid", "mc_cid", "mc_eid", "ref_src", "at_medium",
+}
+# Hosts that serve an opaque redirect token rather than the real page.
+# Google News' CBMi... links are the reason links "time out even same day":
+# they expire and often just fail. Resolving them to the publisher's own URL
+# fixes that and yields a durable link.
+REDIRECT_WRAPPER_HOSTS = ("news.google.com", "vertexaisearch.cloud.google.com")
+
+
+def _normalise_url(url: str) -> str:
+    """Comparison key: scheme/case/www/trailing-slash/tracking-param variants
+    of the same page collapse together, genuinely different pages do not."""
+    try:
+        parts = urlsplit(url.strip())
+    except ValueError:
+        return ""
+    host = parts.netloc.lower().removeprefix("www.")
+    path = parts.path.rstrip("/") or "/"
+    query = urlencode(sorted(
+        (k, v) for k, v in parse_qsl(parts.query, keep_blank_values=True)
+        if k.lower() not in TRACKING_PARAMS
+    ))
+    return urlunsplit(("", host, path, query, ""))
+
+
+def _resolve_url(url: str) -> str:
+    """Follow redirects to the real destination. Best-effort: on any failure
+    the original is returned, and the caller's liveness rules still apply."""
+    try:
+        response = requests.get(
+            url, headers={"User-Agent": "Mozilla/5.0 (compatible; DailyDiscoveryBot/1.0)"},
+            timeout=LINK_TIMEOUT_SECONDS, allow_redirects=True, stream=True,
+        )
+        final = response.url or url
+        response.close()
+        return final
+    except Exception:  # noqa: BLE001 -- an unresolvable link is not fatal
+        return url
+
+
+def _resolve_all(urls: list[str]) -> dict[str, str]:
+    """Resolve in parallel -- a digest can cite 30+ grounding URLs and doing
+    them one at a time would add minutes to the run."""
+    if not urls:
+        return {}
+    with ThreadPoolExecutor(max_workers=LINK_WORKERS) as pool:
+        return dict(zip(urls, pool.map(_resolve_url, urls)))
+
+
+def grounding_urls_from_payload(payload: dict) -> list[str]:
+    """The web pages Gemini's search tool actually cited. These are real,
+    Google-returned URLs (wrapped in a vertexaisearch redirect), so they are
+    trustworthy provenance in a way the model's prose is not."""
+    urls = []
+    try:
+        chunks = payload["candidates"][0]["groundingMetadata"]["groundingChunks"]
+    except (KeyError, IndexError, TypeError):
+        return urls
+    for chunk in chunks:
+        uri = (chunk or {}).get("web", {}).get("uri", "")
+        if uri.lower().startswith(("http://", "https://")):
+            urls.append(uri)
+    return urls[:MAX_GROUNDING_LINKS]
+
+
+def build_trusted_links(feed_items: list[dict], grounding: list[str]) -> dict[str, str]:
+    """Map of normalised-URL -> the real URL to actually link to.
+
+    Both the wrapper form and the resolved form are registered, so the model
+    quoting either one back still matches, and either way the email gets the
+    resolved publisher link rather than an expiring redirect token."""
+    raw = [i["link"] for i in feed_items if i.get("link")] + list(grounding)
+    needs_resolving = [u for u in raw if any(h in urlsplit(u).netloc.lower() for h in REDIRECT_WRAPPER_HOSTS)]
+    resolved = _resolve_all(needs_resolving)
+
+    trusted: dict[str, str] = {}
+    for url in raw:
+        final = resolved.get(url, url)
+        for key in (_normalise_url(url), _normalise_url(final)):
+            if key:
+                trusted.setdefault(key, final)
+    return trusted
+
+
+def search_fallback_url(title: str) -> str:
+    """Safe stand-in for an unverifiable link: it always resolves, and it
+    lands the user on the thing they're actually looking for."""
+    return f"https://www.google.com/search?q={quote_plus(title)}"
+
+
+def verify_item_links(items: list[dict], trusted: dict[str, str]) -> None:
+    """Rewrite each item's url in place, tagging how far it can be trusted.
+
+    link_status: "verified" (provenance-checked, safe to present as the
+    source), "search" (couldn't be verified -- a search link is substituted),
+    or "none" (nothing to link at all)."""
+    counts = {"verified": 0, "search": 0, "none": 0}
+    for item in items:
+        raw = (item.get("url") or "").strip()
+        title = (item.get("title") or "").strip()
+        match = trusted.get(_normalise_url(raw)) if raw.lower().startswith(("http://", "https://")) else None
+
+        if match:
+            item["url"], item["link_status"] = match, "verified"
+        elif title:
+            if raw:
+                print(f"[links] unverified URL dropped for {title[:60]!r}: {raw[:120]}", file=sys.stderr)
+            item["url"], item["link_status"] = search_fallback_url(title), "search"
+        else:
+            item["url"], item["link_status"] = "", "none"
+        counts[item["link_status"]] += 1
+    print(f"[links] {counts['verified']} verified, {counts['search']} search-fallback, {counts['none']} unlinked")
+
+
 # ── Email ──────────────────────────────────────────────────────────────
 
 
@@ -520,6 +683,11 @@ def render_item_html(item: dict) -> str:
     if not url.lower().startswith(("http://", "https://")):
         url = ""
     url = html_lib.escape(url, quote=True)
+    # verify_item_links has already vetted provenance; anything it couldn't
+    # verify arrives here as a search link and must be labelled as one rather
+    # than presented as "the source".
+    is_search = item.get("link_status") == "search"
+    link_text = "Search for this &#8594;" if is_search else "Open link &#8594;"
     date_row = (
         f'<div style="margin-top:8px;font-size:13px;font-weight:600;color:#111827;">'
         f"&#128197; {date_info}</div>"
@@ -528,8 +696,11 @@ def render_item_html(item: dict) -> str:
     )
     link_row = (
         f'<div style="margin-top:10px;"><a href="{url}" '
-        f'style="font-size:13px;font-weight:600;color:#4f46e5;text-decoration:none;">'
-        f"Open link &#8594;</a></div>"
+        f'style="font-size:13px;font-weight:600;color:{"#6b7280" if is_search else "#4f46e5"};text-decoration:none;">'
+        f"{link_text}</a>"
+        + ('<span style="font-size:11px;color:#9ca3af;margin-left:8px;">source link unverified</span>'
+           if is_search else "")
+        + "</div>"
         if url
         else ""
     )
@@ -631,7 +802,7 @@ def run_digest(dry_run: bool, force: bool) -> None:
     state["seen"] = prune_seen(state["seen"])
 
     feed_items = fetch_feed_items()
-    text, model_used = call_gemini(gemini_key, build_prompt(interests, state["seen"], feed_items))
+    text, model_used, grounding = call_gemini(gemini_key, build_prompt(interests, state["seen"], feed_items))
     items = parse_items(text)
     note = ""
     if not items:
@@ -652,6 +823,9 @@ def run_digest(dry_run: bool, force: bool) -> None:
     if not fresh:
         note = "Everything found today was already covered recently — quiet day."
         fresh = []
+
+    # Never email a URL the model merely asserted -- see "Link safety" above.
+    verify_item_links(fresh, build_trusted_links(feed_items, grounding))
 
     if dry_run:
         print(f"--- DRY RUN ({model_used}) ---")

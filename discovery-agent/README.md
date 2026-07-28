@@ -22,6 +22,8 @@ cron-job.org (reliable scheduler, fires at your chosen hour)
                │    (optionally ALSO live-searches -- see "Turning on live
                │    search" below; off by default)
                ├─ filters vs state.json ..... never repeats a find (fuzzy match)
+               ├─ verifies every link ....... only links URLs actually seen
+               │    in a feed or cited by search (see "Link safety")
                ├─ emails via Resend ......... styled HTML digest
                └─ archives to history.json .. feeds dashboard.html (the UI)
 ```
@@ -59,6 +61,38 @@ applies at $0 — billing just unlocks it):
 
 That's it — no code change. The feed layer keeps running underneath either
 way; enabling search only adds a second source, never replaces the free one.
+
+## Link safety
+
+**A URL in the model's reply is treated as untrusted input, never as a fact.**
+
+Asked for "the most useful link," a model that doesn't have one will invent
+a plausible-looking URL rather than leave it blank. This happened in
+production on 2026-07-28: a hi-fi streamer item linked to
+`youtube.com/watch?v=dQw4w9WgXcQ` — the rickroll. The same mechanism could
+just as easily produce a typosquat or a parked domain, and the old check
+(does the URL start with `http`?) couldn't tell the difference, because a
+fabricated URL is well-formed by construction.
+
+So every link is now **provenance-checked** before it can be emailed:
+
+| Outcome | When | What you see |
+|---|---|---|
+| **verified** | The URL matches a page this run actually saw — a fetched feed item's link, or a page Gemini's own search grounding cited | "Open link →" |
+| **search** | No provenance — the model asserted it and nothing corroborates it | "Search for this →" + *source link unverified* |
+
+Redirect wrappers (`news.google.com/rss/articles/CBMi…` tokens and Gemini's
+`vertexaisearch…/grounding-api-redirect/…` URLs) are resolved to the
+publisher's own URL first. That's what fixes links that used to time out or
+404 even on the day they arrived — those tokens expire; the resolved
+publisher link doesn't.
+
+A search link always resolves and always lands you on the right thing, so
+an unverifiable find degrades gracefully instead of sending you somewhere
+arbitrary. Run logs print a per-run tally
+(`[links] 5 verified, 2 search-fallback, 0 unlinked`); a sudden jump in
+search-fallbacks means grounding metadata stopped arriving, not that the
+finds got worse.
 
 ## The pieces
 
