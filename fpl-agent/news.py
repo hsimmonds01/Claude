@@ -369,8 +369,14 @@ def run(dry_run: bool) -> None:
         flags, model_used = [], "none (no headlines)"
     else:
         text, model_used = call_gemini(api_key, build_prompt(headlines, players, squad_names))
-        allowed_urls = {sanitise(item.get("link", "")) for item in headlines}
-        allowed_urls.discard("")
+        # Re-check the scheme here too. knowledge.py already rejects
+        # non-http(s) links at ingest, but this set is what authorises a URL
+        # to appear in an email or the dashboard, so it should not depend on
+        # an upstream file staying correct.
+        allowed_urls = {
+            u for u in (sanitise(item.get("link", "")) for item in headlines)
+            if u.lower().startswith(("http://", "https://"))
+        }
         flags = parse_flags(text, players, allowed_urls)
 
     payload = {

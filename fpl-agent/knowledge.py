@@ -218,6 +218,18 @@ def parse_feed(xml_text: str, source: str) -> list[dict]:
     except ET.ParseError:
         return []
 
+    def safe_link(url: str) -> str:
+        """Only http(s) links are stored.
+
+        A feed item's <link> is attacker-controlled -- one of our sources is
+        an email bridge anyone can write to -- and a "javascript:" URL that
+        reaches an href becomes script execution on whatever page renders it.
+        Rejecting the scheme at ingest kills that at the source rather than
+        relying on every consumer to remember.
+        """
+        url = (url or "").strip()
+        return url if url.lower().startswith(("http://", "https://")) else ""
+
     def child_text(element, name: str) -> str:
         for node in element:
             if node.tag.rsplit("}", 1)[-1] == name:
@@ -236,7 +248,7 @@ def parse_feed(xml_text: str, source: str) -> list[dict]:
         summary = html_to_text(child_text(element, "description") or child_text(element, "summary"))
         items.append({
             "title": title,
-            "link": child_text(element, "link"),
+            "link": safe_link(child_text(element, "link")),
             "published": child_text(element, "pubDate") or child_text(element, "published"),
             "summary": summary[:300],
             "source": source,

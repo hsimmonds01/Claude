@@ -142,6 +142,16 @@ let DATA = null;
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c =>
   ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 
+// Escaping is not enough for an href. "javascript:alert(1)" contains no
+// character that esc() touches, so it survives untouched and becomes script
+// execution on click -- on a page that holds a Gemini API key in
+// localStorage. News sources originate from RSS feeds, one of which anyone
+// can post to, so only http(s) is ever allowed to become a link.
+const safeUrl = u => {
+  const s = String(u ?? "").trim();
+  return /^https?:\/\//i.test(s) ? esc(s) : "";
+};
+
 function shirt(p){
   const gk = p.position === "GKP" ? " gk" : "";
   const cap = p.role === "captain" ? '<span class="badge">C</span>' : "";
@@ -161,7 +171,7 @@ function render(){
   document.getElementById("stats").innerHTML = `
     <div class="stat"><b>${d.projected_xi.toFixed(0)}</b><span>projected XI</span></div>
     <div class="stat"><b>£${d.bank.toFixed(1)}m</b><span>bank</span></div>
-    <div class="stat"><b>${d.free_transfers}</b><span>free transfers</span></div>
+    <div class="stat"><b>${esc(d.free_transfers)}</b><span>free transfers</span></div>
     <div class="stat"><b>${d.risk.toFixed(2)}</b><span>risk setting</span></div>`;
 
   const starters = d.squad.filter(p => p.role !== "bench");
@@ -186,7 +196,7 @@ function render(){
     ? d.news.map(n => `<div class="tr"><div>
         <div class="who"><span class="pill ${esc(n.severity)}">${esc(n.severity)}</span>${esc(n.player)}</div>
         <div class="why">${esc(n.concern)}
-          ${n.source ? `<a href="${esc(n.source)}" target="_blank" rel="noopener">source</a>` : ""}</div>
+          ${safeUrl(n.source) ? `<a href="${safeUrl(n.source)}" target="_blank" rel="noopener noreferrer">source</a>` : ""}</div>
       </div></div>`).join("")
     : '<div class="muted">Nothing flagged on your players.</div>';
 
@@ -215,7 +225,7 @@ document.addEventListener("click", e => {
   if (!p) return;
   document.getElementById("dTitle").textContent = p.name;
   document.getElementById("dMeta").textContent =
-    `${p.team} · ${p.position} · £${p.price.toFixed(1)}m · ${p.owned.toFixed(0)}% owned · ` +
+    `${esc(p.team)} · ${esc(p.position)} · £${p.price.toFixed(1)}m · ${p.owned.toFixed(0)}% owned · ` +
     `${p.xp.toFixed(1)} projected`;
 
   const flags = (DATA.news || []).filter(n => n.player === p.name);

