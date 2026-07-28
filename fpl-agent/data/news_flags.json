@@ -1,25 +1,25 @@
 {
-  "generated_at": "2026-07-28T19:47:11.556116+00:00",
+  "generated_at": "2026-07-28T22:14:18.990214+00:00",
   "model": "gemini-flash-latest",
-  "headlines_considered": 41,
+  "headlines_considered": 42,
   "flags": [
-    {
-      "player_id": "346",
-      "player": "Calvert-Lewin",
-      "team": "LEE",
-      "concern": "Missed out on Leeds' recent pre-season fixture, raising concerns about his match fitness and availability.",
-      "severity": "medium",
-      "affects": "availability",
-      "source": "https://www.fantasyfootballscout.co.uk/2026/07/27/fpl-pre-season-wilson-debut-jesus-again-why-dcl-missed-out"
-    },
     {
       "player_id": "40",
       "player": "Rogers",
       "team": "CHE",
-      "concern": "Has completed a move to Chelsea, which presents a change in team role and increased competition for starting minutes.",
-      "severity": "low",
+      "concern": "Rogers has completed a transfer to Chelsea, creating uncertainty around his regular starting role and minutes in a crowded attack.",
+      "severity": "medium",
       "affects": "minutes",
       "source": "https://www.fantasyfootballscout.co.uk/2026/07/28/can-7-5m-rogers-be-a-good-fpl-asset-at-chelsea"
+    },
+    {
+      "player_id": "346",
+      "player": "Calvert-Lewin",
+      "team": "LEE",
+      "concern": "Calvert-Lewin missed Leeds' recent pre-season fixture, raising potential fitness and availability doubts ahead of the season.",
+      "severity": "medium",
+      "affects": "availability",
+      "source": "https://www.fantasyfootballscout.co.uk/2026/07/27/fpl-pre-season-wilson-debut-jesus-again-why-dcl-missed-out"
     }
   ]
 }
