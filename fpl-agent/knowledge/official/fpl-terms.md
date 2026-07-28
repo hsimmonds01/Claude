@@ -1,7 +1,7 @@
 # fpl-terms
 
 - Source: https://fantasy.premierleague.com/help/terms
-- Fetched: 2026-07-27T22:14:24.093709+00:00
+- Fetched: 2026-07-28T03:27:55.238789+00:00
 - Why it's here: Terms of use -- worth knowing what the game permits
 
 Captured automatically by `fpl-agent/knowledge.py` as reference material for the FPL agent.
@@ -55,8 +55,6 @@ Video
 Watch Live
 
 More
-
-Login
 
 Home
 
@@ -125,6 +123,46 @@ More From the PL
 Club Websites
 
 Club Websites
+
+Arsenal
+
+Villa
+
+Bournemouth
+
+Brentford
+
+Brighton
+
+Chelsea
+
+Coventry
+
+Palace
+
+Everton
+
+Fulham
+
+Hull
+
+Ipswich
+
+Leeds
+
+Liverpool
+
+Man City
+
+Man Utd
+
+Newcastle
+
+Forest
+
+Sunderland
+
+Spurs
 
 Premier League
 
