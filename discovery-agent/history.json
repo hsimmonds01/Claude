@@ -413,6 +413,68 @@
           "urgency": "heads-up"
         }
       ]
+    },
+    {
+      "date": "2026-07-28",
+      "model": "gemini-2.5-flash (legacy key, live search)",
+      "items": [
+        {
+          "title": "Jay-Z Adds Second London Date, Tickets On Sale This Week",
+          "category": "event",
+          "summary": "Hip-hop icon Jay-Z has added a second show at Tottenham Hotspur Stadium on Saturday, September 5, 2026. Presales begin tomorrow for O2, Artist, and Live Nation customers, with general sale starting Thursday.",
+          "url": "https://www.ticketmaster.co.uk/jay-z-30-london-05-09-2026-tickets/event/3B0060E59D4B160C",
+          "date_info": "Presales from Wed 29 Jul 2026, 10am BST; General sale from Thu 30 Jul 2026, 10am BST",
+          "urgency": "act-fast"
+        },
+        {
+          "title": "Tasca Portuguese/Spanish Pop-Up Opens in Shoreditch",
+          "category": "food",
+          "summary": "The highly-praised Portuguese and Spanish-inspired pop-up, Tasca, is making a return at Project 44 in Shoreditch, serving a delicious menu of small plates every Wednesday to Saturday evening. It opens tomorrow.",
+          "url": "https://www.timeout.com/london/news/the-6-best-new-london-restaurants-opening-in-august-2026-072826",
+          "date_info": "Opens Wed 29 Jul 2026, every Wed-Sat evening",
+          "urgency": "act-fast"
+        },
+        {
+          "title": "Whippies Ice Cream Parlour to Open in Covent Garden with 99p Deal",
+          "category": "food",
+          "summary": "Big Kid, Soho's popular soft serve spot, is launching Whippies, a new ice cream parlour at Seven Dials Market. Expect souped-up sundaes and slushies, with a special opening weekend offer of 99p for 99 Flake 99s.",
+          "url": "https://www.timeout.com/london/news/the-6-best-new-london-restaurants-opening-in-august-2026-072826",
+          "date_info": "Opening August 2026 (99p deal on opening weekend)",
+          "urgency": "this-week"
+        },
+        {
+          "title": "Dumbo Burger, Paris's Smash Burger Sensation, Opens Second London Site in Soho",
+          "category": "food",
+          "summary": "Dumbo, known for pioneering the smash burger trend in Europe, is opening its second UK location at 37 Berwick Street in Soho this late summer. Expect their signature smash burgers, vegetarian options, and tempura chicken nuggets.",
+          "url": "https://www.timeout.com/london/news/dumbo-burger-second-location-soho-072826",
+          "date_info": "Opening late summer 2026",
+          "urgency": "heads-up"
+        },
+        {
+          "title": "Yard Sale Pizza Confirms New Location in Angel, Islington",
+          "category": "food",
+          "summary": "The 'hyped pizza chain' Yard Sale Pizza is expanding its reach with an 18th location on White Conduit Street in Angel, Islington, set to open in August. This new spot will also expand their delivery postcodes across North London.",
+          "url": "https://yardsalepizza.com/latest/",
+          "date_info": "Opening August 2026",
+          "urgency": "heads-up"
+        },
+        {
+          "title": "Holy Greens, Swedish 'Posh Salad' Chain, to Open First London Outpost in Canary Wharf",
+          "category": "food",
+          "summary": "Popular Swedish food chain Holy Greens is bringing its fresh, high-quality salads and hot bowls to London for the first time, with its debut UK restaurant opening at Cabot Square in Canary Wharf. An exact opening date is yet to be announced.",
+          "url": "https://www.timeout.com/london/news/posh-swedish-salads-are-coming-to-london-for-the-first-time-072826",
+          "date_info": "Opening soon (no official date yet)",
+          "urgency": "heads-up"
+        },
+        {
+          "title": "WHM Ultra Hi-Fi Music Streamer Offers Comprehensive Features at an Affordable Price",
+          "category": "product",
+          "summary": "The WHM Ultra is highlighted as a top gadget for 2026, offering high-resolution streaming, a full-color touchscreen, and multiple connectivity options including HDMI ARC and a phono input, all for around $329. It's praised for its affordability, flexibility, and impressive performance.",
+          "url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+          "date_info": "",
+          "urgency": "heads-up"
+        }
+      ]
     }
   ]
 }
