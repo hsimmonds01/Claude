@@ -330,6 +330,11 @@
     text-decoration: none;
   }
   .card a.open-link:hover { text-decoration: underline; }
+  .card .link-note {
+    font-size: 0.72rem;
+    opacity: 0.6;
+    margin-left: 0.5rem;
+  }
 
   .empty-state, .error-state {
     text-align: center;
@@ -522,9 +527,18 @@
     if (item.date_info) {
       html += '<p class="date-info">📅 ' + escapeHtml(item.date_info) + '</p>';
     }
+    // link_status is set by discover.py's provenance check. "search" means the
+    // model's URL couldn't be traced to a page we actually saw, so it was
+    // swapped for a search link -- say so rather than calling it the source.
+    // Older archived items predate the field and carry no status.
     var url = String(item.url || "");
     if (/^https?:\/\//i.test(url)) {
-      html += '<a class="open-link" href="' + escapeHtml(url) + '" target="_blank" rel="noopener">Open link →</a>';
+      var isSearch = item.link_status === "search";
+      html += '<a class="open-link" href="' + escapeHtml(url) + '" target="_blank" rel="noopener">'
+            + (isSearch ? "Search for this →" : "Open link →") + "</a>";
+      if (isSearch) {
+        html += '<span class="link-note">source link unverified</span>';
+      }
     }
 
     var card = document.createElement("article");

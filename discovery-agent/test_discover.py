@@ -33,25 +33,31 @@ class FakeResponse:
 
 
 class FakeTextResponse:
-    def __init__(self, text, status=200):
+    def __init__(self, text, status=200, url=""):
         self.text = text
         self.status_code = status
+        self.url = url  # final URL after redirects, as requests exposes it
 
     def raise_for_status(self):
         if self.status_code >= 400:
             raise RuntimeError(f"HTTP {self.status_code}")
+
+    def close(self):
+        pass
 
 
 class FakeRequests:
     """Routes gemini/resend/feed URLs to canned responses and records sends."""
 
     def __init__(self, gemini_text=None, gemini_fail_models=(), feed_xml=None, feed_fail=False,
-                 gemini_503_countdown=None):
+                 gemini_503_countdown=None, grounding_urls=(), redirects=None):
         self.gemini_text = gemini_text
         self.gemini_fail_models = gemini_fail_models
         self.feed_xml = feed_xml  # single XML string served for every feed URL
         self.feed_fail = feed_fail
         self.gemini_503_countdown = dict(gemini_503_countdown or {})  # model -> 503s left before success
+        self.grounding_urls = list(grounding_urls)  # cited by the search tool
+        self.redirects = dict(redirects or {})  # wrapper URL -> real destination
         self.sent_emails = []
         self.models_called = []
         self.last_gemini_body = None
@@ -66,15 +72,22 @@ class FakeRequests:
                 return FakeResponse({"error": "overloaded"}, status=503)
             if model in self.gemini_fail_models:
                 return FakeResponse({"error": "quota"}, status=429)
-            return FakeResponse(
-                {"candidates": [{"content": {"parts": [{"text": self.gemini_text}]}}]}
-            )
+            candidate = {"content": {"parts": [{"text": self.gemini_text}]}}
+            if self.grounding_urls:
+                candidate["groundingMetadata"] = {
+                    "groundingChunks": [{"web": {"uri": u, "title": "src"}} for u in self.grounding_urls]
+                }
+            return FakeResponse({"candidates": [candidate]})
         if "resend" in url:
             self.sent_emails.append(kwargs["json"])
             return FakeResponse({"id": "email_123"})
         raise AssertionError(f"unexpected URL {url}")
 
     def get(self, url, **kwargs):
+        # Link resolution uses stream=True; feed fetching doesn't. Routing on
+        # that keeps one stub serving both without URL guesswork.
+        if kwargs.get("stream"):
+            return FakeTextResponse("", url=self.redirects.get(url, url))
         if self.feed_fail:
             raise RuntimeError("simulated feed fetch failure")
         return FakeTextResponse(self.feed_xml or "<rss><channel></channel></rss>")
@@ -271,7 +284,7 @@ def test_legacy_key_tried_first_and_used_when_it_works():
     try:
         fake = FakeRequests(gemini_text=GOOD_REPLY)
         discover.requests = fake
-        text, model_used = discover.call_gemini("primary-key", "prompt")
+        text, model_used, _ = discover.call_gemini("primary-key", "prompt")
         assert fake.models_called == [discover.GEMINI_GROUNDING_MODEL]  # primary key never tried
         assert "legacy key, live search" in model_used
         assert fake.last_gemini_body["tools"] == [{"google_search": {}}]
@@ -284,7 +297,7 @@ def test_legacy_key_failure_falls_back_to_primary():
     try:
         fake = FakeRequests(gemini_text=GOOD_REPLY, gemini_fail_models=(discover.GEMINI_GROUNDING_MODEL,))
         discover.requests = fake
-        text, model_used = discover.call_gemini("primary-key", "prompt")
+        text, model_used, _ = discover.call_gemini("primary-key", "prompt")
         assert fake.models_called[0] == discover.GEMINI_GROUNDING_MODEL  # tried first
         assert model_used in discover.GEMINI_MODELS  # then fell back to the primary key's models
     finally:
@@ -307,7 +320,7 @@ def test_503_retries_with_backoff_then_succeeds():
         # 503 twice, then a normal success on the third attempt
         fake = FakeRequests(gemini_text=GOOD_REPLY, gemini_503_countdown={discover.GEMINI_GROUNDING_MODEL: 2})
         discover.requests = fake
-        text, model_used = discover.call_gemini("primary-key", "prompt")
+        text, model_used, _ = discover.call_gemini("primary-key", "prompt")
         assert sleep_calls == discover.GEMINI_503_RETRY_DELAYS_SECONDS  # both backoff waits happened
         assert "legacy key, live search" in model_used  # still resolved via the best path
         assert fake.models_called.count(discover.GEMINI_GROUNDING_MODEL) == 3  # 1 + 2 retries
@@ -323,12 +336,134 @@ def test_503_exhausts_retries_then_falls_back_to_primary():
         # 503 forever on the legacy model -- never recovers within the retry budget
         fake = FakeRequests(gemini_text=GOOD_REPLY, gemini_503_countdown={discover.GEMINI_GROUNDING_MODEL: 99})
         discover.requests = fake
-        text, model_used = discover.call_gemini("primary-key", "prompt")
+        text, model_used, _ = discover.call_gemini("primary-key", "prompt")
         assert len(sleep_calls) == len(discover.GEMINI_503_RETRY_DELAYS_SECONDS)  # gave up after the budget
         assert model_used in discover.GEMINI_MODELS  # fell through to the primary key
     finally:
         discover.GEMINI_API_KEY_LEGACY = ""
         restore_sleep()
+
+
+# ── Link safety ────────────────────────────────────────────────────────
+
+def test_normalise_url_collapses_only_cosmetic_differences():
+    n = discover._normalise_url
+    # same page, cosmetic variation -> same key
+    assert n("https://www.example.com/a/") == n("http://example.com/a")
+    assert n("https://example.com/a?utm_source=news&oc=5") == n("https://example.com/a")
+    # different pages -> different keys, even on the same host
+    assert n("https://example.com/a") != n("https://example.com/b")
+    # meaning-carrying query params must NOT be stripped, or every YouTube
+    # link would collapse onto every other YouTube link
+    assert n("https://youtube.com/watch?v=real") != n("https://youtube.com/watch?v=dQw4w9WgXcQ")
+
+
+def test_hallucinated_url_is_never_linked():
+    """Regression for 2026-07-28: a fabricated youtube.com/watch?v=dQw4w9WgXcQ
+    (rickroll) was emailed as a real source link. Provenance is the gate."""
+    trusted = discover.build_trusted_links(
+        [{"title": "t", "link": "https://example.com/real", "source": "example.com"}], []
+    )
+    items = [{"title": "WHM Ultra Hi-Fi Music Streamer", "summary": "s",
+              "url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"}]
+    discover.requests = FakeRequests()
+    discover.verify_item_links(items, trusted)
+
+    assert items[0]["link_status"] == "search"
+    assert "youtube.com" not in items[0]["url"]
+    assert items[0]["url"].startswith("https://www.google.com/search?q=")
+
+
+def test_observed_feed_url_is_verified():
+    trusted = discover.build_trusted_links(
+        [{"title": "t", "link": "https://example.com/real-page", "source": "example.com"}], []
+    )
+    # model quotes it back with tracking junk and a trailing slash
+    items = [{"title": "Real find", "summary": "s", "url": "https://www.example.com/real-page/?utm_source=x"}]
+    discover.requests = FakeRequests()
+    discover.verify_item_links(items, trusted)
+
+    assert items[0]["link_status"] == "verified"
+    assert items[0]["url"] == "https://example.com/real-page"
+
+
+def test_grounding_urls_count_as_provenance():
+    """Live search finds real pages the feeds never saw -- those must still
+    be linkable, or enabling search would gut the digest."""
+    wrapper = "https://vertexaisearch.cloud.google.com/grounding-api-redirect/TOKEN"
+    real = "https://literarysport.com/collections/fw26"
+    discover.requests = FakeRequests(redirects={wrapper: real})
+    trusted = discover.build_trusted_links([], [wrapper])
+
+    items = [{"title": "Literary Sport FW26", "summary": "s", "url": real}]
+    discover.verify_item_links(items, trusted)
+    assert items[0]["link_status"] == "verified"
+    assert items[0]["url"] == real
+
+
+def test_google_news_wrapper_resolves_to_publisher():
+    """The other half of the bug report: news.google.com CBMi... redirect
+    tokens expire and time out. Resolve them to the publisher's own URL."""
+    wrapper = "https://news.google.com/rss/articles/CBMiXkFVX3lxTE9s?oc=5"
+    real = "https://www.timeout.com/london/news/real-article"
+    discover.requests = FakeRequests(redirects={wrapper: real})
+    trusted = discover.build_trusted_links(
+        [{"title": "t", "link": wrapper, "source": "news.google.com"}], []
+    )
+
+    items = [{"title": "London thing", "summary": "s", "url": wrapper}]
+    discover.verify_item_links(items, trusted)
+    assert items[0]["link_status"] == "verified"
+    assert items[0]["url"] == real  # publisher link, not the expiring token
+
+
+def test_item_with_no_url_is_left_unlinked_not_invented():
+    discover.requests = FakeRequests()
+    items = [{"title": "Something great", "summary": "s", "url": ""}]
+    discover.verify_item_links(items, {})
+    assert items[0]["link_status"] == "search"
+    assert items[0]["url"].startswith("https://www.google.com/search?q=")
+
+
+def test_email_labels_unverified_links_honestly():
+    verified = discover.render_item_html(
+        {"title": "A", "summary": "s", "url": "https://example.com/a", "link_status": "verified"})
+    searched = discover.render_item_html(
+        {"title": "B", "summary": "s", "url": "https://www.google.com/search?q=B", "link_status": "search"})
+    assert "Open link" in verified and "unverified" not in verified
+    assert "Search for this" in searched and "source link unverified" in searched
+
+
+@in_temp_dir
+def test_end_to_end_drops_hallucinated_link(tmp_path):
+    """Full run: the feed's own link survives, the invented one does not."""
+    set_env()
+    import datetime as dt
+    recent = _rfc822(dt.datetime.now(dt.timezone.utc) - dt.timedelta(hours=6))
+    feed_xml = (
+        '<?xml version="1.0"?><rss version="2.0"><channel><title>F</title>'
+        f'<item><title>Odyssey IMAX</title><link>https://example.com/odyssey</link>'
+        f'<pubDate>{recent}</pubDate></item></channel></rss>'
+    )
+    reply = """```json
+[
+  {"title": "The Odyssey IMAX tickets on sale", "category": "film", "summary": "s",
+   "url": "https://example.com/odyssey", "date_info": "", "urgency": "act-fast"},
+  {"title": "WHM Ultra Hi-Fi Music Streamer", "category": "product", "summary": "s",
+   "url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ", "date_info": "", "urgency": "heads-up"}
+]
+```"""
+    fake = FakeRequests(gemini_text=reply, feed_xml=feed_xml)
+    discover.requests = fake
+    discover.run_digest(dry_run=False, force=False)
+
+    html = fake.sent_emails[0]["html"]
+    assert "https://example.com/odyssey" in html      # real link kept
+    assert "dQw4w9WgXcQ" not in html                  # fabricated link never reaches the inbox
+    # and the archive records the sanitised URL, so the dashboard is clean too
+    history = json.loads(discover.HISTORY_PATH.read_text())
+    urls = [i["url"] for i in history["digests"][0]["items"]]
+    assert not any("dQw4w9WgXcQ" in u for u in urls)
 
 
 # ── Full flow ──────────────────────────────────────────────────────────
