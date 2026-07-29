@@ -104,6 +104,13 @@ def my_lineup_view(squad: list[dict], lineup: dict | None):
     captain = by_name.get(lineup.get("captain"))
     if len(bench) != 4 or captain is None or captain in bench:
         return None
+    # The reserve keeper's bench slot isn't a priority position -- he only
+    # ever comes on for the starting keeper -- so he always renders first,
+    # matching the FPL app, no matter what order the names were entered in.
+    gk_bench = [p for p in bench if p["position"] == "GKP"]
+    if len(gk_bench) != 1:
+        return None
+    bench = gk_bench + [p for p in bench if p["position"] != "GKP"]
     starters = [p for p in squad if p not in bench]
     if len(starters) != 11:
         return None

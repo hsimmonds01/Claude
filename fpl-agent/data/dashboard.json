@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-29T06:12:29.966321+00:00",
+  "generated_at": "2026-07-29T06:18:48.648909+00:00",
   "next_event": 1,
   "next_deadline": "2026-08-21T17:30:00Z",
   "horizon": {
@@ -214,9 +214,9 @@
       "moved_club": false,
       "minutes_reason": "0% of last 10 GWs started, 0% across the season",
       "role": "bench",
-      "bench_order": 4,
+      "bench_order": 1,
       "my_role": "bench",
-      "my_bench_order": 4,
+      "my_bench_order": 1,
       "alternatives": [
         {
           "id": "250",
@@ -964,7 +964,7 @@
       "role": "starter",
       "bench_order": null,
       "my_role": "bench",
-      "my_bench_order": 1,
+      "my_bench_order": 2,
       "alternatives": [
         {
           "id": "112",
@@ -1149,9 +1149,9 @@
       "moved_club": false,
       "minutes_reason": "no Premier League record; inferred from £4.0m price",
       "role": "bench",
-      "bench_order": 3,
+      "bench_order": 4,
       "my_role": "bench",
-      "my_bench_order": 3,
+      "my_bench_order": 4,
       "alternatives": [
         {
           "id": "153",
@@ -2084,9 +2084,9 @@
       "moved_club": false,
       "minutes_reason": "56% of last 10 GWs started, 51% across the season",
       "role": "bench",
-      "bench_order": 2,
+      "bench_order": 3,
       "my_role": "bench",
-      "my_bench_order": 2,
+      "my_bench_order": 3,
       "alternatives": [
         {
           "id": "545",
@@ -2645,7 +2645,7 @@
       "moved_club": false,
       "minutes_reason": "60% of last 10 GWs started, 29% across the season",
       "role": "bench",
-      "bench_order": 1,
+      "bench_order": 2,
       "my_role": "starter",
       "my_bench_order": null,
       "alternatives": [

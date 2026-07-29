@@ -15,9 +15,11 @@
     "bench guessed for you. Fill it in like:",
     "  \"my_lineup\": {\"captain\": \"Haaland\", \"vice_captain\": \"B.Fernandes\",",
     "                 \"bench\": [\"Steele\", \"O'Shea\", \"Wilson\", \"Solanke\"]}",
-    "(bench must be exactly 4 names, first = first sub). Once GW1 is played",
-    "and team_id is filled in, squad.py will read this straight from the FPL",
-    "API instead and this field stops being needed."
+    "(bench must be exactly 4 names, exactly one of them your reserve",
+    "goalkeeper -- his order in the list doesn't matter, the dashboard always",
+    "draws him first, matching the FPL app; the other three render in the",
+    "order given). Once GW1 is played and team_id is filled in, squad.py will",
+    "read this straight from the FPL API and this field stops being needed."
   ],
   "team_id": null,
   "team_id_note": "To be filled in after GW1 -- the Points tab URL will read /entry/<id>/event/1",
@@ -27,7 +29,7 @@
   "my_lineup": {
     "captain": "Haaland",
     "vice_captain": "B.Fernandes",
-    "bench": ["Mitchell", "Hughes", "O'Shea", "Steele"]
+    "bench": ["Steele", "Mitchell", "Hughes", "O'Shea"]
   },
   "squad": [
     {
