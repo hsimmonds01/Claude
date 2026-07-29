@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-29T19:38:41.591408+00:00",
+  "generated_at": "2026-07-29T22:09:38.851899+00:00",
   "model": "gemini-flash-latest",
   "headlines_considered": 43,
   "flags": [
@@ -7,7 +7,7 @@
       "player_id": "237",
       "player": "Ndiaye",
       "team": "EVE",
-      "concern": "Reported absent from Everton's pre-season match, raising questions about his current fitness or availability.",
+      "concern": "Ndiaye was reported absent during pre-season, raising doubts over his availability and fitness.",
       "severity": "medium",
       "affects": "availability",
       "source": "https://www.fantasyfootballscout.co.uk/2026/07/29/fpl-pre-season-pedro-hat-trick-alonsos-tactics-ndiaye-absent"
@@ -16,7 +16,7 @@
       "player_id": "40",
       "player": "Rogers",
       "team": "CHE",
-      "concern": "Has completed a transfer to Chelsea, which creates uncertainty around his starting role and regular minutes.",
+      "concern": "Rogers has transferred to Chelsea, which could impact his position and regular playing time.",
       "severity": "medium",
       "affects": "minutes",
       "source": "https://www.fantasyfootballscout.co.uk/2026/07/28/can-7-5m-rogers-be-a-good-fpl-asset-at-chelsea"
