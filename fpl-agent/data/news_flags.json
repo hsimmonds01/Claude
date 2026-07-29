@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-07-29T16:37:40.913095+00:00",
+  "generated_at": "2026-07-29T19:38:41.591408+00:00",
   "model": "gemini-flash-latest",
-  "headlines_considered": 42,
+  "headlines_considered": 43,
   "flags": [
     {
       "player_id": "237",
       "player": "Ndiaye",
       "team": "EVE",
-      "concern": "Ndiaye was absent from Everton's recent pre-season fixture.",
+      "concern": "Reported absent from Everton's pre-season match, raising questions about his current fitness or availability.",
       "severity": "medium",
       "affects": "availability",
       "source": "https://www.fantasyfootballscout.co.uk/2026/07/29/fpl-pre-season-pedro-hat-trick-alonsos-tactics-ndiaye-absent"
@@ -16,19 +16,10 @@
       "player_id": "40",
       "player": "Rogers",
       "team": "CHE",
-      "concern": "Rogers has completed a transfer to Chelsea, creating uncertainty over his regular starting role.",
+      "concern": "Has completed a transfer to Chelsea, which creates uncertainty around his starting role and regular minutes.",
       "severity": "medium",
       "affects": "minutes",
       "source": "https://www.fantasyfootballscout.co.uk/2026/07/28/can-7-5m-rogers-be-a-good-fpl-asset-at-chelsea"
-    },
-    {
-      "player_id": "346",
-      "player": "Calvert-Lewin",
-      "team": "LEE",
-      "concern": "Calvert-Lewin missed Leeds United's pre-season fixture.",
-      "severity": "medium",
-      "affects": "availability",
-      "source": "https://www.fantasyfootballscout.co.uk/2026/07/27/fpl-pre-season-wilson-debut-jesus-again-why-dcl-missed-out"
     }
   ]
 }
