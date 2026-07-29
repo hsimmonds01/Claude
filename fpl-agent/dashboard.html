@@ -102,30 +102,6 @@
     <h2>Template gap</h2>
     <div class="card" id="gap"></div>
 
-    <h2>Ask the agent</h2>
-    <div class="card">
-      <div id="keyBox">
-        <div class="muted" style="margin-bottom:8px">
-          Paste a Gemini API key to enable questions. It is held in this tab only,
-          cleared when you close it, and sent nowhere except Google. This page is
-          public, so the key is deliberately not built into it.
-          <br><br>
-          <b>Restrict the key</b> in Google Cloud &mdash; limit it to the Generative
-          Language API and add an HTTP-referrer restriction for
-          <code>hsimmonds01.github.io</code> &mdash; so it is worth little if it ever leaks.
-        </div>
-        <input type="password" id="key" placeholder="Gemini API key" autocomplete="off">
-        <div style="margin-top:8px"><button class="action" id="saveKey">Save key</button></div>
-      </div>
-      <div id="askBox" hidden>
-        <textarea id="q" rows="3" placeholder="e.g. Is it worth taking a hit to get Haaland in?"></textarea>
-        <div style="margin-top:8px;display:flex;gap:8px;align-items:center">
-          <button class="action" id="ask">Ask</button>
-          <button class="action" id="forgetKey" style="background:#6b7280">Forget key</button>
-        </div>
-        <div class="answer" id="answer" hidden></div>
-      </div>
-    </div>
     <div class="muted" id="stamp" style="margin-top:18px"></div>
   </section>
 </div>
@@ -148,9 +124,11 @@ const esc = s => String(s ?? "").replace(/[&<>"']/g, c =>
 
 // Escaping is not enough for an href. "javascript:alert(1)" contains no
 // character that esc() touches, so it survives untouched and becomes script
-// execution on click -- on a page that holds a Gemini API key in
-// localStorage. News sources originate from RSS feeds, one of which anyone
-// can post to, so only http(s) is ever allowed to become a link.
+// execution on click. News source links originate from RSS feeds, one of
+// which anyone can post to, so only http(s) is ever allowed to become a
+// link. This page now holds no credential of any kind, which caps what such
+// a bug could achieve -- but a hostile link on a page you trust is still
+// worth preventing on its own account.
 const safeUrl = u => {
   const s = String(u ?? "").trim();
   return /^https?:\/\//i.test(s) ? esc(s) : "";
@@ -252,88 +230,9 @@ document.addEventListener("click", e => {
   dlg.showModal();
 });
 
-// ── ask the agent ──────────────────────────────────────────────────
-// The key is held in memory, with sessionStorage only so a refresh doesn't
-// lose it.
-//
-// NOT localStorage. GitHub Pages serves every project site for an account
-// from one origin -- hsimmonds01.github.io -- so localStorage here is shared
-// with every other dashboard in this repo and every other repo the account
-// publishes. Any script running on any of those pages could read the key.
-// sessionStorage is scoped to origin AND tab, so a page opened elsewhere
-// cannot reach it, and it dies with the tab.
-const KEY_NAME = "fpl_agent_gemini_key";
-let SESSION_KEY = null;
-
-function getKey(){
-  if (SESSION_KEY) return SESSION_KEY;
-  try { SESSION_KEY = sessionStorage.getItem(KEY_NAME); } catch (e) { /* private mode */ }
-  return SESSION_KEY;
-}
-function setKey(v){
-  SESSION_KEY = v;
-  try { v ? sessionStorage.setItem(KEY_NAME, v) : sessionStorage.removeItem(KEY_NAME); }
-  catch (e) { /* memory-only is fine */ }
-}
-// One-off cleanup: any key saved by an earlier version is still sitting in
-// localStorage on the shared origin. Move it across and remove it there.
-try {
-  const stale = localStorage.getItem(KEY_NAME);
-  if (stale) { setKey(stale); localStorage.removeItem(KEY_NAME); }
-} catch (e) { /* nothing to migrate */ }
-
-function keyState(){
-  const has = !!getKey();
-  document.getElementById("keyBox").hidden = has;
-  document.getElementById("askBox").hidden = !has;
-}
-document.getElementById("saveKey").onclick = () => {
-  const v = document.getElementById("key").value.trim();
-  if (v) { setKey(v); document.getElementById("key").value=""; keyState(); }
-};
-document.getElementById("forgetKey").onclick = () => { setKey(null); keyState(); };
-
-document.getElementById("ask").onclick = async () => {
-  const key = getKey();
-  const question = document.getElementById("q").value.trim();
-  const answer = document.getElementById("answer");
-  if (!key || !question) return;
-  const button = document.getElementById("ask");
-  button.disabled = true; answer.hidden = false; answer.textContent = "Thinking…";
-
-  // The model is given our numbers and told to reason from them only, so an
-  // answer here can't contradict the email.
-  const context = {
-    squad: DATA.squad.map(p => ({name:p.name,team:p.team,pos:p.position,price:p.price,
-      owned:p.owned,projected:p.xp,role:p.role})),
-    bank: DATA.bank, free_transfers: DATA.free_transfers, risk: DATA.risk,
-    captain: DATA.captain, transfers: DATA.transfers.slice(0,5),
-    template_gap: DATA.template_gap, news: DATA.news
-  };
-  const prompt =
-    "You are an FPL assistant. Answer using ONLY the JSON below, which comes from a " +
-    "calibrated expected-points model. Never invent a projection, price or ownership " +
-    "figure; if the data doesn't answer the question, say so. Be concise and concrete.\n\n" +
-    "DATA:\n" + JSON.stringify(context) + "\n\nQUESTION: " + question;
-
-  try {
-    const res = await fetch(
-      "https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent?key="
-        + encodeURIComponent(key),
-      {method:"POST",headers:{"Content-Type":"application/json"},
-       body:JSON.stringify({contents:[{parts:[{text:prompt}]}]})});
-    if (!res.ok) throw new Error("HTTP " + res.status + " — " + (await res.text()).slice(0,200));
-    const json = await res.json();
-    answer.textContent = (json.candidates?.[0]?.content?.parts || [])
-      .map(p => p.text || "").join("") || "No answer returned.";
-  } catch (err) {
-    answer.textContent = "Failed: " + err.message;
-  } finally { button.disabled = false; }
-};
-
 fetch(DATA_URL + "?t=" + Date.now())
   .then(r => { if(!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
-  .then(d => { DATA = d; render(); keyState(); })
+  .then(d => { DATA = d; render(); })
   .catch(err => {
     document.getElementById("sub").textContent = "Could not load data: " + err.message;
   });

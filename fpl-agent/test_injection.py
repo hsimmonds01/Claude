@@ -126,19 +126,16 @@ check("dashboard validates the scheme before building an href",
       "safeUrl(n.source)" in dash and 'href="${esc(n.source)}"' not in dash)
 check("dashboard's safeUrl only accepts http(s)", "^https?:" in dash.replace("\\", ""))
 
-print("\nthe Gemini key is not persisted on the shared github.io origin")
+print("\nthe dashboard holds no credential at all")
 dash = open("dashboard.html", encoding="utf-8").read()
-check("key is read from sessionStorage", "sessionStorage.getItem(KEY_NAME)" in dash)
-check("key is never written to localStorage", "localStorage.setItem(KEY_NAME" not in dash)
-check("a key left by the old version is migrated and removed",
-      "localStorage.removeItem(KEY_NAME)" in dash)
-# localStorage may appear only in the one-off migration that clears the old
-# key -- one read and one remove. Any other use would put it back on the
-# shared origin, which is the whole thing this is preventing.
-localstorage_calls = dash.count("localStorage.getItem") + dash.count("localStorage.setItem") \
-    + dash.count("localStorage.removeItem")
-check("localStorage used only by the migration (1 read + 1 remove)",
-      localstorage_calls == 2, f"{localstorage_calls} calls")
+# The Ask box was removed rather than secured. Nothing on this page needs a
+# key, so the strongest guarantee available is that there is none to steal --
+# which also removes the shared-origin storage problem entirely.
+check("no browser storage of any kind",
+      "localStorage" not in dash and "sessionStorage" not in dash)
+check("no call to any external API", "generativelanguage" not in dash)
+check("no key input remains", 'type="password"' not in dash)
+check("dashboard still renders the squad from committed JSON", "DATA_URL" in dash)
 
 print("\nuntrusted XML is parsed by a hardened parser")
 src = open("knowledge.py", encoding="utf-8").read()
