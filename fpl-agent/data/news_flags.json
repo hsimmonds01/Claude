@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-28T22:14:18.990214+00:00",
+  "generated_at": "2026-07-29T03:30:28.874506+00:00",
   "model": "gemini-flash-latest",
   "headlines_considered": 42,
   "flags": [
@@ -7,7 +7,7 @@
       "player_id": "40",
       "player": "Rogers",
       "team": "CHE",
-      "concern": "Rogers has completed a transfer to Chelsea, creating uncertainty around his regular starting role and minutes in a crowded attack.",
+      "concern": "Rogers has completed a transfer to Chelsea, which may impact his role and regular playing time.",
       "severity": "medium",
       "affects": "minutes",
       "source": "https://www.fantasyfootballscout.co.uk/2026/07/28/can-7-5m-rogers-be-a-good-fpl-asset-at-chelsea"
@@ -16,10 +16,37 @@
       "player_id": "346",
       "player": "Calvert-Lewin",
       "team": "LEE",
-      "concern": "Calvert-Lewin missed Leeds' recent pre-season fixture, raising potential fitness and availability doubts ahead of the season.",
+      "concern": "Calvert-Lewin missed a pre-season match, raising potential fitness and availability doubts.",
       "severity": "medium",
       "affects": "availability",
       "source": "https://www.fantasyfootballscout.co.uk/2026/07/27/fpl-pre-season-wilson-debut-jesus-again-why-dcl-missed-out"
+    },
+    {
+      "player_id": "13",
+      "player": "Rice",
+      "team": "ARS",
+      "concern": "Declan Rice is subject to an injury query ahead of Arsenal's upcoming fixture.",
+      "severity": "medium",
+      "affects": "availability",
+      "source": ""
+    },
+    {
+      "player_id": "503",
+      "player": "Van de Ven",
+      "team": "TOT",
+      "concern": "Micky van de Ven is dealing with an injury concern ahead of Tottenham's next match.",
+      "severity": "medium",
+      "affects": "availability",
+      "source": "https://news.google.com/rss/articles/CBMizgFBVV95cUxNWGpCV3c1QjdtVmZqV29JdnE4Mk9rQnNLcFRkeXQ1T3YyemxCS25IcHNfMy1WdEdQb0tmUEMwVWE4NzJjbWViOU5mY3pvS0VZUU5UNUxFQ1E1Q2dKNGpJRE5JRWpzR3Z4YlVGdWhPcTg4WnJRNk1NU3NVeFVNNVAwcFkyNlRBNVpILXpwVnNhZHpubERnOHlxTmhvQnkyamxTTV9OZ1h5UDJkd2xWQUZ5Sk1mTWZNZTlBamxXSmM4b2t"
+    },
+    {
+      "player_id": "88",
+      "player": "Kayode",
+      "team": "BRE",
+      "concern": "Michael Kayode is touch and go for Brentford's fixture due to an injury concern.",
+      "severity": "medium",
+      "affects": "availability",
+      "source": ""
     }
   ]
 }
