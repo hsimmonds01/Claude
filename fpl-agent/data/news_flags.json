@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-07-29T14:28:26.125364+00:00",
+  "generated_at": "2026-07-29T16:37:40.913095+00:00",
   "model": "gemini-flash-latest",
-  "headlines_considered": 43,
+  "headlines_considered": 42,
   "flags": [
     {
       "player_id": "237",
@@ -16,7 +16,7 @@
       "player_id": "40",
       "player": "Rogers",
       "team": "CHE",
-      "concern": "Rogers has completed a transfer to Chelsea, which may create competition and reduce his guaranteed starting minutes.",
+      "concern": "Rogers has completed a transfer to Chelsea, creating uncertainty over his regular starting role.",
       "severity": "medium",
       "affects": "minutes",
       "source": "https://www.fantasyfootballscout.co.uk/2026/07/28/can-7-5m-rogers-be-a-good-fpl-asset-at-chelsea"
@@ -25,7 +25,7 @@
       "player_id": "346",
       "player": "Calvert-Lewin",
       "team": "LEE",
-      "concern": "Calvert-Lewin missed out on pre-season minutes for Leeds United.",
+      "concern": "Calvert-Lewin missed Leeds United's pre-season fixture.",
       "severity": "medium",
       "affects": "availability",
       "source": "https://www.fantasyfootballscout.co.uk/2026/07/27/fpl-pre-season-wilson-debut-jesus-again-why-dcl-missed-out"
