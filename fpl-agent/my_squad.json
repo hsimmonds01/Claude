@@ -24,7 +24,11 @@
   "bank": 0.5,
   "free_transfers": null,
   "chips_used": [],
-  "my_lineup": null,
+  "my_lineup": {
+    "captain": "Haaland",
+    "vice_captain": "B.Fernandes",
+    "bench": ["Mitchell", "Hughes", "O'Shea", "Steele"]
+  },
   "squad": [
     {
       "name": "Verbruggen",
@@ -105,6 +109,7 @@
   "history": [
     "2026-07-27: Andrey Santos (MUN, £5.0m) -> Hughes (CRY, £4.5m). Santos had 1247 minutes and 47 points last season at £5.0m; Hughes played more (1560 minutes, 19 starts) for £0.5m less. Frees £0.5m into the bank.",
     "2026-07-27: Kept Mosquera despite 986 minutes last season -- Saliba is injured with no return date and Mosquera is expected to start at centre-back. Recorded in overrides.json.",
-    "2026-07-27: squad updated from the FPL app (GW1, deadline Fri 21 Aug 18:30). Diop -> O'Shea (IPS, £4.0m), Konsa -> Mitchell (CRY, £4.5m), Calvert-Lewin -> Solanke (TOT, £6.0m). Now a 3-4-3 rather than 4-4-2. Cost £99.5m, £0.5m banked. Bench Boost and Triple Captain both still available."
+    "2026-07-27: squad updated from the FPL app (GW1, deadline Fri 21 Aug 18:30). Diop -> O'Shea (IPS, £4.0m), Konsa -> Mitchell (CRY, £4.5m), Calvert-Lewin -> Solanke (TOT, £6.0m). Now a 3-4-3 rather than 4-4-2. Cost £99.5m, £0.5m banked. Bench Boost and Triple Captain both still available.",
+    "2026-07-29: recorded my_lineup from the FPL app's Pick Team screen for GW1 -- captain Haaland, vice-captain B.Fernandes, bench order Mitchell, Hughes, O'Shea, then reserve keeper Steele. The dashboard's \"My squad\" tab now shows this exactly instead of a plain unordered list."
   ]
 }
