@@ -146,8 +146,15 @@ and the Actions history.
 - `RESEND_API_KEY` — from resend.com (starts `re_`). Sends from
   `onboarding@resend.dev` until a personal domain is verified — first email
   may land in spam once; mark it "not spam".
+- `FPL_EMAIL_TO` — the recipient address, shared with the FPL agent. This
+  repo is public, so the address is never written into a source file; the
+  workflow passes it in as `DIGEST_TO` and the run fails loudly if it's
+  missing rather than sending to nobody.
 - `GEMINI_ENABLE_SEARCH` (optional repo **variable**, not secret) — see
   "Turning on live search" above.
+
+The dashboard is published by GitHub Pages from `main`:
+**https://hsimmonds01.github.io/Claude/discovery-agent/dashboard.html**
 
 ## Run modes (Actions → Daily Discovery digest → Run workflow)
 
