@@ -9,6 +9,7 @@ Run: python test_discover.py
 """
 
 import json
+import re
 import sys
 import tempfile
 from pathlib import Path
@@ -148,6 +149,9 @@ def set_env(monkey=None):
     import os
     os.environ["GEMINI_API_KEY"] = "test-gemini"
     os.environ["RESEND_API_KEY"] = "test-resend"
+    # Recipient is read from the environment at import time in production;
+    # set the module global directly so tests don't depend on import order.
+    discover.EMAIL_TO = "digest-test@example.invalid"
 
 
 def _rfc822(dt):
@@ -486,6 +490,34 @@ def test_end_to_end_drops_hallucinated_link(tmp_path):
 
 
 # ── Security ───────────────────────────────────────────────────────────
+
+def test_no_personal_address_hardcoded_in_source():
+    """This repo is public: the recipient must come from the environment,
+    never from a source file."""
+    src = (Path(__file__).parent / "discover.py").read_text(encoding="utf-8")
+    assert not re.search(r"[\w.+-]+@(?!resend\.dev|example\.)[\w-]+\.[a-z]{2,}", src), \
+        "a real email address appears in discover.py"
+    assert 'os.environ.get("DIGEST_TO"' in src
+
+
+def test_missing_recipient_fails_loudly_rather_than_sending():
+    set_env()
+    discover.EMAIL_TO = ""
+    fake = FakeRequests(gemini_text=GOOD_REPLY)
+    discover.requests = fake
+    try:
+        discover.run_digest(dry_run=False, force=True)
+        raise AssertionError("should have refused to run without a recipient")
+    except RuntimeError as exc:
+        assert "DIGEST_TO" in str(exc)
+    assert fake.sent_emails == []  # nothing sent to nobody
+    discover.EMAIL_TO = "digest-test@example.invalid"
+
+
+def test_dashboard_url_is_not_third_party_proxy():
+    assert "githack" not in discover.DASHBOARD_URL
+    assert discover.DASHBOARD_URL.startswith("https://hsimmonds01.github.io/")
+
 
 def test_ssrf_only_wrapper_hosts_are_ever_fetched():
     """A substring host test ("news.google.com" in netloc) also matches

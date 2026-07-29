@@ -32,10 +32,11 @@ Modes:
   --force            send even if state says today's digest already went out
 
 Env vars: GEMINI_API_KEY (required), RESEND_API_KEY (required unless
---dry-run), DIGEST_TO (defaults to the address below), GEMINI_API_KEY_LEGACY
-(optional -- grandfathered key with free grounded search), GEMINI_ENABLE_SEARCH
-(optional -- "true" layers on live Google Search on the primary key once
-billing is set up).
+--dry-run), DIGEST_TO (required unless --dry-run; the recipient address,
+supplied from a GitHub secret so it never appears in this public repo),
+GEMINI_API_KEY_LEGACY (optional -- grandfathered key with free grounded
+search), GEMINI_ENABLE_SEARCH (optional -- "true" layers on live Google
+Search on the primary key once billing is set up).
 """
 
 from __future__ import annotations
@@ -76,9 +77,14 @@ RESEND_URL = "https://api.resend.com/emails"
 # Resend's free tier sends from their shared address until a personal domain
 # is verified. Deliverable to the account owner's own inbox without setup.
 EMAIL_FROM = "Daily Discovery <onboarding@resend.dev>"
-EMAIL_TO = os.environ.get("DIGEST_TO") or "hsimmonds01@gmail.com"
+# Recipient comes from the environment only -- this repo is public, so a
+# personal address must not sit in a source file. The workflow supplies it
+# from the FPL_EMAIL_TO secret (one address, shared across projects).
+EMAIL_TO = os.environ.get("DIGEST_TO", "").strip()
 
-DASHBOARD_URL = "https://raw.githack.com/hsimmonds01/Claude/main/discovery-agent/dashboard.html"
+# Served by GitHub Pages off main. Previously raw.githack.com, a one-person
+# free proxy that would have sat in the trust path for a page the user opens.
+DASHBOARD_URL = "https://hsimmonds01.github.io/Claude/discovery-agent/dashboard.html"
 
 REQUEST_TIMEOUT_SECONDS = 120
 MAX_ITEMS_PER_DIGEST = 8
@@ -920,6 +926,8 @@ def run_digest(dry_run: bool, force: bool) -> None:
     resend_key = os.environ.get("RESEND_API_KEY")
     if not dry_run and not resend_key:
         raise RuntimeError("RESEND_API_KEY is not set")
+    if not dry_run and not EMAIL_TO:
+        raise RuntimeError("DIGEST_TO is not set (kept in GitHub Secrets, never in the repo)")
 
     state = load_state()
     today = today_str()
@@ -989,6 +997,8 @@ def run_test_email() -> None:
     resend_key = os.environ.get("RESEND_API_KEY")
     if not resend_key:
         raise RuntimeError("RESEND_API_KEY is not set")
+    if not EMAIL_TO:
+        raise RuntimeError("DIGEST_TO is not set (kept in GitHub Secrets, never in the repo)")
     sample = [{
         "title": "Test: your Daily Discovery pipeline works",
         "category": "other",

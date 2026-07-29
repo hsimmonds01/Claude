@@ -59,6 +59,10 @@ jobs:
           # `diagnose` also probes it for grandfathered free grounded search.
           GEMINI_API_KEY_LEGACY: ${{ secrets.GEMINI_API_KEY_LEGACY }}
           RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          # Recipient address. This repo is public, so it lives in a secret
+          # rather than in discover.py. Reuses the address already stored for
+          # the FPL agent -- same inbox, one secret to rotate.
+          DIGEST_TO: ${{ secrets.FPL_EMAIL_TO }}
           GEMINI_ENABLE_SEARCH: ${{ vars.GEMINI_ENABLE_SEARCH }}
           MODE: ${{ inputs.mode || 'send' }}
         run: |
