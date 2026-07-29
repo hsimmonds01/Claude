@@ -25,6 +25,25 @@
   .stat b{display:block;font-size:17px;color:var(--pl-green)}
   .stat span{font-size:10px;text-transform:uppercase;letter-spacing:.5px;color:#c9b7d4}
 
+  .tabs{display:flex;gap:6px;margin-top:14px}
+  .tab{flex:1;background:rgba(255,255,255,.1);border:1px solid transparent;color:#e9d9ee;
+       border-radius:8px;padding:8px 6px;font-size:12px;font-weight:700;cursor:pointer;
+       font-family:inherit}
+  .tab.active{background:var(--pl-green);color:#000;border-color:var(--pl-green)}
+  .viewnote{background:rgba(255,255,255,.08);color:#e9d9ee;font-size:11px;padding:8px 12px;
+            border-radius:8px;margin:10px 16px 0}
+
+  .squadlist{padding:4px 16px 0}
+  .poshead{font-size:10px;text-transform:uppercase;letter-spacing:.7px;color:var(--muted);
+           margin:14px 0 4px}
+  .prow{display:flex;justify-content:space-between;align-items:center;padding:7px 0;
+        border-top:1px solid var(--line);cursor:pointer;background:none;border-left:none;
+        border-right:none;border-bottom:none;width:100%;font:inherit;color:inherit;
+        text-align:left}
+  .prow:first-child{border-top:none}
+  .prow .who{font-size:14px;font-weight:600}
+  .prow .meta{font-size:11px;color:var(--muted)}
+
   .pitch{background:repeating-linear-gradient(0deg,var(--pitch-1) 0 34px,var(--pitch-2) 34px 68px);
          padding:16px 8px 22px;position:relative}
   .pitch::before{content:"";position:absolute;left:50%;top:8px;transform:translateX(-50%);
@@ -87,10 +106,20 @@
     <div class="title">FPL Agent</div>
     <div class="sub" id="sub">loading…</div>
     <div class="stats" id="stats"></div>
+    <div class="tabs">
+      <button class="tab" id="tabMine" type="button">My squad</button>
+      <button class="tab" id="tabOptimal" type="button">Model's optimal XI</button>
+    </div>
   </header>
 
-  <div class="pitch" id="pitch"></div>
-  <div class="bench"><h3>Substitutes</h3><div class="row" id="benchRow"></div></div>
+  <div class="viewnote" id="viewNote" style="display:none"></div>
+
+  <div class="squadlist" id="squadList" style="display:none"></div>
+
+  <div class="pitch" id="pitch" style="display:none"></div>
+  <div class="bench" id="benchWrap" style="display:none">
+    <h3>Substitutes</h3><div class="row" id="benchRow"></div>
+  </div>
 
   <section>
     <h2>Recommended transfers</h2>
@@ -134,17 +163,51 @@ const safeUrl = u => {
   return /^https?:\/\//i.test(s) ? esc(s) : "";
 };
 
-function shirt(p){
+function shirt(p, roleKey){
   const gk = p.position === "GKP" ? " gk" : "";
-  const cap = p.role === "captain" ? '<span class="badge">C</span>' : "";
+  const cap = p[roleKey] === "captain" ? '<span class="badge">C</span>'
+            : p[roleKey] === "vice_captain" ? '<span class="badge">V</span>' : "";
   const flagged = (DATA.news || []).some(n => n.player === p.name);
   const dot = flagged ? '<span class="flagdot" title="news flag"></span>' : "";
-  return `<button class="player" data-id="${esc(p.id)}">
+  return `<button class="player" data-pid="${esc(p.id)}">
     <div class="shirt${gk}">${cap}${dot}</div>
     <div class="pname">${esc(p.name)}</div>
     <div class="pmeta">${esc(p.team)} · ${p.xp.toFixed(1)}</div>
   </button>`;
 }
+
+const POS_LABEL = {GKP:"Goalkeepers", DEF:"Defenders", MID:"Midfielders", FWD:"Forwards"};
+
+function renderPitch(orderKey, benchKey){
+  document.getElementById("squadList").style.display = "none";
+  document.getElementById("pitch").style.display = "";
+  document.getElementById("benchWrap").style.display = "";
+  const starters = DATA.squad.filter(p => p[orderKey] !== "bench");
+  const byPos = pos => starters.filter(p => p.position === pos);
+  document.getElementById("pitch").innerHTML = ["GKP","DEF","MID","FWD"]
+    .map(pos => `<div class="row">${byPos(pos).map(p => shirt(p, orderKey)).join("")}</div>`).join("");
+  document.getElementById("benchRow").innerHTML = DATA.squad
+    .filter(p => p[orderKey] === "bench")
+    .sort((a,b) => (a[benchKey] ?? 9) - (b[benchKey] ?? 9))
+    .map(p => shirt(p, orderKey)).join("");
+}
+
+function renderFlatList(){
+  document.getElementById("pitch").style.display = "none";
+  document.getElementById("benchWrap").style.display = "none";
+  const list = document.getElementById("squadList");
+  list.style.display = "";
+  list.innerHTML = ["GKP","DEF","MID","FWD"].map(pos => {
+    const rows = DATA.squad.filter(p => p.position === pos).map(p => `
+      <button class="prow" data-pid="${esc(p.id)}">
+        <span class="who">${esc(p.name)} <span class="meta">${esc(p.team)}</span></span>
+        <span class="meta">£${p.price.toFixed(1)}m · ${p.xp.toFixed(1)} xP</span>
+      </button>`).join("");
+    return `<div class="poshead">${POS_LABEL[pos]}</div>${rows}`;
+  }).join("");
+}
+
+let view = "mine";
 
 function render(){
   const d = DATA;
@@ -156,14 +219,25 @@ function render(){
     <div class="stat"><b>${esc(d.free_transfers)}</b><span>free transfers</span></div>
     <div class="stat"><b>${d.risk.toFixed(2)}</b><span>risk setting</span></div>`;
 
-  const starters = d.squad.filter(p => p.role !== "bench");
-  const byPos = pos => starters.filter(p => p.position === pos);
-  document.getElementById("pitch").innerHTML = ["GKP","DEF","MID","FWD"]
-    .map(pos => `<div class="row">${byPos(pos).map(shirt).join("")}</div>`).join("");
-  document.getElementById("benchRow").innerHTML = d.squad
-    .filter(p => p.role === "bench")
-    .sort((a,b) => (a.bench_order ?? 9) - (b.bench_order ?? 9))
-    .map(shirt).join("");
+  document.getElementById("tabMine").classList.toggle("active", view === "mine");
+  document.getElementById("tabOptimal").classList.toggle("active", view === "optimal");
+
+  const note = document.getElementById("viewNote");
+  if (view === "optimal"){
+    note.style.display = "";
+    note.textContent = "Model's suggested lineup for maximum projected points — this is a "
+      + "recommendation, not necessarily what you've set in the FPL app.";
+    renderPitch("role", "bench_order");
+  } else if (d.my_lineup_set){
+    note.style.display = "none";
+    renderPitch("my_role", "my_bench_order");
+  } else {
+    note.style.display = "";
+    note.textContent = "Your captain and bench order aren't recorded yet, so this just lists "
+      + "your 15 — nothing here is a guess. See \"Model's optimal XI\" for what the model would "
+      + "start, or tell the agent your captain/bench to have this match your team exactly.";
+    renderFlatList();
+  }
 
   document.getElementById("transfers").innerHTML = d.transfers.length
     ? d.transfers.slice(0,5).map(t => `
@@ -200,10 +274,13 @@ function render(){
 const dlg = document.getElementById("dlg");
 document.getElementById("closeDlg").onclick = () => dlg.close();
 
+document.getElementById("tabMine").onclick = () => { view = "mine"; render(); };
+document.getElementById("tabOptimal").onclick = () => { view = "optimal"; render(); };
+
 document.addEventListener("click", e => {
-  const btn = e.target.closest(".player");
+  const btn = e.target.closest("[data-pid]");
   if (!btn) return;
-  const p = DATA.squad.find(x => String(x.id) === btn.dataset.id);
+  const p = DATA.squad.find(x => String(x.id) === btn.dataset.pid);
   if (!p) return;
   document.getElementById("dTitle").textContent = p.name;
   document.getElementById("dMeta").textContent =

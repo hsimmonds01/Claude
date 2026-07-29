@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-29T03:30:29.373610+00:00",
+  "generated_at": "2026-07-29T05:59:38.237057+00:00",
   "next_event": 1,
   "next_deadline": "2026-08-21T17:30:00Z",
   "horizon": {
@@ -13,6 +13,7 @@
   "squad_cost": 99.5,
   "projected_xi": 225.1,
   "captain": "B.Fernandes",
+  "my_lineup_set": false,
   "squad": [
     {
       "id": "109",
@@ -27,6 +28,8 @@
       "minutes_reason": "100% of last 10 GWs started, 100% across the season",
       "role": "starter",
       "bench_order": null,
+      "my_role": null,
+      "my_bench_order": null,
       "alternatives": [
         {
           "id": "82",
@@ -212,6 +215,8 @@
       "minutes_reason": "0% of last 10 GWs started, 0% across the season",
       "role": "bench",
       "bench_order": 4,
+      "my_role": null,
+      "my_bench_order": null,
       "alternatives": [
         {
           "id": "250",
@@ -397,6 +402,8 @@
       "minutes_reason": "Saliba out injured with no return date; expected to start at CB. Last season's 986 minutes describe a rotation role that no longer applies.",
       "role": "starter",
       "bench_order": null,
+      "my_role": null,
+      "my_bench_order": null,
       "alternatives": [
         {
           "id": "498",
@@ -479,7 +486,7 @@
           "start_prob": 1.0,
           "moved_club": false,
           "minutes_reason": "100% of last 10 GWs started, 100% across the season",
-          "gain": 3.8,
+          "gain": 3.81,
           "bank_after": 0.5
         },
         {
@@ -563,7 +570,7 @@
           "start_prob": 0.99,
           "moved_club": false,
           "minutes_reason": "100% of last 10 GWs started, 97% across the season",
-          "gain": 2.11,
+          "gain": 2.12,
           "bank_after": 1.5
         }
       ],
@@ -582,6 +589,8 @@
       "minutes_reason": "100% of last 10 GWs started, 100% across the season",
       "role": "starter",
       "bench_order": null,
+      "my_role": null,
+      "my_bench_order": null,
       "alternatives": [
         {
           "id": "112",
@@ -767,6 +776,8 @@
       "minutes_reason": "90% of last 10 GWs started, 95% across the season",
       "role": "starter",
       "bench_order": null,
+      "my_role": null,
+      "my_bench_order": null,
       "alternatives": [
         {
           "id": "112",
@@ -952,6 +963,8 @@
       "minutes_reason": "78% of last 10 GWs started, 95% across the season",
       "role": "starter",
       "bench_order": null,
+      "my_role": null,
+      "my_bench_order": null,
       "alternatives": [
         {
           "id": "112",
@@ -1137,6 +1150,8 @@
       "minutes_reason": "no Premier League record; inferred from £4.0m price",
       "role": "bench",
       "bench_order": 3,
+      "my_role": null,
+      "my_bench_order": null,
       "alternatives": [
         {
           "id": "153",
@@ -1322,6 +1337,8 @@
       "minutes_reason": "100% of last 10 GWs started, 92% across the season",
       "role": "captain",
       "bench_order": null,
+      "my_role": null,
+      "my_bench_order": null,
       "alternatives": [
         {
           "id": "481",
@@ -1507,6 +1524,8 @@
       "minutes_reason": "100% of last 10 GWs started, 95% across the season",
       "role": "starter",
       "bench_order": null,
+      "my_role": null,
+      "my_bench_order": null,
       "alternatives": [
         {
           "id": "481",
@@ -1692,6 +1711,8 @@
       "minutes_reason": "70% of last 10 GWs started, 84% across the season",
       "role": "starter",
       "bench_order": null,
+      "my_role": null,
+      "my_bench_order": null,
       "alternatives": [
         {
           "id": "481",
@@ -1877,6 +1898,8 @@
       "minutes_reason": "100% of last 10 GWs started, 97% across the season",
       "role": "starter",
       "bench_order": null,
+      "my_role": null,
+      "my_bench_order": null,
       "alternatives": [
         {
           "id": "481",
@@ -2062,6 +2085,8 @@
       "minutes_reason": "56% of last 10 GWs started, 51% across the season",
       "role": "bench",
       "bench_order": 2,
+      "my_role": null,
+      "my_bench_order": null,
       "alternatives": [
         {
           "id": "545",
@@ -2247,6 +2272,8 @@
       "minutes_reason": "75% of last 10 GWs started, 89% across the season",
       "role": "starter",
       "bench_order": null,
+      "my_role": null,
+      "my_bench_order": null,
       "alternatives": [
         {
           "id": "106",
@@ -2432,6 +2459,8 @@
       "minutes_reason": "78% of last 10 GWs started, 84% across the season",
       "role": "starter",
       "bench_order": null,
+      "my_role": null,
+      "my_bench_order": null,
       "alternatives": [
         {
           "id": "106",
@@ -2617,6 +2646,8 @@
       "minutes_reason": "60% of last 10 GWs started, 29% across the season",
       "role": "bench",
       "bench_order": 1,
+      "my_role": null,
+      "my_bench_order": null,
       "alternatives": [
         {
           "id": "346",

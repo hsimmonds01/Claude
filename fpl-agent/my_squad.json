@@ -7,13 +7,24 @@
     "team_id below becomes the only field that matters.",
     "",
     "Players are listed by FPL web_name, with team where the name is",
-    "ambiguous (there are two Hughes)."
+    "ambiguous (there are two Hughes).",
+    "",
+    "my_lineup (optional): your OWN captain/bench choice from the FPL app,",
+    "so the dashboard can show what you actually set instead of guessing.",
+    "Leave it null and the dashboard just lists your 15 with no captain or",
+    "bench guessed for you. Fill it in like:",
+    "  \"my_lineup\": {\"captain\": \"Haaland\", \"vice_captain\": \"B.Fernandes\",",
+    "                 \"bench\": [\"Steele\", \"O'Shea\", \"Wilson\", \"Solanke\"]}",
+    "(bench must be exactly 4 names, first = first sub). Once GW1 is played",
+    "and team_id is filled in, squad.py will read this straight from the FPL",
+    "API instead and this field stops being needed."
   ],
   "team_id": null,
   "team_id_note": "To be filled in after GW1 -- the Points tab URL will read /entry/<id>/event/1",
   "bank": 0.5,
   "free_transfers": null,
   "chips_used": [],
+  "my_lineup": null,
   "squad": [
     {
       "name": "Verbruggen",
