@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-29T08:53:42.602492+00:00",
+  "generated_at": "2026-07-29T11:32:10.096741+00:00",
   "model": "gemini-flash-latest",
   "headlines_considered": 43,
   "flags": [
@@ -7,10 +7,19 @@
       "player_id": "237",
       "player": "Ndiaye",
       "team": "EVE",
-      "concern": "Ndiaye was absent from Everton's pre-season match.",
+      "concern": "Ndiaye was reported absent from Everton's pre-season fixture.",
       "severity": "medium",
       "affects": "availability",
       "source": "https://www.fantasyfootballscout.co.uk/2026/07/29/fpl-pre-season-pedro-hat-trick-alonsos-tactics-ndiaye-absent"
+    },
+    {
+      "player_id": "40",
+      "player": "Rogers",
+      "team": "CHE",
+      "concern": "Rogers has completed a transfer to Chelsea, moving into a new team environment with increased competition for starts.",
+      "severity": "low",
+      "affects": "role",
+      "source": "https://www.fantasyfootballscout.co.uk/2026/07/28/can-7-5m-rogers-be-a-good-fpl-asset-at-chelsea"
     },
     {
       "player_id": "346",
@@ -20,15 +29,6 @@
       "severity": "medium",
       "affects": "availability",
       "source": "https://www.fantasyfootballscout.co.uk/2026/07/27/fpl-pre-season-wilson-debut-jesus-again-why-dcl-missed-out"
-    },
-    {
-      "player_id": "40",
-      "player": "Rogers",
-      "team": "CHE",
-      "concern": "Rogers has completed a transfer to Chelsea, creating uncertainty around his starting role and regular minutes.",
-      "severity": "medium",
-      "affects": "minutes",
-      "source": "https://www.fantasyfootballscout.co.uk/2026/07/28/can-7-5m-rogers-be-a-good-fpl-asset-at-chelsea"
     }
   ]
 }
