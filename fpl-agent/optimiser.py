@@ -247,9 +247,10 @@ def pick_team(squad: list[dict]) -> tuple[list[dict], list[dict], dict]:
 
     starters = sorted(best, key=lambda p: (p["position"] != "GKP", -p["total"]))
     bench = sorted((p for p in squad if p not in best), key=lambda p: -p["total"])
-    # The reserve keeper can only ever replace the keeper, so he sits last
-    # regardless of projection.
-    bench = [p for p in bench if p["position"] != "GKP"] + [p for p in bench if p["position"] == "GKP"]
+    # The reserve keeper can only ever replace the keeper, so his slot isn't
+    # part of the outfield sub priority order -- he always sits first, matching
+    # where the FPL app itself always draws him, regardless of projection.
+    bench = [p for p in bench if p["position"] == "GKP"] + [p for p in bench if p["position"] != "GKP"]
     captain = max(starters, key=lambda p: p["total"])
     return starters, bench, captain
 
