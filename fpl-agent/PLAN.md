@@ -243,6 +243,22 @@ What it does:
   feature whose questions are better asked in a Claude session that already
   has the same data and keeps the key server-side.
 - The recommended changes for the current gameweek, mirroring the email.
+- **"My squad" / "Model's optimal XI" toggle** -- added 29 Jul 2026 after the
+  page silently started showing a different captain and bench (Fernandes as
+  captain, Solanke benched) with no way to tell it apart from the manager's
+  own choice. Root cause: `pick_team()`'s computed lineup was the ONLY
+  lineup the page ever rendered, unlabelled, so as projections shift and the
+  model's pick changes, the page just looks like a different team turned up.
+  `my_squad.json` never actually stored the manager's real captain/bench --
+  there was no "my team" to fall back to. Fix: `my_squad.json` gained an
+  optional `my_lineup` field (captain/vice/bench, hand-entered); the
+  dashboard now defaults to a plain "My squad" tab (all 15, grouped by
+  position, no captain or bench guessed) unless `my_lineup` is set, in which
+  case that tab shows exactly the recorded choice. The model's recommendation
+  moved to a separate, clearly-labelled "Model's optimal XI" tab you switch
+  to on purpose. Once GW1 is played and `team_id` is filled in, `squad.py`
+  will read the real picks (captain, XI, bench) straight from the FPL API
+  and `my_lineup` stops being needed.
 
 Build notes:
 - Static HTML + JS reading committed JSON -- no server to run or pay for.

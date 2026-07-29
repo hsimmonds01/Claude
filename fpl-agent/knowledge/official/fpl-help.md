@@ -1,7 +1,7 @@
 # fpl-help
 
 - Source: https://fantasy.premierleague.com/help
-- Fetched: 2026-07-29T03:29:58.493323+00:00
+- Fetched: 2026-07-29T06:02:23.046119+00:00
 - Why it's here: General FAQ, including price changes and deadlines
 
 Captured automatically by `fpl-agent/knowledge.py` as reference material for the FPL agent.
@@ -125,46 +125,6 @@ More From the PL
 Club Websites
 
 Club Websites
-
-Arsenal
-
-Villa
-
-Bournemouth
-
-Brentford
-
-Brighton
-
-Chelsea
-
-Coventry
-
-Palace
-
-Everton
-
-Fulham
-
-Hull
-
-Ipswich
-
-Leeds
-
-Liverpool
-
-Man City
-
-Man Utd
-
-Newcastle
-
-Forest
-
-Sunderland
-
-Spurs
 
 Premier League
 

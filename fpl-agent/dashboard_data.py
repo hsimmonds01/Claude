@@ -87,12 +87,37 @@ def alternatives_for(player: dict, squad: list[dict], players: dict,
     return options[:ALTERNATIVES_PER_PLAYER]
 
 
+def my_lineup_view(squad: list[dict], lineup: dict | None):
+    """The manager's OWN captain/bench choice, if they've recorded one.
+
+    Returns (starters, bench, captain, vice_name) or None if my_lineup isn't
+    set, or is set but doesn't cleanly match the current squad (e.g. a name
+    left over from before a transfer) -- silently guessing in that case would
+    be exactly the surprise this feature exists to avoid, so it falls back
+    to "not set" instead of showing something wrong.
+    """
+    if not lineup:
+        return None
+    by_name = {p["name"]: p for p in squad}
+    bench_names = lineup.get("bench") or []
+    bench = [by_name[n] for n in bench_names if n in by_name]
+    captain = by_name.get(lineup.get("captain"))
+    if len(bench) != 4 or captain is None or captain in bench:
+        return None
+    starters = [p for p in squad if p not in bench]
+    if len(starters) != 11:
+        return None
+    return starters, bench, captain, lineup.get("vice_captain") or ""
+
+
 def build() -> dict:
     players, events = load_projections()
     squad, config = resolve_squad(players)
     strategy = load_strategy()
     overrides = load_overrides()
     starters, bench, captain = pick_team(squad)
+    my_view = my_lineup_view(squad, config.get("my_lineup"))
+    my_starters, my_bench, my_captain, my_vice = my_view or (None, None, None, "")
     bank = float(config.get("bank") or 0.0)
     free_transfers = int(config.get("free_transfers") or 1)
     baseline = squad_value(squad)
@@ -110,9 +135,21 @@ def build() -> dict:
 
     squad_out = []
     for player in squad:
+        my_role = None
+        if my_starters is not None:
+            if player is my_captain:
+                my_role = "captain"
+            elif player["name"] == my_vice:
+                my_role = "vice_captain"
+            elif player in my_bench:
+                my_role = "bench"
+            else:
+                my_role = "starter"
         entry = slim(player, {
             "role": "captain" if player is captain else ("starter" if player in starters else "bench"),
             "bench_order": bench.index(player) + 1 if player in bench else None,
+            "my_role": my_role,
+            "my_bench_order": my_bench.index(player) + 1 if my_bench and player in my_bench else None,
             "alternatives": alternatives_for(player, squad, players, bank, baseline),
             "override": overrides.get(player["name"], {}).get("note", ""),
         })
@@ -130,6 +167,7 @@ def build() -> dict:
         "squad_cost": round(sum(p["price"] for p in squad), 1),
         "projected_xi": round(sum(p["total"] for p in starters), 1),
         "captain": captain["name"],
+        "my_lineup_set": my_starters is not None,
         "squad": squad_out,
         "transfers": transfers,
         "template_gap": [
