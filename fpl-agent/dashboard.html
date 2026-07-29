@@ -30,8 +30,10 @@
        border-radius:8px;padding:8px 6px;font-size:12px;font-weight:700;cursor:pointer;
        font-family:inherit}
   .tab.active{background:var(--pl-green);color:#000;border-color:var(--pl-green)}
-  .viewnote{background:rgba(255,255,255,.08);color:#e9d9ee;font-size:11px;padding:8px 12px;
-            border-radius:8px;margin:10px 16px 0}
+  .viewnote{background:var(--card);color:var(--muted);font-size:11px;padding:8px 12px;
+            border-radius:8px;margin:10px 16px 0;border:1px solid var(--line)}
+  .star-key{display:flex;align-items:center;gap:5px;margin-top:4px}
+  .star-key .star{position:static;text-shadow:none}
 
   .squadlist{padding:4px 16px 0}
   .poshead{font-size:10px;text-transform:uppercase;letter-spacing:.7px;color:var(--muted);
@@ -62,6 +64,8 @@
          text-overflow:ellipsis;color:var(--ink)}
   .pmeta{font-size:10px;color:#fff;background:var(--pl-purple);padding:2px 0 3px}
   .flagdot{position:absolute;top:2px;left:3px;width:8px;height:8px;border-radius:50%;background:#dc2626}
+  .star{position:absolute;bottom:1px;left:2px;font-size:12px;line-height:1;color:#ffd60a;
+        text-shadow:0 0 2px rgba(0,0,0,.9),0 0 1px rgba(0,0,0,.9)}
 
   .bench{background:rgba(0,0,0,.22);padding:8px 6px 12px}
   .bench h3{color:#fff;font-size:10px;letter-spacing:1px;text-transform:uppercase;
@@ -113,14 +117,14 @@
     </div>
   </header>
 
-  <div class="viewnote" id="viewNote" style="display:none"></div>
-
   <div class="squadlist" id="squadList" style="display:none"></div>
 
   <div class="pitch" id="pitch" style="display:none"></div>
   <div class="bench" id="benchWrap" style="display:none">
     <h3>Substitutes</h3><div class="row" id="benchRow"></div>
   </div>
+
+  <div class="viewnote" id="viewNote" style="display:none"></div>
 
   <section>
     <h2>Recommended transfers</h2>
@@ -192,6 +196,42 @@ const TEAM_KIT = {
   SUN:"repeating-linear-gradient(100deg,#e03a3e 0 9px,#fff 9px 18px)",
 };
 
+// A player's role as YOU set it, folded down to the three things the
+// model's own role can be. Vice-captaincy isn't a concept on the model's
+// side, so it counts as "starter" for the purpose of spotting a mismatch.
+function mineEffectiveRole(p){
+  if (p.my_role === "bench") return "bench";
+  if (p.my_role === "captain") return "captain";
+  return "starter";
+}
+
+// True wherever the two views disagree about this player -- captain,
+// starter or bench -- which is only meaningful once you've recorded your
+// own lineup (my_lineup in my_squad.json). Independent of which tab is
+// currently on screen, so the same star shows up either way.
+function roleChanged(p){
+  return DATA.my_lineup_set && !!p.my_role && mineEffectiveRole(p) !== p.role;
+}
+
+function roleChangeDetail(p){
+  if (!roleChanged(p)) return "";
+  if (mineEffectiveRole(p) === "captain")
+    return "You've made him captain — the model's optimal pick is a different captain.";
+  if (p.role === "captain"){
+    const asWhat = p.my_role === "vice_captain" ? "vice-captain"
+                 : p.my_role === "bench" ? "a bench player" : "a starter";
+    return `The model would captain him — you have him as ${asWhat}.`;
+  }
+  if (mineEffectiveRole(p) === "bench") return "The model would start him — you have him on the bench.";
+  return "The model would bench him — you're starting him.";
+}
+
+// A player named as the "out" side of one of this week's suggested
+// transfers, regardless of which tab is showing.
+function transferCandidate(p){
+  return (DATA.transfers || []).some(t => String(t.out.id) === String(p.id));
+}
+
 function shirt(p, roleKey){
   const gk = p.position === "GKP" ? " gk" : "";
   const kit = p.position !== "GKP" && TEAM_KIT[p.team] ? ` style="background:${TEAM_KIT[p.team]}"` : "";
@@ -199,8 +239,11 @@ function shirt(p, roleKey){
             : p[roleKey] === "vice_captain" ? '<span class="badge">V</span>' : "";
   const flagged = (DATA.news || []).some(n => n.player === p.name);
   const dot = flagged ? '<span class="flagdot" title="news flag"></span>' : "";
+  const reasons = [roleChangeDetail(p), transferCandidate(p) ? "Model suggests transferring him out." : ""]
+    .filter(Boolean).join(" ");
+  const star = reasons ? `<span class="star" title="${esc(reasons)}">★</span>` : "";
   return `<button class="player" data-pid="${esc(p.id)}">
-    <div class="shirt${gk}"${kit}>${cap}${dot}</div>
+    <div class="shirt${gk}"${kit}>${cap}${dot}${star}</div>
     <div class="pname">${esc(p.name)}</div>
     <div class="pmeta">${esc(p.team)} · ${p.xp.toFixed(1)}</div>
   </button>`;
@@ -252,18 +295,27 @@ function render(){
   document.getElementById("tabMine").classList.toggle("active", view === "mine");
   document.getElementById("tabOptimal").classList.toggle("active", view === "optimal");
 
+  // Rendered below the pitch and bench, not above -- so the team itself
+  // stays in the same spot on screen when switching tabs, and only this
+  // note's height (which does vary) moves the sections below it.
   const note = document.getElementById("viewNote");
+  const anyStars = d.squad.some(p => roleChanged(p) || transferCandidate(p));
+  const starKey = anyStars
+    ? '<div class="star-key"><span class="star">★</span><span>differs from your real lineup, '
+      + 'or the model suggests transferring him out — tap him for the reason</span></div>'
+    : "";
   if (view === "optimal"){
     note.style.display = "";
-    note.textContent = "Model's suggested lineup for maximum projected points — this is a "
-      + "recommendation, not necessarily what you've set in the FPL app.";
+    note.innerHTML = "Model's suggested lineup for maximum projected points — this is a "
+      + "recommendation, not necessarily what you've set in the FPL app." + starKey;
     renderPitch("role", "bench_order");
   } else if (d.my_lineup_set){
-    note.style.display = "none";
+    note.style.display = anyStars ? "" : "none";
+    note.innerHTML = starKey;
     renderPitch("my_role", "my_bench_order");
   } else {
     note.style.display = "";
-    note.textContent = "Your captain and bench order aren't recorded yet, so this just lists "
+    note.innerHTML = "Your captain and bench order aren't recorded yet, so this just lists "
       + "your 15 — nothing here is a guess. See \"Model's optimal XI\" for what the model would "
       + "start, or tell the agent your captain/bench to have this match your team exactly.";
     renderFlatList();
@@ -319,7 +371,12 @@ document.addEventListener("click", e => {
 
   const flags = (DATA.news || []).filter(n => n.player === p.name);
   const alts = p.alternatives || [];
+  const roleNote = roleChangeDetail(p);
+  const sellNote = transferCandidate(p)
+    ? 'Selling him is among this week\'s suggested transfers — see "Swap him for" below.' : "";
   document.getElementById("dBody").innerHTML = `
+    ${roleNote ? `<p class="muted" style="margin:12px 0 4px"><b>★ Model note:</b> ${esc(roleNote)}</p>` : ""}
+    ${sellNote ? `<p class="muted" style="margin:12px 0 4px"><b>★ Model note:</b> ${esc(sellNote)}</p>` : ""}
     <p class="muted" style="margin:12px 0 4px"><b>Minutes:</b> ${esc(p.minutes_reason)}</p>
     ${p.override ? `<p class="muted"><b>Your note:</b> ${esc(p.override)}</p>` : ""}
     ${p.moved_club ? '<p class="muted">Recently joined a new club — context only, projection unchanged.</p>' : ""}
