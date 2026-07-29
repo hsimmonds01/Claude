@@ -476,6 +476,84 @@
           "link_status": "search"
         }
       ]
+    },
+    {
+      "date": "2026-07-29",
+      "model": "gemini-2.5-flash (legacy key, live search)",
+      "items": [
+        {
+          "title": "Heads-Up: Potential New Tickets for 'The Odyssey' IMAX London",
+          "category": "film",
+          "summary": "Keep an eye out for potential additional ticket releases for 'The Odyssey' in IMAX London, following high demand and current resale warnings. This is your chance to snag tickets if you missed out on the initial drop.",
+          "url": "https://www.google.com/search?q=Heads-Up%3A+Potential+New+Tickets+for+%27The+Odyssey%27+IMAX+London",
+          "date_info": "Future ticket releases to be announced",
+          "urgency": "heads-up",
+          "link_status": "search"
+        },
+        {
+          "title": "Tickets On Sale: OL Lyonnes vs London City Lionesses",
+          "category": "event",
+          "summary": "Tickets are now available for the Mastercard Cup match featuring OL Lyonnes against London City Lionesses. This is a key London football event you won't want to miss.",
+          "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxQaGJEV0RPTmZzbUtHczlkdTJKbjBmTEtBbFhoa1pMLTYyWmxOby1aczlOYUxzMUtOTHBoQVhzZnRRTGhOUGVuMmhfS29NVmZVZ0JKcEYwVUNpbjExcnRCWmRiQVNITlhrdDhLdTdURUV2bXVHME5EcFRFSUo2RUtNbmRoanpfMUROQXBlVTEtcWhvRFp3OEFJV3g5NVloM1BJZUJkVWZ3TEx2SjZpNmdQNmpSTjhvcmthdXc?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "date_info": "Tickets on sale now",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "V&A Announces Major Burberry Trench Coat Exhibition",
+          "category": "event",
+          "summary": "The V&A has announced an upcoming exhibition dedicated to Burberry’s legendary trench coat, a must-see London cultural event. Keep an eye out for ticket release dates, as these are sure to sell out.",
+          "url": "https://www.timeout.com/london/news/the-v-a-has-announced-an-exhibition-all-about-burberrys-legendary-trench-coat-072826",
+          "date_info": "Ticket release dates to be announced",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "New Survival-Horror Game 'White Creek' Coming to SEGA Dreamcast",
+          "category": "product",
+          "summary": "A brand new survival-horror title, 'White Creek,' is set to be released for the SEGA Dreamcast, 25 years after the console left the market. This is a fascinating and unexpected development for retro gaming fans.",
+          "url": "https://hypebeast.com/2026/7/white-creek-brings-new-survival-horror-sega-dreamcast",
+          "date_info": "",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "WILD LIFE TAILOR x Wrangler Suede Double-Knee Jean Drop",
+          "category": "drop",
+          "summary": "WILD LIFE TAILOR and Wrangler have collaborated to rework a workwear staple into a limited-edition suede double-knee jean, offering a cool and unique streetwear piece.",
+          "url": "https://hypebeast.com/2026/7/wild-life-tailor-and-wrangler-rework-a-workwear-staple-into-a-suede-double-knee-jean",
+          "date_info": "",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "Jessica Ogden & A.P.C. Launch 30th 'QUILTS' Chapter",
+          "category": "drop",
+          "summary": "Jessica Ogden and A.P.C. have unveiled the 30th installment of their 'QUILTS' collaboration, featuring unique pieces that reconstruct Brighton's Victorian tilework. This designer collaboration is a must-see.",
+          "url": "https://hypebeast.com/2026/7/jessica-ogden-a-p-c-apc-quilts-30th-installment-release-info",
+          "date_info": "",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "Habits Design Transforms Dining with Synchronized Light Performance",
+          "category": "product",
+          "summary": "Discover 'Light Bites' by Habits Design, an innovative tableware concept that transforms dining into a synchronized light performance. This clever gadget and beautiful design object is truly unique.",
+          "url": "https://www.designboom.com/design/habits-design-light-bites-tableware-synchronized-performance/",
+          "date_info": "",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "PollenNav Mobile App: Allergy-Friendly City Navigation",
+          "category": "product",
+          "summary": "Check out PollenNav, a clever new mobile app that maps city routes based on air quality and pollen levels. This genuinely interesting tech offers real value for navigating London with allergies.",
+          "url": "https://www.designboom.com/readers/pollennav-mobile-app-city-routes-allergies-yani-shi/",
+          "date_info": "",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        }
+      ]
     }
   ]
 }
