@@ -53,8 +53,9 @@
           box-shadow:0 2px 5px rgba(0,0,0,.28);transition:transform .12s;border:none;padding:0;
           font-family:inherit;text-align:center;display:block}
   .player:hover,.player:focus-visible{transform:translateY(-3px);outline:2px solid var(--pl-cyan)}
-  .shirt{height:34px;background:linear-gradient(160deg,var(--pl-purple),#5a1263);position:relative}
-  .shirt.gk{background:linear-gradient(160deg,#0b7a3f,#0f9d52)}
+  .shirt{height:34px;background:linear-gradient(160deg,var(--pl-purple),#5a1263);position:relative;
+         box-shadow:inset 0 0 0 1.5px rgba(0,0,0,.18)}
+  .shirt.gk{background:linear-gradient(160deg,#0b7a3f,#0f9d52) !important}
   .badge{position:absolute;top:2px;right:3px;background:var(--pl-green);color:#000;font-size:9px;
          font-weight:800;border-radius:3px;padding:0 3px}
   .pname{font-size:11px;font-weight:700;padding:3px 2px 1px;white-space:nowrap;overflow:hidden;
@@ -163,14 +164,43 @@ const safeUrl = u => {
   return /^https?:\/\//i.test(s) ? esc(s) : "";
 };
 
+// Approximate home-kit colours, just for quick visual grouping on the
+// pitch -- not official club artwork, so a plain CSS gradient/stripe is
+// enough. Goalkeepers keep the fixed green shirt instead: keeper kits vary
+// too much to be a useful "which team" signal, and it's the clearer cue
+// that this player is the keeper.
+const TEAM_KIT = {
+  ARS:"linear-gradient(160deg,#ef0107,#b5000e)",
+  AVL:"linear-gradient(160deg,#670e36,#3d0820)",
+  BOU:"repeating-linear-gradient(100deg,#8f1d2c 0 9px,#111 9px 18px)",
+  BRE:"repeating-linear-gradient(100deg,#e2231a 0 9px,#fff 9px 18px)",
+  BHA:"repeating-linear-gradient(100deg,#0057b8 0 9px,#fff 9px 18px)",
+  CHE:"linear-gradient(160deg,#034694,#012047)",
+  COV:"linear-gradient(160deg,#7bc8ea,#4a9dc9)",
+  CRY:"repeating-linear-gradient(100deg,#1b458f 0 9px,#c4122e 9px 18px)",
+  EVE:"linear-gradient(160deg,#003399,#001c57)",
+  FUL:"linear-gradient(160deg,#f2f2f2,#d8d8d8)",
+  HUL:"repeating-linear-gradient(100deg,#f5a70a 0 9px,#111 9px 18px)",
+  IPS:"linear-gradient(160deg,#0044a9,#00265f)",
+  LEE:"linear-gradient(160deg,#f2f2f2,#d8d8d8)",
+  LIV:"linear-gradient(160deg,#c8102e,#8c0a20)",
+  MCI:"linear-gradient(160deg,#6cabdd,#3f83b8)",
+  MUN:"linear-gradient(160deg,#da291c,#9e1a10)",
+  NEW:"repeating-linear-gradient(100deg,#111 0 9px,#fff 9px 18px)",
+  NFO:"linear-gradient(160deg,#dd0000,#990000)",
+  TOT:"linear-gradient(160deg,#f2f2f2,#d8d8d8)",
+  SUN:"repeating-linear-gradient(100deg,#e03a3e 0 9px,#fff 9px 18px)",
+};
+
 function shirt(p, roleKey){
   const gk = p.position === "GKP" ? " gk" : "";
+  const kit = p.position !== "GKP" && TEAM_KIT[p.team] ? ` style="background:${TEAM_KIT[p.team]}"` : "";
   const cap = p[roleKey] === "captain" ? '<span class="badge">C</span>'
             : p[roleKey] === "vice_captain" ? '<span class="badge">V</span>' : "";
   const flagged = (DATA.news || []).some(n => n.player === p.name);
   const dot = flagged ? '<span class="flagdot" title="news flag"></span>' : "";
   return `<button class="player" data-pid="${esc(p.id)}">
-    <div class="shirt${gk}">${cap}${dot}</div>
+    <div class="shirt${gk}"${kit}>${cap}${dot}</div>
     <div class="pname">${esc(p.name)}</div>
     <div class="pmeta">${esc(p.team)} · ${p.xp.toFixed(1)}</div>
   </button>`;
