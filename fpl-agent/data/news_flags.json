@@ -1,25 +1,25 @@
 {
-  "generated_at": "2026-07-30T16:43:54.306908+00:00",
+  "generated_at": "2026-07-30T18:37:41.388051+00:00",
   "model": "gemini-flash-latest",
-  "headlines_considered": 44,
+  "headlines_considered": 43,
   "flags": [
-    {
-      "player_id": "525",
-      "player": "Fernandes",
-      "team": "TOT",
-      "concern": "Missed out in pre-season action alongside Solanke.",
-      "severity": "medium",
-      "affects": "availability",
-      "source": "https://www.fantasyfootballscout.co.uk/2026/07/30/fpl-pre-season-tel-lively-why-solanke-fernandes-missed-out-matusiwa-latest"
-    },
     {
       "player_id": "237",
       "player": "Ndiaye",
       "team": "EVE",
-      "concern": "Reported absent from Everton's pre-season fixture.",
+      "concern": "Ndiaye was reported absent from pre-season match action.",
       "severity": "medium",
       "affects": "availability",
       "source": "https://www.fantasyfootballscout.co.uk/2026/07/29/fpl-pre-season-pedro-hat-trick-alonsos-tactics-ndiaye-absent"
+    },
+    {
+      "player_id": "525",
+      "player": "Fernandes",
+      "team": "TOT",
+      "concern": "Fernandes missed out during pre-season match play.",
+      "severity": "low",
+      "affects": "availability",
+      "source": "https://www.fantasyfootballscout.co.uk/2026/07/30/fpl-pre-season-tel-lively-why-solanke-fernandes-missed-out-matusiwa-latest"
     }
   ]
 }

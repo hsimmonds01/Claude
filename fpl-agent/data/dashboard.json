@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-30T16:44:26.819992+00:00",
+  "generated_at": "2026-07-30T18:37:41.891032+00:00",
   "next_event": 1,
   "next_deadline": "2026-08-21T17:30:00Z",
   "horizon": {
@@ -21,7 +21,7 @@
       "team": "TOT",
       "position": "GKP",
       "price": 4.5,
-      "owned": 17.4,
+      "owned": 17.3,
       "xp": 9.0,
       "start_prob": 0.49,
       "moved_club": false,
@@ -486,7 +486,7 @@
           "start_prob": 1.0,
           "moved_club": false,
           "minutes_reason": "100% of last 10 GWs started, 100% across the season",
-          "gain": 3.81,
+          "gain": 3.8,
           "bank_after": 0.5
         },
         {
@@ -570,7 +570,7 @@
           "start_prob": 0.99,
           "moved_club": false,
           "minutes_reason": "100% of last 10 GWs started, 97% across the season",
-          "gain": 2.12,
+          "gain": 2.11,
           "bank_after": 1.5
         }
       ],
@@ -1360,7 +1360,7 @@
           "team": "CHE",
           "position": "MID",
           "price": 7.0,
-          "owned": 5.2,
+          "owned": 5.3,
           "xp": 22.7,
           "start_prob": 0.9,
           "moved_club": false,
@@ -1388,7 +1388,7 @@
           "team": "ARS",
           "position": "MID",
           "price": 7.5,
-          "owned": 22.0,
+          "owned": 22.1,
           "xp": 21.5,
           "start_prob": 0.9,
           "moved_club": false,
@@ -1402,7 +1402,7 @@
           "team": "EVE",
           "position": "MID",
           "price": 6.0,
-          "owned": 19.1,
+          "owned": 19.0,
           "xp": 20.9,
           "start_prob": 0.94,
           "moved_club": false,
@@ -1430,7 +1430,7 @@
           "team": "MUN",
           "position": "MID",
           "price": 8.0,
-          "owned": 13.7,
+          "owned": 13.6,
           "xp": 20.7,
           "start_prob": 0.81,
           "moved_club": false,
@@ -1444,7 +1444,7 @@
           "team": "BHA",
           "position": "MID",
           "price": 5.5,
-          "owned": 3.7,
+          "owned": 3.8,
           "xp": 20.6,
           "start_prob": 0.98,
           "moved_club": false,
@@ -1547,7 +1547,7 @@
           "team": "CHE",
           "position": "MID",
           "price": 7.0,
-          "owned": 5.2,
+          "owned": 5.3,
           "xp": 22.7,
           "start_prob": 0.9,
           "moved_club": false,
@@ -1575,7 +1575,7 @@
           "team": "ARS",
           "position": "MID",
           "price": 7.5,
-          "owned": 22.0,
+          "owned": 22.1,
           "xp": 21.5,
           "start_prob": 0.9,
           "moved_club": false,
@@ -1589,7 +1589,7 @@
           "team": "EVE",
           "position": "MID",
           "price": 6.0,
-          "owned": 19.1,
+          "owned": 19.0,
           "xp": 20.9,
           "start_prob": 0.94,
           "moved_club": false,
@@ -1617,7 +1617,7 @@
           "team": "BHA",
           "position": "MID",
           "price": 5.5,
-          "owned": 3.7,
+          "owned": 3.8,
           "xp": 20.6,
           "start_prob": 0.98,
           "moved_club": false,
@@ -1650,7 +1650,7 @@
           "start_prob": 0.88,
           "moved_club": false,
           "minutes_reason": "90% of last 10 GWs started, 84% across the season",
-          "gain": -2.23,
+          "gain": -2.24,
           "bank_after": 1.5
         },
         {
@@ -1734,7 +1734,7 @@
           "team": "CHE",
           "position": "MID",
           "price": 7.0,
-          "owned": 5.2,
+          "owned": 5.3,
           "xp": 22.7,
           "start_prob": 0.9,
           "moved_club": false,
@@ -1762,7 +1762,7 @@
           "team": "EVE",
           "position": "MID",
           "price": 6.0,
-          "owned": 19.1,
+          "owned": 19.0,
           "xp": 20.9,
           "start_prob": 0.94,
           "moved_club": false,
@@ -1790,7 +1790,7 @@
           "team": "BHA",
           "position": "MID",
           "price": 5.5,
-          "owned": 3.7,
+          "owned": 3.8,
           "xp": 20.6,
           "start_prob": 0.98,
           "moved_club": false,
@@ -1921,12 +1921,12 @@
           "team": "CHE",
           "position": "MID",
           "price": 7.0,
-          "owned": 5.2,
+          "owned": 5.3,
           "xp": 22.7,
           "start_prob": 0.9,
           "moved_club": false,
           "minutes_reason": "89% of last 10 GWs started, 92% across the season",
-          "gain": -0.41,
+          "gain": -0.42,
           "bank_after": 2.0
         },
         {
@@ -1949,7 +1949,7 @@
           "team": "ARS",
           "position": "MID",
           "price": 7.5,
-          "owned": 22.0,
+          "owned": 22.1,
           "xp": 21.5,
           "start_prob": 0.9,
           "moved_club": false,
@@ -1963,7 +1963,7 @@
           "team": "EVE",
           "position": "MID",
           "price": 6.0,
-          "owned": 19.1,
+          "owned": 19.0,
           "xp": 20.9,
           "start_prob": 0.94,
           "moved_club": false,
@@ -1991,7 +1991,7 @@
           "team": "MUN",
           "position": "MID",
           "price": 8.0,
-          "owned": 13.7,
+          "owned": 13.6,
           "xp": 20.7,
           "start_prob": 0.81,
           "moved_club": false,
@@ -2005,7 +2005,7 @@
           "team": "BHA",
           "position": "MID",
           "price": 5.5,
-          "owned": 3.7,
+          "owned": 3.8,
           "xp": 20.6,
           "start_prob": 0.98,
           "moved_club": false,
@@ -2328,7 +2328,7 @@
           "start_prob": 0.74,
           "moved_club": false,
           "minutes_reason": "78% of last 10 GWs started, 68% across the season",
-          "gain": -7.37,
+          "gain": -7.38,
           "bank_after": 10.0
         },
         {
@@ -2342,7 +2342,7 @@
           "start_prob": 0.75,
           "moved_club": true,
           "minutes_reason": "no Premier League record; inferred from £6.0m price",
-          "gain": -7.7,
+          "gain": -7.71,
           "bank_after": 10.0
         },
         {
@@ -2452,7 +2452,7 @@
       "team": "CHE",
       "position": "FWD",
       "price": 7.5,
-      "owned": 53.7,
+      "owned": 53.8,
       "xp": 21.2,
       "start_prob": 0.8,
       "moved_club": false,
@@ -2473,7 +2473,7 @@
           "start_prob": 0.99,
           "moved_club": false,
           "minutes_reason": "100% of last 10 GWs started, 97% across the season",
-          "gain": 4.3,
+          "gain": 4.29,
           "bank_after": 0.0
         },
         {
@@ -2487,7 +2487,7 @@
           "start_prob": 0.89,
           "moved_club": false,
           "minutes_reason": "90% of last 10 GWs started, 87% across the season",
-          "gain": 1.12,
+          "gain": 1.11,
           "bank_after": 0.0
         },
         {
@@ -2501,7 +2501,7 @@
           "start_prob": 0.94,
           "moved_club": false,
           "minutes_reason": "100% of last 10 GWs started, 84% across the season",
-          "gain": -1.79,
+          "gain": -1.8,
           "bank_after": 2.0
         },
         {
@@ -2543,7 +2543,7 @@
           "start_prob": 0.83,
           "moved_club": false,
           "minutes_reason": "90% of last 10 GWs started, 74% across the season",
-          "gain": -3.91,
+          "gain": -3.92,
           "bank_after": 2.0
         },
         {
@@ -2557,7 +2557,7 @@
           "start_prob": 0.79,
           "moved_club": false,
           "minutes_reason": "90% of last 10 GWs started, 63% across the season",
-          "gain": -4.38,
+          "gain": -4.39,
           "bank_after": 2.0
         },
         {
@@ -2571,7 +2571,7 @@
           "start_prob": 0.66,
           "moved_club": false,
           "minutes_reason": "80% of last 10 GWs started, 45% across the season",
-          "gain": -4.54,
+          "gain": -4.55,
           "bank_after": 2.5
         },
         {
@@ -2702,7 +2702,7 @@
           "start_prob": 0.83,
           "moved_club": false,
           "minutes_reason": "90% of last 10 GWs started, 74% across the season",
-          "gain": -5.65,
+          "gain": -5.66,
           "bank_after": 0.5
         },
         {
@@ -2730,7 +2730,7 @@
           "start_prob": 0.66,
           "moved_club": false,
           "minutes_reason": "80% of last 10 GWs started, 45% across the season",
-          "gain": -6.28,
+          "gain": -6.29,
           "bank_after": 1.0
         },
         {
@@ -2897,7 +2897,7 @@
         "team": "CHE",
         "position": "MID",
         "price": 7.0,
-        "owned": 5.2,
+        "owned": 5.3,
         "xp": 22.7,
         "start_prob": 0.9,
         "moved_club": false,
@@ -3025,7 +3025,7 @@
         "team": "CHE",
         "position": "FWD",
         "price": 7.5,
-        "owned": 53.7,
+        "owned": 53.8,
         "xp": 21.2,
         "start_prob": 0.8,
         "moved_club": false,
@@ -3043,7 +3043,7 @@
         "moved_club": false,
         "minutes_reason": "100% of last 10 GWs started, 97% across the season"
       },
-      "gain": 4.3,
+      "gain": 4.29,
       "bank_after": 0.0
     }
   ],
@@ -3106,7 +3106,7 @@
       "team": "ARS",
       "position": "MID",
       "price": 7.5,
-      "owned": 22.0,
+      "owned": 22.1,
       "xp": 21.5,
       "start_prob": 0.9,
       "moved_club": false,

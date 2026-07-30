@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-30T16:43:54.372646+00:00",
+  "generated_at": "2026-07-30T18:37:41.445627+00:00",
   "drafts_compared": 3,
   "sources": [
     "fpl__raptor (Instagram)",
@@ -124,7 +124,7 @@
       "sources": [
         "letstalkfpl (Instagram)"
       ],
-      "in_my_squad": false
+      "in_my_squad": true
     },
     {
       "name": "Cunha",
@@ -144,7 +144,7 @@
       "sources": [
         "Lazy FPL — 'The Professor'"
       ],
-      "in_my_squad": false
+      "in_my_squad": true
     },
     {
       "name": "Garner",
@@ -224,7 +224,7 @@
       "sources": [
         "letstalkfpl (Instagram)"
       ],
-      "in_my_squad": false
+      "in_my_squad": true
     },
     {
       "name": "Lammens",
@@ -284,7 +284,7 @@
       "sources": [
         "Lazy FPL — 'The Professor'"
       ],
-      "in_my_squad": true
+      "in_my_squad": false
     },
     {
       "name": "Palmer",
@@ -474,9 +474,7 @@
   ],
   "my_players_no_draft_picked": [
     "Mitchell",
-    "Solanke",
-    "Steele",
-    "Verbruggen",
+    "Thomas",
     "Wilson"
   ]
 }
