@@ -1,25 +1,43 @@
 {
-  "generated_at": "2026-07-30T18:37:41.388051+00:00",
+  "generated_at": "2026-07-30T22:16:30.909729+00:00",
   "model": "gemini-flash-latest",
-  "headlines_considered": 43,
+  "headlines_considered": 42,
   "flags": [
+    {
+      "player_id": "426",
+      "player": "B.Fernandes",
+      "team": "MUN",
+      "concern": "Fernandes missed out on Manchester United's recent pre-season fixture.",
+      "severity": "low",
+      "affects": "availability",
+      "source": "https://www.fantasyfootballscout.co.uk/2026/07/30/fpl-pre-season-tel-lively-why-solanke-fernandes-missed-out-matusiwa-latest"
+    },
     {
       "player_id": "237",
       "player": "Ndiaye",
       "team": "EVE",
-      "concern": "Ndiaye was reported absent from pre-season match action.",
+      "concern": "Ndiaye was absent from Everton's recent pre-season match.",
       "severity": "medium",
       "affects": "availability",
       "source": "https://www.fantasyfootballscout.co.uk/2026/07/29/fpl-pre-season-pedro-hat-trick-alonsos-tactics-ndiaye-absent"
     },
     {
-      "player_id": "525",
-      "player": "Fernandes",
-      "team": "TOT",
-      "concern": "Fernandes missed out during pre-season match play.",
-      "severity": "low",
+      "player_id": "88",
+      "player": "Kayode",
+      "team": "BRE",
+      "concern": "Kayode is touch and go for Brentford's fixture following an injury update.",
+      "severity": "medium",
       "affects": "availability",
-      "source": "https://www.fantasyfootballscout.co.uk/2026/07/30/fpl-pre-season-tel-lively-why-solanke-fernandes-missed-out-matusiwa-latest"
+      "source": "https://news.google.com/rss/articles/CBMiywFBVV95cUxQZDhZTVE3T3piNVRscVd5ck1jWFcxQmUtbVd3Tkp4UGtiU05BcENkVmNpcmRycFRmTGFuTVlTXzA5SWpKWnVQd1ZQdUZjcW1oTTdXUTVYS25aNHBpTXF0SnZwNlpLSWJTa3JZbG1XRXlGMS1PYVB1Q2JGYzEzQjl1WXkxSVdNbG5uMXZkOU5fRXBHa2tUellIZndKUjFuZk5aTy1ZeUNnTEhDemRxSlptNHJEOTNjc3JkNGdqemU5VHl"
+    },
+    {
+      "player_id": "13",
+      "player": "Rice",
+      "team": "ARS",
+      "concern": "Rice is subject to an injury assessment ahead of Arsenal's fixture.",
+      "severity": "medium",
+      "affects": "availability",
+      "source": ""
     }
   ]
 }
