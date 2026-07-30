@@ -554,6 +554,48 @@
           "link_status": "verified"
         }
       ]
+    },
+    {
+      "date": "2026-07-30",
+      "model": "gemini-2.5-flash (legacy key, live search)",
+      "items": [
+        {
+          "title": "PLEASURES x OnlyFans Capsule Collection Drops",
+          "category": "drop",
+          "summary": "The highly anticipated limited-edition capsule collection from streetwear brand PLEASURES and OnlyFans is out now, featuring six unisex pieces including tees and bikinis. Prices range from $44 to $80, offering a unique blend of counter-culture fashion.",
+          "url": "https://www.google.com/search?q=PLEASURES+x+OnlyFans+Capsule+Collection+Drops",
+          "date_info": "Released July 29, 2026",
+          "urgency": "act-fast",
+          "link_status": "search"
+        },
+        {
+          "title": "Satisfy x Levi's 'STONER' Climbing Gear Capsule Released",
+          "category": "drop",
+          "summary": "Satisfy and Levi's have unveiled 'Chapter Two' of their 'STONER' collection, re-engineering vintage Levi's 501s into technical climbing denim, alongside matching shirts and MothTech T-shirts. This limited-edition drop is available online today and is expected to sell out quickly.",
+          "url": "https://www.google.com/search?q=Satisfy+x+Levi%27s+%27STONER%27+Climbing+Gear+Capsule+Released",
+          "date_info": "Released July 30, 2026",
+          "urgency": "act-fast",
+          "link_status": "search"
+        },
+        {
+          "title": "London's First Tiramisu Café, Marrone, Opening in Soho",
+          "category": "food",
+          "summary": "Soho is set to welcome Marrone, London's first café dedicated entirely to tiramisu, opening on August 8. The menu will feature classic, DOP pistachio, and dark chocolate with Maldon sea salt versions, available with or without alcohol, promising a genuinely interesting new food spot.",
+          "url": "https://www.google.com/search?q=London%27s+First+Tiramisu+Caf%C3%A9%2C+Marrone%2C+Opening+in+Soho",
+          "date_info": "Opens August 8, 2026",
+          "urgency": "this-week",
+          "link_status": "search"
+        },
+        {
+          "title": "Tickets for BFI London Film Festival Opening Night Gala 'Elsinore' Go On Sale Soon",
+          "category": "film",
+          "summary": "The 70th BFI London Film Festival will open on October 7 with the European premiere of 'Elsinore,' starring Andrew Scott and Olivia Colman. General sale tickets for this highly anticipated big-screen event go on sale on September 17 at 10 am, with priority booking for BFI Members from September 10.",
+          "url": "https://www.google.com/search?q=Tickets+for+BFI+London+Film+Festival+Opening+Night+Gala+%27Elsinore%27+Go+On+Sale+Soon",
+          "date_info": "General sale Sept 17, 2026, 10 am",
+          "urgency": "heads-up",
+          "link_status": "search"
+        }
+      ]
     }
   ]
 }
