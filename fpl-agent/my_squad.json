@@ -29,17 +29,17 @@
   "my_lineup": {
     "captain": "Haaland",
     "vice_captain": "B.Fernandes",
-    "bench": ["Steele", "Mitchell", "Hughes", "O'Shea"]
+    "bench": ["Dubravka", "Mitchell", "Hughes", "Thomas"]
   },
   "squad": [
     {
-      "name": "Verbruggen",
-      "team": "BHA",
+      "name": "Kinsky",
+      "team": "TOT",
       "position": "GKP"
     },
     {
-      "name": "Steele",
-      "team": "BHA",
+      "name": "Dubravka",
+      "team": "TOT",
       "position": "GKP"
     },
     {
@@ -63,8 +63,8 @@
       "position": "DEF"
     },
     {
-      "name": "O'Shea",
-      "team": "IPS",
+      "name": "Thomas",
+      "team": "COV",
       "position": "DEF"
     },
     {
@@ -103,8 +103,8 @@
       "position": "FWD"
     },
     {
-      "name": "Solanke",
-      "team": "TOT",
+      "name": "Calvert-Lewin",
+      "team": "LEE",
       "position": "FWD"
     }
   ],
@@ -112,6 +112,7 @@
     "2026-07-27: Andrey Santos (MUN, £5.0m) -> Hughes (CRY, £4.5m). Santos had 1247 minutes and 47 points last season at £5.0m; Hughes played more (1560 minutes, 19 starts) for £0.5m less. Frees £0.5m into the bank.",
     "2026-07-27: Kept Mosquera despite 986 minutes last season -- Saliba is injured with no return date and Mosquera is expected to start at centre-back. Recorded in overrides.json.",
     "2026-07-27: squad updated from the FPL app (GW1, deadline Fri 21 Aug 18:30). Diop -> O'Shea (IPS, £4.0m), Konsa -> Mitchell (CRY, £4.5m), Calvert-Lewin -> Solanke (TOT, £6.0m). Now a 3-4-3 rather than 4-4-2. Cost £99.5m, £0.5m banked. Bench Boost and Triple Captain both still available.",
-    "2026-07-29: recorded my_lineup from the FPL app's Pick Team screen for GW1 -- captain Haaland, vice-captain B.Fernandes, bench order Mitchell, Hughes, O'Shea, then reserve keeper Steele. The dashboard's \"My squad\" tab now shows this exactly instead of a plain unordered list."
+    "2026-07-29: recorded my_lineup from the FPL app's Pick Team screen for GW1 -- captain Haaland, vice-captain B.Fernandes, bench order Mitchell, Hughes, O'Shea, then reserve keeper Steele. The dashboard's \"My squad\" tab now shows this exactly instead of a plain unordered list.",
+    "2026-07-30: squad updated from the FPL app's Pick Team screen for GW1. Verbruggen -> Kinsky (TOT, £4.5m), Steele -> Dubravka (TOT, £4.0m), O'Shea -> Thomas (COV, £4.0m), Solanke -> Calvert-Lewin (LEE, £6.0m) -- the last one reverses the earlier Calvert-Lewin -> Solanke move and matches the transfer the dashboard itself had been suggesting (+7.8 xP). Still a 3-4-3, still £99.5m spent / £0.5m banked. Captain Haaland, vice-captain B.Fernandes, bench order Dubravka, Mitchell, Hughes, Thomas unchanged in structure from before."
   ]
 }
