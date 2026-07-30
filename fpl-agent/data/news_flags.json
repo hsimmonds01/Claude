@@ -1,22 +1,22 @@
 {
-  "generated_at": "2026-07-30T11:19:52.118126+00:00",
+  "generated_at": "2026-07-30T14:27:58.789828+00:00",
   "model": "gemini-flash-latest",
-  "headlines_considered": 43,
+  "headlines_considered": 44,
   "flags": [
     {
       "player_id": "526",
       "player": "Solanke",
       "team": "TOT",
-      "concern": "Solanke missed Tottenham's recent pre-season fixture.",
+      "concern": "Solanke missed out on pre-season involvement.",
       "severity": "medium",
       "affects": "availability",
       "source": "https://www.fantasyfootballscout.co.uk/2026/07/30/fpl-pre-season-tel-lively-why-solanke-fernandes-missed-out-matusiwa-latest"
     },
     {
-      "player_id": "426",
-      "player": "B.Fernandes",
-      "team": "MUN",
-      "concern": "Fernandes missed out on Manchester United's recent pre-season match.",
+      "player_id": "525",
+      "player": "Fernandes",
+      "team": "TOT",
+      "concern": "Fernandes missed out on pre-season involvement.",
       "severity": "medium",
       "affects": "availability",
       "source": "https://www.fantasyfootballscout.co.uk/2026/07/30/fpl-pre-season-tel-lively-why-solanke-fernandes-missed-out-matusiwa-latest"
@@ -25,7 +25,7 @@
       "player_id": "237",
       "player": "Ndiaye",
       "team": "EVE",
-      "concern": "Ndiaye was absent from Everton's recent pre-season match.",
+      "concern": "Ndiaye was absent from Everton's pre-season fixture.",
       "severity": "medium",
       "affects": "availability",
       "source": "https://www.fantasyfootballscout.co.uk/2026/07/29/fpl-pre-season-pedro-hat-trick-alonsos-tactics-ndiaye-absent"
@@ -34,9 +34,9 @@
       "player_id": "40",
       "player": "Rogers",
       "team": "CHE",
-      "concern": "Rogers has transferred to Chelsea, introducing increased competition for starting minutes.",
+      "concern": "Rogers has completed a transfer move to Chelsea, changing his team and potential tactical role.",
       "severity": "medium",
-      "affects": "minutes",
+      "affects": "role",
       "source": "https://www.fantasyfootballscout.co.uk/2026/07/28/can-7-5m-rogers-be-a-good-fpl-asset-at-chelsea"
     }
   ]

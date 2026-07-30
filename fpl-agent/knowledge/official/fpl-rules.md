@@ -1,7 +1,7 @@
 # fpl-rules
 
 - Source: https://fantasy.premierleague.com/help/rules
-- Fetched: 2026-07-30T11:17:38.919770+00:00
+- Fetched: 2026-07-30T14:26:41.210425+00:00
 - Why it's here: Core scoring, squad, transfer and chip rules
 
 Captured automatically by `fpl-agent/knowledge.py` as reference material for the FPL agent.
@@ -281,9 +281,9 @@ Chips
 Chips can be used to potentially enhance your team's performance during the season.
 Only one chip can be played in a single Gameweek. The chips available are as follows:
 Name Effect
-Bench Boost The points scored by your bench players in the next Gameweek are included in your total.
+Bench Boost The points scored by your bench players in the Gameweek are included in your total.
 Free Hit Make unlimited free transfers for a single Gameweek. At the next deadline your squad is returned to how it was at the start of the Gameweek.
-Triple Captain Your captain points are tripled instead of doubled in the next Gameweek.
+Triple Captain Your captain points are tripled instead of doubled in the Gameweek.
 Wildcard All transfers (including those already made) in the Gameweek are free of charge.
 Managers will receive two Bench Boost and Triple Captain chips during the season which can be used when saving your team on the Pick Team page. The first set of these chips will be available from the start of your season until the Gameweek 19 deadline of Sat 2 Jan 13:30. The second set of these chips will be available after Sat 2 Jan 13:30. These chips can be cancelled before the Gameweek deadline.
 There will also be two Free Hit chips available during the season. The first set of these chips will be available after the first Gameweek of your season and must be played by the Gameweek 19 deadline of Sat 2 Jan 13:30. The second set of these chips will be available after Sat 2 Jan 13:30. This chip is played when confirming your transfers and cannot be cancelled once confirmed.
