@@ -257,8 +257,19 @@ def parse_feed(xml_text: str, source: str) -> list[dict]:
         if not title:
             continue
         # Deliberately truncated: this is a pointer to someone else's article,
-        # not a copy of it.
-        summary = html_to_text(child_text(element, "description") or child_text(element, "summary"))
+        # not a copy of it. Falls back to Atom's <content>, which is where
+        # kill-the-newsletter.com puts the actual email body -- an Atom feed
+        # item's <summary> is normally just a short teaser, distinct from
+        # <content>, and this bridge leaves <summary> empty entirely. Without
+        # this fallback every newsletter issue logged with no text at all,
+        # so prefilter() never had anything to match a player or club name
+        # against and silently dropped every issue before it reached the
+        # model.
+        summary = html_to_text(
+            child_text(element, "description")
+            or child_text(element, "summary")
+            or child_text(element, "content")
+        )
         items.append({
             "title": title,
             "link": safe_link(child_text(element, "link")),

@@ -147,6 +147,22 @@ entity = ('<?xml version="1.0"?><!DOCTYPE r [<!ENTITY a "AAAA">]>'
           "<link>https://x.test/a</link></item></channel></rss>")
 check("a feed declaring entities is refused", knowledge.parse_feed(entity, "bridge") == [])
 
+print("\nthe newsletter bridge's actual content is read, not silently dropped")
+# kill-the-newsletter.com emits Atom, and puts the full email body in
+# <content>, not <description> or <summary> -- the field this parser read
+# until 30 Jul 2026. Every issue logged with an empty summary as a result,
+# so prefilter() had nothing to match a player or club name against and
+# silently dropped every newsletter before it ever reached the model.
+atom = ('<?xml version="1.0"?><feed xmlns="http://www.w3.org/2005/Atom"><entry>'
+        "<title>FPL: The best budget defenders</title>"
+        '<link href="https://kill-the-newsletter.com/feeds/x/entries/y.html"/>'
+        "<summary></summary>"
+        '<content type="html">&lt;p&gt;Mitchell at £4.5m looks like the pick.&lt;/p&gt;</content>'
+        "</entry></feed>")
+bridge_items = knowledge.parse_feed(atom, "kill-the-newsletter.com")
+check("content fallback used when summary is empty",
+      bridge_items and "Mitchell" in bridge_items[0]["summary"], str(bridge_items))
+
 failed = [r for r in results if not r[1]]
 print(f"\n{len(results) - len(failed)}/{len(results)} passed")
 if failed:
