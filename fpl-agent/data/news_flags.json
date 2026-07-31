@@ -1,16 +1,25 @@
 {
-  "generated_at": "2026-07-31T03:45:06.288589+00:00",
+  "generated_at": "2026-07-31T16:52:10.203552+00:00",
   "model": "gemini-flash-latest",
-  "headlines_considered": 44,
+  "headlines_considered": 45,
   "flags": [
     {
-      "player_id": "237",
-      "player": "Ndiaye",
-      "team": "EVE",
-      "concern": "Reported absent from Everton's pre-season fixture.",
+      "player_id": "368",
+      "player": "Szoboszlai",
+      "team": "LIV",
+      "concern": "Pre-season reporting indicates Szoboszlai is being deployed in a deeper midfield role.",
       "severity": "medium",
+      "affects": "role",
+      "source": "https://www.fantasyfootballscout.co.uk/2026/07/31/fpl-pre-season-tavernier-impresses-muharemovic-class-szoboszlai-deeper"
+    },
+    {
+      "player_id": "426",
+      "player": "B.Fernandes",
+      "team": "MUN",
+      "concern": "Pre-season reports address why Fernandes missed out on recent friendly action.",
+      "severity": "low",
       "affects": "availability",
-      "source": "https://www.fantasyfootballscout.co.uk/2026/07/29/fpl-pre-season-pedro-hat-trick-alonsos-tactics-ndiaye-absent"
+      "source": "https://www.fantasyfootballscout.co.uk/2026/07/30/fpl-pre-season-tel-lively-why-solanke-fernandes-missed-out-matusiwa-latest"
     }
   ]
 }
