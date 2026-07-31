@@ -1,7 +1,7 @@
 # pl-changes-2026-27
 
 - Source: https://www.premierleague.com/en/news/4679873
-- Fetched: 2026-07-31T09:14:10.709984+00:00
+- Fetched: 2026-07-31T14:29:06.095303+00:00
 - Why it's here: Official write-up of the 2026/27 rule changes
 
 Captured automatically by `fpl-agent/knowledge.py` as reference material for the FPL agent.
@@ -168,7 +168,7 @@ Facebook
 
 All you need to know about changes to FPL for 2026/27
 
-28 Jul 2026
+31 Jul 2026
 
 Live updates to mini-leagues. Player Price Predictor. Changes to the Bonus Points System. See what's new this season
 
