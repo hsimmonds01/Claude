@@ -6,6 +6,13 @@
       "event": 1,
       "subject": "FPL pre-season \u2014 24 days to the GW1 deadline",
       "reason": "24.4 days to the GW1 deadline; no digest sent yet"
+    },
+    {
+      "at": "2026-07-31T19:47:41.379102+00:00",
+      "kind": "preseason",
+      "event": 1,
+      "subject": "FPL pre-season \u2014 20 days to the GW1 deadline",
+      "reason": "20.9 days to the GW1 deadline; last digest 3.5 days ago"
     }
   ],
   "failures": [
