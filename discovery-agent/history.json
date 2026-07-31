@@ -596,6 +596,75 @@
           "link_status": "search"
         }
       ]
+    },
+    {
+      "date": "2026-07-31",
+      "model": "gemini-2.5-flash (legacy key, live search)",
+      "items": [
+        {
+          "title": "Extra 'The Odyssey' IMAX 70mm Screenings Announced for BFI Southbank",
+          "category": "film",
+          "summary": "Due to overwhelming demand, the BFI IMAX at Southbank is releasing additional tickets for 'The Odyssey' in 70mm. This is a rare opportunity to catch a classic on the biggest screen, and tickets are expected to sell out quickly.",
+          "url": "https://www.google.com/search?q=Extra+%27The+Odyssey%27+IMAX+70mm+Screenings+Announced+for+BFI+Southbank",
+          "date_info": "Tickets go on sale Monday, August 4, 2026, at 10:00 AM BST",
+          "urgency": "act-fast",
+          "link_status": "search"
+        },
+        {
+          "title": "Jon Stan x Billionaire Boys Club Limited Edition Fitted Caps Drop",
+          "category": "drop",
+          "summary": "A new collaboration between Jon Stan and Billionaire Boys Club is dropping limited edition fitted caps. These highly anticipated caps are a must-have for streetwear and hat enthusiasts.",
+          "url": "https://www.google.com/search?q=Jon+Stan+x+Billionaire+Boys+Club+Limited+Edition+Fitted+Caps+Drop",
+          "date_info": "Available now for a limited time",
+          "urgency": "act-fast",
+          "link_status": "search"
+        },
+        {
+          "title": "New Pizzeria from Top London Bakery Chef Opening in Bermondsey",
+          "category": "food",
+          "summary": "A renowned London bakery chef is set to launch a new pizzeria in Bermondsey this September, bringing exciting new food to your local area.",
+          "url": "https://www.timeout.com/london/news/new-pizzeria-london-bermondsey-september-2026-073126",
+          "date_info": "Opening September 2026",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "Casio Unveils Smart Ring Watch with Health Tracking",
+          "category": "product",
+          "summary": "Casio is entering the smart wearable market with a new ring watch that offers health tracking and notification features, a genuinely clever gadget that could change how you interact with wearables.",
+          "url": "https://www.designboom.com/technology/casio-ring-watch-smart-wearable-health-tracking-notifications/",
+          "date_info": "Release date and pricing to be announced",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "Diljit Dosanjh Live at Wembley Stadium: Tickets On Sale",
+          "category": "event",
+          "summary": "Tickets are now on sale for global superstar Diljit Dosanjh's concert at Wembley Stadium in London, a major gig that is expected to draw a huge crowd.",
+          "url": "https://www.google.com/search?q=Diljit+Dosanjh+Live+at+Wembley+Stadium%3A+Tickets+On+Sale",
+          "date_info": "Tickets currently on sale",
+          "urgency": "act-fast",
+          "link_status": "search"
+        },
+        {
+          "title": "2026 NFL London Games: Ticket Information Released",
+          "category": "football",
+          "summary": "Details regarding dates and ticket releases for the highly anticipated 2026 NFL London games have been announced, offering an early chance to plan for major sports screenings.",
+          "url": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxPRm50Mk1pQWJjakEzbU8wYVUyeGI5SktuZ3FIOFVRTDFvNFdkdm5ySkdTcC15MU1GT0w5V2o3MjlfQkVKY1Zqb04tb1RtRTFCeW9SNk9wRkVRVUlKZXJUZjJEMzFVZlNpLU11ejI4Y0h6cVJiQ3l4bmptTy0wemhlcG5feDdZdjN2b0Z0LXlEVENnRzdfdUhsS2dqa2hhenJkSlk1N3lwT3pSVWJabUVwNF93MFhMNHBybnliQkJOZjhJZzBJUWhNa2pxbTdQOHFHNFpCYmd3ejZCZw?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "date_info": "Specific ticket sale dates to be announced, check link for updates",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "Lightfoot Solar Cargo Scooter: Innovative Tech for Urban Errands",
+          "category": "product",
+          "summary": "Discover the Lightfoot solar cargo scooter, a clever new gadget designed to store sunlight for everyday errands, offering a sustainable and practical urban transport solution.",
+          "url": "https://www.designboom.com/technology/lightfoot-solar-cargo-scooter-sunlight-everyday-errands/",
+          "date_info": "Availability and pricing to be announced",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        }
+      ]
     }
   ]
 }
