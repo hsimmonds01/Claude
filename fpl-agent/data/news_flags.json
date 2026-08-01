@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-31T22:14:09.826022+00:00",
+  "generated_at": "2026-08-01T03:43:54.344652+00:00",
   "model": "gemini-flash-latest",
   "headlines_considered": 45,
   "flags": [
@@ -7,7 +7,7 @@
       "player_id": "368",
       "player": "Szoboszlai",
       "team": "LIV",
-      "concern": "Pre-season reports indicate Szoboszlai is being deployed in a deeper midfield role.",
+      "concern": "Pre-season reports indicate Szoboszlai is being used in a deeper midfield position.",
       "severity": "low",
       "affects": "role",
       "source": "https://www.fantasyfootballscout.co.uk/2026/07/31/fpl-pre-season-tavernier-impresses-muharemovic-class-szoboszlai-deeper"
@@ -16,37 +16,10 @@
       "player_id": "426",
       "player": "B.Fernandes",
       "team": "MUN",
-      "concern": "Reported to have missed out on recent pre-season match action.",
+      "concern": "Reported as missing out on pre-season minutes with the reason detailed in team updates.",
       "severity": "low",
       "affects": "availability",
       "source": "https://www.fantasyfootballscout.co.uk/2026/07/30/fpl-pre-season-tel-lively-why-solanke-fernandes-missed-out-matusiwa-latest"
-    },
-    {
-      "player_id": "13",
-      "player": "Rice",
-      "team": "ARS",
-      "concern": "Subject to an injury concern ahead of upcoming match action.",
-      "severity": "medium",
-      "affects": "availability",
-      "source": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxPS2RZbUlXR1J5TGNqNEozTHpnY2xEOEdmcGZ2TjRGWUg2U0ppaEJtdUZ0QmdoMHBHN2gzQ3I5bGVPNXFkQkdtZ0lUNWR5ZXRfNWRXMDJHbE5mUmtpRTBObEZTQnQtRjZ3M2hETHpRRkRia1pENGhLN3F5OFFRT2tSRmZ2Q2VzTWZOUVBn0gGQAUFVX3lxTE5DSTZuTmFWdl8zYUQ4QzR3MnFqd0doX21YMnlJdFhHanRUbDk4eTdyYnV"
-    },
-    {
-      "player_id": "503",
-      "player": "Van de Ven",
-      "team": "TOT",
-      "concern": "Facing injury uncertainty ahead of the upcoming matchday.",
-      "severity": "medium",
-      "affects": "availability",
-      "source": "https://news.google.com/rss/articles/CBMizgFBVV95cUxNWGpCV3c1QjdtVmZqV29JdnE4Mk9rQnNLcFRkeXQ1T3YyemxCS25IcHNfMy1WdEdQb0tmUEMwVWE4NzJjbWViOU5mY3pvS0VZUU5UNUxFQ1E1Q2dKNGpJRE5JRWpzR3Z4YlVGdWhPcTg4WnJRNk1NU3NVeFVNNVAwcFkyNlRBNVpILXpwVnNhZHpubERnOHlxTmhvQnkyamxTTV9OZ1h5UDJkd2xWQUZ5Sk1mTWZNZTlBamxXSmM4b2t"
-    },
-    {
-      "player_id": "88",
-      "player": "Kayode",
-      "team": "BRE",
-      "concern": "Reported as touch and go for Brentford due to an injury concern.",
-      "severity": "medium",
-      "affects": "availability",
-      "source": "https://news.google.com/rss/articles/CBMiywFBVV95cUxQZDhZTVE3T3piNVRscVd5ck1jWFcxQmUtbVd3Tkp4UGtiU05BcENkVmNpcmRycFRmTGFuTVlTXzA5SWpKWnVQd1ZQdUZjcW1oTTdXUTVYS25aNHBpTXF0SnZwNlpLSWJTa3JZbG1XRXlGMS1PYVB1Q2JGYzEzQjl1WXkxSVdNbG5uMXZkOU5fRXBHa2tUellIZndKUjFuZk5aTy1ZeUNnTEhDemRxSlptNHJEOTNjc3JkNGdqemU5VHl"
     }
   ]
 }
