@@ -665,6 +665,48 @@
           "link_status": "verified"
         }
       ]
+    },
+    {
+      "date": "2026-08-01",
+      "model": "gemini-2.5-flash (legacy key, live search)",
+      "items": [
+        {
+          "title": "National Spritz Day: Free & Cheap Spritzes Across London Today!",
+          "category": "food deals",
+          "summary": "Celebrate National Spritz Day today with numerous free and discounted spritz offers across London. Get a free Aperol Spritz by bringing an orange to Bar Nana at Kerb Seven Dials Market (from 11am), or grab free spritzes at Rattlin Bog, Twisted Sister, and The Landor for early birds. Various 2-for-1 and discounted deals are also available, including a 'Spritz Hunt' for free Sarti Spritzes with ASK Italian.",
+          "url": "https://www.google.com/search?q=National+Spritz+Day%3A+Free+%26+Cheap+Spritzes+Across+London+Today%21",
+          "date_info": "Today, Saturday 1 August 2026 (offers start times vary)",
+          "urgency": "act-fast",
+          "link_status": "search"
+        },
+        {
+          "title": "Travis Scott's Limited-Edition 'The Odyssey' Merch Drop",
+          "category": "drop",
+          "summary": "Travis Scott's Cactus Jack has released a limited-edition apparel capsule to coincide with Christopher Nolan's film 'The Odyssey'. The collection features co-branded T-shirts, a long-sleeve shirt, and a tote bag. This limited drop was available for one week from July 30-31, so act fast if you want to snag a piece of this cinematic streetwear.",
+          "url": "https://www.google.com/search?q=Travis+Scott%27s+Limited-Edition+%27The+Odyssey%27+Merch+Drop",
+          "date_info": "Available for a limited time (drop began late July)",
+          "urgency": "act-fast",
+          "link_status": "search"
+        },
+        {
+          "title": "AEW All In London 2026 Tickets On Sale Now",
+          "category": "event",
+          "summary": "Tickets are now available for AEW All In: London 2026 at Wembley Stadium on Sunday, August 30, 2026. This major wrestling event is expected to sell out, and you can also grab tickets for the 'AEW All In: Welcome To Wembley! Fan Experience' on August 28 & 29 for photo ops, meet and greets, and early merch access.",
+          "url": "https://www.google.com/search?q=AEW+All+In+London+2026+Tickets+On+Sale+Now",
+          "date_info": "Event: Sunday 30 August 2026 (Fan Experience 28 & 29 August)",
+          "urgency": "this-week",
+          "link_status": "search"
+        },
+        {
+          "title": "Cue Point Kensington: London's 'Most Unmissable BBQ Restaurant' for 2026",
+          "category": "food",
+          "summary": "Time Out has crowned Cue Point in Kensington as London's top BBQ restaurant for 2026, hailing its Afghan-Texan fusion menu as 'maybe the best barbecue ever eaten on UK soil'. Located in the Garden Bar & Grill's beer garden, it's a must-try for any food enthusiast seeking genuinely good and interesting food spots.",
+          "url": "https://www.google.com/search?q=Cue+Point+Kensington%3A+London%27s+%27Most+Unmissable+BBQ+Restaurant%27+for+2026",
+          "date_info": "",
+          "urgency": "heads-up",
+          "link_status": "search"
+        }
+      ]
     }
   ]
 }
