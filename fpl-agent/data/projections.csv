@@ -59,11 +59,11 @@ player_id,web_name,team,position,price,selected_by,event,opponent,home,difficult
 12,Saka,ARS,MID,9.5,10.7,3,CHE,H,4,3.142,0.604,1.303,0.725,0.259,0.192,0.61,,,"56% of last 10 GWs started, 68% across the season"
 12,Saka,ARS,MID,9.5,10.7,4,SUN,A,3,3.138,0.604,1.303,0.725,0.253,0.192,0.61,,,"56% of last 10 GWs started, 68% across the season"
 12,Saka,ARS,MID,9.5,10.7,5,BHA,A,3,3.138,0.604,1.303,0.725,0.253,0.192,0.61,,,"56% of last 10 GWs started, 68% across the season"
-13,Rice,ARS,MID,7.5,22.2,1,COV,H,2,4.421,0.901,0.538,0.581,0.407,0.683,0.59,,,"89% of last 10 GWs started, 92% across the season"
-13,Rice,ARS,MID,7.5,22.2,2,AVL,A,4,4.223,0.901,0.538,0.581,0.192,0.683,0.59,,,"89% of last 10 GWs started, 92% across the season"
-13,Rice,ARS,MID,7.5,22.2,3,CHE,H,4,4.285,0.901,0.538,0.581,0.259,0.683,0.59,,,"89% of last 10 GWs started, 92% across the season"
-13,Rice,ARS,MID,7.5,22.2,4,SUN,A,3,4.279,0.901,0.538,0.581,0.253,0.683,0.59,,,"89% of last 10 GWs started, 92% across the season"
-13,Rice,ARS,MID,7.5,22.2,5,BHA,A,3,4.279,0.901,0.538,0.581,0.253,0.683,0.59,,,"89% of last 10 GWs started, 92% across the season"
+13,Rice,ARS,MID,7.5,22.3,1,COV,H,2,4.421,0.901,0.538,0.581,0.407,0.683,0.59,,,"89% of last 10 GWs started, 92% across the season"
+13,Rice,ARS,MID,7.5,22.3,2,AVL,A,4,4.223,0.901,0.538,0.581,0.192,0.683,0.59,,,"89% of last 10 GWs started, 92% across the season"
+13,Rice,ARS,MID,7.5,22.3,3,CHE,H,4,4.285,0.901,0.538,0.581,0.259,0.683,0.59,,,"89% of last 10 GWs started, 92% across the season"
+13,Rice,ARS,MID,7.5,22.3,4,SUN,A,3,4.279,0.901,0.538,0.581,0.253,0.683,0.59,,,"89% of last 10 GWs started, 92% across the season"
+13,Rice,ARS,MID,7.5,22.3,5,BHA,A,3,4.279,0.901,0.538,0.581,0.253,0.683,0.59,,,"89% of last 10 GWs started, 92% across the season"
 14,Eze,ARS,MID,6.5,3.3,1,COV,H,2,3.067,0.694,1.08,0.388,0.407,0.08,0.369,,,"78% of last 10 GWs started, 57% across the season"
 14,Eze,ARS,MID,6.5,3.3,2,AVL,A,4,2.915,0.694,1.08,0.388,0.192,0.08,0.369,,,"78% of last 10 GWs started, 57% across the season"
 14,Eze,ARS,MID,6.5,3.3,3,CHE,H,4,2.963,0.694,1.08,0.388,0.259,0.08,0.369,,,"78% of last 10 GWs started, 57% across the season"
@@ -119,11 +119,11 @@ player_id,web_name,team,position,price,selected_by,event,opponent,home,difficult
 24,Nelson,ARS,MID,5.5,0.0,3,CHE,H,4,0.0,0.0,0.989,0.385,0.259,0.476,0.308,,,"0% of last 10 GWs started, 0% across the season"
 24,Nelson,ARS,MID,5.5,0.0,4,SUN,A,3,0.0,0.0,0.989,0.385,0.253,0.476,0.308,,,"0% of last 10 GWs started, 0% across the season"
 24,Nelson,ARS,MID,5.5,0.0,5,BHA,A,3,0.0,0.0,0.989,0.385,0.253,0.476,0.308,,,"0% of last 10 GWs started, 0% across the season"
-25,Gyökeres,ARS,FWD,7.5,13.3,1,COV,H,2,2.681,0.537,1.934,0.216,0.0,0.001,0.649,,,"44% of last 10 GWs started, 68% across the season"
-25,Gyökeres,ARS,FWD,7.5,13.3,2,AVL,A,4,2.681,0.537,1.934,0.216,0.0,0.001,0.649,,,"44% of last 10 GWs started, 68% across the season"
-25,Gyökeres,ARS,FWD,7.5,13.3,3,CHE,H,4,2.681,0.537,1.934,0.216,0.0,0.001,0.649,,,"44% of last 10 GWs started, 68% across the season"
-25,Gyökeres,ARS,FWD,7.5,13.3,4,SUN,A,3,2.681,0.537,1.934,0.216,0.0,0.001,0.649,,,"44% of last 10 GWs started, 68% across the season"
-25,Gyökeres,ARS,FWD,7.5,13.3,5,BHA,A,3,2.681,0.537,1.934,0.216,0.0,0.001,0.649,,,"44% of last 10 GWs started, 68% across the season"
+25,Gyökeres,ARS,FWD,7.5,13.2,1,COV,H,2,2.681,0.537,1.934,0.216,0.0,0.001,0.649,,,"44% of last 10 GWs started, 68% across the season"
+25,Gyökeres,ARS,FWD,7.5,13.2,2,AVL,A,4,2.681,0.537,1.934,0.216,0.0,0.001,0.649,,,"44% of last 10 GWs started, 68% across the season"
+25,Gyökeres,ARS,FWD,7.5,13.2,3,CHE,H,4,2.681,0.537,1.934,0.216,0.0,0.001,0.649,,,"44% of last 10 GWs started, 68% across the season"
+25,Gyökeres,ARS,FWD,7.5,13.2,4,SUN,A,3,2.681,0.537,1.934,0.216,0.0,0.001,0.649,,,"44% of last 10 GWs started, 68% across the season"
+25,Gyökeres,ARS,FWD,7.5,13.2,5,BHA,A,3,2.681,0.537,1.934,0.216,0.0,0.001,0.649,,,"44% of last 10 GWs started, 68% across the season"
 26,Havertz,ARS,FWD,7.5,4.0,1,COV,H,2,2.003,0.409,1.902,0.218,0.0,0.006,0.582,,,"56% of last 10 GWs started, 19% across the season"
 26,Havertz,ARS,FWD,7.5,4.0,2,AVL,A,4,2.003,0.409,1.902,0.218,0.0,0.006,0.582,,,"56% of last 10 GWs started, 19% across the season"
 26,Havertz,ARS,FWD,7.5,4.0,3,CHE,H,4,2.003,0.409,1.902,0.218,0.0,0.006,0.582,,,"56% of last 10 GWs started, 19% across the season"
@@ -279,11 +279,11 @@ player_id,web_name,team,position,price,selected_by,event,opponent,home,difficult
 160,Garnacho,AVL,MID,6.0,1.1,3,HUL,A,2,1.259,0.285,1.032,0.617,0.333,0.072,0.272,yes,,"22% of last 10 GWs started, 38% across the season"
 160,Garnacho,AVL,MID,6.0,1.1,4,NFO,H,3,1.257,0.285,1.032,0.617,0.325,0.072,0.272,yes,,"22% of last 10 GWs started, 38% across the season"
 160,Garnacho,AVL,MID,6.0,1.1,5,TOT,A,3,1.236,0.285,1.032,0.617,0.253,0.072,0.272,yes,,"22% of last 10 GWs started, 38% across the season"
-57,Petrović,BOU,GKP,4.5,3.5,1,MCI,A,5,2.751,1.0,0.001,0.001,0.397,0.0,0.153,,,"100% of last 10 GWs started, 100% across the season"
-57,Petrović,BOU,GKP,4.5,3.5,2,EVE,H,3,3.722,1.0,0.001,0.001,1.299,0.0,0.153,,,"100% of last 10 GWs started, 100% across the season"
-57,Petrović,BOU,GKP,4.5,3.5,3,NEW,A,3,3.413,1.0,0.001,0.001,1.011,0.0,0.153,,,"100% of last 10 GWs started, 100% across the season"
-57,Petrović,BOU,GKP,4.5,3.5,4,BRE,H,3,3.722,1.0,0.001,0.001,1.299,0.0,0.153,,,"100% of last 10 GWs started, 100% across the season"
-57,Petrović,BOU,GKP,4.5,3.5,5,LIV,H,4,3.44,1.0,0.001,0.001,1.037,0.0,0.153,,,"100% of last 10 GWs started, 100% across the season"
+57,Petrović,BOU,GKP,4.5,3.6,1,MCI,A,5,2.751,1.0,0.001,0.001,0.397,0.0,0.153,,,"100% of last 10 GWs started, 100% across the season"
+57,Petrović,BOU,GKP,4.5,3.6,2,EVE,H,3,3.722,1.0,0.001,0.001,1.299,0.0,0.153,,,"100% of last 10 GWs started, 100% across the season"
+57,Petrović,BOU,GKP,4.5,3.6,3,NEW,A,3,3.413,1.0,0.001,0.001,1.011,0.0,0.153,,,"100% of last 10 GWs started, 100% across the season"
+57,Petrović,BOU,GKP,4.5,3.6,4,BRE,H,3,3.722,1.0,0.001,0.001,1.299,0.0,0.153,,,"100% of last 10 GWs started, 100% across the season"
+57,Petrović,BOU,GKP,4.5,3.6,5,LIV,H,4,3.44,1.0,0.001,0.001,1.037,0.0,0.153,,,"100% of last 10 GWs started, 100% across the season"
 58,Forster,BOU,GKP,4.0,3.1,1,MCI,A,5,0.0,0.0,0.003,0.006,0.397,0.0,0.224,,,"0% of last 10 GWs started, 0% across the season"
 58,Forster,BOU,GKP,4.0,3.1,2,EVE,H,3,0.0,0.0,0.003,0.006,1.299,0.0,0.224,,,"0% of last 10 GWs started, 0% across the season"
 58,Forster,BOU,GKP,4.0,3.1,3,NEW,A,3,0.0,0.0,0.003,0.006,1.011,0.0,0.224,,,"0% of last 10 GWs started, 0% across the season"
@@ -384,11 +384,11 @@ player_id,web_name,team,position,price,selected_by,event,opponent,home,difficult
 77,Adli,BOU,MID,5.0,0.2,3,NEW,A,3,0.803,0.178,0.943,0.404,0.253,0.477,0.339,,,"11% of last 10 GWs started, 28% across the season"
 77,Adli,BOU,MID,5.0,0.2,4,BRE,H,3,0.816,0.178,0.943,0.404,0.325,0.477,0.339,,,"11% of last 10 GWs started, 28% across the season"
 77,Adli,BOU,MID,5.0,0.2,5,LIV,H,4,0.804,0.178,0.943,0.404,0.259,0.477,0.339,,,"11% of last 10 GWs started, 28% across the season"
-78,Kroupi.Jr,BOU,MID,7.5,8.3,1,MCI,A,5,0.0,0.0,1.699,0.304,0.099,0.103,0.568,,,unavailable (status 'i'): Foot injury - Unknown return date
-78,Kroupi.Jr,BOU,MID,7.5,8.3,2,EVE,H,3,0.0,0.0,1.699,0.304,0.325,0.103,0.568,,,unavailable (status 'i'): Foot injury - Unknown return date
-78,Kroupi.Jr,BOU,MID,7.5,8.3,3,NEW,A,3,0.0,0.0,1.699,0.304,0.253,0.103,0.568,,,unavailable (status 'i'): Foot injury - Unknown return date
-78,Kroupi.Jr,BOU,MID,7.5,8.3,4,BRE,H,3,0.0,0.0,1.699,0.304,0.325,0.103,0.568,,,unavailable (status 'i'): Foot injury - Unknown return date
-78,Kroupi.Jr,BOU,MID,7.5,8.3,5,LIV,H,4,0.0,0.0,1.699,0.304,0.259,0.103,0.568,,,unavailable (status 'i'): Foot injury - Unknown return date
+78,Kroupi.Jr,BOU,MID,7.5,8.2,1,MCI,A,5,0.0,0.0,1.699,0.304,0.099,0.103,0.568,,,unavailable (status 'i'): Foot injury - Unknown return date
+78,Kroupi.Jr,BOU,MID,7.5,8.2,2,EVE,H,3,0.0,0.0,1.699,0.304,0.325,0.103,0.568,,,unavailable (status 'i'): Foot injury - Unknown return date
+78,Kroupi.Jr,BOU,MID,7.5,8.2,3,NEW,A,3,0.0,0.0,1.699,0.304,0.253,0.103,0.568,,,unavailable (status 'i'): Foot injury - Unknown return date
+78,Kroupi.Jr,BOU,MID,7.5,8.2,4,BRE,H,3,0.0,0.0,1.699,0.304,0.325,0.103,0.568,,,unavailable (status 'i'): Foot injury - Unknown return date
+78,Kroupi.Jr,BOU,MID,7.5,8.2,5,LIV,H,4,0.0,0.0,1.699,0.304,0.259,0.103,0.568,,,unavailable (status 'i'): Foot injury - Unknown return date
 79,Evanilson,BOU,FWD,6.0,2.0,1,MCI,A,5,3.873,0.935,1.507,0.152,0.0,0.004,0.317,,,"100% of last 10 GWs started, 84% across the season"
 79,Evanilson,BOU,FWD,6.0,2.0,2,EVE,H,3,3.873,0.935,1.507,0.152,0.0,0.004,0.317,,,"100% of last 10 GWs started, 84% across the season"
 79,Evanilson,BOU,FWD,6.0,2.0,3,NEW,A,3,3.873,0.935,1.507,0.152,0.0,0.004,0.317,,,"100% of last 10 GWs started, 84% across the season"
@@ -429,11 +429,11 @@ player_id,web_name,team,position,price,selected_by,event,opponent,home,difficult
 86,Lewis-Potter,BRE,MID,5.5,0.5,3,SUN,H,2,2.979,0.772,0.723,0.364,0.407,0.013,0.268,,,"90% of last 10 GWs started, 58% across the season"
 86,Lewis-Potter,BRE,MID,5.5,0.5,4,BOU,A,3,2.857,0.772,0.723,0.364,0.253,0.013,0.268,,,"90% of last 10 GWs started, 58% across the season"
 86,Lewis-Potter,BRE,MID,5.5,0.5,5,CHE,H,4,2.862,0.772,0.723,0.364,0.259,0.013,0.268,,,"90% of last 10 GWs started, 58% across the season"
-87,Ajer,BRE,DEF,4.5,0.8,1,TOT,H,3,1.356,0.331,0.266,0.134,1.299,0.811,0.122,,,"20% of last 10 GWs started, 53% across the season"
-87,Ajer,BRE,DEF,4.5,0.8,2,LEE,A,3,1.272,0.331,0.266,0.134,1.011,0.811,0.122,,,"20% of last 10 GWs started, 53% across the season"
-87,Ajer,BRE,DEF,4.5,0.8,3,SUN,H,2,1.452,0.331,0.266,0.134,1.626,0.811,0.122,,,"20% of last 10 GWs started, 53% across the season"
-87,Ajer,BRE,DEF,4.5,0.8,4,BOU,A,3,1.272,0.331,0.266,0.134,1.011,0.811,0.122,,,"20% of last 10 GWs started, 53% across the season"
-87,Ajer,BRE,DEF,4.5,0.8,5,CHE,H,4,1.279,0.331,0.266,0.134,1.037,0.811,0.122,,,"20% of last 10 GWs started, 53% across the season"
+87,Ajer,BRE,DEF,4.5,0.9,1,TOT,H,3,1.356,0.331,0.266,0.134,1.299,0.811,0.122,,,"20% of last 10 GWs started, 53% across the season"
+87,Ajer,BRE,DEF,4.5,0.9,2,LEE,A,3,1.272,0.331,0.266,0.134,1.011,0.811,0.122,,,"20% of last 10 GWs started, 53% across the season"
+87,Ajer,BRE,DEF,4.5,0.9,3,SUN,H,2,1.452,0.331,0.266,0.134,1.626,0.811,0.122,,,"20% of last 10 GWs started, 53% across the season"
+87,Ajer,BRE,DEF,4.5,0.9,4,BOU,A,3,1.272,0.331,0.266,0.134,1.011,0.811,0.122,,,"20% of last 10 GWs started, 53% across the season"
+87,Ajer,BRE,DEF,4.5,0.9,5,CHE,H,4,1.279,0.331,0.266,0.134,1.037,0.811,0.122,,,"20% of last 10 GWs started, 53% across the season"
 88,Kayode,BRE,DEF,4.5,4.4,1,TOT,H,3,3.736,0.989,0.25,0.226,1.299,0.239,0.249,,,"100% of last 10 GWs started, 97% across the season"
 88,Kayode,BRE,DEF,4.5,4.4,2,LEE,A,3,3.484,0.989,0.25,0.226,1.011,0.239,0.249,,,"100% of last 10 GWs started, 97% across the season"
 88,Kayode,BRE,DEF,4.5,4.4,3,SUN,H,2,4.023,0.989,0.25,0.226,1.626,0.239,0.249,,,"100% of last 10 GWs started, 97% across the season"
@@ -874,11 +874,11 @@ player_id,web_name,team,position,price,selected_by,event,opponent,home,difficult
 172,Wilson,COV,GKP,4.5,0.7,3,MCI,A,5,0.992,0.35,0.003,0.006,0.397,0.0,0.224,,,no Premier League record; inferred from £4.5m price
 172,Wilson,COV,GKP,4.5,0.7,4,BHA,H,2,1.456,0.35,0.003,0.006,1.626,0.0,0.224,,,no Premier League record; inferred from £4.5m price
 172,Wilson,COV,GKP,4.5,0.7,5,NFO,A,3,1.224,0.35,0.003,0.006,1.011,0.0,0.224,,,no Premier League record; inferred from £4.5m price
-173,Thomas,COV,DEF,4.0,8.2,1,ARS,A,5,1.155,0.35,0.374,0.18,0.397,0.522,0.252,,,no Premier League record; inferred from £4.0m price
-173,Thomas,COV,DEF,4.0,8.2,2,HUL,H,2,1.536,0.35,0.374,0.18,1.626,0.522,0.252,,,no Premier League record; inferred from £4.0m price
-173,Thomas,COV,DEF,4.0,8.2,3,MCI,A,5,1.155,0.35,0.374,0.18,0.397,0.522,0.252,,,no Premier League record; inferred from £4.0m price
-173,Thomas,COV,DEF,4.0,8.2,4,BHA,H,2,1.536,0.35,0.374,0.18,1.626,0.522,0.252,,,no Premier League record; inferred from £4.0m price
-173,Thomas,COV,DEF,4.0,8.2,5,NFO,A,3,1.345,0.35,0.374,0.18,1.011,0.522,0.252,,,no Premier League record; inferred from £4.0m price
+173,Thomas,COV,DEF,4.0,8.3,1,ARS,A,5,1.155,0.35,0.374,0.18,0.397,0.522,0.252,,,no Premier League record; inferred from £4.0m price
+173,Thomas,COV,DEF,4.0,8.3,2,HUL,H,2,1.536,0.35,0.374,0.18,1.626,0.522,0.252,,,no Premier League record; inferred from £4.0m price
+173,Thomas,COV,DEF,4.0,8.3,3,MCI,A,5,1.155,0.35,0.374,0.18,0.397,0.522,0.252,,,no Premier League record; inferred from £4.0m price
+173,Thomas,COV,DEF,4.0,8.3,4,BHA,H,2,1.536,0.35,0.374,0.18,1.626,0.522,0.252,,,no Premier League record; inferred from £4.0m price
+173,Thomas,COV,DEF,4.0,8.3,5,NFO,A,3,1.345,0.35,0.374,0.18,1.011,0.522,0.252,,,no Premier League record; inferred from £4.0m price
 174,Kitching,COV,DEF,4.0,0.4,1,ARS,A,5,1.155,0.35,0.374,0.18,0.397,0.522,0.252,,,no Premier League record; inferred from £4.0m price
 174,Kitching,COV,DEF,4.0,0.4,2,HUL,H,2,1.536,0.35,0.374,0.18,1.626,0.522,0.252,,,no Premier League record; inferred from £4.0m price
 174,Kitching,COV,DEF,4.0,0.4,3,MCI,A,5,1.155,0.35,0.374,0.18,0.397,0.522,0.252,,,no Premier League record; inferred from £4.0m price
@@ -1199,11 +1199,11 @@ player_id,web_name,team,position,price,selected_by,event,opponent,home,difficult
 237,Ndiaye,EVE,MID,6.0,18.3,3,MUN,H,4,4.147,0.937,1.003,0.421,0.259,0.388,0.258,,,"100% of last 10 GWs started, 84% across the season"
 237,Ndiaye,EVE,MID,6.0,18.3,4,TOT,A,3,4.141,0.937,1.003,0.421,0.253,0.388,0.258,,,"100% of last 10 GWs started, 84% across the season"
 237,Ndiaye,EVE,MID,6.0,18.3,5,IPS,H,2,4.289,0.937,1.003,0.421,0.407,0.388,0.258,,,"100% of last 10 GWs started, 84% across the season"
-239,Garner,EVE,MID,6.0,1.1,1,CRY,H,3,0.0,0.0,0.392,0.469,0.325,0.902,0.343,,,unavailable (status 'i'): Groin injury - Expected back 22 Aug
-239,Garner,EVE,MID,6.0,1.1,2,BOU,A,3,0.0,0.0,0.392,0.469,0.253,0.902,0.343,,,unavailable (status 'i'): Groin injury - Expected back 22 Aug
-239,Garner,EVE,MID,6.0,1.1,3,MUN,H,4,0.0,0.0,0.392,0.469,0.259,0.902,0.343,,,unavailable (status 'i'): Groin injury - Expected back 22 Aug
-239,Garner,EVE,MID,6.0,1.1,4,TOT,A,3,0.0,0.0,0.392,0.469,0.253,0.902,0.343,,,unavailable (status 'i'): Groin injury - Expected back 22 Aug
-239,Garner,EVE,MID,6.0,1.1,5,IPS,H,2,0.0,0.0,0.392,0.469,0.407,0.902,0.343,,,unavailable (status 'i'): Groin injury - Expected back 22 Aug
+239,Garner,EVE,MID,6.0,1.0,1,CRY,H,3,0.0,0.0,0.392,0.469,0.325,0.902,0.343,,,unavailable (status 'i'): Groin injury - Expected back 22 Aug
+239,Garner,EVE,MID,6.0,1.0,2,BOU,A,3,0.0,0.0,0.392,0.469,0.253,0.902,0.343,,,unavailable (status 'i'): Groin injury - Expected back 22 Aug
+239,Garner,EVE,MID,6.0,1.0,3,MUN,H,4,0.0,0.0,0.392,0.469,0.259,0.902,0.343,,,unavailable (status 'i'): Groin injury - Expected back 22 Aug
+239,Garner,EVE,MID,6.0,1.0,4,TOT,A,3,0.0,0.0,0.392,0.469,0.253,0.902,0.343,,,unavailable (status 'i'): Groin injury - Expected back 22 Aug
+239,Garner,EVE,MID,6.0,1.0,5,IPS,H,2,0.0,0.0,0.392,0.469,0.407,0.902,0.343,,,unavailable (status 'i'): Groin injury - Expected back 22 Aug
 240,Iroegbunam,EVE,MID,5.0,0.1,1,CRY,H,3,1.873,0.479,0.415,0.239,0.325,0.67,0.175,,,"50% of last 10 GWs started, 45% across the season"
 240,Iroegbunam,EVE,MID,5.0,0.1,2,BOU,A,3,1.838,0.479,0.415,0.239,0.253,0.67,0.175,,,"50% of last 10 GWs started, 45% across the season"
 240,Iroegbunam,EVE,MID,5.0,0.1,3,MUN,H,4,1.841,0.479,0.415,0.239,0.259,0.67,0.175,,,"50% of last 10 GWs started, 45% across the season"
@@ -1719,11 +1719,11 @@ player_id,web_name,team,position,price,selected_by,event,opponent,home,difficult
 339,Longstaff,LEE,MID,5.0,0.2,3,BHA,A,3,0.464,0.108,0.669,0.452,0.253,0.426,0.396,,,"0% of last 10 GWs started, 27% across the season"
 339,Longstaff,LEE,MID,5.0,0.2,4,NEW,H,2,0.481,0.108,0.669,0.452,0.407,0.426,0.396,,,"0% of last 10 GWs started, 27% across the season"
 339,Longstaff,LEE,MID,5.0,0.2,5,CRY,H,3,0.472,0.108,0.669,0.452,0.325,0.426,0.396,,,"0% of last 10 GWs started, 27% across the season"
-340,Gelhardt,LEE,MID,5.0,0.1,1,NFO,A,3,0.0,0.0,0.786,0.401,0.253,0.294,0.344,,,"0% of last 10 GWs started, 0% across the season"
-340,Gelhardt,LEE,MID,5.0,0.1,2,BRE,H,3,0.0,0.0,0.786,0.401,0.325,0.294,0.344,,,"0% of last 10 GWs started, 0% across the season"
-340,Gelhardt,LEE,MID,5.0,0.1,3,BHA,A,3,0.0,0.0,0.786,0.401,0.253,0.294,0.344,,,"0% of last 10 GWs started, 0% across the season"
-340,Gelhardt,LEE,MID,5.0,0.1,4,NEW,H,2,0.0,0.0,0.786,0.401,0.407,0.294,0.344,,,"0% of last 10 GWs started, 0% across the season"
-340,Gelhardt,LEE,MID,5.0,0.1,5,CRY,H,3,0.0,0.0,0.786,0.401,0.325,0.294,0.344,,,"0% of last 10 GWs started, 0% across the season"
+340,Gelhardt,LEE,MID,5.0,0.0,1,NFO,A,3,0.0,0.0,0.786,0.401,0.253,0.294,0.344,,,"0% of last 10 GWs started, 0% across the season"
+340,Gelhardt,LEE,MID,5.0,0.0,2,BRE,H,3,0.0,0.0,0.786,0.401,0.325,0.294,0.344,,,"0% of last 10 GWs started, 0% across the season"
+340,Gelhardt,LEE,MID,5.0,0.0,3,BHA,A,3,0.0,0.0,0.786,0.401,0.253,0.294,0.344,,,"0% of last 10 GWs started, 0% across the season"
+340,Gelhardt,LEE,MID,5.0,0.0,4,NEW,H,2,0.0,0.0,0.786,0.401,0.407,0.294,0.344,,,"0% of last 10 GWs started, 0% across the season"
+340,Gelhardt,LEE,MID,5.0,0.0,5,CRY,H,3,0.0,0.0,0.786,0.401,0.325,0.294,0.344,,,"0% of last 10 GWs started, 0% across the season"
 341,Gnonto,LEE,MID,5.0,0.1,1,NFO,A,3,0.173,0.043,0.635,0.4,0.253,0.403,0.226,,,"0% of last 10 GWs started, 11% across the season"
 341,Gnonto,LEE,MID,5.0,0.1,2,BRE,H,3,0.176,0.043,0.635,0.4,0.325,0.403,0.226,,,"0% of last 10 GWs started, 11% across the season"
 341,Gnonto,LEE,MID,5.0,0.1,3,BHA,A,3,0.173,0.043,0.635,0.4,0.253,0.403,0.226,,,"0% of last 10 GWs started, 11% across the season"
@@ -1849,11 +1849,11 @@ player_id,web_name,team,position,price,selected_by,event,opponent,home,difficult
 365,Ramsay,LIV,DEF,4.0,0.2,3,IPS,A,2,0.0,0.0,0.374,0.18,1.331,0.522,0.252,,,"0% of last 10 GWs started, 0% across the season"
 365,Ramsay,LIV,DEF,4.0,0.2,4,FUL,H,2,0.0,0.0,0.374,0.18,1.626,0.522,0.252,,,"0% of last 10 GWs started, 0% across the season"
 365,Ramsay,LIV,DEF,4.0,0.2,5,BOU,A,3,0.0,0.0,0.374,0.18,1.011,0.522,0.252,,,"0% of last 10 GWs started, 0% across the season"
-366,Wirtz,LIV,MID,7.5,10.9,1,NEW,A,3,3.036,0.644,1.144,0.53,0.253,0.126,0.555,,,"60% of last 10 GWs started, 71% across the season"
-366,Wirtz,LIV,MID,7.5,10.9,2,NFO,H,3,3.083,0.644,1.144,0.53,0.325,0.126,0.555,,,"60% of last 10 GWs started, 71% across the season"
-366,Wirtz,LIV,MID,7.5,10.9,3,IPS,A,2,3.088,0.644,1.144,0.53,0.333,0.126,0.555,,,"60% of last 10 GWs started, 71% across the season"
-366,Wirtz,LIV,MID,7.5,10.9,4,FUL,H,2,3.137,0.644,1.144,0.53,0.407,0.126,0.555,,,"60% of last 10 GWs started, 71% across the season"
-366,Wirtz,LIV,MID,7.5,10.9,5,BOU,A,3,3.036,0.644,1.144,0.53,0.253,0.126,0.555,,,"60% of last 10 GWs started, 71% across the season"
+366,Wirtz,LIV,MID,7.5,11.0,1,NEW,A,3,3.036,0.644,1.144,0.53,0.253,0.126,0.555,,,"60% of last 10 GWs started, 71% across the season"
+366,Wirtz,LIV,MID,7.5,11.0,2,NFO,H,3,3.083,0.644,1.144,0.53,0.325,0.126,0.555,,,"60% of last 10 GWs started, 71% across the season"
+366,Wirtz,LIV,MID,7.5,11.0,3,IPS,A,2,3.088,0.644,1.144,0.53,0.333,0.126,0.555,,,"60% of last 10 GWs started, 71% across the season"
+366,Wirtz,LIV,MID,7.5,11.0,4,FUL,H,2,3.137,0.644,1.144,0.53,0.407,0.126,0.555,,,"60% of last 10 GWs started, 71% across the season"
+366,Wirtz,LIV,MID,7.5,11.0,5,BOU,A,3,3.036,0.644,1.144,0.53,0.253,0.126,0.555,,,"60% of last 10 GWs started, 71% across the season"
 367,Gakpo,LIV,MID,7.0,3.4,1,NEW,A,3,3.989,0.937,1.216,0.445,0.253,0.037,0.212,,,"100% of last 10 GWs started, 84% across the season"
 367,Gakpo,LIV,MID,7.0,3.4,2,NFO,H,3,4.057,0.937,1.216,0.445,0.325,0.037,0.212,,,"100% of last 10 GWs started, 84% across the season"
 367,Gakpo,LIV,MID,7.0,3.4,3,IPS,A,2,4.065,0.937,1.216,0.445,0.333,0.037,0.212,,,"100% of last 10 GWs started, 84% across the season"
@@ -1939,11 +1939,11 @@ player_id,web_name,team,position,price,selected_by,event,opponent,home,difficult
 383,Elliott,LIV,MID,5.5,0.1,3,IPS,A,2,0.044,0.011,0.825,0.38,0.333,0.238,0.31,,,"0% of last 10 GWs started, 3% across the season"
 383,Elliott,LIV,MID,5.5,0.1,4,FUL,H,2,0.045,0.011,0.825,0.38,0.407,0.238,0.31,,,"0% of last 10 GWs started, 3% across the season"
 383,Elliott,LIV,MID,5.5,0.1,5,BOU,A,3,0.043,0.011,0.825,0.38,0.253,0.238,0.31,,,"0% of last 10 GWs started, 3% across the season"
-238,Grealish,MCI,MID,6.5,0.3,1,BOU,H,3,0.613,0.142,0.65,0.499,0.325,0.202,0.542,,,"0% of last 10 GWs started, 47% across the season; 75% chance of playing"
-238,Grealish,MCI,MID,6.5,0.3,2,CRY,A,3,0.602,0.142,0.65,0.499,0.253,0.202,0.542,,,"0% of last 10 GWs started, 47% across the season; 75% chance of playing"
-238,Grealish,MCI,MID,6.5,0.3,3,COV,H,2,0.625,0.142,0.65,0.499,0.407,0.202,0.542,,,"0% of last 10 GWs started, 47% across the season; 75% chance of playing"
-238,Grealish,MCI,MID,6.5,0.3,4,MUN,A,4,0.594,0.142,0.65,0.499,0.192,0.202,0.542,,,"0% of last 10 GWs started, 47% across the season; 75% chance of playing"
-238,Grealish,MCI,MID,6.5,0.3,5,SUN,H,2,0.625,0.142,0.65,0.499,0.407,0.202,0.542,,,"0% of last 10 GWs started, 47% across the season; 75% chance of playing"
+238,Grealish,MCI,MID,6.5,0.2,1,BOU,H,3,0.613,0.142,0.65,0.499,0.325,0.202,0.542,,,"0% of last 10 GWs started, 47% across the season; 75% chance of playing"
+238,Grealish,MCI,MID,6.5,0.2,2,CRY,A,3,0.602,0.142,0.65,0.499,0.253,0.202,0.542,,,"0% of last 10 GWs started, 47% across the season; 75% chance of playing"
+238,Grealish,MCI,MID,6.5,0.2,3,COV,H,2,0.625,0.142,0.65,0.499,0.407,0.202,0.542,,,"0% of last 10 GWs started, 47% across the season; 75% chance of playing"
+238,Grealish,MCI,MID,6.5,0.2,4,MUN,A,4,0.594,0.142,0.65,0.499,0.192,0.202,0.542,,,"0% of last 10 GWs started, 47% across the season; 75% chance of playing"
+238,Grealish,MCI,MID,6.5,0.2,5,SUN,H,2,0.625,0.142,0.65,0.499,0.407,0.202,0.542,,,"0% of last 10 GWs started, 47% across the season; 75% chance of playing"
 384,Donnarumma,MCI,GKP,5.5,11.1,1,BOU,H,3,3.42,0.913,0.001,0.01,1.299,0.0,0.166,,,"88% of last 10 GWs started, 97% across the season"
 384,Donnarumma,MCI,GKP,5.5,11.1,2,CRY,A,3,3.137,0.913,0.001,0.01,1.011,0.0,0.166,,,"88% of last 10 GWs started, 97% across the season"
 384,Donnarumma,MCI,GKP,5.5,11.1,3,COV,H,2,3.743,0.913,0.001,0.01,1.626,0.0,0.166,,,"88% of last 10 GWs started, 97% across the season"
@@ -2024,11 +2024,11 @@ player_id,web_name,team,position,price,selected_by,event,opponent,home,difficult
 399,Cherki,MCI,MID,7.5,9.6,3,COV,H,2,2.594,0.489,0.978,1.008,0.407,0.15,0.644,,,"50% of last 10 GWs started, 47% across the season"
 399,Cherki,MCI,MID,7.5,9.6,4,MUN,A,4,2.486,0.489,0.978,1.008,0.192,0.15,0.644,,,"50% of last 10 GWs started, 47% across the season"
 399,Cherki,MCI,MID,7.5,9.6,5,SUN,H,2,2.594,0.489,0.978,1.008,0.407,0.15,0.644,,,"50% of last 10 GWs started, 47% across the season"
-400,Doku,MCI,MID,7.5,6.4,1,BOU,H,3,2.259,0.489,0.749,0.715,0.325,0.119,0.611,,,"50% of last 10 GWs started, 47% across the season"
-400,Doku,MCI,MID,7.5,6.4,2,CRY,A,3,2.224,0.489,0.749,0.715,0.253,0.119,0.611,,,"50% of last 10 GWs started, 47% across the season"
-400,Doku,MCI,MID,7.5,6.4,3,COV,H,2,2.3,0.489,0.749,0.715,0.407,0.119,0.611,,,"50% of last 10 GWs started, 47% across the season"
-400,Doku,MCI,MID,7.5,6.4,4,MUN,A,4,2.193,0.489,0.749,0.715,0.192,0.119,0.611,,,"50% of last 10 GWs started, 47% across the season"
-400,Doku,MCI,MID,7.5,6.4,5,SUN,H,2,2.3,0.489,0.749,0.715,0.407,0.119,0.611,,,"50% of last 10 GWs started, 47% across the season"
+400,Doku,MCI,MID,7.5,6.5,1,BOU,H,3,2.259,0.489,0.749,0.715,0.325,0.119,0.611,,,"50% of last 10 GWs started, 47% across the season"
+400,Doku,MCI,MID,7.5,6.5,2,CRY,A,3,2.224,0.489,0.749,0.715,0.253,0.119,0.611,,,"50% of last 10 GWs started, 47% across the season"
+400,Doku,MCI,MID,7.5,6.5,3,COV,H,2,2.3,0.489,0.749,0.715,0.407,0.119,0.611,,,"50% of last 10 GWs started, 47% across the season"
+400,Doku,MCI,MID,7.5,6.5,4,MUN,A,4,2.193,0.489,0.749,0.715,0.192,0.119,0.611,,,"50% of last 10 GWs started, 47% across the season"
+400,Doku,MCI,MID,7.5,6.5,5,SUN,H,2,2.3,0.489,0.749,0.715,0.407,0.119,0.611,,,"50% of last 10 GWs started, 47% across the season"
 401,Marmoush,MCI,FWD,7.0,0.6,1,BOU,H,3,1.128,0.239,1.661,0.224,0.0,0.006,0.649,,,"25% of last 10 GWs started, 22% across the season"
 401,Marmoush,MCI,FWD,7.0,0.6,2,CRY,A,3,1.128,0.239,1.661,0.224,0.0,0.006,0.649,,,"25% of last 10 GWs started, 22% across the season"
 401,Marmoush,MCI,FWD,7.0,0.6,3,COV,H,2,1.128,0.239,1.661,0.224,0.0,0.006,0.649,,,"25% of last 10 GWs started, 22% across the season"
@@ -2104,11 +2104,11 @@ player_id,web_name,team,position,price,selected_by,event,opponent,home,difficult
 325,Darlow,MUN,GKP,4.5,0.1,3,EVE,A,3,2.129,0.62,0.001,0.007,1.011,0.0,0.166,yes,,"100% of last 10 GWs started, 57% across the season; 75% chance of playing"
 325,Darlow,MUN,GKP,4.5,0.1,4,MCI,H,4,2.147,0.62,0.001,0.007,1.037,0.0,0.166,yes,,"100% of last 10 GWs started, 57% across the season; 75% chance of playing"
 325,Darlow,MUN,GKP,4.5,0.1,5,FUL,A,3,2.129,0.62,0.001,0.007,1.011,0.0,0.166,yes,,"100% of last 10 GWs started, 57% across the season; 75% chance of playing"
-412,Lammens,MUN,GKP,5.0,20.2,1,HUL,A,2,3.796,0.966,0.001,0.002,1.331,0.0,0.313,,,"100% of last 10 GWs started, 91% across the season"
-412,Lammens,MUN,GKP,5.0,20.2,2,IPS,H,2,4.103,0.966,0.001,0.002,1.626,0.0,0.313,,,"100% of last 10 GWs started, 91% across the season"
-412,Lammens,MUN,GKP,5.0,20.2,3,EVE,A,3,3.463,0.966,0.001,0.002,1.011,0.0,0.313,,,"100% of last 10 GWs started, 91% across the season"
-412,Lammens,MUN,GKP,5.0,20.2,4,MCI,H,4,3.49,0.966,0.001,0.002,1.037,0.0,0.313,,,"100% of last 10 GWs started, 91% across the season"
-412,Lammens,MUN,GKP,5.0,20.2,5,FUL,A,3,3.463,0.966,0.001,0.002,1.011,0.0,0.313,,,"100% of last 10 GWs started, 91% across the season"
+412,Lammens,MUN,GKP,5.0,20.3,1,HUL,A,2,3.796,0.966,0.001,0.002,1.331,0.0,0.313,,,"100% of last 10 GWs started, 91% across the season"
+412,Lammens,MUN,GKP,5.0,20.3,2,IPS,H,2,4.103,0.966,0.001,0.002,1.626,0.0,0.313,,,"100% of last 10 GWs started, 91% across the season"
+412,Lammens,MUN,GKP,5.0,20.3,3,EVE,A,3,3.463,0.966,0.001,0.002,1.011,0.0,0.313,,,"100% of last 10 GWs started, 91% across the season"
+412,Lammens,MUN,GKP,5.0,20.3,4,MCI,H,4,3.49,0.966,0.001,0.002,1.037,0.0,0.313,,,"100% of last 10 GWs started, 91% across the season"
+412,Lammens,MUN,GKP,5.0,20.3,5,FUL,A,3,3.463,0.966,0.001,0.002,1.011,0.0,0.313,,,"100% of last 10 GWs started, 91% across the season"
 413,Bayindir,MUN,GKP,4.5,0.2,1,HUL,A,2,0.238,0.063,0.002,0.013,1.331,0.0,0.146,,,"0% of last 10 GWs started, 16% across the season"
 413,Bayindir,MUN,GKP,4.5,0.2,2,IPS,H,2,0.258,0.063,0.002,0.013,1.626,0.0,0.146,,,"0% of last 10 GWs started, 16% across the season"
 413,Bayindir,MUN,GKP,4.5,0.2,3,EVE,A,3,0.216,0.063,0.002,0.013,1.011,0.0,0.146,,,"0% of last 10 GWs started, 16% across the season"
@@ -2159,11 +2159,11 @@ player_id,web_name,team,position,price,selected_by,event,opponent,home,difficult
 422,Mazraoui,MUN,DEF,4.5,0.8,3,EVE,A,3,1.627,0.416,0.241,0.139,1.011,0.625,0.4,,,"50% of last 10 GWs started, 29% across the season"
 422,Mazraoui,MUN,DEF,4.5,0.8,4,MCI,H,4,1.636,0.416,0.241,0.139,1.037,0.625,0.4,,,"50% of last 10 GWs started, 29% across the season"
 422,Mazraoui,MUN,DEF,4.5,0.8,5,FUL,A,3,1.627,0.416,0.241,0.139,1.011,0.625,0.4,,,"50% of last 10 GWs started, 29% across the season"
-423,Shaw,MUN,DEF,4.5,24.1,1,HUL,A,2,3.608,1.0,0.181,0.169,1.331,0.268,0.124,,,"100% of last 10 GWs started, 100% across the season"
-423,Shaw,MUN,DEF,4.5,24.1,2,IPS,H,2,3.869,1.0,0.181,0.169,1.626,0.268,0.124,,,"100% of last 10 GWs started, 100% across the season"
-423,Shaw,MUN,DEF,4.5,24.1,3,EVE,A,3,3.324,1.0,0.181,0.169,1.011,0.268,0.124,,,"100% of last 10 GWs started, 100% across the season"
-423,Shaw,MUN,DEF,4.5,24.1,4,MCI,H,4,3.347,1.0,0.181,0.169,1.037,0.268,0.124,,,"100% of last 10 GWs started, 100% across the season"
-423,Shaw,MUN,DEF,4.5,24.1,5,FUL,A,3,3.324,1.0,0.181,0.169,1.011,0.268,0.124,,,"100% of last 10 GWs started, 100% across the season"
+423,Shaw,MUN,DEF,4.5,24.2,1,HUL,A,2,3.608,1.0,0.181,0.169,1.331,0.268,0.124,,,"100% of last 10 GWs started, 100% across the season"
+423,Shaw,MUN,DEF,4.5,24.2,2,IPS,H,2,3.869,1.0,0.181,0.169,1.626,0.268,0.124,,,"100% of last 10 GWs started, 100% across the season"
+423,Shaw,MUN,DEF,4.5,24.2,3,EVE,A,3,3.324,1.0,0.181,0.169,1.011,0.268,0.124,,,"100% of last 10 GWs started, 100% across the season"
+423,Shaw,MUN,DEF,4.5,24.2,4,MCI,H,4,3.347,1.0,0.181,0.169,1.037,0.268,0.124,,,"100% of last 10 GWs started, 100% across the season"
+423,Shaw,MUN,DEF,4.5,24.2,5,FUL,A,3,3.324,1.0,0.181,0.169,1.011,0.268,0.124,,,"100% of last 10 GWs started, 100% across the season"
 424,Amass,MUN,DEF,4.0,0.2,1,HUL,A,2,0.0,0.0,0.374,0.18,1.331,0.522,0.252,,,"0% of last 10 GWs started, 0% across the season"
 424,Amass,MUN,DEF,4.0,0.2,2,IPS,H,2,0.0,0.0,0.374,0.18,1.626,0.522,0.252,,,"0% of last 10 GWs started, 0% across the season"
 424,Amass,MUN,DEF,4.0,0.2,3,EVE,A,3,0.0,0.0,0.374,0.18,1.011,0.522,0.252,,,"0% of last 10 GWs started, 0% across the season"
@@ -2444,11 +2444,11 @@ player_id,web_name,team,position,price,selected_by,event,opponent,home,difficult
 479,Bindon,NFO,DEF,4.0,0.2,3,TOT,H,3,1.434,0.35,0.374,0.18,1.299,0.522,0.252,,,no Premier League record; inferred from £4.0m price
 479,Bindon,NFO,DEF,4.0,0.2,4,AVL,A,4,1.27,0.35,0.374,0.18,0.768,0.522,0.252,,,no Premier League record; inferred from £4.0m price
 479,Bindon,NFO,DEF,4.0,0.2,5,COV,H,2,1.536,0.35,0.374,0.18,1.626,0.522,0.252,,,no Premier League record; inferred from £4.0m price
-480,Gibbs-White,NFO,MID,8.0,12.2,1,LEE,H,2,3.984,0.848,1.378,0.289,0.407,0.039,0.479,,,"80% of last 10 GWs started, 92% across the season"
-480,Gibbs-White,NFO,MID,8.0,12.2,2,LIV,A,4,3.798,0.848,1.378,0.289,0.192,0.039,0.479,,,"80% of last 10 GWs started, 92% across the season"
-480,Gibbs-White,NFO,MID,8.0,12.2,3,TOT,H,3,3.913,0.848,1.378,0.289,0.325,0.039,0.479,,,"80% of last 10 GWs started, 92% across the season"
-480,Gibbs-White,NFO,MID,8.0,12.2,4,AVL,A,4,3.798,0.848,1.378,0.289,0.192,0.039,0.479,,,"80% of last 10 GWs started, 92% across the season"
-480,Gibbs-White,NFO,MID,8.0,12.2,5,COV,H,2,3.984,0.848,1.378,0.289,0.407,0.039,0.479,,,"80% of last 10 GWs started, 92% across the season"
+480,Gibbs-White,NFO,MID,8.0,12.1,1,LEE,H,2,3.984,0.848,1.378,0.289,0.407,0.039,0.479,,,"80% of last 10 GWs started, 92% across the season"
+480,Gibbs-White,NFO,MID,8.0,12.1,2,LIV,A,4,3.798,0.848,1.378,0.289,0.192,0.039,0.479,,,"80% of last 10 GWs started, 92% across the season"
+480,Gibbs-White,NFO,MID,8.0,12.1,3,TOT,H,3,3.913,0.848,1.378,0.289,0.325,0.039,0.479,,,"80% of last 10 GWs started, 92% across the season"
+480,Gibbs-White,NFO,MID,8.0,12.1,4,AVL,A,4,3.798,0.848,1.378,0.289,0.192,0.039,0.479,,,"80% of last 10 GWs started, 92% across the season"
+480,Gibbs-White,NFO,MID,8.0,12.1,5,COV,H,2,3.984,0.848,1.378,0.289,0.407,0.039,0.479,,,"80% of last 10 GWs started, 92% across the season"
 482,Hudson-Odoi,NFO,MID,6.0,0.0,1,LEE,H,2,1.225,0.301,0.716,0.428,0.407,0.058,0.375,,,"30% of last 10 GWs started, 55% across the season; 75% chance of playing"
 482,Hudson-Odoi,NFO,MID,6.0,0.0,2,LIV,A,4,1.159,0.301,0.716,0.428,0.192,0.058,0.375,,,"30% of last 10 GWs started, 55% across the season; 75% chance of playing"
 482,Hudson-Odoi,NFO,MID,6.0,0.0,3,TOT,H,3,1.2,0.301,0.716,0.428,0.325,0.058,0.375,,,"30% of last 10 GWs started, 55% across the season; 75% chance of playing"
