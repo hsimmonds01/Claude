@@ -1,14 +1,14 @@
 {
-  "generated_at": "2026-08-02T13:47:50.525350+00:00",
+  "generated_at": "2026-08-02T16:10:03.060404+00:00",
   "model": "gemini-flash-latest",
-  "headlines_considered": 43,
+  "headlines_considered": 44,
   "flags": [
     {
       "player_id": "368",
       "player": "Szoboszlai",
       "team": "LIV",
-      "concern": "Pre-season reporting indicates Szoboszlai is playing in a deeper midfield role.",
-      "severity": "medium",
+      "concern": "Pre-season reporting indicates Szoboszlai is being deployed in a deeper midfield role.",
+      "severity": "low",
       "affects": "role",
       "source": "https://www.fantasyfootballscout.co.uk/2026/07/31/fpl-pre-season-tavernier-impresses-muharemovic-class-szoboszlai-deeper"
     }
