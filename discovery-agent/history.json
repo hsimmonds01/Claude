@@ -707,6 +707,39 @@
           "link_status": "search"
         }
       ]
+    },
+    {
+      "date": "2026-08-02",
+      "model": "gemini-2.5-flash (legacy key, live search)",
+      "items": [
+        {
+          "title": "Coca-Cola x New Era x Kosuke Kawamura Streetwear Capsule",
+          "category": "drop",
+          "summary": "A 28-piece limited-edition streetwear collaboration featuring iconic Coca-Cola visuals, New Era cap silhouettes, and artist Kosuke Kawamura's shredder art technique. This is a perfect catch for fans of unique streetwear and caps, launching this week.",
+          "url": "https://www.google.com/search?q=Coca-Cola+x+New+Era+x+Kosuke+Kawamura+Streetwear+Capsule",
+          "date_info": "Launches August 6, 2026, via New Era",
+          "urgency": "this-week",
+          "link_status": "search"
+        },
+        {
+          "title": "Le Labo SHIU 25 Beijing City Exclusive Scent",
+          "category": "drop",
+          "summary": "Le Labo has unveiled 'SHIU 25', a new city-exclusive fragrance inspired by Beijing's sacred courtyards. Samples and discovery sets became available globally yesterday, with full-sized bottles launching next month for a limited time.",
+          "url": "https://www.google.com/search?q=Le+Labo+SHIU+25+Beijing+City+Exclusive+Scent",
+          "date_info": "Samples available now (from August 1, 2026); full-size bottles available September 1-30, 2026",
+          "urgency": "heads-up",
+          "link_status": "search"
+        },
+        {
+          "title": "The STEKA Octagonal Aluminum Pan",
+          "category": "product",
+          "summary": "Discover the new STEKA Octagonal Aluminum Pan, a beautifully designed and durable kitchen essential built for a lifetime of use. This clever gadget fits the 'how did I not know this existed' category for those appreciating quality and aesthetic in everyday objects.",
+          "url": "https://hypebeast.com/2026/8/addi-steka-octagonal-aluminum-saute-pan-mozambique-release-info",
+          "date_info": "",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        }
+      ]
     }
   ]
 }
