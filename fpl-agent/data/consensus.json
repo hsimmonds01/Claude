@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-03T10:03:41.837835+00:00",
+  "generated_at": "2026-08-03T15:11:38.006248+00:00",
   "drafts_compared": 3,
   "sources": [
     "fpl__raptor (Instagram)",
@@ -72,7 +72,7 @@
         "fpl__raptor (Instagram)",
         "Lazy FPL — 'The Professor'"
       ],
-      "in_my_squad": true
+      "in_my_squad": false
     },
     {
       "name": "Shaw",
@@ -134,7 +134,7 @@
       "sources": [
         "fpl__raptor (Instagram)"
       ],
-      "in_my_squad": false
+      "in_my_squad": true
     },
     {
       "name": "Dubravka",
@@ -423,7 +423,7 @@
         "fpl__raptor (Instagram)",
         "Lazy FPL — 'The Professor'"
       ],
-      "in_my_squad": true
+      "in_my_squad": false
     },
     {
       "name": "Shaw",
@@ -470,11 +470,22 @@
         "letstalkfpl (Instagram)"
       ],
       "in_my_squad": false
+    },
+    {
+      "name": "Semenyo",
+      "team": "MCI",
+      "picked_by": 2,
+      "of": 3,
+      "sources": [
+        "fpl__raptor (Instagram)",
+        "Lazy FPL — 'The Professor'"
+      ],
+      "in_my_squad": false
     }
   ],
   "my_players_no_draft_picked": [
+    "E.Le Fée",
     "Mitchell",
-    "Thomas",
-    "Wilson"
+    "Thomas"
   ]
 }
