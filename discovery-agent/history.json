@@ -740,6 +740,75 @@
           "link_status": "verified"
         }
       ]
+    },
+    {
+      "date": "2026-08-03",
+      "model": "gemini-2.5-flash (legacy key, live search)",
+      "items": [
+        {
+          "title": "Digital Camouflage: Wearable Tech to Evade AI Surveillance",
+          "category": "product",
+          "summary": "Designer Simon Weckert has created 'Digital Camouflage' garments with a unique pattern designed to trick AI systems and make the wearer 'invisible' to computer vision surveillance. This is genuinely clever tech that taps into the 'how did I not know this existed' category, and it's made from recycled polyester.",
+          "url": "https://clevelandtrack.com/article/unveiling-digital-camouflage-how-fashion-fights-ai-surveillance",
+          "date_info": "Released August 3, 2026",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "Y’s x Fake As Flowers Kantha Quilt-Infused Collaboration Drops",
+          "category": "drop",
+          "summary": "Y's, a brand by Yohji Yamamoto, is launching a limited-edition capsule collection with Fake As Flowers (FAF). The collection features six pieces, including coats, jackets, pants, and bags, all infused with traditional Indian Kantha quilt textiles dyed in a unique 'Japanese black.'",
+          "url": "https://theshopyohjiyamamoto.jp/shop/t/t3316/",
+          "date_info": "Releases Friday, August 7, 2026",
+          "urgency": "this-week",
+          "link_status": "verified"
+        },
+        {
+          "title": "Päivi Raivio's 'Basic Forms' Interactive Playground at Barbican",
+          "category": "event",
+          "summary": "Experience 'Basic Forms (of Urban Life),' an interactive art and design installation by Päivi Raivio at the Barbican Centre. This movable urban playground, made of geometric plywood pieces, invites participation and highlights the versatility of public spaces.",
+          "url": "https://fininst.uk/programme/events/basic-forms-of-urban-life-brings-finnish-design-values-and-play-culture-to-london-s-barbican",
+          "date_info": "August 14-16, 2026",
+          "urgency": "this-week",
+          "link_status": "verified"
+        },
+        {
+          "title": "Time Out Crowns Umbrella Workshop London's Top Cocktail Bar",
+          "category": "food",
+          "summary": "Shoreditch's intimate 12-seater Umbrella Workshop has been named London's best cocktail bar by Time Out. Tucked down a side alley, it serves as an experimental test kitchen for unique and classic cocktails, with bottles also available to purchase.",
+          "url": "https://www.timeout.com/london/news/best-cocktail-bar-2026-umbrella-workshop-080226",
+          "date_info": "Ongoing",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "Designboom Shop Drops Limited Edition Watches & Architectural Jewelry",
+          "category": "drop",
+          "summary": "The Designboom shop is releasing a limited selection of watches and architectural jewelry. This drop aligns with current trends in watchmaking towards smaller, more personal designs and a surge in sculptural and architectural statement jewelry.",
+          "url": "https://www.designboom.com/design/designboom-shop-drop-august-2026-limited-release-watches-architectural-jewelry/",
+          "date_info": "August 2026",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "Carhartt WIP's Texture-Focused FW26 Preview Collection Now Available",
+          "category": "drop",
+          "summary": "Carhartt WIP has dropped its Fall/Winter 2026 Preview Collection, showcasing new fabrics, washes like the 'destroy wash,' and prints. This early release sets the tone for the upcoming season with an emphasis on tactile textures and reimagined workwear silhouettes.",
+          "url": "https://us.carhartt-wip.com/en-us/lookbook/fall-winter-2026-pre-men",
+          "date_info": "Available now",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "Unopiù Unveils Igea Collection of Iron Outdoor Furniture",
+          "category": "product",
+          "summary": "The new Igea collection from Unopiù, designed by Matteo Thun and Benedetto Fasciana, brings elegant ironwork back to modern outdoor settings. Featuring sofas, armchairs, and tables, these pieces combine essential design with durable, graphite-painted iron for beautiful and functional patio living.",
+          "url": "https://www.google.com/search?q=Unopi%C3%B9+Unveils+Igea+Collection+of+Iron+Outdoor+Furniture",
+          "date_info": "Released 2026",
+          "urgency": "heads-up",
+          "link_status": "search"
+        }
+      ]
     }
   ]
 }
