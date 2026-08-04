@@ -1,7 +1,7 @@
 # fpl-terms
 
 - Source: https://fantasy.premierleague.com/help/terms
-- Fetched: 2026-08-04T16:59:58.911897+00:00
+- Fetched: 2026-08-04T19:49:29.281443+00:00
 - Why it's here: Terms of use -- worth knowing what the game permits
 
 Captured automatically by `fpl-agent/knowledge.py` as reference material for the FPL agent.
@@ -11,6 +11,200 @@ Captured automatically by `fpl-agent/knowledge.py` as reference material for the
 Terms & Conditions | Fantasy Premier League
 
 element REMOVE WITH NEXT RELEASE! -->
+
+Premier League
+
+Shop
+
+About Us
+
+Football & Community
+
+Events
+
+Media
+
+The Archive
+
+More
+
+Matches
+
+Table
+
+Statistics
+
+Fantasy
+
+Fantasy Premier League
+
+Fantasy Draft
+
+Fantasy Challenge
+
+News
+
+Transfers
+
+Players
+
+Clubs
+
+Video
+
+Watch Live
+
+More
+
+Login
+
+Home
+
+The Archive
+
+Matches
+
+Table
+
+Statistics
+
+Fantasy
+
+Fantasy
+
+Fantasy Premier League
+
+FPL Draft
+
+Fantasy Challenge
+
+Games
+
+Transfers
+
+Injuries
+
+News
+
+News
+
+News
+
+Fantasy News
+
+Video & Audio
+
+Video & Audio
+
+Latest Video
+
+Video Series
+
+FPL Podcast
+
+Watch Live
+
+Watch Live
+
+Broadcasters
+
+USA Bar Finder
+
+Clubs
+
+Players
+
+Awards
+
+Tickets
+
+myPremierLeague
+
+More From the PL
+
+Club Websites
+
+Club Websites
+
+Arsenal
+
+Villa
+
+Bournemouth
+
+Brentford
+
+Brighton
+
+Chelsea
+
+Coventry
+
+Palace
+
+Everton
+
+Fulham
+
+Hull
+
+Ipswich
+
+Leeds
+
+Liverpool
+
+Man City
+
+Man Utd
+
+Newcastle
+
+Forest
+
+Sunderland
+
+Spurs
+
+Premier League
+
+Shop
+
+About Us
+
+Football & Community
+
+Events
+
+Media
+
+Summer Series
+
+Contact Us
+
+FAQs
+
+Terms and Conditions
+
+Privacy Policy
+
+Cookie Policy
+
+Premier League Channels
+
+TikTok
+
+Instagram
+
+YouTube
+
+Whatsapp
+
+Snapchat
+
+X
+
+Facebook
 
 Home
 Prizes
@@ -120,6 +314,76 @@ All such decisions by the Premier League will be final and no correspondence wil
 37. If you are barred or disqualified from being Registered as a Player, you shall not be eligible to participate in the Game under any other identity or team name. Any such decision by the Premier League shall be final.
 38. If any of these Terms are determined to be illegal, invalid, or otherwise unenforceable then the remaining terms shall continue in full force and effect.
 39. These Terms shall be governed by and construed in accordance with the laws of England and Wales and the parties agree to submit to the exclusive jurisdiction of the Courts of England and Wales.
+
+Lead Partner
+
+Official Creativity Partner
+
+Official Bank
+
+Official Soft Drink
+
+Official Beer
+
+Official Cloud & AI Partner
+
+Official Ball
+
+Official Licensee
+
+Official Licensee
+
+Official Licensee
+
+Official Licensee
+
+Premier League
+
+Fantasy
+
+Matches
+
+Table
+
+Statistics
+
+Latest News
+
+Latest Video
+
+Clubs
+
+Players
+
+English
+
+English
+
+Español
+
+ع
+
+Thai
+
+Modern Slavery Statement
+
+Equality, Diversity and Inclusion Standard
+
+Terms of Use
+
+Policies
+
+Cookie Policy
+
+Manage Cookies
+
+Contact Us
+
+Appearance
+
+Back To Top
+
+© PREMIER LEAGUE 2026
 
 The Premier League website uses essential cookies to make our website work. We would also like to use analytics cookies to improve your user experience. Non-essential cookies will be set only if you accept. For more detailed information about the cookies we use, see our Cookie Policy .
 

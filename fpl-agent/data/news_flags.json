@@ -1,13 +1,22 @@
 {
-  "generated_at": "2026-08-04T17:00:38.529705+00:00",
+  "generated_at": "2026-08-04T19:49:56.082190+00:00",
   "model": "gemini-flash-latest",
-  "headlines_considered": 44,
+  "headlines_considered": 45,
   "flags": [
+    {
+      "player_id": "542",
+      "player": "E.Le Fée",
+      "team": "SUN",
+      "concern": "Pre-season reports indicate he has sustained an injury.",
+      "severity": "medium",
+      "affects": "availability",
+      "source": "https://www.fantasyfootballscout.co.uk/2026/08/03/fpl-pre-season-mukiele-le-fee-injuries-mbeumo-pen"
+    },
     {
       "player_id": "427",
       "player": "Mbeumo",
       "team": "MUN",
-      "concern": "Reported to be taking penalties during pre-season fixtures.",
+      "concern": "Pre-season reports indicate he was taking penalty kicks.",
       "severity": "low",
       "affects": "role",
       "source": "https://www.fantasyfootballscout.co.uk/2026/08/03/fpl-pre-season-mukiele-le-fee-injuries-mbeumo-pen"
@@ -16,7 +25,7 @@
       "player_id": "397",
       "player": "Semenyo",
       "team": "MCI",
-      "concern": "Underwent a tactical role change during pre-season.",
+      "concern": "Pre-season updates report a potential tactical role change for him.",
       "severity": "low",
       "affects": "role",
       "source": "https://www.fantasyfootballscout.co.uk/2026/08/03/fpl-pre-season-semenyos-role-change-rohl-goal-fulham-pens"
@@ -25,37 +34,10 @@
       "player_id": "124",
       "player": "Groß",
       "team": "BHA",
-      "concern": "Reported to be taking penalties during pre-season.",
+      "concern": "Pre-season updates report he has been taking penalty kicks.",
       "severity": "low",
       "affects": "role",
       "source": "https://www.fantasyfootballscout.co.uk/2026/08/03/fpl-pre-season-gross-on-pens-mitoma-latest-garnacho-debut"
-    },
-    {
-      "player_id": "88",
-      "player": "Kayode",
-      "team": "BRE",
-      "concern": "Reported as touch and go for Brentford's Premier League fixture due to an injury.",
-      "severity": "medium",
-      "affects": "availability",
-      "source": "https://news.google.com/rss/articles/CBMiywFBVV95cUxQZDhZTVE3T3piNVRscVd5ck1jWFcxQmUtbVd3Tkp4UGtiU05BcENkVmNpcmRycFRmTGFuTVlTXzA5SWpKWnVQd1ZQdUZjcW1oTTdXUTVYS25aNHBpTXF0SnZwNlpLSWJTa3JZbG1XRXlGMS1PYVB1Q2JGYzEzQjl1WXkxSVdNbG5uMXZkOU5fRXBHa2tUellIZndKUjFuZk5aTy1ZeUNnTEhDemRxSlptNHJEOTNjc3JkNGdqemU5VHl"
-    },
-    {
-      "player_id": "503",
-      "player": "Van de Ven",
-      "team": "TOT",
-      "concern": "Subject to an injury assessment ahead of the upcoming match.",
-      "severity": "medium",
-      "affects": "availability",
-      "source": "https://news.google.com/rss/articles/CBMizgFBVV95cUxNWGpCV3c1QjdtVmZqV29JdnE4Mk9rQnNLcFRkeXQ1T3YyemxCS25IcHNfMy1WdEdQb0tmUEMwVWE4NzJjbWViOU5mY3pvS0VZUU5UNUxFQ1E1Q2dKNGpJRE5JRWpzR3Z4YlVGdWhPcTg4WnJRNk1NU3NVeFVNNVAwcFkyNlRBNVpILXpwVnNhZHpubERnOHlxTmhvQnkyamxTTV9OZ1h5UDJkd2xWQUZ5Sk1mTWZNZTlBamxXSmM4b2t"
-    },
-    {
-      "player_id": "155",
-      "player": "Enzo",
-      "team": "CHE",
-      "concern": "Manager Liam Rosenior commented on potential selection obstacles regarding Enzo Fernandez.",
-      "severity": "low",
-      "affects": "minutes",
-      "source": ""
     }
   ]
 }
