@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-03T22:15:08.586921+00:00",
+  "generated_at": "2026-08-04T03:31:08.376152+00:00",
   "model": "gemini-flash-latest",
   "headlines_considered": 44,
   "flags": [
@@ -7,7 +7,7 @@
       "player_id": "542",
       "player": "E.Le Fée",
       "team": "SUN",
-      "concern": "Reported to have suffered an injury during pre-season.",
+      "concern": "E.Le Fée suffered an injury during pre-season.",
       "severity": "medium",
       "affects": "availability",
       "source": "https://www.fantasyfootballscout.co.uk/2026/08/03/fpl-pre-season-mukiele-le-fee-injuries-mbeumo-pen"
@@ -16,7 +16,7 @@
       "player_id": "427",
       "player": "Mbeumo",
       "team": "MUN",
-      "concern": "Reported to be taking penalties during pre-season.",
+      "concern": "Mbeumo was reported to be on penalty duty during pre-season.",
       "severity": "low",
       "affects": "role",
       "source": "https://www.fantasyfootballscout.co.uk/2026/08/03/fpl-pre-season-mukiele-le-fee-injuries-mbeumo-pen"
@@ -25,8 +25,8 @@
       "player_id": "397",
       "player": "Semenyo",
       "team": "MCI",
-      "concern": "Reported to have undergone a role change during pre-season.",
-      "severity": "low",
+      "concern": "Semenyo has undergone a role change during pre-season.",
+      "severity": "medium",
       "affects": "role",
       "source": "https://www.fantasyfootballscout.co.uk/2026/08/03/fpl-pre-season-semenyos-role-change-rohl-goal-fulham-pens"
     },
@@ -34,10 +34,19 @@
       "player_id": "124",
       "player": "Groß",
       "team": "BHA",
-      "concern": "Reported to be taking penalties during pre-season.",
+      "concern": "Groß was reported to be taking penalties during pre-season.",
       "severity": "low",
       "affects": "role",
       "source": "https://www.fantasyfootballscout.co.uk/2026/08/03/fpl-pre-season-gross-on-pens-mitoma-latest-garnacho-debut"
+    },
+    {
+      "player_id": "88",
+      "player": "Kayode",
+      "team": "BRE",
+      "concern": "Kayode is reported as touch and go ahead of Brentford's fixture due to an injury.",
+      "severity": "medium",
+      "affects": "availability",
+      "source": "https://news.google.com/rss/articles/CBMiywFBVV95cUxQZDhZTVE3T3piNVRscVd5ck1jWFcxQmUtbVd3Tkp4UGtiU05BcENkVmNpcmRycFRmTGFuTVlTXzA5SWpKWnVQd1ZQdUZjcW1oTTdXUTVYS25aNHBpTXF0SnZwNlpLSWJTa3JZbG1XRXlGMS1PYVB1Q2JGYzEzQjl1WXkxSVdNbG5uMXZkOU5fRXBHa2tUellIZndKUjFuZk5aTy1ZeUNnTEhDemRxSlptNHJEOTNjc3JkNGdqemU5VHl"
     }
   ]
 }
