@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-04T19:49:56.082190+00:00",
+  "generated_at": "2026-08-04T22:20:36.050113+00:00",
   "model": "gemini-flash-latest",
   "headlines_considered": 45,
   "flags": [
@@ -7,7 +7,7 @@
       "player_id": "542",
       "player": "E.Le Fée",
       "team": "SUN",
-      "concern": "Pre-season reports indicate he has sustained an injury.",
+      "concern": "E.Le Fée has suffered an injury during pre-season.",
       "severity": "medium",
       "affects": "availability",
       "source": "https://www.fantasyfootballscout.co.uk/2026/08/03/fpl-pre-season-mukiele-le-fee-injuries-mbeumo-pen"
@@ -16,7 +16,7 @@
       "player_id": "427",
       "player": "Mbeumo",
       "team": "MUN",
-      "concern": "Pre-season reports indicate he was taking penalty kicks.",
+      "concern": "Mbeumo is taking penalties during pre-season.",
       "severity": "low",
       "affects": "role",
       "source": "https://www.fantasyfootballscout.co.uk/2026/08/03/fpl-pre-season-mukiele-le-fee-injuries-mbeumo-pen"
@@ -25,7 +25,7 @@
       "player_id": "397",
       "player": "Semenyo",
       "team": "MCI",
-      "concern": "Pre-season updates report a potential tactical role change for him.",
+      "concern": "Semenyo is undergoing a role change in pre-season.",
       "severity": "low",
       "affects": "role",
       "source": "https://www.fantasyfootballscout.co.uk/2026/08/03/fpl-pre-season-semenyos-role-change-rohl-goal-fulham-pens"
@@ -34,10 +34,19 @@
       "player_id": "124",
       "player": "Groß",
       "team": "BHA",
-      "concern": "Pre-season updates report he has been taking penalty kicks.",
+      "concern": "Groß is reported to be on penalty duty in pre-season.",
       "severity": "low",
       "affects": "role",
       "source": "https://www.fantasyfootballscout.co.uk/2026/08/03/fpl-pre-season-gross-on-pens-mitoma-latest-garnacho-debut"
+    },
+    {
+      "player_id": "88",
+      "player": "Kayode",
+      "team": "BRE",
+      "concern": "Kayode is touch and go for Brentford's Premier League match against Burnley due to injury.",
+      "severity": "medium",
+      "affects": "availability",
+      "source": "https://news.google.com/rss/articles/CBMiywFBVV95cUxQZDhZTVE3T3piNVRscVd5ck1jWFcxQmUtbVd3Tkp4UGtiU05BcENkVmNpcmRycFRmTGFuTVlTXzA5SWpKWnVQd1ZQdUZjcW1oTTdXUTVYS25aNHBpTXF0SnZwNlpLSWJTa3JZbG1XRXlGMS1PYVB1Q2JGYzEzQjl1WXkxSVdNbG5uMXZkOU5fRXBHa2tUellIZndKUjFuZk5aTy1ZeUNnTEhDemRxSlptNHJEOTNjc3JkNGdqemU5VHl"
     }
   ]
 }
