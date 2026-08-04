@@ -809,6 +809,57 @@
           "link_status": "search"
         }
       ]
+    },
+    {
+      "date": "2026-08-04",
+      "model": "gemini-2.5-flash (legacy key, live search)",
+      "items": [
+        {
+          "title": "Tickets on sale now for 'The Nightmare Realm' immersive horror in London",
+          "category": "event",
+          "summary": "Europe's 'most terrifying horror attraction' is coming to London this Halloween, transforming Greenwich's Avery Hill mansion into the Avery Hill Asylum. Tickets went on sale yesterday, August 3rd, 6pm London time, for this limited 18-night immersive experience, perfect for fans of secret cinema-type events.",
+          "url": "https://secretldn.com/nightmare-realm-enormous-immersive-horror-scream-park/",
+          "date_info": "Tickets went on sale Mon 3 Aug, 6pm London time",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "Spider-Man: Brand New Day swings into IMAX with tickets on sale today",
+          "category": "film",
+          "summary": "Catch 'Spider-Man: Brand New Day' on digital IMAX screens this week. Tickets are going on sale today, Tuesday, August 4th, for this big-screen film event.",
+          "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxNRTNTUHU1R2NPZkw1anZpU0FPUFlRclFwUkd0THk1alQxalZYVnV4cXRCVi1fVk5uUFZ1anp3LXVtTFozNzV1dzAzMUdhQTBBb0lraXRRMHFhVEM0ZVBFLTRVWmZqa0o2dU85dG5uaWFBckRYVGF1SXpVNWNMU0JWdg?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "date_info": "Tickets on sale Tue 4 Aug",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "BAPE and MEDICOM TOY drop 30th Anniversary Collection this Saturday",
+          "category": "drop",
+          "summary": "BAPE and MEDICOM TOY are reviving their 2003 camo for a 30th-anniversary collection, releasing this Saturday. The limited-edition capsule includes BE@R SHARK Full Zip Reversible Hoodies, graphic T-shirts, and BE@RBRICK collectibles, perfect for fans of streetwear and designer toys.",
+          "url": "https://hypebeast.com/2026/8/bape-medicom-toy-revive-2003-camo-30th-anniversary-collection-shark-full-zip-sta-bearbrick-release-info",
+          "date_info": "Releases Sat 8 Aug",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "Augment 360: The foldable electric moped that fits in an elevator",
+          "category": "product",
+          "summary": "The Augment 360 is a genuinely clever and compact electric moped designed for urban mobility. This lightweight, foldable gadget, available for purchase from €1,890, can be easily stored indoors and even brought into an elevator, making city travel significantly more convenient.",
+          "url": "https://www.designboom.com/technology/augment-360-folding-electric-moped-compact-ev/",
+          "date_info": "Available now for purchase/pre-order",
+          "urgency": "this-week",
+          "link_status": "verified"
+        },
+        {
+          "title": "Yinka Ilori's debut book 'Chairman' available for pre-order",
+          "category": "product",
+          "summary": "Renowned British-Nigerian artist and designer Yinka Ilori is releasing his first comprehensive book, 'Chairman', this September. It traces over a decade of his celebrated chair works, exploring how he transforms discarded furniture into powerful vessels of memory and identity, and is available for pre-order now.",
+          "url": "https://www.designboom.com/design/yinka-ilori-book-chair-vessel-memory-identity-oro-editions-chairman/",
+          "date_info": "Pre-order now for Sep release",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        }
+      ]
     }
   ]
 }
