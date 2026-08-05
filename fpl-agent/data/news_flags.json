@@ -1,22 +1,13 @@
 {
-  "generated_at": "2026-08-05T16:49:41.208548+00:00",
+  "generated_at": "2026-08-05T22:18:25.158457+00:00",
   "model": "gemini-flash-latest",
-  "headlines_considered": 46,
+  "headlines_considered": 44,
   "flags": [
-    {
-      "player_id": "569",
-      "player": "García",
-      "team": "FUL",
-      "concern": "García has completed a transfer move to Fulham.",
-      "severity": "low",
-      "affects": "minutes",
-      "source": "https://www.fantasyfootballscout.co.uk/2026/08/05/garcia-to-fulham-does-it-kill-5-5m-muniz-as-a-pick"
-    },
     {
       "player_id": "397",
       "player": "Semenyo",
       "team": "MCI",
-      "concern": "Pre-season reports indicate a role change for Semenyo.",
+      "concern": "Pre-season coverage reports a potential role change for Semenyo.",
       "severity": "low",
       "affects": "role",
       "source": "https://news.google.com/rss/articles/CBMirAFBVV95cUxPV1RXRkI0RkhQZUR6bWxxR1hXYldHYTJxMlBNY3JyU3l6YzdDVTBibThNNVBBeFpNeERhcDZ3LThsWFM2dFhQZ1FHLTRtMDJfNWxIQkJNWnRhTkpoUERjOHBScnl5RDd6SDhMdk5iRjRpRDN0TkJ3aF9INzZFNXU3UzhrTW9ZZlFHSExOLXVxbV9hb1BkVTlGM3FybXplMVIwTzh1LVJKV3VZVi1N?oc=5"
@@ -25,18 +16,9 @@
       "player_id": "88",
       "player": "Kayode",
       "team": "BRE",
-      "concern": "Michael Kayode is touch and go for Brentford's upcoming match due to an injury update.",
+      "concern": "Michael Kayode is a touch-and-go injury concern ahead of Brentford's match against Burnley.",
       "severity": "medium",
       "affects": "availability",
-      "source": ""
-    },
-    {
-      "player_id": "155",
-      "player": "Enzo",
-      "team": "CHE",
-      "concern": "Manager Liam Rosenior publicly addressed obstacles concerning Enzo Fernandez.",
-      "severity": "medium",
-      "affects": "minutes",
       "source": ""
     }
   ]
