@@ -1,61 +1,25 @@
 {
-  "generated_at": "2026-08-05T03:26:10.729491+00:00",
+  "generated_at": "2026-08-05T08:49:22.065255+00:00",
   "model": "gemini-flash-latest",
-  "headlines_considered": 45,
+  "headlines_considered": 47,
   "flags": [
     {
       "player_id": "542",
       "player": "E.Le Fée",
       "team": "SUN",
-      "concern": "Enzo Le Fée has suffered an injury during pre-season.",
+      "concern": "Reported to have suffered an injury during pre-season.",
       "severity": "medium",
       "affects": "availability",
-      "source": "https://www.fantasyfootballscout.co.uk/2026/08/03/fpl-pre-season-mukiele-le-fee-injuries-mbeumo-pen"
-    },
-    {
-      "player_id": "427",
-      "player": "Mbeumo",
-      "team": "MUN",
-      "concern": "Bryan Mbeumo is reported to be on penalty duty during pre-season.",
-      "severity": "low",
-      "affects": "role",
       "source": "https://www.fantasyfootballscout.co.uk/2026/08/03/fpl-pre-season-mukiele-le-fee-injuries-mbeumo-pen"
     },
     {
       "player_id": "397",
       "player": "Semenyo",
       "team": "MCI",
-      "concern": "Pre-season reports indicate a tactical role change for Antoine Semenyo.",
+      "concern": "Reported to have undergone a role change in pre-season.",
       "severity": "low",
       "affects": "role",
       "source": "https://www.fantasyfootballscout.co.uk/2026/08/03/fpl-pre-season-semenyos-role-change-rohl-goal-fulham-pens"
-    },
-    {
-      "player_id": "88",
-      "player": "Kayode",
-      "team": "BRE",
-      "concern": "Michael Kayode is touch and go with an injury ahead of Brentford's upcoming fixture.",
-      "severity": "medium",
-      "affects": "availability",
-      "source": "https://news.google.com/rss/articles/CBMiywFBVV95cUxQZDhZTVE3T3piNVRscVd5ck1jWFcxQmUtbVd3Tkp4UGtiU05BcENkVmNpcmRycFRmTGFuTVlTXzA5SWpKWnVQd1ZQdUZjcW1oTTdXUTVYS25aNHBpTXF0SnZwNlpLSWJTa3JZbG1XRXlGMS1PYVB1Q2JGYzEzQjl1WXkxSVdNbG5uMXZkOU5fRXBHa2tUellIZndKUjFuZk5aTy1ZeUNnTEhDemRxSlptNHJEOTNjc3JkNGdqemU5VHl"
-    },
-    {
-      "player_id": "503",
-      "player": "Van de Ven",
-      "team": "TOT",
-      "concern": "Subject to injury concerns and availability doubts ahead of Tottenham's next match.",
-      "severity": "medium",
-      "affects": "availability",
-      "source": "https://news.google.com/rss/articles/CBMizgFBVV95cUxNWGpCV3c1QjdtVmZqV29JdnE4Mk9rQnNLcFRkeXQ1T3YyemxCS25IcHNfMy1WdEdQb0tmUEMwVWE4NzJjbWViOU5mY3pvS0VZUU5UNUxFQ1E1Q2dKNGpJRE5JRWpzR3Z4YlVGdWhPcTg4WnJRNk1NU3NVeFVNNVAwcFkyNlRBNVpILXpwVnNhZHpubERnOHlxTmhvQnkyamxTTV9OZ1h5UDJkd2xWQUZ5Sk1mTWZNZTlBamxXSmM4b2t"
-    },
-    {
-      "player_id": "155",
-      "player": "Enzo",
-      "team": "CHE",
-      "concern": "Manager commented on obstacles and potential injury concerns affecting Enzo Fernández.",
-      "severity": "medium",
-      "affects": "availability",
-      "source": ""
     }
   ]
 }
