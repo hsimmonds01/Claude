@@ -860,6 +860,57 @@
           "link_status": "verified"
         }
       ]
+    },
+    {
+      "date": "2026-08-05",
+      "model": "gemini-2.5-flash (legacy key, live search)",
+      "items": [
+        {
+          "title": "Spider-Man: Brand New Day Swings Into IMAX",
+          "category": "film",
+          "summary": "Tickets for the new 'Spider-Man: Brand New Day' film at IMAX go on sale tomorrow. This is a big-screen film event your client will want to catch.",
+          "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE5EcThkVW5sWGZlY3ZCVi1mS2txOTdRNzBHUEZ6dnEzRXRzOU1OV0F6ekMtOV93YmlYMzVLX3J0Ql94N0JhYmQyXzJ2RlNlQWNnR3dtYnNiS2FEOTQ1OHR0b3N30gFnQVVfeXFMTXJkbkh6R0llVVVYSEh6a0Rsc1YxTTltMW1SU0NqSlV0ejVlQ1k4U2s1WERlUzhWLWhJVHlNZDlVQUtuLWR0b1Nmdnd1YjQ2MXg5a09LNk1pbDJJM3pQdDBSVFlmUFZQSQ?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "date_info": "Tickets on sale tomorrow, August 6, 2026",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "Tickets Now on Sale for IMAX film 'The Dog Stars'",
+          "category": "film",
+          "summary": "Tickets are now on sale for 'The Dog Stars' at IMAX. Your client loves big-screen film events and this is a new release they can act on immediately.",
+          "url": "https://www.google.com/search?q=Tickets+Now+on+Sale+for+IMAX+film+%27The+Dog+Stars%27",
+          "date_info": "Tickets on sale now",
+          "urgency": "act-fast",
+          "link_status": "search"
+        },
+        {
+          "title": "AI Smart Glasses for Low-Vision Users",
+          "category": "product",
+          "summary": "These AI-powered smart glasses are a genuinely interesting new tech product, designed to connect perception, memory, and accessibility for low-vision users. This fits the 'clever gadgets' category.",
+          "url": "https://www.designboom.com/readers/ai-smart-glasses-perception-memory-accessibility-low-vision-users-yue-fan-lumo/",
+          "date_info": "Available for pre-order",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "BFI London Film Festival 2026 Closer Announced",
+          "category": "film",
+          "summary": "The BFI London Film Festival 2026 will close with Jesse Eisenberg's 'deliriously funny' new film. Keep an eye out for ticket release dates for this major film festival event.",
+          "url": "https://www.timeout.com/london/news/bfi-london-film-festival-2026-jesse-eisenbergs-deliriously-funny-new-film-is-this-years-closer-080426",
+          "date_info": "Ticket release dates to be announced",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "Denim Tears FW26 Collection Unveiled",
+          "category": "drop",
+          "summary": "Denim Tears has unveiled its Fall/Winter 2026 collection, honoring André Leon Talley. This is a new designer collection drop that aligns with your client's interest in limited-edition streetwear and collaborations.",
+          "url": "https://hypebeast.com/2026/8/denim-tears-fw26-andre-leon-talley-estate-collaboration-collection-release-info",
+          "date_info": "Release date coming soon",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        }
+      ]
     }
   ]
 }
