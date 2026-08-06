@@ -911,6 +911,66 @@
           "link_status": "verified"
         }
       ]
+    },
+    {
+      "date": "2026-08-06",
+      "model": "gemini-2.5-flash (legacy key, live search)",
+      "items": [
+        {
+          "title": "Tickets for Sephora's Inaugural UK Beauty Festival Go On Sale Soon",
+          "category": "event",
+          "summary": "Sephoria Europe is coming to London for the first time on October 17-18, 2026, offering immersive masterclasses and product giveaways. MySephora Gold Members can grab tickets on August 18, with general public sales starting August 20.",
+          "url": "https://www.google.com/search?q=Tickets+for+Sephora%27s+Inaugural+UK+Beauty+Festival+Go+On+Sale+Soon",
+          "date_info": "Gold Member tickets on sale Tue 18 Aug, 9am BST; General tickets on sale Thu 20 Aug, 9am BST",
+          "urgency": "heads-up",
+          "link_status": "search"
+        },
+        {
+          "title": "Legendary Blue Note Jazz Club to Open First London Venue This Autumn",
+          "category": "event",
+          "summary": "The iconic Blue Note Jazz Club will open its first UK location in London's West End on September 23, featuring acts like Robert Glasper and Erykah Badu. Tickets for the opening season go on general sale next week.",
+          "url": "https://www.timeout.com/london/news/blue-note-jazz-club-london-opening-date-080626",
+          "date_info": "General tickets on sale Fri 14 Aug, 10am BST (presales Aug 12-13)",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "FRUIT OF THE LOOM x Keiji Kaneko 'Athletic Formal Suit' is Back",
+          "category": "drop",
+          "summary": "The previously sold-out 100% cotton 'Athletic Formal Suit' from the Fruit of the Loom Japan x Keiji Kaneko collaboration is back, now including a new warmer brown option for Fall/Winter.",
+          "url": "https://hypebeast.com/2026/8/fruit-of-the-loom-athletic-formal-suit-2026-re-release-info",
+          "date_info": "",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "PORTER Unveils New 'Bounce' Series Bags",
+          "category": "drop",
+          "summary": "PORTER's first new bag series in over a year, the 'Bounce' collection, features five pieces constructed with glossy nylon and breathable Cubic Eye contact panels, designed to spring back into shape.",
+          "url": "https://hypebeast.com/2026/8/porter-bounce-bag-release-info",
+          "date_info": "",
+          "urgency": "this-week",
+          "link_status": "verified"
+        },
+        {
+          "title": "Transparent SYITREN RM1 CD Player Now on Kickstarter",
+          "category": "product",
+          "summary": "A visually striking transparent CD player, the SYITREN RM1, is available for pre-order on Kickstarter. It showcases the spinning disc and internal mechanics, turning album playback into kinetic art.",
+          "url": "https://www.designboom.com/technology/transparent-cd-player-syitren-album-artwork-motion-rm1/",
+          "date_info": "Available for pre-order on Kickstarter (shipping Oct 2026)",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "New West African Bar 'Asase' Opening in Shoreditch This Autumn",
+          "category": "food",
+          "summary": "Award-winning bartender Emanuele 'Lele' Mensah is set to open Asase, a new West African-inspired cocktail bar in Shoreditch this autumn, promising unique drinks like an egusi soup-inspired martini.",
+          "url": "https://www.timeout.com/london/news/asase-shoreditch-west-african-bar-080626",
+          "date_info": "Opening autumn 2026",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        }
+      ]
     }
   ]
 }
