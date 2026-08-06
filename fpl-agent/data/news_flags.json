@@ -1,25 +1,43 @@
 {
-  "generated_at": "2026-08-06T03:29:32.284766+00:00",
+  "generated_at": "2026-08-06T11:30:57.425761+00:00",
   "model": "gemini-flash-latest",
-  "headlines_considered": 45,
+  "headlines_considered": 44,
   "flags": [
+    {
+      "player_id": "154",
+      "player": "Palmer",
+      "team": "CHE",
+      "concern": "Pre-season news reports an injury update regarding Cole Palmer.",
+      "severity": "medium",
+      "affects": "availability",
+      "source": "https://www.fantasyfootballscout.co.uk/2026/08/06/fpl-pre-season-palmer-colwill-injury-latest-pedro-in-the-10"
+    },
+    {
+      "player_id": "165",
+      "player": "João Pedro",
+      "team": "CHE",
+      "concern": "Pre-season reports indicate he is being utilized in the number 10 position.",
+      "severity": "low",
+      "affects": "role",
+      "source": "https://www.fantasyfootballscout.co.uk/2026/08/06/fpl-pre-season-palmer-colwill-injury-latest-pedro-in-the-10"
+    },
+    {
+      "player_id": "569",
+      "player": "García",
+      "team": "FUL",
+      "concern": "Has completed a transfer move to Fulham.",
+      "severity": "low",
+      "affects": "minutes",
+      "source": "https://www.fantasyfootballscout.co.uk/2026/08/05/garcia-to-fulham-does-it-kill-5-5m-muniz-as-a-pick"
+    },
     {
       "player_id": "88",
       "player": "Kayode",
       "team": "BRE",
-      "concern": "Is touch and go for Brentford's match against Burnley due to an injury concern.",
+      "concern": "Reported as touch-and-go with an injury ahead of Brentford's match.",
       "severity": "medium",
       "affects": "availability",
       "source": "https://news.google.com/rss/articles/CBMiywFBVV95cUxQZDhZTVE3T3piNVRscVd5ck1jWFcxQmUtbVd3Tkp4UGtiU05BcENkVmNpcmRycFRmTGFuTVlTXzA5SWpKWnVQd1ZQdUZjcW1oTTdXUTVYS25aNHBpTXF0SnZwNlpLSWJTa3JZbG1XRXlGMS1PYVB1Q2JGYzEzQjl1WXkxSVdNbG5uMXZkOU5fRXBHa2tUellIZndKUjFuZk5aTy1ZeUNnTEhDemRxSlptNHJEOTNjc3JkNGdqemU5VHl"
-    },
-    {
-      "player_id": "397",
-      "player": "Semenyo",
-      "team": "MCI",
-      "concern": "Pre-season reporting highlights a role change for the player.",
-      "severity": "low",
-      "affects": "role",
-      "source": "https://news.google.com/rss/articles/CBMirAFBVV95cUxPV1RXRkI0RkhQZUR6bWxxR1hXYldHYTJxMlBNY3JyU3l6YzdDVTBibThNNVBBeFpNeERhcDZ3LThsWFM2dFhQZ1FHLTRtMDJfNWxIQkJNWnRhTkpoUERjOHBScnl5RDd6SDhMdk5iRjRpRDN0TkJ3aF9INzZFNXU3UzhrTW9ZZlFHSExOLXVxbV9hb1BkVTlGM3FybXplMVIwTzh1LVJKV3VZVi1N?oc=5"
     }
   ]
 }
