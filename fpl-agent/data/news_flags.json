@@ -1,31 +1,13 @@
 {
-  "generated_at": "2026-08-07T16:04:29.941830+00:00",
+  "generated_at": "2026-08-07T19:09:46.824413+00:00",
   "model": "gemini-flash-latest",
-  "headlines_considered": 45,
+  "headlines_considered": 43,
   "flags": [
-    {
-      "player_id": "136",
-      "player": "Welbeck",
-      "team": "CHE",
-      "concern": "Welbeck has completed a transfer move to Chelsea ahead of the new season.",
-      "severity": "medium",
-      "affects": "minutes",
-      "source": "https://www.fantasyfootballscout.co.uk/2026/08/07/welbeck-to-chelsea-how-does-it-change-the-fpl-landscape"
-    },
-    {
-      "player_id": "4",
-      "player": "Gabriel",
-      "team": "ARS",
-      "concern": "Substituted during a pre-season fixture, with reports detailing the reasons behind his early withdrawal.",
-      "severity": "low",
-      "affects": "minutes",
-      "source": "https://www.fantasyfootballscout.co.uk/2026/08/06/fpl-pre-season-tzolis-assist-why-gabriel-was-subbed-semenyo-stars"
-    },
     {
       "player_id": "154",
       "player": "Palmer",
       "team": "CHE",
-      "concern": "Subject to a pre-season injury update regarding his fitness and availability.",
+      "concern": "Subject to a pre-season injury assessment alongside teammate Levi Colwill.",
       "severity": "medium",
       "affects": "availability",
       "source": "https://www.fantasyfootballscout.co.uk/2026/08/06/fpl-pre-season-palmer-colwill-injury-latest-pedro-in-the-10"
@@ -34,19 +16,46 @@
       "player_id": "165",
       "player": "João Pedro",
       "team": "CHE",
-      "concern": "Deployed in a central number 10 role during pre-season.",
+      "concern": "Deployed in the No. 10 position during pre-season matches.",
       "severity": "low",
       "affects": "role",
       "source": "https://www.fantasyfootballscout.co.uk/2026/08/06/fpl-pre-season-palmer-colwill-injury-latest-pedro-in-the-10"
     },
     {
+      "player_id": "136",
+      "player": "Welbeck",
+      "team": "CHE",
+      "concern": "Has completed a transfer to Chelsea.",
+      "severity": "low",
+      "affects": "minutes",
+      "source": "https://www.fantasyfootballscout.co.uk/2026/08/07/welbeck-to-chelsea-how-does-it-change-the-fpl-landscape"
+    },
+    {
+      "player_id": "4",
+      "player": "Gabriel",
+      "team": "ARS",
+      "concern": "Was substituted during a pre-season fixture, prompting an explanation of his fitness management.",
+      "severity": "low",
+      "affects": "minutes",
+      "source": "https://www.fantasyfootballscout.co.uk/2026/08/06/fpl-pre-season-tzolis-assist-why-gabriel-was-subbed-semenyo-stars"
+    },
+    {
       "player_id": "569",
       "player": "García",
       "team": "FUL",
-      "concern": "Has completed a transfer move to Fulham.",
+      "concern": "Completed a transfer to Fulham, creating new competition in the forward line.",
       "severity": "low",
       "affects": "minutes",
       "source": "https://www.fantasyfootballscout.co.uk/2026/08/05/garcia-to-fulham-does-it-kill-5-5m-muniz-as-a-pick"
+    },
+    {
+      "player_id": "88",
+      "player": "Kayode",
+      "team": "BRE",
+      "concern": "Is touch and go for Brentford's fixture against Burnley due to an injury concern.",
+      "severity": "medium",
+      "affects": "availability",
+      "source": "https://news.google.com/rss/articles/CBMiywFBVV95cUxQZDhZTVE3T3piNVRscVd5ck1jWFcxQmUtbVd3Tkp4UGtiU05BcENkVmNpcmRycFRmTGFuTVlTXzA5SWpKWnVQd1ZQdUZjcW1oTTdXUTVYS25aNHBpTXF0SnZwNlpLSWJTa3JZbG1XRXlGMS1PYVB1Q2JGYzEzQjl1WXkxSVdNbG5uMXZkOU5fRXBHa2tUellIZndKUjFuZk5aTy1ZeUNnTEhDemRxSlptNHJEOTNjc3JkNGdqemU5VHl"
     }
   ]
 }
