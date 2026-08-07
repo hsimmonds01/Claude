@@ -971,6 +971,66 @@
           "link_status": "verified"
         }
       ]
+    },
+    {
+      "date": "2026-08-07",
+      "model": "gemini-2.5-flash (legacy key, live search)",
+      "items": [
+        {
+          "title": "Blue Note Jazz Club London: Tickets on Sale Next Week for Grand Opening Season",
+          "category": "event",
+          "summary": "The legendary Blue Note Jazz Club is opening its first London venue in Covent Garden on September 23rd, with a star-studded opening season. Tickets go on presale for Blue Note Members on August 12th, followed by a venue presale on August 13th, and general sale on August 14th.",
+          "url": "https://www.google.com/search?q=Blue+Note+Jazz+Club+London%3A+Tickets+on+Sale+Next+Week+for+Grand+Opening+Season",
+          "date_info": "Blue Note Membership presale Aug 12, 10am; Venue presale Aug 13, 10am; General sale Aug 14, 10am BST",
+          "urgency": "act-fast",
+          "link_status": "search"
+        },
+        {
+          "title": "Sephoria Europe UK Beauty Festival Tickets Go On Sale Soon",
+          "category": "event",
+          "summary": "Sephora's immersive beauty festival, Sephoria Europe, is coming to London on October 17-18. MySephora Gold Members can grab tickets on August 18th, with general admission tickets following on August 20th.",
+          "url": "https://www.google.com/search?q=Sephoria+Europe+UK+Beauty+Festival+Tickets+Go+On+Sale+Soon",
+          "date_info": "MySephora Gold Member tickets Aug 18, 9am BST; General admission tickets Aug 20, 9am BST",
+          "urgency": "this-week",
+          "link_status": "search"
+        },
+        {
+          "title": "Jeonbuk Hyundai Motors FC x DARKRUM 'TIME OF PIONEER' Collection Drops Today",
+          "category": "drop",
+          "summary": "For football and streetwear fans, the limited-edition 'TIME OF PIONEER' collection from Jeonbuk Hyundai Motors FC and DARKRUM is released today on Musinsa.",
+          "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTFB5SUlFZDJMamtrMDNWcGZNUzdqMVVEcUQzUjBYZnJRZjFrOFdoUjFBSlkzNV9JTlhPbUVadFQyV1lDeGRNNTZ2WUdMQzc2dzRXWC1oZjBsZw?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "date_info": "Release on August 7th (Fri)",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "Rock The Runway London Tickets On Sale Now",
+          "category": "event",
+          "summary": "Tickets are now available for 'Rock The Runway London', a new event in the capital. Secure your spot for this exciting London experience.",
+          "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNdWoyUWcxWVJ4RkVnb1Z2VnpjRzhzYXdhRGhtSmZOM0R5djhtQjNaUzFXRTd5MGktZlBtQzgzMm9xeU1DdGlIQnFEVG9RVEE4UTNFc0NoU2p1STkxM1h3UFlZeGtndnVkdVFKaVRMam9jUHYxdXhoNkhJd0dFR2oydUhvaGE?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "date_info": "Tickets on sale now",
+          "urgency": "this-week",
+          "link_status": "verified"
+        },
+        {
+          "title": "Tiny Vinyl Player Spins Four-Inch Records",
+          "category": "product",
+          "summary": "Discover this clever new gadget: a miniature turntable designed to play four-inch vinyl records. A perfect blend of nostalgic charm and innovative design.",
+          "url": "https://www.designboom.com/technology/tiny-vinyl-player-turntable-four-inch-records/",
+          "date_info": "",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "Water Glasses Turn Into Colorful Frameless Eyewear",
+          "category": "product",
+          "summary": "Check out these beautifully designed 'water glasses' that transform into colorful frameless eyewear, blurring the lines between functional object and wearable art.",
+          "url": "https://www.designboom.com/design/water-glasses-colorful-frameless-eyewear-wearable-sculpture-xyz/",
+          "date_info": "",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        }
+      ]
     }
   ]
 }
