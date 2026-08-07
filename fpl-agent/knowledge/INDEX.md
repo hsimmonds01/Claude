@@ -1,6 +1,6 @@
 # FPL agent knowledge base
 
-Last built: 2026-08-07T00:11:23.627395+00:00
+Last built: 2026-08-07T05:00:47.236851+00:00
 
 Built by `fpl-agent/knowledge.py`. Official rules pages are stored in full
 under `official/` because the agent must never get scoring or chip rules
