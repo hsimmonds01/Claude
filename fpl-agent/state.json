@@ -17,6 +17,12 @@
       "event": 1,
       "at": "2026-08-04T08:52:07.605805+00:00",
       "subject": "FPL pre-season \u2014 17 days to the GW1 deadline"
+    },
+    {
+      "kind": "preseason",
+      "event": 1,
+      "at": "2026-08-07T21:50:51.181453+00:00",
+      "subject": "FPL pre-season \u2014 13 days to the GW1 deadline"
     }
   ]
 }
