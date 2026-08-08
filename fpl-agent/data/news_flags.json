@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-08-08T04:17:44.115252+00:00",
+  "generated_at": "2026-08-08T07:07:43.737037+00:00",
   "model": "gemini-flash-latest",
-  "headlines_considered": 44,
+  "headlines_considered": 43,
   "flags": [
     {
       "player_id": "154",
       "player": "Palmer",
       "team": "CHE",
-      "concern": "Pre-season updates provide the latest news on an injury issue for Palmer.",
+      "concern": "Pre-season report provides an injury update regarding Palmer's availability.",
       "severity": "medium",
       "affects": "availability",
       "source": "https://www.fantasyfootballscout.co.uk/2026/08/06/fpl-pre-season-palmer-colwill-injury-latest-pedro-in-the-10"
@@ -16,7 +16,7 @@
       "player_id": "165",
       "player": "João Pedro",
       "team": "CHE",
-      "concern": "Pre-season coverage indicates João Pedro has been playing in the '10' role for Chelsea.",
+      "concern": "Reported to be playing in the '10' position during pre-season.",
       "severity": "low",
       "affects": "role",
       "source": "https://www.fantasyfootballscout.co.uk/2026/08/06/fpl-pre-season-palmer-colwill-injury-latest-pedro-in-the-10"
@@ -25,7 +25,7 @@
       "player_id": "136",
       "player": "Welbeck",
       "team": "CHE",
-      "concern": "Welbeck has completed a move to Chelsea, impacting his team context and potential gametime.",
+      "concern": "Has completed a transfer move to Chelsea, changing his team and position in the squad.",
       "severity": "medium",
       "affects": "minutes",
       "source": "https://www.fantasyfootballscout.co.uk/2026/08/07/welbeck-to-chelsea-how-does-it-change-the-fpl-landscape"
@@ -34,17 +34,17 @@
       "player_id": "4",
       "player": "Gabriel",
       "team": "ARS",
-      "concern": "Pre-season reporting addresses the reason Gabriel was subbed during a recent match.",
+      "concern": "Pre-season report details the reasoning behind his early substitution in a pre-season match.",
       "severity": "low",
-      "affects": "minutes",
+      "affects": "availability",
       "source": "https://www.fantasyfootballscout.co.uk/2026/08/06/fpl-pre-season-tzolis-assist-why-gabriel-was-subbed-semenyo-stars"
     },
     {
       "player_id": "569",
       "player": "García",
       "team": "FUL",
-      "concern": "García has joined Fulham and made his pre-season debut.",
-      "severity": "low",
+      "concern": "Completed a move to Fulham, impacting forward competition and potential starting status.",
+      "severity": "medium",
       "affects": "minutes",
       "source": "https://www.fantasyfootballscout.co.uk/2026/08/05/garcia-to-fulham-does-it-kill-5-5m-muniz-as-a-pick"
     }
