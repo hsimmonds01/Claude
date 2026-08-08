@@ -1031,6 +1031,66 @@
           "link_status": "verified"
         }
       ]
+    },
+    {
+      "date": "2026-08-08",
+      "model": "gemini-2.5-flash (legacy key, live search)",
+      "items": [
+        {
+          "title": "KIDILL x UMBRO \"Wizard\" FW26 Track Suit Drops Today",
+          "category": "drop",
+          "summary": "The limited-edition \"Wizard\" Fall/Winter 2026 track jacket and pants from the KIDILL x UMBRO collaboration, featuring over 40 adjusters and tarot-inspired artwork, are available starting today. This is a perfect streetwear drop, not trainers, with immediate actionability.",
+          "url": "https://hypebeast.com/2026/8/kidill-umbro-fall-winter-fw-2026-heaven-wizard-track-pants-jacket-collaboration-collection-release-info",
+          "date_info": "Released Saturday, August 8, 2026",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "EVANGELION:95's First FW26 Drop of Faux-Vintage Tees Now Available",
+          "category": "drop",
+          "summary": "EVANGELION:95 has released its first Fall/Winter 2026 collection of five graphic T-shirts, translating iconic anime moments into faux-vintage 1995 apparel. This limited-edition streetwear drop is available now and is a great catch for fans.",
+          "url": "https://www.google.com/search?q=EVANGELION%3A95%27s+First+FW26+Drop+of+Faux-Vintage+Tees+Now+Available",
+          "date_info": "Released August 7-8, 2026",
+          "urgency": "act-fast",
+          "link_status": "search"
+        },
+        {
+          "title": "Barbican Conservatory Offering Free Plant Cuttings",
+          "category": "event",
+          "summary": "Londoners can get free plant cuttings from the Barbican Conservatory's collection of over 2,000 species ahead of its closure for restoration. Booking for the first plant adoption event opens on Wednesday, August 19, offering a unique and valuable free perk.",
+          "url": "https://www.google.com/search?q=Barbican+Conservatory+Offering+Free+Plant+Cuttings",
+          "date_info": "Booking opens Wednesday, August 19, 2026 (first event same day, further dates Sept 13 & Dec 2)",
+          "urgency": "this-week",
+          "link_status": "search"
+        },
+        {
+          "title": "Bold Tendencies Peckham Rooftop Festival 'Euphoria' with Multi-Story Orchestra Tickets",
+          "category": "event",
+          "summary": "South London's iconic Bold Tendencies rooftop art gallery is hosting its 20th-anniversary culture festival, 'Euphoria,' featuring visual arts, live music, and performances. Tickets are available for upcoming events, including The Multi Story Orchestra's 'Dreamer' on August 13 and 14.",
+          "url": "https://boldtendencies.com/events-tickets/",
+          "date_info": "Upcoming performances August 13 & 14, 2026",
+          "urgency": "this-week",
+          "link_status": "verified"
+        },
+        {
+          "title": "Fallout Pip-Boy 3000 Mk V Overseer's Edition Replica Pre-Orders Live",
+          "category": "product",
+          "summary": "A 1:1 die-cast replica of the Fallout Pip-Boy 3000 Mk V Overseer's Edition, as seen in the TV series, is now available for pre-order. This limited-edition collectible features in-universe animations and an FM radio, shipping in November 2026.",
+          "url": "https://hypebeast.com/2026/8/prime-video-fallout-video-game-tv-series-pip-boy-replica-release-info",
+          "date_info": "Pre-orders live now, ships November 2026",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "Seiko 'Passionately and Obsessively Crafted Watches' Exhibition in London",
+          "category": "event",
+          "summary": "Seiko's Power Design Project exhibition, showcasing experimental concept watches, returns to Japan House London. This free exhibition offers a unique look into innovative watch design and runs from August 27 to September 15.",
+          "url": "https://hypebeast.com/2026/8/seiko-power-design-project-passionately-and-obsessively-crafted-watches-exhibition-london-info",
+          "date_info": "Opens Thursday, August 27, 2026, runs until September 15, 2026",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        }
+      ]
     }
   ]
 }
