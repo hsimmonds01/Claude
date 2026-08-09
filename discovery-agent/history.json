@@ -1091,6 +1091,48 @@
           "link_status": "verified"
         }
       ]
+    },
+    {
+      "date": "2026-08-09",
+      "model": "gemini-2.5-flash (legacy key, live search)",
+      "items": [
+        {
+          "title": "England vs Spain Wembley Tickets General Sale",
+          "category": "Event",
+          "summary": "Tickets for the UEFA Nations League match between England and Spain at Wembley Stadium go on general sale this Thursday. This is a major London football event that is likely to sell out quickly.",
+          "url": "https://www.google.com/search?q=England+vs+Spain+Wembley+Tickets+General+Sale",
+          "date_info": "General sale begins Thursday, August 13, 2026, 12 PM BST",
+          "urgency": "act-fast",
+          "link_status": "search"
+        },
+        {
+          "title": "Yoshida & Co. 90th Anniversary Book",
+          "category": "Drop",
+          "summary": "Celebrating 90 years, Yoshida & Co. (makers of PORTER bags) is releasing a commemorative book bound with the same thread as their bags, using traditional Japanese techniques. This is a beautifully designed, limited-edition object for collectors.",
+          "url": "https://hypebeast.com/2026/8/yoshida-co-90-anniversary-book-release-info",
+          "date_info": "Releases August 15, 2026",
+          "urgency": "this-week",
+          "link_status": "verified"
+        },
+        {
+          "title": "LEGO Harry Potter Ministry of Magic Collectors' Edition",
+          "category": "Product",
+          "summary": "A massive new 3,491-piece LEGO Harry Potter set recreating the Ministry of Magic is being released. It's a highly detailed collector's item, offering early access for LEGO Insiders before its general release.",
+          "url": "https://hypebeast.com/2026/8/lego-harry-potter-the-ministry-of-magic-collectors-edition-76476-release-info",
+          "date_info": "LEGO Insiders early access from August 29, 2026; general release September 1, 2026",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "Colonel Saab Kebab Festival in Trafalgar Square",
+          "category": "Food event",
+          "summary": "Colonel Saab in Trafalgar Square is hosting a month-long luxury Kebab Festival, offering a special menu showcasing elevated Indian kebabs. It's a unique food event running every Monday to Saturday.",
+          "url": "https://www.timeout.com/london/news/colonel-saab-kebab-festival-080826",
+          "date_info": "August 20 to September 19, 2026 (Mon-Sat, 12pm-3pm)",
+          "urgency": "this-week",
+          "link_status": "verified"
+        }
+      ]
     }
   ]
 }
