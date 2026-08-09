@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-09T02:23:41.212738+00:00",
+  "generated_at": "2026-08-09T04:25:30.317349+00:00",
   "model": "gemini-flash-latest",
   "headlines_considered": 45,
   "flags": [
@@ -7,7 +7,7 @@
       "player_id": "154",
       "player": "Palmer",
       "team": "CHE",
-      "concern": "Pre-season reports provide an update regarding an injury concern.",
+      "concern": "Pre-season report provides an injury update regarding his fitness ahead of the new season.",
       "severity": "medium",
       "affects": "availability",
       "source": "https://www.fantasyfootballscout.co.uk/2026/08/06/fpl-pre-season-palmer-colwill-injury-latest-pedro-in-the-10"
@@ -16,7 +16,7 @@
       "player_id": "165",
       "player": "João Pedro",
       "team": "CHE",
-      "concern": "Pre-season reports indicate he is being trialled in the number 10 position.",
+      "concern": "Pre-season reports indicate he is being deployed in the number 10 role for Chelsea.",
       "severity": "low",
       "affects": "role",
       "source": "https://www.fantasyfootballscout.co.uk/2026/08/06/fpl-pre-season-palmer-colwill-injury-latest-pedro-in-the-10"
@@ -25,7 +25,7 @@
       "player_id": "4",
       "player": "Gabriel",
       "team": "ARS",
-      "concern": "Pre-season analysis explains the reason behind his substitution in a recent friendly.",
+      "concern": "Pre-season analysis details the reason behind his substitution in a recent friendly match.",
       "severity": "low",
       "affects": "minutes",
       "source": "https://www.fantasyfootballscout.co.uk/2026/08/06/fpl-pre-season-tzolis-assist-why-gabriel-was-subbed-semenyo-stars"
@@ -34,9 +34,9 @@
       "player_id": "136",
       "player": "Welbeck",
       "team": "CHE",
-      "concern": "Completed a transfer move to Chelsea, changing his team role and lineup competition.",
+      "concern": "Has completed a transfer to Chelsea, altering his team position and competition for attacking minutes.",
       "severity": "medium",
-      "affects": "role",
+      "affects": "minutes",
       "source": "https://www.fantasyfootballscout.co.uk/2026/08/07/welbeck-to-chelsea-how-does-it-change-the-fpl-landscape"
     }
   ]

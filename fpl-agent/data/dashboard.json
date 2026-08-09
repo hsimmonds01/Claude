@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-09T02:23:41.750269+00:00",
+  "generated_at": "2026-08-09T04:25:30.840421+00:00",
   "next_event": 1,
   "next_deadline": "2026-08-21T17:30:00Z",
   "horizon": {
@@ -1444,7 +1444,7 @@
           "team": "MUN",
           "position": "MID",
           "price": 8.0,
-          "owned": 20.0,
+          "owned": 20.1,
           "xp": 20.7,
           "start_prob": 0.81,
           "moved_club": false,
@@ -2005,7 +2005,7 @@
           "team": "MUN",
           "position": "MID",
           "price": 8.0,
-          "owned": 20.0,
+          "owned": 20.1,
           "xp": 20.7,
           "start_prob": 0.81,
           "moved_club": false,
@@ -3145,12 +3145,12 @@
       "team": "MUN",
       "position": "MID",
       "price": 8.0,
-      "owned": 20.0,
+      "owned": 20.1,
       "xp": 20.7,
       "start_prob": 0.81,
       "moved_club": false,
       "minutes_reason": "80% of last 10 GWs started, 82% across the season",
-      "exposure": 4.1
+      "exposure": 4.2
     }
   ],
   "news": [
@@ -3158,7 +3158,7 @@
       "player_id": "165",
       "player": "João Pedro",
       "team": "CHE",
-      "concern": "Pre-season reports indicate he is being trialled in the number 10 position.",
+      "concern": "Pre-season reports indicate he is being deployed in the number 10 role for Chelsea.",
       "severity": "low",
       "affects": "role",
       "source": "https://www.fantasyfootballscout.co.uk/2026/08/06/fpl-pre-season-palmer-colwill-injury-latest-pedro-in-the-10"
