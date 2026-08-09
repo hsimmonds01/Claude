@@ -58,13 +58,15 @@ SECONDARY_STATION_QUERY = "Snowsfields"
 
 # Route-to-the-gym on-demand check: bikes at the pickup station, and empty
 # docks at the drop-off station (falling back to a second drop-off station
-# if the first is full). Looked up by name at runtime, same as above --
-# these station names were not verified against the live API when written
-# (see README "A note on verifying the TfL JSON shape"), so the first real
-# run's output should be checked against what you expect.
+# if the first is full). Looked up by name at runtime, same as above.
+# Confirmed against the live Santander Cycles app on 2026-08-09: real
+# station names are "Bricklayers Arms, Borough", "Empire Square, The
+# Borough", and "Swan Street, The Borough" (not "Swan Square" -- that
+# station doesn't exist, an earlier guess corrected after the first real
+# run couldn't find it).
 GYM_ROUTE_BIKE_QUERY = "Bricklayers Arms, Borough"
 GYM_ROUTE_DOCK_QUERY = "Empire Square"
-GYM_ROUTE_DOCK_BACKUP_QUERY = "Swan Square"
+GYM_ROUTE_DOCK_BACKUP_QUERY = "Swan Street"
 
 # Morning: alert when empty docks drop below this number.
 LOW_DOCKS_THRESHOLD = 3
@@ -227,11 +229,29 @@ def _fetch_bikepoint(station_id: str) -> dict:
 
 
 def _search_bikepoint(name_query: str) -> dict | None:
+    """Look up a BikePoint by name via the TfL Search endpoint.
+
+    Retries once if the match comes back with no live data (empty
+    additionalProperties) -- seen in practice (2026-08-09) for a station
+    confirmed live in the Santander Cycles app at the same moment, so
+    that's a transient TfL API hiccup to retry through, not a real
+    "station closed" signal worth giving up on immediately.
+    """
     url = f"{TFL_BASE_URL}/Search"
-    response = requests.get(url, params={"query": name_query}, timeout=REQUEST_TIMEOUT_SECONDS)
-    response.raise_for_status()
-    results = response.json()
-    return results[0] if results else None
+    data = None
+    for attempt in range(2):
+        response = requests.get(url, params={"query": name_query}, timeout=REQUEST_TIMEOUT_SECONDS)
+        response.raise_for_status()
+        results = response.json()
+        if not results:
+            return None
+        data = results[0]
+        if data.get("additionalProperties"):
+            return data
+        if attempt == 0:
+            print(f"WARNING: '{name_query}' matched but returned no live data, retrying in 3 s...", file=sys.stderr)
+            _time.sleep(3)
+    return data
 
 
 def _props(data: dict) -> dict:
