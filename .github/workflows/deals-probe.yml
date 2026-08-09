@@ -1,0 +1,43 @@
+name: Deals source probe
+
+# Diagnostic only -- run by hand, sends nothing, writes nothing, pushes
+# nothing. It exists because the dev sandbox's proxy answers 403 to CONNECT
+# for every candidate deal source (hotukdeals.com, latestdeals.co.uk,
+# reddit.com), so whether those sources actually respond can only be
+# established from a runner. Read the job log for the answer.
+#
+# No `concurrency: main-git-writer` group here, deliberately: that group
+# exists to serialise workflows that PUSH to main, and this one has no write
+# step at all. Joining it would make it queue behind unrelated jobs for no
+# reason.
+on:
+  workflow_dispatch:
+    inputs:
+      only:
+        description: "Optional filter -- probe only candidates whose name contains this (e.g. 'hukd', 'reddit'). Leave blank for all."
+        type: string
+        required: false
+        default: ""
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        working-directory: deals-agent
+        run: pip install -r requirements.txt
+
+      - name: Probe candidate sources
+        working-directory: deals-agent
+        env:
+          ONLY: ${{ inputs.only }}
+        run: python probe_sources.py "$ONLY"
