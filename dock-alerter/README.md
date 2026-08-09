@@ -138,11 +138,17 @@ via **Actions -> Tooley Street dock check -> Run workflow**, picking a
 - `gym_route` -- a separate anytime check for a different route (not the
   Tooley Street commute): standard bikes available at **Bricklayers Arms,
   Borough**, and empty docks at **Empire Square** -- falling back to
-  **Swan Square** if Empire Square has none. Both destination stations are
-  looked up by name via the TfL Search endpoint (same pattern as the
-  evening backup lookup), not by a hardcoded ID, and the notification
+  **Swan Street** if Empire Square has none, and saying so explicitly
+  ("Empire Square is full -- head to Swan Street instead"). Both
+  destination stations are looked up by name via the TfL Search endpoint
+  (same pattern as the evening backup lookup) and then re-fetched by ID
+  for reliable live data, not by a hardcoded ID, and the notification
   always names the exact station it matched so a wrong match is obvious
-  immediately. Like `status`, it's stateless: no thresholds, no
+  immediately. The message opens with **"Pump time"** if there's
+  comfortable margin on both ends (more than `GYM_ROUTE_GOOD_BIKES_THRESHOLD`
+  bikes and more than `GYM_ROUTE_GOOD_DOCKS_THRESHOLD` docks at whichever
+  drop-off is actually usable), or **"Low availability"** otherwise.
+  Like `status`, it's stateless: no cooldowns, no
   alert/all-clear logic, and readings aren't written to `history.csv` (that
   file and the dashboard are scoped to the Tooley Street commute, so mixing
   in a different route would skew its averages).
