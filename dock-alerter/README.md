@@ -145,8 +145,8 @@ via **Actions -> Tooley Street dock check -> Run workflow**, picking a
   for reliable live data, not by a hardcoded ID, and the notification
   always names the exact station it matched so a wrong match is obvious
   immediately. The message opens with **"Pump time"** if there's
-  comfortable margin on both ends (more than `GYM_ROUTE_GOOD_BIKES_THRESHOLD`
-  bikes and more than `GYM_ROUTE_GOOD_DOCKS_THRESHOLD` docks at whichever
+  comfortable margin on both ends (at least `GYM_ROUTE_GOOD_BIKES_THRESHOLD`
+  bikes and at least `GYM_ROUTE_GOOD_DOCKS_THRESHOLD` docks at whichever
   drop-off is actually usable), or **"Low availability"** otherwise.
   Like `status`, it's stateless: no cooldowns, no
   alert/all-clear logic, and readings aren't written to `history.csv` (that

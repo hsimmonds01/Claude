@@ -68,8 +68,8 @@ GYM_ROUTE_BIKE_QUERY = "Bricklayers Arms, Borough"
 GYM_ROUTE_DOCK_QUERY = "Empire Square"
 GYM_ROUTE_DOCK_BACKUP_QUERY = "Swan Street"
 
-# "Pump time" only if there's comfortable margin on both ends -- more than
-# this many bikes AND more than this many docks at whichever drop-off
+# "Pump time" only if there's comfortable margin on both ends -- at least
+# this many bikes AND at least this many docks at whichever drop-off
 # station is actually usable (Empire Square, or Swan Street if diverting).
 GYM_ROUTE_GOOD_BIKES_THRESHOLD = 2
 GYM_ROUTE_GOOD_DOCKS_THRESHOLD = 3
@@ -667,7 +667,7 @@ def run(mode: str, dry_run: bool) -> None:
         else:
             usable_station, usable_docks = dock_station, docks  # both full (or no backup data)
 
-        good = bikes > GYM_ROUTE_GOOD_BIKES_THRESHOLD and usable_docks > GYM_ROUTE_GOOD_DOCKS_THRESHOLD
+        good = bikes >= GYM_ROUTE_GOOD_BIKES_THRESHOLD and usable_docks >= GYM_ROUTE_GOOD_DOCKS_THRESHOLD
         headline = "Pump time" if good else "Low availability"
 
         bike_word = bike_label[:-1] if bikes == 1 else bike_label  # "1 standard bike" vs "6 standard bikes"
