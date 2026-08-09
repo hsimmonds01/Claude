@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-09T09:51:33.403768+00:00",
+  "generated_at": "2026-08-09T13:10:08.757227+00:00",
   "model": "gemini-flash-latest",
   "headlines_considered": 44,
   "flags": [
@@ -7,19 +7,10 @@
       "player_id": "136",
       "player": "Welbeck",
       "team": "CHE",
-      "concern": "Welbeck has completed a transfer move to Chelsea, changing his club and role ahead of the season.",
+      "concern": "Danny Welbeck has completed a transfer to Chelsea, impacting his role and competition for playing time.",
       "severity": "medium",
-      "affects": "role",
-      "source": "https://www.fantasyfootballscout.co.uk/2026/08/07/welbeck-to-chelsea-how-does-it-change-the-fpl-landscape"
-    },
-    {
-      "player_id": "4",
-      "player": "Gabriel",
-      "team": "ARS",
-      "concern": "Gabriel was substituted during a pre-season friendly, bringing scrutiny to his fitness and pre-season minutes.",
-      "severity": "low",
       "affects": "minutes",
-      "source": "https://www.fantasyfootballscout.co.uk/2026/08/06/fpl-pre-season-tzolis-assist-why-gabriel-was-subbed-semenyo-stars"
+      "source": "https://www.fantasyfootballscout.co.uk/2026/08/07/welbeck-to-chelsea-how-does-it-change-the-fpl-landscape"
     }
   ]
 }
