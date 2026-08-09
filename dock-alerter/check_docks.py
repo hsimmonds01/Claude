@@ -229,29 +229,33 @@ def _fetch_bikepoint(station_id: str) -> dict:
 
 
 def _search_bikepoint(name_query: str) -> dict | None:
-    """Look up a BikePoint by name via the TfL Search endpoint.
+    """Look up a BikePoint by name.
 
-    Retries once if the match comes back with no live data (empty
-    additionalProperties) -- seen in practice (2026-08-09) for a station
-    confirmed live in the Santander Cycles app at the same moment, so
-    that's a transient TfL API hiccup to retry through, not a real
-    "station closed" signal worth giving up on immediately.
+    The TfL Search endpoint's own embedded additionalProperties have been
+    observed (2026-08-09) coming back completely empty for a station
+    confirmed live via the Santander Cycles app and via TfL's direct
+    by-ID endpoint at the same moment -- a retry through Search alone
+    didn't help, so the Search result isn't a reliable source of live
+    data. Search here only resolves the name to a station ID; the actual
+    live counts always come from the same direct by-ID fetch already
+    proven reliable for the main Tooley Street station (which has its
+    own timeout/connection retry built in).
     """
     url = f"{TFL_BASE_URL}/Search"
-    data = None
-    for attempt in range(2):
-        response = requests.get(url, params={"query": name_query}, timeout=REQUEST_TIMEOUT_SECONDS)
-        response.raise_for_status()
-        results = response.json()
-        if not results:
-            return None
-        data = results[0]
-        if data.get("additionalProperties"):
-            return data
-        if attempt == 0:
-            print(f"WARNING: '{name_query}' matched but returned no live data, retrying in 3 s...", file=sys.stderr)
-            _time.sleep(3)
-    return data
+    response = requests.get(url, params={"query": name_query}, timeout=REQUEST_TIMEOUT_SECONDS)
+    response.raise_for_status()
+    results = response.json()
+    if not results:
+        return None
+    match = results[0]
+    station_id = match.get("id")
+    if not station_id:
+        return match
+    try:
+        return _fetch_bikepoint(station_id)
+    except (requests.exceptions.Timeout, requests.exceptions.ConnectionError, requests.exceptions.HTTPError) as exc:
+        print(f"WARNING: direct fetch of '{station_id}' failed ({exc.__class__.__name__}), using Search result instead.", file=sys.stderr)
+        return match
 
 
 def _props(data: dict) -> dict:
