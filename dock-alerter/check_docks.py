@@ -56,6 +56,16 @@ EXPECTED_NAME_FRAGMENT = "Tooley Street"  # sanity check against the API respons
 # any future renumbering.
 SECONDARY_STATION_QUERY = "Snowsfields"
 
+# Route-to-the-gym on-demand check: bikes at the pickup station, and empty
+# docks at the drop-off station (falling back to a second drop-off station
+# if the first is full). Looked up by name at runtime, same as above --
+# these station names were not verified against the live API when written
+# (see README "A note on verifying the TfL JSON shape"), so the first real
+# run's output should be checked against what you expect.
+GYM_ROUTE_BIKE_QUERY = "Bricklayers Arms, Borough"
+GYM_ROUTE_DOCK_QUERY = "Empire Square"
+GYM_ROUTE_DOCK_BACKUP_QUERY = "Swan Square"
+
 # Morning: alert when empty docks drop below this number.
 LOW_DOCKS_THRESHOLD = 3
 # Morning: send "all clear" once empty docks recover to at least this number
@@ -321,6 +331,56 @@ def fetch_secondary_bikes() -> tuple[int, str] | None:
         return None
 
 
+def _search_bikepoint_or_raise(name_query: str) -> dict:
+    data = _search_bikepoint(name_query)
+    if data is None:
+        raise RuntimeError(f"No BikePoint found matching '{name_query}'.")
+    return data
+
+
+def fetch_gym_route() -> tuple[int, str, int, str, str | None, int | None]:
+    """Return (bikes, bike_station_name, docks, dock_station_name,
+    backup_station_name_or_None, backup_docks_or_None) for the gym route:
+    standard bikes available at the pickup station, and empty docks at the
+    drop-off station -- only looking up the backup drop-off station if the
+    first one has none, to avoid an unnecessary extra API call.
+    """
+    bike_data = _search_bikepoint_or_raise(GYM_ROUTE_BIKE_QUERY)
+    bike_props = _props(bike_data)
+    if "NbBikes" not in bike_props:
+        raise RuntimeError(
+            f"NbBikes not found for '{GYM_ROUTE_BIKE_QUERY}' -- raw: {json.dumps(bike_data)[:500]}"
+        )
+    bikes = _count_bikes(bike_props)
+    bike_station_name = bike_data.get("commonName", GYM_ROUTE_BIKE_QUERY)
+
+    dock_data = _search_bikepoint_or_raise(GYM_ROUTE_DOCK_QUERY)
+    dock_props = _props(dock_data)
+    if "NbEmptyDocks" not in dock_props:
+        raise RuntimeError(
+            f"NbEmptyDocks not found for '{GYM_ROUTE_DOCK_QUERY}' -- raw: {json.dumps(dock_data)[:500]}"
+        )
+    docks = int(dock_props["NbEmptyDocks"])
+    dock_station_name = dock_data.get("commonName", GYM_ROUTE_DOCK_QUERY)
+
+    backup_name = None
+    backup_docks = None
+    if docks == 0:
+        try:
+            backup_data = _search_bikepoint(GYM_ROUTE_DOCK_BACKUP_QUERY)
+            if backup_data is None:
+                print(f"WARNING: no BikePoint found matching '{GYM_ROUTE_DOCK_BACKUP_QUERY}'.", file=sys.stderr)
+            else:
+                backup_props = _props(backup_data)
+                if "NbEmptyDocks" in backup_props:
+                    backup_docks = int(backup_props["NbEmptyDocks"])
+                    backup_name = backup_data.get("commonName", GYM_ROUTE_DOCK_BACKUP_QUERY)
+        except requests.RequestException as exc:
+            print(f"WARNING: backup dock station lookup failed: {exc}", file=sys.stderr)
+
+    return bikes, bike_station_name, docks, dock_station_name, backup_name, backup_docks
+
+
 def log_history(mode: str, metric: str, value: int, station_name: str) -> None:
     """Append one row to history.csv -- a running log of every reading, for
     spotting patterns later (e.g. a future dashboard or trend-based alerts).
@@ -556,6 +616,35 @@ def run(mode: str, dry_run: bool) -> None:
             send_notification(title, message, priority="default", tags="bike,mag")
         return
 
+    if mode == "gym_route":
+        bikes, bike_station, docks, dock_station, backup_station, backup_docks = fetch_gym_route()
+        bike_label = "standard bikes" if EXCLUDE_EBIKES else "bikes"
+        print(
+            f"[{mode}] {bike_station}: {bikes} {bike_label} | {dock_station}: {docks} empty docks"
+            + (f" | backup {backup_station}: {backup_docks} empty docks" if backup_station else "")
+        )
+        # Not logged to history.csv -- that file/the dashboard are scoped to
+        # the Tooley Street commute readings; mixing in a different route's
+        # numbers would skew its "typical day" averages.
+
+        title = "Route to the gym - status"
+        message = f"{bike_station}: {bikes} {bike_label} available. "
+        if docks > 0:
+            message += f"{dock_station}: {docks} empty docks available."
+        elif backup_station:
+            message += (
+                f"{dock_station} is full (0 empty docks) -- "
+                f"{backup_station} has {backup_docks} empty docks as a backup."
+            )
+        else:
+            message += f"{dock_station} is full (0 empty docks), and no backup reading available."
+
+        if dry_run:
+            print(f"DRY RUN -- would send: {title} / {message}")
+        else:
+            send_notification(title, message, priority="default", tags="bike,muscle")
+        return
+
     raise ValueError(f"Unknown mode: {mode}")
 
 
@@ -563,7 +652,7 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
         "--force-mode",
-        choices=["auto", "summary", "morning_bikes", "check", "evening_summary", "evening_second_summary", "evening_check", "status"],
+        choices=["auto", "summary", "morning_bikes", "check", "evening_summary", "evening_second_summary", "evening_check", "status", "gym_route"],
         default="auto",
         help="Override the time-based mode detection, e.g. for manual testing.",
     )

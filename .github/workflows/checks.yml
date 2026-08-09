@@ -38,6 +38,7 @@ on:
           - evening_second_summary
           - evening_check
           - status
+          - gym_route
         default: auto
       dry_run:
         description: "Dry run (don't send notification or write state)"

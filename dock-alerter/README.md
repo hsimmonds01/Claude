@@ -135,6 +135,17 @@ via **Actions -> Tooley Street dock check -> Run workflow**, picking a
   of time of day. No thresholds, no alert/all-clear logic, no effect on
   the morning/evening alert state -- just "here's what it looks like right
   now."
+- `gym_route` -- a separate anytime check for a different route (not the
+  Tooley Street commute): standard bikes available at **Bricklayers Arms,
+  Borough**, and empty docks at **Empire Square** -- falling back to
+  **Swan Square** if Empire Square has none. Both destination stations are
+  looked up by name via the TfL Search endpoint (same pattern as the
+  evening backup lookup), not by a hardcoded ID, and the notification
+  always names the exact station it matched so a wrong match is obvious
+  immediately. Like `status`, it's stateless: no thresholds, no
+  alert/all-clear logic, and readings aren't written to `history.csv` (that
+  file and the dashboard are scoped to the Tooley Street commute, so mixing
+  in a different route would skew its averages).
 - `check` / `evening_check` -- the same logic the scheduled morning/evening
   windows use (threshold alerts, cooldowns, all-clears). Still available
   to force manually, but they're tied to morning-docks/evening-bikes
