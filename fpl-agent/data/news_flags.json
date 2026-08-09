@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-09T15:40:42.536415+00:00",
+  "generated_at": "2026-08-09T18:54:44.289848+00:00",
   "model": "gemini-flash-latest",
   "headlines_considered": 43,
   "flags": [
@@ -7,19 +7,10 @@
       "player_id": "136",
       "player": "Welbeck",
       "team": "CHE",
-      "concern": "Danny Welbeck has completed a transfer to Chelsea, which affects his role and competition for minutes.",
+      "concern": "Danny Welbeck has completed a transfer to Chelsea, creating competition and uncertainty around his role and playing time.",
       "severity": "medium",
       "affects": "minutes",
       "source": "https://www.fantasyfootballscout.co.uk/2026/08/07/welbeck-to-chelsea-how-does-it-change-the-fpl-landscape"
-    },
-    {
-      "player_id": "88",
-      "player": "Kayode",
-      "team": "BRE",
-      "concern": "Michael Kayode is touch and go for Brentford's fixture against Burnley due to an injury concern.",
-      "severity": "medium",
-      "affects": "availability",
-      "source": ""
     }
   ]
 }
