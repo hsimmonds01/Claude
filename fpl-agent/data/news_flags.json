@@ -1,16 +1,6 @@
 {
-  "generated_at": "2026-08-09T21:42:34.296463+00:00",
+  "generated_at": "2026-08-10T02:28:07.758169+00:00",
   "model": "gemini-flash-latest",
   "headlines_considered": 43,
-  "flags": [
-    {
-      "player_id": "136",
-      "player": "Welbeck",
-      "team": "CHE",
-      "concern": "Welbeck has transferred to Chelsea, which may affect his role and rotation in attack.",
-      "severity": "medium",
-      "affects": "minutes",
-      "source": "https://www.fantasyfootballscout.co.uk/2026/08/07/welbeck-to-chelsea-how-does-it-change-the-fpl-landscape"
-    }
-  ]
+  "flags": []
 }
