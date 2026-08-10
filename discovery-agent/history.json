@@ -1133,6 +1133,48 @@
           "link_status": "verified"
         }
       ]
+    },
+    {
+      "date": "2026-08-10",
+      "model": "gemini-2.5-flash (legacy key, live search)",
+      "items": [
+        {
+          "title": "New Immersive Arcade Arena Opening in South London",
+          "category": "event",
+          "summary": "Step into a massive new neon arcade on London's South Bank featuring real-life PAC-MAN, electric karting (Chaos Karts), and a brand-new Alien Invasion drone experience. Tickets are on sale now for its September 5 opening, perfect for a unique immersive experience near you.",
+          "url": "https://www.timeout.com/london/news/arcade-arena-london-southbank-games-080926",
+          "date_info": "Opens Saturday 5 September 2026, tickets on sale now",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "The Golden Hinde Transforms into a Free Floating Pub",
+          "category": "food, event",
+          "summary": "London's historic Golden Hinde ship in Southwark is hosting 'Thirsty Thursdays', transforming into a floating pub with free entry and great-value drinks in SE1. No booking is required, just show up and explore the historic galleon while you sip. The next event is on August 20th.",
+          "url": "https://www.timeout.com/london/news/the-golden-hinde-is-being-transformed-into-a-floating-pub-081026",
+          "date_info": "Every Thursday from August 20 to September 24, 5:30 PM - 10:00 PM",
+          "urgency": "this-week",
+          "link_status": "verified"
+        },
+        {
+          "title": "weber 'Girl With a Pearl Earring' T-shirt Drop",
+          "category": "drop",
+          "summary": "Japanese brand weber is releasing a unique, limited-edition T-shirt featuring Johannes Vermeer's 'Girl With a Pearl Earring'. The design is meticulously rendered with an 11-screen silkscreen process on a washed, vintage-style 1990s body, launching tomorrow on their online store.",
+          "url": "https://hypebeast.com/2026/8/johannes-vermeer-girl-with-a-pearl-earring-by-weber-t-shirt-release-info",
+          "date_info": "Release date: Tuesday, August 11, 2026",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "Fear of God Essentials x Dallas Cowboys Training Camp Collection",
+          "category": "drop",
+          "summary": "Jerry Lorenzo's Fear of God Essentials has launched a new Training Camp collection with the Dallas Cowboys. This limited-edition streetwear capsule features premium, oversized hoodies, graphic tees, and headwear, blending classic Cowboys branding with Fear of God's signature aesthetic. Items are available now but are expected to sell out quickly.",
+          "url": "https://hypebeast.com/2026/8/nfl-dallas-cowboys-fear-of-god-essentials-launch-training-camp-collaboration-collection-release-info",
+          "date_info": "Available now",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        }
+      ]
     }
   ]
 }
