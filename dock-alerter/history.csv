@@ -408,3 +408,4 @@ timestamp_utc,mode,metric,value,station
 2026-08-10T16:15:59.858026+00:00,evening_summary,available_bikes,7,"Tooley Street, Bermondsey"
 2026-08-10T16:31:16.265568+00:00,evening_check,available_bikes,7,"Tooley Street, Bermondsey"
 2026-08-10T16:35:45.322033+00:00,evening_check,available_bikes,7,"Tooley Street, Bermondsey"
+2026-08-10T16:40:40.375210+00:00,evening_second_summary,available_bikes,8,"Tooley Street, Bermondsey"
