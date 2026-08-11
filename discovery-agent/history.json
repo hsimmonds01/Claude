@@ -1175,6 +1175,39 @@
           "link_status": "verified"
         }
       ]
+    },
+    {
+      "date": "2026-08-11",
+      "model": "gemini-2.5-flash (legacy key, live search)",
+      "items": [
+        {
+          "title": "Sony to Release Cheaper WH-1000XM4C Noise-Cancelling Headphones",
+          "category": "product",
+          "summary": "Sony is reportedly launching a more affordable version of its popular WH-1000XM4 noise-cancelling headphones, the WH-1000XM4C, in early September for £219.99 in the UK. This new model retains much of the original's acclaimed features and design at a significantly lower price point, making it a clever gadget worth considering.",
+          "url": "https://www.google.com/search?q=Sony+to+Release+Cheaper+WH-1000XM4C+Noise-Cancelling+Headphones",
+          "date_info": "Reported launch date: Early September 2026 (possibly September 7)",
+          "urgency": "heads-up",
+          "link_status": "search"
+        },
+        {
+          "title": "Perseids Meteor Shower to Peak Over London This Week",
+          "category": "event",
+          "summary": "The Perseids, one of the most spectacular meteor showers of the year, will peak over London this week, offering a free and captivating celestial display. This is a perfect low-effort, high-value natural event to experience.",
+          "url": "https://www.timeout.com/london/news/perseids-meteor-shower-august-2026-viewing-guide-081026",
+          "date_info": "Peaking this week, August 2026",
+          "urgency": "this-week",
+          "link_status": "verified"
+        },
+        {
+          "title": "Olaolu Slawn Teases 'Rolex Multiverse' 12 One-of-One Collaborations",
+          "category": "drop",
+          "summary": "London-based artist Olaolu Slawn is teasing a highly exclusive 'Rolex Multiverse' collection featuring 12 unique one-of-one Rolex watches created in collaboration with various cultural figures. These limited-edition designer collaborations are dropping throughout August 2026, making them a significant and highly sought-after cultural event for collectors.",
+          "url": "https://hypebeast.com/2026/8/olaolu-slawn-rolex-multiverse-12-unique-watches-collaboration-teaser-gunna-mario-balotelli-verdy-clint419-ronaldinho",
+          "date_info": "Dropping throughout August 2026",
+          "urgency": "this-week",
+          "link_status": "verified"
+        }
+      ]
     }
   ]
 }
