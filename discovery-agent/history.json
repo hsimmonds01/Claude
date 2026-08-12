@@ -1208,6 +1208,66 @@
           "link_status": "verified"
         }
       ]
+    },
+    {
+      "date": "2026-08-12",
+      "model": "gemini-2.5-flash (legacy key, live search)",
+      "items": [
+        {
+          "title": "Experience London's Deep Partial Solar Eclipse Today",
+          "category": "event",
+          "summary": "Witness the UK's best solar eclipse since 1999 today, August 12, 2026, with up to 96% of the sun covered. The maximum eclipse in London is around 7:12 PM BST, and you can catch it from elevated spots like Primrose Hill, Parliament Hill, or the Royal Observatory Greenwich.",
+          "url": "https://www.google.com/search?q=Experience+London%27s+Deep+Partial+Solar+Eclipse+Today",
+          "date_info": "Today, August 12, 2026, maximum at 7:12 PM BST",
+          "urgency": "act-fast",
+          "link_status": "search"
+        },
+        {
+          "title": "Kith x BMW 15th Anniversary Apparel & Accessories Drop",
+          "category": "drop",
+          "summary": "Kith is celebrating its 15th anniversary with the 'Chapter IV' collaboration with BMW, featuring a new collection of apparel and accessories. Inspired by two restored classic BMWs in a historic Inka Orange, the collection promises a wide range of streetwear and lifestyle items, excluding sneakers.",
+          "url": "https://www.google.com/search?q=Kith+x+BMW+15th+Anniversary+Apparel+%26+Accessories+Drop",
+          "date_info": "Launches globally August 17, 2026, 11 AM EST (4 PM London)",
+          "urgency": "this-week",
+          "link_status": "search"
+        },
+        {
+          "title": "Win a £250+ Green People Summer Hydration Bundle",
+          "category": "other",
+          "summary": "Enter for a chance to win a valuable Summer Hydration Bundle from Green People and Hunter & Gather, worth over £250. It's a low-effort, free-to-enter promotion with genuine perks, including organic sun care and hydration products.",
+          "url": "https://www.google.com/search?q=Win+a+%C2%A3250%2B+Green+People+Summer+Hydration+Bundle",
+          "date_info": "Competition closes August 25, 2026, 23:59",
+          "urgency": "this-week",
+          "link_status": "search"
+        },
+        {
+          "title": "Last Chance: 'Flare-Up' Exhibition at Goldsmiths CCA",
+          "category": "event",
+          "summary": "Catch 'Flare-Up' at Goldsmiths Centre for Contemporary Art in New Cross, a free exhibition closing this week. This is a great, local art event in South East London before it ends.",
+          "url": "https://www.google.com/search?q=Last+Chance%3A+%27Flare-Up%27+Exhibition+at+Goldsmiths+CCA",
+          "date_info": "Closes August 16, 2026",
+          "urgency": "this-week",
+          "link_status": "search"
+        },
+        {
+          "title": "Tracey Emin: A Second Life at Tate Modern Closing Soon",
+          "category": "event",
+          "summary": "Don't miss 'Tracey Emin: A Second Life', a major exhibition at Tate Modern showcasing 40 years of her bold and intimate art. This highly anticipated show is entering its final days.",
+          "url": "https://www.google.com/search?q=Tracey+Emin%3A+A+Second+Life+at+Tate+Modern+Closing+Soon",
+          "date_info": "Closes August 31, 2026",
+          "urgency": "this-week",
+          "link_status": "search"
+        },
+        {
+          "title": "Discover Big John's Biltong Bar, Time Out's Ultimate London Dive Bar",
+          "category": "food",
+          "summary": "Time Out has crowned Big John's Biltong Bar in Deptford as London's ultimate dive bar for 2026. This local gem offers a unique and interesting food and drink experience right in your South East London neighbourhood. [cite: 31 in pre-fetched headlines]",
+          "url": "https://www.timeout.com/london/news/best-dive-bar-2026-big-johns-biltong-081126",
+          "date_info": "",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        }
+      ]
     }
   ]
 }
