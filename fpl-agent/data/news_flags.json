@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-08-12T02:36:41.436284+00:00",
+  "generated_at": "2026-08-12T04:56:36.352991+00:00",
   "model": "gemini-flash-latest",
-  "headlines_considered": 43,
+  "headlines_considered": 42,
   "flags": [
     {
       "player_id": "237",
       "player": "Ndiaye",
       "team": "EVE",
-      "concern": "Reporting indicates doubts over whether Ndiaye will remain Everton's primary penalty taker.",
+      "concern": "Pre-season reports indicate doubts over whether Ndiaye will remain Everton's primary penalty taker.",
       "severity": "medium",
       "affects": "role",
       "source": "https://www.fantasyfootballscout.co.uk/2026/08/10/fpl-pre-season-vuskovic-bow-minteh-injury-ndiaye-pen-doubts"
@@ -16,27 +16,27 @@
       "player_id": "88",
       "player": "Kayode",
       "team": "BRE",
-      "concern": "Kayode is reported as touch and go for Brentford's fixture against Burnley due to an injury concern.",
+      "concern": "Reported as touch and go due to an injury ahead of Brentford's match against Burnley.",
       "severity": "medium",
       "affects": "availability",
-      "source": "https://news.google.com/rss/articles/CBMiywFBVV95cUxQZDhZTVE3T3piNVRscVd5ck1jWFcxQmUtbVd3Tkp4UGtiU05BcENkVmNpcmRycFRmTGFuTVlTXzA5SWpKWnVQd1ZQdUZjcW1oTTdXUTVYS25aNHBpTXF0SnZwNlpLSWJTa3JZbG1XRXlGMS1PYVB1Q2JGYzEzQjl1WXkxSVdNbG5uMXZkOU5fRXBHa2tUellIZndKUjFuZk5aTy1ZeUNnTEhDemRxSlptNHJEOTNjc3JkNGdqemU5VHl"
+      "source": ""
     },
     {
       "player_id": "503",
       "player": "Van de Ven",
       "team": "TOT",
-      "concern": "Reports highlight potential injury concerns for Micky van de Ven ahead of the upcoming match.",
+      "concern": "Subject to an injury assessment ahead of Tottenham's upcoming fixture.",
       "severity": "medium",
       "affects": "availability",
-      "source": "https://news.google.com/rss/articles/CBMizgFBVV95cUxNWGpCV3c1QjdtVmZqV29JdnE4Mk9rQnNLcFRkeXQ1T3YyemxCS25IcHNfMy1WdEdQb0tmUEMwVWE4NzJjbWViOU5mY3pvS0VZUU5UNUxFQ1E1Q2dKNGpJRE5JRWpzR3Z4YlVGdWhPcTg4WnJRNk1NU3NVeFVNNVAwcFkyNlRBNVpILXpwVnNhZHpubERnOHlxTmhvQnkyamxTTV9OZ1h5UDJkd2xWQUZ5Sk1mTWZNZTlBamxXSmM4b2t"
+      "source": ""
     },
     {
       "player_id": "155",
       "player": "Enzo",
       "team": "CHE",
-      "concern": "Liam Rosenior discussed obstacles facing Enzo Fernández ahead of Chelsea's upcoming fixtures.",
+      "concern": "Manager Liam Rosenior publicly addressed obstacles facing Enzo Fernandez in his Chelsea squad.",
       "severity": "low",
-      "affects": "availability",
+      "affects": "minutes",
       "source": ""
     }
   ]
