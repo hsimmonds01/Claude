@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-12T04:56:36.352991+00:00",
+  "generated_at": "2026-08-12T07:46:02.385041+00:00",
   "model": "gemini-flash-latest",
   "headlines_considered": 42,
   "flags": [
@@ -7,37 +7,10 @@
       "player_id": "237",
       "player": "Ndiaye",
       "team": "EVE",
-      "concern": "Pre-season reports indicate doubts over whether Ndiaye will remain Everton's primary penalty taker.",
+      "concern": "Pre-season reporting indicates doubts over whether Ndiaye will retain penalty duties for Everton.",
       "severity": "medium",
       "affects": "role",
       "source": "https://www.fantasyfootballscout.co.uk/2026/08/10/fpl-pre-season-vuskovic-bow-minteh-injury-ndiaye-pen-doubts"
-    },
-    {
-      "player_id": "88",
-      "player": "Kayode",
-      "team": "BRE",
-      "concern": "Reported as touch and go due to an injury ahead of Brentford's match against Burnley.",
-      "severity": "medium",
-      "affects": "availability",
-      "source": ""
-    },
-    {
-      "player_id": "503",
-      "player": "Van de Ven",
-      "team": "TOT",
-      "concern": "Subject to an injury assessment ahead of Tottenham's upcoming fixture.",
-      "severity": "medium",
-      "affects": "availability",
-      "source": ""
-    },
-    {
-      "player_id": "155",
-      "player": "Enzo",
-      "team": "CHE",
-      "concern": "Manager Liam Rosenior publicly addressed obstacles facing Enzo Fernandez in his Chelsea squad.",
-      "severity": "low",
-      "affects": "minutes",
-      "source": ""
     }
   ]
 }
