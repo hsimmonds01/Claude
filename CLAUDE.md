@@ -56,8 +56,12 @@
   retired, `voxi-drop-alerter/`), and a Daily Discovery email digest
   (`discovery-agent/`, branch `claude/daily-discovery-agent-estimate-qasmi1`:
   Gemini free API + Google Search grounding -> Resend email; taste profile
-  lives in `discovery-agent/interests.md`), and a Fantasy Premier League
-  agent (`fpl-agent/`, branch `claude/fantasy-football-agent-plan-fg86nk`).
+  lives in `discovery-agent/interests.md`), a Fantasy Premier League
+  agent (`fpl-agent/`, branch `claude/fantasy-football-agent-plan-fg86nk`),
+  and a Deals & Codes push-notification agent (`deals-agent/`, branch
+  `claude/deals-codes-notification-agent-amau0q`: HotUKDeals + Reddit ->
+  Gemini-as-ranker-only -> ntfy; quality bar lives in
+  `deals-agent/interests.md`).
   Each has its own GitHub Actions workflow that commits state/history back
   to `main` on a repeating schedule.
 
@@ -109,6 +113,43 @@
   else touched the branch. This is how the git-push-race above was found:
   the failing commit's author was the right bot, but the colliding push
   turned out to belong to a different project's workflow entirely.
+
+## deals-agent project
+- Push-notification agent for genuinely good price drops and voucher/
+  discount codes (Deliveroo, Uber Eats, general retail). Free, no billing.
+  See `deals-agent/README.md` for full functional docs and the "never
+  invented" design that stops a model from hallucinating a code or URL.
+- The dev sandbox CANNOT reach HotUKDeals, Reddit, or LatestDeals -- same
+  wall as fpl-agent/fantasy.premierleague.com, confirmed via
+  `deals-agent/probe_sources.py` run on an Actions runner on 2026-08-10.
+  Don't try to debug feed behaviour from a session; push and read the
+  runner's job log instead.
+- HotUKDeals does NOT expose its community heat score as its own RSS field
+  -- it's embedded as a `"115° - "` prefix on the item title. The scoring
+  model is heat *velocity* (heat ÷ hours since posted), parsed from that
+  prefix, not raw heat -- raw heat rewards deals that have simply had
+  longer to accumulate votes, not ones that are hot right now.
+- Reddit's `.rss` endpoints rate-limit fast from a runner IP: the probe's
+  second and later reddit.com request in the same run all came back `429`,
+  only the first succeeded. `deals.py` makes exactly ONE Reddit request per
+  run (r/UKDeals) -- never add a second subreddit fetch to the same run
+  without re-probing first.
+- `DEALS_NTFY_TOPIC` deliberately has NO hardcoded default (unlike
+  dock-alerter/voxi-drop-alerter, which fall back to a shared topic
+  string) -- this project must never be able to silently reuse another
+  project's notification channel, and a shared default would repeat the
+  exact pattern this file's privacy rules flag as personal information.
+- `DEALS_SHADOW_MODE` (repo variable, not secret) defaults to shadow-on
+  (log to `history.json`, no real push) whenever unset -- by design, so a
+  fresh deploy can't push before a week of logs has actually been
+  reviewed. Tune `MIN_HEAT_VELOCITY` / `MAX_PUSHES_PER_DAY` in `deals.py`
+  and `interests.md`'s quality bar from that log, not from guessing, then
+  flip the variable to `false` to go live.
+- MoneySavingExpert is blocked by a Cloudflare JS challenge and is
+  deliberately NOT fought with a headless-browser workaround -- see
+  `deals-agent/README.md`'s "MSE and other blocked sources" section for
+  the kill-the-newsletter.com alternative if MSE coverage is wanted later
+  (converts an email subscription to a plain RSS feed, no scraping).
 
 ## Git / GitHub workflow preferences
 - Standard cycle: implement -> test locally (mock external APIs where the

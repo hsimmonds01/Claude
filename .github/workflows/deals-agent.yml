@@ -1,0 +1,78 @@
+name: Deals & Codes agent
+
+# Checks HotUKDeals + Reddit r/UKDeals a few times a day for genuinely good
+# price drops and voucher/discount codes, ranks candidates with Gemini
+# (as a filter only -- it never originates a url or a code, see deals.py's
+# module docstring), and pushes an ntfy notification only for the rare few
+# that clear a high bar. Most runs should send nothing.
+#
+# cron-job.org hitting workflow_dispatch is the reliable primary trigger, as
+# with the sibling alerters -- GitHub's native `schedule` below is a
+# best-effort backup only. deals.py's own daily cap + permanent seen-dedupe
+# make duplicate/overlapping triggers safe (extra runs just no-op or find
+# nothing new).
+on:
+  schedule:
+    # Backup only, spread across the day in UTC: 08:05, 12:05, 16:05, 20:05.
+    - cron: "5 8,12,16,20 * * *"
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "Run mode"
+        type: choice
+        options:
+          - check
+          - dry_run
+          - test_ntfy
+        default: check
+
+permissions:
+  contents: write
+
+# Multiple projects in this repo push to main on schedules; serialising all
+# of them in one group prevents non-fast-forward push races (see CLAUDE.md).
+concurrency:
+  group: main-git-writer
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        working-directory: deals-agent
+        run: pip install -r requirements.txt
+
+      - name: Run the deals check
+        working-directory: deals-agent
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          DEALS_NTFY_TOPIC: ${{ secrets.DEALS_NTFY_TOPIC }}
+          # Repo VARIABLE, not secret -- unset or anything other than "false"
+          # means shadow mode (log-only, no real pushes). See deals.py.
+          DEALS_SHADOW_MODE: ${{ vars.DEALS_SHADOW_MODE }}
+          MODE: ${{ inputs.mode || 'check' }}
+        run: |
+          ARGS=""
+          if [ "${MODE}" = "dry_run" ]; then
+            ARGS="--dry-run"
+          elif [ "${MODE}" = "test_ntfy" ]; then
+            ARGS="--test-ntfy"
+          fi
+          python deals.py $ARGS
+
+      - name: Commit state + history
+        if: ${{ inputs.mode != 'dry_run' && inputs.mode != 'test_ntfy' }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add deals-agent/state.json deals-agent/history.json
+          git diff --staged --quiet && exit 0
+          git commit -m "Deals agent run"
+          git push
