@@ -1268,6 +1268,66 @@
           "link_status": "verified"
         }
       ]
+    },
+    {
+      "date": "2026-08-13",
+      "model": "gemini-2.5-flash (legacy key, live search)",
+      "items": [
+        {
+          "title": "'Avengers: Doomsday' Global Advance Tickets On Sale Tomorrow (Excl. IMAX)",
+          "category": "film",
+          "summary": "Global advance ticket sales for the highly anticipated 'Avengers: Doomsday' begin tomorrow, August 14th, at 9 am PT, for standard and premium large formats. Note that IMAX screenings will be excluded from this initial release as 'Dune: Part Three' holds exclusive IMAX rights during this period.",
+          "url": "https://www.google.com/search?q=%27Avengers%3A+Doomsday%27+Global+Advance+Tickets+On+Sale+Tomorrow+%28Excl.+IMAX%29",
+          "date_info": "Tickets on sale August 14, 2026, 9 am PT",
+          "urgency": "act-fast",
+          "link_status": "search"
+        },
+        {
+          "title": "Timberland x New Era MLB Collection Drops Tomorrow (Caps Available)",
+          "category": "drop",
+          "summary": "The limited-edition Timberland x New Era MLB Collection, featuring stylish caps and accessories, is set to launch globally tomorrow, August 15, 2026. This is a prime opportunity for clients seeking exclusive streetwear and designer collaborations.",
+          "url": "https://hypebeast.com/2026/8/timberland-new-era-limited-edition-mlb-collection-release-info",
+          "date_info": "Drops August 15, 2026",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "Immersive David Lynch Weekender 'A Gathering of the Angels' in London",
+          "category": "event",
+          "summary": "The immersive David Lynch celebration, 'A Gathering of the Angels', is returning to Genesis Cinema in London on September 26-27, 2026. Tickets are on sale now for this unique weekender, promising screenings, special guests, live music, immersive experiences, and more.",
+          "url": "https://welcometotwinpeaks.com/event/a-gathering-of-the-angels-2026-david-lynch-celebration/",
+          "date_info": "September 26-27, 2026. Tickets on sale now.",
+          "urgency": "this-week",
+          "link_status": "verified"
+        },
+        {
+          "title": "Register Interest for 'Dune: Part Three' IMAX Tickets",
+          "category": "film",
+          "summary": "While initial IMAX 70mm tickets for 'Dune: Part Three' (opening December 18, 2026) at BFI IMAX sold out quickly, you can register your interest with the Science Museum to be notified when more tickets become available for this highly anticipated film.",
+          "url": "https://www.sciencemuseum.org.uk/see-and-do/dune-part-three",
+          "date_info": "Film opens December 18, 2026. Register interest for future ticket drops.",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "UK's Largest Harry Potter Store Opening in London This November",
+          "category": "product",
+          "summary": "The UK's biggest official Harry Potter store is set to open on Oxford Street, London, on November 4, 2026. This flagship store promises themed retail areas, food and beverage, and exclusive merchandise, offering a truly immersive experience for fans.",
+          "url": "https://www.timeout.com/london/news/uk-harry-potter-flagship-store-opening-date-081226",
+          "date_info": "Opens November 4, 2026",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "Two New Wetherspoons Pubs Opening in Central London This Autumn",
+          "category": "food",
+          "summary": "Central London is set to welcome two new Wetherspoons pubs this autumn, providing fresh options for affordable food, drinks, and deals in accessible locations.",
+          "url": "https://www.timeout.com/london/news/new-wetherspoon-pubs-central-london-autumn-2026-081226",
+          "date_info": "Opening this autumn",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        }
+      ]
     }
   ]
 }
