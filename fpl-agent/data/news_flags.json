@@ -1,6 +1,34 @@
 {
-  "generated_at": "2026-08-13T05:00:12.417482+00:00",
+  "generated_at": "2026-08-13T07:48:06.515821+00:00",
   "model": "gemini-flash-latest",
   "headlines_considered": 43,
-  "flags": []
+  "flags": [
+    {
+      "player_id": "88",
+      "player": "Kayode",
+      "team": "BRE",
+      "concern": "Michael Kayode is touch and go for Brentford's Premier League match against Burnley due to an injury concern.",
+      "severity": "medium",
+      "affects": "availability",
+      "source": "https://news.google.com/rss/articles/CBMiywFBVV95cUxQZDhZTVE3T3piNVRscVd5ck1jWFcxQmUtbVd3Tkp4UGtiU05BcENkVmNpcmRycFRmTGFuTVlTXzA5SWpKWnVQd1ZQdUZjcW1oTTdXUTVYS25aNHBpTXF0SnZwNlpLSWJTa3JZbG1XRXlGMS1PYVB1Q2JGYzEzQjl1WXkxSVdNbG5uMXZkOU5fRXBHa2tUellIZndKUjFuZk5aTy1ZeUNnTEhDemRxSlptNHJEOTNjc3JkNGdqemU5VHl"
+    },
+    {
+      "player_id": "503",
+      "player": "Van de Ven",
+      "team": "TOT",
+      "concern": "Reported as an injury doubt for Tottenham ahead of the upcoming weekend fixture.",
+      "severity": "medium",
+      "affects": "availability",
+      "source": "https://news.google.com/rss/articles/CBMizgFBVV95cUxNWGpCV3c1QjdtVmZqV29JdnE4Mk9rQnNLcFRkeXQ1T3YyemxCS25IcHNfMy1WdEdQb0tmUEMwVWE4NzJjbWViOU5mY3pvS0VZUU5UNUxFQ1E1Q2dKNGpJRE5JRWpzR3Z4YlVGdWhPcTg4WnJRNk1NU3NVeFVNNVAwcFkyNlRBNVpILXpwVnNhZHpubERnOHlxTmhvQnkyamxTTV9OZ1h5UDJkd2xWQUZ5Sk1mTWZNZTlBamxXSmM4b2t"
+    },
+    {
+      "player_id": "155",
+      "player": "Enzo",
+      "team": "CHE",
+      "concern": "Manager Liam Rosenior addressed potential obstacles regarding Enzo Fernandez ahead of Chelsea's match against Manchester City.",
+      "severity": "medium",
+      "affects": "availability",
+      "source": ""
+    }
+  ]
 }
