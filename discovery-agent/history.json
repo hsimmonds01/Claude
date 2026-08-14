@@ -1328,6 +1328,84 @@
           "link_status": "verified"
         }
       ]
+    },
+    {
+      "date": "2026-08-14",
+      "model": "gemini-2.5-flash (legacy key, live search)",
+      "items": [
+        {
+          "title": "Advance Tickets for 'Avengers: Doomsday' May Go On Sale Today",
+          "category": "film",
+          "summary": "Global advance ticket sales for the highly anticipated film 'Avengers: Doomsday' are rumored to begin today, August 14th. This is an urgent heads-up for big-screen film event enthusiasts to secure tickets as soon as they become available.",
+          "url": "https://www.google.com/search?q=Advance+Tickets+for+%27Avengers%3A+Doomsday%27+May+Go+On+Sale+Today",
+          "date_info": "Tickets may begin global advance sales today, August 14th",
+          "urgency": "act-fast",
+          "link_status": "search"
+        },
+        {
+          "title": "RVCA and Tapout Drop Limited-Edition Capsule with UFC Fighter Marlon 'Chito' Vera",
+          "category": "drop",
+          "summary": "A new limited-edition streetwear capsule collection from RVCA and Tapout, featuring UFC fighter Marlon 'Chito' Vera, has just dropped. This is a must-know for fans of exclusive streetwear collaborations.",
+          "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQN19QVTkyWDlLWjgxNFlLOFdYNzJoS2Z5WGxGYmtGWnNZZU5KZW9TWEx4T29ILUV6eE83bU1HMFp1T2dsOXRHX0ExaU1Ba0xkTHd3SWlTSEUta3AyajFmcy1PcVlteGMyb21QMkhBZE1yLVhuYXpreHVTbnc3UDhmZzVzeXBqZGZuc3lLVGxjSTZ0T1E?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "date_info": "Dropped today, August 14th",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "England vs Spain Football Tickets Will Not Go to General Sale",
+          "category": "football",
+          "summary": "Fans are reportedly frustrated as tickets for the highly anticipated England vs Spain match will no longer be available for general sale. This is crucial information for anyone hoping to attend, indicating that tickets are now extremely difficult or impossible to acquire through official channels.",
+          "url": "https://www.google.com/search?q=England+vs+Spain+Football+Tickets+Will+Not+Go+to+General+Sale",
+          "date_info": "Current news, August 14th",
+          "urgency": "heads-up",
+          "link_status": "search"
+        },
+        {
+          "title": "Retro Arcade Bar NQ64 Opening Its Biggest Venue Yet in Soho",
+          "category": "event",
+          "summary": "NQ64, the popular retro arcade bar, is set to open its largest venue to date in Soho. This new spot promises an immersive experience for those looking for cool London events and unique entertainment.",
+          "url": "https://www.timeout.com/london/news/nq64-biggest-venue-soho-081326",
+          "date_info": "Opening soon (announced August 13th)",
+          "urgency": "this-week",
+          "link_status": "verified"
+        },
+        {
+          "title": "Krispy Kreme Teams Up With Pokémon for 30th Anniversary Doughnut Collection",
+          "category": "food",
+          "summary": "Krispy Kreme has collaborated with Pokémon for a limited-edition doughnut collection to celebrate the 30th anniversary of Pokémon. This fun and interesting food drop is perfect for a sweet treat.",
+          "url": "https://hypebeast.com/2026/8/krispy-kreme-pokemon-30th-anniversary-doughnut-collection-pikachu-poke-ball-squirtle-jigglypuff-charmander-bulbasaur",
+          "date_info": "Available for a limited time (announced August 13th)",
+          "urgency": "this-week",
+          "link_status": "verified"
+        },
+        {
+          "title": "The World’s First Painless Tattoo Has Been Invented in London",
+          "category": "product",
+          "summary": "A revolutionary new technology for the world's first painless tattoo has been invented right here in London. This falls squarely into the 'how did I not know this existed' category of genuinely interesting and clever tech.",
+          "url": "https://www.timeout.com/london/news/world-first-painless-tattoo-cipherx-081426",
+          "date_info": "Recently invented (announced August 14th)",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "Barbican Launching Furniture Collection Inspired by Brutalist Architecture",
+          "category": "product",
+          "summary": "The Barbican is launching a new furniture collection that draws inspiration from its iconic brutalist architecture. This is a perfect catch for those interested in beautiful design objects and unique home aesthetics.",
+          "url": "https://www.timeout.com/london/news/barbican-made-furniture-collection-081326",
+          "date_info": "Launching soon (announced August 13th)",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "Descente Unveils Premium 'Mizusawa Down' FW26 Outerwear Range",
+          "category": "drop",
+          "summary": "Descente has unveiled its premium 'Mizusawa Down' Fall/Winter 2026 outerwear range. This collection is likely to be a limited-edition designer drop, perfect for those seeking high-quality and exclusive apparel.",
+          "url": "https://hypebeast.com/2026/8/descente-unveils-its-premium-mizusawa-down-fw26-outerwear-range",
+          "date_info": "Unveiled recently, FW26 collection upcoming",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        }
+      ]
     }
   ]
 }
