@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-08-13T21:56:31.951849+00:00",
+  "generated_at": "2026-08-14T10:13:43.729809+00:00",
   "model": "gemini-flash-latest",
-  "headlines_considered": 43,
+  "headlines_considered": 44,
   "flags": [
     {
       "player_id": "237",
       "player": "Ndiaye",
       "team": "EVE",
-      "concern": "Pre-season reporting indicates Ndiaye has been handed back penalty-taking duties for Everton.",
+      "concern": "Pre-season reporting indicates Ndiaye is back on penalty duties for Everton.",
       "severity": "low",
       "affects": "role",
       "source": "https://www.fantasyfootballscout.co.uk/2026/08/13/fpl-pre-season-ndiaye-back-on-pens-bruno-g-debut"
