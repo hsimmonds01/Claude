@@ -1,25 +1,52 @@
 {
-  "generated_at": "2026-08-14T13:25:55.276895+00:00",
+  "generated_at": "2026-08-15T21:31:22.478056+00:00",
   "model": "gemini-flash-latest",
-  "headlines_considered": 42,
+  "headlines_considered": 44,
   "flags": [
     {
-      "player_id": "237",
-      "player": "Ndiaye",
-      "team": "EVE",
-      "concern": "Ndiaye was reported to be back on penalty-taking duties in pre-season.",
+      "player_id": "411",
+      "player": "Haaland",
+      "team": "MCI",
+      "concern": "Subject to a latest injury update alongside Rodri ahead of Gameweek 1.",
       "severity": "low",
-      "affects": "role",
-      "source": "https://www.fantasyfootballscout.co.uk/2026/08/13/fpl-pre-season-ndiaye-back-on-pens-bruno-g-debut"
+      "affects": "availability",
+      "source": "https://www.fantasyfootballscout.co.uk/2026/08/14/haaland-rodri-injury-latest-maresca-on-returning-internationals"
+    },
+    {
+      "player_id": "13",
+      "player": "Rice",
+      "team": "ARS",
+      "concern": "Mikel Arteta gave an update on Declan Rice's fitness and availability status heading into the opening fixtures.",
+      "severity": "low",
+      "affects": "availability",
+      "source": "https://www.fantasyfootballscout.co.uk/2026/08/14/saliba-timber-injury-latest-arteta-on-saka-rice"
+    },
+    {
+      "player_id": "155",
+      "player": "Enzo",
+      "team": "CHE",
+      "concern": "Manager Liam Rosenior highlighted potential obstacles regarding Enzo Fernandez ahead of the match against Manchester City.",
+      "severity": "medium",
+      "affects": "minutes",
+      "source": "https://news.google.com/rss/articles/CBMiigFBVV95cUxNVmRmSW1BVW95OVNfZE1MUkFuSXcyN3RLZ00zUzJmNF9icFhMV215dVlqRUJfdWpNbjMxWGsxMlAydUZNd2NmQUZlR1ZHcGI3VUJsUjVKYXNXRDRtXzJqcXI5UW40aFJFNERvZnh4NzQzUkpMNGw5bmxWYy13dkdoMDluOWhoVzRGLWfSAY8BQVVfeXFMTXZHM0ZVVFBuQmFZUmhDb1NCVUJWNUltYWhJX2pNMTRucHE5Y0NkMXp5bWJ"
     },
     {
       "player_id": "88",
       "player": "Kayode",
       "team": "BRE",
-      "concern": "Kayode is touch and go for Brentford's fixture against Burnley due to an injury issue.",
+      "concern": "Reported as touch and go to feature in Brentford's fixture due to an injury concern.",
       "severity": "medium",
       "affects": "availability",
       "source": "https://news.google.com/rss/articles/CBMiywFBVV95cUxQZDhZTVE3T3piNVRscVd5ck1jWFcxQmUtbVd3Tkp4UGtiU05BcENkVmNpcmRycFRmTGFuTVlTXzA5SWpKWnVQd1ZQdUZjcW1oTTdXUTVYS25aNHBpTXF0SnZwNlpLSWJTa3JZbG1XRXlGMS1PYVB1Q2JGYzEzQjl1WXkxSVdNbG5uMXZkOU5fRXBHa2tUellIZndKUjFuZk5aTy1ZeUNnTEhDemRxSlptNHJEOTNjc3JkNGdqemU5VHl"
+    },
+    {
+      "player_id": "503",
+      "player": "Van de Ven",
+      "team": "TOT",
+      "concern": "Under an injury cloud and facing a late fitness assessment ahead of the weekend.",
+      "severity": "medium",
+      "affects": "availability",
+      "source": "https://news.google.com/rss/articles/CBMizgFBVV95cUxNWGpCV3c1QjdtVmZqV29JdnE4Mk9rQnNLcFRkeXQ1T3YyemxCS25IcHNfMy1WdEdQb0tmUEMwVWE4NzJjbWViOU5mY3pvS0VZUU5UNUxFQ1E1Q2dKNGpJRE5JRWpzR3Z4YlVGdWhPcTg4WnJRNk1NU3NVeFVNNVAwcFkyNlRBNVpILXpwVnNhZHpubERnOHlxTmhvQnkyamxTTV9OZ1h5UDJkd2xWQUZ5Sk1mTWZNZTlBamxXSmM4b2t"
     }
   ]
 }
