@@ -1406,6 +1406,57 @@
           "link_status": "verified"
         }
       ]
+    },
+    {
+      "date": "2026-08-15",
+      "model": "gemini-2.5-flash (legacy key, live search)",
+      "items": [
+        {
+          "title": "IMAX Pre-Sales Open for 'Dune: Part Three' and 'Avengers: Doomsday'",
+          "category": "film",
+          "summary": "Advance tickets are now available for two major IMAX releases: 'Dune: Part Three' (with pre-sales widening) and 'Avengers: Doomsday' (with advance sales beginning yesterday, August 14). This is your chance to secure seats for these highly anticipated big-screen events before they sell out.",
+          "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE9pRHEzSDk3ODlZWjFxeVVHNzNBcXgwM0lIMGhMaE1yMTNlUTlzSFpoR3hIS2ZERnRBRWxrSkVDU3c3UlVPSmUzWGNiU2ZOWW03dElGVjJaVHJtSUs4cndRTGVBbXM?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "date_info": "Dune pre-sales widening; Avengers advance sales began August 14",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "Timex x BEAMS Drop Limited Edition Square Camper Watch",
+          "category": "drop",
+          "summary": "A stylish new collaboration between Timex and BEAMS has resulted in a unique Square Camper watch, a perfect blend of clever design and limited-edition appeal that's just been released.",
+          "url": "https://www.highsnobiety.com/p/timex-beams-square-camper/",
+          "date_info": "Released August 15, 2026",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "'The Greatest Showman: The Musical' Set for London's West End",
+          "category": "event",
+          "summary": "Get an early heads-up on 'The Greatest Showman: The Musical', which is confirmed to debut in London's West End next year. This is a major London event, and tickets are expected to be highly sought after.",
+          "url": "https://www.timeout.com/london/news/greatest-showman-musical-west-end-transfer-081526",
+          "date_info": "Debuting in 2027 (ticket release date TBC)",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "New Z-Shaped Folded Steel Table Lamp by Cobre Estudio",
+          "category": "product",
+          "summary": "Discover a genuinely interesting and beautifully designed Z-shaped table lamp, skillfully crafted from a single sheet of folded steel by Cobre Estudio, a perfect addition to your collection of clever gadgets and design objects.",
+          "url": "https://www.designboom.com/design/single-sheet-folded-steel-z-shaped-table-lamp-cobre-estudio/",
+          "date_info": "",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "TORRAS Ostand Q3 Air Pro: Innovative Mobile Protection",
+          "category": "product",
+          "summary": "The new TORRAS Ostand Q3 Air Pro features cutting-edge airbag technology, offering enhanced safety for your device and a genuinely clever gadget worth checking out for its innovative approach to mobile protection.",
+          "url": "https://www.designboom.com/technology/torras-ostand-q3-air-pro-airbag-mobile-protection/",
+          "date_info": "",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        }
+      ]
     }
   ]
 }
