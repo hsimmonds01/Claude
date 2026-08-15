@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-15T01:45:27.529724+00:00",
+  "generated_at": "2026-08-15T03:49:18.324417+00:00",
   "next_event": 1,
   "next_deadline": "2026-08-21T17:30:00Z",
   "horizon": {
@@ -3106,7 +3106,7 @@
       "team": "CHE",
       "position": "MID",
       "price": 7.5,
-      "owned": 26.0,
+      "owned": 25.9,
       "xp": 19.2,
       "start_prob": 0.93,
       "moved_club": true,
