@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-08-16T01:53:11.353077+00:00",
+  "generated_at": "2026-08-16T06:54:22.484359+00:00",
   "model": "gemini-flash-latest",
-  "headlines_considered": 44,
+  "headlines_considered": 45,
   "flags": [
     {
       "player_id": "426",
       "player": "B.Fernandes",
       "team": "MUN",
-      "concern": "Missed another pre-season penalty, which could put his role as primary penalty taker at risk.",
+      "concern": "Missed another penalty during pre-season, raising questions over his long-term security as first-choice penalty taker.",
       "severity": "low",
       "affects": "role",
       "source": "https://www.fantasyfootballscout.co.uk/2026/08/16/fpl-pre-season-another-bruno-pen-miss-mbeumo-a-sub"
@@ -16,7 +16,7 @@
       "player_id": "427",
       "player": "Mbeumo",
       "team": "MUN",
-      "concern": "Benched as a substitute in pre-season, suggesting his starting spot or minutes may be managed early on.",
+      "concern": "Featured as a substitute rather than a starter in Manchester United's latest pre-season friendly.",
       "severity": "low",
       "affects": "minutes",
       "source": "https://www.fantasyfootballscout.co.uk/2026/08/16/fpl-pre-season-another-bruno-pen-miss-mbeumo-a-sub"
@@ -25,7 +25,7 @@
       "player_id": "411",
       "player": "Haaland",
       "team": "MCI",
-      "concern": "Subject to a pre-season injury update monitoring his fitness and availability ahead of Gameweek 1.",
+      "concern": "Subject to an ongoing injury check and fitness update ahead of Gameweek 1.",
       "severity": "medium",
       "affects": "availability",
       "source": "https://www.fantasyfootballscout.co.uk/2026/08/14/haaland-rodri-injury-latest-maresca-on-returning-internationals"
@@ -34,19 +34,10 @@
       "player_id": "13",
       "player": "Rice",
       "team": "ARS",
-      "concern": "Mikel Arteta has addressed Rice's fitness and availability status leading into the opening round.",
+      "concern": "Mikel Arteta has provided an update on Rice's pre-season condition and fitness.",
       "severity": "low",
       "affects": "availability",
       "source": "https://www.fantasyfootballscout.co.uk/2026/08/14/saliba-timber-injury-latest-arteta-on-saka-rice"
-    },
-    {
-      "player_id": "155",
-      "player": "Enzo",
-      "team": "CHE",
-      "concern": "Liam Rosenior discussed obstacles and selection considerations surrounding Enzo Fernandez ahead of the upcoming fixtures.",
-      "severity": "medium",
-      "affects": "minutes",
-      "source": "https://news.google.com/rss/articles/CBMiigFBVV95cUxNVmRmSW1BVW95OVNfZE1MUkFuSXcyN3RLZ00zUzJmNF9icFhMV215dVlqRUJfdWpNbjMxWGsxMlAydUZNd2NmQUZlR1ZHcGI3VUJsUjVKYXNXRDRtXzJqcXI5UW40aFJFNERvZnh4NzQzUkpMNGw5bmxWYy13dkdoMDluOWhoVzRGLWfSAY8BQVVfeXFMTXZHM0ZVVFBuQmFZUmhDb1NCVUJWNUltYWhJX2pNMTRucHE5Y0NkMXp5bWJ"
     }
   ]
 }
