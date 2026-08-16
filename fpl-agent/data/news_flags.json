@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-08-16T12:56:12.282591+00:00",
+  "generated_at": "2026-08-16T18:41:25.146998+00:00",
   "model": "gemini-flash-latest",
-  "headlines_considered": 44,
+  "headlines_considered": 12,
   "flags": [
     {
       "player_id": "237",
       "player": "Ndiaye",
       "team": "EVE",
-      "concern": "Ndiaye took another penalty in pre-season, indicating he is on spot-kick duties for Everton.",
+      "concern": "Ndiaye scored another penalty in pre-season, indicating he is on spot-kick duties.",
       "severity": "low",
       "affects": "role",
       "source": "https://www.fantasyfootballscout.co.uk/2026/08/16/fpl-pre-season-villa-injuries-another-ndiaye-pen-no-norgaard"
@@ -16,7 +16,7 @@
       "player_id": "201",
       "player": "Muñoz",
       "team": "CRY",
-      "concern": "Muñoz has returned to pre-season match action following his previous absence.",
+      "concern": "Muñoz has returned to action in pre-season.",
       "severity": "low",
       "affects": "availability",
       "source": "https://www.fantasyfootballscout.co.uk/2026/08/16/fpl-pre-season-pedro-again-rogers-debut-munoz-returns"
@@ -25,7 +25,7 @@
       "player_id": "426",
       "player": "B.Fernandes",
       "team": "MUN",
-      "concern": "Fernandes missed another penalty in pre-season, which could put his primary spot-kick role under scrutiny.",
+      "concern": "Fernandes missed another penalty during pre-season.",
       "severity": "low",
       "affects": "role",
       "source": "https://www.fantasyfootballscout.co.uk/2026/08/16/fpl-pre-season-another-bruno-pen-miss-mbeumo-a-sub"
@@ -34,19 +34,10 @@
       "player_id": "427",
       "player": "Mbeumo",
       "team": "MUN",
-      "concern": "Mbeumo was named as a substitute in pre-season, signaling potential competition for a starting berth.",
+      "concern": "Mbeumo was named on the bench as a substitute in pre-season.",
       "severity": "medium",
       "affects": "minutes",
       "source": "https://www.fantasyfootballscout.co.uk/2026/08/16/fpl-pre-season-another-bruno-pen-miss-mbeumo-a-sub"
-    },
-    {
-      "player_id": "411",
-      "player": "Haaland",
-      "team": "MCI",
-      "concern": "Haaland's fitness is under assessment following injury news heading into the season.",
-      "severity": "medium",
-      "affects": "availability",
-      "source": "https://www.fantasyfootballscout.co.uk/2026/08/14/haaland-rodri-injury-latest-maresca-on-returning-internationals"
     }
   ]
 }
