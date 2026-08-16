@@ -1457,6 +1457,75 @@
           "link_status": "verified"
         }
       ]
+    },
+    {
+      "date": "2026-08-16",
+      "model": "gemini-2.5-flash (legacy key, live search)",
+      "items": [
+        {
+          "title": "More 'The Odyssey' 70mm IMAX Tickets On Sale Soon at BFI IMAX",
+          "category": "film",
+          "summary": "Keep an eye out for new September screenings of Christopher Nolan's epic 'The Odyssey' in IMAX 70mm at the BFI IMAX, as more tickets are set to go on sale soon. This is a prime opportunity to catch a film event of the year on the UK's biggest screen.",
+          "url": "https://whatson.bfi.org.uk/imax/Online/default.asp",
+          "date_info": "More September screenings on sale soon",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "David Byrne's American Utopia at BFI IMAX Today",
+          "category": "film",
+          "summary": "Don't miss a special screening of Spike Lee's documentary of David Byrne's acclaimed Broadway show, 'American Utopia', at the BFI IMAX today.",
+          "url": "https://www.google.com/search?q=David+Byrne%27s+American+Utopia+at+BFI+IMAX+Today",
+          "date_info": "August 16th (today)",
+          "urgency": "act-fast",
+          "link_status": "search"
+        },
+        {
+          "title": "Yagi Izakaya Japanese Pop-Up at The Kernel Taproom, Bermondsey",
+          "category": "food",
+          "summary": "Head to The Kernel Taproom in Bermondsey today for the Yagi Izakaya residency, serving up delicious Japanese-style bar food. This is a perfect local food catch for South-East London.",
+          "url": "http://www.londonpopups.com/2026/08/pop-ups-in-london-7th-14th-august-2026.html",
+          "date_info": "Open Thurs-Sun (today is Sunday)",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "Chishuru's Summer Suya Sessions: Michelin-Starred Nigerian Street Food",
+          "category": "food",
+          "summary": "Experience Michelin-starred chef Adejoké Bakare's Nigerian street food-inspired Summer Suya Sessions at Chishuru in Fitzrovia, with dishes starting from just £7. This relaxed, sharing menu runs throughout August and is a must-try for foodies.",
+          "url": "https://www.thehandbook.com/18-unmissable-pop-ups-to-add-to-your-august-itinerary/",
+          "date_info": "Until August 26th",
+          "urgency": "this-week",
+          "link_status": "verified"
+        },
+        {
+          "title": "piBrick Pocket-CM5: A Clever Open-Source Handheld Gadget",
+          "category": "product",
+          "summary": "Discover the piBrick Pocket-CM5, an open-source handheld computer built around the Raspberry Pi Compute Module 5. Priced around $172 in parts, it offers smartphone proportions with a high-res AMOLED display and a tactile keyboard, making it a genuinely interesting and affordable tech find.",
+          "url": "https://www.yankodesign.com/2026/08/08/7-best-tech-gadgets-of-august-2026/",
+          "date_info": "Announced August 8th",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "TOM FORD BEAUTY Pop-Up in Covent Garden",
+          "category": "drop",
+          "summary": "Get a heads-up for the upcoming TOM FORD BEAUTY Pop Up on the North Piazza in Covent Garden, celebrating the launch of the Eau D'Ombre Leather fragrance. Experience the world of Tom Ford with samples and fizz.",
+          "url": "https://www.google.com/search?q=TOM+FORD+BEAUTY+Pop-Up+in+Covent+Garden",
+          "date_info": "August 23rd-29th",
+          "urgency": "heads-up",
+          "link_status": "search"
+        },
+        {
+          "title": "Olivia Burton Prize Giveaway in Covent Garden",
+          "category": "other",
+          "summary": "Enter for a chance to win vouchers, styling sessions, discounts, and gifts at the Olivia Burton Prize Giveaway in Covent Garden. Every customer making a purchase can try their luck at the Lucky Dip station.",
+          "url": "https://www.google.com/search?q=Olivia+Burton+Prize+Giveaway+in+Covent+Garden",
+          "date_info": "Until August 24th",
+          "urgency": "this-week",
+          "link_status": "search"
+        }
+      ]
     }
   ]
 }
