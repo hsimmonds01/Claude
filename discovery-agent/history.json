@@ -1526,6 +1526,75 @@
           "link_status": "search"
         }
       ]
+    },
+    {
+      "date": "2026-08-17",
+      "model": "gemini-2.5-flash (legacy key, live search)",
+      "items": [
+        {
+          "title": "STRICT-G x NANGA 'Mobile Suit Gundam' Collection Pre-Orders Open",
+          "category": "drop",
+          "summary": "A new limited-edition apparel and sleeping bag collection inspired by 'Mobile Suit Gundam' is now available for pre-order, perfect for fans of unique streetwear and designer collaborations.",
+          "url": "https://hypebeast.com/2026/8/strict-g-nanga-mobile-suit-gundam-sleeping-bag-apparel-collection-pre-order-open",
+          "date_info": "Pre-orders open",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "ABBA Voyage: Immersive Concert Experience in London",
+          "category": "event",
+          "summary": "Immerse yourself in the world of ABBA with this unique concert experience in Queen Elizabeth Olympic Park, featuring digital 'ABBAtars' and a live band. Tickets for this exclusive London event sell out quickly, so booking ahead is advised.",
+          "url": "https://www.visitlondon.com/things-to-do/experiences/immersive-experiences",
+          "date_info": "Ongoing, various performance times",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "Rooftop Immersive Film Club Across London",
+          "category": "film",
+          "summary": "Experience films brought to life with elaborate sets, live actors, and audience participation at various rooftop venues across London, running until September 15, 2026.",
+          "url": "https://wejam.studio/blog/immersive-experiences-in-london-the-ultimate-guide/",
+          "date_info": "May 15 – September 15, 2026",
+          "urgency": "this-week",
+          "link_status": "verified"
+        },
+        {
+          "title": "Indian Cook-a-Long at Mercato Metropolitano, Elephant and Castle",
+          "category": "event",
+          "summary": "Join a hands-on cooking experience at Mercato Metropolitano in Elephant and Castle to learn how to create authentic Indian dishes from expert chefs, with tickets priced at £30.",
+          "url": "https://www.thehandbook.com/18-unmissable-pop-ups-to-add-to-your-august-itinerary/",
+          "date_info": "Ongoing (part of August pop-ups)",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "LUCA Celebrates 10 Years with Special 'LUCA10' Menu",
+          "category": "food",
+          "summary": "Michelin-starred Clerkenwell restaurant LUCA is offering a three-course 'greatest hits' menu for £75 to celebrate its 10th anniversary, featuring iconic dishes and a complimentary LUCA-cello.",
+          "url": "https://www.thehandbook.com/18-unmissable-pop-ups-to-add-to-your-august-itinerary/",
+          "date_info": "Available from August 3rd to September 5th",
+          "urgency": "this-week",
+          "link_status": "verified"
+        },
+        {
+          "title": "Tottenham in Talks for Guglielmo Vicario Transfer to Juventus",
+          "category": "football",
+          "summary": "Tottenham Hotspur are reportedly in direct negotiations with Juventus for a loan deal with a buy clause for goalkeeper Guglielmo Vicario, who prefers a return to his home country of Italy.",
+          "url": "https://www.football.london/tottenham-hotspur-fc/news/tottenham-transfer-news-vicario-juventus-34468352",
+          "date_info": "August 17, 2026",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "Modular Aluminum Audio Player Made from Used CD-ROM Drives",
+          "category": "product",
+          "summary": "Discover a genuinely interesting new tech product: a modular aluminum audio player that ingeniously repurposes used CD-ROM drives, offering a unique blend of clever gadgetry and beautiful design.",
+          "url": "https://www.designboom.com/technology/used-cd-rom-drives-modular-aluminum-audio-player-das-pod/",
+          "date_info": "",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        }
+      ]
     }
   ]
 }
