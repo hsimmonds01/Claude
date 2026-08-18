@@ -1,43 +1,16 @@
 {
-  "generated_at": "2026-08-17T18:52:54.803237+00:00",
+  "generated_at": "2026-08-18T01:46:45.302226+00:00",
   "model": "gemini-flash-latest",
-  "headlines_considered": 46,
+  "headlines_considered": 48,
   "flags": [
     {
       "player_id": "499",
       "player": "Pedro Porro",
       "team": "TOT",
-      "concern": "Remains absent from Tottenham's pre-season fixtures, raising doubts over his match fitness and availability.",
+      "concern": "Porro has continued to miss Tottenham's pre-season fixtures leading into Gameweek 1.",
       "severity": "medium",
       "affects": "availability",
       "source": "https://www.fantasyfootballscout.co.uk/2026/08/17/fpl-pre-season-thiaw-goal-defcon-moore-brace-still-no-porro"
-    },
-    {
-      "player_id": "237",
-      "player": "Ndiaye",
-      "team": "EVE",
-      "concern": "Scored another penalty in pre-season, indicating he is currently Everton's designated penalty taker.",
-      "severity": "low",
-      "affects": "role",
-      "source": "https://www.fantasyfootballscout.co.uk/2026/08/16/fpl-pre-season-villa-injuries-another-ndiaye-pen-no-norgaard"
-    },
-    {
-      "player_id": "201",
-      "player": "Muñoz",
-      "team": "CRY",
-      "concern": "Returned to pre-season match action for Crystal Palace after a previous absence.",
-      "severity": "low",
-      "affects": "availability",
-      "source": "https://www.fantasyfootballscout.co.uk/2026/08/16/fpl-pre-season-pedro-again-rogers-debut-munoz-returns"
-    },
-    {
-      "player_id": "88",
-      "player": "Kayode",
-      "team": "BRE",
-      "concern": "Reported as touch and go due to an injury issue ahead of Brentford's next fixture.",
-      "severity": "medium",
-      "affects": "availability",
-      "source": "https://news.google.com/rss/articles/CBMiywFBVV95cUxQZDhZTVE3T3piNVRscVd5ck1jWFcxQmUtbVd3Tkp4UGtiU05BcENkVmNpcmRycFRmTGFuTVlTXzA5SWpKWnVQd1ZQdUZjcW1oTTdXUTVYS25aNHBpTXF0SnZwNlpLSWJTa3JZbG1XRXlGMS1PYVB1Q2JGYzEzQjl1WXkxSVdNbG5uMXZkOU5fRXBHa2tUellIZndKUjFuZk5aTy1ZeUNnTEhDemRxSlptNHJEOTNjc3JkNGdqemU5VHl"
     }
   ]
 }
