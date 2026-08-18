@@ -1,7 +1,7 @@
 # fpl-help
 
 - Source: https://fantasy.premierleague.com/help
-- Fetched: 2026-08-18T09:43:12.751835+00:00
+- Fetched: 2026-08-18T13:02:21.363197+00:00
 - Why it's here: General FAQ, including price changes and deadlines
 
 Captured automatically by `fpl-agent/knowledge.py` as reference material for the FPL agent.
@@ -205,6 +205,8 @@ Snapchat
 X
 
 Facebook
+
+Fantasy FPL Challenge FPL Draft
 
 Home
 Prizes
