@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-19T01:47:49.772602+00:00",
+  "generated_at": "2026-08-19T03:54:11.662764+00:00",
   "next_event": 1,
   "next_deadline": "2026-08-21T17:30:00Z",
   "horizon": {
@@ -65,7 +65,7 @@
           "team": "BHA",
           "position": "GKP",
           "price": 4.5,
-          "owned": 19.2,
+          "owned": 19.3,
           "xp": 18.3,
           "start_prob": 1.0,
           "moved_club": false,
@@ -252,7 +252,7 @@
           "team": "BHA",
           "position": "GKP",
           "price": 4.5,
-          "owned": 19.2,
+          "owned": 19.3,
           "xp": 18.3,
           "start_prob": 1.0,
           "moved_club": false,
@@ -1444,7 +1444,7 @@
           "team": "MUN",
           "position": "MID",
           "price": 8.0,
-          "owned": 31.6,
+          "owned": 31.7,
           "xp": 20.7,
           "start_prob": 0.81,
           "moved_club": false,
@@ -2005,7 +2005,7 @@
           "team": "MUN",
           "position": "MID",
           "price": 8.0,
-          "owned": 31.6,
+          "owned": 31.7,
           "xp": 20.7,
           "start_prob": 0.81,
           "moved_club": false,
@@ -2452,7 +2452,7 @@
       "team": "CHE",
       "position": "FWD",
       "price": 7.5,
-      "owned": 60.5,
+      "owned": 60.6,
       "xp": 21.2,
       "start_prob": 0.8,
       "moved_club": false,
@@ -3054,12 +3054,12 @@
       "team": "MUN",
       "position": "MID",
       "price": 8.0,
-      "owned": 31.6,
+      "owned": 31.7,
       "xp": 20.7,
       "start_prob": 0.81,
       "moved_club": false,
       "minutes_reason": "80% of last 10 GWs started, 82% across the season",
-      "exposure": 6.5
+      "exposure": 6.6
     },
     {
       "id": "397",
@@ -3127,6 +3127,19 @@
       "exposure": 4.3
     },
     {
+      "id": "8",
+      "name": "Calafiori",
+      "team": "ARS",
+      "position": "DEF",
+      "price": 5.5,
+      "owned": 28.3,
+      "xp": 11.5,
+      "start_prob": 0.57,
+      "moved_club": false,
+      "minutes_reason": "56% of last 10 GWs started, 59% across the season",
+      "exposure": 3.3
+    },
+    {
       "id": "387",
       "name": "O'Reilly",
       "team": "MCI",
@@ -3138,19 +3151,6 @@
       "moved_club": false,
       "minutes_reason": "62% of last 10 GWs started, 75% across the season",
       "exposure": 3.3
-    },
-    {
-      "id": "8",
-      "name": "Calafiori",
-      "team": "ARS",
-      "position": "DEF",
-      "price": 5.5,
-      "owned": 28.2,
-      "xp": 11.5,
-      "start_prob": 0.57,
-      "moved_club": false,
-      "minutes_reason": "56% of last 10 GWs started, 59% across the season",
-      "exposure": 3.2
     }
   ],
   "news": [],
