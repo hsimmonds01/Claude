@@ -1628,6 +1628,75 @@
           "link_status": "verified"
         }
       ]
+    },
+    {
+      "date": "2026-08-19",
+      "model": "gemini-2.5-flash (legacy key, live search)",
+      "items": [
+        {
+          "title": "More 'Dune: Part Three' IMAX 70mm Tickets On Sale Now",
+          "category": "film",
+          "summary": "Act fast to secure your tickets for early screenings of Denis Villeneuve's 'Dune: Part Three' in the immersive IMAX 70mm format, with more tickets released globally. Check your local IMAX cinema for availability, including potential showings at the Science Museum IMAX in London from December.",
+          "url": "https://www.google.com/search?q=More+%27Dune%3A+Part+Three%27+IMAX+70mm+Tickets+On+Sale+Now",
+          "date_info": "Tickets on sale now for screenings from December 2026",
+          "urgency": "act-fast",
+          "link_status": "search"
+        },
+        {
+          "title": "Drake's OVO x UFC Exclusive 2026 Capsule Collection Drops This Friday",
+          "category": "drop",
+          "summary": "Drake's October's Very Own (OVO) and UFC are reuniting for a second exclusive streetwear capsule collection featuring hoodies, athletic jerseys, and graphic T-shirts. The collection, fronted by UFC welterweight Mike Malott, blends combat sports culture with contemporary lifestyle fashion.",
+          "url": "https://www.google.com/search?q=Drake%27s+OVO+x+UFC+Exclusive+2026+Capsule+Collection+Drops+This+Friday",
+          "date_info": "Drops Friday, August 21, 2026, at 10:00 a.m. ET",
+          "urgency": "act-fast",
+          "link_status": "search"
+        },
+        {
+          "title": "Barbican Greenhouse Offering Free Plant Cuttings with New Dates",
+          "category": "event",
+          "summary": "Grab a free plant cutting from the Barbican Conservatory ahead of its temporary closure for renovation. The first plant adoption event is today, August 19, with booking opening at midday, and further sessions are scheduled for September 13 and December 2.",
+          "url": "https://www.timeout.com/london/news/barbican-greenhouse-plant-giveaway-new-dates-081826",
+          "date_info": "Today, August 19, 2026, 12pm-5pm (booking opens midday); further dates Sep 13 & Dec 2",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "NEIGHBORHOOD Unveils Elaborate FW26 Collection, Launching This Weekend",
+          "category": "drop",
+          "summary": "Japanese streetwear brand NEIGHBORHOOD has revealed its Fall/Winter 2026 collection lookbook, featuring rugged staples like leather jackets, embroidered bombers, and distressed knitwear. The collection is set to launch globally this Saturday.",
+          "url": "https://hypebeast.com/2026/8/neighborhood-fall-winter-2026-collection-release-info",
+          "date_info": "Launches Saturday, August 22, 2026",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "Polaroid x Pokémon Limited-Edition Collection Available for Pre-Order Soon",
+          "category": "drop",
+          "summary": "Celebrate Pokémon's 30th anniversary with Polaroid's biggest collaboration yet: a limited-edition collection featuring Poké Ball-themed cameras, character-focused Polaroid Go models, and special film packs. Pre-orders open next week.",
+          "url": "https://hypebeast.com/2026/8/polaroid-pokemon-collaboration-collection-release-info",
+          "date_info": "Pre-orders open August 25, 2026; global release October 5, 2026",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "MAAP and Public Possession Drop Volume II Cycling and Lifestyle Collection",
+          "category": "drop",
+          "summary": "Australian cycling brand MAAP and Munich-based music and clothing label Public Possession have released their 'Volume II' collaboration, bridging cycling performance with music subculture. The collection includes cycling caps, musettes, socks, and an oversized tote bag.",
+          "url": "https://hypebeast.com/2026/8/maap-public-possession-volume-ii-cycling-lifestyle-collection-collaboration-release-info",
+          "date_info": "Available now (dropped August 18, 2026)",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "Tickets Still Available for Select 2026 NFL London Games",
+          "category": "event",
+          "summary": "While some general admission tickets have sold out, you can still find reserved seating and standing tickets for the Indianapolis Colts vs. Washington Commanders game at Tottenham Hotspur Stadium this October. VIP experiences and hospitality packages are also on sale for all three London games.",
+          "url": "https://www.google.com/search?q=Tickets+Still+Available+for+Select+2026+NFL+London+Games",
+          "date_info": "Games in October 2026; some tickets/hospitality on sale now",
+          "urgency": "act-fast",
+          "link_status": "search"
+        }
+      ]
     }
   ]
 }
