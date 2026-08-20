@@ -41,6 +41,13 @@
       "event": 1,
       "subject": "FPL pre-season \u2014 6 days to the GW1 deadline",
       "reason": "6.7 days to the GW1 deadline; last digest 3.7 days ago"
+    },
+    {
+      "at": "2026-08-20T07:00:29.300661+00:00",
+      "kind": "main",
+      "event": 1,
+      "subject": "FPL GW1 \u2014 Mitchell \u2192 Senesi, captain B.Fernandes.",
+      "reason": "34.5h to the GW1 deadline (lead 36h for a 7.0-day gap)"
     }
   ],
   "failures": [
