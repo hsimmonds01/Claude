@@ -1697,6 +1697,66 @@
           "link_status": "search"
         }
       ]
+    },
+    {
+      "date": "2026-08-20",
+      "model": "gemini-2.5-flash (legacy key, live search)",
+      "items": [
+        {
+          "title": "'Dune: Part Three' IMAX Tickets Now Available for December Screenings",
+          "category": "film",
+          "summary": "Advance tickets for Denis Villeneuve's 'Dune: Part Three' in IMAX 70mm are currently on sale for December screenings, offering a chance to secure your spot for the epic conclusion to the saga.",
+          "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE81YUJPTFFNcXVKT0JRelBwN21XYzNZQXk5ODhXVHVUT1hMeUtYcWdlcURqMkZ1M0EyVkZHaG1DVVFQVTdQMjdEWHp6NlU2RWpSekJNenpMYzRiUGY3Z19hTDNmNjdsb1JmTVRCUFd2SG1UQQ?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "date_info": "Tickets on sale now for December 2026 screenings",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "Disney x Bobby Kim 'Classics' Graphic Tee Collection Drops Today",
+          "category": "drop",
+          "summary": "The first collaboration between Disney and Bobby Kim, 'Collection 1: Classics,' a six-shirt capsule celebrating vintage Disney graphics and subcultural history, launches exclusively online today.",
+          "url": "https://hypebeast.com/2026/8/disney-bobby-kim-collection-1-classics-release-info",
+          "date_info": "Drops today, August 20, 2026, at 9 PM PT (5 AM +1 day UK)",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "WIND AND SEA x PaRappa the Rapper 30th Anniversary Collection Coming Soon",
+          "category": "drop",
+          "summary": "Streetwear brand WIND AND SEA is releasing a special 30th-anniversary apparel and lifestyle collection with iconic PlayStation game 'PaRappa the Rapper,' featuring new artwork and classic designs. General sales begin this Saturday.",
+          "url": "https://hypebeast.com/2026/8/parappa-the-rapper-wind-and-sea-30th-anniversary-collection-release-info",
+          "date_info": "General sales launch August 22, 2026",
+          "urgency": "this-week",
+          "link_status": "verified"
+        },
+        {
+          "title": "Natural History Museum Reopens WWII-Closed Gallery with Free 'Nature and Us' Exhibition",
+          "category": "event",
+          "summary": "For the first time in over 80 years, the Natural History Museum is reopening a gallery closed since World War II, hosting a new free exhibition 'Nature and Us' from mid-September.",
+          "url": "https://www.timeout.com/london/news/natural-history-museum-london-reopens-gallery-80-years-081926",
+          "date_info": "Opens September 16, 2026",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "adidas Originals Launches Football Club Kits for Pets",
+          "category": "product",
+          "summary": "Show your team pride with your furry friend! adidas Originals has released a new collection of pet kits featuring official club jerseys for major teams like Real Madrid and Manchester United, available now.",
+          "url": "https://hypebeast.com/2026/8/adidas-originals-fc-pets-collection-soccer-club-football-26-27-jerseys-release-info",
+          "date_info": "Available now",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "Clementine Café by Anna Higham Opening in Islington This October",
+          "category": "food",
+          "summary": "Quince Bakery founder Anna Higham is set to open Clementine, a new all-day café in Islington, bringing British baking and seasonal cooking to a sit-down setting this autumn.",
+          "url": "https://www.timeout.com/london/restaurants/cafe-clement",
+          "date_info": "Opens Saturday, October 3, 2026",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        }
+      ]
     }
   ]
 }
