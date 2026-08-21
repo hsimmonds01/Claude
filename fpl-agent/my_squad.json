@@ -25,11 +25,13 @@
   "team_id_note": "To be filled in after GW1 -- the Points tab URL will read /entry/<id>/event/1",
   "bank": 0.0,
   "free_transfers": null,
-  "chips_used": [],
+  "chips_used": [
+    {"chip": "bench_boost", "event": 1}
+  ],
   "my_lineup": {
     "captain": "Haaland",
     "vice_captain": "B.Fernandes",
-    "bench": ["Verbruggen", "Groß", "N.Williams", "Thomas"]
+    "bench": ["Kinsky", "Groß", "Hume", "Davis"]
   },
   "squad": [
     {
@@ -43,7 +45,7 @@
       "position": "GKP"
     },
     {
-      "name": "Mosquera",
+      "name": "Calafiori",
       "team": "ARS",
       "position": "DEF"
     },
@@ -63,8 +65,8 @@
       "position": "DEF"
     },
     {
-      "name": "Thomas",
-      "team": "COV",
+      "name": "Davis",
+      "team": "IPS",
       "position": "DEF"
     },
     {
@@ -83,7 +85,7 @@
       "position": "MID"
     },
     {
-      "name": "Cunha",
+      "name": "Mbeumo",
       "team": "MUN",
       "position": "MID"
     },
@@ -115,6 +117,7 @@
     "2026-07-29: recorded my_lineup from the FPL app's Pick Team screen for GW1 -- captain Haaland, vice-captain B.Fernandes, bench order Mitchell, Hughes, O'Shea, then reserve keeper Steele. The dashboard's \"My squad\" tab now shows this exactly instead of a plain unordered list.",
     "2026-07-30: squad updated from the FPL app's Pick Team screen for GW1. Verbruggen -> Kinsky (TOT, £4.5m), Steele -> Dubravka (TOT, £4.0m), O'Shea -> Thomas (COV, £4.0m), Solanke -> Calvert-Lewin (LEE, £6.0m) -- the last one reverses the earlier Calvert-Lewin -> Solanke move and matches the transfer the dashboard itself had been suggesting (+7.8 xP). Still a 3-4-3, still £99.5m spent / £0.5m banked. Captain Haaland, vice-captain B.Fernandes, bench order Dubravka, Mitchell, Hughes, Thomas unchanged in structure from before.",
     "2026-07-30: squad updated again from the FPL app's Pick Team screen for GW1. Wilson (LEE, £6.5m) -> E.Le Fée (SUN, £6.0m), Semenyo (MCI, £8.5m) -> Cunha (MUN, £8.0m). Frees £1.0m, taking the bank from £0.5m to £1.5m (£98.5m spent of £100m). Still a 3-4-3. Captain Haaland, vice-captain B.Fernandes, bench order Dubravka, Mitchell, Hughes, Thomas unchanged.",
-    "2026-08-03: squad updated again from the FPL app's Pick Team screen for GW1. Dubravka (TOT, £4.0m) -> Verbruggen (BHA, £4.5m), Mitchell (CRY, £4.5m) -> Hume (SUN, £4.5m), Hughes (CRY, £4.5m) -> Groß (BHA, £5.5m). Spends the full £100m, bank now £0.0m. Hume starts ahead of N.Williams, who moves to the bench; still a 3-4-3. Captain Haaland, vice-captain B.Fernandes; bench order now Verbruggen, Groß, N.Williams, Thomas."
+    "2026-08-03: squad updated again from the FPL app's Pick Team screen for GW1. Dubravka (TOT, £4.0m) -> Verbruggen (BHA, £4.5m), Mitchell (CRY, £4.5m) -> Hume (SUN, £4.5m), Hughes (CRY, £4.5m) -> Groß (BHA, £5.5m). Spends the full £100m, bank now £0.0m. Hume starts ahead of N.Williams, who moves to the bench; still a 3-4-3. Captain Haaland, vice-captain B.Fernandes; bench order now Verbruggen, Groß, N.Williams, Thomas.",
+    "2026-08-20: squad updated from the FPL app's Pick Team screen the day before the GW1 deadline. Mosquera (ARS, £5.5m) -> Calafiori (ARS, £5.5m), Thomas (COV, £4.0m) -> Davis (IPS, £4.0m), Cunha (MUN, £8.0m) -> Mbeumo (MUN, £8.0m). Cost-neutral, still £100.0m spent / £0.0m banked. Verbruggen now starts ahead of Kinsky, who moves to the bench. BENCH BOOST IS NOW ACTIVE for GW1 -- all 15 players' points count this gameweek, not just the starting XI, so the usual bench-discount logic in optimiser.py understates this week's true squad value. Captain Haaland, vice-captain B.Fernandes; bench order now Kinsky, Groß, Hume, Davis."
   ]
 }
