@@ -55,6 +55,13 @@
       "event": 1,
       "subject": "FPL final check \u2014 GW1 deadline in ~3h",
       "reason": "1 news flag(s) on your squad 1.8h out"
+    },
+    {
+      "at": "2026-08-21T18:52:38.759950+00:00",
+      "kind": "preseason",
+      "event": 2,
+      "subject": "FPL pre-season \u2014 6 days to the GW2 deadline",
+      "reason": "6.9 days to the GW2 deadline; last digest 6.7 days ago"
     }
   ],
   "failures": [

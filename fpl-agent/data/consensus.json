@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-21T15:44:37.503573+00:00",
+  "generated_at": "2026-08-21T18:52:38.118350+00:00",
   "drafts_compared": 3,
   "sources": [
     "fpl__raptor (Instagram)",
@@ -28,7 +28,7 @@
         "fpl__raptor (Instagram)",
         "Lazy FPL — 'The Professor'"
       ],
-      "in_my_squad": false
+      "in_my_squad": true
     },
     {
       "name": "Mosquera",
@@ -39,7 +39,7 @@
         "fpl__raptor (Instagram)",
         "letstalkfpl (Instagram)"
       ],
-      "in_my_squad": true
+      "in_my_squad": false
     },
     {
       "name": "N.Williams",
@@ -134,7 +134,7 @@
       "sources": [
         "fpl__raptor (Instagram)"
       ],
-      "in_my_squad": true
+      "in_my_squad": false
     },
     {
       "name": "Dubravka",
@@ -264,7 +264,7 @@
       "sources": [
         "Lazy FPL — 'The Professor'"
       ],
-      "in_my_squad": false
+      "in_my_squad": true
     },
     {
       "name": "Ndiaye",
@@ -379,7 +379,7 @@
         "fpl__raptor (Instagram)",
         "Lazy FPL — 'The Professor'"
       ],
-      "in_my_squad": false
+      "in_my_squad": true
     },
     {
       "name": "Mosquera",
@@ -390,7 +390,7 @@
         "fpl__raptor (Instagram)",
         "letstalkfpl (Instagram)"
       ],
-      "in_my_squad": true
+      "in_my_squad": false
     },
     {
       "name": "N.Williams",
@@ -450,13 +450,13 @@
   ],
   "consensus_missing_from_my_squad": [
     {
-      "name": "Calafiori",
+      "name": "Mosquera",
       "team": "ARS",
       "picked_by": 2,
       "of": 3,
       "sources": [
         "fpl__raptor (Instagram)",
-        "Lazy FPL — 'The Professor'"
+        "letstalkfpl (Instagram)"
       ],
       "in_my_squad": false
     },
@@ -484,10 +484,10 @@
     }
   ],
   "my_players_no_draft_picked": [
+    "Davis",
     "E.Le Fée",
     "Groß",
     "Hume",
-    "Thomas",
     "Verbruggen"
   ]
 }
