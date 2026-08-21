@@ -1,7 +1,7 @@
 # pl-chips-2026-27
 
 - Source: https://www.premierleague.com/en/news/4679879
-- Fetched: 2026-08-21T09:47:44.831694+00:00
+- Fetched: 2026-08-21T13:04:32.804490+00:00
 - Why it's here: Official explanation of how chips work this season
 
 Captured automatically by `fpl-agent/knowledge.py` as reference material for the FPL agent.
@@ -46,7 +46,7 @@ Fantasy Challenge
 
 News
 
-Transfers
+Games & Trivia
 
 Players
 
@@ -54,13 +54,9 @@ Clubs
 
 Video
 
-Watch Live
+The Archive
 
 More
-
-Home
-
-The Archive
 
 Matches
 
@@ -78,11 +74,9 @@ FPL Draft
 
 Fantasy Challenge
 
-Games
+Games & Trivia
 
-Transfers
-
-Injuries
+The Archive
 
 News
 
@@ -92,15 +86,17 @@ News
 
 Fantasy News
 
-Video & Audio
+Players
 
-Video & Audio
+Clubs
 
-Latest Video
+Video
 
-Video Series
+Home
 
-FPL Podcast
+Transfers
+
+Injuries
 
 Watch Live
 
@@ -110,23 +106,13 @@ Broadcasters
 
 USA Bar Finder
 
-Clubs
-
-Players
-
 Awards
-
-Tickets
-
-myPremierLeague
 
 More From the PL
 
 Club Websites
 
 Club Websites
-
-Premier League
 
 Shop
 
@@ -137,18 +123,6 @@ Football & Community
 Events
 
 Media
-
-Summer Series
-
-Contact Us
-
-FAQs
-
-Terms and Conditions
-
-Privacy Policy
-
-Cookie Policy
 
 Premier League Channels
 

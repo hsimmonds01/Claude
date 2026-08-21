@@ -1,7 +1,7 @@
 # fpl-terms
 
 - Source: https://fantasy.premierleague.com/help/terms
-- Fetched: 2026-08-21T09:47:44.253133+00:00
+- Fetched: 2026-08-21T13:04:32.147645+00:00
 - Why it's here: Terms of use -- worth knowing what the game permits
 
 Captured automatically by `fpl-agent/knowledge.py` as reference material for the FPL agent.
@@ -44,7 +44,7 @@ Fantasy Challenge
 
 News
 
-Transfers
+Games & Trivia
 
 Players
 
@@ -52,15 +52,11 @@ Clubs
 
 Video
 
-Watch Live
-
 More
 
-Login
-
-Home
-
 The Archive
+
+Login
 
 Matches
 
@@ -78,11 +74,9 @@ FPL Draft
 
 Fantasy Challenge
 
-Games
+Games & Trivia
 
-Transfers
-
-Injuries
+The Archive
 
 News
 
@@ -92,15 +86,17 @@ News
 
 Fantasy News
 
-Video & Audio
+Players
 
-Video & Audio
+Clubs
 
-Latest Video
+Video
 
-Video Series
+Home
 
-FPL Podcast
+Transfers
+
+Injuries
 
 Watch Live
 
@@ -110,15 +106,7 @@ Broadcasters
 
 USA Bar Finder
 
-Clubs
-
-Players
-
 Awards
-
-Tickets
-
-myPremierLeague
 
 More From the PL
 
@@ -166,8 +154,6 @@ Sunderland
 
 Spurs
 
-Premier League
-
 Shop
 
 About Us
@@ -177,18 +163,6 @@ Football & Community
 Events
 
 Media
-
-Summer Series
-
-Contact Us
-
-FAQs
-
-Terms and Conditions
-
-Privacy Policy
-
-Cookie Policy
 
 Premier League Channels
 
