@@ -48,6 +48,13 @@
       "event": 1,
       "subject": "FPL GW1 \u2014 Mitchell \u2192 Senesi, captain B.Fernandes.",
       "reason": "34.5h to the GW1 deadline (lead 36h for a 7.0-day gap)"
+    },
+    {
+      "at": "2026-08-21T15:44:37.992445+00:00",
+      "kind": "final",
+      "event": 1,
+      "subject": "FPL final check \u2014 GW1 deadline in ~3h",
+      "reason": "1 news flag(s) on your squad 1.8h out"
     }
   ],
   "failures": [

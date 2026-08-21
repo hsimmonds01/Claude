@@ -1,7 +1,7 @@
 # pl-changes-2026-27
 
 - Source: https://www.premierleague.com/en/news/4679873
-- Fetched: 2026-08-21T13:04:32.542966+00:00
+- Fetched: 2026-08-21T15:42:33.499625+00:00
 - Why it's here: Official write-up of the 2026/27 rule changes
 
 Captured automatically by `fpl-agent/knowledge.py` as reference material for the FPL agent.
@@ -74,10 +74,6 @@ FPL Draft
 
 Fantasy Challenge
 
-Games & Trivia
-
-The Archive
-
 News
 
 News
@@ -86,23 +82,23 @@ News
 
 Fantasy News
 
+Games & Trivia
+
 Players
 
 Clubs
 
 Video
 
-Home
-
-Transfers
-
-Injuries
+The Archive
 
 Watch Live
 
 Watch Live
 
 Broadcasters
+
+Tickets
 
 USA Bar Finder
 
@@ -123,6 +119,10 @@ Football & Community
 Events
 
 Media
+
+Contact Us
+
+FAQs
 
 Premier League Channels
 
