@@ -110,6 +110,34 @@
   the failing commit's author was the right bot, but the colliding push
   turned out to belong to a different project's workflow entirely.
 
+## chelsea_tickets project
+- Watches Chelsea's men's ticket page for HOME games at Stamford Bridge and
+  alerts (ntfy) on two events only: a new home fixture being listed, and a
+  members' ticket application window opening. Harry is a **True Blue** member,
+  not a season ticket holder. `chelsea_tickets/README.md` is the functional
+  doc; `PLAN.md` is the design record.
+- The fixture list is NOT in the page HTML -- chelseafc.com is a React app.
+  Data comes from its own public JSON feed:
+  `GET https://www.chelseafc.com/en/api/fixtures/tickets?pageId=<cms-id>`
+  (no auth, reachable from the dev sandbox, unlike the FPL API). The endpoint
+  was found by walking `runtime.js`'s webpack chunk map to the
+  `fixturesAndResults` service -- worth remembering as a technique when a
+  site's data is client-rendered.
+- **Chelsea never says "ballot".** It is a "Ticket Application Window", open
+  to True Blue+, True Blue, CFC Blue and Junior Blue. Their own copy says
+  applying early in a window confers no advantage, so a 30-minute poll is
+  ample -- don't "optimise" the interval down.
+- **A sale window with NO `status` key is OPEN.** Chelsea only attaches a
+  status once it is `Off Sale` or `Sold Out`. Inverting this would mean never
+  detecting an open ballot. Fixtures are keyed by CMS `id`, never team name.
+- `state.json`'s `notified` map is an AUDIT LOG, not a mute list. Suppression
+  is the snapshot diff's job. Gating on those keys as well permanently
+  swallowed a window that closes and re-opens (second-batch releases) -- found
+  by an end-to-end test, regression test now covers it.
+- Deliberately never touches `eticketing.co.uk` (returns 401 anonymously). No
+  login automation, no credentials, no auto-buying -- the design needs none,
+  which is part of why it was chosen for a public repo.
+
 ## Git / GitHub workflow preferences
 - Standard cycle: implement -> test locally (mock external APIs where the
   sandbox has no network access) -> commit -> push to

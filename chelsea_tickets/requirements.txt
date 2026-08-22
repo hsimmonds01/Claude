@@ -1,0 +1,2 @@
+requests
+tzdata  # Windows has no bundled IANA tz database
