@@ -1,94 +1,39 @@
 {
-  "generated_at": "2026-08-22T05:59:53.340187+00:00",
-  "snapshots_recorded": 216,
+  "generated_at": "2026-08-22T06:53:48.727889+00:00",
+  "snapshots_recorded": 217,
   "movers": [
     {
-      "player_id": "80",
-      "name": "Enes \u00dcnal",
-      "price": 5.5,
-      "owned": 0.0,
-      "direction": "fall",
-      "probability": 0.468,
-      "net_transfers": -11,
-      "source": "fitted from 73,341 past observations (216 snapshots)",
-      "confidence": "estimated"
-    },
-    {
-      "player_id": "458",
-      "name": "Joelinton",
-      "price": 5.5,
-      "owned": 0.0,
-      "direction": "fall",
-      "probability": 0.468,
-      "net_transfers": -11,
-      "source": "fitted from 73,341 past observations (216 snapshots)",
-      "confidence": "estimated"
-    },
-    {
-      "player_id": "197",
-      "name": "Bassette",
-      "price": 4.5,
-      "owned": 0.0,
-      "direction": "fall",
-      "probability": 0.282,
-      "net_transfers": -7,
-      "source": "fitted from 73,341 past observations (216 snapshots)",
-      "confidence": "estimated"
-    },
-    {
-      "player_id": "312",
-      "name": "Taylor",
-      "price": 4.5,
-      "owned": 0.0,
-      "direction": "fall",
-      "probability": 0.282,
-      "net_transfers": -6,
-      "source": "fitted from 73,341 past observations (216 snapshots)",
-      "confidence": "estimated"
-    },
-    {
-      "player_id": "402",
-      "name": "Rodrigo",
-      "price": 6.5,
-      "owned": 0.0,
-      "direction": "fall",
-      "probability": 0.282,
-      "net_transfers": -6,
-      "source": "fitted from 73,341 past observations (216 snapshots)",
-      "confidence": "estimated"
-    },
-    {
-      "player_id": "404",
-      "name": "Reijnders",
-      "price": 6.0,
-      "owned": 0.1,
-      "direction": "fall",
-      "probability": 0.282,
-      "net_transfers": -64,
-      "source": "fitted from 73,341 past observations (216 snapshots)",
-      "confidence": "estimated"
-    },
-    {
-      "player_id": "450",
-      "name": "Livramento",
+      "player_id": "141",
+      "name": "J\u00f6rgensen",
       "price": 5.0,
       "owned": 0.0,
       "direction": "fall",
       "probability": 0.282,
       "net_transfers": -6,
-      "source": "fitted from 73,341 past observations (216 snapshots)",
+      "source": "fitted from 73,341 past observations (217 snapshots)",
       "confidence": "estimated"
     },
     {
-      "player_id": "507",
-      "name": "Phillips",
-      "price": 4.5,
+      "player_id": "425",
+      "name": "Fredricson",
+      "price": 4.0,
       "owned": 0.0,
       "direction": "fall",
       "probability": 0.282,
       "net_transfers": -6,
-      "source": "fitted from 73,341 past observations (216 snapshots)",
+      "source": "fitted from 73,341 past observations (217 snapshots)",
       "confidence": "estimated"
+    },
+    {
+      "player_id": "18",
+      "name": "Martinelli",
+      "price": 6.5,
+      "owned": 0.2,
+      "direction": "fall",
+      "probability": 0.224,
+      "net_transfers": -38,
+      "source": "FPL's own price_change_percent",
+      "confidence": "official"
     }
   ]
 }
