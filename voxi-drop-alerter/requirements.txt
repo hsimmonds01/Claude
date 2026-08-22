@@ -1,1 +1,2 @@
 requests
+tzdata  # Windows has no bundled IANA tz database; zoneinfo needs this to resolve "Europe/London"

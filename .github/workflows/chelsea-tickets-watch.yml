@@ -1,0 +1,94 @@
+name: Chelsea ticket watch
+
+# Watches Chelsea's public ticket feed for home games at Stamford Bridge and
+# pushes an ntfy notification when a new home fixture is listed or a members'
+# ticket application window (the ballot) opens.
+#
+# GitHub's native `schedule` is best-effort and has run >1hr late on this repo
+# before, so - as with the dock-alerter - a cron-job.org job hitting the
+# workflow_dispatch endpoint is the reliable primary trigger and the schedule
+# below is just a backup net. Duplicate or overlapping runs are safe: the
+# watcher diffs against the committed snapshot, so an unchanged feed produces
+# no alerts no matter how often it runs.
+on:
+  schedule:
+    - cron: "*/30 * * * *"
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "Run mode"
+        type: choice
+        options:
+          - check
+          - dry_run
+          - recon
+          - test_notification
+        default: check
+
+permissions:
+  contents: write
+
+# Shared with every other workflow in this repo that commits back to main
+# (dock-alerter, crowding logger, daily-discovery, fpl-agent, voxi-drop).
+# Without this, two workflows pushing at once get one rejected as
+# non-fast-forward. cancel-in-progress stays false so a queued run waits its
+# turn rather than being dropped.
+concurrency:
+  group: main-git-writer
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        working-directory: chelsea_tickets
+        run: pip install -r requirements.txt
+
+      - name: Run the tests
+        working-directory: chelsea_tickets
+        # Fast (<1s) and entirely offline, so it is cheap insurance against a
+        # bad commit silently breaking the watch.
+        run: |
+          pip install pytest
+          python -m pytest -q
+
+      - name: Check the ticket feed
+        working-directory: chelsea_tickets
+        env:
+          # Prefer a repo *secret* over a variable: secrets are masked in the
+          # publicly-visible Actions logs, variables are not.
+          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC || vars.NTFY_TOPIC }}
+          MODE: ${{ inputs.mode || 'check' }}
+        run: |
+          case "${MODE}" in
+            dry_run)          ARGS="--dry-run" ;;
+            recon)            ARGS="--recon" ;;
+            test_notification) ARGS="--test-notification" ;;
+            *)                ARGS="" ;;
+          esac
+          python check_tickets.py $ARGS
+
+      - name: Commit updated state (if changed)
+        run: |
+          # recon/dry-run modes and a failed first fetch leave no state.json,
+          # and `git add` of a missing path is fatal.
+          if [ -f chelsea_tickets/state.json ]; then
+            git add chelsea_tickets/state.json
+          fi
+          if ! git diff --cached --quiet; then
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git commit -m "Update Chelsea ticket watch state"
+            # Another workflow may have pushed between our checkout and now.
+            git pull --rebase origin main || true
+            git push
+          else
+            echo "No state change, nothing to commit."
+          fi
