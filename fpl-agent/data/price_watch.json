@@ -1,49 +1,27 @@
 {
-  "generated_at": "2026-08-22T03:49:21.329437+00:00",
-  "snapshots_recorded": 215,
+  "generated_at": "2026-08-22T05:59:53.340187+00:00",
+  "snapshots_recorded": 216,
   "movers": [
-    {
-      "player_id": "402",
-      "name": "Rodrigo",
-      "price": 6.5,
-      "owned": 0.0,
-      "direction": "fall",
-      "probability": 0.468,
-      "net_transfers": -13,
-      "source": "fitted from 73,341 past observations (215 snapshots)",
-      "confidence": "estimated"
-    },
-    {
-      "player_id": "77",
-      "name": "Adli",
-      "price": 5.0,
-      "owned": 0.0,
-      "direction": "fall",
-      "probability": 0.282,
-      "net_transfers": -6,
-      "source": "fitted from 73,341 past observations (215 snapshots)",
-      "confidence": "estimated"
-    },
     {
       "player_id": "80",
       "name": "Enes \u00dcnal",
       "price": 5.5,
       "owned": 0.0,
       "direction": "fall",
-      "probability": 0.282,
-      "net_transfers": -8,
-      "source": "fitted from 73,341 past observations (215 snapshots)",
+      "probability": 0.468,
+      "net_transfers": -11,
+      "source": "fitted from 73,341 past observations (216 snapshots)",
       "confidence": "estimated"
     },
     {
-      "player_id": "196",
-      "name": "Markelo",
-      "price": 5.0,
+      "player_id": "458",
+      "name": "Joelinton",
+      "price": 5.5,
       "owned": 0.0,
       "direction": "fall",
-      "probability": 0.282,
-      "net_transfers": -6,
-      "source": "fitted from 73,341 past observations (215 snapshots)",
+      "probability": 0.468,
+      "net_transfers": -11,
+      "source": "fitted from 73,341 past observations (216 snapshots)",
       "confidence": "estimated"
     },
     {
@@ -53,19 +31,63 @@
       "owned": 0.0,
       "direction": "fall",
       "probability": 0.282,
-      "net_transfers": -9,
-      "source": "fitted from 73,341 past observations (215 snapshots)",
+      "net_transfers": -7,
+      "source": "fitted from 73,341 past observations (216 snapshots)",
       "confidence": "estimated"
     },
     {
-      "player_id": "458",
-      "name": "Joelinton",
-      "price": 5.5,
+      "player_id": "312",
+      "name": "Taylor",
+      "price": 4.5,
       "owned": 0.0,
       "direction": "fall",
       "probability": 0.282,
-      "net_transfers": -7,
-      "source": "fitted from 73,341 past observations (215 snapshots)",
+      "net_transfers": -6,
+      "source": "fitted from 73,341 past observations (216 snapshots)",
+      "confidence": "estimated"
+    },
+    {
+      "player_id": "402",
+      "name": "Rodrigo",
+      "price": 6.5,
+      "owned": 0.0,
+      "direction": "fall",
+      "probability": 0.282,
+      "net_transfers": -6,
+      "source": "fitted from 73,341 past observations (216 snapshots)",
+      "confidence": "estimated"
+    },
+    {
+      "player_id": "404",
+      "name": "Reijnders",
+      "price": 6.0,
+      "owned": 0.1,
+      "direction": "fall",
+      "probability": 0.282,
+      "net_transfers": -64,
+      "source": "fitted from 73,341 past observations (216 snapshots)",
+      "confidence": "estimated"
+    },
+    {
+      "player_id": "450",
+      "name": "Livramento",
+      "price": 5.0,
+      "owned": 0.0,
+      "direction": "fall",
+      "probability": 0.282,
+      "net_transfers": -6,
+      "source": "fitted from 73,341 past observations (216 snapshots)",
+      "confidence": "estimated"
+    },
+    {
+      "player_id": "507",
+      "name": "Phillips",
+      "price": 4.5,
+      "owned": 0.0,
+      "direction": "fall",
+      "probability": 0.282,
+      "net_transfers": -6,
+      "source": "fitted from 73,341 past observations (216 snapshots)",
       "confidence": "estimated"
     }
   ]
