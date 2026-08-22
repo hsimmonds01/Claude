@@ -1772,6 +1772,66 @@
           "link_status": "search"
         }
       ]
+    },
+    {
+      "date": "2026-08-22",
+      "model": "gemini-2.5-flash (legacy key, live search)",
+      "items": [
+        {
+          "title": "Team Rocket Takes Over London This Weekend!",
+          "category": "event",
+          "summary": "Immerse yourself in the world of Pokémon at Potter's Field Park, near Tower Bridge, where Team Rocket is hosting a free, interactive event today and tomorrow. Solve puzzles to become an honorary recruit and snag a free themed tote bag and in-game code.",
+          "url": "https://www.timeout.com/london/news/pokemon-team-rocket-event-london-august-082126",
+          "date_info": "Saturday 22 & Sunday 23 August 2026, 9am - 6pm BST",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "HUF x Toyota Racing Development Drop Lands Today",
+          "category": "drop",
+          "summary": "The streetwear brand HUF has reunited with Toyota Racing Development for a Fall/Winter 2026 capsule collection, featuring co-branded apparel, caps, and racing-inspired accessories. It dropped today in limited quantities.",
+          "url": "https://www.google.com/search?q=HUF+x+Toyota+Racing+Development+Drop+Lands+Today",
+          "date_info": "Dropped today, August 22, 2026 (9 a.m. PDT)",
+          "urgency": "act-fast",
+          "link_status": "search"
+        },
+        {
+          "title": "BAPE and ©SAINT Mxxxxxx Launch Aged Streetwear Collab",
+          "category": "drop",
+          "summary": "BAPE and ©SAINT Mxxxxxx have released a Fall/Winter 2026 capsule collection, drawing on '90s American subculture with distressed streetwear and collectible can stools. It's available today at SAINT Mxxxxxx retailers and tomorrow on BAPE.",
+          "url": "https://hypebeast.com/2026/8/bape-saint-mxxxxxx-fall-winter-2026-capsule-collaboration-release-info",
+          "date_info": "Releases today, August 22, 2026 (via SAINT Mxxxxxx retailers), and August 23, 2026 (via BAPE)",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "Diptyque Unveils New Luxury Body Care and Home Range",
+          "category": "product",
+          "summary": "Diptyque is launching \"Les Rituels de Soin,\" a new collection of body care and artisanal home objects, inspired by ancient rituals. Get an exclusive preview and complimentary sample with any purchase now, ahead of the full September 1 launch.",
+          "url": "https://www.google.com/search?q=Diptyque+Unveils+New+Luxury+Body+Care+and+Home+Range",
+          "date_info": "Exclusive preview available now; full collection launches September 1, 2026",
+          "urgency": "heads-up",
+          "link_status": "search"
+        },
+        {
+          "title": "Cult Vegan Sandwich Spot Coven of Wiches Reopens in Brixton",
+          "category": "food",
+          "summary": "Beloved plant-based sandwich shop Coven of Wiches has moved and reopened its doors in Brixton's Market Row on August 19. Head south of the river for their famous massive toasties, baguettes, and wraps.",
+          "url": "https://www.timeout.com/london/news/coven-of-wiches-brixton-082126",
+          "date_info": "Opened August 19, 2026",
+          "urgency": "this-week",
+          "link_status": "verified"
+        },
+        {
+          "title": "Immersive Exhibition on Romford's Electronic Music Scene Coming in October",
+          "category": "event",
+          "summary": "\"Mega Mega: Romford's Suburban Sound Revolution\" will be an immersive exhibition and archive celebrating Romford's influential electronic music and club culture history, opening in October.",
+          "url": "https://www.timeout.com/london/news/romford-electronic-music-exhibition-082126",
+          "date_info": "Opens October 2026 and runs until December 2026",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        }
+      ]
     }
   ]
 }
