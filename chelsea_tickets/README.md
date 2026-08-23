@@ -14,6 +14,7 @@ Built for a **True Blue member**, all competitions, men's team only.
 | **New home fixture listed** | default | A Stamford Bridge fixture appears on the ticket page. Chelsea only lists a game once ticket info exists, so this means a sale window is coming. Includes the application dates if they're already published. |
 | **Ticket applications OPEN** | urgent | A members' application window (the ballot) opens. Includes the closing deadline. |
 | **New fixture + applications OPEN** | urgent | Both at once — a fixture first seen with its ballot already live. Sent as **one** notification, not two. |
+| **Reminder: still OPEN** | urgent | A one-off follow-up, sent once, exactly 6 hours after an "applications OPEN" alert, if that window is still open — in case the original got missed. Never repeats beyond that single nudge. |
 | **Watch can't reach the site** | high | 3 runs in a row failed to load the feed, i.e. the watch is blind rather than quiet. |
 | **Watch needs attention** | high | Chelsea changed the feed's shape and the watcher can no longer read it. |
 
@@ -51,6 +52,17 @@ Chelsea and hospitality. Season-ticket-holder-only windows are ignored.
 
 The **first run is silent**: it records a baseline, because every fixture
 already on the page would otherwise look brand new.
+
+## The 6-hour reminder
+
+A missed "applications OPEN" push is the one failure mode that actually
+matters here, so the watcher gives it exactly one second chance: if a window
+is still open 6 hours after that alert fired, it sends a single follow-up
+reminder, then stays quiet regardless of how many more 30-minute polls run
+before the window shuts. It only ever fires once per opening — closing and
+re-opening (a second batch) starts the 6-hour clock over, same as the
+primary alert. This is deliberately *not* a way to bypass Do Not Disturb —
+it's a second chance at the same notification, not a louder one.
 
 ## How it runs
 

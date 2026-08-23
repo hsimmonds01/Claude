@@ -6,9 +6,11 @@ opens, the ballot closes, and it eventually drops off the feed.
 
 from __future__ import annotations
 
+from datetime import datetime, timedelta, timezone
+
 import pytest
 
-from chelsea.detect import detect
+from chelsea.detect import REMINDER_AFTER, detect, due_reminders, window_alert_key
 from chelsea.model import CLOSED, OPEN, SOLD_OUT, HomeFixture, SaleWindow
 
 
@@ -229,3 +231,74 @@ class TestNoiseControl:
         before = snapshot(fixture(windows=(window(state=CLOSED),)))
         current = [fixture(windows=(window(state=state),))]
         assert detect(before, current, seeded=True) == []
+
+
+NOW = datetime(2026, 8, 23, 12, 0, tzinfo=timezone.utc)
+KEY = window_alert_key("hull1", "ticket-application-window-open")
+
+
+class TestReminders:
+    """The one-off 6h follow-up in case the primary alert gets missed."""
+
+    def test_no_reminder_before_the_threshold(self):
+        open_since = {KEY: (NOW - REMINDER_AFTER + timedelta(minutes=1)).isoformat()}
+        current = [fixture(windows=(window(state=OPEN),))]
+
+        kept, reminders = due_reminders(open_since, current, NOW)
+
+        assert reminders == []
+        assert kept == open_since
+
+    def test_reminder_fires_once_the_threshold_is_reached(self):
+        open_since = {KEY: (NOW - REMINDER_AFTER).isoformat()}
+        current = [fixture(windows=(window(state=OPEN),))]
+
+        kept, reminders = due_reminders(open_since, current, NOW)
+
+        assert len(reminders) == 1
+        assert reminders[0].fixture.opponent == "Hull City"
+        assert reminders[0].priority == "urgent"
+        assert "still OPEN" in reminders[0].title
+
+    def test_key_is_dropped_once_the_reminder_fires(self):
+        # So a second poll later the same day does not remind again.
+        open_since = {KEY: (NOW - REMINDER_AFTER).isoformat()}
+        current = [fixture(windows=(window(state=OPEN),))]
+
+        kept, _ = due_reminders(open_since, current, NOW)
+
+        assert kept == {}
+
+    def test_key_is_dropped_once_the_window_closes(self):
+        # The clock stops the moment there is nothing left to remind about.
+        open_since = {KEY: (NOW - timedelta(minutes=5)).isoformat()}
+        current = [fixture(windows=(window(state=CLOSED),))]
+
+        kept, reminders = due_reminders(open_since, current, NOW)
+
+        assert kept == {} and reminders == []
+
+    def test_key_is_dropped_when_the_fixture_disappears(self):
+        open_since = {KEY: (NOW - timedelta(minutes=5)).isoformat()}
+
+        kept, reminders = due_reminders(open_since, current=[], now=NOW)
+
+        assert kept == {} and reminders == []
+
+    def test_reminder_message_includes_the_closing_deadline(self):
+        open_since = {KEY: (NOW - REMINDER_AFTER).isoformat()}
+        current = [fixture(windows=(window(state=OPEN),))]
+
+        _, reminders = due_reminders(open_since, current, NOW)
+
+        assert "Wednesday 26 August 12pm" in reminders[0].message
+
+    def test_untracked_open_windows_are_never_reminded(self):
+        # A window that was already open before the primary alert ever fired
+        # for it (e.g. an always-open "additional tickets" window) must not
+        # spontaneously start a clock -- only `run()` adds keys, on send.
+        current = [fixture(windows=(window(state=OPEN),))]
+
+        kept, reminders = due_reminders(open_since={}, current=current, now=NOW)
+
+        assert kept == {} and reminders == []

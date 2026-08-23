@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import copy
 import json
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from types import SimpleNamespace
 
@@ -17,6 +18,7 @@ import pytest
 import check_tickets
 from chelsea import notify
 from chelsea.api import FetchError
+from chelsea.detect import REMINDER_AFTER
 
 REAL_RESPONSE = Path(__file__).parent.parent / "fixtures" / "api-response-2026-08-22.json"
 HULL_ID = "6rixcGFDEWH5V98iSqSPLa"
@@ -242,6 +244,88 @@ class TestFeedShapeChange:
         assert len(watcher.sent) == 1
         assert watcher.sent[0]["priority"] == "high"
         assert "needs attention" in watcher.sent[0]["title"]
+
+
+class TestReminders:
+    """The one-off 6h follow-up in case the primary alert gets missed."""
+
+    T0 = datetime(2026, 8, 23, 9, 0, tzinfo=timezone.utc)
+
+    def test_reminder_fires_once_the_window_has_been_open_6h(self, watcher, feed):
+        # Arrange -- baseline, then Hull appears with its ballot already open
+        watcher.set_feed(drop_entry(copy.deepcopy(feed), HULL_ID))
+        watcher.run(now=self.T0)
+        watcher.set_feed(feed)
+        watcher.run(now=self.T0)
+        assert len(watcher.sent) == 1, "primary alert should have fired"
+
+        # Act -- just short of the threshold: nothing yet
+        watcher.run(now=self.T0 + REMINDER_AFTER - timedelta(minutes=1))
+        assert len(watcher.sent) == 1
+
+        # Act -- threshold reached: exactly one reminder
+        watcher.run(now=self.T0 + REMINDER_AFTER)
+
+        # Assert
+        assert len(watcher.sent) == 2
+        reminder = watcher.sent[1]
+        assert "still OPEN" in reminder["title"] and "Hull City" in reminder["title"]
+        assert reminder["priority"] == "urgent"
+
+    def test_reminder_does_not_repeat_on_later_polls(self, watcher, feed):
+        # Arrange
+        watcher.set_feed(drop_entry(copy.deepcopy(feed), HULL_ID))
+        watcher.run(now=self.T0)
+        watcher.set_feed(feed)
+        watcher.run(now=self.T0)
+        watcher.run(now=self.T0 + REMINDER_AFTER)
+        assert len(watcher.sent) == 2
+
+        # Act -- several more 30-minute polls, window still open
+        for minutes in (30, 60, 90):
+            watcher.run(now=self.T0 + REMINDER_AFTER + timedelta(minutes=minutes))
+
+        # Assert -- still just the one reminder, not one per poll
+        assert len(watcher.sent) == 2
+
+    def test_no_reminder_if_the_window_closes_before_the_threshold(self, watcher, feed):
+        # Arrange -- primary alert fires, then the window closes
+        watcher.set_feed(drop_entry(copy.deepcopy(feed), HULL_ID))
+        watcher.run(now=self.T0)
+        watcher.set_feed(feed)
+        watcher.run(now=self.T0)
+        assert len(watcher.sent) == 1
+        watcher.set_feed(close_window(copy.deepcopy(feed), HULL_ID))
+        watcher.run(now=self.T0 + timedelta(hours=1))
+        assert len(watcher.sent) == 1
+
+        # Act -- well past the threshold, but nothing left to remind about
+        watcher.run(now=self.T0 + REMINDER_AFTER + timedelta(hours=1))
+
+        # Assert
+        assert len(watcher.sent) == 1
+
+    def test_reopening_after_reminding_can_remind_again(self, watcher, feed):
+        # Arrange -- full cycle: open, remind, close, reopen
+        watcher.set_feed(drop_entry(copy.deepcopy(feed), HULL_ID))
+        watcher.run(now=self.T0)
+        watcher.set_feed(feed)
+        watcher.run(now=self.T0)
+        watcher.run(now=self.T0 + REMINDER_AFTER)
+        assert len(watcher.sent) == 2
+
+        watcher.set_feed(close_window(copy.deepcopy(feed), HULL_ID))
+        watcher.run(now=self.T0 + REMINDER_AFTER + timedelta(hours=1))
+        t1 = self.T0 + REMINDER_AFTER + timedelta(hours=2)
+        watcher.set_feed(feed)
+        watcher.run(now=t1)
+        assert len(watcher.sent) == 3, "second batch reopening should alert again"
+
+        # Act -- 6h after the *second* open, not the first
+        watcher.run(now=t1 + REMINDER_AFTER)
+
+        # Assert
+        assert len(watcher.sent) == 4
 
 
 class TestCliWiring:

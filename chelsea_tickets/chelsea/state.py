@@ -28,6 +28,12 @@ class State:
     # {fixture_id: {"opponent": str, "windows": {window_key: state}}}
     fixtures: dict[str, dict] = field(default_factory=dict)
     notified: dict[str, str] = field(default_factory=dict)
+    # {window_alert_key: ISO timestamp the window was first seen open}. Only
+    # ever holds keys the primary "applications OPEN" alert has already fired
+    # for -- see `due_reminders` in detect.py. A key is removed the moment
+    # either its one-off reminder fires or the window is no longer open,
+    # whichever comes first, so a later reopen starts a fresh clock.
+    open_since: dict[str, str] = field(default_factory=dict)
     consecutive_fetch_failures: int = 0
     fetch_failure_notified: bool = False
     schema_version: int = SCHEMA_VERSION
