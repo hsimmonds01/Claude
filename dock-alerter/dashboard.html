@@ -383,6 +383,12 @@
     <div class="sec-sub" id="fc-eve-when">…</div>
     <div id="fc-eve"></div>
   </section>
+  <section class="card">
+    <div class="sec-title">How accurate has this been?</div>
+    <div class="sec-sub">Every forecast is scored against what actually
+    happened once its window finishes</div>
+    <div id="fc-accuracy"><span class="note">Loading…</span></div>
+  </section>
   <p class="footnote">Forecasts blend the average for that weekday with the
   average across all recorded weekdays, weighted by how much data there is.
   The shaded band shows the full range seen so far at each time — early on,
@@ -476,6 +482,7 @@ const STATION_ID = 'BikePoints_278';
 const BACKUP_QUERY = 'Snowsfields';
 const RAW_BASE   = 'https://raw.githubusercontent.com/hsimmonds01/Claude/main/dock-alerter';
 const HIST_URL   = RAW_BASE + '/history.csv';
+const PRED_URL   = RAW_BASE + '/predictions.csv';
 const LOW_DOCKS = 3, CLEAR_DOCKS = 5;
 const LOW_BIKES = 5, CRIT_BIKES = 3, CLEAR_BIKES = 6;
 // Display windows, minutes since midnight London time.
@@ -483,6 +490,7 @@ const MORN = { start: 8 * 60,       end: 8 * 60 + 45,  metric: 'empty_docks',   
 const EVE  = { start: 17 * 60 + 15, end: 18 * 60,      metric: 'available_bikes', unit: 'bikes' };
 const SHRINK_K = 2;         // weekday-mean shrinkage toward the overall mean
 const MIN_DAYS = 3;         // days of data before patterns/forecasts show
+const MIN_SLOT_READINGS = 4; // ignore 5-min slots this thin (noise, not signal)
 
 const SVGNS = 'http://www.w3.org/2000/svg';
 const css = name => getComputedStyle(document.documentElement).getPropertyValue(name).trim();
@@ -611,6 +619,33 @@ async function fetchHistory() {
   }).filter(Boolean);
 }
 
+// Scored forecasts (predictions.csv). Best-effort: 404 just means no
+// forecast has been logged yet, which is the normal state on day one.
+async function fetchPredictions() {
+  try {
+    const r = await fetch(PRED_URL, { cache: 'no-store' });
+    if (!r.ok) return [];
+    const rows = parseCSV(await r.text());
+    if (rows.length < 2) return [];
+    const hdrs = rows[0];
+    return rows.slice(1).map(vals => {
+      const rec = Object.fromEntries(hdrs.map((h, i) => [h, vals[i] ?? '']));
+      const predicted = parseInt(rec.predicted_low, 10);
+      if (!rec.target_date || Number.isNaN(predicted)) return null;
+      const actualRaw = (rec.actual_low ?? '').trim();
+      const actual = actualRaw === '' ? null : parseInt(actualRaw, 10);
+      return {
+        date: rec.target_date,
+        window: rec.window,
+        predicted,
+        predictedAt: rec.predicted_at || '',
+        actual: Number.isNaN(actual) ? null : actual,
+        actualAt: rec.actual_at || '',
+      };
+    }).filter(Boolean);
+  } catch { return []; }
+}
+
 // Best-effort flag files (mute.flag / friday.flag). 404 = not set.
 async function fetchFlag(name) {
   try {
@@ -689,6 +724,11 @@ function forecastSlots(win, targetWd) {
   const byWd    = new Map(slotStats(wdRows).map(s => [s.slot, s]));
   const out = [];
   for (const [slot, o] of [...overall.entries()].sort((a, b) => a[0] - b[0])) {
+    // Drop slots too thin to trust. Seen for real (2026-08): the 18:00
+    // slot held two readings from one odd evening and dragged the
+    // predicted low from ~5 to ~2. Must match check_docks.py's
+    // FORECAST_MIN_SLOT_READINGS or the phone and this page will disagree.
+    if (o.n < MIN_SLOT_READINGS) continue;
     const w = byWd.get(slot);
     const nWd = w ? w.n : 0;
     const pred = w
@@ -759,8 +799,13 @@ function slotChart(wrap, spec) {
       fill: z.color, opacity: '0.10' }));
     svg.appendChild(sv('line', { x1: PL, y1: zy, x2: PL + pw, y2: zy,
       stroke: z.color, 'stroke-width': '1.5', 'stroke-dasharray': '5 4', opacity: '0.7' }));
+    // Left-aligned: the threshold zones sit low on the chart, and the
+    // line is always at its highest at the start of a window, so the
+    // left edge is the one place these labels reliably don't collide
+    // with the data or with the direct label on the low point (which
+    // tends to land near the right-hand end).
     const ly = zi === 0 ? Math.max(zy - 4, 10) : Math.min(zy + 11, PT + ph - 3);
-    const zt = sv('text', { x: PL + pw - 3, y: ly, 'text-anchor': 'end',
+    const zt = sv('text', { x: PL + 4, y: ly, 'text-anchor': 'start',
       fill: css('--ink-m'), 'font-size': '9.5' });
     zt.textContent = z.label;
     svg.appendChild(zt);
@@ -984,6 +1029,95 @@ function renderForecastCard(wrapId, whenId, win, fc, nowLon, color, zones, statu
     },
   });
   return { low, cls, text };
+}
+
+/* ── Forecast accuracy ─────────────────────────────────────────── */
+function renderAccuracy() {
+  const wrap = document.getElementById('fc-accuracy');
+  wrap.textContent = '';
+  const scored = predictions.filter(p => p.actual !== null);
+
+  if (!scored.length) {
+    sparseBlock(wrap, 'Nothing scored yet',
+      predictions.length
+        ? `${predictions.length} forecast${predictions.length === 1 ? '' : 's'} logged — accuracy appears once their windows have finished.`
+        : 'Forecasts get scored automatically once a monitored window ends.');
+    return;
+  }
+
+  const statsFor = rows => {
+    if (!rows.length) return null;
+    const errs = rows.map(p => p.actual - p.predicted);
+    const mae = errs.reduce((a, e) => a + Math.abs(e), 0) / errs.length;
+    const bias = errs.reduce((a, e) => a + e, 0) / errs.length;
+    return {
+      n: errs.length,
+      mae: Math.round(mae * 10) / 10,
+      bias: Math.round(bias * 10) / 10,
+      within2: Math.round(100 * errs.filter(e => Math.abs(e) <= 2).length / errs.length),
+    };
+  };
+
+  const overall = statsFor(scored);
+  const tiles = el('div'); tiles.className = 'tiles';
+  const mk = (label, value, sub) => {
+    const t = el('div'); t.className = 'tile';
+    const l = el('div'); l.className = 'tile-label'; l.textContent = label;
+    const v = el('div'); v.className = 'tile-value'; v.textContent = value;
+    const s = el('div'); s.className = 'tile-sub'; s.textContent = sub;
+    t.append(l, v, s);
+    return t;
+  };
+  // "Typically out by" is the headline: how far from the truth a forecast
+  // usually lands, in bikes/docks.
+  tiles.append(
+    mk('Typically out by', overall.mae, `over ${overall.n} scored window${overall.n === 1 ? '' : 's'}`),
+    mk('Within 2', overall.within2 + '%', 'of forecasts'));
+  wrap.appendChild(tiles);
+
+  const biasLine = el('div');
+  biasLine.className = 'fc-basis';
+  const dir = overall.bias > 0 ? 'pessimistic' : overall.bias < 0 ? 'optimistic' : 'balanced';
+  biasLine.textContent = overall.bias === 0
+    ? 'On average the forecasts land spot on — no consistent lean either way.'
+    : `On average reality comes in ${Math.abs(overall.bias)} ${overall.bias > 0 ? 'higher' : 'lower'} than forecast — slightly ${dir}.`;
+  wrap.appendChild(biasLine);
+
+  // Per-window split, so a systematically worse window is visible.
+  const byWindow = [['Mornings', 'morning'], ['Evenings', 'evening']]
+    .map(([label, key]) => [label, statsFor(scored.filter(p => p.window === key))])
+    .filter(([, s]) => s);
+  if (byWindow.length === 2) {
+    const split = el('div'); split.className = 'fc-basis';
+    split.textContent = byWindow
+      .map(([label, s]) => `${label}: ${s.mae} out (${s.n})`).join(' · ');
+    wrap.appendChild(split);
+  }
+
+  // Recent forecast-vs-actual rows, newest first.
+  const det = el('details'); det.className = 'numbers';
+  const sum = el('summary'); sum.textContent = 'See recent forecasts vs actual';
+  det.appendChild(sum);
+  const tbl = el('table'); tbl.className = 'tbl';
+  const thead = el('thead'); const hr = el('tr');
+  for (const h of ['Day', 'Window', 'Forecast', 'Actual']) {
+    const th = el('th'); th.textContent = h; hr.appendChild(th);
+  }
+  thead.appendChild(hr); tbl.appendChild(thead);
+  const tbody = el('tbody');
+  for (const p of [...scored].reverse().slice(0, 20)) {
+    const tr = el('tr');
+    const c1 = el('td'); c1.textContent = fmtDayLong(p.date);
+    const c2 = el('td'); c2.textContent = p.window === 'morning' ? 'Morning' : 'Evening';
+    const c3 = el('td'); c3.textContent = `~${p.predicted}${p.predictedAt ? ' @' + p.predictedAt : ''}`;
+    const c4 = el('td'); c4.className = 'v';
+    c4.textContent = `${p.actual}${p.actualAt ? ' @' + p.actualAt : ''}`;
+    tr.append(c1, c2, c3, c4);
+    tbody.appendChild(tr);
+  }
+  tbl.appendChild(tbody);
+  det.appendChild(tbl);
+  wrap.appendChild(det);
 }
 
 function renderForecast() {
@@ -1229,7 +1363,7 @@ let activeView = 'now';
 
 const VIEW_RENDER = {
   now:      () => { renderForecast(); },
-  forecast: () => { renderForecast(); },
+  forecast: () => { renderForecast(); renderAccuracy(); },
   patterns: () => { renderPatterns(); },
   history:  () => { renderWeek(); renderLog(); },
 };
@@ -1256,6 +1390,7 @@ document.querySelector('nav').addEventListener('click', e => {
 
 /* ── Orchestration ─────────────────────────────────────────────── */
 let history = [];
+let predictions = [];
 let muteFlag = null, fridayFlag = null;
 
 async function loadLive() {
@@ -1273,11 +1408,12 @@ async function loadLive() {
 
 async function loadHistory() {
   try {
-    const [rows, mute, friday] = await Promise.all([
-      fetchHistory(), fetchFlag('mute.flag'), fetchFlag('friday.flag'),
+    const [rows, mute, friday, preds] = await Promise.all([
+      fetchHistory(), fetchFlag('mute.flag'), fetchFlag('friday.flag'), fetchPredictions(),
     ]);
     history = rows;
     muteFlag = mute; fridayFlag = friday;
+    predictions = preds;
     renderStale();
     renderMute();
     VIEW_RENDER[activeView]();

@@ -18,6 +18,9 @@ you'll be able to dock your bike at Tooley Street later:
 
 - **08:10** and **08:25** (Europe/London time) -- two one-off snapshots:
   current empty-dock count, sent regardless of how full the station is.
+  The **08:10** one also carries a forecast of the day's low point (see
+  [Forecasts in the notifications](#forecasts-in-the-notifications)), e.g.
+  *"12 empty docks now. Usually dips to ~8 docks around 08:30."*
 - **08:00-08:45** -- checked every 5 minutes.
   - If empty docks drop below `LOW_DOCKS_THRESHOLD` (default **3**), you
     get a high-priority alert.
@@ -29,7 +32,8 @@ you'll be able to dock your bike at Tooley Street later:
 **Evening (return commute) -- watches available bikes**, so you know if
 you'll be able to pick one up to ride home:
 
-- **17:15** -- a one-off evening summary: current available-bikes count.
+- **17:15** -- a one-off evening summary: current available-bikes count,
+  plus the same low-point forecast as the morning summary.
 - **17:30-18:00** -- checked every 5 minutes.
   - If available bikes drop below `LOW_BIKES_THRESHOLD` (default **3**),
     you get a high-priority alert. The alert also looks up **Snowsfields,
@@ -152,6 +156,9 @@ via **Actions -> Tooley Street dock check -> Run workflow**, picking a
   alert/all-clear logic, and readings aren't written to `history.csv` (that
   file and the dashboard are scoped to the Tooley Street commute, so mixing
   in a different route would skew its averages).
+- `accuracy` -- reports how well the forecasts have been doing (see
+  [Is it any good?](#is-it-any-good-accuracy-tracking)). Read-only apart
+  from scoring any windows that have finished since the last run.
 - `check` / `evening_check` -- the same logic the scheduled morning/evening
   windows use (threshold alerts, cooldowns, all-clears). Still available
   to force manually, but they're tied to morning-docks/evening-bikes
@@ -165,14 +172,81 @@ in addition to Contents: Read and write for the mute toggle), and should
 POST `{"ref": "main", "inputs": {"force_mode": "status", "dry_run": "false"}}`
 to the workflow's dispatch endpoint.
 
+### Forecasts in the notifications
+
+The two **summary** notifications (08:10 and 17:15) carry one extra line
+predicting the window's **low point** and roughly when it happens:
+
+    12 empty docks now. Usually dips to ~8 docks around 08:30.
+
+The low point is used rather than a fixed end-of-window time because it's
+the moment that actually matters -- the tightest it gets if you leave in
+the next few minutes.
+
+Deliberately **only** on those two. The 08:25/17:40 snapshots and the
+threshold alerts stay forecast-free: by then you're either committed or
+being told something urgent, and a prediction would just compete with the
+real number.
+
+How it works, and its guardrails:
+
+- For each 5-minute slot in the window, that weekday's own average is
+  blended with the average across all recorded weekdays, weighted by how
+  much same-weekday data exists (`FORECAST_SHRINK_K`). Early on the
+  overall average dominates; as Tuesdays accumulate, Tuesdays take over.
+- Nothing is predicted at all below `FORECAST_MIN_DAYS` (**3**) recorded
+  days -- the notification then reads exactly as it did before forecasts
+  existed. A shaky guess erodes trust faster than no guess.
+- Slots with fewer than `FORECAST_MIN_SLOT_READINGS` (**4**) readings are
+  ignored. Found the hard way: the 18:00 slot once held exactly two
+  readings from one odd evening and dragged the predicted low from ~5 to
+  ~2 -- a two-sample fluke presented as a forecast.
+- **This logic is duplicated in `dashboard.html`** (same blend, same
+  floors, same rounding) so the phone and the Forecast tab can't quote
+  different numbers for the same window. If you change one, change both --
+  there's a parity check for exactly this in the chat history, and the
+  two drifted apart once already (different window bounds and different
+  half-rounding) before it was caught.
+
+### Is it any good? (accuracy tracking)
+
+Every forecast is logged to `dock-alerter/predictions.csv` and scored
+against what actually happened once its window finishes. Reconciliation
+runs on *every* invocation -- including muted days and runs outside the
+windows -- so a window missed at the time still gets scored later, with
+nothing extra to schedule.
+
+View it either way:
+
+- **Dashboard -> Forecast -> "How accurate has this been?"** -- typical
+  error, % within 2, whether it leans optimistic or pessimistic, a
+  per-window split, and the recent forecast-vs-actual rows.
+- **`--force-mode accuracy`** -- the same summary as a notification.
+
+Three numbers worth knowing: *typically out by* (mean absolute error --
+how far off a forecast usually lands), *within 2* (how often it's close
+enough to act on), and the *lean* (mean signed error -- a consistent bias
+is the fixable kind of wrong, and would mean the blend needs retuning).
+
 ### History log
 
 Every real (non-dry-run) check appends a row to `dock-alerter/history.csv`
 -- timestamp, mode, metric (`empty_docks` or `available_bikes`), value,
-and station name. Committed back to the repo the same way as `state.json`.
-This is just a running log for now (nothing reads it yet) -- a natural
-base for a future dashboard or trend-based alerting, without needing to
-backfill data once you decide to build one.
+station name, and **temperature/precipitation** at the time. Committed
+back to the repo the same way as `state.json`, and read by the dashboard
+and the forecaster.
+
+Weather is logged so that "are there fewer bikes when it's wet, and does
+it run out earlier?" can eventually be answered from real data. Nothing
+correlates it yet, and nothing can for a while: there's no weather on any
+row before 2026-08, so that backlog has to build up first. In the
+meantime the summary notifications just add an honest caveat when it's
+actually raining (`WET_PRECIP_MM`), rather than pretending to model it.
+
+Rows written before weather tracking have only the first five columns;
+the script upgrades the header once, in place, and leaves those short
+historical rows untouched -- every reader here and in the dashboard
+tolerates them.
 
 ### Timezone / DST handling
 

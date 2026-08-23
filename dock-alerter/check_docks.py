@@ -30,7 +30,9 @@ from __future__ import annotations
 
 import argparse
 import csv
+import io
 import json
+import math
 import os
 import sys
 import time as _time  # stdlib time module; `time` in this file is datetime.time
@@ -126,12 +128,61 @@ EVENING_CHECK_END = time(18, 0)
 # Run-day check: only Monday (0) through Thursday (3), for both windows.
 ACTIVE_WEEKDAYS = {0, 1, 2, 3}
 
+# Weather logging. Open-Meteo is free and needs no API key. Recorded
+# alongside every reading so that "how does rain affect availability?" can
+# be answered later from real data -- there is no weather in the history
+# before 2026-08, so any correlation work has to wait for that backlog to
+# build up. Nothing reads these columns yet beyond the rain caveat in the
+# summary notifications.
+WEATHER_URL = "https://api.open-meteo.com/v1/forecast"
+STATION_LAT = 51.5045   # Tooley Street, Bermondsey
+STATION_LON = -0.0805
+# Deliberately much shorter than REQUEST_TIMEOUT_SECONDS: this call sits
+# in front of the threshold checks (history is logged before the alert
+# decision), so a hanging weather API would delay a real LOW alert by
+# however long we're willing to wait. Weather is decorative; four seconds
+# is the most a "nice to have" gets to cost an actual alert.
+WEATHER_TIMEOUT_SECONDS = 4
+# Precipitation (mm in the last hour) at or above which we call it "wet".
+WET_PRECIP_MM = 0.2
+
+# Forecasting. Mirrors the dashboard's Forecast view exactly (same
+# shrinkage blend, same minimum-days floor) so the phone notification and
+# the dashboard can never disagree about the same window.
+#
+# For each 5-minute slot we blend that weekday's own mean with the mean
+# across all recorded weekdays, weighted by how much same-weekday data
+# exists: (wd_mean * n_wd + overall_mean * K) / (n_wd + K). With little
+# same-weekday history the overall average dominates; as Tuesdays
+# accumulate, Tuesdays take over.
+FORECAST_SHRINK_K = 2
+# Don't forecast at all below this many distinct recorded days -- a shaky
+# guess erodes trust in the notification faster than no guess does.
+FORECAST_MIN_DAYS = 3
+# Ignore individual 5-minute slots with fewer readings than this. Real
+# example (2026-08): the 18:00 slot held exactly two readings, both from
+# one unusual evening, and dragged the predicted low from ~5 down to ~2 --
+# a two-sample fluke presented as a forecast. Slots this thin are noise,
+# not signal, so they don't get to set the headline or appear on the chart.
+FORECAST_MIN_SLOT_READINGS = 4
+# ...and don't forecast from fewer than this many qualifying slots. Matches
+# the dashboard's own `fc.slots.length < 3` floor.
+FORECAST_MIN_SLOTS = 3
+
 STATE_FILE = Path(__file__).parent / "state.json"
 MUTE_FILE = Path(__file__).parent / "mute.flag"
 FRIDAY_FLAG_FILE = Path(__file__).parent / "friday.flag"
 HISTORY_FILE = Path(__file__).parent / "history.csv"
+PREDICTIONS_FILE = Path(__file__).parent / "predictions.csv"
 LONDON = ZoneInfo("Europe/London")
 REQUEST_TIMEOUT_SECONDS = 15
+
+HISTORY_COLUMNS = ["timestamp_utc", "mode", "metric", "value", "station", "temp_c", "precip_mm"]
+PREDICTION_COLUMNS = [
+    "predicted_at_utc", "target_date", "window", "metric",
+    "predicted_low", "predicted_at", "basis_days", "basis_weekday_days",
+    "actual_low", "actual_at", "error",
+]
 
 
 @dataclass
@@ -411,17 +462,428 @@ def fetch_gym_route() -> tuple[int, str, int, str, str | None, int | None]:
     return bikes, bike_station_name, docks, dock_station_name, backup_name, backup_docks
 
 
+_weather_cache: tuple[float | None, float | None] | None = None
+
+
+def get_weather() -> tuple[float | None, float | None]:
+    """Best-effort (temperature_c, precipitation_mm) for the station.
+
+    Memoised so a single run makes at most one weather call even when it
+    logs several rows (e.g. `status` logs both docks and bikes). Returns
+    (None, None) on any failure -- weather is a nice-to-have annotation on
+    the history log and must never *prevent* a reading or an alert. It can
+    still delay one by up to WEATHER_TIMEOUT_SECONDS, since history is
+    logged before the threshold decision; that timeout is kept short
+    precisely to bound how much an alert can be held up.
+    """
+    global _weather_cache
+    if _weather_cache is not None:
+        return _weather_cache
+    try:
+        response = requests.get(
+            WEATHER_URL,
+            params={
+                "latitude": STATION_LAT,
+                "longitude": STATION_LON,
+                "current": "temperature_2m,precipitation",
+            },
+            timeout=WEATHER_TIMEOUT_SECONDS,
+        )
+        response.raise_for_status()
+        current = response.json().get("current", {})
+        temp = current.get("temperature_2m")
+        precip = current.get("precipitation")
+        _weather_cache = (
+            float(temp) if isinstance(temp, (int, float)) else None,
+            float(precip) if isinstance(precip, (int, float)) else None,
+        )
+    except Exception as exc:
+        # Deliberately broad: weather is a decorative annotation on the
+        # log and a caveat line. Nothing about it is worth failing a real
+        # dock reading or alert over, whatever goes wrong.
+        print(f"WARNING: weather lookup failed ({exc.__class__.__name__}) -- logging without it.", file=sys.stderr)
+        _weather_cache = (None, None)
+    return _weather_cache
+
+
+def _ensure_history_header() -> None:
+    """Upgrade a legacy 5-column history header in place, once.
+
+    Rows logged before weather tracking have five fields; new rows have
+    seven. Rewriting just the header line (leaving the short historical
+    rows alone) keeps both old and new rows readable by `csv.DictReader`
+    and by the dashboard's parser, without rewriting hundreds of rows of
+    real data -- which would also risk conflicting with an in-flight run.
+    """
+    if not HISTORY_FILE.exists():
+        return
+    try:
+        with HISTORY_FILE.open(newline="") as f:
+            first = f.readline()
+            if not first.startswith("timestamp_utc,") or first.rstrip("\r\n").count(",") >= len(HISTORY_COLUMNS) - 1:
+                return  # already migrated, or not a header we recognise
+            rest = f.read()
+        _atomic_write(HISTORY_FILE, ",".join(HISTORY_COLUMNS) + "\n" + rest)
+        print("Upgraded history.csv header to include weather columns.")
+    except OSError as exc:
+        print(f"WARNING: could not upgrade history.csv header ({exc}).", file=sys.stderr)
+
+
 def log_history(mode: str, metric: str, value: int, station_name: str) -> None:
     """Append one row to history.csv -- a running log of every reading, for
-    spotting patterns later (e.g. a future dashboard or trend-based alerts).
+    spotting patterns later (the dashboard, forecasts, weather correlation).
     Writes a header row the first time the file is created.
+
+    Rows written before 2026-08 have only the first five columns; every
+    reader here and in the dashboard tolerates those short rows rather than
+    rewriting the historical file.
     """
+    temp_c, precip_mm = get_weather()
+    _ensure_history_header()
     is_new_file = not HISTORY_FILE.exists()
     with HISTORY_FILE.open("a", newline="") as f:
         writer = csv.writer(f)
         if is_new_file:
-            writer.writerow(["timestamp_utc", "mode", "metric", "value", "station"])
-        writer.writerow([datetime.now(ZoneInfo("UTC")).isoformat(), mode, metric, value, station_name])
+            writer.writerow(HISTORY_COLUMNS)
+        writer.writerow([
+            datetime.now(ZoneInfo("UTC")).isoformat(), mode, metric, value, station_name,
+            "" if temp_c is None else temp_c,
+            "" if precip_mm is None else precip_mm,
+        ])
+
+
+# --------------------------------------------------------------------------
+# Forecasting + prediction quality tracking
+# --------------------------------------------------------------------------
+
+def _mins(t: time) -> int:
+    return t.hour * 60 + t.minute
+
+
+def _atomic_write(path: Path, text: str) -> None:
+    """Write a file by rename, so it's never left half-written.
+
+    Both files rewritten wholesale here (history.csv's header upgrade and
+    predictions.csv) are the record the forecasts are built from, and they
+    get committed back to the repo. A truncated write that survived would
+    silently corrupt that record, so write to a sibling temp file and
+    rename over the original -- rename is atomic on POSIX, so readers see
+    either the whole old file or the whole new one.
+    """
+    tmp = path.with_suffix(path.suffix + ".tmp")
+    try:
+        with tmp.open("w", newline="") as f:
+            f.write(text)
+            f.flush()
+            os.fsync(f.fileno())
+        os.replace(tmp, path)
+    finally:
+        if tmp.exists():
+            try:
+                tmp.unlink()
+            except OSError:
+                pass
+
+
+def _round_half_up(x: float) -> int:
+    """Round .5 away from zero, like JavaScript's Math.round.
+
+    Python's built-in round() rounds halves to even (round(6.5) == 6),
+    so using it here would make this forecaster disagree with the
+    dashboard's by one on exact halves.
+    """
+    return math.floor(x + 0.5)
+
+
+# The two monitored windows, keyed by the name used in predictions.csv.
+# (start, end, metric) -- the metric each window actually cares about.
+#
+# These MUST match the dashboard's MORN/EVE constants exactly, or the phone
+# notification and the Forecast tab will quote different numbers for the
+# same window. The evening span therefore starts at the 17:15 summary (the
+# full monitored evening), not at the 17:30 threshold-check start.
+WINDOWS = {
+    "morning": (MORNING_CHECK_START, MORNING_CHECK_END, "empty_docks"),
+    "evening": (EVENING_SUMMARY_TIME, EVENING_CHECK_END, "available_bikes"),
+}
+
+
+def load_history() -> list[dict]:
+    """Parse history.csv into rows with London-local date/time attached.
+
+    Tolerates short rows (pre-2026-08 rows have no weather columns) and
+    skips anything unparseable rather than raising -- every caller treats
+    history as best-effort context, never as something worth failing a
+    real alert over.
+    """
+    if not HISTORY_FILE.exists():
+        return []
+    rows = []
+    try:
+        with HISTORY_FILE.open(newline="") as f:
+            for rec in csv.DictReader(f):
+                raw_ts = (rec.get("timestamp_utc") or "").strip()
+                raw_value = (rec.get("value") or "").strip()
+                if not raw_ts or not raw_value:
+                    continue
+                try:
+                    ts = datetime.fromisoformat(raw_ts)
+                    value = int(raw_value)
+                except ValueError:
+                    continue
+                local = ts.astimezone(LONDON)
+                rows.append({
+                    "ts": ts,
+                    "metric": (rec.get("metric") or "").strip(),
+                    "value": value,
+                    "date": local.date(),
+                    "mins": local.hour * 60 + local.minute,
+                    "weekday": local.weekday(),
+                })
+    except OSError as exc:
+        print(f"WARNING: could not read history.csv ({exc}) -- skipping forecast.", file=sys.stderr)
+        return []
+    return rows
+
+
+def forecast_window_low(window: str, target_weekday: int, history: list[dict] | None = None) -> dict | None:
+    """Predict the LOW point of a monitored window, and when it happens.
+
+    The low point (rather than the value at some fixed end-of-window time)
+    is what actually matters: it's the tightest moment you'd hit if you
+    left in the next few minutes. Returns None when there isn't enough
+    history to say anything worth trusting.
+    """
+    start_t, end_t, metric = WINDOWS[window]
+    start, end = _mins(start_t), _mins(end_t)
+    rows = load_history() if history is None else history
+    rows = [r for r in rows if r["metric"] == metric and start - 4 <= r["mins"] <= end + 4]
+    if not rows:
+        return None
+
+    days = len({r["date"] for r in rows})
+    if days < FORECAST_MIN_DAYS:
+        return None
+    wd_rows = [r for r in rows if r["weekday"] == target_weekday]
+    wd_days = len({r["date"] for r in wd_rows})
+
+    # Snap to the nearest 5-minute slot, then keep only slots inside the
+    # window. (Don't clamp stragglers inward -- a reading at 18:04 belongs
+    # to no slot, not to the 18:00 one. The dashboard does the same.)
+    def slot_of(r):
+        return round(r["mins"] / 5) * 5
+
+    overall: dict[int, list[int]] = {}
+    per_wd: dict[int, list[int]] = {}
+    for r in rows:
+        slot = slot_of(r)
+        if start <= slot <= end:
+            overall.setdefault(slot, []).append(r["value"])
+    for r in wd_rows:
+        slot = slot_of(r)
+        if start <= slot <= end:
+            per_wd.setdefault(slot, []).append(r["value"])
+
+    best_slot, best_value = None, None
+    eligible = 0
+    for slot, values in sorted(overall.items()):
+        if len(values) < FORECAST_MIN_SLOT_READINGS:
+            continue  # too thin to trust -- see FORECAST_MIN_SLOT_READINGS
+        eligible += 1
+        # Round each slot mean to 1dp BEFORE blending, and the blend after,
+        # exactly as the dashboard does (its slotStats rounds avg to 1dp).
+        # Blending exact means here instead would let the two disagree by
+        # one at a .x5 boundary.
+        overall_mean = _round_half_up(sum(values) / len(values) * 10) / 10
+        wd_values = per_wd.get(slot, [])
+        if wd_values:
+            wd_mean = _round_half_up(sum(wd_values) / len(wd_values) * 10) / 10
+            blended = (wd_mean * len(wd_values) + overall_mean * FORECAST_SHRINK_K) / (len(wd_values) + FORECAST_SHRINK_K)
+        else:
+            blended = overall_mean
+        blended = _round_half_up(blended * 10) / 10
+        if best_value is None or blended < best_value:
+            best_slot, best_value = slot, blended
+
+    # The dashboard also refuses to forecast from fewer than three
+    # qualifying slots; without this the phone would forecast on days the
+    # Forecast tab still says "Still building up".
+    if best_slot is None or eligible < FORECAST_MIN_SLOTS:
+        return None
+    return {
+        "low": _round_half_up(best_value),
+        "at": best_slot,
+        "days": days,
+        "weekday_days": wd_days,
+        "metric": metric,
+    }
+
+
+def _read_predictions() -> list[dict]:
+    if not PREDICTIONS_FILE.exists():
+        return []
+    try:
+        with PREDICTIONS_FILE.open(newline="") as f:
+            return [dict(r) for r in csv.DictReader(f)]
+    except OSError as exc:
+        print(f"WARNING: could not read predictions.csv ({exc}).", file=sys.stderr)
+        return []
+
+
+def _write_predictions(rows: list[dict]) -> None:
+    buf = io.StringIO(newline="")
+    writer = csv.DictWriter(buf, fieldnames=PREDICTION_COLUMNS, extrasaction="ignore")
+    writer.writeheader()
+    for row in rows:
+        writer.writerow({k: row.get(k, "") for k in PREDICTION_COLUMNS})
+    _atomic_write(PREDICTIONS_FILE, buf.getvalue())
+
+
+def record_prediction(window: str, target_date, forecast: dict) -> None:
+    """Log a forecast so its accuracy can be scored once the real window
+    has played out. One row per window per day -- re-recording the same
+    window/date overwrites rather than duplicating, so a re-run or a late
+    duplicate trigger can't skew the accuracy stats.
+    """
+    # Pure bookkeeping, and it runs *after* the notification has already
+    # gone out -- so it must never raise. An exception here would skip the
+    # state save that follows in the summary handlers, which could cause a
+    # duplicate alert on the next check.
+    try:
+        rows = _read_predictions()
+        key = (str(target_date), window)
+        rows = [r for r in rows if (r.get("target_date"), r.get("window")) != key]
+        rows.append({
+            "predicted_at_utc": datetime.now(ZoneInfo("UTC")).isoformat(),
+            "target_date": str(target_date),
+            "window": window,
+            "metric": forecast["metric"],
+            "predicted_low": forecast["low"],
+            "predicted_at": fmt_slot(forecast["at"]),
+            "basis_days": forecast["days"],
+            "basis_weekday_days": forecast["weekday_days"],
+            "actual_low": "", "actual_at": "", "error": "",
+        })
+        rows.sort(key=lambda r: (r.get("target_date", ""), r.get("window", "")))
+        _write_predictions(rows)
+    except Exception as exc:
+        print(f"WARNING: could not record prediction ({exc.__class__.__name__}: {exc}).", file=sys.stderr)
+
+
+def reconcile_predictions(now_london: datetime, history: list[dict] | None = None) -> int:
+    """Fill in what actually happened for any prediction whose window has
+    now finished. Self-healing: runs on every invocation and picks up any
+    window it missed, so there's nothing extra to schedule.
+    """
+    rows = _read_predictions()
+    pending = [r for r in rows if not (r.get("actual_low") or "").strip()]
+    if not pending:
+        return 0
+    hist = load_history() if history is None else history
+    filled = 0
+    for row in pending:
+        window = row.get("window")
+        if window not in WINDOWS:
+            continue
+        try:
+            target = datetime.strptime(row["target_date"], "%Y-%m-%d").date()
+        except (KeyError, ValueError):
+            continue
+        start_t, end_t, metric = WINDOWS[window]
+        # Only score a window that has actually finished.
+        if target > now_london.date():
+            continue
+        if target == now_london.date() and now_london.time() <= end_t:
+            continue
+        actuals = [
+            r for r in hist
+            if r["date"] == target and r["metric"] == metric
+            and _mins(start_t) - 4 <= r["mins"] <= _mins(end_t) + 4
+        ]
+        if not actuals:
+            continue  # no readings that day (missed run, muted, holiday)
+        low_row = min(actuals, key=lambda r: r["value"])
+        row["actual_low"] = low_row["value"]
+        row["actual_at"] = fmt_slot(round(low_row["mins"] / 5) * 5)
+        try:
+            row["error"] = int(low_row["value"]) - int(row["predicted_low"])
+        except (TypeError, ValueError):
+            row["error"] = ""
+        filled += 1
+    if filled:
+        _write_predictions(rows)
+    return filled
+
+
+def accuracy_summary(rows: list[dict] | None = None) -> dict:
+    """Aggregate how the forecasts have actually performed."""
+    rows = _read_predictions() if rows is None else rows
+    scored = []
+    for r in rows:
+        try:
+            scored.append({
+                "window": r.get("window", ""),
+                "error": int(r["error"]),
+            })
+        except (KeyError, TypeError, ValueError):
+            continue
+    if not scored:
+        return {"n": 0}
+
+    def stats(subset):
+        if not subset:
+            return None
+        errors = [s["error"] for s in subset]
+        return {
+            "n": len(errors),
+            # Mean ABSOLUTE error: typical distance from the truth.
+            "mae": round(sum(abs(e) for e in errors) / len(errors), 1),
+            # Mean SIGNED error: is it consistently optimistic (+) or
+            # pessimistic (-)? A big bias is the fixable kind of wrong.
+            "bias": round(sum(errors) / len(errors), 1),
+            "within_2": round(100 * sum(1 for e in errors if abs(e) <= 2) / len(errors)),
+        }
+
+    return {
+        "n": len(scored),
+        "overall": stats(scored),
+        "morning": stats([s for s in scored if s["window"] == "morning"]),
+        "evening": stats([s for s in scored if s["window"] == "evening"]),
+    }
+
+
+def fmt_slot(minutes: int) -> str:
+    return f"{minutes // 60:02d}:{minutes % 60:02d}"
+
+
+def forecast_sentence(window: str, now_london: datetime, history: list[dict] | None = None) -> tuple[str, dict | None]:
+    """The one extra line appended to a summary notification, plus the
+    forecast it came from (so the caller can log it for scoring).
+
+    Returns ("", None) when there isn't enough data -- the notification
+    then reads exactly as it did before this feature existed.
+    """
+    try:
+        forecast = forecast_window_low(window, now_london.weekday(), history)
+    except Exception as exc:  # never let a forecast bug kill a real alert
+        print(f"WARNING: forecast failed ({exc.__class__.__name__}: {exc}).", file=sys.stderr)
+        return "", None
+    if not forecast:
+        return "", None
+    unit = "docks" if forecast["metric"] == "empty_docks" else "bikes"
+    return f" Usually dips to ~{forecast['low']} {unit} around {fmt_slot(forecast['at'])}.", forecast
+
+
+def weather_caveat() -> str:
+    """Mention rain only when it's actually raining -- a caveat that fires
+    every day stops being read. Correlating rain with availability needs a
+    backlog of wet days we don't have yet; this is just the honest
+    'conditions today' note in the meantime.
+    """
+    _, precip = get_weather()
+    if precip is not None and precip >= WET_PRECIP_MM:
+        return " Raining -- availability may run lower than usual."
+    return ""
 
 
 def send_notification(title: str, message: str, priority: str = "default", tags: str = "bike") -> None:
@@ -440,6 +902,7 @@ def send_notification(title: str, message: str, priority: str = "default", tags:
 def run(mode: str, dry_run: bool) -> None:
     state = State.load(STATE_FILE)
     now_utc = datetime.now(ZoneInfo("UTC"))
+    now_london = now_utc.astimezone(LONDON)
 
     if mode == "summary":
         empty_docks, station_name = fetch_empty_docks()
@@ -448,11 +911,14 @@ def run(mode: str, dry_run: bool) -> None:
             log_history(mode, "empty_docks", empty_docks, station_name)
 
         title = "Tooley Street docks - morning check"
-        message = f"{empty_docks} empty docks available right now."
+        forecast_text, forecast = forecast_sentence("morning", now_london)
+        message = f"{empty_docks} empty docks now." + forecast_text + weather_caveat()
         if dry_run:
             print(f"DRY RUN -- would send: {title} / {message}")
         else:
             send_notification(title, message, priority="default", tags="bike,sunny")
+            if forecast:
+                record_prediction("morning", now_london.date(), forecast)
 
         # Clear stale morning alert state (e.g. yesterday's), leaving the
         # evening state untouched. The summary now runs INSIDE the check
@@ -533,11 +999,14 @@ def run(mode: str, dry_run: bool) -> None:
 
         bike_label = "standard bikes" if EXCLUDE_EBIKES else "bikes"
         title = "Tooley Street bikes - evening check"
-        message = f"{bikes} {bike_label} available right now."
+        forecast_text, forecast = forecast_sentence("evening", now_london)
+        message = f"{bikes} {bike_label} now." + forecast_text + weather_caveat()
         if dry_run:
             print(f"DRY RUN -- would send: {title} / {message}")
         else:
             send_notification(title, message, priority="default", tags="bike,sunny")
+            if forecast:
+                record_prediction("evening", now_london.date(), forecast)
 
         # Fresh monitoring window starting -- clear any stale evening alert
         # state, leaving the morning state untouched.
@@ -695,6 +1164,38 @@ def run(mode: str, dry_run: bool) -> None:
             send_notification(title, message, priority="default", tags=tags)
         return
 
+    if mode == "accuracy":
+        # How well has the forecast actually been doing? Reconcile first so
+        # the numbers include every window that has finished by now --
+        # except under --dry-run, which must never write to disk (main()
+        # skips its own reconcile pass for the same reason, so a dry run
+        # simply reports on whatever has already been scored).
+        if not dry_run:
+            reconcile_predictions(now_london)
+        summary = accuracy_summary()
+        if not summary.get("n"):
+            print("[accuracy] No scored predictions yet.")
+            message = "No forecasts have been scored yet -- check back after a few more days."
+        else:
+            print(f"[accuracy] {summary}")
+            lines = []
+            for label, key in (("Mornings", "morning"), ("Evenings", "evening")):
+                s = summary.get(key)
+                if s:
+                    direction = "over" if s["bias"] < 0 else "under"
+                    lines.append(
+                        f"{label}: typically {s['mae']} out ({s['within_2']}% within 2), "
+                        f"{direction}-predicting by {abs(s['bias'])} on average, over {s['n']} days."
+                    )
+            message = " ".join(lines) or "Not enough scored forecasts yet."
+
+        title = "Dock alerter - forecast accuracy"
+        if dry_run:
+            print(f"DRY RUN -- would send: {title} / {message}")
+        else:
+            send_notification(title, message, priority="default", tags="bike,bar_chart")
+        return
+
     raise ValueError(f"Unknown mode: {mode}")
 
 
@@ -702,7 +1203,7 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
         "--force-mode",
-        choices=["auto", "summary", "morning_bikes", "check", "evening_summary", "evening_second_summary", "evening_check", "status", "gym_route"],
+        choices=["auto", "summary", "morning_bikes", "check", "evening_summary", "evening_second_summary", "evening_check", "status", "gym_route", "accuracy"],
         default="auto",
         help="Override the time-based mode detection, e.g. for manual testing.",
     )
@@ -715,6 +1216,18 @@ def main() -> None:
 
     now_london = datetime.now(LONDON)
     mode = determine_mode(now_london, args.force_mode)
+
+    # Score any forecast whose window has now finished. Done before the
+    # early returns below so it still self-heals on days that are muted or
+    # outside the windows -- those runs already do nothing else, and this
+    # is how a window missed at the time still gets scored later.
+    if not args.dry_run:
+        try:
+            filled = reconcile_predictions(now_london)
+            if filled:
+                print(f"Scored {filled} finished forecast window(s).")
+        except Exception as exc:  # never block a real check on bookkeeping
+            print(f"WARNING: reconciling predictions failed ({exc.__class__.__name__}: {exc}).", file=sys.stderr)
 
     if mode is None:
         print(
