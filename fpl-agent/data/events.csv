@@ -1,5 +1,5 @@
 id,name,deadline_time,finished,data_checked,is_previous,is_current,is_next,average_entry_score,highest_score,most_captained
-1,Gameweek 1,2026-08-21T17:30:00Z,False,False,False,True,False,23,95,411
+1,Gameweek 1,2026-08-21T17:30:00Z,False,False,False,True,False,36,114,411
 2,Gameweek 2,2026-08-28T17:30:00Z,False,False,False,False,True,0,,
 3,Gameweek 3,2026-09-04T17:30:00Z,False,False,False,False,False,0,,
 4,Gameweek 4,2026-09-12T12:30:00Z,False,False,False,False,False,0,,
