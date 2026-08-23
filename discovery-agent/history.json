@@ -1832,6 +1832,75 @@
           "link_status": "verified"
         }
       ]
+    },
+    {
+      "date": "2026-08-23",
+      "model": "gemini-2.5-flash (legacy key, live search)",
+      "items": [
+        {
+          "title": "Dune: Part Three IMAX 70mm Insider Screenings",
+          "category": "film",
+          "summary": "Secure your spot for early screenings of 'Dune: Part Three' in IMAX 70mm on December 15th. Tickets went on sale August 18th, and London's BFI IMAX is a participating theatre, offering a collectible filmstrip for opening weekend 7pm showtimes (Dec 17-20).",
+          "url": "https://www.google.com/search?q=Dune%3A+Part+Three+IMAX+70mm+Insider+Screenings",
+          "date_info": "Insider screenings on Tuesday, December 15th, 2026. Tickets went on sale August 18th, 2026.",
+          "urgency": "act-fast",
+          "link_status": "search"
+        },
+        {
+          "title": "New Opportunities for 'The Odyssey' IMAX 70mm Tickets in London",
+          "category": "film",
+          "summary": "While BFI IMAX is mostly sold out until September 10th, more September dates are anticipated soon. Alternatively, the Science Museum in London is currently screening 'The Odyssey' in 70mm IMAX, with tickets potentially available due to returns.",
+          "url": "https://www.google.com/search?q=New+Opportunities+for+%27The+Odyssey%27+IMAX+70mm+Tickets+in+London",
+          "date_info": "Ongoing screenings; BFI IMAX expecting more September dates soon. Science Museum has current availability due to returns.",
+          "urgency": "act-fast",
+          "link_status": "search"
+        },
+        {
+          "title": "BEAMS Reimagines Arc'teryx STUFF SACK for Exclusive Japan Drop",
+          "category": "drop",
+          "summary": "Japanese retailer BEAMS has collaborated with Arc'teryx to reimagine their STUFF SACK, crafted from deadstock GORE-TEX and nylon scraps, as a stylish accessory for urban environments. This exclusive Japan release, announced yesterday, offers a fresh take on sustainable design.",
+          "url": "https://www.highsnobiety.com/p/arcteryx-stuff-sack/",
+          "date_info": "Announced August 22nd, 2026.",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "Peleg Design's Clever Crococlips for Beach Towels",
+          "category": "product",
+          "summary": "Discover Peleg Design's 'Crococlips', a genuinely clever gadget designed to keep your beach towels secure on windy days. These crocodile-shaped clips offer a fun and practical solution for beach essentials, recently highlighted by the brand.",
+          "url": "https://www.google.com/search?q=Peleg+Design%27s+Clever+Crococlips+for+Beach+Towels",
+          "date_info": "Recently highlighted August 18th, 2026.",
+          "urgency": "heads-up",
+          "link_status": "search"
+        },
+        {
+          "title": "Plated Food Festival: Chelsea's Month-Long Dining Deals",
+          "category": "food",
+          "summary": "Indulge in Chelsea's 'Plated' food festival, running until August 31st. Over 30 venues across King's Road and Knightsbridge are offering exclusive menus, special deals, and complimentary cocktails, providing a fantastic opportunity to experience high-end dining at reduced prices.",
+          "url": "https://www.google.com/search?q=Plated+Food+Festival%3A+Chelsea%27s+Month-Long+Dining+Deals",
+          "date_info": "Running until August 31st, 2026.",
+          "urgency": "this-week",
+          "link_status": "search"
+        },
+        {
+          "title": "Faulty Towers The Dining Experience in London",
+          "category": "event",
+          "summary": "Immerse yourself in the chaos and comedy of 'Faulty Towers The Dining Experience' at the President Hotel near Russell Square. Tickets are available for various dates, including today, offering a unique interactive show and three-course meal.",
+          "url": "https://www.google.com/search?q=Faulty+Towers+The+Dining+Experience+in+London",
+          "date_info": "Various dates from Saturday, August 22nd, 2026, onwards.",
+          "urgency": "act-fast",
+          "link_status": "search"
+        },
+        {
+          "title": "The Great British Giveaway: Free Entry by Post",
+          "category": "other",
+          "summary": "Don't miss your chance to enter 'The Great British Giveaway' for a shot at winning £60,000 in tax-free cash and a gold bar worth over £5,000. While online entries have closed, you can still enter for free by post until October 29th.",
+          "url": "https://www.google.com/search?q=The+Great+British+Giveaway%3A+Free+Entry+by+Post",
+          "date_info": "Postal entries close Thursday, October 29th, 2026, at 4pm.",
+          "urgency": "heads-up",
+          "link_status": "search"
+        }
+      ]
     }
   ]
 }
