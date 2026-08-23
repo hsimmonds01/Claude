@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-08-23T03:56:32.828365+00:00",
-  "snapshots_recorded": 224,
+  "generated_at": "2026-08-23T06:00:16.668538+00:00",
+  "snapshots_recorded": 225,
   "movers": [
     {
       "player_id": "18",
@@ -8,8 +8,8 @@
       "price": 6.5,
       "owned": 0.2,
       "direction": "fall",
-      "probability": 0.394,
-      "net_transfers": -15,
+      "probability": 0.4,
+      "net_transfers": -22,
       "source": "FPL's own price_change_percent",
       "confidence": "official"
     },
@@ -19,8 +19,8 @@
       "price": 5.5,
       "owned": 40.0,
       "direction": "rise",
-      "probability": 0.38,
-      "net_transfers": 652,
+      "probability": 0.384,
+      "net_transfers": 747,
       "source": "FPL's own price_change_percent",
       "confidence": "official"
     },
@@ -30,8 +30,8 @@
       "price": 5.5,
       "owned": 1.8,
       "direction": "fall",
-      "probability": 0.339,
-      "net_transfers": -70,
+      "probability": 0.341,
+      "net_transfers": -80,
       "source": "FPL's own price_change_percent",
       "confidence": "official"
     },
@@ -41,8 +41,8 @@
       "price": 7.5,
       "owned": 8.7,
       "direction": "fall",
-      "probability": 0.322,
-      "net_transfers": -405,
+      "probability": 0.326,
+      "net_transfers": -511,
       "source": "FPL's own price_change_percent",
       "confidence": "official"
     },
@@ -52,7 +52,7 @@
       "price": 5.5,
       "owned": 0.1,
       "direction": "fall",
-      "probability": 0.304,
+      "probability": 0.306,
       "net_transfers": -3,
       "source": "FPL's own price_change_percent",
       "confidence": "official"
@@ -64,9 +64,31 @@
       "owned": 0.0,
       "direction": "fall",
       "probability": 0.289,
-      "net_transfers": -1,
+      "net_transfers": 0,
       "source": "FPL's own price_change_percent",
       "confidence": "official"
+    },
+    {
+      "player_id": "80",
+      "name": "Enes \u00dcnal",
+      "price": 5.5,
+      "owned": 0.0,
+      "direction": "fall",
+      "probability": 0.282,
+      "net_transfers": -7,
+      "source": "fitted from 73,341 past observations (225 snapshots)",
+      "confidence": "estimated"
+    },
+    {
+      "player_id": "402",
+      "name": "Rodrigo",
+      "price": 6.5,
+      "owned": 0.0,
+      "direction": "fall",
+      "probability": 0.282,
+      "net_transfers": -6,
+      "source": "fitted from 73,341 past observations (225 snapshots)",
+      "confidence": "estimated"
     },
     {
       "player_id": "14",
@@ -74,8 +96,8 @@
       "price": 6.5,
       "owned": 2.0,
       "direction": "fall",
-      "probability": 0.268,
-      "net_transfers": -84,
+      "probability": 0.271,
+      "net_transfers": -88,
       "source": "FPL's own price_change_percent",
       "confidence": "official"
     },
@@ -85,8 +107,8 @@
       "price": 6.5,
       "owned": 0.3,
       "direction": "fall",
-      "probability": 0.26,
-      "net_transfers": -8,
+      "probability": 0.262,
+      "net_transfers": -13,
       "source": "FPL's own price_change_percent",
       "confidence": "official"
     },
@@ -96,8 +118,8 @@
       "price": 6.5,
       "owned": 25.3,
       "direction": "rise",
-      "probability": 0.259,
-      "net_transfers": 415,
+      "probability": 0.262,
+      "net_transfers": 468,
       "source": "FPL's own price_change_percent",
       "confidence": "official"
     },
@@ -107,8 +129,8 @@
       "price": 6.5,
       "owned": 8.9,
       "direction": "rise",
-      "probability": 0.257,
-      "net_transfers": 670,
+      "probability": 0.26,
+      "net_transfers": 733,
       "source": "FPL's own price_change_percent",
       "confidence": "official"
     },
@@ -118,8 +140,8 @@
       "price": 7.0,
       "owned": 3.9,
       "direction": "fall",
-      "probability": 0.237,
-      "net_transfers": -311,
+      "probability": 0.24,
+      "net_transfers": -376,
       "source": "FPL's own price_change_percent",
       "confidence": "official"
     },
@@ -129,8 +151,8 @@
       "price": 6.0,
       "owned": 0.4,
       "direction": "fall",
-      "probability": 0.232,
-      "net_transfers": -10,
+      "probability": 0.235,
+      "net_transfers": -17,
       "source": "FPL's own price_change_percent",
       "confidence": "official"
     },
@@ -140,7 +162,7 @@
       "price": 6.0,
       "owned": 0.7,
       "direction": "fall",
-      "probability": 0.231,
+      "probability": 0.233,
       "net_transfers": -23,
       "source": "FPL's own price_change_percent",
       "confidence": "official"
@@ -151,8 +173,30 @@
       "price": 5.0,
       "owned": 0.2,
       "direction": "fall",
-      "probability": 0.222,
-      "net_transfers": -37,
+      "probability": 0.226,
+      "net_transfers": -41,
+      "source": "FPL's own price_change_percent",
+      "confidence": "official"
+    },
+    {
+      "player_id": "604",
+      "name": "Cresswell",
+      "price": 4.5,
+      "owned": 0.0,
+      "direction": "rise",
+      "probability": 0.211,
+      "net_transfers": 13,
+      "source": "fitted from 73,341 past observations (3 snapshots)",
+      "confidence": "estimated"
+    },
+    {
+      "player_id": "373",
+      "name": "C.Jones",
+      "price": 5.5,
+      "owned": 0.0,
+      "direction": "fall",
+      "probability": 0.2,
+      "net_transfers": -2,
       "source": "FPL's own price_change_percent",
       "confidence": "official"
     }
