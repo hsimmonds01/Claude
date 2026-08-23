@@ -21,11 +21,12 @@ from __future__ import annotations
 
 import argparse
 import sys
+from datetime import datetime, timezone
 from pathlib import Path
 
 from chelsea import notify
 from chelsea.api import FetchError, fetch_ticket_feed
-from chelsea.detect import detect
+from chelsea.detect import detect, due_reminders, window_alert_key
 from chelsea.model import FeedError, parse_home_fixtures
 from chelsea.state import State
 
@@ -95,7 +96,8 @@ def _announce_recovery(state: State, dry_run: bool) -> None:
     state.consecutive_fetch_failures = 0
 
 
-def run(dry_run: bool = False, recon: bool = False) -> int:
+def run(dry_run: bool = False, recon: bool = False, now: datetime | None = None) -> int:
+    now = now or datetime.now(timezone.utc)
     state = State.load(STATE_FILE)
 
     try:
@@ -142,8 +144,21 @@ def run(dry_run: bool = False, recon: bool = False) -> int:
             # which is exactly the event Harry most wants to hear about.
             for key in alert.keys:
                 state.mark_notified(key)
+            # Starts the reminder clock for each window this alert just told
+            # Harry about, in case that alert gets missed.
+            for window in alert.newly_open:
+                state.open_since[window_alert_key(alert.fixture.id, window.key)] = now.isoformat()
         if not alerts:
             print("\nNo changes worth alerting on.")
+
+        kept, reminders = due_reminders(state.open_since, fixtures, now)
+        for reminder in reminders:
+            if dry_run:
+                print(f"\nDRY RUN -- would send [reminder] {reminder.title}\n{reminder.message}")
+                continue
+            notify.send(reminder.title, reminder.message, priority=reminder.priority, tags=reminder.tags)
+        if not dry_run:
+            state.open_since = kept
 
     state.snapshot(fixtures)
     state.prune_notified({fixture.id for fixture in fixtures})
