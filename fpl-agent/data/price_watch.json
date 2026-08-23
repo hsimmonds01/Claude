@@ -1,27 +1,27 @@
 {
-  "generated_at": "2026-08-22T21:30:01.401222+00:00",
-  "snapshots_recorded": 222,
+  "generated_at": "2026-08-23T01:54:01.456018+00:00",
+  "snapshots_recorded": 223,
   "movers": [
     {
-      "player_id": "197",
-      "name": "Bassette",
-      "price": 4.5,
-      "owned": 0.0,
-      "direction": "fall",
-      "probability": 0.468,
-      "net_transfers": -12,
-      "source": "fitted from 73,341 past observations (222 snapshots)",
-      "confidence": "estimated"
-    },
-    {
-      "player_id": "319",
-      "name": "Szmodics",
-      "price": 5.0,
+      "player_id": "80",
+      "name": "Enes \u00dcnal",
+      "price": 5.5,
       "owned": 0.0,
       "direction": "fall",
       "probability": 0.468,
       "net_transfers": -16,
-      "source": "fitted from 73,341 past observations (222 snapshots)",
+      "source": "fitted from 73,341 past observations (223 snapshots)",
+      "confidence": "estimated"
+    },
+    {
+      "player_id": "141",
+      "name": "J\u00f6rgensen",
+      "price": 5.0,
+      "owned": 0.0,
+      "direction": "fall",
+      "probability": 0.468,
+      "net_transfers": -14,
+      "source": "fitted from 73,341 past observations (223 snapshots)",
       "confidence": "estimated"
     },
     {
@@ -31,19 +31,8 @@
       "owned": 0.0,
       "direction": "fall",
       "probability": 0.468,
-      "net_transfers": -21,
-      "source": "fitted from 73,341 past observations (222 snapshots)",
-      "confidence": "estimated"
-    },
-    {
-      "player_id": "404",
-      "name": "Reijnders",
-      "price": 6.0,
-      "owned": 0.1,
-      "direction": "fall",
-      "probability": 0.468,
-      "net_transfers": -119,
-      "source": "fitted from 73,341 past observations (222 snapshots)",
+      "net_transfers": -14,
+      "source": "fitted from 73,341 past observations (223 snapshots)",
       "confidence": "estimated"
     },
     {
@@ -53,19 +42,8 @@
       "owned": 0.0,
       "direction": "fall",
       "probability": 0.468,
-      "net_transfers": -14,
-      "source": "fitted from 73,341 past observations (222 snapshots)",
-      "confidence": "estimated"
-    },
-    {
-      "player_id": "505",
-      "name": "Spence",
-      "price": 4.5,
-      "owned": 0.8,
-      "direction": "fall",
-      "probability": 0.468,
-      "net_transfers": -1030,
-      "source": "fitted from 73,341 past observations (222 snapshots)",
+      "net_transfers": -12,
+      "source": "fitted from 73,341 past observations (223 snapshots)",
       "confidence": "estimated"
     },
     {
@@ -74,8 +52,8 @@
       "price": 6.5,
       "owned": 0.2,
       "direction": "fall",
-      "probability": 0.376,
-      "net_transfers": -62,
+      "probability": 0.39,
+      "net_transfers": -57,
       "source": "FPL's own price_change_percent",
       "confidence": "official"
     },
@@ -85,8 +63,8 @@
       "price": 5.5,
       "owned": 40.0,
       "direction": "rise",
-      "probability": 0.359,
-      "net_transfers": 4327,
+      "probability": 0.376,
+      "net_transfers": 3270,
       "source": "FPL's own price_change_percent",
       "confidence": "official"
     },
@@ -96,8 +74,8 @@
       "price": 5.5,
       "owned": 1.8,
       "direction": "fall",
-      "probability": 0.325,
-      "net_transfers": -448,
+      "probability": 0.336,
+      "net_transfers": -344,
       "source": "FPL's own price_change_percent",
       "confidence": "official"
     },
@@ -107,8 +85,8 @@
       "price": 7.5,
       "owned": 8.7,
       "direction": "fall",
-      "probability": 0.306,
-      "net_transfers": -2440,
+      "probability": 0.32,
+      "net_transfers": -1936,
       "source": "FPL's own price_change_percent",
       "confidence": "official"
     },
@@ -118,8 +96,19 @@
       "price": 5.5,
       "owned": 0.1,
       "direction": "fall",
-      "probability": 0.288,
-      "net_transfers": -49,
+      "probability": 0.303,
+      "net_transfers": -29,
+      "source": "FPL's own price_change_percent",
+      "confidence": "official"
+    },
+    {
+      "player_id": "22",
+      "name": "Nwaneri",
+      "price": 5.5,
+      "owned": 0.0,
+      "direction": "fall",
+      "probability": 0.285,
+      "net_transfers": -2,
       "source": "FPL's own price_change_percent",
       "confidence": "official"
     },
@@ -130,19 +119,8 @@
       "owned": 0.1,
       "direction": "fall",
       "probability": 0.282,
-      "net_transfers": -94,
-      "source": "fitted from 73,341 past observations (222 snapshots)",
-      "confidence": "estimated"
-    },
-    {
-      "player_id": "141",
-      "name": "J\u00f6rgensen",
-      "price": 5.0,
-      "owned": 0.0,
-      "direction": "fall",
-      "probability": 0.282,
-      "net_transfers": -9,
-      "source": "fitted from 73,341 past observations (222 snapshots)",
+      "net_transfers": -74,
+      "source": "fitted from 73,341 past observations (223 snapshots)",
       "confidence": "estimated"
     },
     {
@@ -152,8 +130,19 @@
       "owned": 0.2,
       "direction": "fall",
       "probability": 0.282,
-      "net_transfers": -155,
-      "source": "fitted from 73,341 past observations (222 snapshots)",
+      "net_transfers": -145,
+      "source": "fitted from 73,341 past observations (223 snapshots)",
+      "confidence": "estimated"
+    },
+    {
+      "player_id": "146",
+      "name": "B.Badiashile",
+      "price": 4.5,
+      "owned": 0.0,
+      "direction": "fall",
+      "probability": 0.282,
+      "net_transfers": -6,
+      "source": "fitted from 73,341 past observations (223 snapshots)",
       "confidence": "estimated"
     },
     {
@@ -164,18 +153,18 @@
       "direction": "fall",
       "probability": 0.282,
       "net_transfers": -9,
-      "source": "fitted from 73,341 past observations (222 snapshots)",
+      "source": "fitted from 73,341 past observations (223 snapshots)",
       "confidence": "estimated"
     },
     {
-      "player_id": "205",
-      "name": "Sosa",
+      "player_id": "197",
+      "name": "Bassette",
       "price": 4.5,
       "owned": 0.0,
       "direction": "fall",
       "probability": 0.282,
-      "net_transfers": -6,
-      "source": "fitted from 73,341 past observations (222 snapshots)",
+      "net_transfers": -8,
+      "source": "fitted from 73,341 past observations (223 snapshots)",
       "confidence": "estimated"
     },
     {
@@ -185,19 +174,19 @@
       "owned": 0.0,
       "direction": "fall",
       "probability": 0.282,
-      "net_transfers": -6,
-      "source": "fitted from 73,341 past observations (222 snapshots)",
+      "net_transfers": -10,
+      "source": "fitted from 73,341 past observations (223 snapshots)",
       "confidence": "estimated"
     },
     {
-      "player_id": "317",
-      "name": "Hirst",
+      "player_id": "293",
+      "name": "Kamara",
       "price": 5.0,
-      "owned": 0.2,
+      "owned": 0.0,
       "direction": "fall",
       "probability": 0.282,
-      "net_transfers": -130,
-      "source": "fitted from 73,341 past observations (222 snapshots)",
+      "net_transfers": -6,
+      "source": "fitted from 73,341 past observations (223 snapshots)",
       "confidence": "estimated"
     },
     {
@@ -207,8 +196,30 @@
       "owned": 0.0,
       "direction": "fall",
       "probability": 0.282,
-      "net_transfers": -10,
-      "source": "fitted from 73,341 past observations (222 snapshots)",
+      "net_transfers": -7,
+      "source": "fitted from 73,341 past observations (223 snapshots)",
+      "confidence": "estimated"
+    },
+    {
+      "player_id": "404",
+      "name": "Reijnders",
+      "price": 6.0,
+      "owned": 0.1,
+      "direction": "fall",
+      "probability": 0.282,
+      "net_transfers": -89,
+      "source": "fitted from 73,341 past observations (223 snapshots)",
+      "confidence": "estimated"
+    },
+    {
+      "player_id": "408",
+      "name": "Phillips",
+      "price": 5.0,
+      "owned": 0.0,
+      "direction": "fall",
+      "probability": 0.282,
+      "net_transfers": -7,
+      "source": "fitted from 73,341 past observations (223 snapshots)",
       "confidence": "estimated"
     },
     {
@@ -218,19 +229,8 @@
       "owned": 0.0,
       "direction": "fall",
       "probability": 0.282,
-      "net_transfers": -7,
-      "source": "fitted from 73,341 past observations (222 snapshots)",
-      "confidence": "estimated"
-    },
-    {
-      "player_id": "451",
-      "name": "A.Murphy",
-      "price": 4.0,
-      "owned": 0.1,
-      "direction": "fall",
-      "probability": 0.282,
-      "net_transfers": -60,
-      "source": "fitted from 73,341 past observations (222 snapshots)",
+      "net_transfers": -9,
+      "source": "fitted from 73,341 past observations (223 snapshots)",
       "confidence": "estimated"
     },
     {
@@ -240,8 +240,8 @@
       "owned": 0.3,
       "direction": "fall",
       "probability": 0.282,
-      "net_transfers": -210,
-      "source": "fitted from 73,341 past observations (222 snapshots)",
+      "net_transfers": -197,
+      "source": "fitted from 73,341 past observations (223 snapshots)",
       "confidence": "estimated"
     },
     {
@@ -251,8 +251,19 @@
       "owned": 0.2,
       "direction": "fall",
       "probability": 0.282,
-      "net_transfers": -212,
-      "source": "fitted from 73,341 past observations (222 snapshots)",
+      "net_transfers": -203,
+      "source": "fitted from 73,341 past observations (223 snapshots)",
+      "confidence": "estimated"
+    },
+    {
+      "player_id": "505",
+      "name": "Spence",
+      "price": 4.5,
+      "owned": 0.8,
+      "direction": "fall",
+      "probability": 0.282,
+      "net_transfers": -781,
+      "source": "fitted from 73,341 past observations (223 snapshots)",
       "confidence": "estimated"
     },
     {
@@ -262,20 +273,9 @@
       "owned": 0.0,
       "direction": "fall",
       "probability": 0.282,
-      "net_transfers": -8,
-      "source": "fitted from 73,341 past observations (222 snapshots)",
+      "net_transfers": -9,
+      "source": "fitted from 73,341 past observations (223 snapshots)",
       "confidence": "estimated"
-    },
-    {
-      "player_id": "22",
-      "name": "Nwaneri",
-      "price": 5.5,
-      "owned": 0.0,
-      "direction": "fall",
-      "probability": 0.275,
-      "net_transfers": -2,
-      "source": "FPL's own price_change_percent",
-      "confidence": "official"
     },
     {
       "player_id": "14",
@@ -283,8 +283,8 @@
       "price": 6.5,
       "owned": 2.0,
       "direction": "fall",
-      "probability": 0.254,
-      "net_transfers": -515,
+      "probability": 0.266,
+      "net_transfers": -388,
       "source": "FPL's own price_change_percent",
       "confidence": "official"
     },
@@ -294,8 +294,8 @@
       "price": 6.5,
       "owned": 0.3,
       "direction": "fall",
-      "probability": 0.248,
-      "net_transfers": -60,
+      "probability": 0.258,
+      "net_transfers": -59,
       "source": "FPL's own price_change_percent",
       "confidence": "official"
     },
@@ -305,8 +305,8 @@
       "price": 6.5,
       "owned": 25.3,
       "direction": "rise",
-      "probability": 0.246,
-      "net_transfers": 2737,
+      "probability": 0.257,
+      "net_transfers": 2040,
       "source": "FPL's own price_change_percent",
       "confidence": "official"
     },
@@ -314,12 +314,23 @@
       "player_id": "15",
       "name": "\u00d8degaard",
       "price": 6.5,
-      "owned": 8.8,
+      "owned": 8.9,
       "direction": "rise",
-      "probability": 0.236,
-      "net_transfers": 4083,
+      "probability": 0.253,
+      "net_transfers": 3212,
       "source": "FPL's own price_change_percent",
       "confidence": "official"
+    },
+    {
+      "player_id": "591",
+      "name": "Enciso",
+      "price": 5.5,
+      "owned": 0.3,
+      "direction": "rise",
+      "probability": 0.241,
+      "net_transfers": 719,
+      "source": "fitted from 73,341 past observations (34 snapshots)",
+      "confidence": "estimated"
     },
     {
       "player_id": "452",
@@ -327,8 +338,8 @@
       "price": 7.0,
       "owned": 3.9,
       "direction": "fall",
-      "probability": 0.222,
-      "net_transfers": -1757,
+      "probability": 0.234,
+      "net_transfers": -1368,
       "source": "FPL's own price_change_percent",
       "confidence": "official"
     },
@@ -338,8 +349,8 @@
       "price": 6.0,
       "owned": 0.4,
       "direction": "fall",
-      "probability": 0.221,
-      "net_transfers": -53,
+      "probability": 0.231,
+      "net_transfers": -61,
       "source": "FPL's own price_change_percent",
       "confidence": "official"
     },
@@ -349,21 +360,21 @@
       "price": 6.0,
       "owned": 0.7,
       "direction": "fall",
-      "probability": 0.218,
-      "net_transfers": -167,
+      "probability": 0.229,
+      "net_transfers": -132,
       "source": "FPL's own price_change_percent",
       "confidence": "official"
     },
     {
-      "player_id": "120",
-      "name": "Svoboda",
+      "player_id": "518",
+      "name": "P.M.Sarr",
       "price": 5.0,
-      "owned": 0.0,
-      "direction": "rise",
-      "probability": 0.211,
-      "net_transfers": 19,
-      "source": "fitted from 73,341 past observations (222 snapshots)",
-      "confidence": "estimated"
+      "owned": 0.2,
+      "direction": "fall",
+      "probability": 0.219,
+      "net_transfers": -126,
+      "source": "FPL's own price_change_percent",
+      "confidence": "official"
     },
     {
       "player_id": "281",
@@ -372,31 +383,9 @@
       "owned": 0.0,
       "direction": "rise",
       "probability": 0.211,
-      "net_transfers": 12,
-      "source": "fitted from 73,341 past observations (222 snapshots)",
+      "net_transfers": 11,
+      "source": "fitted from 73,341 past observations (223 snapshots)",
       "confidence": "estimated"
-    },
-    {
-      "player_id": "586",
-      "name": "Mendy",
-      "price": 4.0,
-      "owned": 1.4,
-      "direction": "rise",
-      "probability": 0.211,
-      "net_transfers": 1653,
-      "source": "fitted from 73,341 past observations (69 snapshots)",
-      "confidence": "estimated"
-    },
-    {
-      "player_id": "518",
-      "name": "P.M.Sarr",
-      "price": 5.0,
-      "owned": 0.3,
-      "direction": "fall",
-      "probability": 0.207,
-      "net_transfers": -172,
-      "source": "FPL's own price_change_percent",
-      "confidence": "official"
     }
   ]
 }
