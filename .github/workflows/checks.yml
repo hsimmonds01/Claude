@@ -39,6 +39,7 @@ on:
           - evening_check
           - status
           - gym_route
+          - accuracy
         default: auto
       dry_run:
         description: "Dry run (don't send notification or write state)"
@@ -96,6 +97,9 @@ jobs:
           if [ -f dock-alerter/history.csv ]; then
             git add dock-alerter/history.csv
           fi
+          if [ -f dock-alerter/predictions.csv ]; then
+            git add dock-alerter/predictions.csv
+          fi
           if ! git diff --cached --quiet; then
             git config user.name "github-actions[bot]"
             git config user.email "github-actions[bot]@users.noreply.github.com"
@@ -108,7 +112,24 @@ jobs:
             # latest main instead of trying to patch a stale diff through
             # content that has since moved on.
             cp dock-alerter/state.json /tmp/_state_snapshot.json
-            NEW_ROWS=$(git diff --cached -- dock-alerter/history.csv | grep '^+' | grep -v '^+++' | sed 's/^+//' || true)
+            # Added data rows only. The `timestamp_utc,` filter matters on
+            # the one run that upgrades the history header in place: without
+            # it the new header line is captured as an added "row" and gets
+            # appended into the middle of the data on the recovery path.
+            NEW_ROWS=$(git diff --cached -- dock-alerter/history.csv \
+              | grep '^+' | grep -v '^+++' | sed 's/^+//' \
+              | grep -v '^timestamp_utc,' || true)
+            # predictions.csv is rewritten wholesale (reconciliation fills
+            # in past rows), so it can't be replayed row-by-row like the
+            # append-only history -- we restore our whole copy instead.
+            # Only snapshot it when THIS run actually changed it, so the
+            # recovery path can't revert a newer version that arrived on
+            # main by some other route (a hand edit, or another session).
+            PRED_CHANGED=""
+            if [ -f dock-alerter/predictions.csv ] && ! git diff --cached --quiet -- dock-alerter/predictions.csv; then
+              PRED_CHANGED=1
+              cp dock-alerter/predictions.csv /tmp/_predictions_snapshot.csv
+            fi
 
             git commit -m "Update dock alert state and history"
 
@@ -144,6 +165,10 @@ jobs:
               if [ -n "$NEW_ROWS" ]; then
                 printf '%s\n' "$NEW_ROWS" >> dock-alerter/history.csv
                 git add dock-alerter/history.csv
+              fi
+              if [ -n "$PRED_CHANGED" ] && [ -f /tmp/_predictions_snapshot.csv ]; then
+                cp /tmp/_predictions_snapshot.csv dock-alerter/predictions.csv
+                git add dock-alerter/predictions.csv
               fi
               if git diff --cached --quiet; then
                 echo "Nothing left to add on top of the latest main -- another run already recorded this."
