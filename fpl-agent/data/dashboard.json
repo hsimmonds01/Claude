@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-23T03:57:18.281611+00:00",
+  "generated_at": "2026-08-23T06:55:49.070427+00:00",
   "next_event": 2,
   "next_deadline": "2026-08-28T17:30:00Z",
   "horizon": {
@@ -1330,7 +1330,7 @@
       "team": "MUN",
       "position": "MID",
       "price": 12.0,
-      "owned": 51.4,
+      "owned": 51.3,
       "xp": 29.1,
       "start_prob": 0.97,
       "moved_club": false,
@@ -1891,7 +1891,7 @@
       "team": "MUN",
       "position": "MID",
       "price": 8.0,
-      "owned": 38.4,
+      "owned": 38.3,
       "xp": 20.7,
       "start_prob": 0.81,
       "moved_club": false,
@@ -3145,8 +3145,8 @@
       "price": 5.5,
       "owned": 40.0,
       "direction": "rise",
-      "probability": 0.38,
-      "net_transfers": 652,
+      "probability": 0.387,
+      "net_transfers": 587,
       "source": "FPL's own price_change_percent",
       "confidence": "official"
     }
