@@ -1,52 +1,43 @@
 {
-  "generated_at": "2026-08-21T07:02:05.899576+00:00",
+  "generated_at": "2026-08-23T18:42:40.922956+00:00",
   "model": "gemini-flash-latest",
-  "headlines_considered": 46,
+  "headlines_considered": 47,
   "flags": [
+    {
+      "player_id": "55",
+      "player": "Watkins",
+      "team": "AVL",
+      "concern": "Watkins is omitted entirely from the matchday squad.",
+      "severity": "high",
+      "affects": "availability",
+      "source": "https://www.fantasyfootballscout.co.uk/2026/08/23/2pm-team-news-de-cuyper-oreilly-advanced-no-kadioglu-or-watkins"
+    },
+    {
+      "player_id": "387",
+      "player": "O'Reilly",
+      "team": "MCI",
+      "concern": "O'Reilly is deployed in an advanced attacking position.",
+      "severity": "low",
+      "affects": "role",
+      "source": "https://www.fantasyfootballscout.co.uk/2026/08/23/2pm-team-news-de-cuyper-oreilly-advanced-no-kadioglu-or-watkins"
+    },
+    {
+      "player_id": "106",
+      "player": "Thiago",
+      "team": "BRE",
+      "concern": "Thiago took and missed a penalty for Brentford.",
+      "severity": "low",
+      "affects": "role",
+      "source": "https://www.fantasyfootballscout.co.uk/2026/08/23/fpl-notes-dream-sangare-debut-thiago-pen-miss"
+    },
     {
       "player_id": "88",
       "player": "Kayode",
       "team": "BRE",
-      "concern": "Brentford report Michael Kayode is touch and go for the Premier League game against Burnley due to an injury concern.",
+      "concern": "Michael Kayode is touch and go to feature due to an injury concern.",
       "severity": "medium",
       "affects": "availability",
       "source": "https://news.google.com/rss/articles/CBMiywFBVV95cUxQZDhZTVE3T3piNVRscVd5ck1jWFcxQmUtbVd3Tkp4UGtiU05BcENkVmNpcmRycFRmTGFuTVlTXzA5SWpKWnVQd1ZQdUZjcW1oTTdXUTVYS25aNHBpTXF0SnZwNlpLSWJTa3JZbG1XRXlGMS1PYVB1Q2JGYzEzQjl1WXkxSVdNbG5uMXZkOU5fRXBHa2tUellIZndKUjFuZk5aTy1ZeUNnTEhDemRxSlptNHJEOTNjc3JkNGdqemU5VHl"
-    },
-    {
-      "player_id": "411",
-      "player": "Haaland",
-      "team": "MCI",
-      "concern": "Media reporting highlights fitness questions surrounding Erling Haaland ahead of Gameweek 1.",
-      "severity": "low",
-      "affects": "availability",
-      "source": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE5jN2NDd29Wck1nY1J2VVdtTjl6cVpkY2lmbi1TTzI0LURGdm1LMG5la3pGZkFGeTdkajkzYUtMWkQxdGt3ZUhjWWQ1bTNpckc2ZGdVNXByRGdzaVlqbERkRE5sZ1Z6NXM?oc=5"
-    },
-    {
-      "player_id": "13",
-      "player": "Rice",
-      "team": "ARS",
-      "concern": "Subject of an injury check and fitness update ahead of Arsenal's upcoming Premier League fixture.",
-      "severity": "low",
-      "affects": "availability",
-      "source": ""
-    },
-    {
-      "player_id": "503",
-      "player": "Van de Ven",
-      "team": "TOT",
-      "concern": "Subject of injury updates and status checks ahead of Tottenham's weekend match.",
-      "severity": "low",
-      "affects": "availability",
-      "source": "https://news.google.com/rss/articles/CBMizgFBVV95cUxNWGpCV3c1QjdtVmZqV29JdnE4Mk9rQnNLcFRkeXQ1T3YyemxCS25IcHNfMy1WdEdQb0tmUEMwVWE4NzJjbWViOU5mY3pvS0VZUU5UNUxFQ1E1Q2dKNGpJRE5JRWpzR3Z4YlVGdWhPcTg4WnJRNk1NU3NVeFVNNVAwcFkyNlRBNVpILXpwVnNhZHpubERnOHlxTmhvQnkyamxTTV9OZ1h5UDJkd2xWQUZ5Sk1mTWZNZTlBamxXSmM4b2t"
-    },
-    {
-      "player_id": "155",
-      "player": "Enzo",
-      "team": "CHE",
-      "concern": "Manager Liam Rosenior discussed obstacles and squad injury context regarding Enzo Fernandez ahead of upcoming matches.",
-      "severity": "low",
-      "affects": "minutes",
-      "source": ""
     }
   ]
 }
