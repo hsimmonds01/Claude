@@ -1,2 +1,2 @@
 predicted_at_utc,target_date,window,metric,predicted_low,predicted_at,basis_days,basis_weekday_days,actual_low,actual_at,error
-2026-08-24T07:10:34.617904+00:00,2026-08-24,morning,empty_docks,10,08:30,31,8,,,
+2026-08-24T07:10:34.617904+00:00,2026-08-24,morning,empty_docks,10,08:30,31,8,6,08:40,-4
