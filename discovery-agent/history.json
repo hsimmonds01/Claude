@@ -1901,6 +1901,57 @@
           "link_status": "search"
         }
       ]
+    },
+    {
+      "date": "2026-08-24",
+      "model": "gemini-2.5-flash (legacy key, live search)",
+      "items": [
+        {
+          "title": "Xbox and IKEA Unveil Gaming Furniture Collection at Gamescom",
+          "category": "product",
+          "summary": "Xbox and IKEA have teamed up to create a new gaming furniture collection, featuring controller-inspired designs like D-pad cushions and analog stick stools. The full collection will be revealed at Gamescom on August 26, 2026.",
+          "url": "https://hypebeast.com/2026/8/ikea-xbox-furniture-collaboration-collection-teaser-announcement",
+          "date_info": "Full reveal at Gamescom on August 26, 2026",
+          "urgency": "this-week",
+          "link_status": "verified"
+        },
+        {
+          "title": "Sanrio Launches First Men's Brand 'GENTii' with 'Metal City' Collection",
+          "category": "drop",
+          "summary": "Sanrio has introduced its first-ever men's brand, GENTii, with the rebellious 'Metal City' collection. This limited-edition drop features streetwear items like graphic t-shirts, trucker caps, and bandanas, offering a unique blend of metallic aesthetics and familiar Sanrio characters.",
+          "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE5CWjJDenhPTWRyQm80UjVxc0hxQzEyOHR3Z2F6VWsxQlk1OGw2Z2NqRHg0M0NudnZQb1JGd19NWDh4WlFzcTFkOUx5bFlJYmVSN1BQRXFjYw?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "date_info": "Pop-up store opened August 23, 2026 in Seoul; online store available",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "Pokémon Unveils 30th Anniversary Pikachu Figurine Set",
+          "category": "product",
+          "summary": "Celebrate three decades of Pokémon with a new 30th Anniversary Pikachu Figurine Set. This collectible release translates trading card illustrations into 3D figures, accompanied by exclusive booster packs, and is set to officially launch on September 16, 2026.",
+          "url": "https://hypebeast.com/2026/8/pokemon-30th-anniversary-pikachu-figurine-trading-cards-set-release-info",
+          "date_info": "Officially launches September 16, 2026",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "New Piccadilly Line Backpacks Now On Sale in London",
+          "category": "product",
+          "summary": "To mark the 120th anniversary of the Piccadilly line, Transport for London (TfL) has launched a new collection of accessories, including 'cool' backpacks featuring the iconic moquette seat pattern. These London-themed items are available now at various retailers across the city.",
+          "url": "https://www.timeout.com/london/news/piccadilly-line-tfl-underground-backpacks-082326",
+          "date_info": "On sale now (announced August 23, 2026)",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "Din Tai Fung to Open Fifth London Location in King's Cross",
+          "category": "food",
+          "summary": "The renowned Taiwanese dim sum chain, Din Tai Fung, is expanding its London presence with a fifth location in King's Cross. While an exact opening date has not yet been revealed, this new spot promises to bring its famous xiao long bao and other Taiwanese delicacies to a new part of the city.",
+          "url": "https://www.timeout.com/london/news/din-tai-fung-kings-cross-announcement-082426",
+          "date_info": "Opening date to be announced",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        }
+      ]
     }
   ]
 }
