@@ -1,7 +1,7 @@
 # pl-chips-2026-27
 
 - Source: https://www.premierleague.com/en/news/4679879
-- Fetched: 2026-08-24T18:53:12.500651+00:00
+- Fetched: 2026-08-24T21:38:12.760803+00:00
 - Why it's here: Official explanation of how chips work this season
 
 Captured automatically by `fpl-agent/knowledge.py` as reference material for the FPL agent.
