@@ -18,9 +18,9 @@ you'll be able to dock your bike at Tooley Street later:
 
 - **08:10** and **08:25** (Europe/London time) -- two one-off snapshots:
   current empty-dock count, sent regardless of how full the station is.
-  The **08:10** one also carries a forecast of the day's low point (see
+  The **08:10** one also carries a projection of the day's low point (see
   [Forecasts in the notifications](#forecasts-in-the-notifications)), e.g.
-  *"12 empty docks now. Usually dips to ~8 docks around 08:30."*
+  *"12 empty docks now. Similar mornings dropped to ~8 by 08:30."*
 - **08:00-08:45** -- checked every 5 minutes.
   - If empty docks drop below `LOW_DOCKS_THRESHOLD` (default **3**), you
     get a high-priority alert.
@@ -33,7 +33,7 @@ you'll be able to dock your bike at Tooley Street later:
 you'll be able to pick one up to ride home:
 
 - **17:15** -- a one-off evening summary: current available-bikes count,
-  plus the same low-point forecast as the morning summary.
+  plus the same low-point projection as the morning summary.
 - **17:30-18:00** -- checked every 5 minutes.
   - If available bikes drop below `LOW_BIKES_THRESHOLD` (default **3**),
     you get a high-priority alert. The alert also looks up **Snowsfields,
@@ -107,12 +107,16 @@ It has four views, switched with the bar along the bottom:
   Snowsfields backup station), and a "Coming up" strip summarising the
   forecast for the next monitored morning and evening windows.
 - **Forecast** — a prediction for the next monitored morning (empty docks)
-  and evening (standard bikes), built from `history.csv`. It blends the
-  average for that weekday with the average across all recorded weekdays,
-  weighted by how much same-weekday data exists, and shows the full range
-  seen so far as a shaded band. Headline = the tightest point of the
-  window, with an OK / getting-low / critical chip against the alert
-  thresholds. Forecasts appear once there are ~3 days of data and sharpen
+  and evening (standard bikes), built from `history.csv`. Headline = the
+  tightest point of the window, with an OK / getting-low / critical chip
+  against the alert thresholds. **While a window is actually running**,
+  the headline is anchored on the live reading using the same
+  similar-days projection as the notification, so the page can't show
+  "~6 at the tightest point" beside a live tile reading 3. Outside a
+  running window (e.g. forecasting tomorrow morning, when there is no
+  live reading to anchor to) it falls back to the typical-day blend --
+  that weekday's average shrunk toward the all-weekday average. The
+  shaded band is the full range seen so far. Forecasts appear once there are ~3 days of data and sharpen
   as more accumulates. If `friday.flag` is set for the coming Friday, that
   Friday is included as a forecastable day.
 - **Patterns** — "a typical day here": average reading at each check time
@@ -174,14 +178,37 @@ to the workflow's dispatch endpoint.
 
 ### Forecasts in the notifications
 
-The two **summary** notifications (08:10 and 17:15) carry one extra line
-predicting the window's **low point** and roughly when it happens:
+The two **summary** notifications (08:10 and 17:15) carry an extra line
+projecting the window's **low point** and roughly when it happens:
 
-    12 empty docks now. Usually dips to ~8 docks around 08:30.
+    12 empty docks now. Similar mornings dropped to ~8 by 08:30.
+    3 standard bikes now. Unusually low (typically ~9). Similar evenings dropped to ~2 by 17:40.
 
 The low point is used rather than a fixed end-of-window time because it's
 the moment that actually matters -- the tightest it gets if you leave in
 the next few minutes.
+
+Crucially the projection is **anchored on what's actually on the board**,
+not on a blanket historical average. An average alone produces nonsense
+the moment today is unusual: on 2026-08-24 there were 3 bikes at 17:15
+and the notification said *"usually dips to ~5"* -- a contradiction, not a
+forecast (it went to 2). How far availability falls depends almost
+entirely on where it starts: evenings opening at 16-21 bikes have dropped
+by as much as 16, while **every** recorded evening that opened at 3 ended
+at 2. So instead of averaging every day, it ranks past days by how close
+their reading at this same time was to today's and takes the median of
+what those `FORECAST_NEIGHBOUR_DAYS` most-similar days went on to do.
+
+Two properties make it trustworthy:
+
+- It conditions on reality, so an unusual day is projected as an unusual
+  day rather than being averaged away.
+- **It can never project above what's showing now.** The current reading
+  is itself part of "from now onward", so the low over that period is at
+  most the current value -- arithmetic, not estimation. The clamp makes
+  the "3 now, dips to 5" contradiction *structurally impossible* rather
+  than merely unlikely, and there's a test sweeping every input 0-39 in
+  both windows to keep it that way.
 
 Deliberately **only** on those two. The 08:25/17:40 snapshots and the
 threshold alerts stay forecast-free: by then you're either committed or
