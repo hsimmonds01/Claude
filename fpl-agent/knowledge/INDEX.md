@@ -1,6 +1,6 @@
 # FPL agent knowledge base
 
-Last built: 2026-08-25T13:05:23.469470+00:00
+Last built: 2026-08-25T15:54:03.198989+00:00
 
 Built by `fpl-agent/knowledge.py`. Official rules pages are stored in full
 under `official/` because the agent must never get scoring or chip rules
@@ -22,5 +22,5 @@ archiving other people's writing.
 
 | Feed | Items |
 |---|---|
-| news.google.com | 40 |
+| kill-the-newsletter.com | 7 |
 | www.fantasyfootballscout.co.uk | 12 |
