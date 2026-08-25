@@ -34,6 +34,21 @@ def window_alert_key(fixture_id: str, window_key: str) -> str:
     return f"{fixture_id}::{WINDOW_OPEN}::{window_key}"
 
 
+def _is_ballot_window(window: SaleWindow) -> bool:
+    """True for the actual members' ticket application window (the ballot).
+
+    `fixture.application_closes` is parsed from the "Ticket application
+    window closes" wording in the fixture's own info blob -- it describes
+    *this* window specifically, not any other relevant-but-different window
+    on the same fixture (e.g. a separate, undated "purchase additional
+    tickets" route). Attaching it to the wrong window's alert states a
+    deadline that has nothing to do with what just opened -- seen live: an
+    "additional tickets" alert claiming a closing date that was for the
+    ballot, and had already passed.
+    """
+    return "application" in window.title.lower()
+
+
 @dataclass(frozen=True)
 class FixtureAlert:
     """One notification's worth of news about a single fixture."""
@@ -72,7 +87,7 @@ class FixtureAlert:
                 lines.append(f"\nOPEN NOW: {window.title.strip()}")
                 if window.on_sale_label:
                     lines.append(window.on_sale_label)
-            if fixture.application_closes:
+            if fixture.application_closes and any(_is_ballot_window(w) for w in self.newly_open):
                 lines.append(f"\nApplications close: {fixture.application_closes}")
         elif self.is_new:
             lines.append("\nJust added to the ticket page - a sale window is coming.")
@@ -152,7 +167,7 @@ class ReminderAlert:
             "(you were already alerted when this opened -- this is a one-off "
             "follow-up in case you missed it)",
         ]
-        if self.fixture.application_closes:
+        if self.fixture.application_closes and _is_ballot_window(self.window):
             lines.append(f"\nApplications close: {self.fixture.application_closes}")
         lines.append("\nhttps://www.eticketing.co.uk/chelseafc")
         return "\n".join(lines)

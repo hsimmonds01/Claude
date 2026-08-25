@@ -76,6 +76,11 @@ class HomeFixture:
         return next((w for w in self.windows if w.key == key), None)
 
 
+_NUMBER_WORD_RE = re.compile(
+    r"\b(?:one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve)\b"
+)
+
+
 def _window_key(title: str) -> str:
     """Stable identity for a sale window within a fixture.
 
@@ -83,9 +88,18 @@ def _window_key(title: str) -> str:
     thresholds ("...(146 Loyalty Points)") which Chelsea edits between
     fixtures. Keeping the numbers would make an edited threshold look like a
     brand-new window and fire a spurious alert.
+
+    Spelled-out counts are stripped for the same reason: an "additional
+    tickets" window's title embeds a running total ("...purchase an
+    additional two tickets (maximum of three...)") that Chelsea increments
+    as more allocation opens up ("...four tickets (maximum of five...)").
+    Without this, every increment looked like a brand-new window opening --
+    seen live: a stale "applications OPEN" alert days after the real ballot
+    had already closed, because the count had simply ticked up again.
     """
     without_digits = re.sub(r"\d+", "", title.lower())
-    slug = re.sub(r"[^a-z]+", "-", without_digits).strip("-")
+    without_number_words = _NUMBER_WORD_RE.sub("", without_digits)
+    slug = re.sub(r"[^a-z]+", "-", without_number_words).strip("-")
     return slug or "window"
 
 

@@ -23,6 +23,18 @@ def window(key: str = "ticket-application-window-open", state: str = OPEN) -> Sa
     )
 
 
+def additional_tickets_window(state: str = OPEN) -> SaleWindow:
+    # A real Chelsea window: no "application" in the title, no end date of
+    # its own -- distinct from the ballot, whose close date must not be
+    # attached to this window's alert.
+    return SaleWindow(
+        key="additional-tickets",
+        title="Season ticket holders & Members can purchase an additional four tickets",
+        on_sale_label="On-sale: Now",
+        state=state,
+    )
+
+
 def fixture(
     entry_id: str = "hull1",
     opponent: str = "Hull City",
@@ -143,6 +155,28 @@ class TestWindowOpening:
 
         # Act / Assert
         assert len(detect(before, current, seeded=True)) == 1
+
+    def test_non_ballot_window_opening_does_not_claim_the_ballots_deadline(self):
+        # Regression: an "additional tickets" window opening (no deadline of
+        # its own) must not state the real ballot's closing date, which is
+        # unrelated to it and can already be well in the past.
+        before = snapshot(fixture())
+        current = [fixture(windows=(additional_tickets_window(),))]
+
+        alerts = detect(before, current, seeded=True)
+
+        assert len(alerts) == 1
+        assert "Applications close" not in alerts[0].message
+
+    def test_ballot_window_opening_alongside_a_non_ballot_one_still_shows_the_deadline(self):
+        # Arrange -- both open in the same run; the real ballot's deadline
+        # is still worth stating because one of the opened windows is it.
+        before = snapshot(fixture())
+        current = [fixture(windows=(window(state=OPEN), additional_tickets_window()))]
+
+        alerts = detect(before, current, seeded=True)
+
+        assert "Applications close: Wednesday 26 August 12pm" in alerts[0].message
 
 
 class TestNewFixtureArrivingAlreadyOpen:
@@ -292,6 +326,19 @@ class TestReminders:
         _, reminders = due_reminders(open_since, current, NOW)
 
         assert "Wednesday 26 August 12pm" in reminders[0].message
+
+    def test_reminder_for_a_non_ballot_window_omits_the_ballots_deadline(self):
+        # Regression: the same misattribution bug as the primary alert --
+        # an "additional tickets" reminder must not state the ballot's
+        # closing date, which is unrelated and can already be well in the past.
+        key = window_alert_key("hull1", "additional-tickets")
+        open_since = {key: (NOW - REMINDER_AFTER).isoformat()}
+        current = [fixture(windows=(additional_tickets_window(),))]
+
+        _, reminders = due_reminders(open_since, current, NOW)
+
+        assert len(reminders) == 1
+        assert "Applications close" not in reminders[0].message
 
     def test_untracked_open_windows_are_never_reminded(self):
         # A window that was already open before the primary alert ever fired
