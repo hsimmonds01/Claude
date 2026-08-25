@@ -554,3 +554,4 @@ timestamp_utc,mode,metric,value,station,temp_c,precip_mm
 2026-08-25T16:40:35.673017+00:00,evening_second_summary,available_bikes,12,"Tooley Street, Bermondsey",23.8,0.0
 2026-08-25T16:45:33.329316+00:00,evening_check,available_bikes,11,"Tooley Street, Bermondsey",23.6,0.0
 2026-08-25T16:50:34.976927+00:00,evening_check,available_bikes,10,"Tooley Street, Bermondsey",23.6,0.0
+2026-08-25T16:51:07.282608+00:00,evening_check,available_bikes,10,"Tooley Street, Bermondsey",23.6,0.0
