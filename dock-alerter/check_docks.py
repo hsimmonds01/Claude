@@ -34,6 +34,7 @@ import io
 import json
 import math
 import os
+import statistics
 import sys
 import time as _time  # stdlib time module; `time` in this file is datetime.time
 from dataclasses import dataclass, asdict
@@ -169,6 +170,23 @@ FORECAST_MIN_SLOT_READINGS = 4
 # the dashboard's own `fc.slots.length < 3` floor.
 FORECAST_MIN_SLOTS = 3
 
+# How many past days of similar starting availability to project from.
+#
+# A blanket historical average is not a forecast once you know what's
+# actually on the board: with 3 bikes showing, "usually dips to ~5" is a
+# contradiction, not a prediction (seen for real 2026-08-24). How far it
+# falls depends almost entirely on where it starts -- evenings starting at
+# 16-21 bikes have dropped by up to 16, while every recorded evening that
+# started at 3 ended at 2. So instead of averaging all days, compare
+# today's reading against the days that looked most like it at this time
+# and see where those ended up.
+FORECAST_NEIGHBOUR_DAYS = 6
+# Flag today as unusual only when it's this far from the typical level for
+# the time of day -- a caveat that fires every day stops being read.
+FORECAST_UNUSUAL_MARGIN = 3
+# A reading this far (minutes) from the anchor time isn't "the same moment".
+FORECAST_ANCHOR_TOLERANCE = 10
+
 STATE_FILE = Path(__file__).parent / "state.json"
 MUTE_FILE = Path(__file__).parent / "mute.flag"
 FRIDAY_FLAG_FILE = Path(__file__).parent / "friday.flag"
@@ -180,6 +198,10 @@ REQUEST_TIMEOUT_SECONDS = 15
 HISTORY_COLUMNS = ["timestamp_utc", "mode", "metric", "value", "station", "temp_c", "precip_mm"]
 PREDICTION_COLUMNS = [
     "predicted_at_utc", "target_date", "window", "metric",
+    # What was on the board when the projection was made, and at what time.
+    # `anchor_at` matters for scoring: the projection is about the low from
+    # that moment onward, so the actual must be measured over the same span.
+    "anchor_at", "anchor_value",
     "predicted_low", "predicted_at", "basis_days", "basis_weekday_days",
     "actual_low", "actual_at", "error",
 ]
@@ -719,6 +741,95 @@ def forecast_window_low(window: str, target_weekday: int, history: list[dict] | 
     }
 
 
+def _window_days(window: str, history: list[dict], anchor: int, exclude_date=None) -> list[dict]:
+    """Per-day summary of a window, seen from `anchor` minutes onward.
+
+    Returns one entry per past day that has both a reading at roughly the
+    anchor time and at least one reading at/after it:
+    {date, weekday, anchor_value, low, low_at}.
+    """
+    _, _, metric = WINDOWS[window]
+    start, end = _mins(WINDOWS[window][0]), _mins(WINDOWS[window][1])
+    by_date: dict[object, list[dict]] = {}
+    for r in history:
+        if r["metric"] != metric or not (start - 4 <= r["mins"] <= end + 4):
+            continue
+        if exclude_date is not None and r["date"] == exclude_date:
+            continue
+        by_date.setdefault(r["date"], []).append(r)
+
+    days = []
+    for date, rows in by_date.items():
+        near = min(rows, key=lambda r: abs(r["mins"] - anchor))
+        if abs(near["mins"] - anchor) > FORECAST_ANCHOR_TOLERANCE:
+            continue  # nothing recorded near this time of day
+        after = [r for r in rows if r["mins"] >= near["mins"]]
+        if not after:
+            continue
+        low = min(after, key=lambda r: r["value"])
+        days.append({
+            "date": date,
+            "weekday": rows[0]["weekday"],
+            "anchor_value": near["value"],
+            "low": low["value"],
+            "low_at": round(low["mins"] / 5) * 5,
+        })
+    return days
+
+
+def project_window_low(window: str, current_value: int, now_london: datetime,
+                       history: list[dict] | None = None) -> dict | None:
+    """Project the low from NOW onward, anchored on today's actual reading.
+
+    Two properties make this trustworthy where a plain historical average
+    wasn't:
+
+    1. It conditions on reality. Days are ranked by how close their reading
+       at this time of day was to today's, and the projection is the median
+       of what those most-similar days went on to do.
+    2. The projection can never exceed what's on the board right now. The
+       current reading is itself part of "from now onward", so the low over
+       that period is at most the current value -- as a matter of
+       arithmetic, not of estimation. Clamping to it makes the "3 now, dips
+       to 5" contradiction structurally impossible rather than merely
+       unlikely.
+    """
+    if window not in WINDOWS:
+        return None
+    start, end = _mins(WINDOWS[window][0]), _mins(WINDOWS[window][1])
+    rows = load_history() if history is None else history
+    now_mins = now_london.hour * 60 + now_london.minute
+    anchor = int(min(max(round(now_mins / 5) * 5, start), end))
+
+    days = _window_days(window, rows, anchor, exclude_date=now_london.date())
+    if len(days) < FORECAST_MIN_DAYS:
+        return None
+
+    typical_now = statistics.median(d["anchor_value"] for d in days)
+    # The most similar days, by how busy the station was at this same time.
+    neighbours = sorted(days, key=lambda d: (abs(d["anchor_value"] - current_value), d["date"]))
+    neighbours = neighbours[:FORECAST_NEIGHBOUR_DAYS]
+
+    projected = statistics.median(d["low"] for d in neighbours)
+    projected = int(max(0, min(current_value, _round_half_up(projected))))
+
+    # When does the dip land? Only meaningful among neighbours that
+    # actually fell; if none did, there's no dip to time.
+    fell = [d for d in neighbours if d["low"] < d["anchor_value"]]
+    low_at = int(statistics.median(d["low_at"] for d in fell)) if fell else None
+
+    return {
+        "metric": WINDOWS[window][2],
+        "projected": projected,
+        "at": low_at,
+        "anchor_at": anchor,
+        "anchor_value": current_value,
+        "typical_now": int(_round_half_up(typical_now)),
+        "days": len(days),
+        "neighbours": len(neighbours),
+    }
+
+
 def _read_predictions() -> list[dict]:
     if not PREDICTIONS_FILE.exists():
         return []
@@ -758,10 +869,12 @@ def record_prediction(window: str, target_date, forecast: dict) -> None:
             "target_date": str(target_date),
             "window": window,
             "metric": forecast["metric"],
-            "predicted_low": forecast["low"],
-            "predicted_at": fmt_slot(forecast["at"]),
+            "anchor_at": fmt_slot(forecast["anchor_at"]),
+            "anchor_value": forecast["anchor_value"],
+            "predicted_low": forecast["projected"],
+            "predicted_at": fmt_slot(forecast["at"]) if forecast["at"] is not None else "",
             "basis_days": forecast["days"],
-            "basis_weekday_days": forecast["weekday_days"],
+            "basis_weekday_days": forecast["neighbours"],
             "actual_low": "", "actual_at": "", "error": "",
         })
         rows.sort(key=lambda r: (r.get("target_date", ""), r.get("window", "")))
@@ -795,10 +908,21 @@ def reconcile_predictions(now_london: datetime, history: list[dict] | None = Non
             continue
         if target == now_london.date() and now_london.time() <= end_t:
             continue
+        # Score over the same span the projection covered: from the moment
+        # it was made, onward. Older rows predate the anchor column and are
+        # scored over the whole window, as they were made.
+        span_start = _mins(start_t) - 4
+        anchor_txt = (row.get("anchor_at") or "").strip()
+        if anchor_txt:
+            try:
+                hh, mm = anchor_txt.split(":")
+                span_start = int(hh) * 60 + int(mm)
+            except ValueError:
+                pass
         actuals = [
             r for r in hist
             if r["date"] == target and r["metric"] == metric
-            and _mins(start_t) - 4 <= r["mins"] <= _mins(end_t) + 4
+            and span_start <= r["mins"] <= _mins(end_t) + 4
         ]
         if not actuals:
             continue  # no readings that day (missed run, muted, holiday)
@@ -856,22 +980,43 @@ def fmt_slot(minutes: int) -> str:
     return f"{minutes // 60:02d}:{minutes % 60:02d}"
 
 
-def forecast_sentence(window: str, now_london: datetime, history: list[dict] | None = None) -> tuple[str, dict | None]:
-    """The one extra line appended to a summary notification, plus the
-    forecast it came from (so the caller can log it for scoring).
+def forecast_sentence(window: str, current_value: int, now_london: datetime,
+                      history: list[dict] | None = None) -> tuple[str, dict | None]:
+    """The extra text appended to a summary notification, plus the
+    projection it came from (so the caller can log it for scoring).
 
-    Returns ("", None) when there isn't enough data -- the notification
-    then reads exactly as it did before this feature existed.
+    Reads as one continuous thought with the count that precedes it:
+    what's there now, whether that's normal for the time, and where
+    comparable days ended up. Returns ("", None) when there isn't enough
+    history -- the notification then reads exactly as it did before this
+    feature existed.
     """
     try:
-        forecast = forecast_window_low(window, now_london.weekday(), history)
+        forecast = project_window_low(window, current_value, now_london, history)
     except Exception as exc:  # never let a forecast bug kill a real alert
         print(f"WARNING: forecast failed ({exc.__class__.__name__}: {exc}).", file=sys.stderr)
         return "", None
     if not forecast:
         return "", None
+
     unit = "docks" if forecast["metric"] == "empty_docks" else "bikes"
-    return f" Usually dips to ~{forecast['low']} {unit} around {fmt_slot(forecast['at'])}.", forecast
+    day_word = "mornings" if window == "morning" else "evenings"
+    parts = []
+
+    # Context first: is today normal for this time of day?
+    if abs(current_value - forecast["typical_now"]) >= FORECAST_UNUSUAL_MARGIN:
+        low_or_high = "low" if current_value < forecast["typical_now"] else "high"
+        parts.append(f" Unusually {low_or_high} (typically ~{forecast['typical_now']}).")
+
+    projected, at = forecast["projected"], forecast["at"]
+    if projected >= current_value or at is None:
+        parts.append(f" Similar {day_word} held steady from here.")
+    elif projected == 0:
+        parts.append(f" Similar {day_word} ran out by {fmt_slot(at)}.")
+    else:
+        parts.append(f" Similar {day_word} dropped to ~{projected} by {fmt_slot(at)}.")
+
+    return "".join(parts), forecast
 
 
 def weather_caveat() -> str:
@@ -911,7 +1056,7 @@ def run(mode: str, dry_run: bool) -> None:
             log_history(mode, "empty_docks", empty_docks, station_name)
 
         title = "Tooley Street docks - morning check"
-        forecast_text, forecast = forecast_sentence("morning", now_london)
+        forecast_text, forecast = forecast_sentence("morning", empty_docks, now_london)
         message = f"{empty_docks} empty docks now." + forecast_text + weather_caveat()
         if dry_run:
             print(f"DRY RUN -- would send: {title} / {message}")
@@ -999,7 +1144,7 @@ def run(mode: str, dry_run: bool) -> None:
 
         bike_label = "standard bikes" if EXCLUDE_EBIKES else "bikes"
         title = "Tooley Street bikes - evening check"
-        forecast_text, forecast = forecast_sentence("evening", now_london)
+        forecast_text, forecast = forecast_sentence("evening", bikes, now_london)
         message = f"{bikes} {bike_label} now." + forecast_text + weather_caveat()
         if dry_run:
             print(f"DRY RUN -- would send: {title} / {message}")

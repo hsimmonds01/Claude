@@ -491,6 +491,9 @@ const EVE  = { start: 17 * 60 + 15, end: 18 * 60,      metric: 'available_bikes'
 const SHRINK_K = 2;         // weekday-mean shrinkage toward the overall mean
 const MIN_DAYS = 3;         // days of data before patterns/forecasts show
 const MIN_SLOT_READINGS = 4; // ignore 5-min slots this thin (noise, not signal)
+// Anchored projection (must match check_docks.py's FORECAST_* constants).
+const NEIGHBOUR_DAYS = 6;    // how many similar days to project from
+const ANCHOR_TOLERANCE = 10; // minutes either side of 'this same time'
 
 const SVGNS = 'http://www.w3.org/2000/svg';
 const css = name => getComputedStyle(document.documentElement).getPropertyValue(name).trim();
@@ -666,6 +669,7 @@ function dockStatus(v)  { return v < LOW_DOCKS ? ['bad', 'Very low'] : v < CLEAR
 function bikeStatus(v)  { return v < CRIT_BIKES ? ['bad', 'Critical'] : v < LOW_BIKES ? ['warn', 'Getting low'] : ['good', 'OK']; }
 
 function renderLive(s) {
+  liveNow = s;
   document.getElementById('v-docks').textContent = s.docks;
   document.getElementById('s-docks').textContent = `of ${s.slots} docks · for docking`;
   setChip('c-docks', ...dockStatus(s.docks));
@@ -737,6 +741,57 @@ function forecastSlots(win, targetWd) {
     out.push({ slot, pred: Math.round(pred * 10) / 10, min: o.min, max: o.max, n: o.n });
   }
   return out;
+}
+
+function median(nums) {
+  const s = [...nums].sort((a, b) => a - b);
+  const m = Math.floor(s.length / 2);
+  return s.length % 2 ? s[m] : (s[m - 1] + s[m]) / 2;
+}
+
+// Per-day view of a window, seen from `anchor` minutes onward. Mirrors
+// check_docks.py's _window_days -- keep the two in step.
+function windowDays(win, anchor, excludeKey) {
+  const byDate = new Map();
+  for (const r of windowRows(win, null)) {
+    if (excludeKey && r.dateKey === excludeKey) continue;
+    if (!byDate.has(r.dateKey)) byDate.set(r.dateKey, []);
+    byDate.get(r.dateKey).push(r);
+  }
+  const days = [];
+  for (const [key, rows] of byDate) {
+    const near = rows.reduce((a, b) =>
+      Math.abs(b.mins - anchor) < Math.abs(a.mins - anchor) ? b : a);
+    if (Math.abs(near.mins - anchor) > ANCHOR_TOLERANCE) continue;
+    const after = rows.filter(r => r.mins >= near.mins);
+    if (!after.length) continue;
+    const low = after.reduce((a, b) => (b.value < a.value ? b : a));
+    days.push({ key, anchorValue: near.value, low: low.value,
+                lowAt: Math.round(low.mins / 5) * 5 });
+  }
+  return days;
+}
+
+// Project the low from now onward, anchored on the live reading. Mirrors
+// check_docks.py's project_window_low, including the clamp that makes
+// "3 now, dips to 5" arithmetically impossible.
+function projectLow(win, currentValue, nowMins, excludeKey) {
+  const anchor = Math.min(Math.max(Math.round(nowMins / 5) * 5, win.start), win.end);
+  const days = windowDays(win, anchor, excludeKey);
+  if (days.length < MIN_DAYS) return null;
+
+  const typicalNow = Math.round(median(days.map(d => d.anchorValue)));
+  const neighbours = [...days]
+    .sort((a, b) => Math.abs(a.anchorValue - currentValue) - Math.abs(b.anchorValue - currentValue)
+                    || a.key.localeCompare(b.key))
+    .slice(0, NEIGHBOUR_DAYS);
+
+  const projected = Math.max(0, Math.min(currentValue,
+    Math.round(median(neighbours.map(d => d.low)))));
+  const fell = neighbours.filter(d => d.low < d.anchorValue);
+  const at = fell.length ? Math.round(median(fell.map(d => d.lowAt))) : null;
+
+  return { projected, at, typicalNow, neighbours: neighbours.length, days: days.length };
 }
 
 function distinctDays(rows) { return new Set(rows.map(r => r.dateKey)).size; }
@@ -1001,15 +1056,41 @@ function renderForecastCard(wrapId, whenId, win, fc, nowLon, color, zones, statu
   whenEl.textContent = windowLabel(win, fc.key, nowLon);
 
   const low = fc.slots.reduce((a, b) => (b.pred < a.pred ? b : a));
-  const [cls, text] = statusOf(Math.round(low.pred));
+
+  // If this window is running RIGHT NOW and we have a live reading, anchor
+  // the headline on it rather than on the typical-day average -- mirrors
+  // check_docks.py's project_window_low. Without this the page would
+  // repeat the contradiction the notification used to make: showing "~6 at
+  // the tightest point" while the live tile beside it reads 3.
+  const liveValue = liveNow == null ? null
+    : (win.metric === 'empty_docks' ? liveNow.docks : liveNow.bikes);
+  const isLiveWindow = fc.key === nowLon.key && nowLon.mins >= win.start
+    && nowLon.mins <= win.end && liveValue != null;
+  const anchored = isLiveWindow ? projectLow(win, liveValue, nowLon.mins) : null;
+
+  const headlineValue = anchored ? anchored.projected : Math.round(low.pred);
+  const headlineAt = anchored ? anchored.at : low.slot;
+  const [cls, text] = statusOf(headlineValue);
 
   const head = el('div'); head.className = 'fc-head';
-  const v = el('span'); v.className = 'fc-value'; v.textContent = '~' + Math.round(low.pred);
+  const v = el('span'); v.className = 'fc-value'; v.textContent = '~' + headlineValue;
   const what = el('span'); what.className = 'fc-what';
-  what.textContent = `${noun} at the tightest point (${fmtSlot(low.slot)})`;
+  what.textContent = headlineAt == null
+    ? `${noun}, holding steady from here`
+    : `${noun} at the tightest point (${fmtSlot(headlineAt)})`;
   const chip = el('span'); chip.className = 'chip ' + cls; chip.textContent = text;
   head.append(v, what, chip);
   wrap.appendChild(head);
+
+  if (anchored) {
+    const anchorNote = el('div'); anchorNote.className = 'fc-basis';
+    anchorNote.textContent =
+      `Projected from the ${liveValue} showing now, against the ${anchored.neighbours} most similar days`
+      + (Math.abs(liveValue - anchored.typicalNow) >= 3
+        ? ` — unusually ${liveValue < anchored.typicalNow ? 'low' : 'high'} for this time (typically ~${anchored.typicalNow}).`
+        : '.');
+    wrap.appendChild(anchorNote);
+  }
 
   const basis = el('div'); basis.className = 'fc-basis';
   const wdName = keyWeekday(fc.key, 'long');
@@ -1391,6 +1472,7 @@ document.querySelector('nav').addEventListener('click', e => {
 /* ── Orchestration ─────────────────────────────────────────────── */
 let history = [];
 let predictions = [];
+let liveNow = null;   // latest live reading, for anchoring the forecast
 let muteFlag = null, fridayFlag = null;
 
 async function loadLive() {
