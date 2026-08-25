@@ -7,7 +7,7 @@
       "date": "Thu 27 Aug 2026",
       "opponent": "Luton Town",
       "windows": {
-        "season-ticket-holders-members-can-purchase-an-additional-two-tickets-maximum-of-three-tickets-in-total-per-person": "open"
+        "season-ticket-holders-members-can-purchase-an-additional-four-tickets-maximum-of-five-tickets-in-total-per-person": "open"
       }
     },
     "6jKZi8pKxMz7PCd6OxQPYy": {
@@ -25,7 +25,11 @@
       }
     }
   },
-  "notified": {},
-  "open_since": {},
+  "notified": {
+    "2rWE7UBXpeORugE5spruAO::window_open::season-ticket-holders-members-can-purchase-an-additional-four-tickets-maximum-of-five-tickets-in-total-per-person": "2026-08-25T10:01:10.538229+00:00"
+  },
+  "open_since": {
+    "2rWE7UBXpeORugE5spruAO::window_open::season-ticket-holders-members-can-purchase-an-additional-four-tickets-maximum-of-five-tickets-in-total-per-person": "2026-08-25T10:01:09.933515+00:00"
+  },
   "schema_version": 1
 }
