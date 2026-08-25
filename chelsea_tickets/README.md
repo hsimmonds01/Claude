@@ -108,6 +108,20 @@ membership number, no login, no personal data — the design never needs any.
 
 ## Gotchas worth knowing
 
+- **Window titles can embed a running count in words, not just digits** —
+  Chelsea's "additional tickets" route reads "...purchase an additional
+  **two** tickets (maximum of **three**...)" and later "...**four**...
+  (maximum of **five**...)" as more allocation opens up. `_window_key`
+  strips digits *and* spelled-out numbers one–twelve for exactly this
+  reason: seen live, an un-stripped word count made every increment look
+  like a brand-new window opening, firing a stale "applications OPEN" alert
+  days after the real ballot had already closed.
+- **`fixture.application_closes` describes the ballot specifically, not
+  every window on the fixture.** It's parsed from the "Ticket application
+  window closes" wording, so a different window opening (e.g. the
+  undated "additional tickets" route above) must not have that date
+  attached to its alert — `_is_ballot_window` in `detect.py` gates on
+  "application" appearing in the window's own title before including it.
 - **`notified` in `state.json` is an audit log, not a mute list.** Suppression
   is the snapshot diff's job. Gating on those keys as well permanently
   swallowed a window that closes and re-opens (Chelsea's second-batch

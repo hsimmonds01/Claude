@@ -156,6 +156,24 @@ class TestWindowKeys:
         # Assert
         assert key_a == key_b
 
+    def test_incrementing_ticket_count_wording_does_not_change_the_window_key(self):
+        # Arrange -- regression: Chelsea's "additional tickets" window embeds
+        # a running total in words, not digits ("additional two tickets
+        # (maximum of three...)" -> "...four tickets (maximum of five...)"
+        # as more allocation opens up). Seen live: each increment looked
+        # like a brand-new window opening, firing a stale "applications
+        # OPEN" alert days after the real ballot had already closed.
+        title = "Season ticket holders & Members can purchase an additional {} tickets (maximum of {} in total per person)."
+        a = make_feed(make_entry(tickets=[{"title": title.format("two", "three")}]))
+        b = make_feed(make_entry(tickets=[{"title": title.format("four", "five")}]))
+
+        # Act
+        key_a = parse_home_fixtures(a)[0].windows[0].key
+        key_b = parse_home_fixtures(b)[0].windows[0].key
+
+        # Assert
+        assert key_a == key_b
+
 
 class TestApplicationDates:
     def test_extracts_open_and_close_datetimes(self):
