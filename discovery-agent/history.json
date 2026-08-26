@@ -2021,6 +2021,75 @@
           "link_status": "verified"
         }
       ]
+    },
+    {
+      "date": "2026-08-26",
+      "model": "gemini-2.5-flash (legacy key, live search)",
+      "items": [
+        {
+          "title": "'Pride' Musical Transfers to London's West End, Tickets On Sale Sep 2",
+          "category": "event",
+          "summary": "The acclaimed musical 'Pride' is transferring to London's Bridge Theatre from November 12, 2026, following sold-out runs. Tickets for this major London theatre event go on sale very soon, on September 2, 2026.",
+          "url": "https://www.timeout.com/london/news/national-theatre-pride-transfer-west-end-082526",
+          "date_info": "Tickets on sale Wednesday 2 September 2026",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "Marvel Studios' 'Avengers Endgame: Encore' Returns to IMAX, Tickets On Sale Now",
+          "category": "film",
+          "summary": "Marvel Studios' 'Avengers Endgame: Encore' is back on big screens, with IMAX and Infinity Vision screenings starting September 25, 2026. Tickets are on sale now, offering a chance to re-experience the epic conclusion and get an exclusive sneak peek at 'Avengers: Doomsday'.",
+          "url": "https://www.google.com/search?q=Marvel+Studios%27+%27Avengers+Endgame%3A+Encore%27+Returns+to+IMAX%2C+Tickets+On+Sale+Now",
+          "date_info": "Tickets on sale now for screenings from September 25, 2026",
+          "urgency": "act-fast",
+          "link_status": "search"
+        },
+        {
+          "title": "Chrome Hearts and Mikimoto Tease Second Collaborative Gold Pearl Jewelry Collection",
+          "category": "drop",
+          "summary": "Luxury brands Chrome Hearts and Mikimoto have unveiled a second highly anticipated 22K gold and pearl jewelry collection. Released in ultra-limited quantities, the five-piece collection is available at select flagship stores, including Chrome Hearts London.",
+          "url": "https://hypebeast.com/2026/8/chrome-hearts-mikimoto-tease-second-collaborative-22k-gold-pearl-jewelry-collection",
+          "date_info": "Released in 2026, available now in limited quantities",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "Xbox Debuts 25th Anniversary Gear Apparel Collections, Limited Run",
+          "category": "drop",
+          "summary": "Celebrate 25 years of Xbox with three new apparel collections – Gloss, Est.01, and Blood Gulch – featuring streetwear and merchandise inspired by the console's history. These limited-edition items are available now via Xbox Gear but only until September 7, 2026.",
+          "url": "https://hypebeast.com/2026/8/xbox-gear-25th-anniversary-apparel-collections-release-info",
+          "date_info": "Available now until September 7, 2026",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "Freddie Mercury's Iconic Costumes on Free Display at V&A South Kensington",
+          "category": "event",
+          "summary": "The V&A South Kensington will host 'Freddie Mercury | Splendid Things', a free exhibition opening October 24, 2026, showcasing eight of the legendary artist's most dazzling and iconic outfits from his career.",
+          "url": "https://www.timeout.com/london/news/freddie-mercury-outfits-v-and-a-exhibition-2026-082526",
+          "date_info": "Opens Saturday, 24 October 2026",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "Krispy Kreme's Pumpkin Spice Original Glazed Doughnut Returns for Four Days Only",
+          "category": "food",
+          "summary": "Krispy Kreme's beloved Pumpkin Spice Original Glazed Doughnut is back for a very limited time, available for just four days from August 27-30, 2026. Don't miss this seasonal treat.",
+          "url": "https://hypebeast.com/2026/8/krispy-kreme-pumpkin-spice-original-glazed-doughnut-fall-2026-limited-release-info",
+          "date_info": "Available August 27-30, 2026",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "Wonton Charlie's: New Cantonese Noodle Bar in London Fields",
+          "category": "food",
+          "summary": "From the team behind Mr Bao, Wonton Charlie's is an intimate 18-seater Cantonese noodle bar in London Fields. Opened in November 2025, it specializes in authentic wonton noodle soup with house-made ingredients, offering a taste of Hong Kong's bustling noodle shops.",
+          "url": "https://www.timeout.com/london/restaurants/wonton-charlies",
+          "date_info": "Opened November 2025",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        }
+      ]
     }
   ]
 }
