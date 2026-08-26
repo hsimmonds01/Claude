@@ -5,6 +5,6 @@
   },
   "last_classification": "unknown",
   "last_fingerprint": "d297e8be810cbbc9",
-  "consecutive_fetch_failures": 2,
-  "fetch_failure_notified": false
+  "consecutive_fetch_failures": 3,
+  "fetch_failure_notified": true
 }
