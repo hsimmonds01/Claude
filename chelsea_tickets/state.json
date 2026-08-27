@@ -2,14 +2,6 @@
   "consecutive_fetch_failures": 0,
   "fetch_failure_notified": false,
   "fixtures": {
-    "2rWE7UBXpeORugE5spruAO": {
-      "competition": "Carabao Cup",
-      "date": "Thu 27 Aug 2026",
-      "opponent": "Luton Town",
-      "windows": {
-        "season-ticket-holders-members-can-purchase-an-additional-tickets-maximum-of-tickets-in-total-per-person": "open"
-      }
-    },
     "6jKZi8pKxMz7PCd6OxQPYy": {
       "competition": "Premier League",
       "date": "Sun 30 Aug 2026",
@@ -25,9 +17,7 @@
       }
     }
   },
-  "notified": {
-    "2rWE7UBXpeORugE5spruAO::window_open::season-ticket-holders-members-can-purchase-an-additional-four-tickets-maximum-of-five-tickets-in-total-per-person": "2026-08-25T10:01:10.538229+00:00"
-  },
+  "notified": {},
   "open_since": {},
   "schema_version": 1
 }
