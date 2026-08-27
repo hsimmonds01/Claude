@@ -2090,6 +2090,66 @@
           "link_status": "verified"
         }
       ]
+    },
+    {
+      "date": "2026-08-27",
+      "model": "gemini-2.5-flash (legacy key, live search)",
+      "items": [
+        {
+          "title": "Brompton Golden Ticket Hunt & Free Bike Hire in London Today",
+          "category": "event",
+          "summary": "Brompton has hidden three 'Golden Tickets' across London today (August 27) in its Bike Hire lockers. Find one, and you'll win free entry to the Brompton World Championship. Plus, Brompton Bike Hire is completely FREE across London today, with clues shared by Instagram cyclist Johno Verity.",
+          "url": "https://micromobilitybiz.com/brompton-hides-golden-tickets-across-london-to-celebrate-2026-world-championship-event/",
+          "date_info": "Hunt and free bike hire today, August 27; claim by August 29",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "Last Chance for Walk-up Tickets to Gabriel Moses Talk at V&A East Tonight",
+          "category": "event",
+          "summary": "Artist, photographer, and filmmaker Gabriel Moses is in conversation tonight at V&A East in Stratford. While free tickets are sold out, a limited allocation of walk-up tickets will be available on a first-come, first-served basis.",
+          "url": "https://www.google.com/search?q=Last+Chance+for+Walk-up+Tickets+to+Gabriel+Moses+Talk+at+V%26A+East+Tonight",
+          "date_info": "Tonight, August 27, 7:00 PM (arrive early for walk-ups)",
+          "urgency": "act-fast",
+          "link_status": "search"
+        },
+        {
+          "title": "AEW All In: Welcome to Wembley! Fan Experience This Weekend",
+          "category": "event",
+          "summary": "Kick off the AEW All In London weekend with an exclusive fan experience at Wembley's Great Hall. The 'Welcome to Wembley!' event offers photo ops with the AEW World Championship Belt, meet-and-greets with AEW Stars, early access to merch, and a chance to win a replica belt.",
+          "url": "https://www.google.com/search?q=AEW+All+In%3A+Welcome+to+Wembley%21+Fan+Experience+This+Weekend",
+          "date_info": "Sessions available Friday, August 28 and Saturday, August 29",
+          "urgency": "this-week",
+          "link_status": "search"
+        },
+        {
+          "title": "Professor Green's 'Proper Good' Fast Food Restaurant Opening in Soho",
+          "category": "food",
+          "summary": "Professor Green is opening his new fast-food restaurant, 'Proper Good', in Soho, London, in mid-September. The spot will offer a build-your-own-meal concept with adventurous base options like potato puffs and South Korean-inspired UFO subs.",
+          "url": "https://www.google.com/search?q=Professor+Green%27s+%27Proper+Good%27+Fast+Food+Restaurant+Opening+in+Soho",
+          "date_info": "Opening mid-September",
+          "urgency": "heads-up",
+          "link_status": "search"
+        },
+        {
+          "title": "Aldi 'Superfam Pass' Giveaway: Win £9,600 in Free Shopping",
+          "category": "other",
+          "summary": "Enter Aldi's 'Superfam Pass' competition for a chance to win £800 worth of free shopping every month for a year, totaling £9,600. No purchase is necessary to enter, and entries are open until September 21, 2026.",
+          "url": "https://www.google.com/search?q=Aldi+%27Superfam+Pass%27+Giveaway%3A+Win+%C2%A39%2C600+in+Free+Shopping",
+          "date_info": "Entries close September 21, 2026",
+          "urgency": "this-week",
+          "link_status": "search"
+        },
+        {
+          "title": "Win a Full 26/27 Football Shirt Bundle with OLBG Prizes",
+          "category": "other",
+          "summary": "OLBG Prizes is running a free-to-enter promotion where you can win a full 26/27 football shirt bundle from your favorite club. This low-effort promo offers a genuine perk for football fans.",
+          "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNVFI4bTVwY1FfWlpfSDVXTzRtUDdCa0xVN3NJbGJGTVpvYlB1UEJaU3EzbGR1VURBME1hcEJOUm52cUNFdWZ1cVY0Vkxkd1J0TzEwU0M2QkNfVWhyaUFoeDJlZmFpSFlzYVJTWjRrUnZkVFdPV1VudFR3bjlPUDFpdF9FMHk1MXU3cDlmWGQ0QkFrRUdRdWRHbnlpTQ?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "date_info": "",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        }
+      ]
     }
   ]
 }
