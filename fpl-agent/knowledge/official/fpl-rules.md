@@ -1,7 +1,7 @@
 # fpl-rules
 
 - Source: https://fantasy.premierleague.com/help/rules
-- Fetched: 2026-08-27T14:04:49.909847+00:00
+- Fetched: 2026-08-27T16:48:35.722287+00:00
 - Why it's here: Core scoring, squad, transfer and chip rules
 
 Captured automatically by `fpl-agent/knowledge.py` as reference material for the FPL agent.
@@ -510,7 +510,7 @@ Existing teams will automatically enter the Second Chance League and the Fantasy
 League Scoring
 All leagues score on either a Classic or head-to-head basis.
 Classic Scoring
-In a league with classic scoring, teams are ranked based on their total points in the game. You can join or leave a league with classic scoring at any point during the season.
+In a league with classic scoring, teams are ranked based on their total points in the game. Teams cannot leave a Classic league if they are entered in that league's associated Cup competition.
 In the event of a tie between teams, the team who has made the least amount of transfers will be positioned higher. Any transfers made using a wildcard or free hit will not count towards total transfers made.
 Classic scoring leagues are run over a number of phases:
 Phase First Gameweek Last Gameweek
