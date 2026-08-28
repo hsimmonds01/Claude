@@ -1,6 +1,6 @@
 # FPL agent knowledge base
 
-Last built: 2026-08-28T15:15:51.943065+00:00
+Last built: 2026-08-28T17:44:49.609769+00:00
 
 Built by `fpl-agent/knowledge.py`. Official rules pages are stored in full
 under `official/` because the agent must never get scoring or chip rules
@@ -12,9 +12,9 @@ archiving other people's writing.
 
 | Source | Status | Notes |
 |---|---|---|
-| [fpl-rules](https://fantasy.premierleague.com/help/rules) | captured | saved 25985 chars (browser-rendered), matched ['points', 'goal', 'clean sheet'] |
-| [fpl-help](https://fantasy.premierleague.com/help) | captured | saved 13663 chars (browser-rendered), matched ['fantasy'] |
-| [fpl-terms](https://fantasy.premierleague.com/help/terms) | captured | saved 27525 chars (browser-rendered), matched ['terms'] |
+| [fpl-rules](https://fantasy.premierleague.com/help/rules) | not captured | only 115 chars -- looks like an empty shell, not saved |
+| [fpl-help](https://fantasy.premierleague.com/help) | not captured | only 115 chars -- looks like an empty shell, not saved |
+| [fpl-terms](https://fantasy.premierleague.com/help/terms) | not captured | only 115 chars -- looks like an empty shell, not saved |
 | [pl-changes-2026-27](https://www.premierleague.com/en/news/4679873) | captured | saved 6921 chars, matched ['fantasy'] |
 | [pl-chips-2026-27](https://www.premierleague.com/en/news/4679879) | captured | saved 5414 chars, matched ['chip'] |
 
