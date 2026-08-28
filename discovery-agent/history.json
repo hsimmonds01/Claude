@@ -2150,6 +2150,84 @@
           "link_status": "verified"
         }
       ]
+    },
+    {
+      "date": "2026-08-28",
+      "model": "gemini-2.5-flash (legacy key, live search)",
+      "items": [
+        {
+          "title": "Nicholas Daley x Carhartt WIP 'Rise as One' Charity T-Shirt Drop",
+          "category": "drop",
+          "summary": "Nicholas Daley and Carhartt WIP have collaborated on a limited-edition 'Rise as One' charity T-shirt, a perfect catch for streetwear and designer collab enthusiasts.",
+          "url": "https://hypebeast.com/2026/8/nicholas-daley-carhartt-wip-rise-as-one-charity-t-shirt-release-info",
+          "date_info": "Release info available now, act fast for this limited drop.",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "Joshua Vides' Drawing-Style Mercedes SL500 Up for Auction",
+          "category": "product",
+          "summary": "Joshua Vides' iconic Mercedes SL500, painted to look like a black and white sketch, is now available for auction, presenting a unique opportunity to acquire a truly beautiful and clever design object.",
+          "url": "https://www.designboom.com/technology/joshua-vides-mercedes-benz-sl500-drawing-painted-black-white-auction/",
+          "date_info": "Currently up for auction.",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "Notting Hill Carnival 2026: Best Warm-Ups & Afterparties This Weekend",
+          "category": "event",
+          "summary": "Get ready for the August Bank Holiday weekend with a guide to the hottest warm-up and afterparties for Notting Hill Carnival 2026 happening across London.",
+          "url": "https://www.timeout.com/london/news/notting-hill-carnival-2026-parties-the-best-warm-ups-and-afterparties-this-weekend-082826",
+          "date_info": "This August Bank Holiday weekend (August 29-31, 2026).",
+          "urgency": "this-week",
+          "link_status": "verified"
+        },
+        {
+          "title": "Queen Budapest Global Theatrical Release in Cinemas & IMAX",
+          "category": "film",
+          "summary": "Experience Queen Budapest on the big screen with its global theatrical release in cinemas and IMAX, with tickets already on sale for screenings starting October 7th.",
+          "url": "https://www.google.com/search?q=Queen+Budapest+Global+Theatrical+Release+in+Cinemas+%26+IMAX",
+          "date_info": "Tickets on sale now; release begins October 7th.",
+          "urgency": "act-fast",
+          "link_status": "search"
+        },
+        {
+          "title": "World's First 3-Michelin Star Indian Restaurant Opening London Bar",
+          "category": "food",
+          "summary": "Tresind, the acclaimed three-Michelin-starred Indian restaurant, is expanding its presence with a new bar opening in London, promising an exciting new spot for fine food and drink.",
+          "url": "https://www.timeout.com/london/news/tresind-new-bar-tryst-michelin-082826",
+          "date_info": "Opening soon (announced today).",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "Justin Bieber Teases SKYLRK Y2K-Style MP3 Player",
+          "category": "product",
+          "summary": "Justin Bieber has given a sneak peek of an upcoming SKYLRK Y2K-style MP3 player, a genuinely interesting and clever gadget with a nostalgic design.",
+          "url": "https://hypebeast.com/2026/8/justin-bieber-teases-skylrk-mp3-player-earphones",
+          "date_info": "Teased recently, release date TBD.",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "Apple Confirms September 9 Event for New Tech Unveilings",
+          "category": "product",
+          "summary": "Apple has confirmed an event for September 9th, where new and genuinely interesting tech products are expected to be unveiled – a key date for gadget enthusiasts.",
+          "url": "https://www.google.com/search?q=Apple+Confirms+September+9+Event+for+New+Tech+Unveilings",
+          "date_info": "Event confirmed for September 9th.",
+          "urgency": "heads-up",
+          "link_status": "search"
+        },
+        {
+          "title": "Top 10 New London Theatre Openings in September 2026",
+          "category": "event",
+          "summary": "Time Out has released a curated list of the 10 best new theatre shows opening in London next month, providing an excellent heads-up for tickets that often sell out quickly.",
+          "url": "https://www.timeout.com/london/news/best-new-theatre-shows-september-2026-082826",
+          "date_info": "Openings throughout September 2026.",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        }
+      ]
     }
   ]
 }
