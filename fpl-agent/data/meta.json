@@ -1,9 +1,9 @@
 {
-  "fetched_at": "2026-08-28T17:42:04.815036+00:00",
-  "total_players": 620,
+  "fetched_at": "2026-08-29T01:42:57.327036+00:00",
+  "total_players": 622,
   "total_teams": 20,
   "total_fixtures": 380,
-  "next_event": 2,
-  "next_deadline": "2026-08-28T17:30:00Z",
+  "next_event": 3,
+  "next_deadline": "2026-09-04T17:30:00Z",
   "season_started": true
 }
