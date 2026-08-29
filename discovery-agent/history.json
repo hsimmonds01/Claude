@@ -2228,6 +2228,66 @@
           "link_status": "verified"
         }
       ]
+    },
+    {
+      "date": "2026-08-29",
+      "model": "gemini-2.5-flash (legacy key, live search)",
+      "items": [
+        {
+          "title": "GEEKS RULE x Aiobahn x Hatsune Miku T-Shirt Collab Drops",
+          "category": "drop",
+          "summary": "A new limited-edition streetwear collaboration has launched, featuring Hatsune Miku, Aiobahn's viral “DIVA” artwork, and GEEKS RULE, perfect for fans of designer collabs and unique apparel.",
+          "url": "https://hypebeast.com/2026/8/geeks-rule-aiobahn-hatsune-miku-diva-t-shirt-release-info",
+          "date_info": "Released in August 2026",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "The Tamagotchi Ring: '90s Nostalgia on Your Finger",
+          "category": "product",
+          "summary": "This clever new gadget brings '90s nostalgia right to your fingertips with the Tamagotchi Ring, a unique and affordable tech release that fits the 'how did I not know this existed' category.",
+          "url": "https://hypebeast.com/2026/8/bandai-tamagotchi-ring-release-info",
+          "date_info": "Released in August 2026",
+          "urgency": "this-week",
+          "link_status": "verified"
+        },
+        {
+          "title": "TDR Unveils FW26 Collection with Technical Fabrics",
+          "category": "drop",
+          "summary": "TDR has broadened its Fall/Winter 2026 collection, incorporating technical fabrics and expert craftsmanship, offering a limited-run drop from a small brand.",
+          "url": "https://hypebeast.com/2026/8/tdr-garbstore-fw26-collection-release-info",
+          "date_info": "FW26 Collection released in August 2026",
+          "urgency": "this-week",
+          "link_status": "verified"
+        },
+        {
+          "title": "Dishoom to Open New Borough Restaurant This Autumn/Winter",
+          "category": "food",
+          "summary": "The popular Indian restaurant Dishoom is set to open a new, massive branch in the Hop Exchange building in Borough, very close to your preferred South-East London area, bringing their acclaimed Bombay comfort food.",
+          "url": "https://www.google.com/search?q=Dishoom+to+Open+New+Borough+Restaurant+This+Autumn%2FWinter",
+          "date_info": "Expected to open 'autumn / winter 2026'",
+          "urgency": "heads-up",
+          "link_status": "search"
+        },
+        {
+          "title": "byunggwon na's ALIT Lamp: A Blend of Ceramic, Wood, and Light",
+          "category": "product",
+          "summary": "Discover the beautifully designed new ALIT lamp by Byunggwon Na, which elegantly balances ceramic, wood, and light in one quiet composition, perfect for those who appreciate genuinely interesting tech and design objects.",
+          "url": "https://www.designboom.com/design/byunggwon-na-alit-lamp-ceramic-wood-light/",
+          "date_info": "Recently revealed",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "Lassie Robot Dog: Quadrupedal Mobility with a Knitted Suit",
+          "category": "product",
+          "summary": "The new 'Lassie' robot dog is a genuinely interesting and clever gadget, pairing advanced quadrupedal mobility with a unique soft, removable knitted suit.",
+          "url": "https://www.designboom.com/technology/lassie-robot-dog-quadrupedal-mobility-soft-removable-knitted-suit/",
+          "date_info": "Recently revealed",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        }
+      ]
     }
   ]
 }
