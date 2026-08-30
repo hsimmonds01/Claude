@@ -1,43 +1,34 @@
 {
-  "generated_at": "2026-08-24T04:02:16.590353+00:00",
+  "generated_at": "2026-08-30T23:25:25.209187+00:00",
   "model": "gemini-flash-latest",
   "headlines_considered": 44,
   "flags": [
     {
-      "player_id": "55",
-      "player": "Watkins",
-      "team": "AVL",
-      "concern": "Watkins was left out of the Aston Villa matchday squad amid injury updates.",
+      "player_id": "367",
+      "player": "Gakpo",
+      "team": "LIV",
+      "concern": "Reports indicate Gakpo is linked with a transfer move to Manchester City.",
       "severity": "medium",
       "affects": "availability",
-      "source": "https://www.fantasyfootballscout.co.uk/2026/08/23/2pm-team-news-de-cuyper-oreilly-advanced-no-kadioglu-or-watkins"
+      "source": "https://www.fantasyfootballscout.co.uk/2026/08/29/fpl-notes-gibbs-white-on-pens-gakpo-city-bound-szoboszlai-at-right-back"
     },
     {
-      "player_id": "387",
-      "player": "O'Reilly",
-      "team": "MCI",
-      "concern": "O'Reilly was deployed in an advanced role for Manchester City.",
+      "player_id": "480",
+      "player": "Gibbs-White",
+      "team": "NFO",
+      "concern": "Gibbs-White is confirmed to be on penalty duty for Nottingham Forest.",
       "severity": "low",
       "affects": "role",
-      "source": "https://www.fantasyfootballscout.co.uk/2026/08/23/2pm-team-news-de-cuyper-oreilly-advanced-no-kadioglu-or-watkins"
+      "source": "https://www.fantasyfootballscout.co.uk/2026/08/29/fpl-notes-gibbs-white-on-pens-gakpo-city-bound-szoboszlai-at-right-back"
     },
     {
-      "player_id": "106",
-      "player": "Thiago",
+      "player_id": "95",
+      "player": "O.Dango",
       "team": "BRE",
-      "concern": "Thiago is taking penalties for Brentford, having taken and missed one in Gameweek 1.",
-      "severity": "low",
-      "affects": "role",
-      "source": "https://www.fantasyfootballscout.co.uk/2026/08/23/fpl-notes-dream-sangare-debut-thiago-pen-miss"
-    },
-    {
-      "player_id": "88",
-      "player": "Kayode",
-      "team": "BRE",
-      "concern": "Kayode is touch and go with an injury issue ahead of Brentford's upcoming fixture.",
+      "concern": "Dango was dropped to the bench for Brentford's lineup.",
       "severity": "medium",
-      "affects": "availability",
-      "source": "https://news.google.com/rss/articles/CBMiywFBVV95cUxQZDhZTVE3T3piNVRscVd5ck1jWFcxQmUtbVd3Tkp4UGtiU05BcENkVmNpcmRycFRmTGFuTVlTXzA5SWpKWnVQd1ZQdUZjcW1oTTdXUTVYS25aNHBpTXF0SnZwNlpLSWJTa3JZbG1XRXlGMS1PYVB1Q2JGYzEzQjl1WXkxSVdNbG5uMXZkOU5fRXBHa2tUellIZndKUjFuZk5aTy1ZeUNnTEhDemRxSlptNHJEOTNjc3JkNGdqemU5VHl"
+      "affects": "minutes",
+      "source": "https://www.fantasyfootballscout.co.uk/2026/08/30/2pm-team-news-martinez-debut-james-wilson-dango-benched"
     }
   ]
 }
