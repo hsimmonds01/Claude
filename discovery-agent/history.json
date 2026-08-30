@@ -2288,6 +2288,84 @@
           "link_status": "verified"
         }
       ]
+    },
+    {
+      "date": "2026-08-30",
+      "model": "gemini-2.5-flash (legacy key, live search)",
+      "items": [
+        {
+          "title": "Twenty One Pilots Live at All Points East",
+          "category": "event",
+          "summary": "Catch Twenty One Pilots closing the All Points East festival in Victoria Park, London, today. General sale tickets are mostly sold out, but you can still find last-minute tickets on AXS and resale platforms like StubHub and Viagogo.",
+          "url": "https://www.timeout.com/london/news/twenty-one-pilots-all-points-east-2026-set-times-tickets-guide-082826",
+          "date_info": "Sunday, August 30, 2026",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "Maribou State Headlining Lido Festival",
+          "category": "event",
+          "summary": "Maribou State is headlining the Lido Festival in Victoria Park, London, tomorrow. While general sale tickets are off-sale, last-minute tickets are available on AXS and resale sites such as StubHub and Viagogo.",
+          "url": "https://www.timeout.com/london/news/maribou-state-2026-set-times-tickets-guide-082926",
+          "date_info": "Monday, August 31, 2026",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "adidas Handball Spezial Loafer Drops in Black/White",
+          "category": "drop",
+          "summary": "The highly anticipated adidas Handball Spezial Loafer, which blends classic terrace style with a modern loafer design, was released on August 24 and is available now on adidas.com for $130. Many sizes have already sold out, so act fast if you want a pair.",
+          "url": "https://kicksundercost.com/news/adidas-handball-spezial-loafer-black-white-release",
+          "date_info": "Released August 24, 2026",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "Uniqlo U 2026 Fall/Winter Collection Launches",
+          "category": "drop",
+          "summary": "The final Uniqlo U collection from acclaimed designers Christophe Lemaire and Sarah-Linh Tran, featuring refined silhouettes and practical designs for Fall/Winter 2026, officially drops globally on September 11, 2026.",
+          "url": "https://hypebeast.com/2026/8/christophe-lemaire-sarah-linh-tran-uniqlo-u-10th-anniversary-final-capsule-lookbook-release-info",
+          "date_info": "Launches September 11, 2026",
+          "urgency": "this-week",
+          "link_status": "verified"
+        },
+        {
+          "title": "NÒMARHYTHM TEXTILE New Arrivals at HBX",
+          "category": "drop",
+          "summary": "Discover new arrivals from the Tokyo-based textile innovator NÒMARHYTHM TEXTILE, known for its minimalist and individualistic aesthetic, now available on HBX. The collection includes hand-dyed items with prices ranging from $160 to $715.",
+          "url": "https://hypebeast.com/2026/8/new-arrivals-from-hbx-nomarhythm-textile",
+          "date_info": "Available now",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "Human Made New Arrivals at HBX",
+          "category": "drop",
+          "summary": "Fresh pieces from NIGO®'s Human Made, a brand blending vintage and street culture with unique graphics, have just arrived at HBX. Explore their latest graphic tees, caps, and knitwear, with items priced from $20 to $415.",
+          "url": "https://hypebeast.com/2026/8/new-arrivals-from-hbx-human-made-9",
+          "date_info": "Available now",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "Meatopia London 2026: Live-Fire Food Festival",
+          "category": "event",
+          "summary": "Meatopia, the UK's premier live-fire food festival, returns to Tobacco Dock in London from September 3-6, 2026. Experience a weekend of incredible dishes from world-class chefs cooking over wood and charcoal. Tickets are available for £35.",
+          "url": "https://www.smokeandsear.world/event/meatopia-london/",
+          "date_info": "September 3-6, 2026",
+          "urgency": "this-week",
+          "link_status": "verified"
+        },
+        {
+          "title": "Award-Winning Schofield's Bar to Open in London",
+          "category": "food",
+          "summary": "Manchester's highly acclaimed Schofield's Bar, known for its classic cocktails and genuine hospitality, is set to open its first London outpost in Covent Garden in early November 2026. This is a significant new addition to London's bar scene.",
+          "url": "https://www.theupcoming.co.uk/2026/08/27/schofields-bar-to-open-first-london-site-in-covent-garden/",
+          "date_info": "Early November 2026",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        }
+      ]
     }
   ]
 }
