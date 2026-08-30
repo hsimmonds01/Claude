@@ -2,12 +2,6 @@
   "consecutive_fetch_failures": 0,
   "fetch_failure_notified": false,
   "fixtures": {
-    "6jKZi8pKxMz7PCd6OxQPYy": {
-      "competition": "Premier League",
-      "date": "Sun 30 Aug 2026",
-      "opponent": "Brighton & Hove Albion",
-      "windows": {}
-    },
     "6rixcGFDEWH5V98iSqSPLa": {
       "competition": "Premier League",
       "date": "Sat 12 Sept 2026",
