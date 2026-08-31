@@ -1,8 +1,5 @@
 {
-  "notified": {
-    "2026-08::changed::8505896c8de8b0de": "2026-08-03T10:15:40.054708+00:00",
-    "2026-08::changed::d297e8be810cbbc9": "2026-08-03T10:31:02.628288+00:00"
-  },
+  "notified": {},
   "last_classification": "unknown",
   "last_fingerprint": "d297e8be810cbbc9",
   "consecutive_fetch_failures": 0,
