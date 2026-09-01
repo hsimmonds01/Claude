@@ -2366,6 +2366,66 @@
           "link_status": "verified"
         }
       ]
+    },
+    {
+      "date": "2026-09-01",
+      "model": "gemini-2.5-flash (legacy key, live search)",
+      "items": [
+        {
+          "title": "Score Free Tickets to Horizon 22, London's Highest Free Viewing Platform",
+          "category": "free sign-up stuff",
+          "summary": "Get free timed tickets to Horizon 22, London's tallest free viewing platform. Slots are released every Monday at 10 AM for the following two weeks, but they go fast, so set a reminder for next week's drop to secure your spot.",
+          "url": "https://www.google.com/search?q=Score+Free+Tickets+to+Horizon+22%2C+London%27s+Highest+Free+Viewing+Platform",
+          "date_info": "Tickets released every Monday at 10 AM for the following two weeks",
+          "urgency": "act-fast",
+          "link_status": "search"
+        },
+        {
+          "title": "Catch Christopher Nolan's 'The Odyssey' in IMAX 70mm at BFI IMAX",
+          "category": "film",
+          "summary": "Experience Christopher Nolan's epic film, 'The Odyssey', projected in glorious 70mm IMAX on Britain's biggest screen at the BFI IMAX in Waterloo. While many screenings have sold out, there are still tickets available for select dates in early September.",
+          "url": "https://southbank.london/whats-on/the-odyssey",
+          "date_info": "Screenings available throughout September, check website for specific dates and times",
+          "urgency": "this-week",
+          "link_status": "verified"
+        },
+        {
+          "title": "Pre-order the Tamagotchi Ring: A Wearable Digital Pet",
+          "category": "product",
+          "summary": "Bandai has shrunk its iconic virtual pet into the smallest Tamagotchi ever, a wearable ring with a color LCD screen. Pre-orders are open for this clever gadget, which is set for a February 2027 release in Japan, with UK availability via importers around £65.",
+          "url": "https://gagadget.com/en/723822-tamagotchi-ring-puts-a-virtual-pet-on-your-finger-for-a-price/",
+          "date_info": "Pre-orders opened August 27, delivery February 2027 (Japan)",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "Experience American College Football at Wembley with the Union Jack Classic",
+          "category": "football",
+          "summary": "Witness the inaugural Union Jack Classic as the Kansas Jayhawks take on the Arizona State Sun Devils in a full-scale American college football experience at Wembley Stadium. Expect marching bands, cheerleaders, and future NFL stars.",
+          "url": "https://www.ticketmaster.co.uk/union-jack-classic-tickets/artist/5639195",
+          "date_info": "Saturday, September 19, 2026",
+          "urgency": "this-week",
+          "link_status": "verified"
+        },
+        {
+          "title": "Explore Transformative Bags from côte&ciel's FW26 Collection",
+          "category": "drop",
+          "summary": "côte&ciel has launched its Fall/Winter 2026 collection of bags and accessories, exploring innovative designs that transform and adapt. The collection is available now globally, featuring new materials and evolving iconic silhouettes.",
+          "url": "https://hypebeast.com/2026/9/coteciel-fall-winter-2026-collection-lookbook-release-info",
+          "date_info": "Available now globally",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "Don't Miss London's First Pickle Festival: The Big Brine",
+          "category": "event",
+          "summary": "Head to Hackney Bridge for The Big Brine, London's inaugural pickle festival, celebrating everything pickled, brined, and fermented. The two-day event will feature over 30 food and drink traders, workshops, demos, and DJs.",
+          "url": "https://snooksy.substack.com/p/whats-on-in-london-september-2026",
+          "date_info": "Saturday, September 12 & Sunday, September 13, 2026",
+          "urgency": "this-week",
+          "link_status": "verified"
+        }
+      ]
     }
   ]
 }
