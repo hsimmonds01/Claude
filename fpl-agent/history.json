@@ -83,6 +83,13 @@
       "event": 3,
       "subject": "FPL pre-season \u2014 6 days to the GW3 deadline",
       "reason": "6.7 days to the GW3 deadline; last digest 7.3 days ago"
+    },
+    {
+      "at": "2026-09-01T14:07:20.252098+00:00",
+      "kind": "review",
+      "event": 2,
+      "subject": "FPL review \u2014 Gameweek 2",
+      "reason": "GW2 points are final"
     }
   ],
   "failures": [
