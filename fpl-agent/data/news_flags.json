@@ -1,34 +1,25 @@
 {
-  "generated_at": "2026-08-30T23:25:25.209187+00:00",
+  "generated_at": "2026-09-01T00:33:13.767050+00:00",
   "model": "gemini-flash-latest",
   "headlines_considered": 44,
   "flags": [
     {
-      "player_id": "367",
-      "player": "Gakpo",
-      "team": "LIV",
-      "concern": "Reports indicate Gakpo is linked with a transfer move to Manchester City.",
+      "player_id": "387",
+      "player": "O'Reilly",
+      "team": "MCI",
+      "concern": "Manchester City's move for Bouaddi introduces new midfield competition that could reduce his expected playing time.",
+      "severity": "low",
+      "affects": "minutes",
+      "source": "https://www.fantasyfootballscout.co.uk/2026/08/31/bouaddi-to-man-city-could-it-affect-oreilly"
+    },
+    {
+      "player_id": "88",
+      "player": "Kayode",
+      "team": "BRE",
+      "concern": "Reported as touch and go due to an injury issue ahead of Brentford's upcoming fixture against Burnley.",
       "severity": "medium",
       "affects": "availability",
-      "source": "https://www.fantasyfootballscout.co.uk/2026/08/29/fpl-notes-gibbs-white-on-pens-gakpo-city-bound-szoboszlai-at-right-back"
-    },
-    {
-      "player_id": "480",
-      "player": "Gibbs-White",
-      "team": "NFO",
-      "concern": "Gibbs-White is confirmed to be on penalty duty for Nottingham Forest.",
-      "severity": "low",
-      "affects": "role",
-      "source": "https://www.fantasyfootballscout.co.uk/2026/08/29/fpl-notes-gibbs-white-on-pens-gakpo-city-bound-szoboszlai-at-right-back"
-    },
-    {
-      "player_id": "95",
-      "player": "O.Dango",
-      "team": "BRE",
-      "concern": "Dango was dropped to the bench for Brentford's lineup.",
-      "severity": "medium",
-      "affects": "minutes",
-      "source": "https://www.fantasyfootballscout.co.uk/2026/08/30/2pm-team-news-martinez-debut-james-wilson-dango-benched"
+      "source": "https://news.google.com/rss/articles/CBMiywFBVV95cUxQZDhZTVE3T3piNVRscVd5ck1jWFcxQmUtbVd3Tkp4UGtiU05BcENkVmNpcmRycFRmTGFuTVlTXzA5SWpKWnVQd1ZQdUZjcW1oTTdXUTVYS25aNHBpTXF0SnZwNlpLSWJTa3JZbG1XRXlGMS1PYVB1Q2JGYzEzQjl1WXkxSVdNbG5uMXZkOU5fRXBHa2tUellIZndKUjFuZk5aTy1ZeUNnTEhDemRxSlptNHJEOTNjc3JkNGdqemU5VHl"
     }
   ]
 }
