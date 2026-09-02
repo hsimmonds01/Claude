@@ -434,6 +434,39 @@ def fetch_secondary_bikes() -> tuple[int, str] | None:
         return None
 
 
+def debug_secondary_station() -> None:
+    """One-off diagnostic: dump the raw TfL data for the secondary (backup)
+    station, both from the Search endpoint and the direct by-ID fetch, so a
+    number that looks wrong in a notification (e.g. "0 standard bikes" when
+    the Santander app shows bikes present) can be checked against what the
+    API actually returned rather than guessed at. Read-only -- never writes
+    state or sends a notification.
+    """
+    print(f"Search query: {SECONDARY_STATION_QUERY!r}")
+    url = f"{TFL_BASE_URL}/Search"
+    response = requests.get(url, params={"query": SECONDARY_STATION_QUERY}, timeout=REQUEST_TIMEOUT_SECONDS)
+    response.raise_for_status()
+    results = response.json()
+    print(f"Search returned {len(results)} result(s):")
+    for r in results:
+        print(f"  id={r.get('id')!r} commonName={r.get('commonName')!r}")
+
+    if not results:
+        print("No results -- nothing more to check.")
+        return
+    station_id = results[0].get("id")
+    if not station_id:
+        print("First result has no id -- can't do a direct fetch.")
+        return
+
+    data = _fetch_bikepoint(station_id)
+    props = _props(data)
+    print(f"Direct fetch of {station_id!r} ({data.get('commonName')!r}):")
+    for key in ("NbBikes", "NbEBikes", "NbStandardBikes", "NbEmptyDocks", "NbDocks"):
+        print(f"  {key} = {props.get(key, '<missing>')}")
+    print(f"  EXCLUDE_EBIKES = {EXCLUDE_EBIKES} -> _count_bikes() would report {_count_bikes(props)}")
+
+
 def _search_bikepoint_or_raise(name_query: str) -> dict:
     data = _search_bikepoint(name_query)
     if data is None:
@@ -1260,6 +1293,10 @@ def run(mode: str, dry_run: bool) -> None:
             send_notification(title, message, priority="default", tags="bike,mag")
         return
 
+    if mode == "debug_secondary":
+        debug_secondary_station()
+        return
+
     if mode == "gym_route":
         bikes, bike_station, docks, dock_station, backup_station, backup_docks = fetch_gym_route()
         bike_label = "standard bikes" if EXCLUDE_EBIKES else "bikes"
@@ -1348,7 +1385,7 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
         "--force-mode",
-        choices=["auto", "summary", "morning_bikes", "check", "evening_summary", "evening_second_summary", "evening_check", "status", "gym_route", "accuracy"],
+        choices=["auto", "summary", "morning_bikes", "check", "evening_summary", "evening_second_summary", "evening_check", "status", "gym_route", "accuracy", "debug_secondary"],
         default="auto",
         help="Override the time-based mode detection, e.g. for manual testing.",
     )

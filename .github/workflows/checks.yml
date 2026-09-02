@@ -40,6 +40,7 @@ on:
           - status
           - gym_route
           - accuracy
+          - debug_secondary
         default: auto
       dry_run:
         description: "Dry run (don't send notification or write state)"
