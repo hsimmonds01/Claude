@@ -25,9 +25,6 @@
     "6EZdshzpVS0EYtGXKFHxZ::window_open::cfc-blue-members-can-purchase-ticket-per-person-loyalty-points-basis": "2026-09-02T08:31:04.500116+00:00",
     "6EZdshzpVS0EYtGXKFHxZ::window_open::true-blue-true-blue-or-junior-blue-members-can-purchase-ticket-per-person-loyalty-points-basis": "2026-09-02T08:31:04.500113+00:00"
   },
-  "open_since": {
-    "6EZdshzpVS0EYtGXKFHxZ::window_open::cfc-blue-members-can-purchase-ticket-per-person-loyalty-points-basis": "2026-09-02T08:31:03.828123+00:00",
-    "6EZdshzpVS0EYtGXKFHxZ::window_open::true-blue-true-blue-or-junior-blue-members-can-purchase-ticket-per-person-loyalty-points-basis": "2026-09-02T08:31:03.828123+00:00"
-  },
+  "open_since": {},
   "schema_version": 1
 }
