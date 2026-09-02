@@ -1,10 +1,11 @@
 {
   "notified": {
     "2026-09::changed::8505896c8de8b0de": "2026-08-31T23:15:34.470822+00:00",
-    "2026-09::changed::d297e8be810cbbc9": "2026-08-31T23:30:44.048809+00:00"
+    "2026-09::changed::d297e8be810cbbc9": "2026-08-31T23:30:44.048809+00:00",
+    "2026-09::changed::5cda9784e1aec5ab": "2026-09-02T21:15:37.967560+00:00"
   },
   "last_classification": "unknown",
-  "last_fingerprint": "d297e8be810cbbc9",
+  "last_fingerprint": "5cda9784e1aec5ab",
   "consecutive_fetch_failures": 0,
   "fetch_failure_notified": false
 }
