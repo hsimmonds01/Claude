@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-02T16:29:54.967653+00:00",
+  "generated_at": "2026-09-02T17:06:11.029416+00:00",
   "next_event": 3,
   "next_deadline": "2026-09-04T17:30:00Z",
   "horizon": {
@@ -1435,7 +1435,7 @@
           "start_prob": 0.94,
           "moved_club": true,
           "minutes_reason": "100% of last 10 GWs started, 84% across the season",
-          "gain": -7.96,
+          "gain": -7.95,
           "bank_after": 6.0
         },
         {
@@ -2038,7 +2038,7 @@
           "start_prob": 0.94,
           "moved_club": false,
           "minutes_reason": "100% of last 10 GWs started, 84% across the season",
-          "gain": -0.4,
+          "gain": -0.39,
           "bank_after": 1.0
         },
         {
@@ -2360,6 +2360,20 @@
           "bank_after": 9.5
         },
         {
+          "id": "640",
+          "name": "Flemming",
+          "team": "IPS",
+          "position": "FWD",
+          "price": 5.5,
+          "owned": 0.0,
+          "xp": 18.1,
+          "start_prob": 0.75,
+          "moved_club": true,
+          "minutes_reason": "89% of last 10 GWs started, 54% across the season",
+          "gain": -6.83,
+          "bank_after": 10.0
+        },
+        {
           "id": "634",
           "name": "Fernandez-Pardo",
           "team": "NEW",
@@ -2372,20 +2386,6 @@
           "minutes_reason": "no Premier League record; inferred from £6.0m price",
           "gain": -6.83,
           "bank_after": 9.5
-        },
-        {
-          "id": "640",
-          "name": "Flemming",
-          "team": "IPS",
-          "position": "FWD",
-          "price": 5.5,
-          "owned": 0.0,
-          "xp": 18.1,
-          "start_prob": 0.75,
-          "moved_club": true,
-          "minutes_reason": "89% of last 10 GWs started, 54% across the season",
-          "gain": -6.84,
-          "bank_after": 10.0
         },
         {
           "id": "491",
@@ -2473,7 +2473,7 @@
           "start_prob": 0.94,
           "moved_club": false,
           "minutes_reason": "100% of last 10 GWs started, 84% across the season",
-          "gain": -1.8,
+          "gain": -1.79,
           "bank_after": 1.7
         },
         {
