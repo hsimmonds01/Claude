@@ -109,6 +109,18 @@
   else touched the branch. This is how the git-push-race above was found:
   the failing commit's author was the right bot, but the colliding push
   turned out to belong to a different project's workflow entirely.
+- `squad.py` (added 1 Sep 2026) reconstructs the real squad from the FPL API
+  once a gameweek's deadline has passed -- `/api/entry/{id}/event/{n}/picks/`
+  needs no login at that point. The team ID lives ONLY in the `FPL_TEAM_ID`
+  GitHub secret, never in `my_squad.json` -- that file is committed to this
+  public repo, and FPL's entry endpoint returns the manager's real first/
+  last name alongside the team data, so the ID and the name must never sit
+  in the same public file. `squad.py` fetches both but only ever writes
+  team/points/rank data to disk, dropping the name fields unconditionally;
+  `test_squad.py` asserts this. Can't be tested against the real API from a
+  session (same network block as above) -- verify logic changes with
+  `test_squad.py`'s synthetic payload, and treat the first live Actions run
+  after any change here as the actual test.
 
 ## chelsea_tickets project
 - Watches Chelsea's men's ticket page for HOME games at Stamford Bridge and

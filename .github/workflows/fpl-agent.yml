@@ -59,10 +59,22 @@ jobs:
         run: |
           python test_schedule.py
           python test_injection.py
+          python test_squad.py
 
       - name: Refresh snapshot
         working-directory: fpl-agent
         run: python snapshot.py
+
+      # Public once a gameweek's deadline has passed -- turns my_squad.json
+      # from hand-maintained into a live mirror of the real team. A no-op
+      # before FPL_TEAM_ID is set, and best-effort after: a flaky picks
+      # fetch should leave yesterday's squad in place, not break the run.
+      - name: Reconstruct squad from FPL
+        working-directory: fpl-agent
+        continue-on-error: true
+        env:
+          FPL_TEAM_ID: ${{ secrets.FPL_TEAM_ID }}
+        run: python squad.py
 
       - name: Record price history
         working-directory: fpl-agent
@@ -131,7 +143,7 @@ jobs:
 
       - name: Commit state (if changed)
         run: |
-          for f in fpl-agent/state.json fpl-agent/history.json \
+          for f in fpl-agent/state.json fpl-agent/history.json fpl-agent/my_squad.json \
                    fpl-agent/data/ fpl-agent/knowledge/; do
             [ -e "$f" ] && git add "$f"
           done

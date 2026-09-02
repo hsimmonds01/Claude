@@ -1,10 +1,16 @@
 {
   "_README": [
-    "The squad the agent reasons about. Until GW1 has been played this is",
-    "maintained by hand, because FPL keeps a team private until its first",
-    "deadline passes. Once GW1 is done, squad.py reconstructs all of this",
-    "automatically from the public endpoints (see PLAN.md section 2) and",
-    "team_id below becomes the only field that matters.",
+    "The squad the agent reasons about. Until a gameweek's deadline has",
+    "passed this is maintained by hand, because FPL keeps a team private",
+    "until then. Once a deadline passes, squad.py rewrites squad/my_lineup/",
+    "bank below automatically from the public API (see PLAN.md section 5b)",
+    "-- this file stops needing screenshots from that point on.",
+    "",
+    "team_id is intentionally NEVER set here, and never will be -- this file",
+    "is committed to a public repo, and the FPL entry API returns the",
+    "manager's real first/last name alongside the team data. It lives ONLY",
+    "in the FPL_TEAM_ID GitHub Actions secret (Settings -> Secrets and",
+    "variables -> Actions), the same place RESEND_API_KEY lives.",
     "",
     "Players are listed by FPL web_name, with team where the name is",
     "ambiguous (there are two Hughes).",
@@ -18,11 +24,11 @@
     "(bench must be exactly 4 names, exactly one of them your reserve",
     "goalkeeper -- his order in the list doesn't matter, the dashboard always",
     "draws him first, matching the FPL app; the other three render in the",
-    "order given). Once GW1 is played and team_id is filled in, squad.py will",
-    "read this straight from the FPL API and this field stops being needed."
+    "order given). Once FPL_TEAM_ID is set, squad.py keeps this filled in",
+    "automatically and it stops needing to be entered by hand."
   ],
   "team_id": null,
-  "team_id_note": "To be filled in after GW1 -- the Points tab URL will read /entry/<id>/event/1",
+  "team_id_note": "Deliberately not stored here -- see _README. Set FPL_TEAM_ID as a GitHub secret instead.",
   "bank": 0.0,
   "free_transfers": null,
   "chips_used": [

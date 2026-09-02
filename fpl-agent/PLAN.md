@@ -259,6 +259,21 @@ What it does:
   to on purpose. Once GW1 is played and `team_id` is filled in, `squad.py`
   will read the real picks (captain, XI, bench) straight from the FPL API
   and `my_lineup` stops being needed.
+- **`squad.py` built 1 Sep 2026.** Reads `FPL_TEAM_ID` from a GitHub Actions
+  secret -- deliberately never from `my_squad.json` itself, since that file
+  is committed to this public repo and the entry API's `player_first_name`/
+  `player_last_name` fields mean the ID plus the manager's real name would
+  otherwise sit in git history forever. Once a gameweek's deadline passes,
+  `/api/entry/{id}/event/{event}/picks/` is genuinely public (no login), and
+  the workflow now calls `squad.py` every run to rewrite `my_squad.json`'s
+  `squad`/`my_lineup`/`bank` from it -- the screenshot-and-transcribe
+  workflow above stops being needed from here on. Leaves `my_squad.json`
+  untouched on any fetch failure rather than guess. `free_transfers` is
+  deliberately still manual: the API has no direct field for it, and getting
+  it wrong would be worse than an honest gap. Tested offline against a
+  synthetic API response (`test_squad.py`) since the dev sandbox can't reach
+  fantasy.premierleague.com -- not yet verified against a real live picks
+  response, which only Actions can do.
 
 Build notes:
 - Static HTML + JS reading committed JSON -- no server to run or pay for.
