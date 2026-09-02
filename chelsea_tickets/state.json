@@ -2,6 +2,15 @@
   "consecutive_fetch_failures": 0,
   "fetch_failure_notified": false,
   "fixtures": {
+    "6EZdshzpVS0EYtGXKFHxZ": {
+      "competition": "Carabao Cup",
+      "date": "Wed 09 Sept 2026",
+      "opponent": "Leeds United",
+      "windows": {
+        "cfc-blue-members-can-purchase-ticket-per-person-loyalty-points-basis": "open",
+        "true-blue-true-blue-or-junior-blue-members-can-purchase-ticket-per-person-loyalty-points-basis": "open"
+      }
+    },
     "6rixcGFDEWH5V98iSqSPLa": {
       "competition": "Premier League",
       "date": "Sat 12 Sept 2026",
@@ -11,7 +20,14 @@
       }
     }
   },
-  "notified": {},
-  "open_since": {},
+  "notified": {
+    "6EZdshzpVS0EYtGXKFHxZ::new_fixture": "2026-09-02T08:31:04.500094+00:00",
+    "6EZdshzpVS0EYtGXKFHxZ::window_open::cfc-blue-members-can-purchase-ticket-per-person-loyalty-points-basis": "2026-09-02T08:31:04.500116+00:00",
+    "6EZdshzpVS0EYtGXKFHxZ::window_open::true-blue-true-blue-or-junior-blue-members-can-purchase-ticket-per-person-loyalty-points-basis": "2026-09-02T08:31:04.500113+00:00"
+  },
+  "open_since": {
+    "6EZdshzpVS0EYtGXKFHxZ::window_open::cfc-blue-members-can-purchase-ticket-per-person-loyalty-points-basis": "2026-09-02T08:31:03.828123+00:00",
+    "6EZdshzpVS0EYtGXKFHxZ::window_open::true-blue-true-blue-or-junior-blue-members-can-purchase-ticket-per-person-loyalty-points-basis": "2026-09-02T08:31:03.828123+00:00"
+  },
   "schema_version": 1
 }
