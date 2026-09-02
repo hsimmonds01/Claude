@@ -2426,6 +2426,66 @@
           "link_status": "verified"
         }
       ]
+    },
+    {
+      "date": "2026-09-02",
+      "model": "gemini-2.5-flash (legacy key, live search)",
+      "items": [
+        {
+          "title": "New 'Resident Evil' Film Hits London IMAX Screens This Month",
+          "category": "film",
+          "summary": "The latest installment in the 'Resident Evil' franchise, a terrifying reinvention from Zach Cregger, is set for a big-screen release. Catch it in IMAX and other London cinemas, with tickets on sale now for screenings starting mid-September.",
+          "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE5OUmFsWlE2cThuRXRWVjFUOFM5T2E1dnVPbjV0MW5NM281VUdodU5fX1lXTkt2OGJCV1FjdWFOeTE0WkpMTjZjamlVeHFURHc0LW1LRndDbkFoRW9QbVpheldlZw?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "date_info": "Screenings begin September 17-18, 2026",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "Orphea: A Pocket-Sized 13-Key Electronic Piano Launching Soon on Kickstarter",
+          "category": "product",
+          "summary": "This groundbreaking Orphea electronic piano, slightly larger than a smartphone, offers a full chromatic octave and polyphonic play for on-the-go music creation. Designed for portability, it will soon launch on Kickstarter, making it a clever gadget worth watching out for.",
+          "url": "https://www.designboom.com/technology/orphea-playable-13-key-electronic-piano-pocket-pianni/",
+          "date_info": "Kickstarter launch planned",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "Denim Tears x Billionaire Boys Club Fall/Winter 2026 Collaboration Continues Rollout",
+          "category": "drop",
+          "summary": "The Fall/Winter 2026 collection from Denim Tears, featuring a collaboration with Billionaire Boys Club, is rolling out its second installment. This streetwear drop offers unique pieces, including a Billionaire Boys Club sweater from a collection paying tribute to André Leon Talley.",
+          "url": "https://hypebeast.com/2026/9/peezy-denim-tears-lookbook-fall-winter-2026-fw26-release-info",
+          "date_info": "Second installment releasing now",
+          "urgency": "this-week",
+          "link_status": "verified"
+        },
+        {
+          "title": "After the Last Sip: London Exhibition Showcases 3D Printed Furniture from Tea and Coffee Waste",
+          "category": "event",
+          "summary": "Discover an innovative exhibition in London transforming discarded tea leaves and coffee grounds into large-scale 3D printed sculptural objects and furniture. Experience this unique blend of technology and ecology in a working workshop setting.",
+          "url": "https://www.designboom.com/design/used-london-tea-leaves-coffee-waste-large-scale-3d-printed-sculptural-objects-after-the-last-sip/",
+          "date_info": "Multiple dates available for the exhibition",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "JBL Unveils New Cove Series Wi-Fi Speakers for Whole-Home Audio",
+          "category": "product",
+          "summary": "JBL has launched its new Cove Series, a lineup of Wi-Fi speakers designed for seamless whole-home audio. This genuinely interesting tech release could be a smart addition for those looking for clever new gadgets.",
+          "url": "https://hypebeast.com/2026/9/jbl-cove-series-wi-fi-speakers-target-whole-home-audio",
+          "date_info": "",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "TUDOR Northflag Returns with GMT and Master Chronometer Precision",
+          "category": "product",
+          "summary": "The TUDOR Northflag watch is making a comeback, featuring GMT functionality and Master Chronometer precision. This re-release is a beautiful design object that combines classic aesthetics with modern horological advancements.",
+          "url": "https://hypebeast.com/2026/9/tudor-northflag-ref-9140g1a0u-watch-release-info",
+          "date_info": "",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        }
+      ]
     }
   ]
 }
