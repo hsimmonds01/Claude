@@ -2486,6 +2486,48 @@
           "link_status": "verified"
         }
       ]
+    },
+    {
+      "date": "2026-09-03",
+      "model": "gemini-2.5-flash (legacy key, live search)",
+      "items": [
+        {
+          "title": "Kia Tigers x IAB Studio Limited Edition Drop",
+          "category": "drop",
+          "summary": "This limited-edition collaboration features baseball jerseys and windbreakers, a perfect catch for streetwear and small-brand limited runs. It drops very early tomorrow morning, so act fast to snag some pieces.",
+          "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTFBzRnphM0xXRnYxVWpMWHJlVUVKNFZjeVNsU2hOZzU1dGdhM0VGU05DOG1qalVyTGVESzBHeVROcFpmczJ3YkZLUFBrcFVxMFl5SndqRG1OSQ?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "date_info": "Online release September 4, 2026, 2:00 PM KST (6:00 AM BST)",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "St Paul's Cathedral x Fabric New Music Events Series",
+          "category": "event",
+          "summary": "London's iconic St Paul's Cathedral is partnering with renowned nightclub Fabric for a four-year series of contemporary music events. The first event is scheduled for October 29th, and you can sign up now for early access to tickets.",
+          "url": "https://www.google.com/search?q=St+Paul%27s+Cathedral+x+Fabric+New+Music+Events+Series",
+          "date_info": "First event October 29, 2026. Sign up for early access now.",
+          "urgency": "this-week",
+          "link_status": "search"
+        },
+        {
+          "title": "The London Dungeon's Halloween 'Curse of the Mummy' Experience",
+          "category": "event",
+          "summary": "Get ready for a terrifying new mummy-themed experience at The London Dungeon this Halloween, running from October 17th to November 1st. Tickets are on sale now and are included with standard admission, so book in advance to secure your spot for this immersive London event.",
+          "url": "https://www.google.com/search?q=The+London+Dungeon%27s+Halloween+%27Curse+of+the+Mummy%27+Experience",
+          "date_info": "Runs October 17 – November 1, 2026. Tickets on sale now.",
+          "urgency": "heads-up",
+          "link_status": "search"
+        },
+        {
+          "title": "DollyFest London 2027 Announced",
+          "category": "event",
+          "summary": "A two-day Dolly Parton celebration, DollyFest, is officially coming to London in 2027. While specific dates and venues are still under wraps, tickets are expected to go on sale soon. Sign up for updates to be among the first to know.",
+          "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxPZDhIZGpwcVJrYVpmcUlIczJMa0U4dUstVi1UYUU2TlhRTEljOEtqd0tWbUF0UGxteE1MOVg2NzZJLVZBUFptVzdaNTg2WWtBbGlUOE1aY29RU3pwcVk2V1FHUFhDc3VjUmNJQ19aR3dIZFFZdmxsQ0llMkdMb25vZy1n?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "date_info": "Coming in 2027. Tickets on sale soon.",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        }
+      ]
     }
   ]
 }
