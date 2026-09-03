@@ -77,6 +77,12 @@
       "event": 2,
       "at": "2026-09-01T14:07:20.252098+00:00",
       "subject": "FPL review \u2014 Gameweek 2"
+    },
+    {
+      "kind": "main",
+      "event": 3,
+      "at": "2026-09-03T11:06:45.788485+00:00",
+      "subject": "FPL GW3 \u2014 Calafiori \u2192 Van Hecke, captain B.Fernandes."
     }
   ]
 }
