@@ -274,6 +274,18 @@ What it does:
   synthetic API response (`test_squad.py`) since the dev sandbox can't reach
   fantasy.premierleague.com -- not yet verified against a real live picks
   response, which only Actions can do.
+- **First live run, 3 Sep 2026: confirmed working**, and immediately caught
+  a real bug. `FPL_TEAM_ID` picked up the actual squad correctly (captain
+  B.Fernandes, vice João Pedro -- a real swap from GW1's manually-recorded
+  Haaland/Fernandes that the API confirmed exactly). But `update_my_squad_json`
+  appended a history line on every run with no check for whether anything
+  had changed, and the workflow runs every 3 hours -- so it logged the
+  identical "GW2, 114 pts" line six times in a day before being caught.
+  Fixed by comparing the new line's content (minus date) against the last
+  entry and only appending on a genuine difference; `test_squad.py` now
+  asserts a repeat reconstruction is a no-op while an actual change (e.g.
+  bonus points settling) still gets logged. The six duplicates already
+  written were collapsed to one by hand.
 
 Build notes:
 - Static HTML + JS reading committed JSON -- no server to run or pay for.

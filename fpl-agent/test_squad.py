@@ -120,6 +120,30 @@ check("history appended to, not replaced", written["history"][0] == "existing en
 check("appended history line names no real name",
       "REAL_FIRST_NAME_MUST_NEVER_APPEAR" not in written["history"][-1])
 
+print("\na re-run that finds nothing new does not duplicate the history line")
+# This is the bug that shipped first time round: every 3-hourly run appended
+# an identical line, forever, because nothing compared the new one against
+# what was already there.
+squad.SQUAD_PATH = tmp_path
+try:
+    squad.update_my_squad_json(result)  # same result as above, again
+    written_again = json.loads(tmp_path.read_text(encoding="utf-8"))
+finally:
+    squad.SQUAD_PATH = original_path
+check("unchanged reconstruction does not append a duplicate line",
+      len(written_again["history"]) == 2, str(written_again["history"]))
+
+print("\nbut a genuine change (e.g. bonus points settling) still gets logged")
+changed_result = dict(result, event_points=71)
+squad.SQUAD_PATH = tmp_path
+try:
+    squad.update_my_squad_json(changed_result)
+    written_changed = json.loads(tmp_path.read_text(encoding="utf-8"))
+finally:
+    squad.SQUAD_PATH = original_path
+check("a real change to the same event still appends", len(written_changed["history"]) == 3,
+      str(written_changed["history"]))
+
 failed = [r for r in results if not r[1]]
 print(f"\n{len(results) - len(failed)}/{len(results)} passed")
 if failed:
