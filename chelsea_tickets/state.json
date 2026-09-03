@@ -7,8 +7,10 @@
       "date": "Wed 09 Sept 2026",
       "opponent": "Leeds United",
       "windows": {
-        "cfc-blue-members-can-purchase-ticket-per-person-loyalty-points-basis": "open",
-        "true-blue-true-blue-or-junior-blue-members-can-purchase-ticket-per-person-loyalty-points-basis": "open"
+        "accessible-true-blue-true-blue-or-junior-blue-members-can-purchase-ticket-per-person-loyalty-points-required-from": "open",
+        "cfc-blue-members-can-purchase-ticket-per-person-loyalty-points-required-from": "open",
+        "true-blue-true-blue-junior-blue-and-cfc-blue-members-who-purchased-their-membership-prior-to-tuesday-august-can-purchase-ticket-per-person-pm": "open",
+        "true-blue-true-blue-or-junior-blue-members-can-purchase-ticket-per-person-loyalty-points-required-from": "open"
       }
     },
     "6rixcGFDEWH5V98iSqSPLa": {
@@ -22,9 +24,18 @@
   },
   "notified": {
     "6EZdshzpVS0EYtGXKFHxZ::new_fixture": "2026-09-02T08:31:04.500094+00:00",
+    "6EZdshzpVS0EYtGXKFHxZ::window_open::accessible-true-blue-true-blue-or-junior-blue-members-can-purchase-ticket-per-person-loyalty-points-required-from": "2026-09-03T13:01:29.692815+00:00",
     "6EZdshzpVS0EYtGXKFHxZ::window_open::cfc-blue-members-can-purchase-ticket-per-person-loyalty-points-basis": "2026-09-02T08:31:04.500116+00:00",
-    "6EZdshzpVS0EYtGXKFHxZ::window_open::true-blue-true-blue-or-junior-blue-members-can-purchase-ticket-per-person-loyalty-points-basis": "2026-09-02T08:31:04.500113+00:00"
+    "6EZdshzpVS0EYtGXKFHxZ::window_open::cfc-blue-members-can-purchase-ticket-per-person-loyalty-points-required-from": "2026-09-03T13:01:29.692818+00:00",
+    "6EZdshzpVS0EYtGXKFHxZ::window_open::true-blue-true-blue-junior-blue-and-cfc-blue-members-who-purchased-their-membership-prior-to-tuesday-august-can-purchase-ticket-per-person-pm": "2026-09-03T13:01:29.692821+00:00",
+    "6EZdshzpVS0EYtGXKFHxZ::window_open::true-blue-true-blue-or-junior-blue-members-can-purchase-ticket-per-person-loyalty-points-basis": "2026-09-02T08:31:04.500113+00:00",
+    "6EZdshzpVS0EYtGXKFHxZ::window_open::true-blue-true-blue-or-junior-blue-members-can-purchase-ticket-per-person-loyalty-points-required-from": "2026-09-03T13:01:29.692800+00:00"
   },
-  "open_since": {},
+  "open_since": {
+    "6EZdshzpVS0EYtGXKFHxZ::window_open::accessible-true-blue-true-blue-or-junior-blue-members-can-purchase-ticket-per-person-loyalty-points-required-from": "2026-09-03T13:01:28.937610+00:00",
+    "6EZdshzpVS0EYtGXKFHxZ::window_open::cfc-blue-members-can-purchase-ticket-per-person-loyalty-points-required-from": "2026-09-03T13:01:28.937610+00:00",
+    "6EZdshzpVS0EYtGXKFHxZ::window_open::true-blue-true-blue-junior-blue-and-cfc-blue-members-who-purchased-their-membership-prior-to-tuesday-august-can-purchase-ticket-per-person-pm": "2026-09-03T13:01:28.937610+00:00",
+    "6EZdshzpVS0EYtGXKFHxZ::window_open::true-blue-true-blue-or-junior-blue-members-can-purchase-ticket-per-person-loyalty-points-required-from": "2026-09-03T13:01:28.937610+00:00"
+  },
   "schema_version": 1
 }
