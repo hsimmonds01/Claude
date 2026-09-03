@@ -1,7 +1,7 @@
 # fpl-terms
 
 - Source: https://fantasy.premierleague.com/help/terms
-- Fetched: 2026-09-03T04:11:53.334086+00:00
+- Fetched: 2026-09-03T10:05:16.613376+00:00
 - Why it's here: Terms of use -- worth knowing what the game permits
 
 Captured automatically by `fpl-agent/knowledge.py` as reference material for the FPL agent.
@@ -44,7 +44,7 @@ Fantasy Challenge
 
 News
 
-Transfers
+Injuries
 
 Players
 
@@ -81,6 +81,8 @@ News
 News
 
 Fantasy News
+
+Injuries
 
 Games & Trivia
 

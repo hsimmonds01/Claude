@@ -1,7 +1,7 @@
 # pl-chips-2026-27
 
 - Source: https://www.premierleague.com/en/news/4679879
-- Fetched: 2026-09-03T04:11:54.569545+00:00
+- Fetched: 2026-09-03T10:05:17.473156+00:00
 - Why it's here: Official explanation of how chips work this season
 
 Captured automatically by `fpl-agent/knowledge.py` as reference material for the FPL agent.
@@ -46,7 +46,7 @@ Fantasy Challenge
 
 News
 
-Transfers
+Injuries
 
 Players
 
@@ -81,6 +81,8 @@ News
 News
 
 Fantasy News
+
+Injuries
 
 Games & Trivia
 
