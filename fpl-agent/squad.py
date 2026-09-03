@@ -183,13 +183,23 @@ def update_my_squad_json(result: dict) -> None:
                          for c in config.get("chips_used", [])):
         config.setdefault("chips_used", []).append({"chip": chip, "event": result["event"]})
 
-    stamp = datetime.now(timezone.utc).strftime("%Y-%m-%d")
-    config.setdefault("history", []).append(
-        f"{stamp}: squad.py reconstructed GW{result['event']} from the live FPL API -- "
+    # Runs every few hours, and most runs find nothing new -- same gameweek,
+    # same points, same captain. Appending unconditionally turned this into
+    # a duplicate every 3 hours, forever. Only actually append when the
+    # content differs from the last entry, so a re-run that finds nothing
+    # new stays a no-op and the log only grows when something real changed
+    # (bonus points settling, a captain change, a newly detected chip).
+    line_body = (
+        f"squad.py reconstructed GW{result['event']} from the live FPL API -- "
         f"{result['event_points']} pts this gameweek, £{result['squad_value']}m squad value, "
         f"£{result['bank']}m banked, captain {result['captain']}."
         + (f" Chip active: {chip}." if chip else "")
     )
+    history = config.setdefault("history", [])
+    last_body = history[-1].split(": ", 1)[1] if history and ": " in history[-1] else None
+    if line_body != last_body:
+        stamp = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+        history.append(f"{stamp}: {line_body}")
 
     SQUAD_PATH.write_text(json.dumps(config, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     print(f"[squad] my_squad.json updated from GW{result['event']} "
