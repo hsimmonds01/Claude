@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-04T16:15:58.800954+00:00",
+  "generated_at": "2026-09-04T20:42:22.041452+00:00",
   "drafts_compared": 3,
   "sources": [
     "fpl__raptor (Instagram)",
@@ -50,7 +50,7 @@
         "letstalkfpl (Instagram)",
         "Lazy FPL — 'The Professor'"
       ],
-      "in_my_squad": true
+      "in_my_squad": false
     },
     {
       "name": "Sarr",
@@ -264,7 +264,7 @@
       "sources": [
         "Lazy FPL — 'The Professor'"
       ],
-      "in_my_squad": true
+      "in_my_squad": false
     },
     {
       "name": "Ndiaye",
@@ -401,7 +401,7 @@
         "letstalkfpl (Instagram)",
         "Lazy FPL — 'The Professor'"
       ],
-      "in_my_squad": true
+      "in_my_squad": false
     },
     {
       "name": "Sarr",
@@ -461,6 +461,17 @@
       "in_my_squad": false
     },
     {
+      "name": "N.Williams",
+      "team": "NFO",
+      "picked_by": 2,
+      "of": 3,
+      "sources": [
+        "letstalkfpl (Instagram)",
+        "Lazy FPL — 'The Professor'"
+      ],
+      "in_my_squad": false
+    },
+    {
       "name": "Sarr",
       "team": "CRY",
       "picked_by": 2,
@@ -484,6 +495,8 @@
     }
   ],
   "my_players_no_draft_picked": [
+    "Ajer",
+    "Cherki",
     "Davis",
     "E.Le Fée",
     "Groß",

@@ -29,28 +29,32 @@
   ],
   "team_id": null,
   "team_id_note": "Deliberately not stored here -- see _README. Set FPL_TEAM_ID as a GitHub secret instead.",
-  "bank": 0.0,
+  "bank": 0.8,
   "free_transfers": null,
   "chips_used": [
     {
       "chip": "bench_boost",
       "event": 1
+    },
+    {
+      "chip": "triple_captain",
+      "event": 3
     }
   ],
   "my_lineup": {
-    "captain": "B.Fernandes",
-    "vice_captain": "João Pedro",
+    "captain": "Haaland",
+    "vice_captain": "B.Fernandes",
     "bench": [
-      "Verbruggen",
-      "Groß",
-      "N.Williams",
+      "Kinsky",
+      "E.Le Fée",
+      "Shaw",
       "Davis"
     ]
   },
   "squad": [
     {
-      "name": "Kinsky",
-      "team": "TOT",
+      "name": "Verbruggen",
+      "team": "BHA",
       "position": "GKP"
     },
     {
@@ -59,8 +63,8 @@
       "position": "DEF"
     },
     {
-      "name": "Shaw",
-      "team": "MUN",
+      "name": "Ajer",
+      "team": "BRE",
       "position": "DEF"
     },
     {
@@ -79,13 +83,13 @@
       "position": "MID"
     },
     {
-      "name": "E.Le Fée",
-      "team": "SUN",
+      "name": "Cherki",
+      "team": "MCI",
       "position": "MID"
     },
     {
-      "name": "Mbeumo",
-      "team": "MUN",
+      "name": "Groß",
+      "team": "BHA",
       "position": "MID"
     },
     {
@@ -104,18 +108,18 @@
       "position": "FWD"
     },
     {
-      "name": "Verbruggen",
-      "team": "BHA",
+      "name": "Kinsky",
+      "team": "TOT",
       "position": "GKP"
     },
     {
-      "name": "Groß",
-      "team": "BHA",
+      "name": "E.Le Fée",
+      "team": "SUN",
       "position": "MID"
     },
     {
-      "name": "N.Williams",
-      "team": "NFO",
+      "name": "Shaw",
+      "team": "MUN",
       "position": "DEF"
     },
     {
@@ -134,6 +138,7 @@
     "2026-08-03: squad updated again from the FPL app's Pick Team screen for GW1. Dubravka (TOT, £4.0m) -> Verbruggen (BHA, £4.5m), Mitchell (CRY, £4.5m) -> Hume (SUN, £4.5m), Hughes (CRY, £4.5m) -> Groß (BHA, £5.5m). Spends the full £100m, bank now £0.0m. Hume starts ahead of N.Williams, who moves to the bench; still a 3-4-3. Captain Haaland, vice-captain B.Fernandes; bench order now Verbruggen, Groß, N.Williams, Thomas.",
     "2026-08-20: squad updated from the FPL app's Pick Team screen the day before the GW1 deadline. Mosquera (ARS, £5.5m) -> Calafiori (ARS, £5.5m), Thomas (COV, £4.0m) -> Davis (IPS, £4.0m), Cunha (MUN, £8.0m) -> Mbeumo (MUN, £8.0m). Cost-neutral, still £100.0m spent / £0.0m banked. Verbruggen now starts ahead of Kinsky, who moves to the bench. BENCH BOOST IS NOW ACTIVE for GW1 -- all 15 players' points count this gameweek, not just the starting XI, so the usual bench-discount logic in optimiser.py understates this week's true squad value. Captain Haaland, vice-captain B.Fernandes; bench order now Kinsky, Groß, Hume, Davis.",
     "2026-09-03: squad.py reconstructed GW2 from the live FPL API -- 114 pts this gameweek, £100.2m squad value, £0.0m banked, captain B.Fernandes. (First live run after the FPL_TEAM_ID secret was confirmed -- collapsed 6 identical entries logged 3-hourly before a bug in squad.py's dedup was fixed; see PLAN.md.)",
-    "2026-09-03: squad.py reconstructed GW2 from the live FPL API -- 114 pts this gameweek, £100.2m squad value, £0.0m banked, captain B.Fernandes."
+    "2026-09-03: squad.py reconstructed GW2 from the live FPL API -- 114 pts this gameweek, £100.2m squad value, £0.0m banked, captain B.Fernandes.",
+    "2026-09-04: squad.py reconstructed GW3 from the live FPL API -- 0 pts this gameweek, £100.3m squad value, £0.8m banked, captain Haaland. Chip active: triple_captain."
   ]
 }
