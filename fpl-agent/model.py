@@ -204,7 +204,7 @@ def moved_recently(player: dict, now: datetime) -> bool:
 
 
 def start_probability(player: dict, row: dict | None, moved: bool, override: dict,
-                      archive: dict) -> tuple[float, str]:
+                      archive: dict, games_played: int = 0) -> tuple[float, str]:
     """Returns (probability, why). The reason travels with the number so the
     email can explain a projection instead of just asserting one."""
     if "start_prob" in override:
@@ -218,7 +218,12 @@ def start_probability(player: dict, row: dict | None, moved: bool, override: dic
     # predict opening-five minutes better than a season average on both
     # season pairs available. See minutes.py for the numbers.
     fallback = num(row["starts"]) if row and num(row["minutes"]) > 0 else None
-    base, reason = base_start_probability(player, archive, fallback)
+    # THIS season's own starts, once there are any -- see minutes.py's
+    # in-season-updating evidence. player["starts"] is players.csv's live
+    # season-to-date count, refreshed every snapshot.py run.
+    base, reason = base_start_probability(
+        player, archive, fallback,
+        current_starts=num(player.get("starts")), games_played=games_played)
 
     # NOTE: no club-move discount. It was tested and did not replicate --
     # movers were over-predicted one season and under-predicted the next.
@@ -297,7 +302,7 @@ def defcon_probability(rate90: float, threshold: int) -> float:
 # ── Projection ─────────────────────────────────────────────────────────
 
 
-def project_player(player, row, fixture, means, moved, override, attack_multiplier, archive):
+def project_player(player, row, fixture, means, moved, override, attack_multiplier, archive, games_played=0):
     pos = int(player["element_type"])
     minutes = num(row["minutes"]) if row else 0.0
     mean = means[pos]
@@ -318,7 +323,7 @@ def project_player(player, row, fixture, means, moved, override, attack_multipli
         blend = lambda own, avg: 0.55 * own + 0.45 * avg  # noqa: E731
         xg90, xa90 = blend(xg90, mean["xg90"]), blend(xa90, mean["xa90"])
 
-    start_prob, minutes_reason = start_probability(player, row, moved, override, archive)
+    start_prob, minutes_reason = start_probability(player, row, moved, override, archive, games_played)
 
     goals = xg90 * attack_multiplier * GOAL_POINTS[pos]
     assists = xa90 * attack_multiplier * ASSIST_POINTS
@@ -360,6 +365,10 @@ def build_projections(horizon: int) -> list[dict]:
     archive = start_rates(ARCHIVE_SEASON)
     print(f"[model] minutes evidence: {len(archive)} players from the {ARCHIVE_SEASON} gameweek archive")
     next_event = int(meta.get("next_event") or 1)
+    # Gameweeks actually completed so far this season -- what turns
+    # PRIOR_GAMES from a permanent discount into a shrinking one. 0 before
+    # a ball's kicked, so nothing changes pre-season; see minutes.py.
+    games_played = max(next_event - 1, 0)
     by_team = upcoming_fixtures(fixtures, next_event, horizon)
     now = datetime.now(timezone.utc)
 
@@ -377,7 +386,7 @@ def build_projections(horizon: int) -> list[dict]:
         position = POSITIONS[int(player["element_type"])]
         factor = calibration.get(position, 1.0)
         for fixture in by_team.get(int(player["team"]), []):
-            projection = project_player(player, row, fixture, means, moved, override, 1.0, archive)
+            projection = project_player(player, row, fixture, means, moved, override, 1.0, archive, games_played)
             projection["xp"] *= factor
             rows.append({
                 "player_id": player["id"], "web_name": player["web_name"],

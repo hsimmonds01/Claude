@@ -76,12 +76,25 @@
   attack/defence strength fields are all ZERO pre-season -- use fixture
   difficulty until results exist.
 - Model changes must be TESTED, not reasoned about. `backtest.py`,
-  `backtest_gw.py` and `minutes.py --evaluate` exist for this. Two plausible
-  ideas were already built and then removed for failing to replicate (a
-  club-move discount, an expensive-player penalty) -- `minutes.py` records
-  what was rejected and why, so they don't get reinvented. Beware judging a
-  change on one season: recency weighting looked like a clear regression on
-  2025/26 alone and was right on aggregate.
+  `backtest_gw.py`, `minutes.py --evaluate` and `minutes.py --evaluate-in-season`
+  exist for this. Two plausible ideas were already built and then removed for
+  failing to replicate (a club-move discount, an expensive-player penalty) --
+  `minutes.py` records what was rejected and why, so they don't get
+  reinvented. Beware judging a change on one season: recency weighting
+  looked like a clear regression on 2025/26 alone and was right on
+  aggregate.
+- Found 3 Sep 2026 (GW3): a returning player's start probability was frozen
+  entirely on LAST season's archive, with no mechanism to notice he's
+  started every game of the new one -- `player["starts"]` from the live
+  snapshot sat unused in `players.csv` the whole time. A manager's pushback
+  on Calafiori being repeatedly flagged as a sell (56% of last 10 GWs
+  started in 2025/26, but 2/2 so far in 2026/27) is what surfaced it.
+  `minutes.py`'s `PRIOR_GAMES=2` now blends the archive prior with the
+  season under way, tested by walking forward inside three seasons of
+  archive data rather than reasoned about -- see `minutes.py --evaluate-in-season`
+  and the module docstring for the numbers. Re-run that check early each
+  new season once a few gameweeks exist, the same way `--evaluate` gets
+  re-run when a new season's archive lands.
 - Any workflow that commits and pushes to `main` MUST join the
   `main-git-writer` concurrency group (`cancel-in-progress: false`) --
   otherwise its push can race another project's workflow and get rejected
