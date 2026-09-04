@@ -2528,6 +2528,84 @@
           "link_status": "verified"
         }
       ]
+    },
+    {
+      "date": "2026-09-04",
+      "model": "gemini-2.5-flash (legacy key, live search)",
+      "items": [
+        {
+          "title": "London Transport Museum Depot Open Days: Design Classics",
+          "category": "event",
+          "summary": "The London Transport Museum Depot in Acton is opening its doors for a special 'Design Classics' event, offering a rare chance to explore its vast collection of historic vehicles, maps, and posters. Tickets are on sale now for this limited-time experience.",
+          "url": "https://www.google.com/search?q=London+Transport+Museum+Depot+Open+Days%3A+Design+Classics",
+          "date_info": "Event runs Fri 25 Sept – Sun 27 Sept 2026; Tickets on sale now",
+          "urgency": "act-fast",
+          "link_status": "search"
+        },
+        {
+          "title": "Lee x Nigel Cabourn OX'ed Silver Workwear Capsule",
+          "category": "drop",
+          "summary": "A new limited-edition workwear collection from Lee and Nigel Cabourn's OX'ed Silver is launching soon. Celebrating 101 years of Lee's iconic '101' line, the 10-piece capsule features unique 'BRURRY DENIM' across jackets, overalls, and jeans.",
+          "url": "https://www.google.com/search?q=Lee+x+Nigel+Cabourn+OX%27ed+Silver+Workwear+Capsule",
+          "date_info": "Releases Sat 12 Sept 2026",
+          "urgency": "this-week",
+          "link_status": "search"
+        },
+        {
+          "title": "Alpha Industries Launches 'RE:ISSUE' Fall/Winter 2026 Collection",
+          "category": "drop",
+          "summary": "Alpha Industries has dropped its 'RE:ISSUE' Fall/Winter 2026 collection, featuring military heritage pieces reimagined with 'Battlewash' treatments for a worn, textured look. The collection includes iconic bomber jackets and parkas, available now.",
+          "url": "https://www.google.com/search?q=Alpha+Industries+Launches+%27RE%3AISSUE%27+Fall%2FWinter+2026+Collection",
+          "date_info": "Available now",
+          "urgency": "act-fast",
+          "link_status": "search"
+        },
+        {
+          "title": "PCMag's Top 100 Best Budget Buys: Tested Tech",
+          "category": "product",
+          "summary": "PCMag has released its annual list of the Top 100 Best Budget Buys, featuring expert-recommended, genuinely interesting, and affordable tech gadgets. It's a great resource for discovering clever new products.",
+          "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxOUXZ0bmZhTFdkX1ZESWVjMnFHWnliRXVxVnZDekJLN2NESFQybUR3Nkt5bjdockdUTW9GMEVZUmNNQU5nZkliVVpRZW1YdDNETi1fcWpkM1E0eVdQYmd3THcyQVhaUXJxVmMxcTNUMFhSNkJDZHNlMXVLYWltOXBMWWlkcjZaaWxXRXZoSjJnSQ?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "date_info": "",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "Hissy Cooling Jacket: CO2-Powered Technical Apparel",
+          "category": "product",
+          "summary": "A genuinely interesting new tech product, the Hissy Cooling Jacket, uses CO2 cartridges to provide active cooling. This technical apparel is designed to combat extreme urban heat, offering a clever solution for hot weather.",
+          "url": "https://www.designboom.com/technology/hissy-cooling-jacket-co%e2%82%82-cartridges-technical-apparel-extreme-urban-heat/",
+          "date_info": "",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "Maki & Ramen Shoreditch: 50% Off Food Deal",
+          "category": "food",
+          "summary": "Enjoy 50% off food every Sunday to Friday at Maki & Ramen in Shoreditch. This is a great opportunity to try a popular Japanese spot with a significant discount.",
+          "url": "https://www.google.com/search?q=Maki+%26+Ramen+Shoreditch%3A+50%25+Off+Food+Deal",
+          "date_info": "Valid until Fri 16 Oct 2026 (Sun-Fri only)",
+          "urgency": "this-week",
+          "link_status": "search"
+        },
+        {
+          "title": "London City Lionesses vs West Ham United: Women's Super League Tickets",
+          "category": "event",
+          "summary": "Tickets are now on general sale for the Barclays Women's Super League match between London City Lionesses and West Ham United. Catch some notable London football action at Chigwell Construction Stadium.",
+          "url": "https://www.google.com/search?q=London+City+Lionesses+vs+West+Ham+United%3A+Women%27s+Super+League+Tickets",
+          "date_info": "General sale started Fri 4 Sept, 10am; Match on Sat 12 Sept 2026, 12:45 PM",
+          "urgency": "act-fast",
+          "link_status": "search"
+        },
+        {
+          "title": "Ministry of Sound: Milkshake Official London Freshers Launch",
+          "category": "event",
+          "summary": "London's biggest weekly student night, Milkshake, is holding its official Freshers Launch at the iconic Ministry of Sound. Expect a huge club night with multiple arenas of music, pyrotechnics, and giveaways.",
+          "url": "https://www.google.com/search?q=Ministry+of+Sound%3A+Milkshake+Official+London+Freshers+Launch",
+          "date_info": "Tue 15 Sept 2026, 10:00 PM – 4:00 AM",
+          "urgency": "this-week",
+          "link_status": "search"
+        }
+      ]
     }
   ]
 }
