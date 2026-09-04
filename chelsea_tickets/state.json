@@ -2,6 +2,14 @@
   "consecutive_fetch_failures": 0,
   "fetch_failure_notified": false,
   "fixtures": {
+    "4YKiFTwIByKGcZiZIU1Zka": {
+      "competition": "Premier League",
+      "date": "Sat 10 Oct 2026",
+      "opponent": "Bournemouth",
+      "windows": {
+        "ticket-application-window-opens": "open"
+      }
+    },
     "6EZdshzpVS0EYtGXKFHxZ": {
       "competition": "Carabao Cup",
       "date": "Wed 09 Sept 2026",
@@ -22,6 +30,8 @@
     }
   },
   "notified": {
+    "4YKiFTwIByKGcZiZIU1Zka::new_fixture": "2026-09-04T15:01:22.682290+00:00",
+    "4YKiFTwIByKGcZiZIU1Zka::window_open::ticket-application-window-opens": "2026-09-04T15:01:22.682306+00:00",
     "6EZdshzpVS0EYtGXKFHxZ::new_fixture": "2026-09-02T08:31:04.500094+00:00",
     "6EZdshzpVS0EYtGXKFHxZ::window_open::accessible-true-blue-true-blue-cfc-blue-or-junior-blue-members-can-purchase-ticket-per-person-loyalty-points-required-from": "2026-09-04T13:31:09.366174+00:00",
     "6EZdshzpVS0EYtGXKFHxZ::window_open::accessible-true-blue-true-blue-or-junior-blue-members-can-purchase-ticket-per-person-loyalty-points-required-from": "2026-09-03T13:01:29.692815+00:00",
@@ -33,6 +43,7 @@
     "6EZdshzpVS0EYtGXKFHxZ::window_open::true-blue-true-blue-or-junior-blue-members-can-purchase-ticket-per-person-loyalty-points-required-from": "2026-09-03T13:01:29.692800+00:00"
   },
   "open_since": {
+    "4YKiFTwIByKGcZiZIU1Zka::window_open::ticket-application-window-opens": "2026-09-04T15:01:21.889341+00:00",
     "6EZdshzpVS0EYtGXKFHxZ::window_open::accessible-true-blue-true-blue-cfc-blue-or-junior-blue-members-can-purchase-ticket-per-person-loyalty-points-required-from": "2026-09-04T13:31:08.463403+00:00",
     "6EZdshzpVS0EYtGXKFHxZ::window_open::true-blue-true-blue-cfc-blue-or-junior-blue-members-can-purchase-ticket-per-person-loyalty-points-required-from": "2026-09-04T13:31:08.463403+00:00"
   },
