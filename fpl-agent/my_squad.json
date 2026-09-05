@@ -140,6 +140,7 @@
     "2026-09-03: squad.py reconstructed GW2 from the live FPL API -- 114 pts this gameweek, £100.2m squad value, £0.0m banked, captain B.Fernandes. (First live run after the FPL_TEAM_ID secret was confirmed -- collapsed 6 identical entries logged 3-hourly before a bug in squad.py's dedup was fixed; see PLAN.md.)",
     "2026-09-03: squad.py reconstructed GW2 from the live FPL API -- 114 pts this gameweek, £100.2m squad value, £0.0m banked, captain B.Fernandes.",
     "2026-09-04: squad.py reconstructed GW3 from the live FPL API -- 0 pts this gameweek, £100.3m squad value, £0.8m banked, captain Haaland. Chip active: triple_captain.",
-    "2026-09-04: squad.py reconstructed GW3 from the live FPL API -- 3 pts this gameweek, £100.3m squad value, £0.8m banked, captain Haaland. Chip active: triple_captain."
+    "2026-09-04: squad.py reconstructed GW3 from the live FPL API -- 3 pts this gameweek, £100.3m squad value, £0.8m banked, captain Haaland. Chip active: triple_captain.",
+    "2026-09-05: squad.py reconstructed GW3 from the live FPL API -- 41 pts this gameweek, £100.3m squad value, £0.8m banked, captain Haaland. Chip active: triple_captain."
   ]
 }
