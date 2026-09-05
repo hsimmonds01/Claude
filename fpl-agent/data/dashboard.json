@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-04T22:59:35.748972+00:00",
+  "generated_at": "2026-09-05T04:15:36.044935+00:00",
   "next_event": 4,
   "next_deadline": "2026-09-12T12:30:00Z",
   "horizon": {
@@ -10,7 +10,7 @@
   "bank": 0.8,
   "free_transfers": 1,
   "risk": 0.5,
-  "squad_cost": 99.5,
+  "squad_cost": 99.6,
   "projected_xi": 196.8,
   "captain": "B.Fernandes",
   "my_lineup_set": true,
@@ -177,7 +177,7 @@
           "team": "HUL",
           "position": "GKP",
           "price": 4.6,
-          "owned": 7.7,
+          "owned": 7.8,
           "xp": 9.6,
           "start_prob": 0.54,
           "moved_club": true,
@@ -208,7 +208,7 @@
       "team": "ARS",
       "position": "DEF",
       "price": 5.7,
-      "owned": 45.6,
+      "owned": 45.7,
       "xp": 12.9,
       "start_prob": 0.63,
       "moved_club": false,
@@ -785,7 +785,7 @@
           "team": "LIV",
           "position": "MID",
           "price": 7.1,
-          "owned": 8.8,
+          "owned": 9.0,
           "xp": 21.1,
           "start_prob": 0.97,
           "moved_club": false,
@@ -798,14 +798,14 @@
           "name": "Wirtz",
           "team": "LIV",
           "position": "MID",
-          "price": 7.5,
-          "owned": 9.6,
+          "price": 7.4,
+          "owned": 9.5,
           "xp": 20.5,
           "start_prob": 0.86,
           "moved_club": false,
           "minutes_reason": "3/3 starts this season, blended with last year's evidence (60% of last 10 GWs started, 71% across the season)",
           "gain": -3.14,
-          "bank_after": 5.3
+          "bank_after": 5.4
         },
         {
           "id": "481",
@@ -854,14 +854,14 @@
           "name": "Mbeumo",
           "team": "MUN",
           "position": "MID",
-          "price": 8.0,
-          "owned": 27.0,
+          "price": 7.9,
+          "owned": 26.9,
           "xp": 18.5,
           "start_prob": 0.72,
           "moved_club": false,
           "minutes_reason": "2/3 starts this season, blended with last year's evidence (80% of last 10 GWs started, 82% across the season)",
           "gain": -5.14,
-          "bank_after": 4.8
+          "bank_after": 4.9
         },
         {
           "id": "397",
@@ -869,7 +869,7 @@
           "team": "MCI",
           "position": "MID",
           "price": 8.5,
-          "owned": 19.5,
+          "owned": 19.4,
           "xp": 18.4,
           "start_prob": 0.8,
           "moved_club": false,
@@ -896,14 +896,14 @@
           "name": "Ndiaye",
           "team": "MCI",
           "position": "MID",
-          "price": 6.0,
-          "owned": 11.6,
+          "price": 5.9,
+          "owned": 11.5,
           "xp": 17.2,
           "start_prob": 0.78,
           "moved_club": true,
           "minutes_reason": "2/3 starts this season, blended with last year's evidence (100% of last 10 GWs started, 84% across the season)",
           "gain": -6.4,
-          "bank_after": 6.8
+          "bank_after": 6.9
         },
         {
           "id": "94",
@@ -938,14 +938,14 @@
           "name": "Maeda",
           "team": "IPS",
           "position": "MID",
-          "price": 5.5,
+          "price": 5.4,
           "owned": 0.3,
           "xp": 17.2,
           "start_prob": 0.82,
           "moved_club": true,
-          "minutes_reason": "3/3 starts this season, blended with last year's evidence (no Premier League record; inferred from £5.5m price)",
+          "minutes_reason": "3/3 starts this season, blended with last year's evidence (no Premier League record; inferred from £5.4m price)",
           "gain": -6.47,
-          "bank_after": 7.3
+          "bank_after": 7.4
         }
       ],
       "override": ""
@@ -956,7 +956,7 @@
       "team": "LIV",
       "position": "MID",
       "price": 7.0,
-      "owned": 41.2,
+      "owned": 41.1,
       "xp": 22.8,
       "start_prob": 0.99,
       "moved_club": false,
@@ -972,7 +972,7 @@
           "team": "LIV",
           "position": "MID",
           "price": 7.1,
-          "owned": 8.8,
+          "owned": 9.0,
           "xp": 21.1,
           "start_prob": 0.97,
           "moved_club": false,
@@ -985,14 +985,14 @@
           "name": "Wirtz",
           "team": "LIV",
           "position": "MID",
-          "price": 7.5,
-          "owned": 9.6,
+          "price": 7.4,
+          "owned": 9.5,
           "xp": 20.5,
           "start_prob": 0.86,
           "moved_club": false,
           "minutes_reason": "3/3 starts this season, blended with last year's evidence (60% of last 10 GWs started, 71% across the season)",
           "gain": -2.31,
-          "bank_after": 0.3
+          "bank_after": 0.4
         },
         {
           "id": "481",
@@ -1041,14 +1041,14 @@
           "name": "Ndiaye",
           "team": "MCI",
           "position": "MID",
-          "price": 6.0,
-          "owned": 11.6,
+          "price": 5.9,
+          "owned": 11.5,
           "xp": 17.2,
           "start_prob": 0.78,
           "moved_club": true,
           "minutes_reason": "2/3 starts this season, blended with last year's evidence (100% of last 10 GWs started, 84% across the season)",
           "gain": -5.57,
-          "bank_after": 1.8
+          "bank_after": 1.9
         },
         {
           "id": "94",
@@ -1083,14 +1083,14 @@
           "name": "Maeda",
           "team": "IPS",
           "position": "MID",
-          "price": 5.5,
+          "price": 5.4,
           "owned": 0.3,
           "xp": 17.2,
           "start_prob": 0.82,
           "moved_club": true,
-          "minutes_reason": "3/3 starts this season, blended with last year's evidence (no Premier League record; inferred from £5.5m price)",
+          "minutes_reason": "3/3 starts this season, blended with last year's evidence (no Premier League record; inferred from £5.4m price)",
           "gain": -5.64,
-          "bank_after": 2.3
+          "bank_after": 2.4
         },
         {
           "id": "591",
@@ -1142,7 +1142,7 @@
       "name": "Cherki",
       "team": "MCI",
       "position": "MID",
-      "price": 7.7,
+      "price": 7.8,
       "owned": 30.5,
       "xp": 10.2,
       "start_prob": 0.4,
@@ -1159,27 +1159,27 @@
           "team": "LIV",
           "position": "MID",
           "price": 7.1,
-          "owned": 8.8,
+          "owned": 9.0,
           "xp": 21.1,
           "start_prob": 0.97,
           "moved_club": false,
           "minutes_reason": "3/3 starts this season, blended with last year's evidence (100% of last 10 GWs started, 84% across the season)",
           "gain": 5.3,
-          "bank_after": 1.4
+          "bank_after": 1.5
         },
         {
           "id": "366",
           "name": "Wirtz",
           "team": "LIV",
           "position": "MID",
-          "price": 7.5,
-          "owned": 9.6,
+          "price": 7.4,
+          "owned": 9.5,
           "xp": 20.5,
           "start_prob": 0.86,
           "moved_club": false,
           "minutes_reason": "3/3 starts this season, blended with last year's evidence (60% of last 10 GWs started, 71% across the season)",
           "gain": 4.72,
-          "bank_after": 1.0
+          "bank_after": 1.2
         },
         {
           "id": "481",
@@ -1193,7 +1193,7 @@
           "moved_club": true,
           "minutes_reason": "2/3 starts this season, blended with last year's evidence (90% of last 10 GWs started, 97% across the season); 100% chance of playing",
           "gain": 3.13,
-          "bank_after": 2.1
+          "bank_after": 2.2
         },
         {
           "id": "68",
@@ -1207,21 +1207,21 @@
           "moved_club": false,
           "minutes_reason": "2/3 starts this season, blended with last year's evidence (100% of last 10 GWs started, 81% across the season)",
           "gain": 2.81,
-          "bank_after": 2.5
+          "bank_after": 2.6
         },
         {
           "id": "427",
           "name": "Mbeumo",
           "team": "MUN",
           "position": "MID",
-          "price": 8.0,
-          "owned": 27.0,
+          "price": 7.9,
+          "owned": 26.9,
           "xp": 18.5,
           "start_prob": 0.72,
           "moved_club": false,
           "minutes_reason": "2/3 starts this season, blended with last year's evidence (80% of last 10 GWs started, 82% across the season)",
           "gain": 2.72,
-          "bank_after": 0.5
+          "bank_after": 0.7
         },
         {
           "id": "397",
@@ -1229,13 +1229,13 @@
           "team": "MCI",
           "position": "MID",
           "price": 8.5,
-          "owned": 19.5,
+          "owned": 19.4,
           "xp": 18.4,
           "start_prob": 0.8,
           "moved_club": false,
           "minutes_reason": "2/3 starts this season, blended with last year's evidence (100% of last 10 GWs started, 97% across the season)",
           "gain": 2.67,
-          "bank_after": 0.0
+          "bank_after": 0.1
         },
         {
           "id": "13",
@@ -1249,21 +1249,21 @@
           "moved_club": false,
           "minutes_reason": "2/3 starts this season, blended with last year's evidence (89% of last 10 GWs started, 92% across the season)",
           "gain": 2.47,
-          "bank_after": 1.0
+          "bank_after": 1.1
         },
         {
           "id": "237",
           "name": "Ndiaye",
           "team": "MCI",
           "position": "MID",
-          "price": 6.0,
-          "owned": 11.6,
+          "price": 5.9,
+          "owned": 11.5,
           "xp": 17.2,
           "start_prob": 0.78,
           "moved_club": true,
           "minutes_reason": "2/3 starts this season, blended with last year's evidence (100% of last 10 GWs started, 84% across the season)",
           "gain": 1.46,
-          "bank_after": 2.5
+          "bank_after": 2.7
         },
         {
           "id": "94",
@@ -1277,7 +1277,7 @@
           "moved_club": false,
           "minutes_reason": "2/3 starts this season, blended with last year's evidence (90% of last 10 GWs started, 84% across the season)",
           "gain": 1.43,
-          "bank_after": 2.5
+          "bank_after": 2.6
         },
         {
           "id": "315",
@@ -1291,21 +1291,21 @@
           "moved_club": true,
           "minutes_reason": "3/3 starts this season, blended with last year's evidence (no Premier League record; inferred from £5.5m price)",
           "gain": 1.39,
-          "bank_after": 3.0
+          "bank_after": 3.1
         },
         {
           "id": "562",
           "name": "Maeda",
           "team": "IPS",
           "position": "MID",
-          "price": 5.5,
+          "price": 5.4,
           "owned": 0.3,
           "xp": 17.2,
           "start_prob": 0.82,
           "moved_club": true,
-          "minutes_reason": "3/3 starts this season, blended with last year's evidence (no Premier League record; inferred from £5.5m price)",
+          "minutes_reason": "3/3 starts this season, blended with last year's evidence (no Premier League record; inferred from £5.4m price)",
           "gain": 1.39,
-          "bank_after": 3.0
+          "bank_after": 3.2
         },
         {
           "id": "591",
@@ -1319,7 +1319,7 @@
           "moved_club": true,
           "minutes_reason": "3/3 starts this season, blended with last year's evidence (no Premier League record; inferred from £5.5m price); 100% chance of playing",
           "gain": 1.39,
-          "bank_after": 3.0
+          "bank_after": 3.1
         }
       ],
       "override": ""
@@ -1359,14 +1359,14 @@
           "name": "Ndiaye",
           "team": "MCI",
           "position": "MID",
-          "price": 6.0,
-          "owned": 11.6,
+          "price": 5.9,
+          "owned": 11.5,
           "xp": 17.2,
           "start_prob": 0.78,
           "moved_club": true,
           "minutes_reason": "2/3 starts this season, blended with last year's evidence (100% of last 10 GWs started, 84% across the season)",
           "gain": 0.71,
-          "bank_after": 0.3
+          "bank_after": 0.4
         },
         {
           "id": "94",
@@ -1401,14 +1401,14 @@
           "name": "Maeda",
           "team": "IPS",
           "position": "MID",
-          "price": 5.5,
+          "price": 5.4,
           "owned": 0.3,
           "xp": 17.2,
           "start_prob": 0.82,
           "moved_club": true,
-          "minutes_reason": "3/3 starts this season, blended with last year's evidence (no Premier League record; inferred from £5.5m price)",
+          "minutes_reason": "3/3 starts this season, blended with last year's evidence (no Premier League record; inferred from £5.4m price)",
           "gain": 0.64,
-          "bank_after": 0.8
+          "bank_after": 0.9
         },
         {
           "id": "591",
@@ -1589,7 +1589,7 @@
           "team": "LIV",
           "position": "FWD",
           "price": 9.0,
-          "owned": 16.4,
+          "owned": 16.5,
           "xp": 15.3,
           "start_prob": 0.68,
           "moved_club": false,
@@ -1603,7 +1603,7 @@
           "team": "SUN",
           "position": "FWD",
           "price": 5.9,
-          "owned": 9.2,
+          "owned": 9.1,
           "xp": 15.2,
           "start_prob": 0.72,
           "moved_club": false,
@@ -1776,7 +1776,7 @@
           "team": "SUN",
           "position": "FWD",
           "price": 5.9,
-          "owned": 9.2,
+          "owned": 9.1,
           "xp": 15.2,
           "start_prob": 0.72,
           "moved_club": false,
@@ -1891,7 +1891,7 @@
       "team": "LEE",
       "position": "FWD",
       "price": 6.0,
-      "owned": 26.0,
+      "owned": 25.9,
       "xp": 19.1,
       "start_prob": 0.77,
       "moved_club": false,
@@ -1949,7 +1949,7 @@
           "team": "SUN",
           "position": "FWD",
           "price": 5.9,
-          "owned": 9.2,
+          "owned": 9.1,
           "xp": 15.2,
           "start_prob": 0.72,
           "moved_club": false,
@@ -2078,7 +2078,7 @@
       "team": "TOT",
       "position": "GKP",
       "price": 4.5,
-      "owned": 19.5,
+      "owned": 19.4,
       "xp": 10.6,
       "start_prob": 0.6,
       "moved_club": false,
@@ -2234,7 +2234,7 @@
           "team": "HUL",
           "position": "GKP",
           "price": 4.6,
-          "owned": 7.7,
+          "owned": 7.8,
           "xp": 9.6,
           "start_prob": 0.54,
           "moved_club": true,
@@ -2308,14 +2308,14 @@
           "name": "Ndiaye",
           "team": "MCI",
           "position": "MID",
-          "price": 6.0,
-          "owned": 11.6,
+          "price": 5.9,
+          "owned": 11.5,
           "xp": 17.2,
           "start_prob": 0.78,
           "moved_club": true,
           "minutes_reason": "2/3 starts this season, blended with last year's evidence (100% of last 10 GWs started, 84% across the season)",
           "gain": 0.28,
-          "bank_after": 0.7
+          "bank_after": 0.8
         },
         {
           "id": "94",
@@ -2350,14 +2350,14 @@
           "name": "Maeda",
           "team": "IPS",
           "position": "MID",
-          "price": 5.5,
+          "price": 5.4,
           "owned": 0.3,
           "xp": 17.2,
           "start_prob": 0.82,
           "moved_club": true,
-          "minutes_reason": "3/3 starts this season, blended with last year's evidence (no Premier League record; inferred from £5.5m price)",
+          "minutes_reason": "3/3 starts this season, blended with last year's evidence (no Premier League record; inferred from £5.4m price)",
           "gain": 0.21,
-          "bank_after": 1.2
+          "bank_after": 1.3
         },
         {
           "id": "591",
@@ -2711,7 +2711,7 @@
           "team": "CRY",
           "position": "DEF",
           "price": 4.5,
-          "owned": 4.7,
+          "owned": 4.6,
           "xp": 14.3,
           "start_prob": 0.74,
           "moved_club": false,
@@ -2829,7 +2829,7 @@
         "team": "ARS",
         "position": "DEF",
         "price": 5.7,
-        "owned": 45.6,
+        "owned": 45.7,
         "xp": 12.9,
         "start_prob": 0.63,
         "moved_club": false,
@@ -2856,7 +2856,7 @@
         "name": "Cherki",
         "team": "MCI",
         "position": "MID",
-        "price": 7.7,
+        "price": 7.8,
         "owned": 30.5,
         "xp": 10.2,
         "start_prob": 0.4,
@@ -2869,14 +2869,14 @@
         "team": "LIV",
         "position": "MID",
         "price": 7.1,
-        "owned": 8.8,
+        "owned": 9.0,
         "xp": 21.1,
         "start_prob": 0.97,
         "moved_club": false,
         "minutes_reason": "3/3 starts this season, blended with last year's evidence (100% of last 10 GWs started, 84% across the season)"
       },
       "gain": 5.3,
-      "bank_after": 1.4
+      "bank_after": 1.5
     },
     {
       "out": {
@@ -2884,7 +2884,7 @@
         "name": "Cherki",
         "team": "MCI",
         "position": "MID",
-        "price": 7.7,
+        "price": 7.8,
         "owned": 30.5,
         "xp": 10.2,
         "start_prob": 0.4,
@@ -2896,15 +2896,15 @@
         "name": "Wirtz",
         "team": "LIV",
         "position": "MID",
-        "price": 7.5,
-        "owned": 9.6,
+        "price": 7.4,
+        "owned": 9.5,
         "xp": 20.5,
         "start_prob": 0.86,
         "moved_club": false,
         "minutes_reason": "3/3 starts this season, blended with last year's evidence (60% of last 10 GWs started, 71% across the season)"
       },
       "gain": 4.72,
-      "bank_after": 1.0
+      "bank_after": 1.2
     },
     {
       "out": {
@@ -2941,7 +2941,7 @@
         "team": "ARS",
         "position": "DEF",
         "price": 5.7,
-        "owned": 45.6,
+        "owned": 45.7,
         "xp": 12.9,
         "start_prob": 0.63,
         "moved_club": false,
@@ -3054,20 +3054,20 @@
       "team": "ARS",
       "position": "GKP",
       "price": 6.0,
-      "owned": 38.4,
+      "owned": 38.5,
       "xp": 14.4,
       "start_prob": 0.77,
       "moved_club": false,
       "minutes_reason": "2/3 starts this season, blended with last year's evidence (89% of last 10 GWs started, 97% across the season)",
-      "exposure": 5.5
+      "exposure": 5.6
     },
     {
       "id": "427",
       "name": "Mbeumo",
       "team": "MUN",
       "position": "MID",
-      "price": 8.0,
-      "owned": 27.0,
+      "price": 7.9,
+      "owned": 26.9,
       "xp": 18.5,
       "start_prob": 0.72,
       "moved_club": false,
@@ -3093,7 +3093,7 @@
       "team": "CHE",
       "position": "MID",
       "price": 7.5,
-      "owned": 24.8,
+      "owned": 24.9,
       "xp": 16.1,
       "start_prob": 0.77,
       "moved_club": true,
@@ -3104,24 +3104,13 @@
   "news": [],
   "prices": [
     {
-      "player_id": "399",
-      "name": "Cherki",
-      "price": 7.7,
-      "owned": 30.5,
-      "direction": "rise",
-      "probability": 1.0,
-      "net_transfers": 15571,
-      "source": "FPL's own price_change_percent",
-      "confidence": "official"
-    },
-    {
       "player_id": "423",
       "name": "Shaw",
       "price": 4.5,
       "owned": 15.7,
       "direction": "fall",
-      "probability": 0.889,
-      "net_transfers": -6163,
+      "probability": 0.895,
+      "net_transfers": -2959,
       "source": "FPL's own price_change_percent",
       "confidence": "official"
     },
@@ -3131,8 +3120,8 @@
       "price": 5.5,
       "owned": 16.0,
       "direction": "rise",
-      "probability": 0.875,
-      "net_transfers": 9751,
+      "probability": 0.884,
+      "net_transfers": 2865,
       "source": "FPL's own price_change_percent",
       "confidence": "official"
     },
@@ -3142,8 +3131,8 @@
       "price": 15.5,
       "owned": 71.2,
       "direction": "rise",
-      "probability": 0.749,
-      "net_transfers": -2739,
+      "probability": 0.748,
+      "net_transfers": -181,
       "source": "FPL's own price_change_percent",
       "confidence": "official"
     },
@@ -3153,8 +3142,8 @@
       "price": 4.5,
       "owned": 5.2,
       "direction": "rise",
-      "probability": 0.594,
-      "net_transfers": 341,
+      "probability": 0.595,
+      "net_transfers": 155,
       "source": "FPL's own price_change_percent",
       "confidence": "official"
     },
@@ -3164,8 +3153,8 @@
       "price": 4.5,
       "owned": 22.1,
       "direction": "rise",
-      "probability": 0.469,
-      "net_transfers": 770,
+      "probability": 0.471,
+      "net_transfers": 611,
       "source": "FPL's own price_change_percent",
       "confidence": "official"
     },
@@ -3175,8 +3164,8 @@
       "price": 4.5,
       "owned": 5.4,
       "direction": "fall",
-      "probability": 0.448,
-      "net_transfers": -2921,
+      "probability": 0.452,
+      "net_transfers": -1350,
       "source": "FPL's own price_change_percent",
       "confidence": "official"
     },
@@ -3186,8 +3175,8 @@
       "price": 5.9,
       "owned": 5.7,
       "direction": "fall",
-      "probability": 0.413,
-      "net_transfers": -4191,
+      "probability": 0.423,
+      "net_transfers": -1817,
       "source": "FPL's own price_change_percent",
       "confidence": "official"
     },
@@ -3195,10 +3184,10 @@
       "player_id": "496",
       "name": "Kinsky",
       "price": 4.5,
-      "owned": 19.5,
+      "owned": 19.4,
       "direction": "fall",
-      "probability": 0.368,
-      "net_transfers": -6105,
+      "probability": 0.369,
+      "net_transfers": -2411,
       "source": "FPL's own price_change_percent",
       "confidence": "official"
     },
@@ -3206,10 +3195,10 @@
       "player_id": "368",
       "name": "Szoboszlai",
       "price": 7.0,
-      "owned": 41.2,
+      "owned": 41.1,
       "direction": "rise",
-      "probability": 0.3,
-      "net_transfers": -13515,
+      "probability": 0.268,
+      "net_transfers": -7616,
       "source": "FPL's own price_change_percent",
       "confidence": "official"
     },
@@ -3217,10 +3206,10 @@
       "player_id": "346",
       "name": "Calvert-Lewin",
       "price": 6.0,
-      "owned": 26.0,
+      "owned": 25.9,
       "direction": "fall",
-      "probability": 0.216,
-      "net_transfers": -10458,
+      "probability": 0.219,
+      "net_transfers": -3309,
       "source": "FPL's own price_change_percent",
       "confidence": "official"
     }
