@@ -1,25 +1,25 @@
 {
-  "generated_at": "2026-09-01T00:33:13.767050+00:00",
+  "generated_at": "2026-09-06T20:20:46.791539+00:00",
   "model": "gemini-flash-latest",
-  "headlines_considered": 44,
+  "headlines_considered": 48,
   "flags": [
     {
-      "player_id": "387",
-      "player": "O'Reilly",
-      "team": "MCI",
-      "concern": "Manchester City's move for Bouaddi introduces new midfield competition that could reduce his expected playing time.",
-      "severity": "low",
-      "affects": "minutes",
-      "source": "https://www.fantasyfootballscout.co.uk/2026/08/31/bouaddi-to-man-city-could-it-affect-oreilly"
+      "player_id": "464",
+      "player": "Wissa",
+      "team": "NEW",
+      "concern": "Manager Matthias Jaissle noted that Wissa is being utilized in a deeper role.",
+      "severity": "medium",
+      "affects": "role",
+      "source": "https://www.fantasyfootballscout.co.uk/2026/09/06/fpl-notes-jaissle-on-fernandez-pardos-fitness-wissa-deeper"
     },
     {
-      "player_id": "88",
-      "player": "Kayode",
-      "team": "BRE",
-      "concern": "Reported as touch and go due to an injury issue ahead of Brentford's upcoming fixture against Burnley.",
+      "player_id": "237",
+      "player": "Ndiaye",
+      "team": "MCI",
+      "concern": "Ndiaye came under public managerial criticism following his performance, putting his minutes at risk.",
       "severity": "medium",
-      "affects": "availability",
-      "source": "https://news.google.com/rss/articles/CBMiywFBVV95cUxQZDhZTVE3T3piNVRscVd5ck1jWFcxQmUtbVd3Tkp4UGtiU05BcENkVmNpcmRycFRmTGFuTVlTXzA5SWpKWnVQd1ZQdUZjcW1oTTdXUTVYS25aNHBpTXF0SnZwNlpLSWJTa3JZbG1XRXlGMS1PYVB1Q2JGYzEzQjl1WXkxSVdNbG5uMXZkOU5fRXBHa2tUellIZndKUjFuZk5aTy1ZeUNnTEhDemRxSlptNHJEOTNjc3JkNGdqemU5VHl"
+      "affects": "minutes",
+      "source": "https://www.fantasyfootballscout.co.uk/2026/09/05/fpl-notes-reilly-injury-cherki-subbed-ndiaye-criticism"
     }
   ]
 }
