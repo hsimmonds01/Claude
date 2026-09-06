@@ -2630,6 +2630,75 @@
           "link_status": "search"
         }
       ]
+    },
+    {
+      "date": "2026-09-06",
+      "model": "gemini-2.5-flash (legacy key, live search)",
+      "items": [
+        {
+          "title": "Beams x Stone Island Limited Edition Drop",
+          "category": "drop",
+          "summary": "Three limited-edition pieces – a Nylon Metal jacket, Cordura pants, and an olive-green graphic T-shirt – from the collaboration between Japanese brand Beams and Stone Island are releasing today, marking a perfect catch for streetwear enthusiasts.",
+          "url": "https://www.google.com/search?q=Beams+x+Stone+Island+Limited+Edition+Drop",
+          "date_info": "Releasing today, Sunday 6 September",
+          "urgency": "act-fast",
+          "link_status": "search"
+        },
+        {
+          "title": "Resident Evil in IMAX London",
+          "category": "film",
+          "summary": "Tickets are now on sale for the new 'Resident Evil' film, which opens in London IMAX cinemas on September 18th, offering a terrifying big-screen experience.",
+          "url": "https://www.google.com/search?q=Resident+Evil+in+IMAX+London",
+          "date_info": "Tickets on sale now for screenings from Friday 18 September",
+          "urgency": "this-week",
+          "link_status": "search"
+        },
+        {
+          "title": "70th BFI London Film Festival Tickets and Screen Talks",
+          "category": "film",
+          "summary": "The full program for the 70th BFI London Film Festival (October 7-18) was revealed on September 2nd, with general tickets going on sale on September 17th. This year's Screen Talks feature notable filmmakers and actors like Andrew Scott, Ava DuVernay, and Sofia Coppola.",
+          "url": "https://www.google.com/search?q=70th+BFI+London+Film+Festival+Tickets+and+Screen+Talks",
+          "date_info": "General tickets on sale Wednesday 17 September",
+          "urgency": "this-week",
+          "link_status": "search"
+        },
+        {
+          "title": "bet365 UEFA Champions League Ticket Giveaway",
+          "category": "free sign-up stuff",
+          "summary": "bet365 is running a free-to-enter giveaway for UEFA Champions League tickets throughout the 2026/27 season, with new ballots available each week. Eligible customers can enter one match giveaway per week for a chance to win a pair of tickets.",
+          "url": "https://news.bet365.com/en-gb/article/uefa-champions-league-final-ticket-giveaway/2026040215263114146",
+          "date_info": "New ballots available weekly throughout the 2026/27 season",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "Meatopia On-Fire London: The Original BBQ Festival",
+          "category": "food event",
+          "summary": "Today is the last chance to experience Meatopia On-Fire London, the UK's iconic live-fire food festival at Tobacco Dock. It features top live-fire chefs from around the world cooking unique dishes.",
+          "url": "https://www.meatopia.co.uk/home-london",
+          "date_info": "Ends today, Sunday 6 September",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "The Room/Big Shark + Tommy Wiseau Q&A at Prince Charles Cinema",
+          "category": "film",
+          "summary": "Catch Tommy Wiseau live on stage for a Q&A session and screening of 'The Room' today at The Prince Charles Cinema in London. Arrive 30 minutes early to collect tickets, grab merch, and meet Tommy.",
+          "url": "https://princecharlescinema.com/next-7-days/",
+          "date_info": "Today, Sunday 6 September",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "World Halal Food Festival 2026",
+          "category": "food event",
+          "summary": "Tickets are on sale for the UK's original halal food festival, returning to London Stadium on September 26-27. The event promises over 200 vendors, chef demonstrations, and family entertainment.",
+          "url": "https://www.worldhalalfoodfestival.com/",
+          "date_info": "Saturday 26 - Sunday 27 September",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        }
+      ]
     }
   ]
 }
