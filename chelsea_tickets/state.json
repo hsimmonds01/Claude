@@ -16,16 +16,14 @@
       "opponent": "Leeds United",
       "windows": {
         "accessible-true-blue-true-blue-junior-blue-and-cfc-blue-members-who-purchased-their-membership-prior-to-tuesday-august-can-purchase-ticket-per-person": "open",
-        "true-blue-true-blue-junior-blue-and-cfc-blue-members-who-purchased-their-membership-prior-to-tuesday-august-can-purchase-ticket-per-person": "open"
+        "season-ticket-holders-true-blue-true-blue-cfc-blue-and-junior-blue-members-who-have-purchased-their-membership-up-to-and-including-tuesday-august-can-now-purchase-an-additional-tickets-a-maximum-of-tickets-in-total-per-person": "open"
       }
     },
     "6rixcGFDEWH5V98iSqSPLa": {
       "competition": "Premier League",
       "date": "Sat 12 Sept 2026",
       "opponent": "Hull City",
-      "windows": {
-        "ticket-application-window-open": "closed"
-      }
+      "windows": {}
     }
   },
   "notified": {
@@ -37,12 +35,15 @@
     "6EZdshzpVS0EYtGXKFHxZ::window_open::accessible-true-blue-true-blue-or-junior-blue-members-can-purchase-ticket-per-person-loyalty-points-required-from": "2026-09-03T13:01:29.692815+00:00",
     "6EZdshzpVS0EYtGXKFHxZ::window_open::cfc-blue-members-can-purchase-ticket-per-person-loyalty-points-basis": "2026-09-02T08:31:04.500116+00:00",
     "6EZdshzpVS0EYtGXKFHxZ::window_open::cfc-blue-members-can-purchase-ticket-per-person-loyalty-points-required-from": "2026-09-03T13:01:29.692818+00:00",
+    "6EZdshzpVS0EYtGXKFHxZ::window_open::season-ticket-holders-true-blue-true-blue-cfc-blue-and-junior-blue-members-who-have-purchased-their-membership-up-to-and-including-tuesday-august-can-now-purchase-an-additional-tickets-a-maximum-of-tickets-in-total-per-person": "2026-09-07T09:31:05.565137+00:00",
     "6EZdshzpVS0EYtGXKFHxZ::window_open::true-blue-true-blue-cfc-blue-or-junior-blue-members-can-purchase-ticket-per-person-loyalty-points-required-from": "2026-09-04T13:31:09.366158+00:00",
     "6EZdshzpVS0EYtGXKFHxZ::window_open::true-blue-true-blue-junior-blue-and-cfc-blue-members-who-purchased-their-membership-prior-to-tuesday-august-can-purchase-ticket-per-person": "2026-09-04T15:31:02.270473+00:00",
     "6EZdshzpVS0EYtGXKFHxZ::window_open::true-blue-true-blue-junior-blue-and-cfc-blue-members-who-purchased-their-membership-prior-to-tuesday-august-can-purchase-ticket-per-person-pm": "2026-09-03T13:01:29.692821+00:00",
     "6EZdshzpVS0EYtGXKFHxZ::window_open::true-blue-true-blue-or-junior-blue-members-can-purchase-ticket-per-person-loyalty-points-basis": "2026-09-02T08:31:04.500113+00:00",
     "6EZdshzpVS0EYtGXKFHxZ::window_open::true-blue-true-blue-or-junior-blue-members-can-purchase-ticket-per-person-loyalty-points-required-from": "2026-09-03T13:01:29.692800+00:00"
   },
-  "open_since": {},
+  "open_since": {
+    "6EZdshzpVS0EYtGXKFHxZ::window_open::season-ticket-holders-true-blue-true-blue-cfc-blue-and-junior-blue-members-who-have-purchased-their-membership-up-to-and-including-tuesday-august-can-now-purchase-an-additional-tickets-a-maximum-of-tickets-in-total-per-person": "2026-09-07T09:31:04.581438+00:00"
+  },
   "schema_version": 1
 }
