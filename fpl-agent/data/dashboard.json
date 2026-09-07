@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-06T22:52:21.118529+00:00",
+  "generated_at": "2026-09-07T04:24:00.513612+00:00",
   "next_event": 4,
   "next_deadline": "2026-09-12T12:30:00Z",
   "horizon": {
@@ -10,7 +10,7 @@
   "bank": 0.8,
   "free_transfers": 1,
   "risk": 0.5,
-  "squad_cost": 99.6,
+  "squad_cost": 99.5,
   "projected_xi": 238.8,
   "captain": "B.Fernandes",
   "my_lineup_set": true,
@@ -65,7 +65,7 @@
           "team": "MUN",
           "position": "GKP",
           "price": 5.0,
-          "owned": 13.0,
+          "owned": 12.9,
           "xp": 18.3,
           "start_prob": 0.99,
           "moved_club": false,
@@ -163,7 +163,7 @@
           "team": "HUL",
           "position": "GKP",
           "price": 4.6,
-          "owned": 8.6,
+          "owned": 8.7,
           "xp": 13.2,
           "start_prob": 0.74,
           "moved_club": true,
@@ -280,7 +280,7 @@
           "team": "CRY",
           "position": "DEF",
           "price": 4.9,
-          "owned": 0.3,
+          "owned": 0.2,
           "xp": 21.1,
           "start_prob": 0.88,
           "moved_club": false,
@@ -425,7 +425,7 @@
           "team": "CRY",
           "position": "DEF",
           "price": 4.9,
-          "owned": 0.3,
+          "owned": 0.2,
           "xp": 21.1,
           "start_prob": 0.88,
           "moved_club": false,
@@ -522,14 +522,14 @@
           "name": "Ballard",
           "team": "SUN",
           "position": "DEF",
-          "price": 5.0,
+          "price": 4.9,
           "owned": 3.7,
           "xp": 18.4,
           "start_prob": 0.8,
           "moved_club": false,
           "minutes_reason": "3/3 starts this season, blended with last year's evidence (40% of last 10 GWs started, 63% across the season)",
           "gain": 4.06,
-          "bank_after": 0.3
+          "bank_after": 0.4
         },
         {
           "id": "254",
@@ -551,7 +551,7 @@
           "team": "CRY",
           "position": "DEF",
           "price": 4.5,
-          "owned": 5.2,
+          "owned": 5.3,
           "xp": 18.2,
           "start_prob": 0.94,
           "moved_club": false,
@@ -612,7 +612,7 @@
           "team": "CRY",
           "position": "DEF",
           "price": 4.9,
-          "owned": 0.3,
+          "owned": 0.2,
           "xp": 21.1,
           "start_prob": 0.88,
           "moved_club": false,
@@ -709,14 +709,14 @@
           "name": "Ballard",
           "team": "SUN",
           "position": "DEF",
-          "price": 5.0,
+          "price": 4.9,
           "owned": 3.7,
           "xp": 18.4,
           "start_prob": 0.8,
           "moved_club": false,
           "minutes_reason": "3/3 starts this season, blended with last year's evidence (40% of last 10 GWs started, 63% across the season)",
           "gain": 4.14,
-          "bank_after": 0.3
+          "bank_after": 0.4
         },
         {
           "id": "254",
@@ -738,7 +738,7 @@
           "team": "CRY",
           "position": "DEF",
           "price": 4.5,
-          "owned": 5.2,
+          "owned": 5.3,
           "xp": 18.2,
           "start_prob": 0.94,
           "moved_club": false,
@@ -769,7 +769,7 @@
       "team": "MUN",
       "position": "MID",
       "price": 12.0,
-      "owned": 47.6,
+      "owned": 47.5,
       "xp": 29.6,
       "start_prob": 0.99,
       "moved_club": false,
@@ -785,7 +785,7 @@
           "team": "CHE",
           "position": "MID",
           "price": 9.6,
-          "owned": 20.8,
+          "owned": 20.9,
           "xp": 23.8,
           "start_prob": 0.91,
           "moved_club": false,
@@ -798,14 +798,14 @@
           "name": "Anderson",
           "team": "MCI",
           "position": "MID",
-          "price": 6.4,
+          "price": 6.3,
           "owned": 4.8,
           "xp": 23.8,
           "start_prob": 0.97,
           "moved_club": true,
           "minutes_reason": "3/3 starts this season, blended with last year's evidence (90% of last 10 GWs started, 97% across the season); 100% chance of playing",
           "gain": -5.84,
-          "bank_after": 6.4
+          "bank_after": 6.5
         },
         {
           "id": "427",
@@ -869,7 +869,7 @@
           "team": "ARS",
           "position": "MID",
           "price": 9.5,
-          "owned": 11.2,
+          "owned": 11.3,
           "xp": 22.1,
           "start_prob": 0.84,
           "moved_club": false,
@@ -911,7 +911,7 @@
           "team": "BOU",
           "position": "MID",
           "price": 6.0,
-          "owned": 3.4,
+          "owned": 3.5,
           "xp": 21.7,
           "start_prob": 0.96,
           "moved_club": false,
@@ -956,7 +956,7 @@
       "team": "LIV",
       "position": "MID",
       "price": 7.0,
-      "owned": 39.5,
+      "owned": 39.4,
       "xp": 22.8,
       "start_prob": 0.99,
       "moved_club": false,
@@ -971,14 +971,14 @@
           "name": "Anderson",
           "team": "MCI",
           "position": "MID",
-          "price": 6.4,
+          "price": 6.3,
           "owned": 4.8,
           "xp": 23.8,
           "start_prob": 0.97,
           "moved_club": true,
           "minutes_reason": "3/3 starts this season, blended with last year's evidence (90% of last 10 GWs started, 97% across the season); 100% chance of playing",
           "gain": 1.0,
-          "bank_after": 1.4
+          "bank_after": 1.5
         },
         {
           "id": "68",
@@ -1042,7 +1042,7 @@
           "team": "BOU",
           "position": "MID",
           "price": 6.0,
-          "owned": 3.4,
+          "owned": 3.5,
           "xp": 21.7,
           "start_prob": 0.96,
           "moved_club": false,
@@ -1069,14 +1069,14 @@
           "name": "Gakpo",
           "team": "LIV",
           "position": "MID",
-          "price": 7.1,
-          "owned": 12.2,
+          "price": 7.2,
+          "owned": 12.4,
           "xp": 21.1,
           "start_prob": 0.97,
           "moved_club": false,
           "minutes_reason": "3/3 starts this season, blended with last year's evidence (100% of last 10 GWs started, 84% across the season)",
           "gain": -1.74,
-          "bank_after": 0.7
+          "bank_after": 0.6
         },
         {
           "id": "338",
@@ -1098,7 +1098,7 @@
           "team": "LIV",
           "position": "MID",
           "price": 7.4,
-          "owned": 8.9,
+          "owned": 8.8,
           "xp": 20.5,
           "start_prob": 0.86,
           "moved_club": false,
@@ -1111,28 +1111,28 @@
           "name": "Rogers",
           "team": "CHE",
           "position": "MID",
-          "price": 7.5,
-          "owned": 26.8,
+          "price": 7.6,
+          "owned": 27.0,
           "xp": 20.2,
           "start_prob": 0.97,
           "moved_club": true,
           "minutes_reason": "3/3 starts this season, blended with last year's evidence (90% of last 10 GWs started, 97% across the season)",
           "gain": -2.56,
-          "bank_after": 0.3
+          "bank_after": 0.2
         },
         {
           "id": "67",
           "name": "Rayan",
           "team": "BOU",
           "position": "MID",
-          "price": 6.5,
+          "price": 6.4,
           "owned": 2.1,
           "xp": 19.9,
           "start_prob": 0.95,
           "moved_club": false,
           "minutes_reason": "3/3 starts this season, blended with last year's evidence (89% of last 10 GWs started, 86% across the season)",
           "gain": -2.91,
-          "bank_after": 1.3
+          "bank_after": 1.4
         }
       ],
       "override": ""
@@ -1158,14 +1158,14 @@
           "name": "Anderson",
           "team": "MCI",
           "position": "MID",
-          "price": 6.4,
+          "price": 6.3,
           "owned": 4.8,
           "xp": 23.8,
           "start_prob": 0.97,
           "moved_club": true,
           "minutes_reason": "3/3 starts this season, blended with last year's evidence (90% of last 10 GWs started, 97% across the season); 100% chance of playing",
           "gain": 3.73,
-          "bank_after": 2.2
+          "bank_after": 2.3
         },
         {
           "id": "427",
@@ -1257,7 +1257,7 @@
           "team": "BOU",
           "position": "MID",
           "price": 6.0,
-          "owned": 3.4,
+          "owned": 3.5,
           "xp": 21.7,
           "start_prob": 0.96,
           "moved_club": false,
@@ -1298,14 +1298,14 @@
           "name": "Gakpo",
           "team": "LIV",
           "position": "MID",
-          "price": 7.1,
-          "owned": 12.2,
+          "price": 7.2,
+          "owned": 12.4,
           "xp": 21.1,
           "start_prob": 0.97,
           "moved_club": false,
           "minutes_reason": "3/3 starts this season, blended with last year's evidence (100% of last 10 GWs started, 84% across the season)",
           "gain": 1.0,
-          "bank_after": 1.5
+          "bank_after": 1.4
         },
         {
           "id": "338",
@@ -1340,6 +1340,20 @@
       "my_role": "starter",
       "my_bench_order": null,
       "alternatives": [
+        {
+          "id": "481",
+          "name": "Anderson",
+          "team": "MCI",
+          "position": "MID",
+          "price": 6.3,
+          "owned": 4.8,
+          "xp": 23.8,
+          "start_prob": 0.97,
+          "moved_club": true,
+          "minutes_reason": "3/3 starts this season, blended with last year's evidence (90% of last 10 GWs started, 97% across the season); 100% chance of playing",
+          "gain": 3.1,
+          "bank_after": 0.0
+        },
         {
           "id": "68",
           "name": "Tavernier",
@@ -1388,7 +1402,7 @@
           "team": "BOU",
           "position": "MID",
           "price": 6.0,
-          "owned": 3.4,
+          "owned": 3.5,
           "xp": 21.7,
           "start_prob": 0.96,
           "moved_club": false,
@@ -1472,7 +1486,7 @@
           "team": "NEW",
           "position": "MID",
           "price": 6.0,
-          "owned": 1.6,
+          "owned": 1.7,
           "xp": 18.1,
           "start_prob": 0.8,
           "moved_club": false,
@@ -1492,20 +1506,6 @@
           "moved_club": false,
           "minutes_reason": "3/3 starts this season, blended with last year's evidence (33% of last 10 GWs started, 76% across the season); 100% chance of playing",
           "gain": -2.91,
-          "bank_after": 0.8
-        },
-        {
-          "id": "261",
-          "name": "Iwobi",
-          "team": "FUL",
-          "position": "MID",
-          "price": 5.5,
-          "owned": 0.8,
-          "xp": 17.6,
-          "start_prob": 0.89,
-          "moved_club": false,
-          "minutes_reason": "3/3 starts this season, blended with last year's evidence (70% of last 10 GWs started, 76% across the season)",
-          "gain": -3.1,
           "bank_after": 0.8
         }
       ],
@@ -1532,14 +1532,14 @@
           "name": "Thiago",
           "team": "BRE",
           "position": "FWD",
-          "price": 8.0,
-          "owned": 12.6,
+          "price": 7.9,
+          "owned": 12.5,
           "xp": 25.6,
           "start_prob": 1.0,
           "moved_club": false,
           "minutes_reason": "3/3 starts this season, blended with last year's evidence (100% of last 10 GWs started, 97% across the season)",
           "gain": -3.88,
-          "bank_after": 8.3
+          "bank_after": 8.4
         },
         {
           "id": "569",
@@ -1617,7 +1617,7 @@
           "team": "ARS",
           "position": "FWD",
           "price": 7.5,
-          "owned": 7.0,
+          "owned": 7.1,
           "xp": 18.7,
           "start_prob": 0.76,
           "moved_club": false,
@@ -1645,7 +1645,7 @@
           "team": "LIV",
           "position": "FWD",
           "price": 9.0,
-          "owned": 18.7,
+          "owned": 18.8,
           "xp": 15.3,
           "start_prob": 0.68,
           "moved_club": false,
@@ -1659,7 +1659,7 @@
           "team": "NFO",
           "position": "FWD",
           "price": 5.9,
-          "owned": 2.9,
+          "owned": 2.8,
           "xp": 15.2,
           "start_prob": 0.73,
           "moved_club": false,
@@ -1704,7 +1704,7 @@
       "team": "CHE",
       "position": "FWD",
       "price": 7.7,
-      "owned": 71.9,
+      "owned": 72.0,
       "xp": 24.3,
       "start_prob": 0.92,
       "moved_club": false,
@@ -1719,14 +1719,14 @@
           "name": "Thiago",
           "team": "BRE",
           "position": "FWD",
-          "price": 8.0,
-          "owned": 12.6,
+          "price": 7.9,
+          "owned": 12.5,
           "xp": 25.6,
           "start_prob": 1.0,
           "moved_club": false,
           "minutes_reason": "3/3 starts this season, blended with last year's evidence (100% of last 10 GWs started, 97% across the season)",
           "gain": 1.32,
-          "bank_after": 0.5
+          "bank_after": 0.6
         },
         {
           "id": "569",
@@ -1804,7 +1804,7 @@
           "team": "ARS",
           "position": "FWD",
           "price": 7.5,
-          "owned": 7.0,
+          "owned": 7.1,
           "xp": 18.7,
           "start_prob": 0.76,
           "moved_club": false,
@@ -1832,7 +1832,7 @@
           "team": "NFO",
           "position": "FWD",
           "price": 5.9,
-          "owned": 2.9,
+          "owned": 2.8,
           "xp": 15.2,
           "start_prob": 0.73,
           "moved_club": false,
@@ -1891,7 +1891,7 @@
       "team": "LEE",
       "position": "FWD",
       "price": 6.0,
-      "owned": 24.9,
+      "owned": 24.8,
       "xp": 24.1,
       "start_prob": 0.97,
       "moved_club": false,
@@ -1991,7 +1991,7 @@
           "team": "NFO",
           "position": "FWD",
           "price": 5.9,
-          "owned": 2.9,
+          "owned": 2.8,
           "xp": 15.2,
           "start_prob": 0.73,
           "moved_club": false,
@@ -2122,7 +2122,7 @@
           "team": "MUN",
           "position": "GKP",
           "price": 5.0,
-          "owned": 13.0,
+          "owned": 12.9,
           "xp": 18.3,
           "start_prob": 0.99,
           "moved_club": false,
@@ -2220,7 +2220,7 @@
           "team": "HUL",
           "position": "GKP",
           "price": 4.6,
-          "owned": 8.6,
+          "owned": 8.7,
           "xp": 13.2,
           "start_prob": 0.74,
           "moved_club": true,
@@ -2280,14 +2280,14 @@
           "name": "Anderson",
           "team": "MCI",
           "position": "MID",
-          "price": 6.4,
+          "price": 6.3,
           "owned": 4.8,
           "xp": 23.8,
           "start_prob": 0.97,
           "moved_club": true,
           "minutes_reason": "3/3 starts this season, blended with last year's evidence (90% of last 10 GWs started, 97% across the season); 100% chance of playing",
           "gain": 2.21,
-          "bank_after": 0.3
+          "bank_after": 0.4
         },
         {
           "id": "68",
@@ -2337,7 +2337,7 @@
           "team": "BOU",
           "position": "MID",
           "price": 6.0,
-          "owned": 3.4,
+          "owned": 3.5,
           "xp": 21.7,
           "start_prob": 0.96,
           "moved_club": false,
@@ -2378,14 +2378,14 @@
           "name": "Rayan",
           "team": "BOU",
           "position": "MID",
-          "price": 6.5,
+          "price": 6.4,
           "owned": 2.1,
           "xp": 19.9,
           "start_prob": 0.95,
           "moved_club": false,
           "minutes_reason": "3/3 starts this season, blended with last year's evidence (89% of last 10 GWs started, 86% across the season)",
           "gain": -1.69,
-          "bank_after": 0.2
+          "bank_after": 0.3
         },
         {
           "id": "127",
@@ -2435,7 +2435,7 @@
           "team": "ARS",
           "position": "MID",
           "price": 6.5,
-          "owned": 18.2,
+          "owned": 18.1,
           "xp": 19.0,
           "start_prob": 0.9,
           "moved_club": true,
@@ -2451,7 +2451,7 @@
       "name": "Shaw",
       "team": "MUN",
       "position": "DEF",
-      "price": 4.5,
+      "price": 4.4,
       "owned": 14.6,
       "xp": 17.2,
       "start_prob": 1.0,
@@ -2474,7 +2474,7 @@
           "moved_club": false,
           "minutes_reason": "3/3 starts this season, blended with last year's evidence (90% of last 10 GWs started, 87% across the season)",
           "gain": 4.72,
-          "bank_after": 0.3
+          "bank_after": 0.2
         },
         {
           "id": "203",
@@ -2482,13 +2482,13 @@
           "team": "CRY",
           "position": "DEF",
           "price": 4.9,
-          "owned": 0.3,
+          "owned": 0.2,
           "xp": 21.1,
           "start_prob": 0.88,
           "moved_club": false,
           "minutes_reason": "3/3 starts this season, blended with last year's evidence (89% of last 10 GWs started, 38% across the season)",
           "gain": 3.93,
-          "bank_after": 0.4
+          "bank_after": 0.3
         },
         {
           "id": "112",
@@ -2502,7 +2502,7 @@
           "moved_club": true,
           "minutes_reason": "3/3 starts this season, blended with last year's evidence (100% of last 10 GWs started, 95% across the season)",
           "gain": 3.78,
-          "bank_after": 0.4
+          "bank_after": 0.3
         },
         {
           "id": "447",
@@ -2516,7 +2516,7 @@
           "moved_club": false,
           "minutes_reason": "3/3 starts this season, blended with last year's evidence (90% of last 10 GWs started, 55% across the season)",
           "gain": 3.39,
-          "bank_after": 0.3
+          "bank_after": 0.2
         },
         {
           "id": "202",
@@ -2530,7 +2530,7 @@
           "moved_club": false,
           "minutes_reason": "3/3 starts this season, blended with last year's evidence (67% of last 10 GWs started, 81% across the season)",
           "gain": 2.61,
-          "bank_after": 0.3
+          "bank_after": 0.2
         },
         {
           "id": "332",
@@ -2544,7 +2544,7 @@
           "moved_club": false,
           "minutes_reason": "3/3 starts this season, blended with last year's evidence (100% of last 10 GWs started, 57% across the season)",
           "gain": 2.44,
-          "bank_after": 0.8
+          "bank_after": 0.7
         },
         {
           "id": "469",
@@ -2558,7 +2558,7 @@
           "moved_club": false,
           "minutes_reason": "3/3 starts this season, blended with last year's evidence (90% of last 10 GWs started, 95% across the season)",
           "gain": 2.35,
-          "bank_after": 0.3
+          "bank_after": 0.2
         },
         {
           "id": "257",
@@ -2572,14 +2572,14 @@
           "moved_club": false,
           "minutes_reason": "3/3 starts this season, blended with last year's evidence (100% of last 10 GWs started, 74% across the season)",
           "gain": 1.5,
-          "bank_after": 0.8
+          "bank_after": 0.7
         },
         {
           "id": "532",
           "name": "Ballard",
           "team": "SUN",
           "position": "DEF",
-          "price": 5.0,
+          "price": 4.9,
           "owned": 3.7,
           "xp": 18.4,
           "start_prob": 0.8,
@@ -2600,7 +2600,7 @@
           "moved_club": false,
           "minutes_reason": "3/3 starts this season, blended with last year's evidence (80% of last 10 GWs started, 45% across the season)",
           "gain": 1.14,
-          "bank_after": 0.8
+          "bank_after": 0.7
         },
         {
           "id": "204",
@@ -2608,13 +2608,13 @@
           "team": "CRY",
           "position": "DEF",
           "price": 4.5,
-          "owned": 5.2,
+          "owned": 5.3,
           "xp": 18.2,
           "start_prob": 0.94,
           "moved_club": false,
           "minutes_reason": "3/3 starts this season, blended with last year's evidence (78% of last 10 GWs started, 95% across the season)",
           "gain": 1.04,
-          "bank_after": 0.8
+          "bank_after": 0.7
         },
         {
           "id": "88",
@@ -2628,7 +2628,7 @@
           "moved_club": false,
           "minutes_reason": "3/3 starts this season, blended with last year's evidence (100% of last 10 GWs started, 97% across the season)",
           "gain": 0.49,
-          "bank_after": 0.7
+          "bank_after": 0.6
         }
       ],
       "override": ""
@@ -2697,7 +2697,7 @@
           "team": "CRY",
           "position": "DEF",
           "price": 4.5,
-          "owned": 5.2,
+          "owned": 5.3,
           "xp": 18.2,
           "start_prob": 0.94,
           "moved_club": false,
@@ -2739,7 +2739,7 @@
           "team": "EVE",
           "position": "DEF",
           "price": 4.5,
-          "owned": 1.8,
+          "owned": 1.9,
           "xp": 17.0,
           "start_prob": 0.98,
           "moved_club": false,
@@ -2767,7 +2767,7 @@
           "team": "LEE",
           "position": "DEF",
           "price": 4.5,
-          "owned": 1.0,
+          "owned": 1.1,
           "xp": 16.0,
           "start_prob": 0.89,
           "moved_club": false,
@@ -2809,7 +2809,7 @@
           "team": "BHA",
           "position": "DEF",
           "price": 4.7,
-          "owned": 18.6,
+          "owned": 18.7,
           "xp": 15.7,
           "start_prob": 0.75,
           "moved_club": false,
@@ -2897,7 +2897,7 @@
         "team": "CRY",
         "position": "DEF",
         "price": 4.9,
-        "owned": 0.3,
+        "owned": 0.2,
         "xp": 21.1,
         "start_prob": 0.88,
         "moved_club": false,
@@ -2925,7 +2925,7 @@
         "team": "CRY",
         "position": "DEF",
         "price": 4.9,
-        "owned": 0.3,
+        "owned": 0.2,
         "xp": 21.1,
         "start_prob": 0.88,
         "moved_club": false,
@@ -3092,13 +3092,13 @@
       "name": "Rogers",
       "team": "CHE",
       "position": "MID",
-      "price": 7.5,
-      "owned": 26.8,
+      "price": 7.6,
+      "owned": 27.0,
       "xp": 20.2,
       "start_prob": 0.97,
       "moved_club": true,
       "minutes_reason": "3/3 starts this season, blended with last year's evidence (90% of last 10 GWs started, 97% across the season)",
-      "exposure": 5.4
+      "exposure": 5.5
     },
     {
       "id": "154",
@@ -3106,7 +3106,7 @@
       "team": "CHE",
       "position": "MID",
       "price": 9.6,
-      "owned": 20.8,
+      "owned": 20.9,
       "xp": 23.8,
       "start_prob": 0.91,
       "moved_club": false,
@@ -3117,24 +3117,13 @@
   "news": [],
   "prices": [
     {
-      "player_id": "423",
-      "name": "Shaw",
-      "price": 4.5,
-      "owned": 14.6,
-      "direction": "fall",
-      "probability": 1.0,
-      "net_transfers": -16115,
-      "source": "FPL's own price_change_percent",
-      "confidence": "official"
-    },
-    {
       "player_id": "124",
       "name": "Groß",
       "price": 5.5,
       "owned": 16.0,
       "direction": "rise",
-      "probability": 0.941,
-      "net_transfers": 947,
+      "probability": 0.945,
+      "net_transfers": 1373,
       "source": "FPL's own price_change_percent",
       "confidence": "official"
     },
@@ -3144,8 +3133,8 @@
       "price": 15.5,
       "owned": 71.2,
       "direction": "rise",
-      "probability": 0.757,
-      "net_transfers": 2318,
+      "probability": 0.759,
+      "net_transfers": 1516,
       "source": "FPL's own price_change_percent",
       "confidence": "official"
     },
@@ -3155,19 +3144,8 @@
       "price": 4.5,
       "owned": 4.9,
       "direction": "fall",
-      "probability": 0.68,
-      "net_transfers": -5546,
-      "source": "FPL's own price_change_percent",
-      "confidence": "official"
-    },
-    {
-      "player_id": "87",
-      "name": "Ajer",
-      "price": 4.5,
-      "owned": 5.1,
-      "direction": "rise",
-      "probability": 0.581,
-      "net_transfers": -2679,
+      "probability": 0.701,
+      "net_transfers": -3275,
       "source": "FPL's own price_change_percent",
       "confidence": "official"
     },
@@ -3177,8 +3155,19 @@
       "price": 5.9,
       "owned": 5.4,
       "direction": "fall",
-      "probability": 0.57,
-      "net_transfers": -3886,
+      "probability": 0.584,
+      "net_transfers": -2322,
+      "source": "FPL's own price_change_percent",
+      "confidence": "official"
+    },
+    {
+      "player_id": "87",
+      "name": "Ajer",
+      "price": 4.5,
+      "owned": 5.1,
+      "direction": "rise",
+      "probability": 0.579,
+      "net_transfers": -1388,
       "source": "FPL's own price_change_percent",
       "confidence": "official"
     },
@@ -3188,8 +3177,8 @@
       "price": 5.7,
       "owned": 46.8,
       "direction": "rise",
-      "probability": 0.535,
-      "net_transfers": 10876,
+      "probability": 0.565,
+      "net_transfers": 8214,
       "source": "FPL's own price_change_percent",
       "confidence": "official"
     },
@@ -3199,8 +3188,8 @@
       "price": 4.5,
       "owned": 22.1,
       "direction": "rise",
-      "probability": 0.505,
-      "net_transfers": 531,
+      "probability": 0.509,
+      "net_transfers": 589,
       "source": "FPL's own price_change_percent",
       "confidence": "official"
     },
@@ -3208,10 +3197,10 @@
       "player_id": "165",
       "name": "João Pedro",
       "price": 7.7,
-      "owned": 71.9,
+      "owned": 72.0,
       "direction": "rise",
-      "probability": 0.439,
-      "net_transfers": 5456,
+      "probability": 0.454,
+      "net_transfers": 3567,
       "source": "FPL's own price_change_percent",
       "confidence": "official"
     },
@@ -3222,7 +3211,7 @@
       "owned": 19.0,
       "direction": "fall",
       "probability": 0.379,
-      "net_transfers": -3933,
+      "net_transfers": -1629,
       "source": "FPL's own price_change_percent",
       "confidence": "official"
     },
@@ -3230,10 +3219,10 @@
       "player_id": "346",
       "name": "Calvert-Lewin",
       "price": 6.0,
-      "owned": 24.9,
+      "owned": 24.8,
       "direction": "fall",
-      "probability": 0.289,
-      "net_transfers": -12109,
+      "probability": 0.296,
+      "net_transfers": -7599,
       "source": "FPL's own price_change_percent",
       "confidence": "official"
     }
