@@ -2699,6 +2699,48 @@
           "link_status": "verified"
         }
       ]
+    },
+    {
+      "date": "2026-09-07",
+      "model": "gemini-2.5-flash (legacy key, live search)",
+      "items": [
+        {
+          "title": "Rolex to Auction Four Unique 'Four Seasons' Daytonas in London",
+          "category": "event",
+          "summary": "Four unique, gem-set Rolex Cosmograph Daytona watches, each inspired by a season, will be auctioned by Phillips in London. This rare event offers a chance to acquire a unique design object with proceeds benefiting charity.",
+          "url": "https://hypebeast.com/2026/9/rolex-auction-four-unique-gem-set-cosmograph-daytonas-inspired-by-the-seasons-phillips-london",
+          "date_info": "Auction on Mon 28 Sep 2026",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "Kith Celebrates 1996 Yankees with Collectibles and Home Goods",
+          "category": "drop",
+          "summary": "Kith has launched a new collection celebrating the 1996 New York Yankees, featuring non-sneaker items like caps, a teddy bear, collectible baseballs, a planter, and rugs. This limited-edition drop is available today.",
+          "url": "https://hypebeast.com/2026/9/kith-celebrates-the-1996-yankees-with-collectibles-and-home-goods",
+          "date_info": "Released Mon 07 Sep 2026",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "New Apparel and Accessories from District Vision Arrive at HBX",
+          "category": "drop",
+          "summary": "Explore new arrivals from performance eyewear and apparel brand District Vision on HBX, including cotton tees, nylon hats, training singlets, and shorts. These are limited-run pieces and are available now.",
+          "url": "https://hypebeast.com/2026/9/new-arrivals-from-hbx-district-vision-2",
+          "date_info": "Available now",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "Andreas Gefeller's 'Surface Tension' Exhibition Opens at Atlas Gallery",
+          "category": "event",
+          "summary": "A new exhibition by Andreas Gefeller, titled 'Surface Tension,' is set to open at the Atlas Gallery in London. This presents an opportunity to see contemporary photography and beautiful design objects in an exhibition setting.",
+          "url": "https://www.atlasgallery.com/",
+          "date_info": "Opens Fri 01 Oct 2026",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        }
+      ]
     }
   ]
 }
