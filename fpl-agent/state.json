@@ -89,6 +89,12 @@
       "event": 4,
       "at": "2026-09-04T20:42:22.756760+00:00",
       "subject": "FPL pre-season \u2014 7 days to the GW4 deadline"
+    },
+    {
+      "kind": "review",
+      "event": 3,
+      "at": "2026-09-07T19:06:56.267546+00:00",
+      "subject": "FPL review \u2014 Gameweek 3"
     }
   ]
 }
