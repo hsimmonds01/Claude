@@ -1,25 +1,6 @@
 {
-  "generated_at": "2026-09-06T20:20:46.791539+00:00",
+  "generated_at": "2026-09-08T21:04:51.189378+00:00",
   "model": "gemini-flash-latest",
-  "headlines_considered": 48,
-  "flags": [
-    {
-      "player_id": "464",
-      "player": "Wissa",
-      "team": "NEW",
-      "concern": "Manager Matthias Jaissle noted that Wissa is being utilized in a deeper role.",
-      "severity": "medium",
-      "affects": "role",
-      "source": "https://www.fantasyfootballscout.co.uk/2026/09/06/fpl-notes-jaissle-on-fernandez-pardos-fitness-wissa-deeper"
-    },
-    {
-      "player_id": "237",
-      "player": "Ndiaye",
-      "team": "MCI",
-      "concern": "Ndiaye came under public managerial criticism following his performance, putting his minutes at risk.",
-      "severity": "medium",
-      "affects": "minutes",
-      "source": "https://www.fantasyfootballscout.co.uk/2026/09/05/fpl-notes-reilly-injury-cherki-subbed-ndiaye-criticism"
-    }
-  ]
+  "headlines_considered": 42,
+  "flags": []
 }
