@@ -2741,6 +2741,57 @@
           "link_status": "verified"
         }
       ]
+    },
+    {
+      "date": "2026-09-08",
+      "model": "gemini-2.5-flash (legacy key, live search)",
+      "items": [
+        {
+          "title": "Plaud One AI Earbuds: Record Meetings Without Your Phone",
+          "category": "product",
+          "summary": "These innovative AI-powered earbuds and their charging case can capture and transcribe conversations and meetings independently, even without a smartphone, thanks to built-in 4G LTE. They integrate with productivity tools to generate tasks and insights, making them a genuinely clever gadget for professionals.",
+          "url": "https://hypebeast.com/2026/9/plaud-one-wearable-ai-earbuds-release-info",
+          "date_info": "Pre-orders for the limited 'Explorer Edition' (2,000 units) started August 27, 2026, priced at $249.99 / £229. Initial shipments are slated for Q4 2026.",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "IKEA x Xbox YXSTABY Furniture Collection",
+          "category": "drop",
+          "summary": "IKEA and Xbox have teamed up on a nine-piece furniture and accessories collection, YXSTABY, designed to integrate gaming setups seamlessly into modern homes. Expect unique items like a tilting thumbstick stool, D-pad cushion, and a rolling TV stand.",
+          "url": "https://www.designboom.com/design/xbox-controller-furniture-ikea-yxstaby-collection-gaming/",
+          "date_info": "Launches in the UK on October 1, 2026, in IKEA stores and online, available while stocks last.",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "Sony WH-1000XM4C Headphones Make a Comeback",
+          "category": "product",
+          "summary": "Sony is resurrecting its highly popular WH-1000XM4 noise-canceling headphones as the WH-1000XM4C. This refreshed version features new colors (including Lavender), Bluetooth 6, a 10-band EQ, and gaming presets, all while retaining the beloved folding design and QN1 ANC chip at a more affordable price of $300.",
+          "url": "https://hypebeast.com/2026/9/sony-wh-1000xm4c-revives-classic-design-with-bluetooth-6",
+          "date_info": "Arriving later this Fall, with shipping estimates on pre-orders around September 30, 2026. Priced at $300 / £219.99 (UK leak).",
+          "urgency": "this-week",
+          "link_status": "verified"
+        },
+        {
+          "title": "Persol x Olivetti Lettera 22 Eyewear",
+          "category": "drop",
+          "summary": "Italian eyewear brand Persol has collaborated with iconic typewriter manufacturer Olivetti to release a limited-edition optical frame. Inspired by the historic Lettera 22 typewriter, the design incorporates retro machinery details, including ribbon-inspired red accents.",
+          "url": "https://hypebeast.com/2026/9/persol-olivetti-po3416v-limited-edition-eyewear-inspired-by-lettera-22-typewriter-release-info",
+          "date_info": "Available now via Persol flagships and persol.com, priced at $562 USD.",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "Goldwin FW26 Performance Collection",
+          "category": "drop",
+          "summary": "Goldwin has unveiled its Fall/Winter 2026 Performance Collection, a technical layering lineup designed for comfort during high-intensity activities. The collection blends outdoor apparel with refined, functional streetwear, featuring pieces like waterproof jackets and running vests.",
+          "url": "https://hypebeast.com/2026/9/goldwin-fall-winter-2026-performance-collection-release-info",
+          "date_info": "Available now via Goldwin's official website and flagship locations. Prices start from £55.",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        }
+      ]
     }
   ]
 }
