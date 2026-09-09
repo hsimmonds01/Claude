@@ -2792,6 +2792,48 @@
           "link_status": "verified"
         }
       ]
+    },
+    {
+      "date": "2026-09-09",
+      "model": "gemini-2.5-flash (legacy key, live search)",
+      "items": [
+        {
+          "title": "'Dune: Part Three' UK Preview Screenings",
+          "category": "film",
+          "summary": "Catch early preview screenings of 'Dune: Part Three' on December 15 across the UK, three days before its wider release. BFI IMAX 70mm tickets went on sale today, September 9, at 5 pm, but act fast as some IMAX screenings are already sold out.",
+          "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE9xamlvbjdyT1hiSS10UExMbm1aR2tFYlFpdWNMVEFIbF82dVdaVEdIRXR6SGFGWC0zSHFvNWxjVjQ2OXV3Yi1td3VoWlVEUnp6dl9XWHBCLTNoNEJkeDNqdnpTTzQ4b3BnRFVGeldvY3F0THhNRnA4dC1tYWk?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "date_info": "Tickets on sale today, Sep 9. Previews Dec 15, wider release Dec 18.",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "Rudimental DJ Set at Battersea Park Fireworks",
+          "category": "event",
+          "summary": "London's largest fireworks display returns to Battersea Park on November 7-8, featuring a Rudimental DJ set as part of the entertainment on Saturday. Tickets for this popular event, which consistently sells out, went on sale yesterday, September 8.",
+          "url": "https://www.batterseaparkfireworks.com/",
+          "date_info": "Tickets on sale since Sep 8. Event Nov 7-8.",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "Pokémon TCG: 30th Celebration Collectible Card Drop",
+          "category": "drop",
+          "summary": "The highly anticipated 'Pokémon TCG: 30th Celebration' expansion, featuring a new wave of illustration rares and 30 unique Pikachu cards, is set for a global release on September 16. Booster packs will be available within special collection products.",
+          "url": "https://hypebeast.com/2026/9/pokemon-tcg-30th-celebration-new-special-illustration-rare-cards-reveal-info",
+          "date_info": "Releases Sep 16, 2026.",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "Last-Minute Tickets for NFL London 2026 Games",
+          "category": "football",
+          "summary": "Don't miss the chance to catch NFL action in London this October with games on the 4th, 11th, and 18th. While general admission tickets went on sale earlier this year, limited tickets for some games are still available, so act fast before they're gone!",
+          "url": "https://www.sportsbreaks.com/nfl/nfl-london",
+          "date_info": "Games Oct 4, 11, 18. Tickets on sale now.",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        }
+      ]
     }
   ]
 }
