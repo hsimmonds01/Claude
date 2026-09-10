@@ -1,34 +1,16 @@
 {
-  "generated_at": "2026-09-09T20:53:48.219367+00:00",
+  "generated_at": "2026-09-10T20:48:18.066835+00:00",
   "model": "gemini-flash-latest",
-  "headlines_considered": 50,
+  "headlines_considered": 45,
   "flags": [
-    {
-      "player_id": "399",
-      "player": "Cherki",
-      "team": "MCI",
-      "concern": "Reported to have been substituted early again, highlighting an ongoing minutes risk.",
-      "severity": "low",
-      "affects": "minutes",
-      "source": "https://www.fantasyfootballscout.co.uk/2026/09/09/fpl-notes-haaland-double-no-cash-cherki-subbed-early-again"
-    },
     {
       "player_id": "366",
       "player": "Wirtz",
       "team": "LIV",
-      "concern": "Arne Slot addressed Wirtz's fitness in his press conference, indicating potential availability or fitness concerns.",
+      "concern": "Arne Slot addressed Wirtz's fitness in his pre-match press conference, indicating his physical condition is currently being managed.",
       "severity": "medium",
       "affects": "availability",
       "source": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQS2IyVDFNRGk3ckhnOTZiWEpid3Ztb2FHazRkNm1lc2huSERxMUNwR3dGZHJ3WEpQSFV6bWJ3OVZGNFhWWWdQT2c1TzctRmJqbXZrU2NRRVJYeVBMQkJ6dnVKaEFoTVhvNGh0V01FWDl4VkJlOUM0V0U2V1AtU1U0LUk1TnNFZDVMeGVLVU5sTFNseHUwZXhESG5HMDN2TmNEa1FTMFZaZzhWWmZNTkHSAbYBQVVfeXFMUGpqcG5tVXB"
-    },
-    {
-      "player_id": "87",
-      "player": "Ajer",
-      "team": "BRE",
-      "concern": "Subject of a Brentford injury update ahead of their Premier League fixture against Aston Villa.",
-      "severity": "medium",
-      "affects": "availability",
-      "source": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPMEdRSWl1R01FVjlkN1M5SHJrY1htSmJaT3JEZE1kY25EbnZTRHV3SXJraE15VWg2VHRKMXFnTDZBR0VheGRQSUo3a1ZwTnVvMlR1RzdqQ1ppQUtTc2RkcnRMaDlaN01EaUl5WFJDWVg5SzVxZkhPYndmVkM5MlVqWHlKZldXTUFlNHRMc2NFUFFCRjNTWFV1SWJKMlh3XzV6QTNnRVB3?oc=5"
     }
   ]
 }
