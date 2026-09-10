@@ -1,7 +1,7 @@
 # fpl-rules
 
 - Source: https://fantasy.premierleague.com/help/rules
-- Fetched: 2026-09-10T11:08:56.441931+00:00
+- Fetched: 2026-09-10T16:18:16.285315+00:00
 - Why it's here: Core scoring, squad, transfer and chip rules
 
 Captured automatically by `fpl-agent/knowledge.py` as reference material for the FPL agent.
@@ -263,10 +263,10 @@ Bench Boost The points scored by your bench players in the Gameweek are included
 Free Hit Make unlimited free transfers for a single Gameweek. At the next deadline your squad is returned to how it was at the start of the Gameweek.
 Triple Captain Your captain points are tripled instead of doubled in the Gameweek.
 Wildcard All transfers (including those already made) in the Gameweek are free of charge.
-Managers will receive two Bench Boost and Triple Captain chips during the season which can be used when saving your team on the Pick Team page. The first set of these chips will be available from the start of your season until the Gameweek 19 deadline of Sat 2 Jan 13:30. The second set of these chips will be available after Sat 2 Jan 13:30. These chips can be cancelled before the Gameweek deadline.
-There will also be two Free Hit chips available during the season. The first set of these chips will be available after the first Gameweek of your season and must be played by the Gameweek 19 deadline of Sat 2 Jan 13:30. The second set of these chips will be available after Sat 2 Jan 13:30. This chip is played when confirming your transfers and cannot be cancelled once confirmed.
+Managers will receive two Bench Boost and Triple Captain chips during the season which can be used when saving your team on the Pick Team page. The first set of these chips will be available from the start of your season until the Gameweek 19 deadline of Fri 1 Jan 18:30. The second set of these chips will be available after Fri 1 Jan 18:30. These chips can be cancelled before the Gameweek deadline.
+There will also be two Free Hit chips available during the season. The first set of these chips will be available after the first Gameweek of your season and must be played by the Gameweek 19 deadline of Fri 1 Jan 18:30. The second set of these chips will be available after Fri 1 Jan 18:30. This chip is played when confirming your transfers and cannot be cancelled once confirmed.
 The Free Hit chip cannot be played in consecutive Gameweeks. So, if the first chip is played in Gameweek 19, the second Free Hit cannot be made active until Gameweek 21.
-The Wildcard chip can also be used twice a season. The first Wildcard will be available after the first Gameweek of your season until the Gameweek 19 deadline of Sat 2 Jan 13:30. The second Wildcard will be available after Sat 2 Jan 13:30 in readiness for the January transfer window opening and remain available until the end of the season. The Wildcard chip is played when confirming transfers and cannot be cancelled once played.
+The Wildcard chip can also be used twice a season. The first Wildcard will be available after the first Gameweek of your season until the Gameweek 19 deadline of Fri 1 Jan 18:30. The second Wildcard will be available after Fri 1 Jan 18:30 in readiness for the January transfer window opening and remain available until the end of the season. The Wildcard chip is played when confirming transfers and cannot be cancelled once played.
 Please note that when playing either a Wildcard or your Free Hit chip, any saved free transfers are retained for the following Gameweek. If you had 2 saved free transfers, you will still have 2 saved free transfers the Gameweek after playing the chip.
 
 Deadlines
@@ -291,10 +291,10 @@ Gameweek 13 Wed 2 Dec 18:30
 Gameweek 14 Sat 5 Dec 13:30
 Gameweek 15 Sat 12 Dec 13:30
 Gameweek 16 Sat 19 Dec 13:30
-Gameweek 17 Sat 26 Dec 13:30
-Gameweek 18 Wed 30 Dec 18:30
-Gameweek 19 Sat 2 Jan 13:30
-Gameweek 20 Wed 6 Jan 18:30
+Gameweek 17 Sat 26 Dec 11:00
+Gameweek 18 Tue 29 Dec 18:00
+Gameweek 19 Fri 1 Jan 18:30
+Gameweek 20 Tue 5 Jan 18:00
 Gameweek 21 Sat 16 Jan 13:30
 Gameweek 22 Sat 23 Jan 13:30
 Gameweek 23 Sat 30 Jan 13:30
