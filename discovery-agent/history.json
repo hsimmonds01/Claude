@@ -2834,6 +2834,66 @@
           "link_status": "verified"
         }
       ]
+    },
+    {
+      "date": "2026-09-10",
+      "model": "gemini-2.5-flash (legacy key, live search)",
+      "items": [
+        {
+          "title": "Apple Unveils iPhone Duo: Its First Foldable Smartphone",
+          "category": "product",
+          "summary": "Apple has officially announced the iPhone Duo, its groundbreaking first foldable smartphone, featuring a 7.6-inch inner display and a compact 5.4-inch outer screen. Pre-orders for this significant new release begin in October, with the device set to redefine the foldable phone experience.",
+          "url": "https://www.google.com/search?q=Apple+Unveils+iPhone+Duo%3A+Its+First+Foldable+Smartphone",
+          "date_info": "Pre-orders begin October 16, 2026; Release on October 23, 2026",
+          "urgency": "heads-up",
+          "link_status": "search"
+        },
+        {
+          "title": "Audio-Technica Launches First Wireless Open-Back Headphones",
+          "category": "product",
+          "summary": "Audio-Technica has released the ATH-AL5NC, its first-ever wireless open-back headphones, offering a spacious sound and up to 75 hours of battery life. Priced affordably at £219, these headphones are available now and are ideal for music lovers, home workers, and gamers seeking premium sound quality without the wires.",
+          "url": "https://www.hifipig.com/audio-technica-launches-ath-al5nc-wireless-open-back-headphones/",
+          "date_info": "Available from September 9, 2026",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "HOMME PLISSÉ ISSEY MIYAKE x Henri Matisse 'The Snail' Capsule at Tate Modern",
+          "category": "drop",
+          "summary": "HOMME PLISSÉ ISSEY MIYAKE is launching a new capsule collection inspired by Henri Matisse's 'The Snail' as part of their 'OPEN STUDIO' project at London's Tate Modern. The collection, featuring pleated garments emphasizing rhythm and color, will be presented with a dance performance and available for purchase at the museum and online.",
+          "url": "https://www.google.com/search?q=HOMME+PLISS%C3%89+ISSEY+MIYAKE+x+Henri+Matisse+%27The+Snail%27+Capsule+at+Tate+Modern",
+          "date_info": "Presentation on September 16, 2026; Collection available from September 17, 2026",
+          "urgency": "heads-up",
+          "link_status": "search"
+        },
+        {
+          "title": "Razer Reclusa X Mini 65% Mechanical Keyboard Launched",
+          "category": "product",
+          "summary": "Razer has introduced the Reclusa X Mini 65%, an affordable and customizable hot-swappable mechanical gaming keyboard. Priced at just $49.99 / €69.99, it offers features like Snap Tap and a 1,000 Hz polling rate, making it an interesting gadget for both newcomers and enthusiasts.",
+          "url": "https://www.google.com/search?q=Razer+Reclusa+X+Mini+65%25+Mechanical+Keyboard+Launched",
+          "date_info": "Available now",
+          "urgency": "act-fast",
+          "link_status": "search"
+        },
+        {
+          "title": "Borough Market's 'Flame & Smoke' After-Hours Fire Cooking Event Tonight",
+          "category": "event",
+          "summary": "Experience the theatre of fire cooking at Borough Market's brand-new 'Flame & Smoke' event this evening. Traders and chefs will be serving unique small plates from various fire cooking traditions, with live demonstrations, making it a must-attend food event in South East London.",
+          "url": "https://www.google.com/search?q=Borough+Market%27s+%27Flame+%26+Smoke%27+After-Hours+Fire+Cooking+Event+Tonight",
+          "date_info": "Tonight, September 10, 2026, 6:30pm - 9:30pm",
+          "urgency": "act-fast",
+          "link_status": "search"
+        },
+        {
+          "title": "Bold Bean Co Offering 500 Free Lunches Daily at Greek Street Pop-up",
+          "category": "other",
+          "summary": "Bold Bean Co is hosting 'The Beanery' pop-up on Greek Street, giving away 500 free lunches each day. Enjoy delicious bean-based dishes like lemon butter beans with pesto or tomato and harissa yoghurt chickpeas, all served with focaccia, plus a shop and a florist exchanging empty jars for bouquets.",
+          "url": "https://www.google.com/search?q=Bold+Bean+Co+Offering+500+Free+Lunches+Daily+at+Greek+Street+Pop-up",
+          "date_info": "September 15 - 17, 2026",
+          "urgency": "heads-up",
+          "link_status": "search"
+        }
+      ]
     }
   ]
 }
