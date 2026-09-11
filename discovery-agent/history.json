@@ -2894,6 +2894,84 @@
           "link_status": "search"
         }
       ]
+    },
+    {
+      "date": "2026-09-11",
+      "model": "gemini-2.5-flash (legacy key, live search)",
+      "items": [
+        {
+          "title": "Dune: Part Three IMAX Tickets Now On Sale",
+          "category": "film",
+          "summary": "Secure your tickets for the highly anticipated 'Dune: Part Three' in IMAX and Superscreen formats. This is a big-screen film event that will likely sell out for sci-fi fans.",
+          "url": "https://www.google.com/search?q=Dune%3A+Part+Three+IMAX+Tickets+Now+On+Sale",
+          "date_info": "Tickets on sale now",
+          "urgency": "act-fast",
+          "link_status": "search"
+        },
+        {
+          "title": "Saturdays NYC x Dickies FW26 Capsule Collection Drops Today",
+          "category": "drop",
+          "summary": "Saturdays NYC and Dickies reunite for a Fall/Winter 2026 capsule, merging tough workwear utility with refined coastal streetwear aesthetics. The collection, featuring modified Double Knee Work Pants and tailored slacks, is available starting today.",
+          "url": "https://www.google.com/search?q=Saturdays+NYC+x+Dickies+FW26+Capsule+Collection+Drops+Today",
+          "date_info": "Releasing via Saturdays NYC flagships and webstore starting September 11",
+          "urgency": "act-fast",
+          "link_status": "search"
+        },
+        {
+          "title": "Illumicrate Pop-Up Shop Tickets Go On Sale Next Week",
+          "category": "event",
+          "summary": "Tickets for the Illumicrate Pop-Up Shop, offering previously sold-out stock and exclusive merchandise, go on sale next Friday. This is a prime chance to grab limited-edition items.",
+          "url": "https://www.google.com/search?q=Illumicrate+Pop-Up+Shop+Tickets+Go+On+Sale+Next+Week",
+          "date_info": "Tickets on sale Friday, September 18, 2026, at 12:00 PM BST",
+          "urgency": "heads-up",
+          "link_status": "search"
+        },
+        {
+          "title": "Grease: The Immersive Movie Musical Ends This Weekend",
+          "category": "event",
+          "summary": "Experience Rydell High like never before in this immersive musical, allowing you to interact with characters and enjoy iconic songs. The show closes on September 13th, so act fast for a chance to grab a milkshake in Frosty Palace.",
+          "url": "https://www.google.com/search?q=Grease%3A+The+Immersive+Movie+Musical+Ends+This+Weekend",
+          "date_info": "Ends September 13, 2026",
+          "urgency": "act-fast",
+          "link_status": "search"
+        },
+        {
+          "title": "West Ham United vs. Fulham FC Carabao Cup Tickets Available",
+          "category": "football",
+          "summary": "Don't miss a London derby as West Ham United take on Fulham FC in the Carabao Cup. Tickets are available now for this mid-week fixture at London Stadium.",
+          "url": "https://www.ticketmaster.co.uk/browse/football-catid-11/sport-rid-10004/london-dma-602",
+          "date_info": "Match: Tuesday, September 15, 2026, at 7:45 PM",
+          "urgency": "this-week",
+          "link_status": "verified"
+        },
+        {
+          "title": "Shine 2026: See, Meet, Shop New Talent Pop-Up",
+          "category": "event",
+          "summary": "Discover and purchase unique designs from 13 emerging UK jewellery and silversmithing designer-makers at this free, ticketed pop-up event. It’s a great opportunity to find beautiful design objects and support small brands.",
+          "url": "https://www.google.com/search?q=Shine+2026%3A+See%2C+Meet%2C+Shop+New+Talent+Pop-Up",
+          "date_info": "Wednesday, September 16, 2026, 5:00 PM – 8:00 PM",
+          "urgency": "this-week",
+          "link_status": "search"
+        },
+        {
+          "title": "My Waitrose Food & Drink Festival 2026 Tickets On Sale",
+          "category": "event",
+          "summary": "Tickets are now available for the My Waitrose Food & Drink Festival at Tobacco Dock this November. Described as the 'hottest ticket in town' for food lovers, it features over 200 suppliers, live cooking demonstrations, and tastings.",
+          "url": "https://www.google.com/search?q=My+Waitrose+Food+%26+Drink+Festival+2026+Tickets+On+Sale",
+          "date_info": "Event: November 20-22, 2026; Tickets on sale now",
+          "urgency": "heads-up",
+          "link_status": "search"
+        },
+        {
+          "title": "Free McCafé Coffee Each Week via McDonald's App",
+          "category": "free sign-up",
+          "summary": "Grab a free McCafé coffee every week by redeeming the offer through the McDonald's UK app. This low-effort promotion adds real value for coffee lovers.",
+          "url": "https://www.google.com/search?q=Free+McCaf%C3%A9+Coffee+Each+Week+via+McDonald%27s+App",
+          "date_info": "Available between September 8 and September 30, 2026",
+          "urgency": "this-week",
+          "link_status": "search"
+        }
+      ]
     }
   ]
 }
