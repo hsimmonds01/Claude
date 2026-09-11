@@ -33,9 +33,6 @@
     "5ZY4cV8TNSUYTST6vAt3ny::window_open::accessible-ticket-application-window-opens-pm": "2026-09-11T14:31:08.814303+00:00",
     "5ZY4cV8TNSUYTST6vAt3ny::window_open::ticket-application-window-opens-pm": "2026-09-11T14:31:08.814299+00:00"
   },
-  "open_since": {
-    "5ZY4cV8TNSUYTST6vAt3ny::window_open::accessible-ticket-application-window-opens-pm": "2026-09-11T14:31:07.839682+00:00",
-    "5ZY4cV8TNSUYTST6vAt3ny::window_open::ticket-application-window-opens-pm": "2026-09-11T14:31:07.839682+00:00"
-  },
+  "open_since": {},
   "schema_version": 1
 }
