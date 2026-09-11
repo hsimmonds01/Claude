@@ -95,6 +95,12 @@
       "event": 3,
       "at": "2026-09-07T19:06:56.267546+00:00",
       "subject": "FPL review \u2014 Gameweek 3"
+    },
+    {
+      "kind": "main",
+      "event": 4,
+      "at": "2026-09-11T04:27:05.281197+00:00",
+      "subject": "FPL GW4 \u2014 Hume \u2192 Thiaw, captain B.Fernandes."
     }
   ]
 }

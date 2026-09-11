@@ -111,6 +111,13 @@
       "event": 3,
       "subject": "FPL review \u2014 Gameweek 3",
       "reason": "GW3 points are final"
+    },
+    {
+      "at": "2026-09-11T04:27:05.281197+00:00",
+      "kind": "main",
+      "event": 4,
+      "subject": "FPL GW4 \u2014 Hume \u2192 Thiaw, captain B.Fernandes.",
+      "reason": "32.0h to the GW4 deadline (lead 36h for a 7.8-day gap)"
     }
   ],
   "failures": [
