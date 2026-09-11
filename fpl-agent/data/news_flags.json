@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-09-11T20:54:21.914942+00:00",
+  "generated_at": "2026-09-11T23:12:11.291868+00:00",
   "model": "gemini-flash-latest",
-  "headlines_considered": 48,
+  "headlines_considered": 46,
   "flags": [
     {
       "player_id": "87",
       "player": "Ajer",
       "team": "BRE",
-      "concern": "Brentford have issued an injury update regarding his condition ahead of their match against Aston Villa.",
+      "concern": "Brentford have issued an injury update on Kristoffer Ajer ahead of their match against Aston Villa.",
       "severity": "medium",
       "affects": "availability",
       "source": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPMEdRSWl1R01FVjlkN1M5SHJrY1htSmJaT3JEZE1kY25EbnZTRHV3SXJraE15VWg2VHRKMXFnTDZBR0VheGRQSUo3a1ZwTnVvMlR1RzdqQ1ppQUtTc2RkcnRMaDlaN01EaUl5WFJDWVg5SzVxZkhPYndmVkM5MlVqWHlKZldXTUFlNHRMc2NFUFFCRjNTWFV1SWJKMlh3XzV6QTNnRVB3?oc=5"
@@ -16,7 +16,7 @@
       "player_id": "366",
       "player": "Wirtz",
       "team": "LIV",
-      "concern": "Arne Slot addressed his fitness in the pre-match press conference ahead of Gameweek 4.",
+      "concern": "Arne Slot addressed Florian Wirtz's fitness in his pre-match press conference.",
       "severity": "medium",
       "affects": "availability",
       "source": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQS2IyVDFNRGk3ckhnOTZiWEpid3Ztb2FHazRkNm1lc2huSERxMUNwR3dGZHJ3WEpQSFV6bWJ3OVZGNFhWWWdQT2c1TzctRmJqbXZrU2NRRVJYeVBMQkJ6dnVKaEFoTVhvNGh0V01FWDl4VkJlOUM0V0U2V1AtU1U0LUk1TnNFZDVMeGVLVU5sTFNseHUwZXhESG5HMDN2TmNEa1FTMFZaZzhWWmZNTkHSAbYBQVVfeXFMUGpqcG5tVXB"
@@ -25,10 +25,10 @@
       "player_id": "13",
       "player": "Rice",
       "team": "ARS",
-      "concern": "Subject of an injury update ahead of Arsenal's fixture against Brighton.",
+      "concern": "Declan Rice is subject to an injury update ahead of Arsenal's upcoming fixture.",
       "severity": "medium",
       "affects": "availability",
-      "source": ""
+      "source": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxPS2RZbUlXR1J5TGNqNEozTHpnY2xEOEdmcGZ2TjRGWUg2U0ppaEJtdUZ0QmdoMHBHN2gzQ3I5bGVPNXFkQkdtZ0lUNWR5ZXRfNWRXMDJHbE5mUmtpRTBObEZTQnQtRjZ3M2hETHpRRkRia1pENGhLN3F5OFFRT2tSRmZ2Q2VzTWZOUVBn0gGQAUFVX3lxTE5DSTZuTmFWdl8zYUQ4QzR3MnFqd0doX21YMnlJdFhHanRUbDk4eTdyYnV"
     }
   ]
 }
