@@ -10,6 +10,15 @@
         "ticket-application-window-opens": "open"
       }
     },
+    "5ZY4cV8TNSUYTST6vAt3ny": {
+      "competition": "Premier League",
+      "date": "Sat 24 Oct 2026",
+      "opponent": "Tottenham Hotspur",
+      "windows": {
+        "accessible-ticket-application-window-opens-pm": "open",
+        "ticket-application-window-opens-pm": "open"
+      }
+    },
     "6rixcGFDEWH5V98iSqSPLa": {
       "competition": "Premier League",
       "date": "Sat 12 Sept 2026",
@@ -19,8 +28,14 @@
   },
   "notified": {
     "4YKiFTwIByKGcZiZIU1Zka::new_fixture": "2026-09-04T15:01:22.682290+00:00",
-    "4YKiFTwIByKGcZiZIU1Zka::window_open::ticket-application-window-opens": "2026-09-04T15:01:22.682306+00:00"
+    "4YKiFTwIByKGcZiZIU1Zka::window_open::ticket-application-window-opens": "2026-09-04T15:01:22.682306+00:00",
+    "5ZY4cV8TNSUYTST6vAt3ny::new_fixture": "2026-09-11T14:31:08.814281+00:00",
+    "5ZY4cV8TNSUYTST6vAt3ny::window_open::accessible-ticket-application-window-opens-pm": "2026-09-11T14:31:08.814303+00:00",
+    "5ZY4cV8TNSUYTST6vAt3ny::window_open::ticket-application-window-opens-pm": "2026-09-11T14:31:08.814299+00:00"
   },
-  "open_since": {},
+  "open_since": {
+    "5ZY4cV8TNSUYTST6vAt3ny::window_open::accessible-ticket-application-window-opens-pm": "2026-09-11T14:31:07.839682+00:00",
+    "5ZY4cV8TNSUYTST6vAt3ny::window_open::ticket-application-window-opens-pm": "2026-09-11T14:31:07.839682+00:00"
+  },
   "schema_version": 1
 }
