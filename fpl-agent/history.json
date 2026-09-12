@@ -118,6 +118,13 @@
       "event": 4,
       "subject": "FPL GW4 \u2014 Hume \u2192 Thiaw, captain B.Fernandes.",
       "reason": "32.0h to the GW4 deadline (lead 36h for a 7.8-day gap)"
+    },
+    {
+      "at": "2026-09-12T15:27:42.486013+00:00",
+      "kind": "preseason",
+      "event": 5,
+      "subject": "FPL pre-season \u2014 6 days to the GW5 deadline",
+      "reason": "6.1 days to the GW5 deadline; last digest 7.8 days ago"
     }
   ],
   "failures": [

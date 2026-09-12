@@ -101,6 +101,12 @@
       "event": 4,
       "at": "2026-09-11T04:27:05.281197+00:00",
       "subject": "FPL GW4 \u2014 Hume \u2192 Thiaw, captain B.Fernandes."
+    },
+    {
+      "kind": "preseason",
+      "event": 5,
+      "at": "2026-09-12T15:27:42.486013+00:00",
+      "subject": "FPL pre-season \u2014 6 days to the GW5 deadline"
     }
   ]
 }

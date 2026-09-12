@@ -39,16 +39,20 @@
     {
       "chip": "triple_captain",
       "event": 3
+    },
+    {
+      "chip": "free_hit",
+      "event": 4
     }
   ],
   "my_lineup": {
-    "captain": "Haaland",
-    "vice_captain": "B.Fernandes",
+    "captain": "Palmer",
+    "vice_captain": "Saka",
     "bench": [
-      "Kinsky",
-      "E.Le Fée",
-      "Shaw",
-      "Davis"
+      "Zetterer",
+      "Thomas",
+      "Davis",
+      "Olusesi"
     ]
   },
   "squad": [
@@ -63,28 +67,23 @@
       "position": "DEF"
     },
     {
-      "name": "Ajer",
-      "team": "BRE",
+      "name": "De Cuyper",
+      "team": "BHA",
       "position": "DEF"
     },
     {
-      "name": "Hume",
-      "team": "SUN",
+      "name": "Konsa",
+      "team": "ARS",
       "position": "DEF"
     },
     {
-      "name": "B.Fernandes",
-      "team": "MUN",
+      "name": "Palmer",
+      "team": "CHE",
       "position": "MID"
     },
     {
-      "name": "Szoboszlai",
-      "team": "LIV",
-      "position": "MID"
-    },
-    {
-      "name": "Cherki",
-      "team": "MCI",
+      "name": "Rogers",
+      "team": "CHE",
       "position": "MID"
     },
     {
@@ -93,9 +92,9 @@
       "position": "MID"
     },
     {
-      "name": "Haaland",
-      "team": "MCI",
-      "position": "FWD"
+      "name": "Saka",
+      "team": "ARS",
+      "position": "MID"
     },
     {
       "name": "João Pedro",
@@ -103,29 +102,34 @@
       "position": "FWD"
     },
     {
-      "name": "Calvert-Lewin",
-      "team": "LEE",
+      "name": "Isak",
+      "team": "LIV",
       "position": "FWD"
     },
     {
-      "name": "Kinsky",
-      "team": "TOT",
+      "name": "Haaland",
+      "team": "MCI",
+      "position": "FWD"
+    },
+    {
+      "name": "Zetterer",
+      "team": "LEE",
       "position": "GKP"
     },
     {
-      "name": "E.Le Fée",
-      "team": "SUN",
-      "position": "MID"
-    },
-    {
-      "name": "Shaw",
-      "team": "MUN",
+      "name": "Thomas",
+      "team": "COV",
       "position": "DEF"
     },
     {
       "name": "Davis",
       "team": "IPS",
       "position": "DEF"
+    },
+    {
+      "name": "Olusesi",
+      "team": "TOT",
+      "position": "MID"
     }
   ],
   "history": [
@@ -142,6 +146,7 @@
     "2026-09-04: squad.py reconstructed GW3 from the live FPL API -- 0 pts this gameweek, £100.3m squad value, £0.8m banked, captain Haaland. Chip active: triple_captain.",
     "2026-09-04: squad.py reconstructed GW3 from the live FPL API -- 3 pts this gameweek, £100.3m squad value, £0.8m banked, captain Haaland. Chip active: triple_captain.",
     "2026-09-05: squad.py reconstructed GW3 from the live FPL API -- 41 pts this gameweek, £100.3m squad value, £0.8m banked, captain Haaland. Chip active: triple_captain.",
-    "2026-09-07: squad.py reconstructed GW3 from the live FPL API -- 46 pts this gameweek, £100.3m squad value, £0.8m banked, captain Haaland. Chip active: triple_captain."
+    "2026-09-07: squad.py reconstructed GW3 from the live FPL API -- 46 pts this gameweek, £100.3m squad value, £0.8m banked, captain Haaland. Chip active: triple_captain.",
+    "2026-09-12: squad.py reconstructed GW4 from the live FPL API -- 0 pts this gameweek, £100.3m squad value, £0.8m banked, captain Palmer. Chip active: free_hit."
   ]
 }
