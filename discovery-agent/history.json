@@ -2972,6 +2972,84 @@
           "link_status": "search"
         }
       ]
+    },
+    {
+      "date": "2026-09-12",
+      "model": "gemini-2.5-flash (legacy key, live search)",
+      "items": [
+        {
+          "title": "GOD SELECTION XXX x GAN x YU Time-Limited T-shirt Drop",
+          "category": "drop",
+          "summary": "Japanese streetwear brand GOD SELECTION XXX has launched a 48-hour limited-order T-shirt collaboration with GAN and I Don't Like Mondays.' YU, available online now.",
+          "url": "https://hypebeast.com/2026/9/god-selection-xxx-yu-i-dont-like-mondays-gan-collaboration-release-info",
+          "date_info": "48-hour limited order window from Sep 12-14, 2026",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "Eckhaus Latta and J.Crew 27-Piece Capsule Collection",
+          "category": "drop",
+          "summary": "Eckhaus Latta and J.Crew are expanding their partnership with a new 27-piece capsule collection, reimagining classic American sportswear. It launches on September 15, with early access available via email signup.",
+          "url": "https://hypebeast.com/2026/9/eckhaus-latta-j-crew-collaboration-release-info",
+          "date_info": "Launches Sep 15, 2026 (early access Sep 15, 9am ET with email signup)",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "BFI London Film Festival 2026 Tickets",
+          "category": "film",
+          "summary": "The 70th BFI London Film Festival runs from October 7-18. General tickets go on sale on September 17, but BFI Members can already secure their seats with priority booking.",
+          "url": "https://www.google.com/search?q=BFI+London+Film+Festival+2026+Tickets",
+          "date_info": "General tickets on sale Thu 17 Sep, 10am; BFI Members priority booking now available",
+          "urgency": "act-fast",
+          "link_status": "search"
+        },
+        {
+          "title": "Fenty Beauty Fluid Flex Gym Pop-Up in Covent Garden",
+          "category": "food",
+          "summary": "Experience the Fenty Beauty Fluid Flex Gym Pop-Up in Covent Garden, offering product trials, complimentary samples, and free milkshakes. Hurry, it ends tomorrow!",
+          "url": "https://www.google.com/search?q=Fenty+Beauty+Fluid+Flex+Gym+Pop-Up+in+Covent+Garden",
+          "date_info": "Ends Sep 13, 2026",
+          "urgency": "act-fast",
+          "link_status": "search"
+        },
+        {
+          "title": "Quentin Tarantino's Debut Stage Play 'The Popinjay Cavalier'",
+          "category": "event",
+          "summary": "A significant new stage play by Quentin Tarantino, starring Sacha Baron Cohen, is confirmed for London's West End in early 2027. Sign up now for updates and priority booking information, as tickets are expected to sell out.",
+          "url": "https://hypebeast.com/2026/9/sacha-baron-cohen-star-quentin-tarantino-debut-stage-play-the-popinjay-cavalier-news",
+          "date_info": "Expected early 2027, sign up for priority booking updates",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "Gilroy's Loft at Guinness Open Gate Brewery London: 50% Off Food",
+          "category": "food",
+          "summary": "Enjoy an exclusive 50% off your food bill at Gilroy's Loft, a rooftop restaurant in Covent Garden known for fresh seafood and Guinness.",
+          "url": "https://www.google.com/search?q=Gilroy%27s+Loft+at+Guinness+Open+Gate+Brewery+London%3A+50%25+Off+Food",
+          "date_info": "Offer valid Sep 10 - Oct 10, 2026",
+          "urgency": "this-week",
+          "link_status": "search"
+        },
+        {
+          "title": "Leadenhall Market's Wunderkammer Pop-ups",
+          "category": "event",
+          "summary": "Discover a series of curious pop-ups at Leadenhall Market, including a miniature serving window and tiny shops, running Thursday to Saturday until December.",
+          "url": "https://www.google.com/search?q=Leadenhall+Market%27s+Wunderkammer+Pop-ups",
+          "date_info": "Open Thu-Sat, Sep-Dec 2026",
+          "urgency": "heads-up",
+          "link_status": "search"
+        },
+        {
+          "title": "Note Pin AI Recorder",
+          "category": "product",
+          "summary": "A tiny AI voice recorder that transcribes, summarizes, and pulls out to-do lists, a genuinely clever gadget that fits the 'how did I not know this existed' category.",
+          "url": "https://www.google.com/search?q=Note+Pin+AI+Recorder",
+          "date_info": "Available now",
+          "urgency": "heads-up",
+          "link_status": "search"
+        }
+      ]
     }
   ]
 }
