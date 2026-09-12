@@ -1,6 +1,16 @@
 {
-  "generated_at": "2026-09-12T04:25:19.178754+00:00",
+  "generated_at": "2026-09-12T22:58:14.956495+00:00",
   "model": "gemini-flash-latest",
-  "headlines_considered": 16,
-  "flags": []
+  "headlines_considered": 48,
+  "flags": [
+    {
+      "player_id": "366",
+      "player": "Wirtz",
+      "team": "LIV",
+      "concern": "Arne Slot addressed Wirtz's fitness in his pre-match press conference following the Fulham match.",
+      "severity": "low",
+      "affects": "availability",
+      "source": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQS2IyVDFNRGk3ckhnOTZiWEpid3Ztb2FHazRkNm1lc2huSERxMUNwR3dGZHJ3WEpQSFV6bWJ3OVZGNFhWWWdQT2c1TzctRmJqbXZrU2NRRVJYeVBMQkJ6dnVKaEFoTVhvNGh0V01FWDl4VkJlOUM0V0U2V1AtU1U0LUk1TnNFZDVMeGVLVU5sTFNseHUwZXhESG5HMDN2TmNEa1FTMFZaZzhWWmZNTkHSAbYBQVVfeXFMUGpqcG5tVXB"
+    }
+  ]
 }
