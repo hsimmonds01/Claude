@@ -3050,6 +3050,84 @@
           "link_status": "search"
         }
       ]
+    },
+    {
+      "date": "2026-09-14",
+      "model": "gemini-2.5-flash (legacy key, live search)",
+      "items": [
+        {
+          "title": "Palace Skateboards x Avirex Fall 2026 Drop 7",
+          "category": "drop",
+          "summary": "The latest limited-edition streetwear collaboration from Palace and Avirex is dropping this week. Expect highly anticipated pieces that fit the client's love for small-brand limited runs and designer collaborations.",
+          "url": "https://hypebeast.com/2026/9/avirex-palace-skateboards-fall-2026-drop-7-collaboration-collection-release-info",
+          "date_info": "This Week",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "BFI London Film Festival General Tickets On Sale",
+          "category": "event",
+          "summary": "General public tickets for the 70th BFI London Film Festival, showcasing world and UK premieres of new films, go on sale this Thursday. This is a prime opportunity to secure tickets for major big-screen film events in London.",
+          "url": "https://www.google.com/search?q=BFI+London+Film+Festival+General+Tickets+On+Sale",
+          "date_info": "Tickets on general sale Thursday 17 September, 10am",
+          "urgency": "act-fast",
+          "link_status": "search"
+        },
+        {
+          "title": "Dr. Martens Maxi Overdrive Leather Tote Bag",
+          "category": "product",
+          "summary": "A newly released, durable, and stylish large leather tote bag from Dr. Martens, perfect as a work carry-all. Its waxed leather is designed to age beautifully, making it a genuinely interesting and well-designed object.",
+          "url": "https://www.google.com/search?q=Dr.+Martens+Maxi+Overdrive+Leather+Tote+Bag",
+          "date_info": "",
+          "urgency": "heads-up",
+          "link_status": "search"
+        },
+        {
+          "title": "Parakeet x Café Kowloon Food Collaboration",
+          "category": "food",
+          "summary": "Experience a unique one-night-only dinner at The Parakeet in Kentish Town on September 23rd, blending Hong Kong Cantonese cooking with a fire-led approach. A collaboration dish will also be available from September 16th.",
+          "url": "https://www.google.com/search?q=Parakeet+x+Caf%C3%A9+Kowloon+Food+Collaboration",
+          "date_info": "Dinner on Wed 23 September; collaboration dish from Mon 16 September",
+          "urgency": "this-week",
+          "link_status": "search"
+        },
+        {
+          "title": "Duda Diner Malaysian Pop-up at The Pilgrm",
+          "category": "food",
+          "summary": "The highly-regarded Malaysian family-style pop-up, Duda Diner, is starting a new residency at The Pilgrm in Paddington. This is a fantastic chance to try unique dishes inspired by family recipes and Malaysian street food.",
+          "url": "https://www.google.com/search?q=Duda+Diner+Malaysian+Pop-up+at+The+Pilgrm",
+          "date_info": "Starts Thu 17 September",
+          "urgency": "this-week",
+          "link_status": "search"
+        },
+        {
+          "title": "Asda Free Flu Vaccinations Today",
+          "category": "other",
+          "summary": "Asda is offering 6,000 free flu vaccinations today, Monday 14 September, for individuals not eligible for a free NHS jab. This is a valuable, low-effort perk to take advantage of immediately.",
+          "url": "https://www.free-stuff.co.uk/",
+          "date_info": "Today, Monday 14 September",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "Cashback.co.uk: Free £10 Welcome Bonus",
+          "category": "other",
+          "summary": "Sign up to Cashback.co.uk, a platform that helps you earn money in your spare time, and receive a free £10 welcome bonus. It's a low-effort way to get a genuine perk.",
+          "url": "https://www.google.com/search?q=Cashback.co.uk%3A+Free+%C2%A310+Welcome+Bonus",
+          "date_info": "",
+          "urgency": "heads-up",
+          "link_status": "search"
+        },
+        {
+          "title": "Quidco: Free £10 Sign-up Bonus",
+          "category": "other",
+          "summary": "Get a £10 bonus when you sign up to Quidco, one of the UK's leading cashback sites, and earn your first £5 in confirmed cashback. It's a simple way to get real value and save on everyday spending.",
+          "url": "https://www.google.com/search?q=Quidco%3A+Free+%C2%A310+Sign-up+Bonus",
+          "date_info": "",
+          "urgency": "heads-up",
+          "link_status": "search"
+        }
+      ]
     }
   ]
 }
