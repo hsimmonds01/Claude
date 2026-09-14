@@ -1,16 +1,16 @@
 {
-  "generated_at": "2026-09-12T22:58:14.956495+00:00",
+  "generated_at": "2026-09-14T04:44:50.238431+00:00",
   "model": "gemini-flash-latest",
-  "headlines_considered": 48,
+  "headlines_considered": 46,
   "flags": [
     {
-      "player_id": "366",
-      "player": "Wirtz",
-      "team": "LIV",
-      "concern": "Arne Slot addressed Wirtz's fitness in his pre-match press conference following the Fulham match.",
+      "player_id": "542",
+      "player": "E.Le Fée",
+      "team": "SUN",
+      "concern": "Manager Régis Le Bris publicly addressed Le Fée's penalty miss, putting his role as Sunderland's primary penalty taker at risk.",
       "severity": "low",
-      "affects": "availability",
-      "source": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQS2IyVDFNRGk3ckhnOTZiWEpid3Ztb2FHazRkNm1lc2huSERxMUNwR3dGZHJ3WEpQSFV6bWJ3OVZGNFhWWWdQT2c1TzctRmJqbXZrU2NRRVJYeVBMQkJ6dnVKaEFoTVhvNGh0V01FWDl4VkJlOUM0V0U2V1AtU1U0LUk1TnNFZDVMeGVLVU5sTFNseHUwZXhESG5HMDN2TmNEa1FTMFZaZzhWWmZNTkHSAbYBQVVfeXFMUGpqcG5tVXB"
+      "affects": "role",
+      "source": "https://www.fantasyfootballscout.co.uk/2026/09/13/fpl-notes-white-injury-le-bris-on-le-fee-pen-miss-raya-haul"
     }
   ]
 }
