@@ -1,14 +1,14 @@
 {
-  "generated_at": "2026-09-14T04:44:50.238431+00:00",
+  "generated_at": "2026-09-14T23:50:13.017402+00:00",
   "model": "gemini-flash-latest",
-  "headlines_considered": 46,
+  "headlines_considered": 50,
   "flags": [
     {
       "player_id": "542",
       "player": "E.Le Fée",
       "team": "SUN",
-      "concern": "Manager Régis Le Bris publicly addressed Le Fée's penalty miss, putting his role as Sunderland's primary penalty taker at risk.",
-      "severity": "low",
+      "concern": "Manager Régis Le Bris commented on Enzo Le Fée's penalty miss, putting his status as first-choice penalty taker in doubt.",
+      "severity": "medium",
       "affects": "role",
       "source": "https://www.fantasyfootballscout.co.uk/2026/09/13/fpl-notes-white-injury-le-bris-on-le-fee-pen-miss-raya-haul"
     }
