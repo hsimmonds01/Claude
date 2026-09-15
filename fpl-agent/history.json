@@ -125,6 +125,13 @@
       "event": 5,
       "subject": "FPL pre-season \u2014 6 days to the GW5 deadline",
       "reason": "6.1 days to the GW5 deadline; last digest 7.8 days ago"
+    },
+    {
+      "at": "2026-09-15T16:50:41.347612+00:00",
+      "kind": "review",
+      "event": 4,
+      "subject": "FPL review \u2014 Gameweek 4",
+      "reason": "GW4 points are final"
     }
   ],
   "failures": [
