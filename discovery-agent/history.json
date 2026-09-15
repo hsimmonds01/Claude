@@ -3128,6 +3128,75 @@
           "link_status": "search"
         }
       ]
+    },
+    {
+      "date": "2026-09-15",
+      "model": "gemini-2.5-flash (legacy key, live search)",
+      "items": [
+        {
+          "title": "Oasis Knebworth 2027 Tour Tickets: Register by Thursday",
+          "category": "event",
+          "summary": "Don't miss out on tickets for Oasis's massive Knebworth 2027 reunion shows in London. You must register by Thursday, September 17, 4pm BST, to get a unique code for the ticket sales happening later this month.",
+          "url": "https://www.timeout.com/london/news/oasis-knebworth-2027-london-ticket-guide-091526",
+          "date_info": "Register by Thursday, September 17, 4pm BST. Ticket sales begin Friday, September 25, 2026.",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "Harry Styles Wembley 2027 Tickets on Sale This Week",
+          "category": "event",
+          "summary": "Tickets for Harry Styles' three Wembley Stadium shows in 2027 go on general sale this Thursday, September 17, at 11am. Presales are happening today (AMEX) and tomorrow (fan presale), so act fast if you want to secure your spot.",
+          "url": "https://www.timeout.com/london/news/harry-styles-wembley-2027-ticket-prices-091526",
+          "date_info": "AMEX Presale: Tue Sep 15, 11am. Artist Presale: Wed Sep 16, 11am. General Sale: Thu Sep 17, 11am.",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "Bistro Sablé Takes Over The Princess of Shoreditch",
+          "category": "food",
+          "summary": "One of London’s best French restaurants, Islington’s Bistro Sablé, is launching a three-month takeover of The Princess of Shoreditch gastropub starting October 1. Expect classic Parisian bistro dishes and a full makeover of the dining room.",
+          "url": "https://www.timeout.com/london/news/one-of-londons-best-french-restaurants-is-taking-over-a-shoreditch-gastropub-091526",
+          "date_info": "Starts October 1, 2026, for three months.",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "Juno: UK's Biggest Italian Restaurant Opening in West London",
+          "category": "food",
+          "summary": "Get ready for Juno, a massive new Italian restaurant opening at Olympia's Grade II-listed National Hall in West London on October 16. Billed as the UK's largest, it will offer all-day dining, Neapolitan pizza, cocktails, DJs, and live entertainment.",
+          "url": "https://www.timeout.com/london/news/the-uks-biggest-italian-restaurant-is-opening-in-london-091526",
+          "date_info": "Opens Friday, October 16, 2026.",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "Le Labo Unveils Limited-Edition 2026 Holiday Discovery Sets",
+          "category": "drop",
+          "summary": "Le Labo's highly anticipated 2026 Holiday Discovery Sets, featuring miniature versions of their iconic fragrances like SANTAL 33 and ANOTHER 13, will launch globally on October 13. These limited-edition sets are perfect for fragrance enthusiasts.",
+          "url": "https://hypebeast.com/2026/9/le-labo-holiday-collection-release-info",
+          "date_info": "Global launch on October 13, 2026.",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "PAL Sporting Goods Drops FW26 Collection",
+          "category": "drop",
+          "summary": "PAL Sporting Goods has released its Fall/Winter 2026 collection, blending Western heritage and workwear with a 'lived-in aesthetic.' The new streetwear pieces, including jackets, trousers, and flannels, are available to shop now.",
+          "url": "https://hypebeast.com/2026/9/pal-sporting-goods-fall-winter-2026-poyan-collection-lookbooks-release-info",
+          "date_info": "Available now (released September 15, 2026).",
+          "urgency": "this-week",
+          "link_status": "verified"
+        },
+        {
+          "title": "Audemars Piguet x Serena Williams Royal Oak Chronograph Limited Edition",
+          "category": "drop",
+          "summary": "Audemars Piguet has unveiled a stunning limited-edition Royal Oak Selfwinding Chronograph in white ceramic with a pink mother-of-pearl dial, created in collaboration with Serena Williams. Limited to just 500 pieces, this designer watch is available now exclusively through Audemars Piguet.",
+          "url": "https://hypebeast.com/2026/9/serena-williams-audemars-piguet-royal-oak-selfwinding-chronograph-38mm-limited-edition-release-info",
+          "date_info": "Available now (unveiled September 15, 2026).",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        }
+      ]
     }
   ]
 }
