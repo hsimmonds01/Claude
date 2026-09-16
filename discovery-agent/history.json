@@ -3197,6 +3197,57 @@
           "link_status": "verified"
         }
       ]
+    },
+    {
+      "date": "2026-09-16",
+      "model": "gemini-2.5-flash (legacy key, live search)",
+      "items": [
+        {
+          "title": "Kurono Tokyo Calendrier Small Batch Release in Saxe Blue",
+          "category": "drop",
+          "summary": "Japanese independent watchmaker Kurono Tokyo has unveiled a limited 'small batch' release of their Calendrier model in a striking Saxe Blue. This is a perfect catch for those interested in small-brand limited runs and beautiful design objects.",
+          "url": "https://hypebeast.com/2026/9/kurono-tokyo-calendrier-small-batch-release-info",
+          "date_info": "Release information expected soon, check link for updates",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "West London Pizzeria Crowned World's Best",
+          "category": "food",
+          "summary": "A West London pizzeria has been named the best pizza restaurant in the world. This is a must-try for any food enthusiast and worth planning a visit around.",
+          "url": "https://www.timeout.com/london/news/a-west-london-pizzeria-has-been-crowned-the-best-pizza-restaurant-in-the-world-091626",
+          "date_info": "",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "London Bus Restaurant Ranked UK's Second-Best Fine Dining",
+          "category": "food",
+          "summary": "Experience a unique dining concept on a London bus, which has been ranked as the UK's second-best fine dining restaurant. This offers an interesting and novel food experience that's worth checking out.",
+          "url": "https://www.google.com/search?q=London+Bus+Restaurant+Ranked+UK%27s+Second-Best+Fine+Dining",
+          "date_info": "",
+          "urgency": "heads-up",
+          "link_status": "search"
+        },
+        {
+          "title": "USM and Symbol Audio 'Record Shop' Pop-Up in London",
+          "category": "event",
+          "summary": "USM and Symbol Audio have opened a unique 'Record Shop' pop-up in London as part of the London Design Festival. This immersive experience combines high-end audio with design, making it a cool event to explore.",
+          "url": "https://hypebeast.com/2026/9/usm-symbol-audio-record-shop-london-design-festival",
+          "date_info": "Open now during London Design Festival",
+          "urgency": "this-week",
+          "link_status": "verified"
+        },
+        {
+          "title": "Blumhouse's 'Other Mommy' Trailer Released",
+          "category": "film",
+          "summary": "The trailer for Blumhouse's unsettling new horror thriller 'Other Mommy', starring Jessica Chastain, has been released. Keep an eye out for potential special screenings or IMAX releases in London.",
+          "url": "https://hypebeast.com/2026/9/jessica-chastain-universal-pictures-blumhouse-other-mommy-new-horror-thriller-trailer-release-info",
+          "date_info": "Trailer released, film release date TBC",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        }
+      ]
     }
   ]
 }
