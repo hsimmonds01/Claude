@@ -132,6 +132,13 @@
       "event": 4,
       "subject": "FPL review \u2014 Gameweek 4",
       "reason": "GW4 points are final"
+    },
+    {
+      "at": "2026-09-17T11:32:02.410755+00:00",
+      "kind": "main",
+      "event": 5,
+      "subject": "FPL GW5 \u2014 Isak \u2192 Thiago, captain Haaland.",
+      "reason": "30.0h to the GW5 deadline (lead 36h for a 6.2-day gap)"
     }
   ],
   "failures": [
