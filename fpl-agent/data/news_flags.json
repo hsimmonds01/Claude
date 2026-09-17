@@ -1,16 +1,16 @@
 {
-  "generated_at": "2026-09-14T23:50:13.017402+00:00",
+  "generated_at": "2026-09-17T04:43:58.219455+00:00",
   "model": "gemini-flash-latest",
-  "headlines_considered": 50,
+  "headlines_considered": 48,
   "flags": [
     {
-      "player_id": "542",
-      "player": "E.Le Fée",
-      "team": "SUN",
-      "concern": "Manager Régis Le Bris commented on Enzo Le Fée's penalty miss, putting his status as first-choice penalty taker in doubt.",
+      "player_id": "4",
+      "player": "Gabriel",
+      "team": "ARS",
+      "concern": "Mikel Arteta addressed Gabriel being substituted at half-time in Arsenal's previous match, indicating a possible fitness issue or minutes risk.",
       "severity": "medium",
-      "affects": "role",
-      "source": "https://www.fantasyfootballscout.co.uk/2026/09/13/fpl-notes-white-injury-le-bris-on-le-fee-pen-miss-raya-haul"
+      "affects": "minutes",
+      "source": "https://www.fantasyfootballscout.co.uk/2026/09/16/fpl-notes-arteta-on-gabriel-half-time-sub-timber-absence"
     }
   ]
 }
