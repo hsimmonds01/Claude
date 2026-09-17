@@ -3248,6 +3248,75 @@
           "link_status": "verified"
         }
       ]
+    },
+    {
+      "date": "2026-09-17",
+      "model": "gemini-2.5-flash (legacy key, live search)",
+      "items": [
+        {
+          "title": "Gap x A.P.C. Apparel & Accessories Collection Drops Friday",
+          "category": "drop",
+          "summary": "A highly anticipated 37-piece collection blending Gap's classic American style with A.P.C.'s Parisian aesthetic is set to drop. This significant designer collaboration features denim, knitwear, and accessories, with no sneakers included.",
+          "url": "https://hypebeast.com/2026/9/gap-a-p-c-collaborative-37-piece-apparel-accessories-collection-release-info",
+          "date_info": "Releases Friday, September 18th online and at select Gap stores, including in the UK.",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "Palace Skateboards x Avirex Drop Oversized-Logo Sportswear",
+          "category": "drop",
+          "summary": "Palace Skateboards and Avirex have reunited for a new sportswear capsule collection. It features tracksuits, tees, and headwear adorned with bold, oversized co-branding, offering a fresh streetwear drop that steers clear of sneakers.",
+          "url": "https://www.google.com/search?q=Palace+Skateboards+x+Avirex+Drop+Oversized-Logo+Sportswear",
+          "date_info": "Launches globally in-store and online on September 18.",
+          "urgency": "act-fast",
+          "link_status": "search"
+        },
+        {
+          "title": "Carhartt WIP x OMNIUM Release Limited-Edition Cargo Bike",
+          "category": "product",
+          "summary": "Danish bicycle brand OMNIUM and Carhartt WIP have collaborated on a unique, premium stainless steel Mini-Max cargo bike. Limited to just 150 units worldwide, it boasts acid yellow branding and custom pedals, making it a genuinely interesting and beautifully designed gadget.",
+          "url": "https://hypebeast.com/2026/9/carhartt-wip-omnium-limited-edition-stainless-steel-mini-max-cargo-bike-release-info",
+          "date_info": "Available September 24th, 10am CEST at omniumcargo.com and select dealers.",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "Grand Seiko Unveils Limited Edition SBGW325 “Arabic Numerals” Watch",
+          "category": "product",
+          "summary": "Grand Seiko has introduced the 600-piece Elegance Collection SBGW325, a stunning minimalist watch. It features a navy dial with custom Arabic numerals, inspired by the brand's very first timepiece, and pre-orders are open now for this beautiful, limited-edition design object.",
+          "url": "https://hypebeast.com/2026/9/grand-seiko-9s-mechanical-manual-winding-limited-edition-arabic-numerals-sbgw325-release-info",
+          "date_info": "Pre-order open now. Limited to 600 pieces worldwide.",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "Major Monet Exhibition Coming to Tate Modern in 2027",
+          "category": "event",
+          "summary": "Tate Modern is set to host \"Monet: Painting Time,\" the UK's largest Monet exhibition in a decade. Featuring over 60 paintings, the show will explore the artist's profound relationship with time, marking a significant London cultural event.",
+          "url": "https://www.timeout.com/london/news/monet-painting-time-tate-modern-launch-date-2027-091626",
+          "date_info": "Opens February 25, 2027, and runs until June 27, 2027. Tickets will be available via tate.org.uk.",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "London's Napoli on the Road Crowned World's Best Pizzeria",
+          "category": "food",
+          "summary": "Michele Pascarella's Napoli on the Road, with locations in West London (Chiswick, Richmond, and Soho), has been named the World's Best Pizzeria at the prestigious 50 Top Pizza World Awards 2026. This makes it a must-visit spot for anyone seeking genuinely good food.",
+          "url": "https://www.timeout.com/london/news/a-west-london-pizzeria-has-been-crowned-the-best-pizza-restaurant-in-the-world-091626",
+          "date_info": "Award announced September 15/16, restaurant is currently open.",
+          "urgency": "this-week",
+          "link_status": "verified"
+        },
+        {
+          "title": "Experience Fine Dining on a London Bus with Bustronome",
+          "category": "food",
+          "summary": "Bustronome, a unique fine dining experience aboard a double-decker bus, has been ranked the UK's second-best fine dining restaurant. It offers a gourmet meal while touring London's iconic sights, providing an interesting food experience.",
+          "url": "https://www.google.com/search?q=Experience+Fine+Dining+on+a+London+Bus+with+Bustronome",
+          "date_info": "Restaurant is currently operating, bookings available.",
+          "urgency": "this-week",
+          "link_status": "search"
+        }
+      ]
     }
   ]
 }
