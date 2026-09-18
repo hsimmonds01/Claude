@@ -29,7 +29,7 @@
   ],
   "team_id": null,
   "team_id_note": "Deliberately not stored here -- see _README. Set FPL_TEAM_ID as a GitHub secret instead.",
-  "bank": 0.8,
+  "bank": 0.5,
   "free_transfers": null,
   "chips_used": [
     {
@@ -46,19 +46,19 @@
     }
   ],
   "my_lineup": {
-    "captain": "Palmer",
-    "vice_captain": "Saka",
+    "captain": "Haaland",
+    "vice_captain": "Gibbs-White",
     "bench": [
-      "Zetterer",
-      "Thomas",
-      "Davis",
-      "Olusesi"
+      "Verbruggen",
+      "E.Le Fée",
+      "Shaw",
+      "Hume"
     ]
   },
   "squad": [
     {
-      "name": "Verbruggen",
-      "team": "BHA",
+      "name": "Kinsky",
+      "team": "TOT",
       "position": "GKP"
     },
     {
@@ -67,58 +67,8 @@
       "position": "DEF"
     },
     {
-      "name": "De Cuyper",
-      "team": "BHA",
-      "position": "DEF"
-    },
-    {
-      "name": "Konsa",
-      "team": "ARS",
-      "position": "DEF"
-    },
-    {
-      "name": "Palmer",
-      "team": "CHE",
-      "position": "MID"
-    },
-    {
-      "name": "Rogers",
-      "team": "CHE",
-      "position": "MID"
-    },
-    {
-      "name": "Groß",
-      "team": "BHA",
-      "position": "MID"
-    },
-    {
-      "name": "Saka",
-      "team": "ARS",
-      "position": "MID"
-    },
-    {
-      "name": "João Pedro",
-      "team": "CHE",
-      "position": "FWD"
-    },
-    {
-      "name": "Isak",
-      "team": "LIV",
-      "position": "FWD"
-    },
-    {
-      "name": "Haaland",
-      "team": "MCI",
-      "position": "FWD"
-    },
-    {
-      "name": "Zetterer",
-      "team": "LEE",
-      "position": "GKP"
-    },
-    {
-      "name": "Thomas",
-      "team": "COV",
+      "name": "Ajer",
+      "team": "BRE",
       "position": "DEF"
     },
     {
@@ -127,9 +77,59 @@
       "position": "DEF"
     },
     {
-      "name": "Olusesi",
-      "team": "TOT",
+      "name": "B.Fernandes",
+      "team": "MUN",
       "position": "MID"
+    },
+    {
+      "name": "Szoboszlai",
+      "team": "LIV",
+      "position": "MID"
+    },
+    {
+      "name": "Gibbs-White",
+      "team": "NFO",
+      "position": "MID"
+    },
+    {
+      "name": "Groß",
+      "team": "BHA",
+      "position": "MID"
+    },
+    {
+      "name": "Haaland",
+      "team": "MCI",
+      "position": "FWD"
+    },
+    {
+      "name": "João Pedro",
+      "team": "CHE",
+      "position": "FWD"
+    },
+    {
+      "name": "Calvert-Lewin",
+      "team": "LEE",
+      "position": "FWD"
+    },
+    {
+      "name": "Verbruggen",
+      "team": "BHA",
+      "position": "GKP"
+    },
+    {
+      "name": "E.Le Fée",
+      "team": "SUN",
+      "position": "MID"
+    },
+    {
+      "name": "Shaw",
+      "team": "MUN",
+      "position": "DEF"
+    },
+    {
+      "name": "Hume",
+      "team": "SUN",
+      "position": "DEF"
     }
   ],
   "history": [
@@ -150,6 +150,7 @@
     "2026-09-12: squad.py reconstructed GW4 from the live FPL API -- 0 pts this gameweek, £100.3m squad value, £0.8m banked, captain Palmer. Chip active: free_hit.",
     "2026-09-12: squad.py reconstructed GW4 from the live FPL API -- 52 pts this gameweek, £100.3m squad value, £0.8m banked, captain Palmer. Chip active: free_hit.",
     "2026-09-14: squad.py reconstructed GW4 from the live FPL API -- 96 pts this gameweek, £100.3m squad value, £0.8m banked, captain Palmer. Chip active: free_hit.",
-    "2026-09-14: squad.py reconstructed GW4 from the live FPL API -- 97 pts this gameweek, £100.3m squad value, £0.8m banked, captain Palmer. Chip active: free_hit."
+    "2026-09-14: squad.py reconstructed GW4 from the live FPL API -- 97 pts this gameweek, £100.3m squad value, £0.8m banked, captain Palmer. Chip active: free_hit.",
+    "2026-09-18: squad.py reconstructed GW5 from the live FPL API -- 0 pts this gameweek, £100.5m squad value, £0.5m banked, captain Haaland."
   ]
 }

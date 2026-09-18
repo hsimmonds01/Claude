@@ -139,6 +139,13 @@
       "event": 5,
       "subject": "FPL GW5 \u2014 Isak \u2192 Thiago, captain Haaland.",
       "reason": "30.0h to the GW5 deadline (lead 36h for a 6.2-day gap)"
+    },
+    {
+      "at": "2026-09-18T20:50:25.220826+00:00",
+      "kind": "preseason",
+      "event": 6,
+      "subject": "FPL pre-season \u2014 21 days to the GW6 deadline",
+      "reason": "21.5 days to the GW6 deadline; last digest 6.2 days ago"
     }
   ],
   "failures": [

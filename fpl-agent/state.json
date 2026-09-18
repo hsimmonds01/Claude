@@ -119,6 +119,12 @@
       "event": 5,
       "at": "2026-09-17T11:32:02.410755+00:00",
       "subject": "FPL GW5 \u2014 Isak \u2192 Thiago, captain Haaland."
+    },
+    {
+      "kind": "preseason",
+      "event": 6,
+      "at": "2026-09-18T20:50:25.220826+00:00",
+      "subject": "FPL pre-season \u2014 21 days to the GW6 deadline"
     }
   ]
 }

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-18T16:19:15.202625+00:00",
+  "generated_at": "2026-09-18T20:50:24.497865+00:00",
   "drafts_compared": 3,
   "sources": [
     "fpl__raptor (Instagram)",
@@ -83,7 +83,7 @@
         "fpl__raptor (Instagram)",
         "Lazy FPL — 'The Professor'"
       ],
-      "in_my_squad": false
+      "in_my_squad": true
     },
     {
       "name": "Szoboszlai",
@@ -94,7 +94,7 @@
         "fpl__raptor (Instagram)",
         "letstalkfpl (Instagram)"
       ],
-      "in_my_squad": false
+      "in_my_squad": true
     },
     {
       "name": "B.Fernandes",
@@ -104,7 +104,7 @@
       "sources": [
         "letstalkfpl (Instagram)"
       ],
-      "in_my_squad": false
+      "in_my_squad": true
     },
     {
       "name": "Brobbey",
@@ -124,7 +124,7 @@
       "sources": [
         "letstalkfpl (Instagram)"
       ],
-      "in_my_squad": false
+      "in_my_squad": true
     },
     {
       "name": "Cunha",
@@ -194,7 +194,7 @@
       "sources": [
         "Lazy FPL — 'The Professor'"
       ],
-      "in_my_squad": true
+      "in_my_squad": false
     },
     {
       "name": "João Pedro",
@@ -224,7 +224,7 @@
       "sources": [
         "letstalkfpl (Instagram)"
       ],
-      "in_my_squad": false
+      "in_my_squad": true
     },
     {
       "name": "Lammens",
@@ -294,7 +294,7 @@
       "sources": [
         "letstalkfpl (Instagram)"
       ],
-      "in_my_squad": true
+      "in_my_squad": false
     },
     {
       "name": "Raya",
@@ -344,7 +344,7 @@
       "sources": [
         "Lazy FPL — 'The Professor'"
       ],
-      "in_my_squad": true
+      "in_my_squad": false
     },
     {
       "name": "Williams",
@@ -434,7 +434,7 @@
         "fpl__raptor (Instagram)",
         "Lazy FPL — 'The Professor'"
       ],
-      "in_my_squad": false
+      "in_my_squad": true
     },
     {
       "name": "Szoboszlai",
@@ -445,7 +445,7 @@
         "fpl__raptor (Instagram)",
         "letstalkfpl (Instagram)"
       ],
-      "in_my_squad": false
+      "in_my_squad": true
     }
   ],
   "consensus_missing_from_my_squad": [
@@ -492,39 +492,15 @@
         "Lazy FPL — 'The Professor'"
       ],
       "in_my_squad": false
-    },
-    {
-      "name": "Shaw",
-      "team": "MUN",
-      "picked_by": 2,
-      "of": 3,
-      "sources": [
-        "fpl__raptor (Instagram)",
-        "Lazy FPL — 'The Professor'"
-      ],
-      "in_my_squad": false
-    },
-    {
-      "name": "Szoboszlai",
-      "team": "LIV",
-      "picked_by": 2,
-      "of": 3,
-      "sources": [
-        "fpl__raptor (Instagram)",
-        "letstalkfpl (Instagram)"
-      ],
-      "in_my_squad": false
     }
   ],
   "my_players_no_draft_picked": [
+    "Ajer",
     "Davis",
-    "De Cuyper",
+    "E.Le Fée",
+    "Gibbs-White",
     "Groß",
-    "Konsa",
-    "Olusesi",
-    "Saka",
-    "Thomas",
-    "Verbruggen",
-    "Zetterer"
+    "Hume",
+    "Verbruggen"
   ]
 }
