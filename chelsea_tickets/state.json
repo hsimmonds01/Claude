@@ -8,6 +8,14 @@
       "opponent": "Bournemouth",
       "windows": {}
     },
+    "4tilDETKaf3gXP8adbEsza": {
+      "competition": "Premier League",
+      "date": "Sat 31 Oct 2026",
+      "opponent": "Manchester United",
+      "windows": {
+        "ticket-application-window-opens-pm": "open"
+      }
+    },
     "5ZY4cV8TNSUYTST6vAt3ny": {
       "competition": "Premier League",
       "date": "Sat 24 Oct 2026",
@@ -20,10 +28,14 @@
   "notified": {
     "4YKiFTwIByKGcZiZIU1Zka::new_fixture": "2026-09-04T15:01:22.682290+00:00",
     "4YKiFTwIByKGcZiZIU1Zka::window_open::ticket-application-window-opens": "2026-09-04T15:01:22.682306+00:00",
+    "4tilDETKaf3gXP8adbEsza::new_fixture": "2026-09-18T17:31:04.815848+00:00",
+    "4tilDETKaf3gXP8adbEsza::window_open::ticket-application-window-opens-pm": "2026-09-18T17:31:04.815862+00:00",
     "5ZY4cV8TNSUYTST6vAt3ny::new_fixture": "2026-09-11T14:31:08.814281+00:00",
     "5ZY4cV8TNSUYTST6vAt3ny::window_open::accessible-ticket-application-window-opens-pm": "2026-09-11T14:31:08.814303+00:00",
     "5ZY4cV8TNSUYTST6vAt3ny::window_open::ticket-application-window-opens-pm": "2026-09-11T14:31:08.814299+00:00"
   },
-  "open_since": {},
+  "open_since": {
+    "4tilDETKaf3gXP8adbEsza::window_open::ticket-application-window-opens-pm": "2026-09-18T17:31:04.334514+00:00"
+  },
   "schema_version": 1
 }
