@@ -3317,6 +3317,75 @@
           "link_status": "search"
         }
       ]
+    },
+    {
+      "date": "2026-09-19",
+      "model": "gemini-2.5-flash (legacy key, live search)",
+      "items": [
+        {
+          "title": "BFI IMAX: Pulp: What Do You Do for an Encore?",
+          "category": "film",
+          "summary": "Catch Pulp's 2025 tour footage and never-before-seen archival material, screened for one night only on the UK's largest screen at BFI IMAX. This is happening tonight!",
+          "url": "https://www.google.com/search?q=BFI+IMAX%3A+Pulp%3A+What+Do+You+Do+for+an+Encore%3F",
+          "date_info": "Tonight, Saturday 19 September 2026",
+          "urgency": "act-fast",
+          "link_status": "search"
+        },
+        {
+          "title": "BFI IMAX: The Odyssey in 70mm IMAX",
+          "category": "film",
+          "summary": "Experience Stanley Kubrick's classic 'The Odyssey' in stunning 70mm IMAX at the BFI IMAX. This is a rare opportunity to see a masterpiece as intended, fulfilling your 'perfect catch' for big-screen events.",
+          "url": "https://www.google.com/search?q=BFI+IMAX%3A+The+Odyssey+in+70mm+IMAX",
+          "date_info": "Keep checking for screening dates",
+          "urgency": "heads-up",
+          "link_status": "search"
+        },
+        {
+          "title": "Kismet: New Turkish Restaurant near Borough Market",
+          "category": "food",
+          "summary": "A highly-rated new Turkish restaurant has opened above Borough's Globe Tavern, featuring a collaboration between acclaimed chefs. Its Borough location is an extra good catch for you, and dishes like the chilli butter yoghurt and lamb neck shish are already legendary.",
+          "url": "https://www.squaremeal.co.uk/restaurants/best-for/best-new-restaurants-london_10048",
+          "date_info": "Opened September 4, 2026",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "Free René Magritte Exhibition Opening Next Week in London",
+          "category": "event",
+          "summary": "A free exhibition dedicated to the surrealist master René Magritte will open in London next week. This is a prime opportunity to see significant art without a ticket.",
+          "url": "https://www.timeout.com/london/news/magritte-exhibition-gagosian-free-091826",
+          "date_info": "Opens next week",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "Anker's New Affordable 45W Charger with 65W Dynamic Output",
+          "category": "product",
+          "summary": "Anker has quietly launched a new, affordable 45W charger that boasts a 65W dynamic output and a compact design. This clever gadget is a genuinely interesting and practical new tech release.",
+          "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxNbmJKTURzZExLdFR6RS12OG1FYmMyZThNel9QY2lNTGxWcWtCeFdqeFhsX2EyNTFJUERvRmloUjJGd2diQVJ5SkxiTjRtdlVxbTl1WnNXZXMtamg3dmpHU0phRVZPaEp4VWxxR05qcnE4ZzVlVk5JTzFQdzgzblhOdnRsSUdKLXVxQ1JSdnJZWkhOMkZ6ajVBakF3Mm56N3dBZU5YUjhveEQ4RjRaenZXTWNmMG9DeVlpZ2hMTlQ3U0N1SnEtdnlPcTVwY1BhX1lMUmxz?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "date_info": "",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "5 Unmissable Free Artworks at Frieze Sculpture 2026",
+          "category": "event",
+          "summary": "Frieze Sculpture 2026 is currently showcasing five unmissable artworks that you can see for free in London. This is a great opportunity to engage with a major art event.",
+          "url": "https://www.timeout.com/london/news/best-frieze-sculpture-artworks-2026-091826",
+          "date_info": "Frieze Sculpture 2026 (ongoing)",
+          "urgency": "this-week",
+          "link_status": "verified"
+        },
+        {
+          "title": "London Design Festival: Béton Brut's Marcel Breuer Furniture Reissues",
+          "category": "drop",
+          "summary": "As part of the London Design Festival, Béton Brut has reissued four of Marcel Breuer's iconic 1936 furniture designs in masur birch. These made-to-order pieces are a beautiful example of design objects and a limited run opportunity.",
+          "url": "https://www.google.com/search?q=London+Design+Festival%3A+B%C3%A9ton+Brut%27s+Marcel+Breuer+Furniture+Reissues",
+          "date_info": "London Design Festival runs until Sept 20, 2026",
+          "urgency": "this-week",
+          "link_status": "search"
+        }
+      ]
     }
   ]
 }
