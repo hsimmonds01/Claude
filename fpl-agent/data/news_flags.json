@@ -1,16 +1,6 @@
 {
-  "generated_at": "2026-09-17T04:43:58.219455+00:00",
+  "generated_at": "2026-09-19T20:32:10.603456+00:00",
   "model": "gemini-flash-latest",
-  "headlines_considered": 48,
-  "flags": [
-    {
-      "player_id": "4",
-      "player": "Gabriel",
-      "team": "ARS",
-      "concern": "Mikel Arteta addressed Gabriel being substituted at half-time in Arsenal's previous match, indicating a possible fitness issue or minutes risk.",
-      "severity": "medium",
-      "affects": "minutes",
-      "source": "https://www.fantasyfootballscout.co.uk/2026/09/16/fpl-notes-arteta-on-gabriel-half-time-sub-timber-absence"
-    }
-  ]
+  "headlines_considered": 50,
+  "flags": []
 }
