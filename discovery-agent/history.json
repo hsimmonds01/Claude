@@ -3386,6 +3386,48 @@
           "link_status": "search"
         }
       ]
+    },
+    {
+      "date": "2026-09-20",
+      "model": "gemini-2.5-flash (legacy key, live search)",
+      "items": [
+        {
+          "title": "Skate at Somerset House 2026 Presale Tickets",
+          "category": "event",
+          "summary": "Get ready for London's most iconic ice rink! Presale tickets for Skate at Somerset House, running from November 11 to January 10, go live this Friday. Sign up now for early access to secure your spot at this popular festive event.",
+          "url": "https://www.google.com/search?q=Skate+at+Somerset+House+2026+Presale+Tickets",
+          "date_info": "Presale tickets on sale Fri 25 Sep, 10am UK (sign up before then)",
+          "urgency": "this-week",
+          "link_status": "search"
+        },
+        {
+          "title": "Tove Jansson Moomins Exhibition Tickets on Sale",
+          "category": "event",
+          "summary": "London's first-ever exhibition dedicated to Moomins creator Tove Jansson's illustrations opens in November. Tickets for 'Tove Jansson and her Families' at the Quentin Blake Centre for Illustration go on public sale on Tuesday.",
+          "url": "https://www.google.com/search?q=Tove+Jansson+Moomins+Exhibition+Tickets+on+Sale",
+          "date_info": "Public booking opens Tue 22 Sep, 10am UK",
+          "urgency": "this-week",
+          "link_status": "search"
+        },
+        {
+          "title": "Marine Serre x Chaisor Limited Edition Folding Chairs",
+          "category": "drop",
+          "summary": "Marine Serre has collaborated with French furniture maker Chaisor on a limited-edition run of folding chairs, reimagined with the iconic All-Over Moon motif. These individually numbered design objects are available now exclusively via Marine Serre's website, priced at $660 USD.",
+          "url": "https://www.google.com/search?q=Marine+Serre+x+Chaisor+Limited+Edition+Folding+Chairs",
+          "date_info": "Available now",
+          "urgency": "act-fast",
+          "link_status": "search"
+        },
+        {
+          "title": "London Restaurant Festival's £5 Brunch Club",
+          "category": "food",
+          "summary": "The London Restaurant Festival returns in October, featuring a new 'Brunch Club' on Sunday, October 4th, at Market Halls Oxford Street. For just £5, enjoy exclusive brunch dishes from street food vendors, live entertainment, coffee, and a Bloody Mary.",
+          "url": "https://www.google.com/search?q=London+Restaurant+Festival%27s+%C2%A35+Brunch+Club",
+          "date_info": "Sun 4 Oct",
+          "urgency": "heads-up",
+          "link_status": "search"
+        }
+      ]
     }
   ]
 }
