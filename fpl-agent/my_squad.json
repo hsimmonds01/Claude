@@ -50,7 +50,7 @@
     "vice_captain": "Gibbs-White",
     "bench": [
       "Verbruggen",
-      "E.Le Fée",
+      "João Pedro",
       "Shaw",
       "Hume"
     ]
@@ -87,23 +87,23 @@
       "position": "MID"
     },
     {
-      "name": "Gibbs-White",
-      "team": "NFO",
-      "position": "MID"
-    },
-    {
       "name": "Groß",
       "team": "BHA",
       "position": "MID"
     },
     {
-      "name": "Haaland",
-      "team": "MCI",
-      "position": "FWD"
+      "name": "Gibbs-White",
+      "team": "NFO",
+      "position": "MID"
     },
     {
-      "name": "João Pedro",
-      "team": "CHE",
+      "name": "E.Le Fée",
+      "team": "SUN",
+      "position": "MID"
+    },
+    {
+      "name": "Haaland",
+      "team": "MCI",
       "position": "FWD"
     },
     {
@@ -117,9 +117,9 @@
       "position": "GKP"
     },
     {
-      "name": "E.Le Fée",
-      "team": "SUN",
-      "position": "MID"
+      "name": "João Pedro",
+      "team": "CHE",
+      "position": "FWD"
     },
     {
       "name": "Shaw",
@@ -154,6 +154,7 @@
     "2026-09-18: squad.py reconstructed GW5 from the live FPL API -- 0 pts this gameweek, £100.5m squad value, £0.5m banked, captain Haaland.",
     "2026-09-18: squad.py reconstructed GW5 from the live FPL API -- 7 pts this gameweek, £100.5m squad value, £0.5m banked, captain Haaland.",
     "2026-09-19: squad.py reconstructed GW5 from the live FPL API -- 28 pts this gameweek, £100.5m squad value, £0.5m banked, captain Haaland.",
-    "2026-09-20: squad.py reconstructed GW5 from the live FPL API -- 46 pts this gameweek, £100.5m squad value, £0.5m banked, captain Haaland."
+    "2026-09-20: squad.py reconstructed GW5 from the live FPL API -- 46 pts this gameweek, £100.5m squad value, £0.5m banked, captain Haaland.",
+    "2026-09-21: squad.py reconstructed GW5 from the live FPL API -- 51 pts this gameweek, £100.5m squad value, £0.5m banked, captain Haaland."
   ]
 }
