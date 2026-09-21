@@ -1,7 +1,7 @@
 # fpl-rules
 
 - Source: https://fantasy.premierleague.com/help/rules
-- Fetched: 2026-09-21T12:40:15.014943+00:00
+- Fetched: 2026-09-21T19:57:07.491531+00:00
 - Why it's here: Core scoring, squad, transfer and chip rules
 
 Captured automatically by `fpl-agent/knowledge.py` as reference material for the FPL agent.
@@ -284,9 +284,9 @@ Gameweek 6 Sat 10 Oct 10:00
 Gameweek 7 Sat 17 Oct 10:00
 Gameweek 8 Fri 23 Oct 17:30
 Gameweek 9 Sat 31 Oct 11:00
-Gameweek 10 Sat 7 Nov 13:30
-Gameweek 11 Sat 21 Nov 13:30
-Gameweek 12 Sat 28 Nov 13:30
+Gameweek 10 Fri 6 Nov 18:30
+Gameweek 11 Sat 21 Nov 11:00
+Gameweek 12 Fri 27 Nov 18:30
 Gameweek 13 Wed 2 Dec 18:30
 Gameweek 14 Sat 5 Dec 13:30
 Gameweek 15 Sat 12 Dec 13:30
