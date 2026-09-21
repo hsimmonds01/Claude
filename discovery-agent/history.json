@@ -3428,6 +3428,66 @@
           "link_status": "search"
         }
       ]
+    },
+    {
+      "date": "2026-09-21",
+      "model": "gemini-2.5-flash (legacy key, live search)",
+      "items": [
+        {
+          "title": "Supreme x Nike Fall 2026 Apparel Drop",
+          "category": "drop",
+          "summary": "Supreme and Nike are releasing a new Fall 2026 apparel collection this week, featuring reversible parkas, hooded jackets, football jerseys, hoodies, cargo pants, sweatpants, trooper hats, and beanies. This collaboration focuses solely on clothing and headwear, making it a perfect streetwear catch for your profile.",
+          "url": "https://hypebeast.com/2026/9/nike-supreme-fall-2026-apparel-collaboration-collection-release-info",
+          "date_info": "Drops Thursday, September 24th (11am ET)",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "'The 90s: Art and Fashion' Exhibition at Tate Britain",
+          "category": "event",
+          "summary": "A highly anticipated exhibition, 'The 90s: Art and Fashion,' curated by Edward Enninful, is set to open at Tate Britain on October 8th. This London event will explore the decade's impact on British culture through art, photography, and fashion, with tickets priced at £22.",
+          "url": "https://www.timeout.com/london/news/the-90s-art-fashion-exhibition-tate-britain-opens-october-092126",
+          "date_info": "Opens October 8, 2026. Tickets available now.",
+          "urgency": "this-week",
+          "link_status": "verified"
+        },
+        {
+          "title": "Tesla Reopens Roadster Reservations with October 1 Reveal",
+          "category": "product",
+          "summary": "Tesla has reopened reservations for its highly anticipated Roadster, requiring a $50,000 USD deposit. A full reveal of the vehicle is scheduled for October 1, marking a significant development in high-tech automotive.",
+          "url": "https://hypebeast.com/2026/9/tesla-roadster-reopens-with-50k-deposit-and-hover-demo",
+          "date_info": "October 1 Reveal",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "Zuckoff App Alerts You to Nearby Smart Glasses",
+          "category": "product",
+          "summary": "The new Zuckoff app, launched last month, uses Bluetooth to detect nearby smart glasses like Ray-Ban Meta and Snap Spectacles. This clever gadget offers a way to enhance privacy by alerting you to potential recording devices. A free version is available, with a Pro tier for advanced features.",
+          "url": "https://www.designboom.com/technology/zuckoff-bluetooth-smart-glasses-nearby-pawel-szydlowski/",
+          "date_info": "Launched last month (August 2026)",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "China's Dumpling Xi Opening First London Restaurant",
+          "category": "food",
+          "summary": "Dumpling Xi, one of China's largest dumpling chains with over 900 locations globally, is set to open its first UK restaurant at 154 Shaftesbury Avenue in London. While an official launch date is still to be announced, shop fit-out is currently underway.",
+          "url": "https://www.timeout.com/london/news/dumpling-xi-first-london-restaurant-092126",
+          "date_info": "Opening date TBC, shop fit underway",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "50 Kalò London Ranked Among World's Top 25 Pizzerias",
+          "category": "food",
+          "summary": "London's 50 Kalò, located near Trafalgar Square, has been recognized as one of the top 25 pizzerias in the world by 50 Top Pizza World 2026, ranking #23 globally. It also received an award for 'best fried food'.",
+          "url": "https://www.timeout.com/london/news/50-top-pizza-awards-2026-50-kalo-london-092126",
+          "date_info": "Award announced recently (September 2026)",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        }
+      ]
     }
   ]
 }
