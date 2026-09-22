@@ -3488,6 +3488,75 @@
           "link_status": "verified"
         }
       ]
+    },
+    {
+      "date": "2026-09-22",
+      "model": "gemini-2.5-flash (legacy key, live search)",
+      "items": [
+        {
+          "title": "HUF x Neon Genesis Evangelion Fall 2026 Capsule",
+          "category": "drop",
+          "summary": "Streetwear brand HUF has launched a limited-edition Fall 2026 capsule collection inspired by the iconic anime 'Neon Genesis Evangelion', featuring apparel and accessories for fans.",
+          "url": "https://hypebeast.com/2026/9/neon-genesis-evangelion-huf-collaboration-collection-release-info",
+          "date_info": "",
+          "urgency": "this-week",
+          "link_status": "verified"
+        },
+        {
+          "title": "Massive Pokémon Shop & Trail at Science Museum with Exclusive Merch",
+          "category": "event",
+          "summary": "A huge Pokémon shop and interactive trail, featuring exclusive merchandise drops, is set to open at the Science Museum next month, offering a unique experience for collectors and fans.",
+          "url": "https://www.timeout.com/london/news/huge-pokemon-shop-trail-science-museum-next-month-092226",
+          "date_info": "Opening next month (October 2026)",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "MSCHF and Lexus Reveal \"Physically Absurd\" Product Collaboration",
+          "category": "product",
+          "summary": "The art collective MSCHF, known for its disruptive and clever creations, has partnered with Lexus to unveil a new \"physically absurd\" product, fitting into the \"how did I not know this existed\" category.",
+          "url": "https://www.highsnobiety.com/p/mschf-lexus/",
+          "date_info": "",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "Blockbuster Matisse Exhibition Coming to London's Immersive Space",
+          "category": "event",
+          "summary": "London's leading immersive venue has announced a major Henri Matisse exhibition, promising a unique and engaging experience for art enthusiasts.",
+          "url": "https://www.timeout.com/london/news/lightroom-matisse-exhibition-announcement-092226",
+          "date_info": "",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "100 Thieves, Pokémon & Modernica Fine China Shell Chairs Collab",
+          "category": "drop",
+          "summary": "A unique collaboration between 100 Thieves, Pokémon, and Modernica reinterprets heritage seating with fine china shell chairs, appealing to collectors of designer objects and pop culture collaborations.",
+          "url": "https://hypebeast.com/2026/9/100-thieves-pokemon-modernica-porcelain-china-shell-chairs-collaboration-collection",
+          "date_info": "",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "Dishoom Introduces First Set Menu for London Office Workers",
+          "category": "food",
+          "summary": "Popular London restaurant Dishoom is launching its first-ever set menu, offering a new and convenient dining option for office workers in the city.",
+          "url": "https://www.timeout.com/london/news/dishoom-first-set-menu-london-restaurants-092226",
+          "date_info": "",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "Apple Music Hall Opens at Battersea Power Station",
+          "category": "event",
+          "summary": "Apple has opened a new music venue and full live-production studio within London's iconic Battersea Power Station, set to host a variety of live performances and cultural events.",
+          "url": "https://hypebeast.com/2026/9/apple-music-hall-london-announcement-info",
+          "date_info": "",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        }
+      ]
     }
   ]
 }
