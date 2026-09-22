@@ -131,6 +131,12 @@
       "event": 5,
       "at": "2026-09-21T19:57:20.344126+00:00",
       "subject": "FPL review \u2014 Gameweek 5"
+    },
+    {
+      "kind": "preseason",
+      "event": 6,
+      "at": "2026-09-22T11:26:38.422779+00:00",
+      "subject": "FPL pre-season \u2014 17 days to the GW6 deadline"
     }
   ]
 }
