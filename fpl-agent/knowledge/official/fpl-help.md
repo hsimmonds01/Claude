@@ -1,7 +1,7 @@
 # fpl-help
 
 - Source: https://fantasy.premierleague.com/help
-- Fetched: 2026-09-22T11:26:29.050483+00:00
+- Fetched: 2026-09-22T16:49:19.143872+00:00
 - Why it's here: General FAQ, including price changes and deadlines
 
 Captured automatically by `fpl-agent/knowledge.py` as reference material for the FPL agent.
@@ -191,7 +191,6 @@ Injuries
 Podcast
 Help
 Statistics
-FPL Challenge
 
 New to Fantasy Premier League? Start here
 Help
