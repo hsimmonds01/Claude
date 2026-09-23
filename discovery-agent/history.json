@@ -3557,6 +3557,75 @@
           "link_status": "verified"
         }
       ]
+    },
+    {
+      "date": "2026-09-23",
+      "model": "gemini-2.5-flash (legacy key, live search)",
+      "items": [
+        {
+          "title": "GOLF WANG Fall/Winter 2026 Collection Drops Today",
+          "category": "drop",
+          "summary": "Tyler, The Creator's GOLF WANG is releasing its FW26 collection online today, featuring tiger-striped bowling shirts, hoodies, and classic trucker hats. This is a limited-edition streetwear drop with items like hats that fit your profile.",
+          "url": "https://hypebeast.com/2026/9/golf-wang-teases-fw26-collection-starring-tyler-the-creator-release-info",
+          "date_info": "Drops online today, September 23, 2026",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "Stephen Curry's UNDERRATED Golf x L.A.B. Golf Limited-Edition Capsule Available Now",
+          "category": "drop",
+          "summary": "This collaboration offers custom putters, branded headcovers, and an accessory pack with a divot tool and ball marker. It's a limited-edition drop with non-sneaker items, supporting junior golf development.",
+          "url": "https://hypebeast.com/2026/9/stephen-curry-underrated-golf-l-a-b-golf-collaboration-limited-edition-capsule-release-info",
+          "date_info": "Available now",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "'Street Fighter' Film Tickets Now On Sale for October IMAX Release",
+          "category": "film",
+          "summary": "The 'Street Fighter' movie is hitting IMAX, 4DX, SCREENX & Superscreen at Cineworld from October 16, with tickets available now. There's also a 'Bonus Round Fan Event' on October 15 at participating IMAX theatres, offering an exclusive collector's print and bonus content.",
+          "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxOLVZsUXJwNGJ6R056QXVDWU5pMlh4c1RxdHY3REdjNjFIXzFMamkyOVB1Umkyd0IxSUtLR0dveEF0TFFoZHdvbEJWTW1wWG54V0R0Q2wzOXBucVJxN21jSGRpdnAzYWZWZ3hMT1BZbHV1U0tUSnQxT0FQVHpNUHNNRjNLOENLQ3JvS3NPbUpvUQ?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "date_info": "Tickets on sale now for screenings from October 16, 2026",
+          "urgency": "this-week",
+          "link_status": "verified"
+        },
+        {
+          "title": "La Croissanterie: Michelin-Starred Chef Opens Luxury Croissant Spot in Mayfair",
+          "category": "food",
+          "summary": "Michelin-starred chef Yannick Alléno has opened La Croissanterie at the Four Seasons Hotel London at Park Lane, offering an all-day menu of gourmet sweet and savoury croissants. It's a genuinely interesting new food spot in London.",
+          "url": "https://www.timeout.com/london/news/croissant-bakery-la-croissanterie-opens-london-092326",
+          "date_info": "Open daily from 12pm-8pm",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "Heinz Chilli Bite Ketchup Coming to UK Supermarkets Next Week",
+          "category": "food",
+          "summary": "Heinz is launching a new limited-edition Chilli Bite Ketchup, adding a spicy kick to its classic sauce. It's available online now via Heinz to Home and will hit UK supermarket shelves in 'scarily limited numbers' from September 29.",
+          "url": "https://hypebeast.com/2026/9/heinz-simply-spicy-ketchup-simply-pickle-ketchup-release-info",
+          "date_info": "In supermarkets from September 29, 2026",
+          "urgency": "this-week",
+          "link_status": "verified"
+        },
+        {
+          "title": "James Gray's 'Paper Tiger' Screening at BFI London Film Festival",
+          "category": "film",
+          "summary": "James Gray's new crime-drama 'Paper Tiger', starring Adam Driver and Scarlett Johansson, is screening as part of the BFI London Film Festival (Oct 7-18). Tickets went on sale September 17 and are available via the BFI London Film Festival website.",
+          "url": "https://hypebeast.com/2026/9/adam-driver-miles-teller-and-scarlett-johansson-star-in-official-trailer-for-james-grays-paper-tiger",
+          "date_info": "Tickets on sale since Sept 17 for Oct 7-18 screenings",
+          "urgency": "this-week",
+          "link_status": "verified"
+        },
+        {
+          "title": "Le Venus Bar Opening in October at Brasserie Olivia, Chelsea",
+          "category": "event",
+          "summary": "La Nouvelle Garde's Brasserie Olivia in Chelsea will launch Le Venus Bar in October, an intimate, 1970s Parisian-inspired speakeasy offering experimental cocktails and vinyl records. This is a cool new London bar to check out soon.",
+          "url": "https://www.timeout.com/london/news/french-brasserie-le-nouvelle-garde-second-london-restaurant-092326",
+          "date_info": "Opening in October 2026",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        }
+      ]
     }
   ]
 }
