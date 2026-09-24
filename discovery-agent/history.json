@@ -3626,6 +3626,66 @@
           "link_status": "verified"
         }
       ]
+    },
+    {
+      "date": "2026-09-24",
+      "model": "gemini-2.5-flash (legacy key, live search)",
+      "items": [
+        {
+          "title": "Take That to Headline Heart Christmas Live at Royal Albert Hall",
+          "category": "event",
+          "summary": "Take That will be headlining the first-ever Heart Christmas Live at the Royal Albert Hall in London. Tickets for this festive spectacular go on general sale tomorrow, so act fast to secure your spot for a night of major music acts and Christmas surprises.",
+          "url": "https://www.google.com/search?q=Take+That+to+Headline+Heart+Christmas+Live+at+Royal+Albert+Hall",
+          "date_info": "Tickets on general sale Fri 25 Sep, 9am",
+          "urgency": "act-fast",
+          "link_status": "search"
+        },
+        {
+          "title": "Free Events at BFI London Film Festival 2026: Booking Opens Soon",
+          "category": "film",
+          "summary": "The BFI London Film Festival is offering over 40 free events this October, including filmmaker talks, DJ nights, and short film screenings, with a special collection presented by Cate Blanchett. Booking for these free events opens on October 1st, so mark your calendar to grab a spot.",
+          "url": "https://www.google.com/search?q=Free+Events+at+BFI+London+Film+Festival+2026%3A+Booking+Opens+Soon",
+          "date_info": "Booking opens Thu 1 Oct, 10am",
+          "urgency": "heads-up",
+          "link_status": "search"
+        },
+        {
+          "title": "World's Best Coffee Shop, Onyx Coffee Lab, Pops Up in London This Weekend",
+          "category": "food",
+          "summary": "Onyx Coffee Lab, recently crowned the World's Best Coffee Shop for 2026, is bringing a taste of Arkansas to London. They'll be taking over Rosslyn London Wall this Saturday and Sunday, serving exclusive coffees and offering a retail range, including a special diner mug.",
+          "url": "https://www.timeout.com/london/news/worlds-best-coffee-shop-london-onyx-rosslyn-092426",
+          "date_info": "Sat 26 Sep & Sun 27 Sep, 8am-3pm",
+          "urgency": "this-week",
+          "link_status": "verified"
+        },
+        {
+          "title": "Legendary Martini Bar Christopher's in Covent Garden Closes This Weekend",
+          "category": "food",
+          "summary": "After 35 years, the iconic Covent Garden martini bar and American restaurant Christopher's is closing its doors at its current Wellington Street location at the end of this week. This is your last chance to visit the beloved spot before it closes for relocation, with the final service happening very soon.",
+          "url": "https://www.timeout.com/london/news/martini-bar-christophers-covent-garden-closing-092426",
+          "date_info": "Final service at the end of this week (approx. Sep 26)",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "Renée Levi Transforms Hayward Gallery Façade with New Fluorescent Painting Installation",
+          "category": "event",
+          "summary": "Swiss artist Renée Levi has unveiled a striking large-scale fluorescent painting on the brutalist façade of London's Hayward Gallery. This public art installation, co-commissioned by the gallery and Audemars Piguet Contemporary, will be on view from September 23rd through November 15th, offering a vibrant new perspective on a London landmark.",
+          "url": "https://www.designboom.com/art/renee-levi-transforms-hayward-gallery-facade-in-audemars-piguet-contemporary-commission/",
+          "date_info": "On view Sep 23 - Nov 15, 2026",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "Lume Traveler Launches Lightweight Ranger Caravan with Pull-Out Outdoor Kitchen",
+          "category": "product",
+          "summary": "Lume Traveler has released its lightest caravan yet, the Ranger, a compact and beautifully designed aluminum camper featuring a clever pull-out outdoor kitchen. This unique and affordable (starting around £51,500) gadget is available to order in Europe now, perfect for those seeking a stylish and practical travel solution.",
+          "url": "https://www.designboom.com/technology/lume-travelers-lightest-caravan-pull-out-kitchen-aluminum-shell-ranger/",
+          "date_info": "Available now",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        }
+      ]
     }
   ]
 }
