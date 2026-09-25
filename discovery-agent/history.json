@@ -3686,6 +3686,66 @@
           "link_status": "verified"
         }
       ]
+    },
+    {
+      "date": "2026-09-25",
+      "model": "gemini-2.5-flash (legacy key, live search)",
+      "items": [
+        {
+          "title": "Marvel Re-Releases 'Avengers: Endgame Encore' with New Scenes",
+          "category": "film",
+          "summary": "Marvel is re-releasing 'Avengers: Endgame' with four new 'Doomsday' teaser scenes. This is a big-screen film event for fans of cinematic blockbusters and a chance to experience the film again with new content.",
+          "url": "https://hypebeast.com/2026/9/marvel-re-releases-avengers-endgame-encore-with-four-new-doomsday-teaser-scenes",
+          "date_info": "",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "Palace Skateboards Debuts Winter 2026 Lookbook",
+          "category": "drop",
+          "summary": "Get a sneak peek at the upcoming Palace Skateboards Winter 2026 collection with their newly debuted lookbook. This is a prime heads-up for streetwear enthusiasts to prepare for limited-edition drops.",
+          "url": "https://hypebeast.com/2026/9/palace-skateboards-winter-2026-lookbook-preview",
+          "date_info": "",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "Win Premier League Darts Tickets with Free Entry Promo",
+          "category": "other",
+          "summary": "Enter for free to win a pair of Premier League Darts tickets at a venue of your choice. This low-effort, free-to-enter promotion offers a genuine perk for sports fans.",
+          "url": "https://www.google.com/search?q=Win+Premier+League+Darts+Tickets+with+Free+Entry+Promo",
+          "date_info": "",
+          "urgency": "this-week",
+          "link_status": "search"
+        },
+        {
+          "title": "East London to Get New Two-Floor Music Venue and Record Shop: Altar",
+          "category": "event",
+          "summary": "A new two-floor music venue and record shop called Altar is set to open in Leytonstone, East London, in October 2026. Keep an eye out for specific opening dates and event listings for this exciting new London spot.",
+          "url": "https://www.timeout.com/london/news/leytonstone-east-london-new-music-venue-altar-092426",
+          "date_info": "Opening October 2026",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "Autonomous Robotic Hand Walks on Fingertips Like 'The Thing'",
+          "category": "product",
+          "summary": "Researchers have developed an autonomous robotic hand that can walk on its fingertips, reminiscent of 'The Thing' from the Addams Family. This clever gadget falls into the 'how did I not know this existed' category of interesting new tech.",
+          "url": "https://www.designboom.com/technology/autonomous-robotic-hand-addams-familys-thing-eth-zurich/",
+          "date_info": "",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "NFL London Games 2026: Sign Up for Ticket Updates",
+          "category": "football",
+          "summary": "The NFL London Games for 2026 are scheduled for September and October. While specific ticket release dates are not yet announced, you can sign up for the NFL UK mailing list for priority access when tickets go on sale.",
+          "url": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxNYlZSdlhyOWZGcXhyanlfd0FTM0RnV0Y0aE84OWYwXzE0NVV0SXZ2QU5CUEdJeVI1TUNmX2ZwT21MVk5BVTJTQVRnS0RmSTY3MXlLdlNHcnpNTDVER0NhMlIwUWs5bmtUc1lXSzV6UXNzeF9QeWFZaVpxVmRNMHhRSjlrV042aEZaSTREN0xfeEdFQzFQVlI5SHV6SUROc2E4M3llSFFLRElhNlRGbkpoNjFReGVzUDZuTF9ZZkQwZXoyanF0c0I2dXMwb2tMcktLajJSZ0FtSllSQQ?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "date_info": "Games in September and October 2026; sign up for priority ticket access",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        }
+      ]
     }
   ]
 }
