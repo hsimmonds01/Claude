@@ -1,6 +1,16 @@
 {
-  "generated_at": "2026-09-21T04:44:59.971754+00:00",
+  "generated_at": "2026-09-25T11:43:23.470324+00:00",
   "model": "gemini-flash-latest",
-  "headlines_considered": 50,
-  "flags": []
+  "headlines_considered": 47,
+  "flags": [
+    {
+      "player_id": "87",
+      "player": "Ajer",
+      "team": "BRE",
+      "concern": "Brentford have issued an injury update regarding Kristoffer Ajer ahead of their match against Aston Villa.",
+      "severity": "medium",
+      "affects": "availability",
+      "source": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPMEdRSWl1R01FVjlkN1M5SHJrY1htSmJaT3JEZE1kY25EbnZTRHV3SXJraE15VWg2VHRKMXFnTDZBR0VheGRQSUo3a1ZwTnVvMlR1RzdqQ1ppQUtTc2RkcnRMaDlaN01EaUl5WFJDWVg5SzVxZkhPYndmVkM5MlVqWHlKZldXTUFlNHRMc2NFUFFCRjNTWFV1SWJKMlh3XzV6QTNnRVB3?oc=5"
+    }
+  ]
 }

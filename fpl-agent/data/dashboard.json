@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-25T04:45:38.386284+00:00",
+  "generated_at": "2026-09-25T11:43:24.408786+00:00",
   "next_event": 6,
   "next_deadline": "2026-10-10T10:00:00Z",
   "horizon": {
@@ -22,7 +22,7 @@
       "position": "GKP",
       "price": 4.5,
       "owned": 17.4,
-      "xp": 14.9,
+      "xp": 15.2,
       "start_prob": 0.85,
       "moved_club": false,
       "minutes_reason": "5/5 starts this season, blended with last year's evidence (70% of last 10 GWs started, 18% across the season)",
@@ -38,26 +38,12 @@
           "position": "GKP",
           "price": 4.5,
           "owned": 3.3,
-          "xp": 19.2,
+          "xp": 19.1,
           "start_prob": 1.0,
           "moved_club": false,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (100% of last 10 GWs started, 100% across the season)",
-          "gain": 2.5,
+          "gain": 2.06,
           "bank_after": 0.5
-        },
-        {
-          "id": "529",
-          "name": "Roefs",
-          "team": "SUN",
-          "position": "GKP",
-          "price": 4.9,
-          "owned": 2.5,
-          "xp": 18.5,
-          "start_prob": 0.94,
-          "moved_club": false,
-          "minutes_reason": "5/5 starts this season, blended with last year's evidence (70% of last 10 GWs started, 92% across the season)",
-          "gain": 1.83,
-          "bank_after": 0.1
         },
         {
           "id": "412",
@@ -65,27 +51,13 @@
           "team": "MUN",
           "position": "GKP",
           "price": 4.9,
-          "owned": 10.0,
-          "xp": 18.4,
+          "owned": 9.9,
+          "xp": 18.8,
           "start_prob": 0.99,
           "moved_club": false,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (100% of last 10 GWs started, 91% across the season)",
           "gain": 1.76,
           "bank_after": 0.1
-        },
-        {
-          "id": "57",
-          "name": "Petrović",
-          "team": "BOU",
-          "position": "GKP",
-          "price": 4.5,
-          "owned": 3.0,
-          "xp": 18.2,
-          "start_prob": 1.0,
-          "moved_club": false,
-          "minutes_reason": "5/5 starts this season, blended with last year's evidence (100% of last 10 GWs started, 100% across the season)",
-          "gain": 1.56,
-          "bank_after": 0.5
         },
         {
           "id": "82",
@@ -98,8 +70,36 @@
           "start_prob": 1.0,
           "moved_club": false,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (100% of last 10 GWs started, 97% across the season)",
-          "gain": 1.54,
+          "gain": 1.19,
           "bank_after": 0.0
+        },
+        {
+          "id": "529",
+          "name": "Roefs",
+          "team": "SUN",
+          "position": "GKP",
+          "price": 4.9,
+          "owned": 2.5,
+          "xp": 17.8,
+          "start_prob": 0.94,
+          "moved_club": false,
+          "minutes_reason": "5/5 starts this season, blended with last year's evidence (70% of last 10 GWs started, 92% across the season)",
+          "gain": 0.82,
+          "bank_after": 0.1
+        },
+        {
+          "id": "57",
+          "name": "Petrović",
+          "team": "BOU",
+          "position": "GKP",
+          "price": 4.5,
+          "owned": 3.0,
+          "xp": 17.5,
+          "start_prob": 1.0,
+          "moved_club": false,
+          "minutes_reason": "5/5 starts this season, blended with last year's evidence (100% of last 10 GWs started, 100% across the season)",
+          "gain": 0.5,
+          "bank_after": 0.5
         },
         {
           "id": "467",
@@ -112,7 +112,7 @@
           "start_prob": 0.98,
           "moved_club": false,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (100% of last 10 GWs started, 79% across the season)",
-          "gain": 0.32,
+          "gain": 0.21,
           "bank_after": 0.0
         },
         {
@@ -126,7 +126,7 @@
           "start_prob": 0.87,
           "moved_club": true,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (no Premier League record; inferred from £5.0m price)",
-          "gain": 0.14,
+          "gain": 0.1,
           "bank_after": 0.0
         },
         {
@@ -136,7 +136,7 @@
           "position": "GKP",
           "price": 5.0,
           "owned": 4.8,
-          "xp": 15.0,
+          "xp": 15.3,
           "start_prob": 0.81,
           "moved_club": true,
           "minutes_reason": "4/5 starts this season, blended with last year's evidence (80% of last 10 GWs started, 84% across the season)",
@@ -154,7 +154,7 @@
           "start_prob": 0.81,
           "moved_club": true,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (no Premier League record; inferred from £4.7m price)",
-          "gain": -0.02,
+          "gain": -0.06,
           "bank_after": 0.3
         },
         {
@@ -164,11 +164,11 @@
           "position": "GKP",
           "price": 4.5,
           "owned": 0.8,
-          "xp": 13.9,
+          "xp": 13.4,
           "start_prob": 0.71,
           "moved_club": true,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (0% of last 10 GWs started, 0% across the season)",
-          "gain": -0.12,
+          "gain": -0.22,
           "bank_after": 0.5
         },
         {
@@ -182,7 +182,7 @@
           "start_prob": 0.73,
           "moved_club": true,
           "minutes_reason": "4/5 starts this season, blended with last year's evidence (no Premier League record; inferred from £5.0m price)",
-          "gain": -0.2,
+          "gain": -0.23,
           "bank_after": 0.0
         },
         {
@@ -192,7 +192,7 @@
           "position": "GKP",
           "price": 5.0,
           "owned": 5.5,
-          "xp": 12.6,
+          "xp": 12.9,
           "start_prob": 0.75,
           "moved_club": true,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (12% of last 10 GWs started, 11% across the season)",
@@ -209,7 +209,7 @@
       "position": "DEF",
       "price": 5.8,
       "owned": 50.5,
-      "xp": 18.4,
+      "xp": 18.1,
       "start_prob": 0.88,
       "moved_club": false,
       "minutes_reason": "5/5 starts this season, blended with last year's evidence (56% of last 10 GWs started, 59% across the season)",
@@ -229,7 +229,7 @@
           "start_prob": 0.97,
           "moved_club": false,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (90% of last 10 GWs started, 87% across the season)",
-          "gain": 3.52,
+          "gain": 3.77,
           "bank_after": 1.3
         },
         {
@@ -243,22 +243,22 @@
           "start_prob": 0.98,
           "moved_club": false,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (90% of last 10 GWs started, 97% across the season)",
-          "gain": 3.12,
+          "gain": 3.37,
           "bank_after": 0.2
         },
         {
-          "id": "388",
-          "name": "Guéhi",
-          "team": "MCI",
+          "id": "112",
+          "name": "Van Hecke",
+          "team": "TOT",
           "position": "DEF",
-          "price": 6.0,
-          "owned": 18.3,
+          "price": 4.9,
+          "owned": 6.6,
           "xp": 21.0,
-          "start_prob": 0.97,
-          "moved_club": false,
-          "minutes_reason": "5/5 starts this season, blended with last year's evidence (88% of last 10 GWs started, 92% across the season)",
-          "gain": 2.59,
-          "bank_after": 0.3
+          "start_prob": 0.99,
+          "moved_club": true,
+          "minutes_reason": "5/5 starts this season, blended with last year's evidence (100% of last 10 GWs started, 95% across the season)",
+          "gain": 2.91,
+          "bank_after": 1.4
         },
         {
           "id": "447",
@@ -271,22 +271,22 @@
           "start_prob": 0.93,
           "moved_club": false,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (90% of last 10 GWs started, 55% across the season)",
-          "gain": 2.53,
+          "gain": 2.78,
           "bank_after": 1.3
         },
         {
-          "id": "61",
-          "name": "Truffert",
-          "team": "BOU",
+          "id": "388",
+          "name": "Guéhi",
+          "team": "MCI",
           "position": "DEF",
-          "price": 5.4,
-          "owned": 3.0,
+          "price": 6.0,
+          "owned": 18.3,
           "xp": 20.9,
-          "start_prob": 1.0,
+          "start_prob": 0.97,
           "moved_club": false,
-          "minutes_reason": "5/5 starts this season, blended with last year's evidence (100% of last 10 GWs started, 100% across the season)",
-          "gain": 2.51,
-          "bank_after": 0.9
+          "minutes_reason": "5/5 starts this season, blended with last year's evidence (88% of last 10 GWs started, 92% across the season)",
+          "gain": 2.77,
+          "bank_after": 0.3
         },
         {
           "id": "60",
@@ -295,26 +295,26 @@
           "position": "DEF",
           "price": 5.5,
           "owned": 0.8,
-          "xp": 20.9,
+          "xp": 20.3,
           "start_prob": 0.95,
           "moved_club": false,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (100% of last 10 GWs started, 57% across the season)",
-          "gain": 2.5,
+          "gain": 2.2,
           "bank_after": 0.8
         },
         {
-          "id": "112",
-          "name": "Van Hecke",
-          "team": "TOT",
+          "id": "61",
+          "name": "Truffert",
+          "team": "BOU",
           "position": "DEF",
-          "price": 4.9,
-          "owned": 6.6,
-          "xp": 20.7,
-          "start_prob": 0.99,
-          "moved_club": true,
-          "minutes_reason": "5/5 starts this season, blended with last year's evidence (100% of last 10 GWs started, 95% across the season)",
-          "gain": 2.37,
-          "bank_after": 1.4
+          "price": 5.4,
+          "owned": 3.0,
+          "xp": 20.3,
+          "start_prob": 1.0,
+          "moved_club": false,
+          "minutes_reason": "5/5 starts this season, blended with last year's evidence (100% of last 10 GWs started, 100% across the season)",
+          "gain": 2.19,
+          "bank_after": 0.9
         },
         {
           "id": "532",
@@ -323,40 +323,12 @@
           "position": "DEF",
           "price": 4.9,
           "owned": 2.5,
-          "xp": 20.5,
+          "xp": 20.0,
           "start_prob": 0.85,
           "moved_club": false,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (40% of last 10 GWs started, 63% across the season)",
-          "gain": 2.13,
+          "gain": 1.88,
           "bank_after": 1.4
-        },
-        {
-          "id": "202",
-          "name": "Richards",
-          "team": "CRY",
-          "position": "DEF",
-          "price": 5.0,
-          "owned": 0.6,
-          "xp": 20.0,
-          "start_prob": 0.92,
-          "moved_club": false,
-          "minutes_reason": "5/5 starts this season, blended with last year's evidence (67% of last 10 GWs started, 81% across the season)",
-          "gain": 1.61,
-          "bank_after": 1.3
-        },
-        {
-          "id": "254",
-          "name": "Robinson",
-          "team": "FUL",
-          "position": "DEF",
-          "price": 4.5,
-          "owned": 1.4,
-          "xp": 19.6,
-          "start_prob": 0.9,
-          "moved_club": false,
-          "minutes_reason": "5/5 starts this season, blended with last year's evidence (80% of last 10 GWs started, 45% across the season)",
-          "gain": 1.22,
-          "bank_after": 1.8
         },
         {
           "id": "332",
@@ -365,26 +337,54 @@
           "position": "DEF",
           "price": 4.5,
           "owned": 1.5,
-          "xp": 19.5,
+          "xp": 19.8,
           "start_prob": 0.95,
           "moved_club": false,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (100% of last 10 GWs started, 57% across the season)",
-          "gain": 1.12,
+          "gain": 1.65,
           "bank_after": 1.8
         },
         {
-          "id": "257",
-          "name": "Bassey",
+          "id": "254",
+          "name": "Robinson",
           "team": "FUL",
           "position": "DEF",
           "price": 4.5,
-          "owned": 0.7,
-          "xp": 19.4,
-          "start_prob": 0.97,
+          "owned": 1.4,
+          "xp": 19.5,
+          "start_prob": 0.9,
           "moved_club": false,
-          "minutes_reason": "5/5 starts this season, blended with last year's evidence (100% of last 10 GWs started, 74% across the season)",
-          "gain": 1.03,
+          "minutes_reason": "5/5 starts this season, blended with last year's evidence (80% of last 10 GWs started, 45% across the season)",
+          "gain": 1.41,
           "bank_after": 1.8
+        },
+        {
+          "id": "202",
+          "name": "Richards",
+          "team": "CRY",
+          "position": "DEF",
+          "price": 5.0,
+          "owned": 0.6,
+          "xp": 19.5,
+          "start_prob": 0.92,
+          "moved_club": false,
+          "minutes_reason": "5/5 starts this season, blended with last year's evidence (67% of last 10 GWs started, 81% across the season)",
+          "gain": 1.4,
+          "bank_after": 1.3
+        },
+        {
+          "id": "469",
+          "name": "N.Williams",
+          "team": "NFO",
+          "position": "DEF",
+          "price": 5.0,
+          "owned": 8.8,
+          "xp": 19.4,
+          "start_prob": 0.98,
+          "moved_club": false,
+          "minutes_reason": "5/5 starts this season, blended with last year's evidence (90% of last 10 GWs started, 95% across the season)",
+          "gain": 1.27,
+          "bank_after": 1.3
         }
       ],
       "override": ""
@@ -416,8 +416,22 @@
           "start_prob": 0.97,
           "moved_club": false,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (90% of last 10 GWs started, 87% across the season)",
-          "gain": 6.05,
+          "gain": 6.04,
           "bank_after": 0.0
+        },
+        {
+          "id": "112",
+          "name": "Van Hecke",
+          "team": "TOT",
+          "position": "DEF",
+          "price": 4.9,
+          "owned": 6.6,
+          "xp": 21.0,
+          "start_prob": 0.99,
+          "moved_club": true,
+          "minutes_reason": "5/5 starts this season, blended with last year's evidence (100% of last 10 GWs started, 95% across the season)",
+          "gain": 5.18,
+          "bank_after": 0.1
         },
         {
           "id": "447",
@@ -434,60 +448,18 @@
           "bank_after": 0.0
         },
         {
-          "id": "112",
-          "name": "Van Hecke",
-          "team": "TOT",
-          "position": "DEF",
-          "price": 4.9,
-          "owned": 6.6,
-          "xp": 20.7,
-          "start_prob": 0.99,
-          "moved_club": true,
-          "minutes_reason": "5/5 starts this season, blended with last year's evidence (100% of last 10 GWs started, 95% across the season)",
-          "gain": 4.89,
-          "bank_after": 0.1
-        },
-        {
           "id": "532",
           "name": "Ballard",
           "team": "SUN",
           "position": "DEF",
           "price": 4.9,
           "owned": 2.5,
-          "xp": 20.5,
+          "xp": 20.0,
           "start_prob": 0.85,
           "moved_club": false,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (40% of last 10 GWs started, 63% across the season)",
-          "gain": 4.65,
+          "gain": 4.15,
           "bank_after": 0.1
-        },
-        {
-          "id": "202",
-          "name": "Richards",
-          "team": "CRY",
-          "position": "DEF",
-          "price": 5.0,
-          "owned": 0.6,
-          "xp": 20.0,
-          "start_prob": 0.92,
-          "moved_club": false,
-          "minutes_reason": "5/5 starts this season, blended with last year's evidence (67% of last 10 GWs started, 81% across the season)",
-          "gain": 4.14,
-          "bank_after": 0.0
-        },
-        {
-          "id": "254",
-          "name": "Robinson",
-          "team": "FUL",
-          "position": "DEF",
-          "price": 4.5,
-          "owned": 1.4,
-          "xp": 19.6,
-          "start_prob": 0.9,
-          "moved_club": false,
-          "minutes_reason": "5/5 starts this season, blended with last year's evidence (80% of last 10 GWs started, 45% across the season)",
-          "gain": 3.75,
-          "bank_after": 0.5
         },
         {
           "id": "332",
@@ -496,26 +468,40 @@
           "position": "DEF",
           "price": 4.5,
           "owned": 1.5,
-          "xp": 19.5,
+          "xp": 19.8,
           "start_prob": 0.95,
           "moved_club": false,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (100% of last 10 GWs started, 57% across the season)",
-          "gain": 3.64,
+          "gain": 3.92,
           "bank_after": 0.5
         },
         {
-          "id": "257",
-          "name": "Bassey",
+          "id": "254",
+          "name": "Robinson",
           "team": "FUL",
           "position": "DEF",
           "price": 4.5,
-          "owned": 0.7,
-          "xp": 19.4,
-          "start_prob": 0.97,
+          "owned": 1.4,
+          "xp": 19.5,
+          "start_prob": 0.9,
           "moved_club": false,
-          "minutes_reason": "5/5 starts this season, blended with last year's evidence (100% of last 10 GWs started, 74% across the season)",
-          "gain": 3.55,
+          "minutes_reason": "5/5 starts this season, blended with last year's evidence (80% of last 10 GWs started, 45% across the season)",
+          "gain": 3.68,
           "bank_after": 0.5
+        },
+        {
+          "id": "202",
+          "name": "Richards",
+          "team": "CRY",
+          "position": "DEF",
+          "price": 5.0,
+          "owned": 0.6,
+          "xp": 19.5,
+          "start_prob": 0.92,
+          "moved_club": false,
+          "minutes_reason": "5/5 starts this season, blended with last year's evidence (67% of last 10 GWs started, 81% across the season)",
+          "gain": 3.67,
+          "bank_after": 0.0
         },
         {
           "id": "469",
@@ -528,8 +514,22 @@
           "start_prob": 0.98,
           "moved_club": false,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (90% of last 10 GWs started, 95% across the season)",
-          "gain": 3.55,
+          "gain": 3.54,
           "bank_after": 0.0
+        },
+        {
+          "id": "257",
+          "name": "Bassey",
+          "team": "FUL",
+          "position": "DEF",
+          "price": 4.5,
+          "owned": 0.7,
+          "xp": 19.3,
+          "start_prob": 0.97,
+          "moved_club": false,
+          "minutes_reason": "5/5 starts this season, blended with last year's evidence (100% of last 10 GWs started, 74% across the season)",
+          "gain": 3.48,
+          "bank_after": 0.5
         },
         {
           "id": "258",
@@ -538,12 +538,26 @@
           "position": "DEF",
           "price": 4.5,
           "owned": 0.9,
-          "xp": 18.4,
+          "xp": 18.3,
           "start_prob": 0.91,
           "moved_club": false,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (80% of last 10 GWs started, 53% across the season)",
-          "gain": 2.58,
+          "gain": 2.51,
           "bank_after": 0.5
+        },
+        {
+          "id": "418",
+          "name": "Maguire",
+          "team": "MUN",
+          "position": "DEF",
+          "price": 4.8,
+          "owned": 8.7,
+          "xp": 18.3,
+          "start_prob": 0.91,
+          "moved_club": false,
+          "minutes_reason": "5/5 starts this season, blended with last year's evidence (80% of last 10 GWs started, 50% across the season)",
+          "gain": 2.43,
+          "bank_after": 0.2
         },
         {
           "id": "203",
@@ -552,26 +566,12 @@
           "position": "DEF",
           "price": 4.8,
           "owned": 0.2,
-          "xp": 18.1,
+          "xp": 17.7,
           "start_prob": 0.77,
           "moved_club": false,
           "minutes_reason": "4/5 starts this season, blended with last year's evidence (89% of last 10 GWs started, 38% across the season)",
-          "gain": 2.26,
+          "gain": 1.87,
           "bank_after": 0.2
-        },
-        {
-          "id": "204",
-          "name": "Mitchell",
-          "team": "CRY",
-          "position": "DEF",
-          "price": 4.5,
-          "owned": 6.0,
-          "xp": 18.0,
-          "start_prob": 0.96,
-          "moved_club": false,
-          "minutes_reason": "5/5 starts this season, blended with last year's evidence (78% of last 10 GWs started, 95% across the season)",
-          "gain": 2.2,
-          "bank_after": 0.5
         }
       ],
       "override": ""
@@ -593,31 +593,31 @@
       "my_bench_order": null,
       "alternatives": [
         {
-          "id": "254",
-          "name": "Robinson",
-          "team": "FUL",
-          "position": "DEF",
-          "price": 4.5,
-          "owned": 1.4,
-          "xp": 19.6,
-          "start_prob": 0.9,
-          "moved_club": false,
-          "minutes_reason": "5/5 starts this season, blended with last year's evidence (80% of last 10 GWs started, 45% across the season)",
-          "gain": 3.3,
-          "bank_after": 0.0
-        },
-        {
           "id": "332",
           "name": "Justin",
           "team": "LEE",
           "position": "DEF",
           "price": 4.5,
           "owned": 1.5,
-          "xp": 19.5,
+          "xp": 19.8,
           "start_prob": 0.95,
           "moved_club": false,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (100% of last 10 GWs started, 57% across the season)",
-          "gain": 3.19,
+          "gain": 3.47,
+          "bank_after": 0.0
+        },
+        {
+          "id": "254",
+          "name": "Robinson",
+          "team": "FUL",
+          "position": "DEF",
+          "price": 4.5,
+          "owned": 1.4,
+          "xp": 19.5,
+          "start_prob": 0.9,
+          "moved_club": false,
+          "minutes_reason": "5/5 starts this season, blended with last year's evidence (80% of last 10 GWs started, 45% across the season)",
+          "gain": 3.23,
           "bank_after": 0.0
         },
         {
@@ -627,11 +627,11 @@
           "position": "DEF",
           "price": 4.5,
           "owned": 0.7,
-          "xp": 19.4,
+          "xp": 19.3,
           "start_prob": 0.97,
           "moved_club": false,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (100% of last 10 GWs started, 74% across the season)",
-          "gain": 3.1,
+          "gain": 3.03,
           "bank_after": 0.0
         },
         {
@@ -641,11 +641,11 @@
           "position": "DEF",
           "price": 4.5,
           "owned": 0.9,
-          "xp": 18.4,
+          "xp": 18.3,
           "start_prob": 0.91,
           "moved_club": false,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (80% of last 10 GWs started, 53% across the season)",
-          "gain": 2.12,
+          "gain": 2.06,
           "bank_after": 0.0
         },
         {
@@ -655,11 +655,11 @@
           "position": "DEF",
           "price": 4.5,
           "owned": 6.0,
-          "xp": 18.0,
+          "xp": 17.6,
           "start_prob": 0.96,
           "moved_club": false,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (78% of last 10 GWs started, 95% across the season)",
-          "gain": 1.75,
+          "gain": 1.26,
           "bank_after": 0.0
         },
         {
@@ -669,11 +669,11 @@
           "position": "DEF",
           "price": 4.0,
           "owned": 8.6,
-          "xp": 17.0,
+          "xp": 16.5,
           "start_prob": 0.81,
           "moved_club": false,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (no Premier League record; inferred from £4.0m price)",
-          "gain": 0.69,
+          "gain": 0.21,
           "bank_after": 0.5
         },
         {
@@ -683,11 +683,11 @@
           "position": "DEF",
           "price": 4.0,
           "owned": 0.7,
-          "xp": 17.0,
+          "xp": 16.5,
           "start_prob": 0.81,
           "moved_club": false,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (no Premier League record; inferred from £4.0m price)",
-          "gain": 0.69,
+          "gain": 0.21,
           "bank_after": 0.5
         },
         {
@@ -697,11 +697,11 @@
           "position": "DEF",
           "price": 4.5,
           "owned": 0.3,
-          "xp": 16.8,
+          "xp": 16.3,
           "start_prob": 0.81,
           "moved_club": true,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (no Premier League record; inferred from £4.5m price); 100% chance of playing",
-          "gain": 0.49,
+          "gain": 0.02,
           "bank_after": 0.0
         },
         {
@@ -770,7 +770,7 @@
       "position": "MID",
       "price": 11.9,
       "owned": 38.6,
-      "xp": 29.7,
+      "xp": 29.8,
       "start_prob": 0.99,
       "moved_club": false,
       "minutes_reason": "5/5 starts this season, blended with last year's evidence (100% of last 10 GWs started, 92% across the season)",
@@ -786,7 +786,7 @@
           "position": "MID",
           "price": 7.9,
           "owned": 20.6,
-          "xp": 24.2,
+          "xp": 24.3,
           "start_prob": 0.94,
           "moved_club": false,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (80% of last 10 GWs started, 82% across the season)",
@@ -800,11 +800,11 @@
           "position": "MID",
           "price": 6.3,
           "owned": 4.0,
-          "xp": 24.1,
+          "xp": 24.0,
           "start_prob": 0.98,
           "moved_club": true,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (90% of last 10 GWs started, 97% across the season); 100% chance of playing",
-          "gain": -5.69,
+          "gain": -5.8,
           "bank_after": 6.1
         },
         {
@@ -814,11 +814,11 @@
           "position": "MID",
           "price": 6.1,
           "owned": 6.7,
-          "xp": 23.8,
+          "xp": 23.6,
           "start_prob": 0.98,
           "moved_club": false,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (100% of last 10 GWs started, 81% across the season)",
-          "gain": -5.97,
+          "gain": -6.22,
           "bank_after": 6.3
         },
         {
@@ -832,7 +832,7 @@
           "start_prob": 0.89,
           "moved_club": false,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (56% of last 10 GWs started, 68% across the season)",
-          "gain": -6.4,
+          "gain": -6.56,
           "bank_after": 2.9
         },
         {
@@ -846,7 +846,7 @@
           "start_prob": 0.96,
           "moved_club": false,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (90% of last 10 GWs started, 84% across the season)",
-          "gain": -7.58,
+          "gain": -7.66,
           "bank_after": 6.2
         },
         {
@@ -856,11 +856,11 @@
           "position": "MID",
           "price": 6.1,
           "owned": 5.7,
-          "xp": 22.1,
+          "xp": 21.9,
           "start_prob": 0.97,
           "moved_club": false,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (89% of last 10 GWs started, 89% across the season)",
-          "gain": -7.65,
+          "gain": -7.9,
           "bank_after": 6.3
         },
         {
@@ -874,8 +874,22 @@
           "start_prob": 0.98,
           "moved_club": false,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (100% of last 10 GWs started, 79% across the season)",
-          "gain": -8.27,
+          "gain": -8.35,
           "bank_after": 5.8
+        },
+        {
+          "id": "428",
+          "name": "Cunha",
+          "team": "MUN",
+          "position": "MID",
+          "price": 7.9,
+          "owned": 5.8,
+          "xp": 21.4,
+          "start_prob": 0.94,
+          "moved_club": false,
+          "minutes_reason": "5/5 starts this season, blended with last year's evidence (80% of last 10 GWs started, 76% across the season)",
+          "gain": -8.46,
+          "bank_after": 4.5
         },
         {
           "id": "366",
@@ -884,26 +898,12 @@
           "position": "MID",
           "price": 7.3,
           "owned": 5.8,
-          "xp": 21.3,
+          "xp": 21.2,
           "start_prob": 0.9,
           "moved_club": false,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (60% of last 10 GWs started, 71% across the season)",
-          "gain": -8.42,
+          "gain": -8.58,
           "bank_after": 5.1
-        },
-        {
-          "id": "428",
-          "name": "Cunha",
-          "team": "MUN",
-          "position": "MID",
-          "price": 7.9,
-          "owned": 5.7,
-          "xp": 21.3,
-          "start_prob": 0.94,
-          "moved_club": false,
-          "minutes_reason": "5/5 starts this season, blended with last year's evidence (80% of last 10 GWs started, 76% across the season)",
-          "gain": -8.46,
-          "bank_after": 4.5
         },
         {
           "id": "338",
@@ -912,7 +912,7 @@
           "position": "MID",
           "price": 5.4,
           "owned": 0.9,
-          "xp": 21.0,
+          "xp": 21.1,
           "start_prob": 0.99,
           "moved_club": false,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (100% of last 10 GWs started, 92% across the season)",
@@ -926,26 +926,26 @@
           "position": "MID",
           "price": 5.0,
           "owned": 4.0,
-          "xp": 20.6,
+          "xp": 20.7,
           "start_prob": 0.89,
           "moved_club": false,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (56% of last 10 GWs started, 68% across the season)",
-          "gain": -9.1,
+          "gain": -9.11,
           "bank_after": 7.4
         },
         {
-          "id": "67",
-          "name": "Rayan",
-          "team": "BOU",
+          "id": "40",
+          "name": "Rogers",
+          "team": "CHE",
           "position": "MID",
-          "price": 6.3,
-          "owned": 1.6,
+          "price": 7.7,
+          "owned": 40.4,
           "xp": 20.3,
-          "start_prob": 0.96,
-          "moved_club": false,
-          "minutes_reason": "5/5 starts this season, blended with last year's evidence (89% of last 10 GWs started, 86% across the season)",
-          "gain": -9.41,
-          "bank_after": 6.1
+          "start_prob": 0.98,
+          "moved_club": true,
+          "minutes_reason": "5/5 starts this season, blended with last year's evidence (90% of last 10 GWs started, 97% across the season)",
+          "gain": -9.49,
+          "bank_after": 4.7
         }
       ],
       "override": ""
@@ -957,7 +957,7 @@
       "position": "MID",
       "price": 7.0,
       "owned": 33.0,
-      "xp": 22.7,
+      "xp": 22.6,
       "start_prob": 0.99,
       "moved_club": false,
       "minutes_reason": "5/5 starts this season, blended with last year's evidence (100% of last 10 GWs started, 95% across the season)",
@@ -973,11 +973,11 @@
           "position": "MID",
           "price": 6.3,
           "owned": 4.0,
-          "xp": 24.1,
+          "xp": 24.0,
           "start_prob": 0.98,
           "moved_club": true,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (90% of last 10 GWs started, 97% across the season); 100% chance of playing",
-          "gain": 1.35,
+          "gain": 1.41,
           "bank_after": 1.2
         },
         {
@@ -987,11 +987,11 @@
           "position": "MID",
           "price": 6.1,
           "owned": 6.7,
-          "xp": 23.8,
+          "xp": 23.6,
           "start_prob": 0.98,
           "moved_club": false,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (100% of last 10 GWs started, 81% across the season)",
-          "gain": 1.07,
+          "gain": 0.99,
           "bank_after": 1.4
         },
         {
@@ -1005,7 +1005,7 @@
           "start_prob": 0.96,
           "moved_club": false,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (90% of last 10 GWs started, 84% across the season)",
-          "gain": -0.54,
+          "gain": -0.46,
           "bank_after": 1.3
         },
         {
@@ -1015,11 +1015,11 @@
           "position": "MID",
           "price": 6.1,
           "owned": 5.7,
-          "xp": 22.1,
+          "xp": 21.9,
           "start_prob": 0.97,
           "moved_club": false,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (89% of last 10 GWs started, 89% across the season)",
-          "gain": -0.61,
+          "gain": -0.69,
           "bank_after": 1.4
         },
         {
@@ -1033,7 +1033,7 @@
           "start_prob": 0.98,
           "moved_club": false,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (100% of last 10 GWs started, 79% across the season)",
-          "gain": -1.23,
+          "gain": -1.14,
           "bank_after": 0.9
         },
         {
@@ -1043,7 +1043,7 @@
           "position": "MID",
           "price": 7.3,
           "owned": 5.8,
-          "xp": 21.3,
+          "xp": 21.2,
           "start_prob": 0.9,
           "moved_club": false,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (60% of last 10 GWs started, 71% across the season)",
@@ -1057,11 +1057,11 @@
           "position": "MID",
           "price": 5.4,
           "owned": 0.9,
-          "xp": 21.0,
+          "xp": 21.1,
           "start_prob": 0.99,
           "moved_club": false,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (100% of last 10 GWs started, 92% across the season)",
-          "gain": -1.74,
+          "gain": -1.57,
           "bank_after": 2.1
         },
         {
@@ -1071,26 +1071,12 @@
           "position": "MID",
           "price": 5.0,
           "owned": 4.0,
-          "xp": 20.6,
+          "xp": 20.7,
           "start_prob": 0.89,
           "moved_club": false,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (56% of last 10 GWs started, 68% across the season)",
-          "gain": -2.06,
+          "gain": -1.9,
           "bank_after": 2.5
-        },
-        {
-          "id": "67",
-          "name": "Rayan",
-          "team": "BOU",
-          "position": "MID",
-          "price": 6.3,
-          "owned": 1.6,
-          "xp": 20.3,
-          "start_prob": 0.96,
-          "moved_club": false,
-          "minutes_reason": "5/5 starts this season, blended with last year's evidence (89% of last 10 GWs started, 86% across the season)",
-          "gain": -2.37,
-          "bank_after": 1.2
         },
         {
           "id": "335",
@@ -1103,8 +1089,22 @@
           "start_prob": 0.92,
           "moved_club": false,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (67% of last 10 GWs started, 76% across the season)",
-          "gain": -2.44,
+          "gain": -2.29,
           "bank_after": 1.5
+        },
+        {
+          "id": "67",
+          "name": "Rayan",
+          "team": "BOU",
+          "position": "MID",
+          "price": 6.3,
+          "owned": 1.6,
+          "xp": 20.2,
+          "start_prob": 0.96,
+          "moved_club": false,
+          "minutes_reason": "5/5 starts this season, blended with last year's evidence (89% of last 10 GWs started, 86% across the season)",
+          "gain": -2.45,
+          "bank_after": 1.2
         },
         {
           "id": "544",
@@ -1113,26 +1113,26 @@
           "position": "MID",
           "price": 5.5,
           "owned": 3.6,
-          "xp": 19.8,
+          "xp": 19.6,
           "start_prob": 0.96,
           "moved_club": false,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (90% of last 10 GWs started, 84% across the season)",
-          "gain": -2.92,
+          "gain": -3.0,
           "bank_after": 2.0
         },
         {
-          "id": "557",
-          "name": "Tzolis",
-          "team": "ARS",
+          "id": "41",
+          "name": "Buendía",
+          "team": "AVL",
           "position": "MID",
-          "price": 6.3,
-          "owned": 12.3,
-          "xp": 19.7,
-          "start_prob": 0.93,
-          "moved_club": true,
-          "minutes_reason": "5/5 starts this season, blended with last year's evidence (no Premier League record; inferred from £6.3m price)",
-          "gain": -3.04,
-          "bank_after": 1.2
+          "price": 5.9,
+          "owned": 1.0,
+          "xp": 19.6,
+          "start_prob": 0.86,
+          "moved_club": false,
+          "minutes_reason": "5/5 starts this season, blended with last year's evidence (50% of last 10 GWs started, 55% across the season)",
+          "gain": -3.03,
+          "bank_after": 1.6
         }
       ],
       "override": ""
@@ -1144,7 +1144,7 @@
       "position": "MID",
       "price": 5.8,
       "owned": 28.3,
-      "xp": 20.6,
+      "xp": 20.7,
       "start_prob": 0.99,
       "moved_club": false,
       "minutes_reason": "5/5 starts this season, blended with last year's evidence (100% of last 10 GWs started, 94% across the season)",
@@ -1160,11 +1160,11 @@
           "position": "MID",
           "price": 6.3,
           "owned": 4.0,
-          "xp": 24.1,
+          "xp": 24.0,
           "start_prob": 0.98,
           "moved_club": true,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (90% of last 10 GWs started, 97% across the season); 100% chance of playing",
-          "gain": 3.48,
+          "gain": 3.37,
           "bank_after": 0.0
         },
         {
@@ -1174,11 +1174,11 @@
           "position": "MID",
           "price": 6.1,
           "owned": 6.7,
-          "xp": 23.8,
+          "xp": 23.6,
           "start_prob": 0.98,
           "moved_club": false,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (100% of last 10 GWs started, 81% across the season)",
-          "gain": 3.2,
+          "gain": 2.95,
           "bank_after": 0.2
         },
         {
@@ -1192,7 +1192,7 @@
           "start_prob": 0.96,
           "moved_club": false,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (90% of last 10 GWs started, 84% across the season)",
-          "gain": 1.59,
+          "gain": 1.51,
           "bank_after": 0.1
         },
         {
@@ -1202,11 +1202,11 @@
           "position": "MID",
           "price": 6.1,
           "owned": 5.7,
-          "xp": 22.1,
+          "xp": 21.9,
           "start_prob": 0.97,
           "moved_club": false,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (89% of last 10 GWs started, 89% across the season)",
-          "gain": 1.51,
+          "gain": 1.27,
           "bank_after": 0.2
         },
         {
@@ -1216,7 +1216,7 @@
           "position": "MID",
           "price": 5.4,
           "owned": 0.9,
-          "xp": 21.0,
+          "xp": 21.1,
           "start_prob": 0.99,
           "moved_club": false,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (100% of last 10 GWs started, 92% across the season)",
@@ -1230,26 +1230,12 @@
           "position": "MID",
           "price": 5.0,
           "owned": 4.0,
-          "xp": 20.6,
+          "xp": 20.7,
           "start_prob": 0.89,
           "moved_club": false,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (56% of last 10 GWs started, 68% across the season)",
-          "gain": 0.07,
+          "gain": 0.06,
           "bank_after": 1.3
-        },
-        {
-          "id": "67",
-          "name": "Rayan",
-          "team": "BOU",
-          "position": "MID",
-          "price": 6.3,
-          "owned": 1.6,
-          "xp": 20.3,
-          "start_prob": 0.96,
-          "moved_club": false,
-          "minutes_reason": "5/5 starts this season, blended with last year's evidence (89% of last 10 GWs started, 86% across the season)",
-          "gain": -0.24,
-          "bank_after": 0.0
         },
         {
           "id": "335",
@@ -1262,8 +1248,22 @@
           "start_prob": 0.92,
           "moved_club": false,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (67% of last 10 GWs started, 76% across the season)",
-          "gain": -0.31,
+          "gain": -0.32,
           "bank_after": 0.3
+        },
+        {
+          "id": "67",
+          "name": "Rayan",
+          "team": "BOU",
+          "position": "MID",
+          "price": 6.3,
+          "owned": 1.6,
+          "xp": 20.2,
+          "start_prob": 0.96,
+          "moved_club": false,
+          "minutes_reason": "5/5 starts this season, blended with last year's evidence (89% of last 10 GWs started, 86% across the season)",
+          "gain": -0.48,
+          "bank_after": 0.0
         },
         {
           "id": "544",
@@ -1272,26 +1272,12 @@
           "position": "MID",
           "price": 5.5,
           "owned": 3.6,
-          "xp": 19.8,
+          "xp": 19.6,
           "start_prob": 0.96,
           "moved_club": false,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (90% of last 10 GWs started, 84% across the season)",
-          "gain": -0.79,
+          "gain": -1.04,
           "bank_after": 0.8
-        },
-        {
-          "id": "557",
-          "name": "Tzolis",
-          "team": "ARS",
-          "position": "MID",
-          "price": 6.3,
-          "owned": 12.3,
-          "xp": 19.7,
-          "start_prob": 0.93,
-          "moved_club": true,
-          "minutes_reason": "5/5 starts this season, blended with last year's evidence (no Premier League record; inferred from £6.3m price)",
-          "gain": -0.91,
-          "bank_after": 0.0
         },
         {
           "id": "41",
@@ -1304,8 +1290,22 @@
           "start_prob": 0.86,
           "moved_club": false,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (50% of last 10 GWs started, 55% across the season)",
-          "gain": -0.98,
+          "gain": -1.07,
           "bank_after": 0.4
+        },
+        {
+          "id": "557",
+          "name": "Tzolis",
+          "team": "ARS",
+          "position": "MID",
+          "price": 6.3,
+          "owned": 12.3,
+          "xp": 19.6,
+          "start_prob": 0.93,
+          "moved_club": true,
+          "minutes_reason": "5/5 starts this season, blended with last year's evidence (no Premier League record; inferred from £6.3m price)",
+          "gain": -1.08,
+          "bank_after": 0.0
         },
         {
           "id": "453",
@@ -1318,7 +1318,7 @@
           "start_prob": 0.86,
           "moved_club": false,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (50% of last 10 GWs started, 50% across the season)",
-          "gain": -1.21,
+          "gain": -1.29,
           "bank_after": 0.2
         }
       ],
@@ -1347,11 +1347,11 @@
           "position": "MID",
           "price": 7.9,
           "owned": 20.6,
-          "xp": 24.2,
+          "xp": 24.3,
           "start_prob": 0.94,
           "moved_club": false,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (80% of last 10 GWs started, 82% across the season)",
-          "gain": 2.37,
+          "gain": 2.45,
           "bank_after": 0.6
         },
         {
@@ -1361,11 +1361,11 @@
           "position": "MID",
           "price": 6.3,
           "owned": 4.0,
-          "xp": 24.1,
+          "xp": 24.0,
           "start_prob": 0.98,
           "moved_club": true,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (90% of last 10 GWs started, 97% across the season); 100% chance of playing",
-          "gain": 2.25,
+          "gain": 2.23,
           "bank_after": 2.2
         },
         {
@@ -1375,11 +1375,11 @@
           "position": "MID",
           "price": 6.1,
           "owned": 6.7,
-          "xp": 23.8,
+          "xp": 23.6,
           "start_prob": 0.98,
           "moved_club": false,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (100% of last 10 GWs started, 81% across the season)",
-          "gain": 1.97,
+          "gain": 1.81,
           "bank_after": 2.4
         },
         {
@@ -1393,7 +1393,7 @@
           "start_prob": 0.96,
           "moved_club": false,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (90% of last 10 GWs started, 84% across the season)",
-          "gain": 0.37,
+          "gain": 0.36,
           "bank_after": 2.3
         },
         {
@@ -1403,11 +1403,11 @@
           "position": "MID",
           "price": 6.1,
           "owned": 5.7,
-          "xp": 22.1,
+          "xp": 21.9,
           "start_prob": 0.97,
           "moved_club": false,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (89% of last 10 GWs started, 89% across the season)",
-          "gain": 0.29,
+          "gain": 0.13,
           "bank_after": 2.4
         },
         {
@@ -1425,32 +1425,32 @@
           "bank_after": 1.9
         },
         {
+          "id": "428",
+          "name": "Cunha",
+          "team": "MUN",
+          "position": "MID",
+          "price": 7.9,
+          "owned": 5.8,
+          "xp": 21.4,
+          "start_prob": 0.94,
+          "moved_club": false,
+          "minutes_reason": "5/5 starts this season, blended with last year's evidence (80% of last 10 GWs started, 76% across the season)",
+          "gain": -0.44,
+          "bank_after": 0.6
+        },
+        {
           "id": "366",
           "name": "Wirtz",
           "team": "LIV",
           "position": "MID",
           "price": 7.3,
           "owned": 5.8,
-          "xp": 21.3,
+          "xp": 21.2,
           "start_prob": 0.9,
           "moved_club": false,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (60% of last 10 GWs started, 71% across the season)",
-          "gain": -0.48,
+          "gain": -0.56,
           "bank_after": 1.2
-        },
-        {
-          "id": "428",
-          "name": "Cunha",
-          "team": "MUN",
-          "position": "MID",
-          "price": 7.9,
-          "owned": 5.7,
-          "xp": 21.3,
-          "start_prob": 0.94,
-          "moved_club": false,
-          "minutes_reason": "5/5 starts this season, blended with last year's evidence (80% of last 10 GWs started, 76% across the season)",
-          "gain": -0.52,
-          "bank_after": 0.6
         },
         {
           "id": "338",
@@ -1459,11 +1459,11 @@
           "position": "MID",
           "price": 5.4,
           "owned": 0.9,
-          "xp": 21.0,
+          "xp": 21.1,
           "start_prob": 0.99,
           "moved_club": false,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (100% of last 10 GWs started, 92% across the season)",
-          "gain": -0.83,
+          "gain": -0.75,
           "bank_after": 3.1
         },
         {
@@ -1473,26 +1473,12 @@
           "position": "MID",
           "price": 5.0,
           "owned": 4.0,
-          "xp": 20.6,
+          "xp": 20.7,
           "start_prob": 0.89,
           "moved_club": false,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (56% of last 10 GWs started, 68% across the season)",
-          "gain": -1.15,
+          "gain": -1.08,
           "bank_after": 3.5
-        },
-        {
-          "id": "67",
-          "name": "Rayan",
-          "team": "BOU",
-          "position": "MID",
-          "price": 6.3,
-          "owned": 1.6,
-          "xp": 20.3,
-          "start_prob": 0.96,
-          "moved_club": false,
-          "minutes_reason": "5/5 starts this season, blended with last year's evidence (89% of last 10 GWs started, 86% across the season)",
-          "gain": -1.46,
-          "bank_after": 2.2
         },
         {
           "id": "40",
@@ -1505,8 +1491,22 @@
           "start_prob": 0.98,
           "moved_club": true,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (90% of last 10 GWs started, 97% across the season)",
-          "gain": -1.54,
+          "gain": -1.46,
           "bank_after": 0.8
+        },
+        {
+          "id": "335",
+          "name": "Stach",
+          "team": "LEE",
+          "position": "MID",
+          "price": 6.0,
+          "owned": 2.5,
+          "xp": 20.3,
+          "start_prob": 0.92,
+          "moved_club": false,
+          "minutes_reason": "5/5 starts this season, blended with last year's evidence (67% of last 10 GWs started, 76% across the season)",
+          "gain": -1.47,
+          "bank_after": 2.5
         }
       ],
       "override": ""
@@ -1518,7 +1518,7 @@
       "position": "MID",
       "price": 5.7,
       "owned": 3.4,
-      "xp": 22.3,
+      "xp": 22.1,
       "start_prob": 0.95,
       "moved_club": false,
       "minutes_reason": "5/5 starts this season, blended with last year's evidence (80% of last 10 GWs started, 87% across the season)",
@@ -1534,7 +1534,7 @@
           "position": "MID",
           "price": 6.1,
           "owned": 6.7,
-          "xp": 23.8,
+          "xp": 23.6,
           "start_prob": 0.98,
           "moved_club": false,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (100% of last 10 GWs started, 81% across the season)",
@@ -1552,7 +1552,7 @@
           "start_prob": 0.96,
           "moved_club": false,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (90% of last 10 GWs started, 84% across the season)",
-          "gain": -0.1,
+          "gain": 0.06,
           "bank_after": 0.0
         },
         {
@@ -1562,7 +1562,7 @@
           "position": "MID",
           "price": 6.1,
           "owned": 5.7,
-          "xp": 22.1,
+          "xp": 21.9,
           "start_prob": 0.97,
           "moved_club": false,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (89% of last 10 GWs started, 89% across the season)",
@@ -1576,11 +1576,11 @@
           "position": "MID",
           "price": 5.4,
           "owned": 0.9,
-          "xp": 21.0,
+          "xp": 21.1,
           "start_prob": 0.99,
           "moved_club": false,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (100% of last 10 GWs started, 92% across the season)",
-          "gain": -1.3,
+          "gain": -1.06,
           "bank_after": 0.8
         },
         {
@@ -1590,11 +1590,11 @@
           "position": "MID",
           "price": 5.0,
           "owned": 4.0,
-          "xp": 20.6,
+          "xp": 20.7,
           "start_prob": 0.89,
           "moved_club": false,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (56% of last 10 GWs started, 68% across the season)",
-          "gain": -1.62,
+          "gain": -1.39,
           "bank_after": 1.2
         },
         {
@@ -1608,7 +1608,7 @@
           "start_prob": 0.92,
           "moved_club": false,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (67% of last 10 GWs started, 76% across the season)",
-          "gain": -2.01,
+          "gain": -1.77,
           "bank_after": 0.2
         },
         {
@@ -1618,7 +1618,7 @@
           "position": "MID",
           "price": 5.5,
           "owned": 3.6,
-          "xp": 19.8,
+          "xp": 19.6,
           "start_prob": 0.96,
           "moved_club": false,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (90% of last 10 GWs started, 84% across the season)",
@@ -1636,7 +1636,7 @@
           "start_prob": 0.86,
           "moved_club": false,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (50% of last 10 GWs started, 55% across the season)",
-          "gain": -2.67,
+          "gain": -2.51,
           "bank_after": 0.3
         },
         {
@@ -1650,7 +1650,7 @@
           "start_prob": 0.86,
           "moved_club": false,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (50% of last 10 GWs started, 50% across the season)",
-          "gain": -2.9,
+          "gain": -2.74,
           "bank_after": 0.1
         },
         {
@@ -1664,7 +1664,7 @@
           "start_prob": 0.86,
           "moved_club": false,
           "minutes_reason": "4/5 starts this season, blended with last year's evidence (100% of last 10 GWs started, 100% across the season); 100% chance of playing",
-          "gain": -3.08,
+          "gain": -2.92,
           "bank_after": 0.2
         },
         {
@@ -1674,11 +1674,11 @@
           "position": "MID",
           "price": 5.4,
           "owned": 0.7,
-          "xp": 18.9,
+          "xp": 18.8,
           "start_prob": 0.86,
           "moved_club": false,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (33% of last 10 GWs started, 76% across the season); 100% chance of playing",
-          "gain": -3.35,
+          "gain": -3.31,
           "bank_after": 0.8
         },
         {
@@ -1692,7 +1692,7 @@
           "start_prob": 0.84,
           "moved_club": true,
           "minutes_reason": "4/5 starts this season, blended with last year's evidence (100% of last 10 GWs started, 84% across the season)",
-          "gain": -3.56,
+          "gain": -3.42,
           "bank_after": 0.4
         }
       ],
@@ -1753,7 +1753,7 @@
           "start_prob": 0.87,
           "moved_club": false,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (no Premier League record; inferred from £5.5m price)",
-          "gain": -9.22,
+          "gain": -9.23,
           "bank_after": 10.6
         },
         {
@@ -1767,7 +1767,7 @@
           "start_prob": 0.87,
           "moved_club": true,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (no Premier League record; inferred from £5.5m price); 100% chance of playing",
-          "gain": -9.22,
+          "gain": -9.23,
           "bank_after": 10.6
         },
         {
@@ -1781,7 +1781,7 @@
           "start_prob": 0.98,
           "moved_club": false,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (100% of last 10 GWs started, 84% across the season)",
-          "gain": -9.88,
+          "gain": -9.89,
           "bank_after": 10.1
         },
         {
@@ -1795,7 +1795,7 @@
           "start_prob": 0.81,
           "moved_club": false,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (20% of last 10 GWs started, 55% across the season)",
-          "gain": -12.29,
+          "gain": -12.3,
           "bank_after": 10.5
         },
         {
@@ -1804,12 +1804,12 @@
           "team": "LIV",
           "position": "FWD",
           "price": 9.1,
-          "owned": 22.4,
+          "owned": 22.5,
           "xp": 17.4,
           "start_prob": 0.77,
           "moved_club": false,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (20% of last 10 GWs started, 21% across the season)",
-          "gain": -12.81,
+          "gain": -12.82,
           "bank_after": 7.0
         },
         {
@@ -1860,7 +1860,7 @@
           "team": "SUN",
           "position": "FWD",
           "price": 5.7,
-          "owned": 7.1,
+          "owned": 7.0,
           "xp": 15.0,
           "start_prob": 0.7,
           "moved_club": false,
@@ -1874,7 +1874,7 @@
           "team": "BHA",
           "position": "FWD",
           "price": 5.6,
-          "owned": 3.7,
+          "owned": 3.8,
           "xp": 14.6,
           "start_prob": 0.58,
           "moved_club": false,
@@ -1926,7 +1926,7 @@
           "start_prob": 0.87,
           "moved_club": false,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (no Premier League record; inferred from £5.5m price)",
-          "gain": -3.29,
+          "gain": -3.3,
           "bank_after": 1.0
         },
         {
@@ -1940,7 +1940,7 @@
           "start_prob": 0.87,
           "moved_club": true,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (no Premier League record; inferred from £5.5m price); 100% chance of playing",
-          "gain": -3.29,
+          "gain": -3.3,
           "bank_after": 1.0
         },
         {
@@ -1954,7 +1954,7 @@
           "start_prob": 0.98,
           "moved_club": false,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (100% of last 10 GWs started, 84% across the season)",
-          "gain": -3.95,
+          "gain": -3.96,
           "bank_after": 0.5
         },
         {
@@ -1982,7 +1982,7 @@
           "start_prob": 0.73,
           "moved_club": false,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (0% of last 10 GWs started, 11% across the season)",
-          "gain": -7.0,
+          "gain": -7.01,
           "bank_after": 0.3
         },
         {
@@ -1991,7 +1991,7 @@
           "team": "SUN",
           "position": "FWD",
           "price": 5.7,
-          "owned": 7.1,
+          "owned": 7.0,
           "xp": 15.0,
           "start_prob": 0.7,
           "moved_club": false,
@@ -2005,7 +2005,7 @@
           "team": "BHA",
           "position": "FWD",
           "price": 5.6,
-          "owned": 3.7,
+          "owned": 3.8,
           "xp": 14.6,
           "start_prob": 0.58,
           "moved_club": false,
@@ -2079,7 +2079,7 @@
       "position": "GKP",
       "price": 4.5,
       "owned": 21.6,
-      "xp": 16.9,
+      "xp": 17.2,
       "start_prob": 1.0,
       "moved_club": false,
       "minutes_reason": "5/5 starts this season, blended with last year's evidence (100% of last 10 GWs started, 100% across the season)",
@@ -2095,26 +2095,12 @@
           "position": "GKP",
           "price": 4.5,
           "owned": 3.3,
-          "xp": 19.2,
+          "xp": 19.1,
           "start_prob": 1.0,
           "moved_club": false,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (100% of last 10 GWs started, 100% across the season)",
-          "gain": 2.27,
+          "gain": 1.82,
           "bank_after": 0.5
-        },
-        {
-          "id": "529",
-          "name": "Roefs",
-          "team": "SUN",
-          "position": "GKP",
-          "price": 4.9,
-          "owned": 2.5,
-          "xp": 18.5,
-          "start_prob": 0.94,
-          "moved_club": false,
-          "minutes_reason": "5/5 starts this season, blended with last year's evidence (70% of last 10 GWs started, 92% across the season)",
-          "gain": 1.59,
-          "bank_after": 0.1
         },
         {
           "id": "412",
@@ -2122,27 +2108,13 @@
           "team": "MUN",
           "position": "GKP",
           "price": 4.9,
-          "owned": 10.0,
-          "xp": 18.4,
+          "owned": 9.9,
+          "xp": 18.8,
           "start_prob": 0.99,
           "moved_club": false,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (100% of last 10 GWs started, 91% across the season)",
-          "gain": 1.53,
+          "gain": 1.52,
           "bank_after": 0.1
-        },
-        {
-          "id": "57",
-          "name": "Petrović",
-          "team": "BOU",
-          "position": "GKP",
-          "price": 4.5,
-          "owned": 3.0,
-          "xp": 18.2,
-          "start_prob": 1.0,
-          "moved_club": false,
-          "minutes_reason": "5/5 starts this season, blended with last year's evidence (100% of last 10 GWs started, 100% across the season)",
-          "gain": 1.32,
-          "bank_after": 0.5
         },
         {
           "id": "82",
@@ -2155,8 +2127,36 @@
           "start_prob": 1.0,
           "moved_club": false,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (100% of last 10 GWs started, 97% across the season)",
-          "gain": 1.3,
+          "gain": 0.95,
           "bank_after": 0.0
+        },
+        {
+          "id": "529",
+          "name": "Roefs",
+          "team": "SUN",
+          "position": "GKP",
+          "price": 4.9,
+          "owned": 2.5,
+          "xp": 17.8,
+          "start_prob": 0.94,
+          "moved_club": false,
+          "minutes_reason": "5/5 starts this season, blended with last year's evidence (70% of last 10 GWs started, 92% across the season)",
+          "gain": 0.57,
+          "bank_after": 0.1
+        },
+        {
+          "id": "57",
+          "name": "Petrović",
+          "team": "BOU",
+          "position": "GKP",
+          "price": 4.5,
+          "owned": 3.0,
+          "xp": 17.5,
+          "start_prob": 1.0,
+          "moved_club": false,
+          "minutes_reason": "5/5 starts this season, blended with last year's evidence (100% of last 10 GWs started, 100% across the season)",
+          "gain": 0.26,
+          "bank_after": 0.5
         },
         {
           "id": "467",
@@ -2169,7 +2169,7 @@
           "start_prob": 0.98,
           "moved_club": false,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (100% of last 10 GWs started, 79% across the season)",
-          "gain": 0.09,
+          "gain": -0.27,
           "bank_after": 0.0
         },
         {
@@ -2183,7 +2183,7 @@
           "start_prob": 0.87,
           "moved_club": true,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (no Premier League record; inferred from £5.0m price)",
-          "gain": -0.81,
+          "gain": -1.16,
           "bank_after": 0.0
         },
         {
@@ -2193,11 +2193,11 @@
           "position": "GKP",
           "price": 5.0,
           "owned": 4.8,
-          "xp": 15.0,
+          "xp": 15.3,
           "start_prob": 0.81,
           "moved_club": true,
           "minutes_reason": "4/5 starts this season, blended with last year's evidence (80% of last 10 GWs started, 84% across the season)",
-          "gain": -1.9,
+          "gain": -1.97,
           "bank_after": 0.0
         },
         {
@@ -2211,7 +2211,7 @@
           "start_prob": 0.81,
           "moved_club": true,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (no Premier League record; inferred from £4.7m price)",
-          "gain": -1.99,
+          "gain": -2.07,
           "bank_after": 0.3
         },
         {
@@ -2221,11 +2221,11 @@
           "position": "GKP",
           "price": 4.5,
           "owned": 0.8,
-          "xp": 13.9,
+          "xp": 13.4,
           "start_prob": 0.71,
           "moved_club": true,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (0% of last 10 GWs started, 0% across the season)",
-          "gain": -2.09,
+          "gain": -2.23,
           "bank_after": 0.5
         },
         {
@@ -2239,7 +2239,7 @@
           "start_prob": 0.73,
           "moved_club": true,
           "minutes_reason": "4/5 starts this season, blended with last year's evidence (no Premier League record; inferred from £5.0m price)",
-          "gain": -2.16,
+          "gain": -2.25,
           "bank_after": 0.0
         },
         {
@@ -2249,11 +2249,11 @@
           "position": "GKP",
           "price": 5.0,
           "owned": 5.5,
-          "xp": 12.6,
+          "xp": 12.9,
           "start_prob": 0.75,
           "moved_club": true,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (12% of last 10 GWs started, 11% across the season)",
-          "gain": -2.24,
+          "gain": -2.3,
           "bank_after": 0.0
         }
       ],
@@ -2265,7 +2265,7 @@
       "team": "CHE",
       "position": "FWD",
       "price": 7.7,
-      "owned": 65.5,
+      "owned": 65.4,
       "xp": 15.8,
       "start_prob": 0.6,
       "moved_club": false,
@@ -2286,7 +2286,7 @@
           "start_prob": 1.0,
           "moved_club": false,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (100% of last 10 GWs started, 97% across the season)",
-          "gain": 5.64,
+          "gain": 5.57,
           "bank_after": 0.4
         },
         {
@@ -2300,7 +2300,7 @@
           "start_prob": 0.93,
           "moved_club": true,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (no Premier League record; inferred from £6.0m price)",
-          "gain": 2.35,
+          "gain": 2.28,
           "bank_after": 2.2
         },
         {
@@ -2314,7 +2314,7 @@
           "start_prob": 0.87,
           "moved_club": false,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (no Premier League record; inferred from £5.5m price)",
-          "gain": 0.98,
+          "gain": 0.9,
           "bank_after": 2.7
         },
         {
@@ -2328,7 +2328,7 @@
           "start_prob": 0.87,
           "moved_club": true,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (no Premier League record; inferred from £5.5m price); 100% chance of playing",
-          "gain": 0.98,
+          "gain": 0.9,
           "bank_after": 2.7
         },
         {
@@ -2407,7 +2407,7 @@
           "team": "SUN",
           "position": "FWD",
           "price": 5.7,
-          "owned": 7.1,
+          "owned": 7.0,
           "xp": 15.0,
           "start_prob": 0.7,
           "moved_club": false,
@@ -2421,7 +2421,7 @@
           "team": "BHA",
           "position": "FWD",
           "price": 5.6,
-          "owned": 3.7,
+          "owned": 3.8,
           "xp": 14.6,
           "start_prob": 0.58,
           "moved_club": false,
@@ -2453,7 +2453,7 @@
       "position": "DEF",
       "price": 4.3,
       "owned": 7.7,
-      "xp": 14.7,
+      "xp": 15.0,
       "start_prob": 0.86,
       "moved_club": false,
       "minutes_reason": "4/5 starts this season, blended with last year's evidence (100% of last 10 GWs started, 100% across the season); 100% chance of playing",
@@ -2463,30 +2463,30 @@
       "my_bench_order": 3,
       "alternatives": [
         {
-          "id": "254",
-          "name": "Robinson",
-          "team": "FUL",
-          "position": "DEF",
-          "price": 4.5,
-          "owned": 1.4,
-          "xp": 19.6,
-          "start_prob": 0.9,
-          "moved_club": false,
-          "minutes_reason": "5/5 starts this season, blended with last year's evidence (80% of last 10 GWs started, 45% across the season)",
-          "gain": 3.88,
-          "bank_after": 0.3
-        },
-        {
           "id": "332",
           "name": "Justin",
           "team": "LEE",
           "position": "DEF",
           "price": 4.5,
           "owned": 1.5,
-          "xp": 19.5,
+          "xp": 19.8,
           "start_prob": 0.95,
           "moved_club": false,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (100% of last 10 GWs started, 57% across the season)",
+          "gain": 4.03,
+          "bank_after": 0.3
+        },
+        {
+          "id": "254",
+          "name": "Robinson",
+          "team": "FUL",
+          "position": "DEF",
+          "price": 4.5,
+          "owned": 1.4,
+          "xp": 19.5,
+          "start_prob": 0.9,
+          "moved_club": false,
+          "minutes_reason": "5/5 starts this season, blended with last year's evidence (80% of last 10 GWs started, 45% across the season)",
           "gain": 3.78,
           "bank_after": 0.3
         },
@@ -2497,11 +2497,11 @@
           "position": "DEF",
           "price": 4.5,
           "owned": 0.7,
-          "xp": 19.4,
+          "xp": 19.3,
           "start_prob": 0.97,
           "moved_club": false,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (100% of last 10 GWs started, 74% across the season)",
-          "gain": 3.69,
+          "gain": 3.59,
           "bank_after": 0.3
         },
         {
@@ -2511,39 +2511,11 @@
           "position": "DEF",
           "price": 4.5,
           "owned": 0.9,
-          "xp": 18.4,
+          "xp": 18.3,
           "start_prob": 0.91,
           "moved_club": false,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (80% of last 10 GWs started, 53% across the season)",
-          "gain": 2.71,
-          "bank_after": 0.3
-        },
-        {
-          "id": "203",
-          "name": "Canvot",
-          "team": "CRY",
-          "position": "DEF",
-          "price": 4.8,
-          "owned": 0.2,
-          "xp": 18.1,
-          "start_prob": 0.77,
-          "moved_club": false,
-          "minutes_reason": "4/5 starts this season, blended with last year's evidence (89% of last 10 GWs started, 38% across the season)",
-          "gain": 2.39,
-          "bank_after": 0.0
-        },
-        {
-          "id": "204",
-          "name": "Mitchell",
-          "team": "CRY",
-          "position": "DEF",
-          "price": 4.5,
-          "owned": 6.0,
-          "xp": 18.0,
-          "start_prob": 0.96,
-          "moved_club": false,
-          "minutes_reason": "5/5 starts this season, blended with last year's evidence (78% of last 10 GWs started, 95% across the season)",
-          "gain": 2.33,
+          "gain": 2.61,
           "bank_after": 0.3
         },
         {
@@ -2553,12 +2525,40 @@
           "position": "DEF",
           "price": 4.8,
           "owned": 8.7,
-          "xp": 18.0,
+          "xp": 18.3,
           "start_prob": 0.91,
           "moved_club": false,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (80% of last 10 GWs started, 50% across the season)",
-          "gain": 2.3,
+          "gain": 2.54,
           "bank_after": 0.0
+        },
+        {
+          "id": "203",
+          "name": "Canvot",
+          "team": "CRY",
+          "position": "DEF",
+          "price": 4.8,
+          "owned": 0.2,
+          "xp": 17.7,
+          "start_prob": 0.77,
+          "moved_club": false,
+          "minutes_reason": "4/5 starts this season, blended with last year's evidence (89% of last 10 GWs started, 38% across the season)",
+          "gain": 1.97,
+          "bank_after": 0.0
+        },
+        {
+          "id": "204",
+          "name": "Mitchell",
+          "team": "CRY",
+          "position": "DEF",
+          "price": 4.5,
+          "owned": 6.0,
+          "xp": 17.6,
+          "start_prob": 0.96,
+          "moved_club": false,
+          "minutes_reason": "5/5 starts this season, blended with last year's evidence (78% of last 10 GWs started, 95% across the season)",
+          "gain": 1.82,
+          "bank_after": 0.3
         },
         {
           "id": "233",
@@ -2571,7 +2571,7 @@
           "start_prob": 0.98,
           "moved_club": false,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (100% of last 10 GWs started, 87% across the season)",
-          "gain": 1.4,
+          "gain": 1.37,
           "bank_after": 0.2
         },
         {
@@ -2581,11 +2581,11 @@
           "position": "DEF",
           "price": 4.0,
           "owned": 8.6,
-          "xp": 17.0,
+          "xp": 16.5,
           "start_prob": 0.81,
           "moved_club": false,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (no Premier League record; inferred from £4.0m price)",
-          "gain": 1.27,
+          "gain": 0.77,
           "bank_after": 0.8
         },
         {
@@ -2595,11 +2595,11 @@
           "position": "DEF",
           "price": 4.0,
           "owned": 0.7,
-          "xp": 17.0,
+          "xp": 16.5,
           "start_prob": 0.81,
           "moved_club": false,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (no Premier League record; inferred from £4.0m price)",
-          "gain": 1.27,
+          "gain": 0.77,
           "bank_after": 0.8
         },
         {
@@ -2609,11 +2609,11 @@
           "position": "DEF",
           "price": 4.5,
           "owned": 0.3,
-          "xp": 16.8,
+          "xp": 16.3,
           "start_prob": 0.81,
           "moved_club": true,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (no Premier League record; inferred from £4.5m price); 100% chance of playing",
-          "gain": 1.08,
+          "gain": 0.57,
           "bank_after": 0.3
         },
         {
@@ -2627,7 +2627,7 @@
           "start_prob": 0.81,
           "moved_club": false,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (no Premier League record; inferred from £4.0m price)",
-          "gain": 0.59,
+          "gain": 0.56,
           "bank_after": 0.8
         }
       ],
@@ -2640,7 +2640,7 @@
       "position": "DEF",
       "price": 4.3,
       "owned": 2.8,
-      "xp": 10.1,
+      "xp": 9.8,
       "start_prob": 0.53,
       "moved_club": false,
       "minutes_reason": "2/5 starts this season, blended with last year's evidence (80% of last 10 GWs started, 89% across the season)",
@@ -2650,31 +2650,31 @@
       "my_bench_order": 4,
       "alternatives": [
         {
-          "id": "254",
-          "name": "Robinson",
-          "team": "FUL",
-          "position": "DEF",
-          "price": 4.5,
-          "owned": 1.4,
-          "xp": 19.6,
-          "start_prob": 0.9,
-          "moved_club": false,
-          "minutes_reason": "5/5 starts this season, blended with last year's evidence (80% of last 10 GWs started, 45% across the season)",
-          "gain": 4.44,
-          "bank_after": 0.3
-        },
-        {
           "id": "332",
           "name": "Justin",
           "team": "LEE",
           "position": "DEF",
           "price": 4.5,
           "owned": 1.5,
-          "xp": 19.5,
+          "xp": 19.8,
           "start_prob": 0.95,
           "moved_club": false,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (100% of last 10 GWs started, 57% across the season)",
-          "gain": 4.33,
+          "gain": 4.65,
+          "bank_after": 0.3
+        },
+        {
+          "id": "254",
+          "name": "Robinson",
+          "team": "FUL",
+          "position": "DEF",
+          "price": 4.5,
+          "owned": 1.4,
+          "xp": 19.5,
+          "start_prob": 0.9,
+          "moved_club": false,
+          "minutes_reason": "5/5 starts this season, blended with last year's evidence (80% of last 10 GWs started, 45% across the season)",
+          "gain": 4.4,
           "bank_after": 0.3
         },
         {
@@ -2684,11 +2684,11 @@
           "position": "DEF",
           "price": 4.5,
           "owned": 0.7,
-          "xp": 19.4,
+          "xp": 19.3,
           "start_prob": 0.97,
           "moved_club": false,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (100% of last 10 GWs started, 74% across the season)",
-          "gain": 4.24,
+          "gain": 4.21,
           "bank_after": 0.3
         },
         {
@@ -2698,39 +2698,11 @@
           "position": "DEF",
           "price": 4.5,
           "owned": 0.9,
-          "xp": 18.4,
+          "xp": 18.3,
           "start_prob": 0.91,
           "moved_club": false,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (80% of last 10 GWs started, 53% across the season)",
-          "gain": 3.26,
-          "bank_after": 0.3
-        },
-        {
-          "id": "203",
-          "name": "Canvot",
-          "team": "CRY",
-          "position": "DEF",
-          "price": 4.8,
-          "owned": 0.2,
-          "xp": 18.1,
-          "start_prob": 0.77,
-          "moved_club": false,
-          "minutes_reason": "4/5 starts this season, blended with last year's evidence (89% of last 10 GWs started, 38% across the season)",
-          "gain": 2.95,
-          "bank_after": 0.0
-        },
-        {
-          "id": "204",
-          "name": "Mitchell",
-          "team": "CRY",
-          "position": "DEF",
-          "price": 4.5,
-          "owned": 6.0,
-          "xp": 18.0,
-          "start_prob": 0.96,
-          "moved_club": false,
-          "minutes_reason": "5/5 starts this season, blended with last year's evidence (78% of last 10 GWs started, 95% across the season)",
-          "gain": 2.89,
+          "gain": 3.23,
           "bank_after": 0.3
         },
         {
@@ -2740,12 +2712,40 @@
           "position": "DEF",
           "price": 4.8,
           "owned": 8.7,
-          "xp": 18.0,
+          "xp": 18.3,
           "start_prob": 0.91,
           "moved_club": false,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (80% of last 10 GWs started, 50% across the season)",
-          "gain": 2.86,
+          "gain": 3.16,
           "bank_after": 0.0
+        },
+        {
+          "id": "203",
+          "name": "Canvot",
+          "team": "CRY",
+          "position": "DEF",
+          "price": 4.8,
+          "owned": 0.2,
+          "xp": 17.7,
+          "start_prob": 0.77,
+          "moved_club": false,
+          "minutes_reason": "4/5 starts this season, blended with last year's evidence (89% of last 10 GWs started, 38% across the season)",
+          "gain": 2.59,
+          "bank_after": 0.0
+        },
+        {
+          "id": "204",
+          "name": "Mitchell",
+          "team": "CRY",
+          "position": "DEF",
+          "price": 4.5,
+          "owned": 6.0,
+          "xp": 17.6,
+          "start_prob": 0.96,
+          "moved_club": false,
+          "minutes_reason": "5/5 starts this season, blended with last year's evidence (78% of last 10 GWs started, 95% across the season)",
+          "gain": 2.44,
+          "bank_after": 0.3
         },
         {
           "id": "233",
@@ -2758,7 +2758,7 @@
           "start_prob": 0.98,
           "moved_club": false,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (100% of last 10 GWs started, 87% across the season)",
-          "gain": 1.95,
+          "gain": 1.99,
           "bank_after": 0.2
         },
         {
@@ -2768,11 +2768,11 @@
           "position": "DEF",
           "price": 4.0,
           "owned": 8.6,
-          "xp": 17.0,
+          "xp": 16.5,
           "start_prob": 0.81,
           "moved_club": false,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (no Premier League record; inferred from £4.0m price)",
-          "gain": 1.83,
+          "gain": 1.39,
           "bank_after": 0.8
         },
         {
@@ -2782,11 +2782,11 @@
           "position": "DEF",
           "price": 4.0,
           "owned": 0.7,
-          "xp": 17.0,
+          "xp": 16.5,
           "start_prob": 0.81,
           "moved_club": false,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (no Premier League record; inferred from £4.0m price)",
-          "gain": 1.83,
+          "gain": 1.39,
           "bank_after": 0.8
         },
         {
@@ -2796,11 +2796,11 @@
           "position": "DEF",
           "price": 4.5,
           "owned": 0.3,
-          "xp": 16.8,
+          "xp": 16.3,
           "start_prob": 0.81,
           "moved_club": true,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (no Premier League record; inferred from £4.5m price); 100% chance of playing",
-          "gain": 1.63,
+          "gain": 1.19,
           "bank_after": 0.3
         },
         {
@@ -2814,7 +2814,7 @@
           "start_prob": 0.81,
           "moved_club": false,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (no Premier League record; inferred from £4.0m price)",
-          "gain": 1.14,
+          "gain": 1.18,
           "bank_after": 0.8
         }
       ],
@@ -2847,7 +2847,7 @@
         "moved_club": false,
         "minutes_reason": "5/5 starts this season, blended with last year's evidence (90% of last 10 GWs started, 87% across the season)"
       },
-      "gain": 6.05,
+      "gain": 6.04,
       "bank_after": 0.0
     },
     {
@@ -2857,7 +2857,7 @@
         "team": "CHE",
         "position": "FWD",
         "price": 7.7,
-        "owned": 65.5,
+        "owned": 65.4,
         "xp": 15.8,
         "start_prob": 0.6,
         "moved_club": false,
@@ -2875,8 +2875,36 @@
         "moved_club": false,
         "minutes_reason": "5/5 starts this season, blended with last year's evidence (100% of last 10 GWs started, 97% across the season)"
       },
-      "gain": 5.64,
+      "gain": 5.57,
       "bank_after": 0.4
+    },
+    {
+      "out": {
+        "id": "87",
+        "name": "Ajer",
+        "team": "BRE",
+        "position": "DEF",
+        "price": 4.5,
+        "owned": 3.9,
+        "xp": 15.8,
+        "start_prob": 0.81,
+        "moved_club": false,
+        "minutes_reason": "5/5 starts this season, blended with last year's evidence (20% of last 10 GWs started, 53% across the season)"
+      },
+      "in": {
+        "id": "112",
+        "name": "Van Hecke",
+        "team": "TOT",
+        "position": "DEF",
+        "price": 4.9,
+        "owned": 6.6,
+        "xp": 21.0,
+        "start_prob": 0.99,
+        "moved_club": true,
+        "minutes_reason": "5/5 starts this season, blended with last year's evidence (100% of last 10 GWs started, 95% across the season)"
+      },
+      "gain": 5.18,
+      "bank_after": 0.1
     },
     {
       "out": {
@@ -2908,31 +2936,87 @@
     },
     {
       "out": {
-        "id": "87",
-        "name": "Ajer",
-        "team": "BRE",
+        "id": "534",
+        "name": "Hume",
+        "team": "SUN",
         "position": "DEF",
-        "price": 4.5,
-        "owned": 3.9,
-        "xp": 15.8,
-        "start_prob": 0.81,
+        "price": 4.3,
+        "owned": 2.8,
+        "xp": 9.8,
+        "start_prob": 0.53,
         "moved_club": false,
-        "minutes_reason": "5/5 starts this season, blended with last year's evidence (20% of last 10 GWs started, 53% across the season)"
+        "minutes_reason": "2/5 starts this season, blended with last year's evidence (80% of last 10 GWs started, 89% across the season)"
       },
       "in": {
-        "id": "112",
-        "name": "Van Hecke",
-        "team": "TOT",
+        "id": "332",
+        "name": "Justin",
+        "team": "LEE",
         "position": "DEF",
-        "price": 4.9,
-        "owned": 6.6,
-        "xp": 20.7,
-        "start_prob": 0.99,
-        "moved_club": true,
-        "minutes_reason": "5/5 starts this season, blended with last year's evidence (100% of last 10 GWs started, 95% across the season)"
+        "price": 4.5,
+        "owned": 1.5,
+        "xp": 19.8,
+        "start_prob": 0.95,
+        "moved_club": false,
+        "minutes_reason": "5/5 starts this season, blended with last year's evidence (100% of last 10 GWs started, 57% across the season)"
       },
-      "gain": 4.89,
-      "bank_after": 0.1
+      "gain": 4.65,
+      "bank_after": 0.3
+    },
+    {
+      "out": {
+        "id": "534",
+        "name": "Hume",
+        "team": "SUN",
+        "position": "DEF",
+        "price": 4.3,
+        "owned": 2.8,
+        "xp": 9.8,
+        "start_prob": 0.53,
+        "moved_club": false,
+        "minutes_reason": "2/5 starts this season, blended with last year's evidence (80% of last 10 GWs started, 89% across the season)"
+      },
+      "in": {
+        "id": "254",
+        "name": "Robinson",
+        "team": "FUL",
+        "position": "DEF",
+        "price": 4.5,
+        "owned": 1.4,
+        "xp": 19.5,
+        "start_prob": 0.9,
+        "moved_club": false,
+        "minutes_reason": "5/5 starts this season, blended with last year's evidence (80% of last 10 GWs started, 45% across the season)"
+      },
+      "gain": 4.4,
+      "bank_after": 0.3
+    },
+    {
+      "out": {
+        "id": "534",
+        "name": "Hume",
+        "team": "SUN",
+        "position": "DEF",
+        "price": 4.3,
+        "owned": 2.8,
+        "xp": 9.8,
+        "start_prob": 0.53,
+        "moved_club": false,
+        "minutes_reason": "2/5 starts this season, blended with last year's evidence (80% of last 10 GWs started, 89% across the season)"
+      },
+      "in": {
+        "id": "257",
+        "name": "Bassey",
+        "team": "FUL",
+        "position": "DEF",
+        "price": 4.5,
+        "owned": 0.7,
+        "xp": 19.3,
+        "start_prob": 0.97,
+        "moved_club": false,
+        "minutes_reason": "5/5 starts this season, blended with last year's evidence (100% of last 10 GWs started, 74% across the season)"
+      },
+      "gain": 4.21,
+      "bank_after": 0.3
     },
     {
       "out": {
@@ -2954,97 +3038,13 @@
         "position": "DEF",
         "price": 4.9,
         "owned": 2.5,
-        "xp": 20.5,
+        "xp": 20.0,
         "start_prob": 0.85,
         "moved_club": false,
         "minutes_reason": "5/5 starts this season, blended with last year's evidence (40% of last 10 GWs started, 63% across the season)"
       },
-      "gain": 4.65,
+      "gain": 4.15,
       "bank_after": 0.1
-    },
-    {
-      "out": {
-        "id": "534",
-        "name": "Hume",
-        "team": "SUN",
-        "position": "DEF",
-        "price": 4.3,
-        "owned": 2.8,
-        "xp": 10.1,
-        "start_prob": 0.53,
-        "moved_club": false,
-        "minutes_reason": "2/5 starts this season, blended with last year's evidence (80% of last 10 GWs started, 89% across the season)"
-      },
-      "in": {
-        "id": "254",
-        "name": "Robinson",
-        "team": "FUL",
-        "position": "DEF",
-        "price": 4.5,
-        "owned": 1.4,
-        "xp": 19.6,
-        "start_prob": 0.9,
-        "moved_club": false,
-        "minutes_reason": "5/5 starts this season, blended with last year's evidence (80% of last 10 GWs started, 45% across the season)"
-      },
-      "gain": 4.44,
-      "bank_after": 0.3
-    },
-    {
-      "out": {
-        "id": "534",
-        "name": "Hume",
-        "team": "SUN",
-        "position": "DEF",
-        "price": 4.3,
-        "owned": 2.8,
-        "xp": 10.1,
-        "start_prob": 0.53,
-        "moved_club": false,
-        "minutes_reason": "2/5 starts this season, blended with last year's evidence (80% of last 10 GWs started, 89% across the season)"
-      },
-      "in": {
-        "id": "332",
-        "name": "Justin",
-        "team": "LEE",
-        "position": "DEF",
-        "price": 4.5,
-        "owned": 1.5,
-        "xp": 19.5,
-        "start_prob": 0.95,
-        "moved_club": false,
-        "minutes_reason": "5/5 starts this season, blended with last year's evidence (100% of last 10 GWs started, 57% across the season)"
-      },
-      "gain": 4.33,
-      "bank_after": 0.3
-    },
-    {
-      "out": {
-        "id": "534",
-        "name": "Hume",
-        "team": "SUN",
-        "position": "DEF",
-        "price": 4.3,
-        "owned": 2.8,
-        "xp": 10.1,
-        "start_prob": 0.53,
-        "moved_club": false,
-        "minutes_reason": "2/5 starts this season, blended with last year's evidence (80% of last 10 GWs started, 89% across the season)"
-      },
-      "in": {
-        "id": "257",
-        "name": "Bassey",
-        "team": "FUL",
-        "position": "DEF",
-        "price": 4.5,
-        "owned": 0.7,
-        "xp": 19.4,
-        "start_prob": 0.97,
-        "moved_club": false,
-        "minutes_reason": "5/5 starts this season, blended with last year's evidence (100% of last 10 GWs started, 74% across the season)"
-      },
-      "gain": 4.24,
-      "bank_after": 0.3
     }
   ],
   "template_gap": [
@@ -3068,11 +3068,11 @@
       "position": "GKP",
       "price": 6.1,
       "owned": 42.2,
-      "xp": 18.7,
+      "xp": 18.4,
       "start_prob": 0.98,
       "moved_club": false,
       "minutes_reason": "5/5 starts this season, blended with last year's evidence (89% of last 10 GWs started, 97% across the season)",
-      "exposure": 7.9
+      "exposure": 7.8
     },
     {
       "id": "4",
@@ -3081,7 +3081,7 @@
       "position": "DEF",
       "price": 8.0,
       "owned": 22.8,
-      "xp": 23.3,
+      "xp": 23.0,
       "start_prob": 0.96,
       "moved_club": false,
       "minutes_reason": "5/5 starts this season, blended with last year's evidence (89% of last 10 GWs started, 78% across the season)",
@@ -3107,7 +3107,7 @@
       "position": "MID",
       "price": 7.9,
       "owned": 20.6,
-      "xp": 24.2,
+      "xp": 24.3,
       "start_prob": 0.94,
       "moved_club": false,
       "minutes_reason": "5/5 starts this season, blended with last year's evidence (80% of last 10 GWs started, 82% across the season)",
@@ -3133,11 +3133,11 @@
       "position": "DEF",
       "price": 4.9,
       "owned": 27.5,
-      "xp": 16.7,
+      "xp": 17.0,
       "start_prob": 0.82,
       "moved_club": false,
       "minutes_reason": "5/5 starts this season, blended with last year's evidence (33% of last 10 GWs started, 46% across the season)",
-      "exposure": 4.6
+      "exposure": 4.7
     },
     {
       "id": "391",
@@ -3153,7 +3153,17 @@
       "exposure": 4.3
     }
   ],
-  "news": [],
+  "news": [
+    {
+      "player_id": "87",
+      "player": "Ajer",
+      "team": "BRE",
+      "concern": "Brentford have issued an injury update regarding Kristoffer Ajer ahead of their match against Aston Villa.",
+      "severity": "medium",
+      "affects": "availability",
+      "source": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPMEdRSWl1R01FVjlkN1M5SHJrY1htSmJaT3JEZE1kY25EbnZTRHV3SXJraE15VWg2VHRKMXFnTDZBR0VheGRQSUo3a1ZwTnVvMlR1RzdqQ1ppQUtTc2RkcnRMaDlaN01EaUl5WFJDWVg5SzVxZkhPYndmVkM5MlVqWHlKZldXTUFlNHRMc2NFUFFCRjNTWFV1SWJKMlh3XzV6QTNnRVB3?oc=5"
+    }
+  ],
   "prices": [
     {
       "player_id": "368",
@@ -3161,8 +3171,8 @@
       "price": 7.0,
       "owned": 33.0,
       "direction": "fall",
-      "probability": 0.891,
-      "net_transfers": -931,
+      "probability": 0.895,
+      "net_transfers": -323,
       "source": "FPL's own price_change_percent",
       "confidence": "official"
     },
@@ -3172,8 +3182,8 @@
       "price": 5.8,
       "owned": 50.5,
       "direction": "rise",
-      "probability": 0.878,
-      "net_transfers": 41,
+      "probability": 0.88,
+      "net_transfers": 23,
       "source": "FPL's own price_change_percent",
       "confidence": "official"
     },
@@ -3183,8 +3193,8 @@
       "price": 5.8,
       "owned": 28.3,
       "direction": "rise",
-      "probability": 0.776,
-      "net_transfers": 3255,
+      "probability": 0.787,
+      "net_transfers": 1174,
       "source": "FPL's own price_change_percent",
       "confidence": "official"
     },
@@ -3194,8 +3204,8 @@
       "price": 4.0,
       "owned": 6.9,
       "direction": "rise",
-      "probability": 0.676,
-      "net_transfers": -31,
+      "probability": 0.678,
+      "net_transfers": 28,
       "source": "FPL's own price_change_percent",
       "confidence": "official"
     },
@@ -3205,8 +3215,8 @@
       "price": 6.0,
       "owned": 24.9,
       "direction": "rise",
-      "probability": 0.632,
-      "net_transfers": -361,
+      "probability": 0.634,
+      "net_transfers": -137,
       "source": "FPL's own price_change_percent",
       "confidence": "official"
     },
@@ -3216,8 +3226,8 @@
       "price": 4.5,
       "owned": 21.6,
       "direction": "rise",
-      "probability": 0.597,
-      "net_transfers": -273,
+      "probability": 0.599,
+      "net_transfers": 29,
       "source": "FPL's own price_change_percent",
       "confidence": "official"
     },
@@ -3227,8 +3237,8 @@
       "price": 8.0,
       "owned": 15.7,
       "direction": "rise",
-      "probability": 0.474,
-      "net_transfers": 54,
+      "probability": 0.475,
+      "net_transfers": -3,
       "source": "FPL's own price_change_percent",
       "confidence": "official"
     },
@@ -3238,8 +3248,8 @@
       "price": 4.5,
       "owned": 17.4,
       "direction": "fall",
-      "probability": 0.467,
-      "net_transfers": -544,
+      "probability": 0.469,
+      "net_transfers": -157,
       "source": "FPL's own price_change_percent",
       "confidence": "official"
     },
@@ -3250,7 +3260,7 @@
       "owned": 3.9,
       "direction": "rise",
       "probability": 0.29,
-      "net_transfers": -261,
+      "net_transfers": -36,
       "source": "FPL's own price_change_percent",
       "confidence": "official"
     }
