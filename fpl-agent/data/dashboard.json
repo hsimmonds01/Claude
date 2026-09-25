@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-24T21:27:07.422106+00:00",
+  "generated_at": "2026-09-25T04:45:38.386284+00:00",
   "next_event": 6,
   "next_deadline": "2026-10-10T10:00:00Z",
   "horizon": {
@@ -148,14 +148,14 @@
           "name": "Tzolakis",
           "team": "HUL",
           "position": "GKP",
-          "price": 4.6,
-          "owned": 12.6,
+          "price": 4.7,
+          "owned": 12.7,
           "xp": 14.7,
           "start_prob": 0.81,
           "moved_club": true,
-          "minutes_reason": "5/5 starts this season, blended with last year's evidence (no Premier League record; inferred from £4.6m price)",
+          "minutes_reason": "5/5 starts this season, blended with last year's evidence (no Premier League record; inferred from £4.7m price)",
           "gain": -0.02,
-          "bank_after": 0.4
+          "bank_after": 0.3
         },
         {
           "id": "110",
@@ -841,7 +841,7 @@
           "team": "BRE",
           "position": "MID",
           "price": 6.2,
-          "owned": 11.0,
+          "owned": 11.1,
           "xp": 22.2,
           "start_prob": 0.96,
           "moved_club": false,
@@ -1000,7 +1000,7 @@
           "team": "BRE",
           "position": "MID",
           "price": 6.2,
-          "owned": 11.0,
+          "owned": 11.1,
           "xp": 22.2,
           "start_prob": 0.96,
           "moved_club": false,
@@ -1143,7 +1143,7 @@
       "team": "BHA",
       "position": "MID",
       "price": 5.8,
-      "owned": 28.2,
+      "owned": 28.3,
       "xp": 20.6,
       "start_prob": 0.99,
       "moved_club": false,
@@ -1187,7 +1187,7 @@
           "team": "BRE",
           "position": "MID",
           "price": 6.2,
-          "owned": 11.0,
+          "owned": 11.1,
           "xp": 22.2,
           "start_prob": 0.96,
           "moved_club": false,
@@ -1388,7 +1388,7 @@
           "team": "BRE",
           "position": "MID",
           "price": 6.2,
-          "owned": 11.0,
+          "owned": 11.1,
           "xp": 22.2,
           "start_prob": 0.96,
           "moved_club": false,
@@ -1547,7 +1547,7 @@
           "team": "BRE",
           "position": "MID",
           "price": 6.2,
-          "owned": 11.0,
+          "owned": 11.1,
           "xp": 22.2,
           "start_prob": 0.96,
           "moved_club": false,
@@ -1771,20 +1771,6 @@
           "bank_after": 10.6
         },
         {
-          "id": "26",
-          "name": "Havertz",
-          "team": "ARS",
-          "position": "FWD",
-          "price": 7.6,
-          "owned": 8.5,
-          "xp": 20.4,
-          "start_prob": 0.83,
-          "moved_club": false,
-          "minutes_reason": "5/5 starts this season, blended with last year's evidence (56% of last 10 GWs started, 19% across the season)",
-          "gain": -9.86,
-          "bank_after": 8.5
-        },
-        {
           "id": "79",
           "name": "Evanilson",
           "team": "BOU",
@@ -1797,20 +1783,6 @@
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (100% of last 10 GWs started, 84% across the season)",
           "gain": -9.88,
           "bank_after": 10.1
-        },
-        {
-          "id": "552",
-          "name": "Brobbey",
-          "team": "SUN",
-          "position": "FWD",
-          "price": 5.7,
-          "owned": 7.1,
-          "xp": 19.9,
-          "start_prob": 0.94,
-          "moved_club": false,
-          "minutes_reason": "5/5 starts this season, blended with last year's evidence (90% of last 10 GWs started, 63% across the season)",
-          "gain": -10.28,
-          "bank_after": 10.4
         },
         {
           "id": "249",
@@ -1855,6 +1827,20 @@
           "bank_after": 9.9
         },
         {
+          "id": "26",
+          "name": "Havertz",
+          "team": "ARS",
+          "position": "FWD",
+          "price": 7.6,
+          "owned": 8.5,
+          "xp": 15.3,
+          "start_prob": 0.62,
+          "moved_club": false,
+          "minutes_reason": "5/5 starts this season, blended with last year's evidence (56% of last 10 GWs started, 19% across the season); 75% chance of playing",
+          "gain": -14.43,
+          "bank_after": 8.5
+        },
+        {
           "id": "401",
           "name": "Marmoush",
           "team": "TOT",
@@ -1867,6 +1853,20 @@
           "minutes_reason": "4/5 starts this season, blended with last year's evidence (25% of last 10 GWs started, 22% across the season)",
           "gain": -14.45,
           "bank_after": 9.1
+        },
+        {
+          "id": "552",
+          "name": "Brobbey",
+          "team": "SUN",
+          "position": "FWD",
+          "price": 5.7,
+          "owned": 7.1,
+          "xp": 15.0,
+          "start_prob": 0.7,
+          "moved_club": false,
+          "minutes_reason": "5/5 starts this season, blended with last year's evidence (90% of last 10 GWs started, 63% across the season); 75% chance of playing",
+          "gain": -14.47,
+          "bank_after": 10.4
         },
         {
           "id": "138",
@@ -1958,20 +1958,6 @@
           "bank_after": 0.5
         },
         {
-          "id": "552",
-          "name": "Brobbey",
-          "team": "SUN",
-          "position": "FWD",
-          "price": 5.7,
-          "owned": 7.1,
-          "xp": 19.9,
-          "start_prob": 0.94,
-          "moved_club": false,
-          "minutes_reason": "5/5 starts this season, blended with last year's evidence (90% of last 10 GWs started, 63% across the season)",
-          "gain": -4.35,
-          "bank_after": 0.8
-        },
-        {
           "id": "249",
           "name": "Barry",
           "team": "EVE",
@@ -1998,6 +1984,20 @@
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (0% of last 10 GWs started, 11% across the season)",
           "gain": -7.0,
           "bank_after": 0.3
+        },
+        {
+          "id": "552",
+          "name": "Brobbey",
+          "team": "SUN",
+          "position": "FWD",
+          "price": 5.7,
+          "owned": 7.1,
+          "xp": 15.0,
+          "start_prob": 0.7,
+          "moved_club": false,
+          "minutes_reason": "5/5 starts this season, blended with last year's evidence (90% of last 10 GWs started, 63% across the season); 75% chance of playing",
+          "gain": -8.54,
+          "bank_after": 0.8
         },
         {
           "id": "138",
@@ -2205,14 +2205,14 @@
           "name": "Tzolakis",
           "team": "HUL",
           "position": "GKP",
-          "price": 4.6,
-          "owned": 12.6,
+          "price": 4.7,
+          "owned": 12.7,
           "xp": 14.7,
           "start_prob": 0.81,
           "moved_club": true,
-          "minutes_reason": "5/5 starts this season, blended with last year's evidence (no Premier League record; inferred from £4.6m price)",
+          "minutes_reason": "5/5 starts this season, blended with last year's evidence (no Premier League record; inferred from £4.7m price)",
           "gain": -1.99,
-          "bank_after": 0.4
+          "bank_after": 0.3
         },
         {
           "id": "110",
@@ -2332,20 +2332,6 @@
           "bank_after": 2.7
         },
         {
-          "id": "26",
-          "name": "Havertz",
-          "team": "ARS",
-          "position": "FWD",
-          "price": 7.6,
-          "owned": 8.5,
-          "xp": 20.4,
-          "start_prob": 0.83,
-          "moved_club": false,
-          "minutes_reason": "5/5 starts this season, blended with last year's evidence (56% of last 10 GWs started, 19% across the season)",
-          "gain": 0.54,
-          "bank_after": 0.6
-        },
-        {
           "id": "79",
           "name": "Evanilson",
           "team": "BOU",
@@ -2358,20 +2344,6 @@
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (100% of last 10 GWs started, 84% across the season)",
           "gain": 0.54,
           "bank_after": 2.2
-        },
-        {
-          "id": "552",
-          "name": "Brobbey",
-          "team": "SUN",
-          "position": "FWD",
-          "price": 5.7,
-          "owned": 7.1,
-          "xp": 19.9,
-          "start_prob": 0.94,
-          "moved_club": false,
-          "minutes_reason": "5/5 starts this season, blended with last year's evidence (90% of last 10 GWs started, 63% across the season)",
-          "gain": 0.49,
-          "bank_after": 2.5
         },
         {
           "id": "249",
@@ -2402,6 +2374,20 @@
           "bank_after": 2.0
         },
         {
+          "id": "26",
+          "name": "Havertz",
+          "team": "ARS",
+          "position": "FWD",
+          "price": 7.6,
+          "owned": 8.5,
+          "xp": 15.3,
+          "start_prob": 0.62,
+          "moved_club": false,
+          "minutes_reason": "5/5 starts this season, blended with last year's evidence (56% of last 10 GWs started, 19% across the season); 75% chance of playing",
+          "gain": -0.07,
+          "bank_after": 0.6
+        },
+        {
           "id": "401",
           "name": "Marmoush",
           "team": "TOT",
@@ -2414,6 +2400,20 @@
           "minutes_reason": "4/5 starts this season, blended with last year's evidence (25% of last 10 GWs started, 22% across the season)",
           "gain": -0.09,
           "bank_after": 1.2
+        },
+        {
+          "id": "552",
+          "name": "Brobbey",
+          "team": "SUN",
+          "position": "FWD",
+          "price": 5.7,
+          "owned": 7.1,
+          "xp": 15.0,
+          "start_prob": 0.7,
+          "moved_club": false,
+          "minutes_reason": "5/5 starts this season, blended with last year's evidence (90% of last 10 GWs started, 63% across the season); 75% chance of playing",
+          "gain": -0.11,
+          "bank_after": 2.5
         },
         {
           "id": "138",
@@ -3161,8 +3161,8 @@
       "price": 7.0,
       "owned": 33.0,
       "direction": "fall",
-      "probability": 0.889,
-      "net_transfers": -1287,
+      "probability": 0.891,
+      "net_transfers": -931,
       "source": "FPL's own price_change_percent",
       "confidence": "official"
     },
@@ -3172,8 +3172,8 @@
       "price": 5.8,
       "owned": 50.5,
       "direction": "rise",
-      "probability": 0.877,
-      "net_transfers": 130,
+      "probability": 0.878,
+      "net_transfers": 41,
       "source": "FPL's own price_change_percent",
       "confidence": "official"
     },
@@ -3181,10 +3181,10 @@
       "player_id": "124",
       "name": "Groß",
       "price": 5.8,
-      "owned": 28.2,
+      "owned": 28.3,
       "direction": "rise",
-      "probability": 0.77,
-      "net_transfers": 5249,
+      "probability": 0.776,
+      "net_transfers": 3255,
       "source": "FPL's own price_change_percent",
       "confidence": "official"
     },
@@ -3194,8 +3194,8 @@
       "price": 4.0,
       "owned": 6.9,
       "direction": "rise",
-      "probability": 0.675,
-      "net_transfers": 58,
+      "probability": 0.676,
+      "net_transfers": -31,
       "source": "FPL's own price_change_percent",
       "confidence": "official"
     },
@@ -3205,8 +3205,8 @@
       "price": 6.0,
       "owned": 24.9,
       "direction": "rise",
-      "probability": 0.631,
-      "net_transfers": -809,
+      "probability": 0.632,
+      "net_transfers": -361,
       "source": "FPL's own price_change_percent",
       "confidence": "official"
     },
@@ -3216,8 +3216,8 @@
       "price": 4.5,
       "owned": 21.6,
       "direction": "rise",
-      "probability": 0.596,
-      "net_transfers": -1025,
+      "probability": 0.597,
+      "net_transfers": -273,
       "source": "FPL's own price_change_percent",
       "confidence": "official"
     },
@@ -3227,8 +3227,8 @@
       "price": 8.0,
       "owned": 15.7,
       "direction": "rise",
-      "probability": 0.473,
-      "net_transfers": 66,
+      "probability": 0.474,
+      "net_transfers": 54,
       "source": "FPL's own price_change_percent",
       "confidence": "official"
     },
@@ -3238,8 +3238,8 @@
       "price": 4.5,
       "owned": 17.4,
       "direction": "fall",
-      "probability": 0.466,
-      "net_transfers": -1241,
+      "probability": 0.467,
+      "net_transfers": -544,
       "source": "FPL's own price_change_percent",
       "confidence": "official"
     },
@@ -3250,7 +3250,7 @@
       "owned": 3.9,
       "direction": "rise",
       "probability": 0.29,
-      "net_transfers": -210,
+      "net_transfers": -261,
       "source": "FPL's own price_change_percent",
       "confidence": "official"
     }
