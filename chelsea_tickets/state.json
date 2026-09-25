@@ -20,9 +20,7 @@
       "competition": "Premier League",
       "date": "Sat 24 Oct 2026",
       "opponent": "Tottenham Hotspur",
-      "windows": {
-        "ticket-application-window-opens-pm": "closed"
-      }
+      "windows": {}
     }
   },
   "notified": {
