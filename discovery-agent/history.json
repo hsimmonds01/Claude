@@ -3746,6 +3746,57 @@
           "link_status": "verified"
         }
       ]
+    },
+    {
+      "date": "2026-09-26",
+      "model": "gemini-flash-latest",
+      "items": [
+        {
+          "title": "URBAN RESEARCH DOORS x New Era 9THIRTY Corduroy Cap Collab",
+          "category": "drop",
+          "summary": "URBAN RESEARCH DOORS has teamed up with New Era on a limited autumnal run of clean 9THIRTY caps crafted in fine-wale corduroy. Right in your wheelhouse if you collect low-profile, tasteful collab headwear.",
+          "url": "https://hypebeast.com/2026/9/urban-research-doors-new-era-9thirty-corduroy-collaboration-collection-release-info",
+          "date_info": "Available now in limited quantities",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "Eclipso's Mount Everest Immersive VR Expedition Lands in London",
+          "category": "event",
+          "summary": "A hyper-realistic expedition experience simulating extreme alpine conditions, sub-zero cold, and altitude on Everest is launching in London from the pioneers behind Horizon of Khufu. Expect booking slots to fill quickly once dates open up.",
+          "url": "https://www.timeout.com/london/news/eclipso-mount-everest-immersive-vr-experience-london-092626",
+          "date_info": "Booking opening autumn 2026",
+          "urgency": "this-week",
+          "link_status": "verified"
+        },
+        {
+          "title": "The Pokémon Company x European Space Agency World Space Week Capsule",
+          "category": "drop",
+          "summary": "An official space-agency collaboration pairing technical mission patches and retro planetary graphics across limited-edition hoodies, coach jackets, and collectible gear for World Space Week.",
+          "url": "https://hypebeast.com/2026/9/the-pokemon-company-european-space-agency-themed-apparel-collectibles-release-info",
+          "date_info": "Drops ahead of World Space Week (4–10 October)",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "thisisneverthat x Wasted Youth FW26 'Visty' Capsule Drop",
+          "category": "drop",
+          "summary": "Seoul streetwear heavyweight thisisneverthat reunites with Verdy's Wasted Youth, reimagining the iconic pastel monster 'Visty' across cut-and-sew heavyweight apparel and accessories.",
+          "url": "https://hypebeast.com/2026/9/thisisneverthat-wasted-youth-fall-winter-2026-collaboration-collection-release-info",
+          "date_info": "Dropping online this week",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "Franco’s Jermyn Street Unveils First Major Bar Revamp Since 1945",
+          "category": "event",
+          "summary": "One of St James's longest-standing Italian institutions has completely reimagined its bar and late-afternoon cicchetti counter for the first time in 80 years—ideal for an aperitivo or proper classic cocktail run.",
+          "url": "https://www.timeout.com/london/news/francos-jermyn-street-new-bar-092526",
+          "date_info": "Reopened late September 2026",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        }
+      ]
     }
   ]
 }
