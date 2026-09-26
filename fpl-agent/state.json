@@ -137,6 +137,12 @@
       "event": 6,
       "at": "2026-09-22T11:26:38.422779+00:00",
       "subject": "FPL pre-season \u2014 17 days to the GW6 deadline"
+    },
+    {
+      "kind": "preseason",
+      "event": 6,
+      "at": "2026-09-26T04:47:13.788943+00:00",
+      "subject": "FPL pre-season \u2014 14 days to the GW6 deadline"
     }
   ]
 }
