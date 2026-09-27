@@ -3797,6 +3797,57 @@
           "link_status": "verified"
         }
       ]
+    },
+    {
+      "date": "2026-09-27",
+      "model": "gemini-2.5-flash (legacy key, live search)",
+      "items": [
+        {
+          "title": "Absurd City: Europe's Biggest Immersive Attraction Opening in London",
+          "category": "event",
+          "summary": "Get ready for Europe's largest immersive art experience, 'Absurd City,' opening in West London on October 15, 2026. Tickets are available now for this massive attraction from the creators of Boomtown Fair, promising a unique, interactive journey through a fantastical cityscape.",
+          "url": "https://www.google.com/search?q=Absurd+City%3A+Europe%27s+Biggest+Immersive+Attraction+Opening+in+London",
+          "date_info": "Opens October 15, 2026. Tickets on sale now.",
+          "urgency": "this-week",
+          "link_status": "search"
+        },
+        {
+          "title": "BEAMS x New Era 9FIFTY Leather Cap Drop",
+          "category": "drop",
+          "summary": "Japanese streetwear brand BEAMS has collaborated with New Era to release an exclusive 9FIFTY snapback cap made from premium cowhide leather. Available in black and brown with a tonal 'NY' logo, this limited-edition cap is designed to age beautifully with wear, making it a stylish and unique addition to your collection.",
+          "url": "https://www.google.com/search?q=BEAMS+x+New+Era+9FIFTY+Leather+Cap+Drop",
+          "date_info": "Released September 23, 2026",
+          "urgency": "act-fast",
+          "link_status": "search"
+        },
+        {
+          "title": "London Restaurant Festival: Mediterranean Feast at MAM (South London)",
+          "category": "food",
+          "summary": "Experience a special Mediterranean Feast at MAM in South London as part of the London Restaurant Festival. Enjoy a welcome drink and a three-course menu inspired by the Mediterranean coastline. Last tickets are remaining for this event in a convenient South London location.",
+          "url": "https://www.google.com/search?q=London+Restaurant+Festival%3A+Mediterranean+Feast+at+MAM+%28South+London%29",
+          "date_info": "Tuesday, 6 October, 2026 - Dinner",
+          "urgency": "this-week",
+          "link_status": "search"
+        },
+        {
+          "title": "KİD: New Turkish Restaurant by David Carter & Sertaç Dirik Now Open",
+          "category": "food",
+          "summary": "A new Turkish restaurant named KİD, from renowned restaurateur David Carter (SMOKESTAK) and ex-Mangal II chef Sertaç Dirik, has opened in London. Expect a menu inspired by Turkish cooking and British produce, including kid cooked overnight in a wood oven.",
+          "url": "https://www.google.com/search?q=K%C4%B0D%3A+New+Turkish+Restaurant+by+David+Carter+%26+Serta%C3%A7+Dirik+Now+Open",
+          "date_info": "Open now (opened September 2026)",
+          "urgency": "heads-up",
+          "link_status": "search"
+        },
+        {
+          "title": "England v Spain in Nations League 2026: How to Watch",
+          "category": "football",
+          "summary": "Don't miss the notable Nations League match between England and Spain. Find out how to watch the game, including channel information and kick-off time, to catch all the action.",
+          "url": "https://www.timeout.com/london/news/how-to-watch-england-v-spain-nations-league-2026-channel-and-kick-off-time-092626",
+          "date_info": "Nations League 2026 (match happening soon)",
+          "urgency": "this-week",
+          "link_status": "verified"
+        }
+      ]
     }
   ]
 }
