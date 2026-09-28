@@ -3848,6 +3848,75 @@
           "link_status": "verified"
         }
       ]
+    },
+    {
+      "date": "2026-09-28",
+      "model": "gemini-2.5-flash (legacy key, live search)",
+      "items": [
+        {
+          "title": "Slipknot London Fan Event for 2027 Wembley Stadium Tickets",
+          "category": "event",
+          "summary": "Fans in London can head to Wembley Stadium tonight for a special event (5-9 PM BST) to buy tickets in person for Slipknot's massive July 3, 2027 show, before general online sales begin later this week. The first 500 attendees will also receive a free commemorative poster.",
+          "url": "https://www.google.com/search?q=Slipknot+London+Fan+Event+for+2027+Wembley+Stadium+Tickets",
+          "date_info": "Tonight, September 28, 5-9 PM BST at Wembley Stadium West Ticket Office. Online artist pre-sale September 29, 10 AM local; general sale October 2, 10 AM local.",
+          "urgency": "act-fast",
+          "link_status": "search"
+        },
+        {
+          "title": "Burton x Zeb Powell 'Zeb's Closet' Apparel Collection Drops",
+          "category": "drop",
+          "summary": "Burton has launched 'Zeb's Closet,' a new limited-edition outerwear and apparel collection designed in collaboration with professional snowboarder Zeb Powell, featuring oversized, baggy silhouettes that blend mountain and street style. It's available now online and in Burton retail stores worldwide.",
+          "url": "https://www.google.com/search?q=Burton+x+Zeb+Powell+%27Zeb%27s+Closet%27+Apparel+Collection+Drops",
+          "date_info": "Launched globally on September 24, 2026.",
+          "urgency": "act-fast",
+          "link_status": "search"
+        },
+        {
+          "title": "GREG LABORATORY Fall/Winter 2026 Season 7 Collection Released",
+          "category": "drop",
+          "summary": "GREG LABORATORY has unveiled its Fall/Winter 2026 Season 7 collection, 'Time Loosens Reality,' offering seasonless streetwear staples crafted from Ventile and fleece, designed for longevity and versatility. The collection is available now exclusively online.",
+          "url": "https://www.google.com/search?q=GREG+LABORATORY+Fall%2FWinter+2026+Season+7+Collection+Released",
+          "date_info": "Available now (released September 28, 2026).",
+          "urgency": "act-fast",
+          "link_status": "search"
+        },
+        {
+          "title": "Pokémon Night Out: EDM Event at The O2 London",
+          "category": "event",
+          "summary": "Celebrate Pokémon's 30th anniversary with 'Pokémon Night Out,' a 16+ live music experience at The O2 in London on November 10, 2026. Headlined by Marshmello and Alison Wonderland, the event will feature custom Pokémon visuals and exclusive merchandise. Tickets are on sale now via AXS.",
+          "url": "https://www.google.com/search?q=Pok%C3%A9mon+Night+Out%3A+EDM+Event+at+The+O2+London",
+          "date_info": "November 10, 2026, at The O2, London. Tickets available now.",
+          "urgency": "this-week",
+          "link_status": "search"
+        },
+        {
+          "title": "Meadow Minimalist Smartphone for Digital Detox",
+          "category": "product",
+          "summary": "The Meadow is a new 3-inch square 'minimalist' smartphone designed to reduce screen addiction by excluding web browsers, social media, and email, while keeping essential apps like maps, Spotify, and Uber. It's priced at $449 (or $399 for early backers) and is now shipping to pre-order customers in the US.",
+          "url": "https://www.google.com/search?q=Meadow+Minimalist+Smartphone+for+Digital+Detox",
+          "date_info": "Pre-orders shipping now (started June 2026).",
+          "urgency": "this-week",
+          "link_status": "search"
+        },
+        {
+          "title": "Heard Burgers to Open Biggest Location Yet in Covent Garden",
+          "category": "food",
+          "summary": "Heard Burgers, a highly-rated London burger spot from a former Michelin-starred chef, is opening its largest location to date in Covent Garden this November. The two-floor restaurant will also introduce a new 'dessert and cocktail speakeasy.'",
+          "url": "https://www.timeout.com/london/news/heard-burgers-biggest-location-covent-garden-092826",
+          "date_info": "Opening November 2026.",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "The Dusty Knuckle Bakery Expanding to Finsbury Park",
+          "category": "food",
+          "summary": "Acclaimed London bakery The Dusty Knuckle is set to open its third location this November on Blackstock Road in Finsbury Park, bringing its popular sourdough loaves, pastries, and sandwiches to a new North London spot.",
+          "url": "https://www.timeout.com/london/news/dusty-knuckle-third-bakery-blackstock-road-092826",
+          "date_info": "Opens November 2026.",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        }
+      ]
     }
   ]
 }
