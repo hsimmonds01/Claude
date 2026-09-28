@@ -1,6 +1,16 @@
 {
-  "generated_at": "2026-09-28T05:12:41.911155+00:00",
+  "generated_at": "2026-09-28T21:13:05.513410+00:00",
   "model": "gemini-flash-latest",
   "headlines_considered": 49,
-  "flags": []
+  "flags": [
+    {
+      "player_id": "426",
+      "player": "B.Fernandes",
+      "team": "MUN",
+      "concern": "Reported as a subject in the latest international break injury news, signaling a potential unflagged fitness issue.",
+      "severity": "low",
+      "affects": "availability",
+      "source": "https://www.fantasyfootballscout.co.uk/2026/09/28/gakpo-isak-bruno-more-latest-international-break-injury-news"
+    }
+  ]
 }
