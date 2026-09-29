@@ -3917,6 +3917,84 @@
           "link_status": "verified"
         }
       ]
+    },
+    {
+      "date": "2026-09-29",
+      "model": "gemini-2.5-flash (legacy key, live search)",
+      "items": [
+        {
+          "title": "MUBI's First London Film Festival Tickets On Sale This Week",
+          "category": "film",
+          "summary": "MUBI is hosting its first-ever film festival in London at Hackney Picturehouse from November 13-15, featuring new dramas, a 4K restoration of 'Donnie Darko', and a 15th-anniversary screening of 'Drive'. Tickets go on sale for MUBI subscribers tomorrow, and for the general public on Friday.",
+          "url": "https://www.timeout.com/london/news/exclusive-mubis-film-festival-is-coming-to-london-for-the-first-time-in-november-092926",
+          "date_info": "Tickets for MUBI subscribers on sale Wed, Sep 30 at 10am; general sale Fri, Oct 2 at 10am",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "Young Vic Announces New Season, Tickets On Sale This Week",
+          "category": "event",
+          "summary": "The Young Vic in South London (near Elephant & Castle) is releasing tickets for new productions in its 2026/27 season, including 'dissent' starring Lashana Lynch, and the immersive 'Eulogy'. Priority booking starts October 1st, with general sale on October 7th.",
+          "url": "https://www.timeout.com/london/news/young-vic-theatre-programme-2026-2027-gisele-pelicot-092926",
+          "date_info": "Priority booking from Oct 1; general sale from Oct 7",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "HUF and TAION Drop Packable FW26 Down Capsule This Week",
+          "category": "drop",
+          "summary": "Streetwear brand HUF and Japanese inner-down specialist TAION are reuniting for a collaborative Fall/Winter 2026 capsule. It features lightweight, packable down jackets and vests that blend streetwear utility with thermal functionality.",
+          "url": "https://hypebeast.com/2026/9/huf-taion-fall-winter-2026-capsule-collaboration-release-info",
+          "date_info": "Launches Oct 2, 2026",
+          "urgency": "this-week",
+          "link_status": "verified"
+        },
+        {
+          "title": "Nothing Headphone (1) Pro Released Today",
+          "category": "product",
+          "summary": "Nothing has launched its new premium over-ear headphones, the Headphone (1) Pro, today. They feature three drivers per ear, adaptive active noise cancellation, up to 68 hours of battery life, and an upgraded transparent design.",
+          "url": "https://hypebeast.com/2026/9/nothing-headphone-1-pro-release-info",
+          "date_info": "Available starting today, September 29",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "Marshall Unveils Bromley 150 Portable Party Speaker, Pre-orders Open",
+          "category": "product",
+          "summary": "Marshall has introduced its smallest and most portable party speaker yet, the Bromley 150. It boasts 40+ hours of battery life, 360-degree sound, built-in stage lighting, and inputs for microphones and instruments. Pre-orders are open now.",
+          "url": "https://hypebeast.com/2026/9/marshall-bromley-150-speaker-release-info",
+          "date_info": "Pre-orders open now; full availability from Oct 13",
+          "urgency": "this-week",
+          "link_status": "verified"
+        },
+        {
+          "title": "Blue Bottle Coffee's First Jazz Album on Limited Edition Vinyl",
+          "category": "drop",
+          "summary": "Blue Bottle Coffee is releasing its first compilation album, 'Notes in Repose,' a limited-edition jazz vinyl. Only 1,500 copies will be produced, featuring 10 contemporary jazz compositions for focused listening.",
+          "url": "https://hypebeast.com/2026/9/blue-bottle-coffee-notes-in-repose-jazz-compilation-limited-edition-vinyl-release-info",
+          "date_info": "Available starting Oct 6",
+          "urgency": "this-week",
+          "link_status": "verified"
+        },
+        {
+          "title": "New 'Authentic' Spanish Bar, Los Primos, Opening in Borough",
+          "category": "food",
+          "summary": "The Harts Group (behind Barrafina) is opening a new walk-in Spanish bar called Los Primos in Borough Yards, very close to your location. It will offer traditional tapas, churros, bocadillos, and £2.50 cañas (small beers).",
+          "url": "https://www.timeout.com/london/news/borough-spanish-bar-cheap-beer-los-primos-092926",
+          "date_info": "Opening November 2026",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "ActOne Cinema in West London Celebrates 5th Birthday with Special Events",
+          "category": "film",
+          "summary": "Acton's ActOne Cinema is celebrating its 5th birthday in October with special events, including an evening with film critic Mark Kermode on October 10 discussing movie music and a screening of 'American Graffiti' with sound designer Walter Murch.",
+          "url": "https://www.timeout.com/london/news/this-small-but-mighty-west-london-cinema-is-celebrating-its-5th-birthday-in-style-next-month-092926",
+          "date_info": "Events throughout October, e.g., Oct 10",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        }
+      ]
     }
   ]
 }
