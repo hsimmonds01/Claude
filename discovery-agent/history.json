@@ -3995,6 +3995,66 @@
           "link_status": "verified"
         }
       ]
+    },
+    {
+      "date": "2026-09-30",
+      "model": "gemini-2.5-flash (legacy key, live search)",
+      "items": [
+        {
+          "title": "Alice Immersive Wonderland to Open in London",
+          "category": "event",
+          "summary": "A spectacular new immersive experience based on Lewis Carroll's 'Alice in Wonderland' is coming to Dock X in Canada Water, London. This two-hour journey features theatrical storytelling, live performance, and 360-degree projections across ten themed spaces. Tickets go on general sale next week, but you can join a waitlist now for early access.",
+          "url": "https://www.timeout.com/london/news/alice-in-wonderland-immersive-experience-canada-water-092926",
+          "date_info": "Tickets on general sale Tue 6 Oct, opens 13 Nov 2026",
+          "urgency": "this-week",
+          "link_status": "verified"
+        },
+        {
+          "title": "POGGY x '47 'JAPAN 9' Cap Collection Drops",
+          "category": "drop",
+          "summary": "Fashion curator POGGY has teamed up with '47 and nine cutting-edge Japanese brands for a limited-edition baseball cap collection, 'JAPAN 9'. These unique caps, reinterpreting the classic baseball silhouette with diverse materials and techniques, are available for presale at a pop-up in Isetan Shinjuku (Japan) now, with a wider online release planned for mid-October.",
+          "url": "https://hypebeast.com/2026/9/47-poggy-japan-9-collaboration",
+          "date_info": "Presale until Tue 6 Oct (Japan), wider online release mid-October",
+          "urgency": "this-week",
+          "link_status": "verified"
+        },
+        {
+          "title": "Es Devlin: Other Worlds Exhibition at Design Museum",
+          "category": "event",
+          "summary": "The Design Museum in London is hosting 'Es Devlin: Other Worlds', the first major UK retrospective of the acclaimed artist and designer's 30-year career. The exhibition features large-scale kinetic sculptures, immersive environments, and a rotating library, offering a unique insight into her genre-defying practice. Tickets are on sale now.",
+          "url": "https://www.google.com/search?q=Es+Devlin%3A+Other+Worlds+Exhibition+at+Design+Museum",
+          "date_info": "Opens Fri 2 Oct 2026, runs until 4 Apr 2027",
+          "urgency": "this-week",
+          "link_status": "search"
+        },
+        {
+          "title": "Oasis 'Don't Look Back In Anger' Documentary on Disney+",
+          "category": "film",
+          "summary": "The highly anticipated documentary 'Oasis: Don't Look Back In Anger', chronicling the band's 2025 reunion tour and featuring the first joint interviews with Liam and Noel Gallagher in over 20 years, is coming to Disney+ internationally next week. You can still catch limited IMAX screenings in London.",
+          "url": "https://www.google.com/search?q=Oasis+%27Don%27t+Look+Back+In+Anger%27+Documentary+on+Disney%2B",
+          "date_info": "Streaming on Disney+ internationally from Fri 9 Oct 2026",
+          "urgency": "this-week",
+          "link_status": "search"
+        },
+        {
+          "title": "Hiroshi Fujiwara Renews Partnership with MAMMUT",
+          "category": "drop",
+          "summary": "Hiroshi Fujiwara has renewed his partnership with outdoor brand MAMMUT, bringing a limited-edition Barryvox S2 FRGMT Edition avalanche transceiver and two apparel pieces (hoodie and crewneck) supervised by fragment. The apparel pieces coincide with the Barryvox launch, with an early purchase opportunity at the MAMMUT Innovation 2026 exhibition.",
+          "url": "https://hypebeast.com/2026/9/mammut-hiroshi-fujiwara-collabo-interviews",
+          "date_info": "MAMMUT Innovation 2026 Pop-Up Oct 1-4, Barryvox S2 FRGMT Edition release Thu 15 Oct 2026",
+          "urgency": "this-week",
+          "link_status": "verified"
+        },
+        {
+          "title": "Odell Beckham Jr. Waived by New York Giants",
+          "category": "football",
+          "summary": "In significant football transfer news, wide receiver Odell Beckham Jr. has been waived by the New York Giants. This is a major development in the NFL world.",
+          "url": "https://hypebeast.com/2026/9/nfl-new-york-giants-waived-odell-beckham-jr-news",
+          "date_info": "",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        }
+      ]
     }
   ]
 }
