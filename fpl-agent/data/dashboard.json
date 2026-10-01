@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-01T13:01:48.074991+00:00",
+  "generated_at": "2026-10-01T20:18:50.506389+00:00",
   "next_event": 6,
   "next_deadline": "2026-10-10T10:00:00Z",
   "horizon": {
@@ -238,7 +238,7 @@
           "team": "EVE",
           "position": "DEF",
           "price": 6.2,
-          "owned": 16.5,
+          "owned": 16.6,
           "xp": 21.5,
           "start_prob": 0.98,
           "moved_club": false,
@@ -560,18 +560,18 @@
           "bank_after": 0.5
         },
         {
-          "id": "233",
-          "name": "Mykolenko",
-          "team": "EVE",
+          "id": "566",
+          "name": "Silva",
+          "team": "BOU",
           "position": "DEF",
-          "price": 4.6,
-          "owned": 4.2,
+          "price": 5.0,
+          "owned": 0.4,
           "xp": 17.1,
-          "start_prob": 0.98,
-          "moved_club": false,
-          "minutes_reason": "5/5 starts this season, blended with last year's evidence (100% of last 10 GWs started, 87% across the season)",
-          "gain": 1.26,
-          "bank_after": 0.4
+          "start_prob": 0.87,
+          "moved_club": true,
+          "minutes_reason": "5/5 starts this season, blended with last year's evidence (no Premier League record; inferred from £5.0m price)",
+          "gain": 1.22,
+          "bank_after": 0.0
         }
       ],
       "override": ""
@@ -841,7 +841,7 @@
           "team": "BRE",
           "position": "MID",
           "price": 6.2,
-          "owned": 11.5,
+          "owned": 11.6,
           "xp": 22.2,
           "start_prob": 0.96,
           "moved_club": false,
@@ -1000,7 +1000,7 @@
           "team": "BRE",
           "position": "MID",
           "price": 6.2,
-          "owned": 11.5,
+          "owned": 11.6,
           "xp": 22.2,
           "start_prob": 0.96,
           "moved_club": false,
@@ -1143,7 +1143,7 @@
       "team": "BHA",
       "position": "MID",
       "price": 5.8,
-      "owned": 28.9,
+      "owned": 29.0,
       "xp": 20.7,
       "start_prob": 0.99,
       "moved_club": false,
@@ -1187,7 +1187,7 @@
           "team": "BRE",
           "position": "MID",
           "price": 6.2,
-          "owned": 11.5,
+          "owned": 11.6,
           "xp": 22.2,
           "start_prob": 0.96,
           "moved_club": false,
@@ -1388,7 +1388,7 @@
           "team": "BRE",
           "position": "MID",
           "price": 6.2,
-          "owned": 11.5,
+          "owned": 11.6,
           "xp": 22.2,
           "start_prob": 0.96,
           "moved_club": false,
@@ -1547,7 +1547,7 @@
           "team": "BRE",
           "position": "MID",
           "price": 6.2,
-          "owned": 11.5,
+          "owned": 11.6,
           "xp": 22.2,
           "start_prob": 0.96,
           "moved_club": false,
@@ -2561,20 +2561,6 @@
           "bank_after": 0.3
         },
         {
-          "id": "233",
-          "name": "Mykolenko",
-          "team": "EVE",
-          "position": "DEF",
-          "price": 4.6,
-          "owned": 4.2,
-          "xp": 17.1,
-          "start_prob": 0.98,
-          "moved_club": false,
-          "minutes_reason": "5/5 starts this season, blended with last year's evidence (100% of last 10 GWs started, 87% across the season)",
-          "gain": 1.37,
-          "bank_after": 0.2
-        },
-        {
           "id": "173",
           "name": "Thomas",
           "team": "COV",
@@ -2629,6 +2615,20 @@
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (no Premier League record; inferred from £4.0m price)",
           "gain": 0.56,
           "bank_after": 0.8
+        },
+        {
+          "id": "330",
+          "name": "Bogle",
+          "team": "LEE",
+          "position": "DEF",
+          "price": 4.6,
+          "owned": 7.2,
+          "xp": 16.3,
+          "start_prob": 0.92,
+          "moved_club": false,
+          "minutes_reason": "5/5 starts this season, blended with last year's evidence (67% of last 10 GWs started, 84% across the season)",
+          "gain": 0.55,
+          "bank_after": 0.2
         }
       ],
       "override": ""
@@ -2748,20 +2748,6 @@
           "bank_after": 0.3
         },
         {
-          "id": "233",
-          "name": "Mykolenko",
-          "team": "EVE",
-          "position": "DEF",
-          "price": 4.6,
-          "owned": 4.2,
-          "xp": 17.1,
-          "start_prob": 0.98,
-          "moved_club": false,
-          "minutes_reason": "5/5 starts this season, blended with last year's evidence (100% of last 10 GWs started, 87% across the season)",
-          "gain": 1.99,
-          "bank_after": 0.2
-        },
-        {
           "id": "173",
           "name": "Thomas",
           "team": "COV",
@@ -2816,6 +2802,20 @@
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (no Premier League record; inferred from £4.0m price)",
           "gain": 1.18,
           "bank_after": 0.8
+        },
+        {
+          "id": "330",
+          "name": "Bogle",
+          "team": "LEE",
+          "position": "DEF",
+          "price": 4.6,
+          "owned": 7.2,
+          "xp": 16.3,
+          "start_prob": 0.92,
+          "moved_club": false,
+          "minutes_reason": "5/5 starts this season, blended with last year's evidence (67% of last 10 GWs started, 84% across the season)",
+          "gain": 1.17,
+          "bank_after": 0.2
         }
       ],
       "override": ""
@@ -3132,7 +3132,7 @@
       "team": "CHE",
       "position": "MID",
       "price": 9.7,
-      "owned": 25.7,
+      "owned": 25.6,
       "xp": 18.3,
       "start_prob": 0.7,
       "moved_club": false,
@@ -3171,8 +3171,8 @@
       "price": 7.0,
       "owned": 32.8,
       "direction": "fall",
-      "probability": 0.969,
-      "net_transfers": -144,
+      "probability": 0.975,
+      "net_transfers": -1104,
       "source": "FPL's own price_change_percent",
       "confidence": "official"
     },
@@ -3182,8 +3182,8 @@
       "price": 5.8,
       "owned": 50.5,
       "direction": "rise",
-      "probability": 0.939,
-      "net_transfers": 34,
+      "probability": 0.944,
+      "net_transfers": 158,
       "source": "FPL's own price_change_percent",
       "confidence": "official"
     },
@@ -3191,10 +3191,10 @@
       "player_id": "124",
       "name": "Groß",
       "price": 5.8,
-      "owned": 28.9,
+      "owned": 29.0,
       "direction": "rise",
-      "probability": 0.928,
-      "net_transfers": 407,
+      "probability": 0.938,
+      "net_transfers": 3403,
       "source": "FPL's own price_change_percent",
       "confidence": "official"
     },
@@ -3204,8 +3204,8 @@
       "price": 4.0,
       "owned": 6.9,
       "direction": "rise",
-      "probability": 0.725,
-      "net_transfers": 15,
+      "probability": 0.729,
+      "net_transfers": 140,
       "source": "FPL's own price_change_percent",
       "confidence": "official"
     },
@@ -3215,8 +3215,8 @@
       "price": 6.0,
       "owned": 24.8,
       "direction": "rise",
-      "probability": 0.681,
-      "net_transfers": -28,
+      "probability": 0.684,
+      "net_transfers": -107,
       "source": "FPL's own price_change_percent",
       "confidence": "official"
     },
@@ -3226,8 +3226,8 @@
       "price": 4.5,
       "owned": 21.6,
       "direction": "rise",
-      "probability": 0.641,
-      "net_transfers": -14,
+      "probability": 0.644,
+      "net_transfers": 19,
       "source": "FPL's own price_change_percent",
       "confidence": "official"
     },
@@ -3237,8 +3237,8 @@
       "price": 8.0,
       "owned": 15.7,
       "direction": "rise",
-      "probability": 0.51,
-      "net_transfers": 19,
+      "probability": 0.513,
+      "net_transfers": 135,
       "source": "FPL's own price_change_percent",
       "confidence": "official"
     },
@@ -3248,8 +3248,8 @@
       "price": 4.5,
       "owned": 17.3,
       "direction": "fall",
-      "probability": 0.505,
-      "net_transfers": -51,
+      "probability": 0.508,
+      "net_transfers": -323,
       "source": "FPL's own price_change_percent",
       "confidence": "official"
     },
@@ -3259,8 +3259,8 @@
       "price": 4.5,
       "owned": 3.9,
       "direction": "rise",
-      "probability": 0.307,
-      "net_transfers": -7,
+      "probability": 0.308,
+      "net_transfers": -58,
       "source": "FPL's own price_change_percent",
       "confidence": "official"
     },
@@ -3270,8 +3270,8 @@
       "price": 15.6,
       "owned": 73.8,
       "direction": "rise",
-      "probability": 0.226,
-      "net_transfers": 73,
+      "probability": 0.229,
+      "net_transfers": 406,
       "source": "FPL's own price_change_percent",
       "confidence": "official"
     }

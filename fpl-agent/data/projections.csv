@@ -479,11 +479,11 @@ player_id,web_name,team,position,price,selected_by,event,opponent,home,difficult
 83,Valdimarsson,BRE,GKP,4.5,0.1,8,HUL,A,2,0.011,0.003,0.002,0.006,1.331,0.0,0.206,,,"0/5 starts this season, blended with last year's evidence (0% of last 10 GWs started, 3% across the season)"
 83,Valdimarsson,BRE,GKP,4.5,0.1,9,NFO,H,3,0.011,0.003,0.002,0.006,1.299,0.0,0.206,,,"0/5 starts this season, blended with last year's evidence (0% of last 10 GWs started, 3% across the season)"
 83,Valdimarsson,BRE,GKP,4.5,0.1,10,BHA,A,4,0.01,0.003,0.002,0.006,0.768,0.0,0.206,,,"0/5 starts this season, blended with last year's evidence (0% of last 10 GWs started, 3% across the season)"
-84,Collins,BRE,DEF,5.4,1.0,6,AVL,A,3,0.0,0.0,0.399,0.162,1.011,0.877,0.222,,,unavailable (status 'i'): Calf injury - Unknown return date
-84,Collins,BRE,DEF,5.4,1.0,7,LIV,H,4,0.0,0.0,0.399,0.162,1.037,0.877,0.222,,,unavailable (status 'i'): Calf injury - Unknown return date
-84,Collins,BRE,DEF,5.4,1.0,8,HUL,A,2,0.0,0.0,0.399,0.162,1.331,0.877,0.222,,,unavailable (status 'i'): Calf injury - Unknown return date
-84,Collins,BRE,DEF,5.4,1.0,9,NFO,H,3,0.0,0.0,0.399,0.162,1.299,0.877,0.222,,,unavailable (status 'i'): Calf injury - Unknown return date
-84,Collins,BRE,DEF,5.4,1.0,10,BHA,A,4,0.0,0.0,0.399,0.162,0.768,0.877,0.222,,,unavailable (status 'i'): Calf injury - Unknown return date
+84,Collins,BRE,DEF,5.4,0.9,6,AVL,A,3,0.0,0.0,0.399,0.162,1.011,0.877,0.222,,,unavailable (status 'i'): Calf injury - Unknown return date
+84,Collins,BRE,DEF,5.4,0.9,7,LIV,H,4,0.0,0.0,0.399,0.162,1.037,0.877,0.222,,,unavailable (status 'i'): Calf injury - Unknown return date
+84,Collins,BRE,DEF,5.4,0.9,8,HUL,A,2,0.0,0.0,0.399,0.162,1.331,0.877,0.222,,,unavailable (status 'i'): Calf injury - Unknown return date
+84,Collins,BRE,DEF,5.4,0.9,9,NFO,H,3,0.0,0.0,0.399,0.162,1.299,0.877,0.222,,,unavailable (status 'i'): Calf injury - Unknown return date
+84,Collins,BRE,DEF,5.4,0.9,10,BHA,A,4,0.0,0.0,0.399,0.162,0.768,0.877,0.222,,,unavailable (status 'i'): Calf injury - Unknown return date
 85,Van den Berg,BRE,DEF,4.9,0.1,6,AVL,A,3,0.0,0.0,0.582,0.152,1.011,0.717,0.139,,,unavailable (status 'i'): Groin injury - Unknown return date
 85,Van den Berg,BRE,DEF,4.9,0.1,7,LIV,H,4,0.0,0.0,0.582,0.152,1.037,0.717,0.139,,,unavailable (status 'i'): Groin injury - Unknown return date
 85,Van den Berg,BRE,DEF,4.9,0.1,8,HUL,A,2,0.0,0.0,0.582,0.152,1.331,0.717,0.139,,,unavailable (status 'i'): Groin injury - Unknown return date
@@ -524,11 +524,11 @@ player_id,web_name,team,position,price,selected_by,event,opponent,home,difficult
 93,Schuster,BRE,DEF,4.5,0.3,8,HUL,A,2,1.592,0.386,0.374,0.18,1.331,0.522,0.252,yes,,"2/5 starts this season, blended with last year's evidence (no Premier League record; inferred from £4.5m price)"
 93,Schuster,BRE,DEF,4.5,0.3,9,NFO,H,3,1.58,0.386,0.374,0.18,1.299,0.522,0.252,yes,,"2/5 starts this season, blended with last year's evidence (no Premier League record; inferred from £4.5m price)"
 93,Schuster,BRE,DEF,4.5,0.3,10,BHA,A,4,1.399,0.386,0.374,0.18,0.768,0.522,0.252,yes,,"2/5 starts this season, blended with last year's evidence (no Premier League record; inferred from £4.5m price)"
-94,Schade,BRE,MID,6.2,11.5,6,AVL,A,3,4.414,0.965,1.662,0.255,0.253,0.092,0.212,,,"5/5 starts this season, blended with last year's evidence (90% of last 10 GWs started, 84% across the season)"
-94,Schade,BRE,MID,6.2,11.5,7,LIV,H,4,4.42,0.965,1.662,0.255,0.259,0.092,0.212,,,"5/5 starts this season, blended with last year's evidence (90% of last 10 GWs started, 84% across the season)"
-94,Schade,BRE,MID,6.2,11.5,8,HUL,A,2,4.493,0.965,1.662,0.255,0.333,0.092,0.212,,,"5/5 starts this season, blended with last year's evidence (90% of last 10 GWs started, 84% across the season)"
-94,Schade,BRE,MID,6.2,11.5,9,NFO,H,3,4.484,0.965,1.662,0.255,0.325,0.092,0.212,,,"5/5 starts this season, blended with last year's evidence (90% of last 10 GWs started, 84% across the season)"
-94,Schade,BRE,MID,6.2,11.5,10,BHA,A,4,4.354,0.965,1.662,0.255,0.192,0.092,0.212,,,"5/5 starts this season, blended with last year's evidence (90% of last 10 GWs started, 84% across the season)"
+94,Schade,BRE,MID,6.2,11.6,6,AVL,A,3,4.414,0.965,1.662,0.255,0.253,0.092,0.212,,,"5/5 starts this season, blended with last year's evidence (90% of last 10 GWs started, 84% across the season)"
+94,Schade,BRE,MID,6.2,11.6,7,LIV,H,4,4.42,0.965,1.662,0.255,0.259,0.092,0.212,,,"5/5 starts this season, blended with last year's evidence (90% of last 10 GWs started, 84% across the season)"
+94,Schade,BRE,MID,6.2,11.6,8,HUL,A,2,4.493,0.965,1.662,0.255,0.333,0.092,0.212,,,"5/5 starts this season, blended with last year's evidence (90% of last 10 GWs started, 84% across the season)"
+94,Schade,BRE,MID,6.2,11.6,9,NFO,H,3,4.484,0.965,1.662,0.255,0.325,0.092,0.212,,,"5/5 starts this season, blended with last year's evidence (90% of last 10 GWs started, 84% across the season)"
+94,Schade,BRE,MID,6.2,11.6,10,BHA,A,4,4.354,0.965,1.662,0.255,0.192,0.092,0.212,,,"5/5 starts this season, blended with last year's evidence (90% of last 10 GWs started, 84% across the season)"
 95,O.Dango,BRE,MID,6.3,0.5,6,AVL,A,3,2.431,0.498,1.333,0.463,0.253,0.18,0.545,,,"2/5 starts this season, blended with last year's evidence (80% of last 10 GWs started, 66% across the season)"
 95,O.Dango,BRE,MID,6.3,0.5,7,LIV,H,4,2.434,0.498,1.333,0.463,0.259,0.18,0.545,,,"2/5 starts this season, blended with last year's evidence (80% of last 10 GWs started, 66% across the season)"
 95,O.Dango,BRE,MID,6.3,0.5,8,HUL,A,2,2.472,0.498,1.333,0.463,0.333,0.18,0.545,,,"2/5 starts this season, blended with last year's evidence (80% of last 10 GWs started, 66% across the season)"
@@ -679,11 +679,11 @@ player_id,web_name,team,position,price,selected_by,event,opponent,home,difficult
 123,Hinshelwood,BHA,MID,5.9,0.6,8,LIV,A,4,0.0,0.0,1.1,0.377,0.192,0.093,0.191,,,unavailable (status 'i'): Ankle injury - Expected back 10 Oct
 123,Hinshelwood,BHA,MID,5.9,0.6,9,MCI,A,5,0.0,0.0,1.1,0.377,0.099,0.093,0.191,,,unavailable (status 'i'): Ankle injury - Expected back 10 Oct
 123,Hinshelwood,BHA,MID,5.9,0.6,10,BRE,H,3,0.0,0.0,1.1,0.377,0.325,0.093,0.191,,,unavailable (status 'i'): Ankle injury - Expected back 10 Oct
-124,Groß,BHA,MID,5.8,28.9,6,SUN,A,3,4.129,0.994,0.535,0.557,0.253,0.247,0.472,,,"5/5 starts this season, blended with last year's evidence (100% of last 10 GWs started, 94% across the season)"
-124,Groß,BHA,MID,5.8,28.9,7,CRY,H,2,4.286,0.994,0.535,0.557,0.407,0.247,0.472,,,"5/5 starts this season, blended with last year's evidence (100% of last 10 GWs started, 94% across the season)"
-124,Groß,BHA,MID,5.8,28.9,8,LIV,A,4,4.068,0.994,0.535,0.557,0.192,0.247,0.472,,,"5/5 starts this season, blended with last year's evidence (100% of last 10 GWs started, 94% across the season)"
-124,Groß,BHA,MID,5.8,28.9,9,MCI,A,5,3.973,0.994,0.535,0.557,0.099,0.247,0.472,,,"5/5 starts this season, blended with last year's evidence (100% of last 10 GWs started, 94% across the season)"
-124,Groß,BHA,MID,5.8,28.9,10,BRE,H,3,4.202,0.994,0.535,0.557,0.325,0.247,0.472,,,"5/5 starts this season, blended with last year's evidence (100% of last 10 GWs started, 94% across the season)"
+124,Groß,BHA,MID,5.8,29.0,6,SUN,A,3,4.129,0.994,0.535,0.557,0.253,0.247,0.472,,,"5/5 starts this season, blended with last year's evidence (100% of last 10 GWs started, 94% across the season)"
+124,Groß,BHA,MID,5.8,29.0,7,CRY,H,2,4.286,0.994,0.535,0.557,0.407,0.247,0.472,,,"5/5 starts this season, blended with last year's evidence (100% of last 10 GWs started, 94% across the season)"
+124,Groß,BHA,MID,5.8,29.0,8,LIV,A,4,4.068,0.994,0.535,0.557,0.192,0.247,0.472,,,"5/5 starts this season, blended with last year's evidence (100% of last 10 GWs started, 94% across the season)"
+124,Groß,BHA,MID,5.8,29.0,9,MCI,A,5,3.973,0.994,0.535,0.557,0.099,0.247,0.472,,,"5/5 starts this season, blended with last year's evidence (100% of last 10 GWs started, 94% across the season)"
+124,Groß,BHA,MID,5.8,29.0,10,BRE,H,3,4.202,0.994,0.535,0.557,0.325,0.247,0.472,,,"5/5 starts this season, blended with last year's evidence (100% of last 10 GWs started, 94% across the season)"
 125,Georginio,BHA,FWD,5.3,0.5,6,SUN,A,3,0.935,0.243,1.027,0.343,0.0,0.032,0.298,,,"1/5 starts this season, blended with last year's evidence (22% of last 10 GWs started, 54% across the season); 100% chance of playing"
 125,Georginio,BHA,FWD,5.3,0.5,7,CRY,H,2,0.935,0.243,1.027,0.343,0.0,0.032,0.298,,,"1/5 starts this season, blended with last year's evidence (22% of last 10 GWs started, 54% across the season); 100% chance of playing"
 125,Georginio,BHA,FWD,5.3,0.5,8,LIV,A,4,0.935,0.243,1.027,0.343,0.0,0.032,0.298,,,"1/5 starts this season, blended with last year's evidence (22% of last 10 GWs started, 54% across the season); 100% chance of playing"
@@ -879,11 +879,11 @@ player_id,web_name,team,position,price,selected_by,event,opponent,home,difficult
 152,Palestra,CHE,DEF,5.3,0.6,8,TOT,H,2,0.345,0.079,0.374,0.18,1.626,0.522,0.252,yes,,"0/5 starts this season, blended with last year's evidence (no Premier League record; inferred from £5.3m price); 50% chance of playing"
 152,Palestra,CHE,DEF,5.3,0.6,9,MUN,H,4,0.304,0.079,0.374,0.18,1.037,0.522,0.252,yes,,"0/5 starts this season, blended with last year's evidence (no Premier League record; inferred from £5.3m price); 50% chance of playing"
 152,Palestra,CHE,DEF,5.3,0.6,10,SUN,A,3,0.302,0.079,0.374,0.18,1.011,0.522,0.252,yes,,"0/5 starts this season, blended with last year's evidence (no Premier League record; inferred from £5.3m price); 50% chance of playing"
-154,Palmer,CHE,MID,9.7,25.7,6,BOU,H,3,3.68,0.703,1.873,0.363,0.325,0.104,0.452,,,"5/5 starts this season, blended with last year's evidence (89% of last 10 GWs started, 62% across the season); 75% chance of playing"
-154,Palmer,CHE,MID,9.7,25.7,7,EVE,A,3,3.629,0.703,1.873,0.363,0.253,0.104,0.452,,,"5/5 starts this season, blended with last year's evidence (89% of last 10 GWs started, 62% across the season); 75% chance of playing"
-154,Palmer,CHE,MID,9.7,25.7,8,TOT,H,2,3.739,0.703,1.873,0.363,0.407,0.104,0.452,,,"5/5 starts this season, blended with last year's evidence (89% of last 10 GWs started, 62% across the season); 75% chance of playing"
-154,Palmer,CHE,MID,9.7,25.7,9,MUN,H,4,3.633,0.703,1.873,0.363,0.259,0.104,0.452,,,"5/5 starts this season, blended with last year's evidence (89% of last 10 GWs started, 62% across the season); 75% chance of playing"
-154,Palmer,CHE,MID,9.7,25.7,10,SUN,A,3,3.629,0.703,1.873,0.363,0.253,0.104,0.452,,,"5/5 starts this season, blended with last year's evidence (89% of last 10 GWs started, 62% across the season); 75% chance of playing"
+154,Palmer,CHE,MID,9.7,25.6,6,BOU,H,3,3.68,0.703,1.873,0.363,0.325,0.104,0.452,,,"5/5 starts this season, blended with last year's evidence (89% of last 10 GWs started, 62% across the season); 75% chance of playing"
+154,Palmer,CHE,MID,9.7,25.6,7,EVE,A,3,3.629,0.703,1.873,0.363,0.253,0.104,0.452,,,"5/5 starts this season, blended with last year's evidence (89% of last 10 GWs started, 62% across the season); 75% chance of playing"
+154,Palmer,CHE,MID,9.7,25.6,8,TOT,H,2,3.739,0.703,1.873,0.363,0.407,0.104,0.452,,,"5/5 starts this season, blended with last year's evidence (89% of last 10 GWs started, 62% across the season); 75% chance of playing"
+154,Palmer,CHE,MID,9.7,25.6,9,MUN,H,4,3.633,0.703,1.873,0.363,0.259,0.104,0.452,,,"5/5 starts this season, blended with last year's evidence (89% of last 10 GWs started, 62% across the season); 75% chance of playing"
+154,Palmer,CHE,MID,9.7,25.6,10,SUN,A,3,3.629,0.703,1.873,0.363,0.253,0.104,0.452,,,"5/5 starts this season, blended with last year's evidence (89% of last 10 GWs started, 62% across the season); 75% chance of playing"
 156,Neto,CHE,MID,6.5,1.4,6,BOU,H,3,3.144,0.756,0.786,0.619,0.325,0.018,0.318,,,"4/5 starts this season, blended with last year's evidence (56% of last 10 GWs started, 78% across the season)"
 156,Neto,CHE,MID,6.5,1.4,7,EVE,A,3,3.089,0.756,0.786,0.619,0.253,0.018,0.318,,,"4/5 starts this season, blended with last year's evidence (56% of last 10 GWs started, 78% across the season)"
 156,Neto,CHE,MID,6.5,1.4,8,TOT,H,2,3.208,0.756,0.786,0.619,0.407,0.018,0.318,,,"4/5 starts this season, blended with last year's evidence (56% of last 10 GWs started, 78% across the season)"
@@ -1359,11 +1359,11 @@ player_id,web_name,team,position,price,selected_by,event,opponent,home,difficult
 228,King,EVE,GKP,4.5,0.0,8,ARS,A,5,0.0,0.0,0.003,0.006,0.397,0.0,0.224,,,"0/5 starts this season, blended with last year's evidence (0% of last 10 GWs started, 0% across the season)"
 228,King,EVE,GKP,4.5,0.0,9,NEW,A,3,0.0,0.0,0.003,0.006,1.011,0.0,0.224,,,"0/5 starts this season, blended with last year's evidence (0% of last 10 GWs started, 0% across the season)"
 228,King,EVE,GKP,4.5,0.0,10,COV,H,2,0.0,0.0,0.003,0.006,1.626,0.0,0.224,,,"0/5 starts this season, blended with last year's evidence (0% of last 10 GWs started, 0% across the season)"
-229,Tarkowski,EVE,DEF,6.2,16.5,6,HUL,A,2,4.514,0.98,0.402,0.173,1.331,0.988,0.308,,,"5/5 starts this season, blended with last year's evidence (90% of last 10 GWs started, 97% across the season)"
-229,Tarkowski,EVE,DEF,6.2,16.5,7,CHE,H,4,4.258,0.98,0.402,0.173,1.037,0.988,0.308,,,"5/5 starts this season, blended with last year's evidence (90% of last 10 GWs started, 97% across the season)"
-229,Tarkowski,EVE,DEF,6.2,16.5,8,ARS,A,5,3.703,0.98,0.402,0.173,0.397,0.988,0.308,,,"5/5 starts this season, blended with last year's evidence (90% of last 10 GWs started, 97% across the season)"
-229,Tarkowski,EVE,DEF,6.2,16.5,9,NEW,A,3,4.236,0.98,0.402,0.173,1.011,0.988,0.308,,,"5/5 starts this season, blended with last year's evidence (90% of last 10 GWs started, 97% across the season)"
-229,Tarkowski,EVE,DEF,6.2,16.5,10,COV,H,2,4.77,0.98,0.402,0.173,1.626,0.988,0.308,,,"5/5 starts this season, blended with last year's evidence (90% of last 10 GWs started, 97% across the season)"
+229,Tarkowski,EVE,DEF,6.2,16.6,6,HUL,A,2,4.514,0.98,0.402,0.173,1.331,0.988,0.308,,,"5/5 starts this season, blended with last year's evidence (90% of last 10 GWs started, 97% across the season)"
+229,Tarkowski,EVE,DEF,6.2,16.6,7,CHE,H,4,4.258,0.98,0.402,0.173,1.037,0.988,0.308,,,"5/5 starts this season, blended with last year's evidence (90% of last 10 GWs started, 97% across the season)"
+229,Tarkowski,EVE,DEF,6.2,16.6,8,ARS,A,5,3.703,0.98,0.402,0.173,0.397,0.988,0.308,,,"5/5 starts this season, blended with last year's evidence (90% of last 10 GWs started, 97% across the season)"
+229,Tarkowski,EVE,DEF,6.2,16.6,9,NEW,A,3,4.236,0.98,0.402,0.173,1.011,0.988,0.308,,,"5/5 starts this season, blended with last year's evidence (90% of last 10 GWs started, 97% across the season)"
+229,Tarkowski,EVE,DEF,6.2,16.6,10,COV,H,2,4.77,0.98,0.402,0.173,1.626,0.988,0.308,,,"5/5 starts this season, blended with last year's evidence (90% of last 10 GWs started, 97% across the season)"
 230,Branthwaite,EVE,DEF,5.5,2.4,6,HUL,A,2,3.184,0.787,0.332,0.125,1.331,0.63,0.15,,,"5/5 starts this season, blended with last year's evidence (30% of last 10 GWs started, 18% across the season)"
 230,Branthwaite,EVE,DEF,5.5,2.4,7,CHE,H,4,2.979,0.787,0.332,0.125,1.037,0.63,0.15,,,"5/5 starts this season, blended with last year's evidence (30% of last 10 GWs started, 18% across the season)"
 230,Branthwaite,EVE,DEF,5.5,2.4,8,ARS,A,5,2.533,0.787,0.332,0.125,0.397,0.63,0.15,,,"5/5 starts this season, blended with last year's evidence (30% of last 10 GWs started, 18% across the season)"
@@ -1379,11 +1379,11 @@ player_id,web_name,team,position,price,selected_by,event,opponent,home,difficult
 232,O'Brien,EVE,DEF,4.8,0.3,8,ARS,A,5,0.796,0.277,0.31,0.109,0.397,0.328,0.105,,,"0/5 starts this season, blended with last year's evidence (100% of last 10 GWs started, 92% across the season)"
 232,O'Brien,EVE,DEF,4.8,0.3,9,NEW,A,3,0.947,0.277,0.31,0.109,1.011,0.328,0.105,,,"0/5 starts this season, blended with last year's evidence (100% of last 10 GWs started, 92% across the season)"
 232,O'Brien,EVE,DEF,4.8,0.3,10,COV,H,2,1.098,0.277,0.31,0.109,1.626,0.328,0.105,,,"0/5 starts this season, blended with last year's evidence (100% of last 10 GWs started, 92% across the season)"
-233,Mykolenko,EVE,DEF,4.6,4.2,6,HUL,A,2,3.64,0.985,0.133,0.213,1.331,0.386,0.109,,,"5/5 starts this season, blended with last year's evidence (100% of last 10 GWs started, 87% across the season)"
-233,Mykolenko,EVE,DEF,4.6,4.2,7,CHE,H,4,3.383,0.985,0.133,0.213,1.037,0.386,0.109,,,"5/5 starts this season, blended with last year's evidence (100% of last 10 GWs started, 87% across the season)"
-233,Mykolenko,EVE,DEF,4.6,4.2,8,ARS,A,5,2.825,0.985,0.133,0.213,0.397,0.386,0.109,,,"5/5 starts this season, blended with last year's evidence (100% of last 10 GWs started, 87% across the season)"
-233,Mykolenko,EVE,DEF,4.6,4.2,9,NEW,A,3,3.361,0.985,0.133,0.213,1.011,0.386,0.109,,,"5/5 starts this season, blended with last year's evidence (100% of last 10 GWs started, 87% across the season)"
-233,Mykolenko,EVE,DEF,4.6,4.2,10,COV,H,2,3.897,0.985,0.133,0.213,1.626,0.386,0.109,,,"5/5 starts this season, blended with last year's evidence (100% of last 10 GWs started, 87% across the season)"
+233,Mykolenko,EVE,DEF,4.6,4.2,6,HUL,A,2,2.73,0.739,0.133,0.213,1.331,0.386,0.109,,,"5/5 starts this season, blended with last year's evidence (100% of last 10 GWs started, 87% across the season); 75% chance of playing"
+233,Mykolenko,EVE,DEF,4.6,4.2,7,CHE,H,4,2.537,0.739,0.133,0.213,1.037,0.386,0.109,,,"5/5 starts this season, blended with last year's evidence (100% of last 10 GWs started, 87% across the season); 75% chance of playing"
+233,Mykolenko,EVE,DEF,4.6,4.2,8,ARS,A,5,2.119,0.739,0.133,0.213,0.397,0.386,0.109,,,"5/5 starts this season, blended with last year's evidence (100% of last 10 GWs started, 87% across the season); 75% chance of playing"
+233,Mykolenko,EVE,DEF,4.6,4.2,9,NEW,A,3,2.521,0.739,0.133,0.213,1.011,0.386,0.109,,,"5/5 starts this season, blended with last year's evidence (100% of last 10 GWs started, 87% across the season); 75% chance of playing"
+233,Mykolenko,EVE,DEF,4.6,4.2,10,COV,H,2,2.923,0.739,0.133,0.213,1.626,0.386,0.109,,,"5/5 starts this season, blended with last year's evidence (100% of last 10 GWs started, 87% across the season); 75% chance of playing"
 234,Patterson,EVE,DEF,4.5,0.0,6,HUL,A,2,0.0,0.0,0.315,0.154,1.331,0.712,0.203,,,unavailable (status 'u'): Has joined Torino permanently
 234,Patterson,EVE,DEF,4.5,0.0,7,CHE,H,4,0.0,0.0,0.315,0.154,1.037,0.712,0.203,,,unavailable (status 'u'): Has joined Torino permanently
 234,Patterson,EVE,DEF,4.5,0.0,8,ARS,A,5,0.0,0.0,0.315,0.154,0.397,0.712,0.203,,,unavailable (status 'u'): Has joined Torino permanently
@@ -2294,11 +2294,11 @@ player_id,web_name,team,position,price,selected_by,event,opponent,home,difficult
 378,McConnell,LIV,MID,4.4,0.2,8,BHA,H,3,0.0,0.0,0.786,0.401,0.325,0.294,0.344,,,"0/5 starts this season, blended with last year's evidence (0% of last 10 GWs started, 0% across the season)"
 378,McConnell,LIV,MID,4.4,0.2,9,ARS,H,4,0.0,0.0,0.786,0.401,0.259,0.294,0.344,,,"0/5 starts this season, blended with last year's evidence (0% of last 10 GWs started, 0% across the season)"
 378,McConnell,LIV,MID,4.4,0.2,10,CRY,A,3,0.0,0.0,0.786,0.401,0.253,0.294,0.344,,,"0/5 starts this season, blended with last year's evidence (0% of last 10 GWs started, 0% across the season)"
-379,Isak,LIV,FWD,9.1,22.4,6,MCI,H,4,2.609,0.579,1.617,0.113,0.0,0.003,0.595,,,"5/5 starts this season, blended with last year's evidence (20% of last 10 GWs started, 21% across the season); 75% chance of playing"
-379,Isak,LIV,FWD,9.1,22.4,7,BRE,A,3,2.609,0.579,1.617,0.113,0.0,0.003,0.595,,,"5/5 starts this season, blended with last year's evidence (20% of last 10 GWs started, 21% across the season); 75% chance of playing"
-379,Isak,LIV,FWD,9.1,22.4,8,BHA,H,3,2.609,0.579,1.617,0.113,0.0,0.003,0.595,,,"5/5 starts this season, blended with last year's evidence (20% of last 10 GWs started, 21% across the season); 75% chance of playing"
-379,Isak,LIV,FWD,9.1,22.4,9,ARS,H,4,2.609,0.579,1.617,0.113,0.0,0.003,0.595,,,"5/5 starts this season, blended with last year's evidence (20% of last 10 GWs started, 21% across the season); 75% chance of playing"
-379,Isak,LIV,FWD,9.1,22.4,10,CRY,A,3,2.609,0.579,1.617,0.113,0.0,0.003,0.595,,,"5/5 starts this season, blended with last year's evidence (20% of last 10 GWs started, 21% across the season); 75% chance of playing"
+379,Isak,LIV,FWD,9.1,22.3,6,MCI,H,4,2.609,0.579,1.617,0.113,0.0,0.003,0.595,,,"5/5 starts this season, blended with last year's evidence (20% of last 10 GWs started, 21% across the season); 75% chance of playing"
+379,Isak,LIV,FWD,9.1,22.3,7,BRE,A,3,2.609,0.579,1.617,0.113,0.0,0.003,0.595,,,"5/5 starts this season, blended with last year's evidence (20% of last 10 GWs started, 21% across the season); 75% chance of playing"
+379,Isak,LIV,FWD,9.1,22.3,8,BHA,H,3,2.609,0.579,1.617,0.113,0.0,0.003,0.595,,,"5/5 starts this season, blended with last year's evidence (20% of last 10 GWs started, 21% across the season); 75% chance of playing"
+379,Isak,LIV,FWD,9.1,22.3,9,ARS,H,4,2.609,0.579,1.617,0.113,0.0,0.003,0.595,,,"5/5 starts this season, blended with last year's evidence (20% of last 10 GWs started, 21% across the season); 75% chance of playing"
+379,Isak,LIV,FWD,9.1,22.3,10,CRY,A,3,2.609,0.579,1.617,0.113,0.0,0.003,0.595,,,"5/5 starts this season, blended with last year's evidence (20% of last 10 GWs started, 21% across the season); 75% chance of playing"
 380,Ekitiké,LIV,FWD,7.4,0.1,6,MCI,H,4,0.0,0.0,1.946,0.297,0.0,0.003,0.939,,,unavailable (status 'i'): Achilles injury - Unknown return date
 380,Ekitiké,LIV,FWD,7.4,0.1,7,BRE,A,3,0.0,0.0,1.946,0.297,0.0,0.003,0.939,,,unavailable (status 'i'): Achilles injury - Unknown return date
 380,Ekitiké,LIV,FWD,7.4,0.1,8,BHA,H,3,0.0,0.0,1.946,0.297,0.0,0.003,0.939,,,unavailable (status 'i'): Achilles injury - Unknown return date
@@ -2349,11 +2349,11 @@ player_id,web_name,team,position,price,selected_by,event,opponent,home,difficult
 386,Bettinelli,MCI,GKP,4.5,0.0,8,AVL,A,3,0.0,0.0,0.003,0.006,1.011,0.0,0.224,,,"0/5 starts this season, blended with last year's evidence (0% of last 10 GWs started, 0% across the season)"
 386,Bettinelli,MCI,GKP,4.5,0.0,9,BHA,H,3,0.0,0.0,0.003,0.006,1.299,0.0,0.224,,,"0/5 starts this season, blended with last year's evidence (0% of last 10 GWs started, 0% across the season)"
 386,Bettinelli,MCI,GKP,4.5,0.0,10,NFO,A,3,0.0,0.0,0.003,0.006,1.011,0.0,0.224,,,"0/5 starts this season, blended with last year's evidence (0% of last 10 GWs started, 0% across the season)"
-387,O'Reilly,MCI,DEF,6.3,10.9,6,LIV,A,4,1.937,0.479,1.01,0.247,0.768,0.228,0.316,,,"2/5 starts this season, blended with last year's evidence (62% of last 10 GWs started, 75% across the season); 100% chance of playing"
-387,O'Reilly,MCI,DEF,6.3,10.9,7,IPS,H,2,2.3,0.479,1.01,0.247,1.626,0.228,0.316,,,"2/5 starts this season, blended with last year's evidence (62% of last 10 GWs started, 75% across the season); 100% chance of playing"
-387,O'Reilly,MCI,DEF,6.3,10.9,8,AVL,A,3,2.04,0.479,1.01,0.247,1.011,0.228,0.316,,,"2/5 starts this season, blended with last year's evidence (62% of last 10 GWs started, 75% across the season); 100% chance of playing"
-387,O'Reilly,MCI,DEF,6.3,10.9,9,BHA,H,3,2.162,0.479,1.01,0.247,1.299,0.228,0.316,,,"2/5 starts this season, blended with last year's evidence (62% of last 10 GWs started, 75% across the season); 100% chance of playing"
-387,O'Reilly,MCI,DEF,6.3,10.9,10,NFO,A,3,2.04,0.479,1.01,0.247,1.011,0.228,0.316,,,"2/5 starts this season, blended with last year's evidence (62% of last 10 GWs started, 75% across the season); 100% chance of playing"
+387,O'Reilly,MCI,DEF,6.3,10.9,6,LIV,A,4,1.453,0.359,1.01,0.247,0.768,0.228,0.316,,,"2/5 starts this season, blended with last year's evidence (62% of last 10 GWs started, 75% across the season); 75% chance of playing"
+387,O'Reilly,MCI,DEF,6.3,10.9,7,IPS,H,2,1.725,0.359,1.01,0.247,1.626,0.228,0.316,,,"2/5 starts this season, blended with last year's evidence (62% of last 10 GWs started, 75% across the season); 75% chance of playing"
+387,O'Reilly,MCI,DEF,6.3,10.9,8,AVL,A,3,1.53,0.359,1.01,0.247,1.011,0.228,0.316,,,"2/5 starts this season, blended with last year's evidence (62% of last 10 GWs started, 75% across the season); 75% chance of playing"
+387,O'Reilly,MCI,DEF,6.3,10.9,9,BHA,H,3,1.621,0.359,1.01,0.247,1.299,0.228,0.316,,,"2/5 starts this season, blended with last year's evidence (62% of last 10 GWs started, 75% across the season); 75% chance of playing"
+387,O'Reilly,MCI,DEF,6.3,10.9,10,NFO,A,3,1.53,0.359,1.01,0.247,1.011,0.228,0.316,,,"2/5 starts this season, blended with last year's evidence (62% of last 10 GWs started, 75% across the season); 75% chance of playing"
 388,Guéhi,MCI,DEF,6.0,18.2,6,LIV,A,4,3.856,0.969,0.617,0.198,0.768,0.545,0.364,,,"5/5 starts this season, blended with last year's evidence (88% of last 10 GWs started, 92% across the season)"
 388,Guéhi,MCI,DEF,6.0,18.2,7,IPS,H,2,4.592,0.969,0.617,0.198,1.626,0.545,0.364,,,"5/5 starts this season, blended with last year's evidence (88% of last 10 GWs started, 92% across the season)"
 388,Guéhi,MCI,DEF,6.0,18.2,8,AVL,A,3,4.064,0.969,0.617,0.198,1.011,0.545,0.364,,,"5/5 starts this season, blended with last year's evidence (88% of last 10 GWs started, 92% across the season)"
@@ -2744,11 +2744,11 @@ player_id,web_name,team,position,price,selected_by,event,opponent,home,difficult
 458,Joelinton,NEW,MID,5.4,0.0,8,CRY,A,3,0.0,0.0,0.626,0.259,0.253,0.635,0.178,,,unavailable (status 'i'): Unspecified injury - Unknown return date
 458,Joelinton,NEW,MID,5.4,0.0,9,EVE,H,3,0.0,0.0,0.626,0.259,0.325,0.635,0.178,,,unavailable (status 'i'): Unspecified injury - Unknown return date
 458,Joelinton,NEW,MID,5.4,0.0,10,FUL,A,3,0.0,0.0,0.626,0.259,0.253,0.635,0.178,,,unavailable (status 'i'): Unspecified injury - Unknown return date
-459,L.Miley,NEW,MID,5.5,0.1,6,COV,A,2,3.379,0.828,0.561,0.388,0.333,0.391,0.318,,,"5/5 starts this season, blended with last year's evidence (40% of last 10 GWs started, 39% across the season); 100% chance of playing"
-459,L.Miley,NEW,MID,5.5,0.1,7,AVL,H,3,3.372,0.828,0.561,0.388,0.325,0.391,0.318,,,"5/5 starts this season, blended with last year's evidence (40% of last 10 GWs started, 39% across the season); 100% chance of playing"
-459,L.Miley,NEW,MID,5.5,0.1,8,CRY,A,3,3.312,0.828,0.561,0.388,0.253,0.391,0.318,,,"5/5 starts this season, blended with last year's evidence (40% of last 10 GWs started, 39% across the season); 100% chance of playing"
-459,L.Miley,NEW,MID,5.5,0.1,9,EVE,H,3,3.372,0.828,0.561,0.388,0.325,0.391,0.318,,,"5/5 starts this season, blended with last year's evidence (40% of last 10 GWs started, 39% across the season); 100% chance of playing"
-459,L.Miley,NEW,MID,5.5,0.1,10,FUL,A,3,3.312,0.828,0.561,0.388,0.253,0.391,0.318,,,"5/5 starts this season, blended with last year's evidence (40% of last 10 GWs started, 39% across the season); 100% chance of playing"
+459,L.Miley,NEW,MID,5.5,0.1,6,COV,A,2,2.535,0.621,0.561,0.388,0.333,0.391,0.318,,,"5/5 starts this season, blended with last year's evidence (40% of last 10 GWs started, 39% across the season); 75% chance of playing"
+459,L.Miley,NEW,MID,5.5,0.1,7,AVL,H,3,2.529,0.621,0.561,0.388,0.325,0.391,0.318,,,"5/5 starts this season, blended with last year's evidence (40% of last 10 GWs started, 39% across the season); 75% chance of playing"
+459,L.Miley,NEW,MID,5.5,0.1,8,CRY,A,3,2.484,0.621,0.561,0.388,0.253,0.391,0.318,,,"5/5 starts this season, blended with last year's evidence (40% of last 10 GWs started, 39% across the season); 75% chance of playing"
+459,L.Miley,NEW,MID,5.5,0.1,9,EVE,H,3,2.529,0.621,0.561,0.388,0.325,0.391,0.318,,,"5/5 starts this season, blended with last year's evidence (40% of last 10 GWs started, 39% across the season); 75% chance of playing"
+459,L.Miley,NEW,MID,5.5,0.1,10,FUL,A,3,2.484,0.621,0.561,0.388,0.253,0.391,0.318,,,"5/5 starts this season, blended with last year's evidence (40% of last 10 GWs started, 39% across the season); 75% chance of playing"
 460,Willock,NEW,MID,5.0,0.6,6,COV,A,2,2.06,0.527,0.686,0.35,0.333,0.277,0.174,,,"3/5 starts this season, blended with last year's evidence (40% of last 10 GWs started, 26% across the season)"
 460,Willock,NEW,MID,5.0,0.6,7,AVL,H,3,2.055,0.527,0.686,0.35,0.325,0.277,0.174,,,"3/5 starts this season, blended with last year's evidence (40% of last 10 GWs started, 26% across the season)"
 460,Willock,NEW,MID,5.0,0.6,8,CRY,A,3,2.016,0.527,0.686,0.35,0.253,0.277,0.174,,,"3/5 starts this season, blended with last year's evidence (40% of last 10 GWs started, 26% across the season)"
