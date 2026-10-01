@@ -1,6 +1,34 @@
 {
-  "generated_at": "2026-09-30T00:19:26.064227+00:00",
+  "generated_at": "2026-10-01T05:39:20.539699+00:00",
   "model": "gemini-flash-latest",
-  "headlines_considered": 48,
-  "flags": []
+  "headlines_considered": 51,
+  "flags": [
+    {
+      "player_id": "15",
+      "player": "Ødegaard",
+      "team": "ARS",
+      "concern": "Named in international break injury news ahead of Gameweek 6, indicating an emerging fitness concern not yet flagged by FPL.",
+      "severity": "low",
+      "affects": "availability",
+      "source": "https://www.fantasyfootballscout.co.uk/2026/09/30/odegaard-van-hecke-bruno-konsa-latest-international-break-injury-news"
+    },
+    {
+      "player_id": "31",
+      "player": "Konsa",
+      "team": "ARS",
+      "concern": "Included in international break injury reporting ahead of Gameweek 6, representing a potential fitness issue currently unflagged in FPL.",
+      "severity": "low",
+      "affects": "availability",
+      "source": "https://www.fantasyfootballscout.co.uk/2026/09/30/odegaard-van-hecke-bruno-konsa-latest-international-break-injury-news"
+    },
+    {
+      "player_id": "426",
+      "player": "B.Fernandes",
+      "team": "MUN",
+      "concern": "Subject of international break injury updates across multiple reports, suggesting a potential fitness check or injury issue not officially flagged.",
+      "severity": "low",
+      "affects": "availability",
+      "source": "https://www.fantasyfootballscout.co.uk/2026/09/30/odegaard-van-hecke-bruno-konsa-latest-international-break-injury-news"
+    }
+  ]
 }
