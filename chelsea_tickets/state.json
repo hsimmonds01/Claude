@@ -2,6 +2,24 @@
   "consecutive_fetch_failures": 0,
   "fetch_failure_notified": false,
   "fixtures": {
+    "1ZGBkB6Ud3StnSV8BK85GH": {
+      "competition": "Premier League",
+      "date": "Sat 05 Dec 2026",
+      "opponent": "Liverpool",
+      "windows": {}
+    },
+    "24ZDiYAPQUgqmZVb2n09Qc": {
+      "competition": "Premier League",
+      "date": "Sun 03 Jan 2027",
+      "opponent": "Newcastle United",
+      "windows": {}
+    },
+    "2zWm0U1dBgVxccabdkHo4I": {
+      "competition": "Premier League",
+      "date": "Sat 21 Nov 2026",
+      "opponent": "Leeds United",
+      "windows": {}
+    },
     "4YKiFTwIByKGcZiZIU1Zka": {
       "competition": "Premier League",
       "date": "Sat 10 Oct 2026",
@@ -21,16 +39,33 @@
       "date": "Sat 24 Oct 2026",
       "opponent": "Tottenham Hotspur",
       "windows": {}
+    },
+    "6gPnhKBYOObsKpzuyv9a5s": {
+      "competition": "Premier League",
+      "date": "Wed 02 Dec 2026",
+      "opponent": "Crystal Palace",
+      "windows": {}
+    },
+    "7De8xGXpuVZY8CT1LKHCGV": {
+      "competition": "Premier League",
+      "date": "Sat 19 Dec 2026",
+      "opponent": "Aston Villa",
+      "windows": {}
     }
   },
   "notified": {
+    "1ZGBkB6Ud3StnSV8BK85GH::new_fixture": "2026-10-01T19:01:30.262704+00:00",
+    "24ZDiYAPQUgqmZVb2n09Qc::new_fixture": "2026-10-01T19:01:30.357766+00:00",
+    "2zWm0U1dBgVxccabdkHo4I::new_fixture": "2026-10-01T19:01:30.181489+00:00",
     "4YKiFTwIByKGcZiZIU1Zka::new_fixture": "2026-09-04T15:01:22.682290+00:00",
     "4YKiFTwIByKGcZiZIU1Zka::window_open::ticket-application-window-opens": "2026-09-04T15:01:22.682306+00:00",
     "4tilDETKaf3gXP8adbEsza::new_fixture": "2026-09-18T17:31:04.815848+00:00",
     "4tilDETKaf3gXP8adbEsza::window_open::ticket-application-window-opens-pm": "2026-09-18T17:31:04.815862+00:00",
     "5ZY4cV8TNSUYTST6vAt3ny::new_fixture": "2026-09-11T14:31:08.814281+00:00",
     "5ZY4cV8TNSUYTST6vAt3ny::window_open::accessible-ticket-application-window-opens-pm": "2026-09-11T14:31:08.814303+00:00",
-    "5ZY4cV8TNSUYTST6vAt3ny::window_open::ticket-application-window-opens-pm": "2026-09-11T14:31:08.814299+00:00"
+    "5ZY4cV8TNSUYTST6vAt3ny::window_open::ticket-application-window-opens-pm": "2026-09-11T14:31:08.814299+00:00",
+    "6gPnhKBYOObsKpzuyv9a5s::new_fixture": "2026-10-01T19:01:30.220732+00:00",
+    "7De8xGXpuVZY8CT1LKHCGV::new_fixture": "2026-10-01T19:01:30.312848+00:00"
   },
   "open_since": {},
   "schema_version": 1
