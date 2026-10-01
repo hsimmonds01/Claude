@@ -4055,6 +4055,75 @@
           "link_status": "verified"
         }
       ]
+    },
+    {
+      "date": "2026-10-01",
+      "model": "gemini-2.5-flash (legacy key, live search)",
+      "items": [
+        {
+          "title": "World's Best Pizza, Forbici, Opening in London Bridge",
+          "category": "food",
+          "summary": "Forbici, a pizzeria recently named among the world's top 100, is opening its first London location at 120 Tooley Street in London Bridge, just moments from Borough Market. Get ready to experience their acclaimed Neapolitan-style pizzas, cut tableside with scissors, when it opens later this month.",
+          "url": "https://www.timeout.com/london/news/forbici-best-pizza-in-the-world-first-london-restaurant-093026",
+          "date_info": "Opens Tuesday, October 27, 2026",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "Royal Enfield's Electric 'Flying Flea C6' Motorcycle Now Available for UK Bookings",
+          "category": "product",
+          "summary": "Royal Enfield's new electric urban motorcycle, the 'Flying Flea C6', is now open for bookings in the UK at £5,300. Deliveries for this genuinely interesting tech product, which blends retro design with advanced features like wireless charging, are scheduled to begin this October.",
+          "url": "https://www.google.com/search?q=Royal+Enfield%27s+Electric+%27Flying+Flea+C6%27+Motorcycle+Now+Available+for+UK+Bookings",
+          "date_info": "Bookings open now, deliveries start October 2026",
+          "urgency": "this-week",
+          "link_status": "search"
+        },
+        {
+          "title": "Barbican Centre Launches Brand-New Ghost Tours",
+          "category": "event",
+          "summary": "Explore nearly 2,000 years of eerie subterranean secrets with the Barbican's new ghost tours, running nightly from Wednesday to Sunday until December 13th. Discover Roman ruins, plague pits, and chilling staff sightings on this 75-minute journey through normally off-limits areas like the Pit theatre and Library Stack Rooms.",
+          "url": "https://www.timeout.com/london/news/barbican-ghost-tours-tickets-autumn-2026-093026",
+          "date_info": "Tours run nightly (Wed-Sun) from October 1 to December 13, 2026",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "Stone Island Unveils DENIM RESEARCH Fall/Winter 2026-27 Collection",
+          "category": "drop",
+          "summary": "Stone Island's experimental DENIM RESEARCH Fall/Winter 2026-27 collection is now available. This drop features innovative fabric development and advanced technical prowess applied to denim, with four seasonal washes and unique treatments.",
+          "url": "https://hypebeast.com/2026/9/stone-island-denim-research-2026-27-autumn-winter-collection-release-info",
+          "date_info": "Available now",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "New Era Autumn 2026 Limited Edition Cap Collaborations Available Now",
+          "category": "drop",
+          "summary": "New Era has dropped several new limited-edition cap and headwear collaborations for Autumn 2026, including Halloween Capsules, character collections (Tom & Jerry, Powerpuff Girls, The Goonies), Ralph Lauren x MLB, Stranger Things, ALPHA INDUSTRIES x NFL, and KENZO designs.",
+          "url": "https://www.google.com/search?q=New+Era+Autumn+2026+Limited+Edition+Cap+Collaborations+Available+Now",
+          "date_info": "Available now",
+          "urgency": "act-fast",
+          "link_status": "search"
+        },
+        {
+          "title": "50% Off Food at The Fire Station, Waterloo",
+          "category": "food",
+          "summary": "Enjoy 50% off your food bill at The Fire Station, an iconic pub in Waterloo, every Monday to Wednesday from September 28th to October 7th. This is a great deal for a local spot, close to Elephant & Castle.",
+          "url": "https://www.google.com/search?q=50%25+Off+Food+at+The+Fire+Station%2C+Waterloo",
+          "date_info": "Offer valid Mon-Wed until October 7, 2026",
+          "urgency": "this-week",
+          "link_status": "search"
+        },
+        {
+          "title": "Quaglino's Offers 50% Off Lunch Throughout October",
+          "category": "food",
+          "summary": "Experience the newly reimagined Quaglino's in St James's with an exclusive 50% off your food bill when dining at lunch (Monday-Friday) from October 7th to 30th. Book online and quote 'Hot Dinners offer' to secure this deal.",
+          "url": "https://www.google.com/search?q=Quaglino%27s+Offers+50%25+Off+Lunch+Throughout+October",
+          "date_info": "Offer valid Mon-Fri, Oct 7-30, 2026",
+          "urgency": "heads-up",
+          "link_status": "search"
+        }
+      ]
     }
   ]
 }
