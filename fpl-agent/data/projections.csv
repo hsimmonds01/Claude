@@ -1669,11 +1669,11 @@ player_id,web_name,team,position,price,selected_by,event,opponent,home,difficult
 285,McNair,HUL,DEF,4.0,0.1,8,BRE,H,3,0.41,0.1,0.374,0.18,1.299,0.522,0.252,,,"0/5 starts this season, blended with last year's evidence (no Premier League record; inferred from £4.0m price); 100% chance of playing"
 285,McNair,HUL,DEF,4.0,0.1,9,IPS,H,2,0.439,0.1,0.374,0.18,1.626,0.522,0.252,,,"0/5 starts this season, blended with last year's evidence (no Premier League record; inferred from £4.0m price); 100% chance of playing"
 285,McNair,HUL,DEF,4.0,0.1,10,ARS,A,5,0.33,0.1,0.374,0.18,0.397,0.522,0.252,,,"0/5 starts this season, blended with last year's evidence (no Premier League record; inferred from £4.0m price); 100% chance of playing"
-286,Belloumi,HUL,MID,5.1,5.1,6,EVE,H,3,3.697,0.871,0.786,0.401,0.325,0.294,0.344,,,"5/5 starts this season, blended with last year's evidence (no Premier League record; inferred from £5.1m price)"
-286,Belloumi,HUL,MID,5.1,5.1,7,FUL,A,3,3.633,0.871,0.786,0.401,0.253,0.294,0.344,,,"5/5 starts this season, blended with last year's evidence (no Premier League record; inferred from £5.1m price)"
-286,Belloumi,HUL,MID,5.1,5.1,8,BRE,H,3,3.697,0.871,0.786,0.401,0.325,0.294,0.344,,,"5/5 starts this season, blended with last year's evidence (no Premier League record; inferred from £5.1m price)"
-286,Belloumi,HUL,MID,5.1,5.1,9,IPS,H,2,3.77,0.871,0.786,0.401,0.407,0.294,0.344,,,"5/5 starts this season, blended with last year's evidence (no Premier League record; inferred from £5.1m price)"
-286,Belloumi,HUL,MID,5.1,5.1,10,ARS,A,5,3.496,0.871,0.786,0.401,0.099,0.294,0.344,,,"5/5 starts this season, blended with last year's evidence (no Premier League record; inferred from £5.1m price)"
+286,Belloumi,HUL,MID,5.1,5.2,6,EVE,H,3,3.697,0.871,0.786,0.401,0.325,0.294,0.344,,,"5/5 starts this season, blended with last year's evidence (no Premier League record; inferred from £5.1m price)"
+286,Belloumi,HUL,MID,5.1,5.2,7,FUL,A,3,3.633,0.871,0.786,0.401,0.253,0.294,0.344,,,"5/5 starts this season, blended with last year's evidence (no Premier League record; inferred from £5.1m price)"
+286,Belloumi,HUL,MID,5.1,5.2,8,BRE,H,3,3.697,0.871,0.786,0.401,0.325,0.294,0.344,,,"5/5 starts this season, blended with last year's evidence (no Premier League record; inferred from £5.1m price)"
+286,Belloumi,HUL,MID,5.1,5.2,9,IPS,H,2,3.77,0.871,0.786,0.401,0.407,0.294,0.344,,,"5/5 starts this season, blended with last year's evidence (no Premier League record; inferred from £5.1m price)"
+286,Belloumi,HUL,MID,5.1,5.2,10,ARS,A,5,3.496,0.871,0.786,0.401,0.099,0.294,0.344,,,"5/5 starts this season, blended with last year's evidence (no Premier League record; inferred from £5.1m price)"
 287,Millar,HUL,MID,5.0,0.0,6,EVE,H,3,0.0,0.0,0.786,0.401,0.325,0.294,0.344,,,unavailable (status 'u'): Has joined Birmingham on loan for the rest of the season
 287,Millar,HUL,MID,5.0,0.0,7,FUL,A,3,0.0,0.0,0.786,0.401,0.253,0.294,0.344,,,unavailable (status 'u'): Has joined Birmingham on loan for the rest of the season
 287,Millar,HUL,MID,5.0,0.0,8,BRE,H,3,0.0,0.0,0.786,0.401,0.325,0.294,0.344,,,unavailable (status 'u'): Has joined Birmingham on loan for the rest of the season
@@ -1904,11 +1904,11 @@ player_id,web_name,team,position,price,selected_by,event,opponent,home,difficult
 315,Fatawu,IPS,MID,5.4,0.2,8,NFO,H,3,0.0,0.0,0.786,0.401,0.325,0.294,0.344,yes,,unavailable (status 's'): Suspended until 17 Oct
 315,Fatawu,IPS,MID,5.4,0.2,9,HUL,A,2,0.0,0.0,0.786,0.401,0.333,0.294,0.344,yes,,unavailable (status 's'): Suspended until 17 Oct
 315,Fatawu,IPS,MID,5.4,0.2,10,BOU,H,3,0.0,0.0,0.786,0.401,0.325,0.294,0.344,yes,,unavailable (status 's'): Suspended until 17 Oct
-316,Emersonn,IPS,FWD,5.5,3.5,6,FUL,H,2,4.197,0.871,1.807,0.17,0.0,0.004,0.647,yes,,"5/5 starts this season, blended with last year's evidence (no Premier League record; inferred from £5.5m price); 100% chance of playing"
-316,Emersonn,IPS,FWD,5.5,3.5,7,MCI,A,5,4.197,0.871,1.807,0.17,0.0,0.004,0.647,yes,,"5/5 starts this season, blended with last year's evidence (no Premier League record; inferred from £5.5m price); 100% chance of playing"
-316,Emersonn,IPS,FWD,5.5,3.5,8,NFO,H,3,4.197,0.871,1.807,0.17,0.0,0.004,0.647,yes,,"5/5 starts this season, blended with last year's evidence (no Premier League record; inferred from £5.5m price); 100% chance of playing"
-316,Emersonn,IPS,FWD,5.5,3.5,9,HUL,A,2,4.197,0.871,1.807,0.17,0.0,0.004,0.647,yes,,"5/5 starts this season, blended with last year's evidence (no Premier League record; inferred from £5.5m price); 100% chance of playing"
-316,Emersonn,IPS,FWD,5.5,3.5,10,BOU,H,3,4.197,0.871,1.807,0.17,0.0,0.004,0.647,yes,,"5/5 starts this season, blended with last year's evidence (no Premier League record; inferred from £5.5m price); 100% chance of playing"
+316,Emersonn,IPS,FWD,5.5,3.6,6,FUL,H,2,4.197,0.871,1.807,0.17,0.0,0.004,0.647,yes,,"5/5 starts this season, blended with last year's evidence (no Premier League record; inferred from £5.5m price); 100% chance of playing"
+316,Emersonn,IPS,FWD,5.5,3.6,7,MCI,A,5,4.197,0.871,1.807,0.17,0.0,0.004,0.647,yes,,"5/5 starts this season, blended with last year's evidence (no Premier League record; inferred from £5.5m price); 100% chance of playing"
+316,Emersonn,IPS,FWD,5.5,3.6,8,NFO,H,3,4.197,0.871,1.807,0.17,0.0,0.004,0.647,yes,,"5/5 starts this season, blended with last year's evidence (no Premier League record; inferred from £5.5m price); 100% chance of playing"
+316,Emersonn,IPS,FWD,5.5,3.6,9,HUL,A,2,4.197,0.871,1.807,0.17,0.0,0.004,0.647,yes,,"5/5 starts this season, blended with last year's evidence (no Premier League record; inferred from £5.5m price); 100% chance of playing"
+316,Emersonn,IPS,FWD,5.5,3.6,10,BOU,H,3,4.197,0.871,1.807,0.17,0.0,0.004,0.647,yes,,"5/5 starts this season, blended with last year's evidence (no Premier League record; inferred from £5.5m price); 100% chance of playing"
 317,Hirst,IPS,FWD,5.0,0.1,6,FUL,H,2,0.0,0.0,1.807,0.17,0.0,0.004,0.647,,,unavailable (status 'u'): Has joined Stoke City permanently
 317,Hirst,IPS,FWD,5.0,0.1,7,MCI,A,5,0.0,0.0,1.807,0.17,0.0,0.004,0.647,,,unavailable (status 'u'): Has joined Stoke City permanently
 317,Hirst,IPS,FWD,5.0,0.1,8,NFO,H,3,0.0,0.0,1.807,0.17,0.0,0.004,0.647,,,unavailable (status 'u'): Has joined Stoke City permanently
