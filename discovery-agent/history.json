@@ -4124,6 +4124,57 @@
           "link_status": "search"
         }
       ]
+    },
+    {
+      "date": "2026-10-03",
+      "model": "gemini-2.5-flash (legacy key, live search)",
+      "items": [
+        {
+          "title": "Raymond Weil's Limited-Edition Millesime Jubilee Watch Drops",
+          "category": "drop",
+          "summary": "Raymond Weil celebrates its 50th anniversary with the Millesime Jubilee, a limited-edition chronograph of only 500 pieces. This 39mm steel watch features a striking light-blue bi-compax dial and is a perfect catch for those interested in designer collaborations and small-brand limited runs.",
+          "url": "https://hypebeast.com/2026/10/raymond-weil-millesime-jubilee-limited-edition-7776-stc-65501-release-info",
+          "date_info": "Released October 1, 2026",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "Salman Toor's First European Solo Exhibition Opens at The Courtauld Gallery",
+          "category": "event",
+          "summary": "Experience the acclaimed artist Salman Toor's first solo museum exhibition in Europe, 'Someone Like You,' featuring 19 thought-provoking paintings exploring queer and immigrant lives. The exhibition opened yesterday in London and runs until early next year.",
+          "url": "https://hypebeast.com/2026/10/salman-toor-someone-like-you-courtauld-gallery-exhibition-uk",
+          "date_info": "Opened October 2, 2026, runs until January 10, 2027",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "Last Chance to Play: Monopoly Lifesized London is Closing",
+          "category": "event",
+          "summary": "After five years, the immersive Monopoly Lifesized experience in London is closing its doors on January 3, 2027. This is your final opportunity to roll the giant dice, compete in challenges, and visit The Top Hat Bar & Restaurant before it's gone.",
+          "url": "https://www.google.com/search?q=Last+Chance+to+Play%3A+Monopoly+Lifesized+London+is+Closing",
+          "date_info": "Closes January 3, 2027",
+          "urgency": "this-week",
+          "link_status": "search"
+        },
+        {
+          "title": "Andover Audio's FreePlay Stereo Portable Hi-Fi Speaker",
+          "category": "product",
+          "summary": "Discover the Andover Audio FreePlay, a genuinely interesting new gadget recognized as one of Gear Patrol's 'Best New Gadgets and Hi-Fi Releases of 2026.' This portable hi-fi speaker delivers rich, high-fidelity stereo sound in a refined, IP67-waterproof design.",
+          "url": "https://www.google.com/search?q=Andover+Audio%27s+FreePlay+Stereo+Portable+Hi-Fi+Speaker",
+          "date_info": "Released Summer 2026",
+          "urgency": "heads-up",
+          "link_status": "search"
+        },
+        {
+          "title": "The Camden Road Arms Reopens After Major Revamp",
+          "category": "food",
+          "summary": "A handsome Victorian pub opposite Camden Road Overground station, The Camden Road Arms, reopened yesterday after a significant refurbishment. Expect refreshed décor, a new dining space, and a dedicated area for sports and games, making it a cool new spot for food and drinks in London.",
+          "url": "https://www.timeout.com/london/news/camden-road-arms-reopening-october-2026-100226",
+          "date_info": "Reopened October 2, 2026",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        }
+      ]
     }
   ]
 }
