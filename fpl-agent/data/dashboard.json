@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-02T22:06:47.350869+00:00",
+  "generated_at": "2026-10-03T05:07:53.889973+00:00",
   "next_event": 6,
   "next_deadline": "2026-10-10T10:00:00Z",
   "horizon": {
@@ -10,7 +10,7 @@
   "bank": 0.5,
   "free_transfers": 1,
   "risk": 0.5,
-  "squad_cost": 99.6,
+  "squad_cost": 99.5,
   "projected_xi": 239.0,
   "captain": "Haaland",
   "my_lineup_set": true,
@@ -738,7 +738,7 @@
           "team": "HUL",
           "position": "DEF",
           "price": 4.2,
-          "owned": 14.0,
+          "owned": 13.9,
           "xp": 16.1,
           "start_prob": 0.81,
           "moved_club": false,
@@ -841,7 +841,7 @@
           "team": "BRE",
           "position": "MID",
           "price": 6.2,
-          "owned": 11.6,
+          "owned": 11.7,
           "xp": 22.2,
           "start_prob": 0.96,
           "moved_club": false,
@@ -955,7 +955,7 @@
       "name": "Szoboszlai",
       "team": "LIV",
       "position": "MID",
-      "price": 7.0,
+      "price": 6.9,
       "owned": 32.7,
       "xp": 22.6,
       "start_prob": 0.99,
@@ -978,7 +978,7 @@
           "moved_club": true,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (90% of last 10 GWs started, 97% across the season); 100% chance of playing",
           "gain": 1.41,
-          "bank_after": 1.2
+          "bank_after": 1.1
         },
         {
           "id": "68",
@@ -992,7 +992,7 @@
           "moved_club": false,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (100% of last 10 GWs started, 81% across the season)",
           "gain": 0.99,
-          "bank_after": 1.4
+          "bank_after": 1.3
         },
         {
           "id": "94",
@@ -1000,13 +1000,13 @@
           "team": "BRE",
           "position": "MID",
           "price": 6.2,
-          "owned": 11.6,
+          "owned": 11.7,
           "xp": 22.2,
           "start_prob": 0.96,
           "moved_club": false,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (90% of last 10 GWs started, 84% across the season)",
           "gain": -0.46,
-          "bank_after": 1.3
+          "bank_after": 1.2
         },
         {
           "id": "69",
@@ -1020,7 +1020,7 @@
           "moved_club": false,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (89% of last 10 GWs started, 89% across the season)",
           "gain": -0.69,
-          "bank_after": 1.4
+          "bank_after": 1.3
         },
         {
           "id": "236",
@@ -1034,7 +1034,7 @@
           "moved_club": false,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (100% of last 10 GWs started, 79% across the season)",
           "gain": -1.14,
-          "bank_after": 0.9
+          "bank_after": 0.8
         },
         {
           "id": "366",
@@ -1048,7 +1048,7 @@
           "moved_club": false,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (60% of last 10 GWs started, 71% across the season)",
           "gain": -1.38,
-          "bank_after": 0.2
+          "bank_after": 0.1
         },
         {
           "id": "338",
@@ -1062,7 +1062,7 @@
           "moved_club": false,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (100% of last 10 GWs started, 92% across the season)",
           "gain": -1.57,
-          "bank_after": 2.1
+          "bank_after": 2.0
         },
         {
           "id": "127",
@@ -1076,7 +1076,7 @@
           "moved_club": false,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (56% of last 10 GWs started, 68% across the season)",
           "gain": -1.9,
-          "bank_after": 2.5
+          "bank_after": 2.4
         },
         {
           "id": "335",
@@ -1090,7 +1090,7 @@
           "moved_club": false,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (67% of last 10 GWs started, 76% across the season)",
           "gain": -2.29,
-          "bank_after": 1.5
+          "bank_after": 1.4
         },
         {
           "id": "67",
@@ -1104,7 +1104,7 @@
           "moved_club": false,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (89% of last 10 GWs started, 86% across the season)",
           "gain": -2.45,
-          "bank_after": 1.2
+          "bank_after": 1.1
         },
         {
           "id": "544",
@@ -1118,7 +1118,7 @@
           "moved_club": false,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (90% of last 10 GWs started, 84% across the season)",
           "gain": -3.0,
-          "bank_after": 2.0
+          "bank_after": 1.9
         },
         {
           "id": "41",
@@ -1132,7 +1132,7 @@
           "moved_club": false,
           "minutes_reason": "5/5 starts this season, blended with last year's evidence (50% of last 10 GWs started, 55% across the season)",
           "gain": -3.03,
-          "bank_after": 1.6
+          "bank_after": 1.5
         }
       ],
       "override": ""
@@ -1187,7 +1187,7 @@
           "team": "BRE",
           "position": "MID",
           "price": 6.2,
-          "owned": 11.6,
+          "owned": 11.7,
           "xp": 22.2,
           "start_prob": 0.96,
           "moved_club": false,
@@ -1388,7 +1388,7 @@
           "team": "BRE",
           "position": "MID",
           "price": 6.2,
-          "owned": 11.6,
+          "owned": 11.7,
           "xp": 22.2,
           "start_prob": 0.96,
           "moved_club": false,
@@ -1547,7 +1547,7 @@
           "team": "BRE",
           "position": "MID",
           "price": 6.2,
-          "owned": 11.6,
+          "owned": 11.7,
           "xp": 22.2,
           "start_prob": 0.96,
           "moved_club": false,
@@ -3166,24 +3166,13 @@
   ],
   "prices": [
     {
-      "player_id": "368",
-      "name": "Szoboszlai",
-      "price": 7.0,
-      "owned": 32.7,
-      "direction": "fall",
-      "probability": 1.0,
-      "net_transfers": -2365,
-      "source": "FPL's own price_change_percent",
-      "confidence": "official"
-    },
-    {
       "player_id": "124",
       "name": "Groß",
       "price": 5.8,
       "owned": 29.1,
       "direction": "rise",
-      "probability": 0.983,
-      "net_transfers": 3389,
+      "probability": 0.988,
+      "net_transfers": 1872,
       "source": "FPL's own price_change_percent",
       "confidence": "official"
     },
@@ -3193,8 +3182,8 @@
       "price": 5.8,
       "owned": 50.5,
       "direction": "rise",
-      "probability": 0.97,
-      "net_transfers": 353,
+      "probability": 0.972,
+      "net_transfers": 179,
       "source": "FPL's own price_change_percent",
       "confidence": "official"
     },
@@ -3204,8 +3193,8 @@
       "price": 4.0,
       "owned": 6.9,
       "direction": "rise",
-      "probability": 0.749,
-      "net_transfers": 159,
+      "probability": 0.75,
+      "net_transfers": 119,
       "source": "FPL's own price_change_percent",
       "confidence": "official"
     },
@@ -3216,7 +3205,7 @@
       "owned": 24.8,
       "direction": "rise",
       "probability": 0.703,
-      "net_transfers": -97,
+      "net_transfers": -178,
       "source": "FPL's own price_change_percent",
       "confidence": "official"
     },
@@ -3226,8 +3215,8 @@
       "price": 4.5,
       "owned": 21.6,
       "direction": "rise",
-      "probability": 0.661,
-      "net_transfers": -26,
+      "probability": 0.662,
+      "net_transfers": -3,
       "source": "FPL's own price_change_percent",
       "confidence": "official"
     },
@@ -3238,7 +3227,7 @@
       "owned": 15.7,
       "direction": "rise",
       "probability": 0.527,
-      "net_transfers": 43,
+      "net_transfers": -16,
       "source": "FPL's own price_change_percent",
       "confidence": "official"
     },
@@ -3248,8 +3237,8 @@
       "price": 4.5,
       "owned": 17.2,
       "direction": "fall",
-      "probability": 0.522,
-      "net_transfers": -259,
+      "probability": 0.523,
+      "net_transfers": -176,
       "source": "FPL's own price_change_percent",
       "confidence": "official"
     },
@@ -3259,8 +3248,8 @@
       "price": 4.5,
       "owned": 3.9,
       "direction": "rise",
-      "probability": 0.316,
-      "net_transfers": -36,
+      "probability": 0.317,
+      "net_transfers": -18,
       "source": "FPL's own price_change_percent",
       "confidence": "official"
     },
@@ -3270,8 +3259,8 @@
       "price": 15.6,
       "owned": 73.8,
       "direction": "rise",
-      "probability": 0.237,
-      "net_transfers": 252,
+      "probability": 0.238,
+      "net_transfers": 134,
       "source": "FPL's own price_change_percent",
       "confidence": "official"
     }
