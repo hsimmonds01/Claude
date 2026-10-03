@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-03T05:07:53.889973+00:00",
+  "generated_at": "2026-10-03T11:33:38.289116+00:00",
   "next_event": 6,
   "next_deadline": "2026-10-10T10:00:00Z",
   "horizon": {
@@ -3153,17 +3153,7 @@
       "exposure": 4.3
     }
   ],
-  "news": [
-    {
-      "player_id": "426",
-      "player": "B.Fernandes",
-      "team": "MUN",
-      "concern": "Subject of international break injury updates across multiple reports, suggesting a potential fitness check or injury issue not officially flagged.",
-      "severity": "low",
-      "affects": "availability",
-      "source": "https://www.fantasyfootballscout.co.uk/2026/09/30/odegaard-van-hecke-bruno-konsa-latest-international-break-injury-news"
-    }
-  ],
+  "news": [],
   "prices": [
     {
       "player_id": "124",
@@ -3171,8 +3161,8 @@
       "price": 5.8,
       "owned": 29.1,
       "direction": "rise",
-      "probability": 0.988,
-      "net_transfers": 1872,
+      "probability": 0.995,
+      "net_transfers": 455,
       "source": "FPL's own price_change_percent",
       "confidence": "official"
     },
@@ -3182,8 +3172,8 @@
       "price": 5.8,
       "owned": 50.5,
       "direction": "rise",
-      "probability": 0.972,
-      "net_transfers": 179,
+      "probability": 0.974,
+      "net_transfers": 28,
       "source": "FPL's own price_change_percent",
       "confidence": "official"
     },
@@ -3193,8 +3183,8 @@
       "price": 4.0,
       "owned": 6.9,
       "direction": "rise",
-      "probability": 0.75,
-      "net_transfers": 119,
+      "probability": 0.751,
+      "net_transfers": 33,
       "source": "FPL's own price_change_percent",
       "confidence": "official"
     },
@@ -3204,8 +3194,8 @@
       "price": 6.0,
       "owned": 24.8,
       "direction": "rise",
-      "probability": 0.703,
-      "net_transfers": -178,
+      "probability": 0.705,
+      "net_transfers": -25,
       "source": "FPL's own price_change_percent",
       "confidence": "official"
     },
@@ -3215,8 +3205,8 @@
       "price": 4.5,
       "owned": 21.6,
       "direction": "rise",
-      "probability": 0.662,
-      "net_transfers": -3,
+      "probability": 0.663,
+      "net_transfers": 17,
       "source": "FPL's own price_change_percent",
       "confidence": "official"
     },
@@ -3226,8 +3216,8 @@
       "price": 8.0,
       "owned": 15.7,
       "direction": "rise",
-      "probability": 0.527,
-      "net_transfers": -16,
+      "probability": 0.528,
+      "net_transfers": -3,
       "source": "FPL's own price_change_percent",
       "confidence": "official"
     },
@@ -3237,8 +3227,8 @@
       "price": 4.5,
       "owned": 17.2,
       "direction": "fall",
-      "probability": 0.523,
-      "net_transfers": -176,
+      "probability": 0.525,
+      "net_transfers": -51,
       "source": "FPL's own price_change_percent",
       "confidence": "official"
     },
@@ -3249,7 +3239,7 @@
       "owned": 3.9,
       "direction": "rise",
       "probability": 0.317,
-      "net_transfers": -18,
+      "net_transfers": -6,
       "source": "FPL's own price_change_percent",
       "confidence": "official"
     },
@@ -3259,8 +3249,8 @@
       "price": 15.6,
       "owned": 73.8,
       "direction": "rise",
-      "probability": 0.238,
-      "net_transfers": 134,
+      "probability": 0.239,
+      "net_transfers": 47,
       "source": "FPL's own price_change_percent",
       "confidence": "official"
     }
