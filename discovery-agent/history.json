@@ -4175,6 +4175,39 @@
           "link_status": "verified"
         }
       ]
+    },
+    {
+      "date": "2026-10-04",
+      "model": "gemini-2.5-flash (legacy key, live search)",
+      "items": [
+        {
+          "title": "Last-Minute NFL London Tickets: Colts vs. Commanders Today!",
+          "category": "event",
+          "summary": "Catch the Indianapolis Colts take on the Washington Commanders at Tottenham Hotspur Stadium today, Sunday October 4, 2026. Tickets have been significantly slashed to £79, with additional half-price discounts available for university students, making it an urgent and affordable opportunity to experience a major NFL game in London.",
+          "url": "https://www.google.com/search?q=Last-Minute+NFL+London+Tickets%3A+Colts+vs.+Commanders+Today%21",
+          "date_info": "Sunday, October 4, 2026, 2:30 PM BST kick-off",
+          "urgency": "act-fast",
+          "link_status": "search"
+        },
+        {
+          "title": "White Mountaineering x Umbro Fourth Capsule Drop",
+          "category": "drop",
+          "summary": "The latest collaboration between Japanese label White Mountaineering and Umbro has just landed. This fourth capsule features a range of limited-edition streetwear, including a hooded jacket, easy pants, and a crewneck pullover crafted from technical fabrics, perfect for those seeking functional and stylish pieces beyond sneakers.",
+          "url": "https://hypebeast.com/2026/10/white-mountaineering-umbro-4th-collaboration-collection-release-info",
+          "date_info": "Released online Saturday, October 3, 2026",
+          "urgency": "this-week",
+          "link_status": "verified"
+        },
+        {
+          "title": "MM Collective Ceramic Vase Series Unveiled",
+          "category": "product",
+          "summary": "MK Designers have introduced the MM Collective Ceramic Vase Series, a collection of beautifully crafted vases that merge generative coding with traditional ceramic techniques. Inspired by natural flower forms, these pieces offer a fresh perspective on design objects, blending digital artistry with tactile craftsmanship.",
+          "url": "https://www.designboom.com/design/generative-code-patterns-mm-collective-ceramic-flower-vases-mk-designers/",
+          "date_info": "Unveiled October 3, 2026",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        }
+      ]
     }
   ]
 }
