@@ -4208,6 +4208,66 @@
           "link_status": "verified"
         }
       ]
+    },
+    {
+      "date": "2026-10-05",
+      "model": "gemini-2.5-flash (legacy key, live search)",
+      "items": [
+        {
+          "title": "Palace Skateboards Winter 2026 Drop 1 Launching Soon",
+          "category": "drop",
+          "summary": "The first drop of Palace Skateboards' Winter 2026 collection, featuring outerwear and a capsule with 2000 AD's Judge Dredd, is set to launch this week. This is a key streetwear release for the client's taste.",
+          "url": "https://hypebeast.com/2026/10/palace-skateboards-winter-2026-drop-1-collection-release-info",
+          "date_info": "Launches October 9, 11am BST (UK, Europe, US)",
+          "urgency": "this-week",
+          "link_status": "verified"
+        },
+        {
+          "title": "Moncler Re/Icons 2026 Collection Pre-Launch and Global Release",
+          "category": "drop",
+          "summary": "Moncler is reworking four archive icons into a full ready-to-wear collection for its Re/Icons 2026 line, including jackets, windbreakers, t-shirts, and accessories. A global online release is scheduled soon, following Paris Fashion Week previews and exclusive store pre-launches.",
+          "url": "https://hypebeast.com/2026/10/moncler-re-icons-2026-collection-info",
+          "date_info": "Global release online October 15",
+          "urgency": "this-week",
+          "link_status": "verified"
+        },
+        {
+          "title": "Le Labo Unveils Limited-Edition Concrete Home Diffuser",
+          "category": "product",
+          "summary": "Le Labo has released a limited-edition Concrete Home Diffuser, a beautifully designed object that combines scent diffusion with an Edison bulb that responds to fragrance intensity. It's a clever gadget and design piece perfect for the client.",
+          "url": "https://hypebeast.com/2026/10/le-labo-concrete-home-diffuser-release-info",
+          "date_info": "Launches in select markets October 5, wider rollout December 1",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "Hyped Fried Chicken Spot Coqfighter Opening in Canary Wharf",
+          "category": "food",
+          "summary": "Coqfighter, known for its Australian-born, Korean-inspired fried chicken, is opening its fifth London location in Canary Wharf later this month. This is a great new food spot for the client to check out.",
+          "url": "https://www.timeout.com/london/news/coqfighter-canary-wharf-announcement-100526",
+          "date_info": "Opening October 21 at Market Halls, Canary Wharf",
+          "urgency": "this-week",
+          "link_status": "verified"
+        },
+        {
+          "title": "London Museum's Rediscovered Roman Vaults to Open as Free Attraction",
+          "category": "event",
+          "summary": "The London Museum will open its newly rediscovered 800sqm network of underground Roman vaults, hosting a free exhibition called 'Londinium: the Making of a Roman City'. The main museum opens in November, with the vaults exhibition to follow next spring.",
+          "url": "https://www.timeout.com/london/news/london-museum-lost-underground-vaults-open-tourist-attraction-roman-exhibition-100526",
+          "date_info": "Main museum opens Nov 28, 2026; Vaults exhibition Spring 2027",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "Jeff Stelling's £2,500 Football Giveaway with Free Entry",
+          "category": "other",
+          "summary": "Football presenter Jeff Stelling is running a giveaway with OLBG offering £2,500 in prizes, including £500 cash and over 1,000 instant wins. This is a low-effort, free-to-enter promo with genuine perks for football fans.",
+          "url": "https://www.google.com/search?q=Jeff+Stelling%27s+%C2%A32%2C500+Football+Giveaway+with+Free+Entry",
+          "date_info": "",
+          "urgency": "act-fast",
+          "link_status": "search"
+        }
+      ]
     }
   ]
 }
