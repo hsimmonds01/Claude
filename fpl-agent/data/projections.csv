@@ -2149,11 +2149,11 @@ player_id,web_name,team,position,price,selected_by,event,opponent,home,difficult
 648,Bahoya,LEE,MID,5.0,0.0,8,SUN,A,3,0.655,0.157,0.786,0.401,0.253,0.294,0.344,yes,,"0/5 starts this season, blended with last year's evidence (no Premier League record; inferred from £5.0m price)"
 648,Bahoya,LEE,MID,5.0,0.0,9,BOU,A,3,0.655,0.157,0.786,0.401,0.253,0.294,0.344,yes,,"0/5 starts this season, blended with last year's evidence (no Premier League record; inferred from £5.0m price)"
 648,Bahoya,LEE,MID,5.0,0.0,10,TOT,H,2,0.68,0.157,0.786,0.401,0.407,0.294,0.344,yes,,"0/5 starts this season, blended with last year's evidence (no Premier League record; inferred from £5.0m price)"
-350,A.Becker,LIV,GKP,5.5,4.1,6,MCI,H,4,3.025,0.844,0.001,0.004,1.037,0.0,0.283,,,"5/5 starts this season, blended with last year's evidence (30% of last 10 GWs started, 68% across the season)"
-350,A.Becker,LIV,GKP,5.5,4.1,7,BRE,A,3,3.001,0.844,0.001,0.004,1.011,0.0,0.283,,,"5/5 starts this season, blended with last year's evidence (30% of last 10 GWs started, 68% across the season)"
-350,A.Becker,LIV,GKP,5.5,4.1,8,BHA,H,3,3.263,0.844,0.001,0.004,1.299,0.0,0.283,,,"5/5 starts this season, blended with last year's evidence (30% of last 10 GWs started, 68% across the season)"
-350,A.Becker,LIV,GKP,5.5,4.1,9,ARS,H,4,3.025,0.844,0.001,0.004,1.037,0.0,0.283,,,"5/5 starts this season, blended with last year's evidence (30% of last 10 GWs started, 68% across the season)"
-350,A.Becker,LIV,GKP,5.5,4.1,10,CRY,A,3,3.001,0.844,0.001,0.004,1.011,0.0,0.283,,,"5/5 starts this season, blended with last year's evidence (30% of last 10 GWs started, 68% across the season)"
+350,A.Becker,LIV,GKP,5.5,4.2,6,MCI,H,4,3.025,0.844,0.001,0.004,1.037,0.0,0.283,,,"5/5 starts this season, blended with last year's evidence (30% of last 10 GWs started, 68% across the season)"
+350,A.Becker,LIV,GKP,5.5,4.2,7,BRE,A,3,3.001,0.844,0.001,0.004,1.011,0.0,0.283,,,"5/5 starts this season, blended with last year's evidence (30% of last 10 GWs started, 68% across the season)"
+350,A.Becker,LIV,GKP,5.5,4.2,8,BHA,H,3,3.263,0.844,0.001,0.004,1.299,0.0,0.283,,,"5/5 starts this season, blended with last year's evidence (30% of last 10 GWs started, 68% across the season)"
+350,A.Becker,LIV,GKP,5.5,4.2,9,ARS,H,4,3.025,0.844,0.001,0.004,1.037,0.0,0.283,,,"5/5 starts this season, blended with last year's evidence (30% of last 10 GWs started, 68% across the season)"
+350,A.Becker,LIV,GKP,5.5,4.2,10,CRY,A,3,3.001,0.844,0.001,0.004,1.011,0.0,0.283,,,"5/5 starts this season, blended with last year's evidence (30% of last 10 GWs started, 68% across the season)"
 351,Mamardashvili,LIV,GKP,4.8,0.1,6,MCI,H,4,0.407,0.116,0.001,0.003,1.037,0.0,0.216,,,"0/5 starts this season, blended with last year's evidence (50% of last 10 GWs started, 26% across the season)"
 351,Mamardashvili,LIV,GKP,4.8,0.1,7,BRE,A,3,0.403,0.116,0.001,0.003,1.011,0.0,0.216,,,"0/5 starts this season, blended with last year's evidence (50% of last 10 GWs started, 26% across the season)"
 351,Mamardashvili,LIV,GKP,4.8,0.1,8,BHA,H,3,0.439,0.116,0.001,0.003,1.299,0.0,0.216,,,"0/5 starts this season, blended with last year's evidence (50% of last 10 GWs started, 26% across the season)"
@@ -2719,11 +2719,11 @@ player_id,web_name,team,position,price,selected_by,event,opponent,home,difficult
 451,A.Murphy,NEW,DEF,4.0,0.1,8,CRY,A,3,0.0,0.0,0.371,0.179,1.011,0.597,0.25,,,unavailable (status 'u'): Has joined FC Kaiserslautern on loan for the rest of the season
 451,A.Murphy,NEW,DEF,4.0,0.1,9,EVE,H,3,0.0,0.0,0.371,0.179,1.299,0.597,0.25,,,unavailable (status 'u'): Has joined FC Kaiserslautern on loan for the rest of the season
 451,A.Murphy,NEW,DEF,4.0,0.1,10,FUL,A,3,0.0,0.0,0.371,0.179,1.011,0.597,0.25,,,unavailable (status 'u'): Has joined FC Kaiserslautern on loan for the rest of the season
-453,Barnes,NEW,MID,6.1,5.8,6,COV,A,2,3.904,0.857,1.309,0.385,0.333,0.036,0.391,,,"5/5 starts this season, blended with last year's evidence (50% of last 10 GWs started, 50% across the season)"
-453,Barnes,NEW,MID,6.1,5.8,7,AVL,H,3,3.897,0.857,1.309,0.385,0.325,0.036,0.391,,,"5/5 starts this season, blended with last year's evidence (50% of last 10 GWs started, 50% across the season)"
-453,Barnes,NEW,MID,6.1,5.8,8,CRY,A,3,3.834,0.857,1.309,0.385,0.253,0.036,0.391,,,"5/5 starts this season, blended with last year's evidence (50% of last 10 GWs started, 50% across the season)"
-453,Barnes,NEW,MID,6.1,5.8,9,EVE,H,3,3.897,0.857,1.309,0.385,0.325,0.036,0.391,,,"5/5 starts this season, blended with last year's evidence (50% of last 10 GWs started, 50% across the season)"
-453,Barnes,NEW,MID,6.1,5.8,10,FUL,A,3,3.834,0.857,1.309,0.385,0.253,0.036,0.391,,,"5/5 starts this season, blended with last year's evidence (50% of last 10 GWs started, 50% across the season)"
+453,Barnes,NEW,MID,6.1,5.9,6,COV,A,2,3.904,0.857,1.309,0.385,0.333,0.036,0.391,,,"5/5 starts this season, blended with last year's evidence (50% of last 10 GWs started, 50% across the season)"
+453,Barnes,NEW,MID,6.1,5.9,7,AVL,H,3,3.897,0.857,1.309,0.385,0.325,0.036,0.391,,,"5/5 starts this season, blended with last year's evidence (50% of last 10 GWs started, 50% across the season)"
+453,Barnes,NEW,MID,6.1,5.9,8,CRY,A,3,3.834,0.857,1.309,0.385,0.253,0.036,0.391,,,"5/5 starts this season, blended with last year's evidence (50% of last 10 GWs started, 50% across the season)"
+453,Barnes,NEW,MID,6.1,5.9,9,EVE,H,3,3.897,0.857,1.309,0.385,0.325,0.036,0.391,,,"5/5 starts this season, blended with last year's evidence (50% of last 10 GWs started, 50% across the season)"
+453,Barnes,NEW,MID,6.1,5.9,10,FUL,A,3,3.834,0.857,1.309,0.385,0.253,0.036,0.391,,,"5/5 starts this season, blended with last year's evidence (50% of last 10 GWs started, 50% across the season)"
 454,Elanga,NEW,MID,6.1,4.5,6,COV,A,2,0.0,0.0,0.664,0.378,0.333,0.033,0.149,,,unavailable (status 'i'): Unspecified injury - Unknown return date
 454,Elanga,NEW,MID,6.1,4.5,7,AVL,H,3,0.0,0.0,0.664,0.378,0.325,0.033,0.149,,,unavailable (status 'i'): Unspecified injury - Unknown return date
 454,Elanga,NEW,MID,6.1,4.5,8,CRY,A,3,0.0,0.0,0.664,0.378,0.253,0.033,0.149,,,unavailable (status 'i'): Unspecified injury - Unknown return date

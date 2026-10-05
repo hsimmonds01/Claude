@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-04T23:56:07.914094+00:00",
+  "generated_at": "2026-10-05T05:24:49.940394+00:00",
   "next_event": 6,
   "next_deadline": "2026-10-10T10:00:00Z",
   "horizon": {
@@ -1299,7 +1299,7 @@
           "team": "NEW",
           "position": "MID",
           "price": 6.1,
-          "owned": 5.8,
+          "owned": 5.9,
           "xp": 19.4,
           "start_prob": 0.86,
           "moved_club": false,
@@ -1645,7 +1645,7 @@
           "team": "NEW",
           "position": "MID",
           "price": 6.1,
-          "owned": 5.8,
+          "owned": 5.9,
           "xp": 19.4,
           "start_prob": 0.86,
           "moved_club": false,
@@ -3162,7 +3162,7 @@
       "owned": 50.5,
       "direction": "rise",
       "probability": 1.0,
-      "net_transfers": 341,
+      "net_transfers": 152,
       "source": "FPL's own price_change_percent",
       "confidence": "official"
     },
@@ -3172,8 +3172,8 @@
       "price": 4.0,
       "owned": 7.0,
       "direction": "rise",
-      "probability": 0.771,
-      "net_transfers": 268,
+      "probability": 0.773,
+      "net_transfers": 142,
       "source": "FPL's own price_change_percent",
       "confidence": "official"
     },
@@ -3183,8 +3183,8 @@
       "price": 6.0,
       "owned": 24.8,
       "direction": "rise",
-      "probability": 0.721,
-      "net_transfers": -256,
+      "probability": 0.722,
+      "net_transfers": -121,
       "source": "FPL's own price_change_percent",
       "confidence": "official"
     },
@@ -3194,8 +3194,8 @@
       "price": 4.5,
       "owned": 21.6,
       "direction": "rise",
-      "probability": 0.68,
-      "net_transfers": 122,
+      "probability": 0.681,
+      "net_transfers": 0,
       "source": "FPL's own price_change_percent",
       "confidence": "official"
     },
@@ -3205,8 +3205,8 @@
       "price": 8.0,
       "owned": 15.7,
       "direction": "rise",
-      "probability": 0.54,
-      "net_transfers": -773,
+      "probability": 0.541,
+      "net_transfers": -95,
       "source": "FPL's own price_change_percent",
       "confidence": "official"
     },
@@ -3216,8 +3216,8 @@
       "price": 4.5,
       "owned": 17.2,
       "direction": "fall",
-      "probability": 0.539,
-      "net_transfers": -269,
+      "probability": 0.54,
+      "net_transfers": -167,
       "source": "FPL's own price_change_percent",
       "confidence": "official"
     },
@@ -3227,8 +3227,8 @@
       "price": 4.5,
       "owned": 3.9,
       "direction": "rise",
-      "probability": 0.325,
-      "net_transfers": 32,
+      "probability": 0.326,
+      "net_transfers": 7,
       "source": "FPL's own price_change_percent",
       "confidence": "official"
     },
@@ -3239,7 +3239,7 @@
       "owned": 73.9,
       "direction": "rise",
       "probability": 0.248,
-      "net_transfers": -80,
+      "net_transfers": 48,
       "source": "FPL's own price_change_percent",
       "confidence": "official"
     }
