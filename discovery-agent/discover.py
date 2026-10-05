@@ -63,13 +63,25 @@ INTERESTS_PATH = BASE_DIR / "interests.md"
 STATE_PATH = BASE_DIR / "state.json"
 HISTORY_PATH = BASE_DIR / "history.json"
 
-# Pro first for taste, Flash as the automatic fallback if Pro errors or the
-# free-tier quota is exhausted. Use Google's rolling "-latest" aliases, not a
-# pinned generation number -- a hardcoded "gemini-2.5-flash" broke outright
-# when Google retired 2.5 models for new API keys (confirmed via --diagnose:
-# "This model ... is no longer available to new users"). The aliases always
-# point at whatever Google currently recommends, so this can't recur.
-GEMINI_MODELS = ["gemini-pro-latest", "gemini-flash-latest"]
+# Tried in order. The "-latest" aliases track whatever Google currently
+# recommends, which also makes them what every free-tier user hammers --
+# they are the first to return 503 "high demand". Pinned version numbers
+# draw on much less contended capacity, so the chain deliberately mixes
+# both and spans several generations: if 3.8 is swamped, 2.5 usually isn't.
+# This list was built from an actual `--list-models` run on 2026-10-05 (50
+# models visible), not from memory -- re-run that mode before editing it.
+# gemini-pro-latest is last: the free tier grants it ~no quota and it has
+# returned 429 "exceeded your current quota" on every run observed, so it's
+# a long shot kept only in case Google ever opens it up.
+GEMINI_MODELS = [
+    "gemini-flash-latest",
+    "gemini-3.8-flash",
+    "gemini-3.5-flash",
+    "gemini-2.5-flash",
+    "gemini-flash-lite-latest",
+    "gemini-3.5-flash-lite",
+    "gemini-pro-latest",
+]
 GEMINI_URL = "https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"
 GEMINI_LIST_MODELS_URL = "https://generativelanguage.googleapis.com/v1beta/models"
 
@@ -436,14 +448,21 @@ def redact(text: str) -> str:
 # combo cost a whole day's digest. Total added wait if both retries are
 # needed: ~5.5 minutes, well inside GitHub Actions' default job timeout.
 GEMINI_503_RETRY_DELAYS_SECONDS = [90, 240]
+# Hard ceiling on the whole Gemini stage. The workflow kills the job at 30
+# minutes, and a wide chain of slow-timing-out models could in principle eat
+# that whole budget -- which would be the worst outcome, because the job
+# would die before the feed fallback ever got to send anything. Stop sweeping
+# well short of the limit so there is always time left to email something.
+GEMINI_TOTAL_BUDGET_SECONDS = 900
 
 
 def _gemini_request(api_key: str, model: str, prompt: str, use_search: bool) -> tuple[str, list[str]]:
-    """One call (with retries on 503) + parse, returning (text, grounding_urls).
+    """One call + parse, returning (text, grounding_urls).
 
-    Raises on any other failure so callers can try the next option (retryable
-    HTTP codes and 404 -- a retired/unavailable model on this key -- are both
-    "try something else")."""
+    Raises on any failure so the caller can try the next option. 503 is not
+    retried in place any more -- call_gemini retries whole passes instead, so
+    a busy model costs one fast failure rather than five minutes before the
+    next model is even attempted."""
     body = {
         "contents": [{"parts": [{"text": prompt}]}],
         "generationConfig": {"temperature": 0.7},
@@ -451,28 +470,19 @@ def _gemini_request(api_key: str, model: str, prompt: str, use_search: bool) -> 
     if use_search:
         body["tools"] = [{"google_search": {}}]
 
-    delays = [0, *GEMINI_503_RETRY_DELAYS_SECONDS]
-    for attempt, delay in enumerate(delays):
-        if delay:
-            print(f"[gemini] {model} overloaded (503) -- waiting {delay}s before retry "
-                  f"{attempt}/{len(GEMINI_503_RETRY_DELAYS_SECONDS)}", file=sys.stderr)
-            time.sleep(delay)
-
-        response = requests.post(
-            GEMINI_URL.format(model=model), headers=_gemini_auth(api_key), json=body,
-            timeout=REQUEST_TIMEOUT_SECONDS,
-        )
-        if response.status_code == 503 and attempt < len(delays) - 1:
-            continue  # genuinely temporary per Google's own message -- worth another try
-        if response.status_code in (404, 429, 500, 503):
-            raise RuntimeError(f"{model} returned HTTP {response.status_code}: {response.text[:300]}")
-        response.raise_for_status()
-        payload = response.json()
-        parts = payload["candidates"][0]["content"]["parts"]
-        text = "".join(p.get("text", "") for p in parts)
-        if not text.strip():
-            raise RuntimeError(f"{model} returned an empty response")
-        return text, grounding_urls_from_payload(payload)
+    response = requests.post(
+        GEMINI_URL.format(model=model), headers=_gemini_auth(api_key), json=body,
+        timeout=REQUEST_TIMEOUT_SECONDS,
+    )
+    if response.status_code in (404, 429, 500, 503):
+        raise RuntimeError(f"{model} returned HTTP {response.status_code}: {response.text[:300]}")
+    response.raise_for_status()
+    payload = response.json()
+    parts = payload["candidates"][0]["content"]["parts"]
+    text = "".join(p.get("text", "") for p in parts)
+    if not text.strip():
+        raise RuntimeError(f"{model} returned an empty response")
+    return text, grounding_urls_from_payload(payload)
 
 
 def call_gemini(api_key: str, prompt: str) -> tuple[str, str, list[str]]:
@@ -482,37 +492,52 @@ def call_gemini(api_key: str, prompt: str) -> tuple[str, str, list[str]]:
     live search didn't run. They are the provenance the link verifier checks
     the model's claimed URLs against, so a hallucinated link can't be emailed.
 
-    Preference order:
-      1. GEMINI_API_KEY_LEGACY + gemini-2.5-flash + live search -- confirmed
-         via --diagnose to get a clean HTTP 200 with grounding on a
-         grandfathered project (Google's documented 500 free searches/day),
-         while the primary key gets 404/429 on every model it can reach.
-         Best outcome: real web search on top of the feeds, still free.
-      2. Primary key, GEMINI_MODELS in order (Pro then Flash), with the
-         search tool only if GEMINI_ENABLE_SEARCH is set (needs billing on
-         the primary project). This is the always-available fallback --
-         feeds already fetched upstream carry most of the research load
-         either way, so losing live search here is a quality step-down,
-         not a failure.
+    Strategy: breadth first, patience second.
+
+    Every option is tried once, quickly, before any waiting happens. Only if
+    the whole chain is busy does it pause and sweep again. The old shape --
+    wait 90s then 240s on model #1 before model #2 was even attempted -- meant
+    a single congested model cost 5+ minutes and the run usually died anyway
+    with most of the chain untried. On 2026-10-05 that produced an 11-minute
+    run that failed with 39 usable feed headlines sitting in memory.
+
+    Order within a sweep:
+      1. GEMINI_API_KEY_LEGACY + gemini-2.5-flash + live search -- a
+         grandfathered project that still gets free grounded search, so it's
+         the best quality outcome when it's up.
+      2. Primary key, GEMINI_MODELS in order, with the search tool only if
+         GEMINI_ENABLE_SEARCH is set. Losing live search is a quality
+         step-down, not a failure -- the feeds carry most of the research.
     """
-    last_error: Exception | None = None
-
+    attempts: list[tuple[str, str, bool, str]] = []
     if GEMINI_API_KEY_LEGACY:
-        try:
-            text, grounding = _gemini_request(GEMINI_API_KEY_LEGACY, GEMINI_GROUNDING_MODEL, prompt, use_search=True)
-            return text, f"{GEMINI_GROUNDING_MODEL} (legacy key, live search)", grounding
-        except Exception as exc:  # noqa: BLE001 -- fall through to the primary key
-            last_error = exc
-            print(f"[gemini] legacy-key grounded search failed: {redact(exc)}", file=sys.stderr)
+        attempts.append((GEMINI_API_KEY_LEGACY, GEMINI_GROUNDING_MODEL, True,
+                         f"{GEMINI_GROUNDING_MODEL} (legacy key, live search)"))
+    attempts += [(api_key, m, GEMINI_ENABLE_SEARCH, m) for m in GEMINI_MODELS]
 
-    for model in GEMINI_MODELS:
-        try:
-            text, grounding = _gemini_request(api_key, model, prompt, use_search=GEMINI_ENABLE_SEARCH)
-            return text, model, grounding
-        except Exception as exc:  # noqa: BLE001 -- any failure means try the next model
-            last_error = exc
-            print(f"[gemini] {model} failed: {redact(exc)}", file=sys.stderr)
-            time.sleep(3)
+    last_error: Exception | None = None
+    started = time.monotonic()
+    for sweep, delay in enumerate([0, *GEMINI_503_RETRY_DELAYS_SECONDS]):
+        if delay:
+            if time.monotonic() - started + delay > GEMINI_TOTAL_BUDGET_SECONDS:
+                print("[gemini] out of time budget -- giving up so the feed "
+                      "fallback still gets to send", file=sys.stderr)
+                break
+            # Everything was busy. Google calls 503 temporary, so wait it out
+            # once or twice before giving up on AI ranking altogether.
+            print(f"[gemini] all {len(attempts)} options busy -- waiting {delay}s "
+                  f"before sweep {sweep + 1}", file=sys.stderr)
+            time.sleep(delay)
+        for key, model, use_search, label in attempts:
+            if time.monotonic() - started > GEMINI_TOTAL_BUDGET_SECONDS:
+                print("[gemini] out of time budget mid-sweep", file=sys.stderr)
+                break
+            try:
+                text, grounding = _gemini_request(key, model, prompt, use_search)
+                return text, label, grounding
+            except Exception as exc:  # noqa: BLE001 -- any failure means try the next option
+                last_error = exc
+                print(f"[gemini] {model} failed: {redact(exc)}", file=sys.stderr)
     raise RuntimeError(f"All Gemini models failed. Last error: {last_error}")
 
 
@@ -919,6 +944,35 @@ def send_failure_email(reason: str) -> None:
 # ── Main flow ──────────────────────────────────────────────────────────
 
 
+def fallback_items_from_feeds(feed_items: list[dict], seen: list[dict]) -> list[dict]:
+    """Build a digest straight from the feeds, with no AI ranking at all.
+
+    Used when every Gemini path is down. The feeds are already topic-filtered
+    (the Google News queries and outlet choices encode the taste profile), so
+    the newest unseen headlines are genuinely useful -- far better than the
+    failure email that used to go out while 39 perfectly good headlines sat
+    in memory unused."""
+    picked: list[dict] = []
+    for item in feed_items:
+        title = (item.get("title") or "").strip()
+        if not title or is_seen(title, seen):
+            continue
+        if any(is_seen(title, [{"title": p["title"]}]) for p in picked):
+            continue  # near-duplicate of something already picked this run
+        picked.append({
+            "title": title,
+            "category": "other",
+            "summary": f"From {item.get('source', 'a feed')}. Not yet sifted by the scout — "
+                       "today's ranking step was unavailable, so this is the raw headline.",
+            "url": item.get("link", ""),
+            "date_info": "",
+            "urgency": "heads-up",
+        })
+        if len(picked) >= MAX_ITEMS_PER_DIGEST:
+            break
+    return picked
+
+
 def run_digest(dry_run: bool, force: bool) -> None:
     gemini_key = os.environ.get("GEMINI_API_KEY")
     if not gemini_key:
@@ -941,10 +995,28 @@ def run_digest(dry_run: bool, force: bool) -> None:
     state["seen"] = prune_seen(state["seen"])
 
     feed_items = fetch_feed_items()
-    text, model_used, grounding = call_gemini(gemini_key, build_prompt(interests, state["seen"], feed_items))
-    items = parse_items(text)
     note = ""
-    if not items:
+    grounding: list[str] = []
+    try:
+        text, model_used, grounding = call_gemini(
+            gemini_key, build_prompt(interests, state["seen"], feed_items))
+        items = parse_items(text)
+    except Exception as exc:  # noqa: BLE001 -- Gemini being down must not lose the day
+        # Google's free tier goes through long congested spells: 503 "high
+        # demand" on the flash models and 429 "quota exceeded" on pro, often
+        # all at once and for hours. The feeds are a separate, independent
+        # source that usually succeeded anyway -- so degrade to an unranked
+        # digest instead of emailing a traceback and sending nothing.
+        print(f"[gemini] all paths failed, falling back to raw feeds: {redact(exc)}", file=sys.stderr)
+        if not feed_items:
+            raise  # nothing fetched either -- genuinely nothing to send
+        text, model_used = "", "feeds only (AI scout unavailable)"
+        items = fallback_items_from_feeds(feed_items, state["seen"])
+        note = ("Google's AI service was unavailable this morning, so these are "
+                "today's freshest headlines straight from the feeds — newest first, "
+                "not ranked or filtered by the scout.")
+
+    if not items and text:
         # The model replied but not in parseable form -- degrade gracefully
         # rather than dying: send its raw text so the morning email still
         # arrives with something useful in it.
