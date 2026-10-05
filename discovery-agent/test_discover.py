@@ -336,32 +336,53 @@ def _patch_sleep():
     return calls, (lambda: setattr(discover.time, "sleep", real_sleep))
 
 
-def test_503_retries_with_backoff_then_succeeds():
-    discover.GEMINI_API_KEY_LEGACY = "legacy-key-value"
+def test_busy_model_moves_on_immediately_without_waiting():
+    """The 2026-10-05 failure: a 503 on the first model burned 90s+240s of
+    backoff before the next model was even tried, so the run died with most
+    of the chain untouched. Breadth must come before patience."""
     sleep_calls, restore_sleep = _patch_sleep()
     try:
-        # 503 twice, then a normal success on the third attempt
-        fake = FakeRequests(gemini_text=GOOD_REPLY, gemini_503_countdown={discover.GEMINI_GROUNDING_MODEL: 2})
+        fake = FakeRequests(gemini_text=GOOD_REPLY,
+                            gemini_503_countdown={discover.GEMINI_MODELS[0]: 1})
         discover.requests = fake
         text, model_used, _ = discover.call_gemini("primary-key", "prompt")
-        assert sleep_calls == discover.GEMINI_503_RETRY_DELAYS_SECONDS  # both backoff waits happened
-        assert "legacy key, live search" in model_used  # still resolved via the best path
-        assert fake.models_called.count(discover.GEMINI_GROUNDING_MODEL) == 3  # 1 + 2 retries
+        assert sleep_calls == [], f"must not wait while untried models remain: {sleep_calls}"
+        assert model_used == discover.GEMINI_MODELS[1]  # straight on to the next one
+        assert fake.models_called == discover.GEMINI_MODELS[:2]
     finally:
-        discover.GEMINI_API_KEY_LEGACY = ""
         restore_sleep()
 
 
-def test_503_exhausts_retries_then_falls_back_to_primary():
-    discover.GEMINI_API_KEY_LEGACY = "legacy-key-value"
+def test_only_waits_once_the_whole_chain_is_busy():
+    """Patience still applies -- but only after every option has been tried
+    once, and then the whole chain is swept again."""
     sleep_calls, restore_sleep = _patch_sleep()
     try:
-        # 503 forever on the legacy model -- never recovers within the retry budget
-        fake = FakeRequests(gemini_text=GOOD_REPLY, gemini_503_countdown={discover.GEMINI_GROUNDING_MODEL: 99})
+        # every model 503s exactly once, so sweep 1 fails entirely and sweep 2 succeeds
+        fake = FakeRequests(gemini_text=GOOD_REPLY,
+                            gemini_503_countdown={m: 1 for m in discover.GEMINI_MODELS})
         discover.requests = fake
         text, model_used, _ = discover.call_gemini("primary-key", "prompt")
-        assert len(sleep_calls) == len(discover.GEMINI_503_RETRY_DELAYS_SECONDS)  # gave up after the budget
-        assert model_used in discover.GEMINI_MODELS  # fell through to the primary key
+        assert sleep_calls == [discover.GEMINI_503_RETRY_DELAYS_SECONDS[0]]  # one wait, then recovery
+        assert model_used == discover.GEMINI_MODELS[0]  # sweep 2 restarts at the preferred model
+        # every model tried in sweep 1, then the first again in sweep 2
+        assert fake.models_called == discover.GEMINI_MODELS + [discover.GEMINI_MODELS[0]]
+    finally:
+        restore_sleep()
+
+
+def test_legacy_grounded_key_is_tried_before_the_plain_models():
+    sleep_calls, restore_sleep = _patch_sleep()
+    discover.GEMINI_API_KEY_LEGACY = "legacy-key-value"
+    try:
+        fake = FakeRequests(gemini_text=GOOD_REPLY,
+                            gemini_503_countdown={discover.GEMINI_GROUNDING_MODEL: 1})
+        discover.requests = fake
+        text, model_used, _ = discover.call_gemini("primary-key", "prompt")
+        # grounded path tried first, and its failure costs no wait
+        assert fake.models_called[0] == discover.GEMINI_GROUNDING_MODEL
+        assert sleep_calls == []
+        assert model_used == discover.GEMINI_MODELS[0]
     finally:
         discover.GEMINI_API_KEY_LEGACY = ""
         restore_sleep()
@@ -622,6 +643,75 @@ def test_feed_headlines_are_fenced_as_untrusted_data():
     assert prompt.count("<<<END_FEED_DATA>>>") == 1
 
 
+@in_temp_dir
+def test_gemini_down_still_sends_a_digest_from_the_feeds(tmp_path):
+    """The 2026-10-05 failure in full: every Gemini path down, 39 good feed
+    headlines in memory, and the run emailed a traceback instead. It must
+    now send those headlines rather than lose the day."""
+    set_env()
+    import datetime as dt
+    recent = _rfc822(dt.datetime.now(dt.timezone.utc) - dt.timedelta(hours=3))
+    feed_xml = (
+        '<?xml version="1.0"?><rss version="2.0"><channel><title>F</title>'
+        f'<item><title>Odyssey IMAX tickets on sale</title>'
+        f'<link>https://example.com/odyssey</link><pubDate>{recent}</pubDate></item>'
+        f'<item><title>Peckham popup opens</title>'
+        f'<link>https://example.com/popup</link><pubDate>{recent}</pubDate></item>'
+        '</channel></rss>'
+    )
+    sleep_calls, restore_sleep = _patch_sleep()
+    try:
+        # every model permanently unavailable, all sweeps exhausted
+        fake = FakeRequests(feed_xml=feed_xml,
+                            gemini_fail_models=tuple(discover.GEMINI_MODELS))
+        discover.requests = fake
+        discover.run_digest(dry_run=False, force=False)
+    finally:
+        restore_sleep()
+
+    assert len(fake.sent_emails) == 1
+    email = fake.sent_emails[0]
+    assert "failed" not in email["subject"].lower()        # a digest, not a failure alert
+    assert "Odyssey IMAX tickets on sale" in email["html"]  # real feed headline delivered
+    assert "unavailable" in email["html"].lower()           # and honestly labelled
+    # the day is recorded, so the backup run won't duplicate it
+    state = json.loads(discover.STATE_PATH.read_text())
+    assert state["last_sent_date"] == discover.today_str()
+
+
+@in_temp_dir
+def test_total_outage_still_sends_the_failure_email(tmp_path):
+    """If the feeds are down too there is genuinely nothing to send, and the
+    failure alert must still fire rather than failing silently."""
+    set_env()
+    fake = FakeRequests(feed_fail=True, gemini_fail_models=tuple(discover.GEMINI_MODELS))
+    discover.requests = fake
+    sleep_calls, restore_sleep = _patch_sleep()
+    try:
+        discover.run_digest(dry_run=False, force=False)
+        raise AssertionError("expected the run to raise so main() sends the failure email")
+    except RuntimeError:
+        pass
+    finally:
+        restore_sleep()
+    assert fake.sent_emails == []  # no digest pretending to have content
+
+
+def test_feed_fallback_skips_already_seen_and_caps_length():
+    words = ["Odyssey IMAX tickets", "Peckham rooftop popup", "Nando's giveaway relaunch",
+             "Tate late opening", "Milkshake bar Bermondsey", "Arsenal ballot opens",
+             "Cheap e-reader launch", "Vinyl fair Deptford", "Design week preview",
+             "Camden food market", "Thames clipper deal", "Barbican film season"]
+    feed = [{"title": t, "link": f"https://x.test/{i}", "source": "x.test"}
+            for i, t in enumerate(words)]
+    seen = [{"title": "Odyssey IMAX tickets"}, {"title": "Peckham rooftop popup"}]
+    out = discover.fallback_items_from_feeds(feed, seen)
+    assert len(out) == discover.MAX_ITEMS_PER_DIGEST, f"got {len(out)}"
+    titles = [o["title"] for o in out]
+    assert "Odyssey IMAX tickets" not in titles and "Peckham rooftop popup" not in titles
+    assert all(o["url"].startswith("https://x.test/") for o in out)  # real feed links only
+
+
 # ── Full flow ──────────────────────────────────────────────────────────
 
 @in_temp_dir
@@ -669,12 +759,12 @@ def test_force_overrides_guard(tmp_path):
 
 
 @in_temp_dir
-def test_pro_quota_falls_back_to_flash(tmp_path):
+def test_quota_exhausted_model_falls_back_to_next(tmp_path):
     set_env()
     fake = FakeRequests(gemini_text=GOOD_REPLY, gemini_fail_models=(discover.GEMINI_MODELS[0],))
     discover.requests = fake
     discover.run_digest(dry_run=False, force=False)
-    assert fake.models_called == discover.GEMINI_MODELS
+    assert fake.models_called == discover.GEMINI_MODELS[:2]
     assert len(fake.sent_emails) == 1
 
 

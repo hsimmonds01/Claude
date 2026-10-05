@@ -117,6 +117,32 @@ schedule, so both are treated as untrusted input:
   whitespace flattened and bracket runs broken up so a crafted headline can't
   forge the fence or inject its own instruction line.
 
+## When Google's AI is down
+
+Google's free tier goes through long congested spells — `503 "high demand"`
+on the flash models and `429 "quota exceeded"` on pro, sometimes all at
+once for hours. Two things keep the digest arriving anyway:
+
+**A wide model chain, tried breadth-first.** Seven models spanning several
+generations, mixing rolling `-latest` aliases with pinned versions. The
+aliases are what every free-tier user hammers, so they're first to be
+throttled; pinned older versions like `gemini-2.5-flash` usually aren't.
+Every option is tried once *before* any waiting, then the whole chain is
+swept again after 90s and 240s. (The previous shape waited 5½ minutes on
+the first model before trying the second — and usually died anyway with
+most of the chain untouched.)
+
+**A feed-only fallback.** If every model is down, the digest is built
+straight from the feed headlines with no AI ranking — newest first, clearly
+labelled as unranked. The feeds are an independent source that normally
+succeeds regardless, so there's no reason to lose the day. The failure
+email now only fires when the feeds are down *too* and there's genuinely
+nothing to send.
+
+To check which models a key can actually reach, run the `list_models` mode —
+the chain in `discover.py` should be edited from that output, never from
+memory.
+
 ## The pieces
 
 | File | What it is |
