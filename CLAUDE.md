@@ -62,6 +62,17 @@
   to `main` on a repeating schedule.
 
 ## fpl-agent project
+- **STOPPED 5 Oct 2026** -- the user asked to cut the emails ("not fantastic").
+  Both workflows were disabled by renaming them to `.yml.disabled`
+  (`fpl-agent.yml.disabled`, `fpl-snapshot.yml.disabled`), the same pattern
+  already used for `crowding.yml.disabled` in this repo -- GitHub Actions
+  only recognises `.yml`/`.yaml`, so this stops every trigger (schedule AND
+  workflow_dispatch) with a one-line rename back to undo it. The code,
+  `data/`, `my_squad.json` etc. are all left in place. The user ALSO needs to
+  pause/delete the cron-job.org job pinging this workflow's dispatch
+  endpoint themselves -- that account isn't reachable from here, and leaving
+  it running just means its pings start failing (harmless, but untidy).
+  Don't re-enable either workflow without the user asking first.
 - Expected-points model + squad optimiser for the user's FPL team, aiming at
   deadline emails with recommended transfers. `fpl-agent/PLAN.md` is the
   source of truth for scope and build order.
