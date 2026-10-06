@@ -4268,6 +4268,66 @@
           "link_status": "search"
         }
       ]
+    },
+    {
+      "date": "2026-10-06",
+      "model": "gemini-2.5-flash (legacy key, live search)",
+      "items": [
+        {
+          "title": "RHC Ron Herman x PEACEMAKER OAMC Exclusive Drop",
+          "category": "drop",
+          "summary": "RHC Ron Herman is launching the world's first exclusive pieces from PEACEMAKER OAMC, featuring a sleek, all-black matching set based on the brand's signature Ian Shirt and Regs Pants. This designer collaboration is available online and in select stores.",
+          "url": "https://hypebeast.com/2026/10/rhc-ron-herman-peacemaker-oamc-exclusive-item-release-info",
+          "date_info": "Available from Saturday, October 10, 2026, 12:00 PM (online)",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "BFI IMAX: 'The Odyssey' 70mm Screenings & Halloween Classics",
+          "category": "film",
+          "summary": "Experience Christopher Nolan's epic 'The Odyssey' in stunning IMAX 70mm throughout October at BFI IMAX. Additionally, immerse yourself in Halloween chills with a week-long programme from October 26th to November 1st, featuring classics like 'Donnie Darko' and 'Pan's Labyrinth', plus a UK Premiere of 'Whispers in the Woods' with a Q&A.",
+          "url": "https://www.google.com/search?q=BFI+IMAX%3A+%27The+Odyssey%27+70mm+Screenings+%26+Halloween+Classics",
+          "date_info": "Various dates throughout October and early November 2026",
+          "urgency": "this-week",
+          "link_status": "search"
+        },
+        {
+          "title": "Reduced Price Tickets for NFL London: Jaguars vs. Texans",
+          "category": "football",
+          "summary": "Thousands of tickets remain available and have seen price reductions for the NFL London game between the Jacksonville Jaguars and the Houston Texans at Wembley Stadium. This is an opportunity to catch a major football event in London with more affordable seats.",
+          "url": "https://www.google.com/search?q=Reduced+Price+Tickets+for+NFL+London%3A+Jaguars+vs.+Texans",
+          "date_info": "Sunday, October 18, 2026, at Wembley Stadium",
+          "urgency": "this-week",
+          "link_status": "search"
+        },
+        {
+          "title": "The Elephant Exchange: New Food Hall Opening in Elephant & Castle",
+          "category": "food",
+          "summary": "A major new food hall, The Elephant Exchange, is set to open in Elephant & Castle, promising a vibrant mix of 14 independent kitchens, a bar, coffee shop, and a regular programme of events. This will be a significant new foodie and social hub very close to your location.",
+          "url": "https://www.google.com/search?q=The+Elephant+Exchange%3A+New+Food+Hall+Opening+in+Elephant+%26+Castle",
+          "date_info": "Opening November 2026 (updates in October)",
+          "urgency": "heads-up",
+          "link_status": "search"
+        },
+        {
+          "title": "Five Feet Pizza: New Pizzeria Opening in Bermondsey",
+          "category": "food",
+          "summary": "London's love affair with pizza continues with Five Feet Pizza, a new pizzeria opening in Bermondsey. It's a team-up from the people behind Legare and Watchhouse, run by an ex-Dusty Knuckle/Spring chef, promising a deeper crust and local, British toppings.",
+          "url": "https://www.google.com/search?q=Five+Feet+Pizza%3A+New+Pizzeria+Opening+in+Bermondsey",
+          "date_info": "Opening October 2026 (exact date TBC)",
+          "urgency": "heads-up",
+          "link_status": "search"
+        },
+        {
+          "title": "Absurd City: New Immersive Experience Opening in London",
+          "category": "event",
+          "summary": "Absurd City, a new immersive experience, is opening daily at Westfield London. Step into a surreal parallel world filled with immersive art, vibrant installations, and hidden stories, blurring the line between reality and imagination.",
+          "url": "https://www.google.com/search?q=Absurd+City%3A+New+Immersive+Experience+Opening+in+London",
+          "date_info": "Daily from October 15, 2026",
+          "urgency": "heads-up",
+          "link_status": "search"
+        }
+      ]
     }
   ]
 }
