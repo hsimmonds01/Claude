@@ -4328,6 +4328,66 @@
           "link_status": "search"
         }
       ]
+    },
+    {
+      "date": "2026-10-07",
+      "model": "gemini-2.5-flash (legacy key, live search)",
+      "items": [
+        {
+          "title": "Supreme Fall 2026 Tees Drop",
+          "category": "drop",
+          "summary": "Supreme is releasing its Fall 2026 Tees collection tomorrow, featuring seven new graphic designs that blend pop culture, art, and street iconography. This is a classic streetwear drop you'll want to act fast on.",
+          "url": "https://hypebeast.com/2026/10/supreme-fall-2026-tees-release-info",
+          "date_info": "Global release online and in stores: Thursday, October 8, 2026",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "Gomi 'Childhood Memories' Tech Collection made from Recycled Barbies",
+          "category": "product",
+          "summary": "Brighton-based design studio Gomi has launched a unique 'Childhood Memories' collection of Bluetooth speakers, power banks, wireless chargers, and tracker tags, all crafted from recycled Barbie and Ken dolls. Each piece is handmade, unique, and part of a monthly limited drop, offering genuinely interesting tech with beautiful design and a cool story.",
+          "url": "https://www.google.com/search?q=Gomi+%27Childhood+Memories%27+Tech+Collection+made+from+Recycled+Barbies",
+          "date_info": "Launched: September 24, 2026 (monthly limited drops)",
+          "urgency": "act-fast",
+          "link_status": "search"
+        },
+        {
+          "title": "Free French Riviera Immersive Experience in London's West End",
+          "category": "event",
+          "summary": "Escape the autumn blues with a new free immersive art experience in the West End, 'Step Into the French Riviera'. Inspired by the Royal Academy of Arts' exhibition, installations at Piccadilly Circus and other West End locations use colour, sound, and scent to transport you to the South of France. The first installation launched this week, with others popping up this month.",
+          "url": "https://www.timeout.com/london/news/french-riviera-immersive-experience-royal-academy-100726",
+          "date_info": "Ongoing until October 25, 2026",
+          "urgency": "this-week",
+          "link_status": "verified"
+        },
+        {
+          "title": "Spiritland to Open New Listening Bar at the Barbican",
+          "category": "food",
+          "summary": "Spiritland, known for its original King's Cross listening bar, is opening a brand-new venue at London's Barbican Centre. Expect a unique space with a bespoke sound system, European-Japanese food, and a daily program of music, talks, and supper clubs.",
+          "url": "https://www.timeout.com/london/news/spiritland-barbican-announcement-100726",
+          "date_info": "Opens: October 20, 2026",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "Oxford Street's 2026 Christmas Lights to Feature Harry Potter Theme, Plus New Flagship Store",
+          "category": "event",
+          "summary": "London's Oxford Street is getting a magical Harry Potter makeover for its 2026 Christmas lights, tied to the new HBO Max series. The lights will debut in early November, coinciding with the grand opening of the UK's largest official Harry Potter flagship store on Oxford Street, promising an unforgettable festive experience.",
+          "url": "https://www.timeout.com/london/news/oxford-street-christmas-lights-2026-harry-potter-100726",
+          "date_info": "Store opens: November 4, 2026; Lights debut: Early November 2026",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "NFL London Game: Houston Texans vs. Jacksonville Jaguars at Wembley Stadium",
+          "category": "football",
+          "summary": "Catch the Houston Texans take on the Jacksonville Jaguars in a major NFL London game at Wembley Stadium. Tickets are currently available for this highly anticipated match.",
+          "url": "https://www.google.com/search?q=NFL+London+Game%3A+Houston+Texans+vs.+Jacksonville+Jaguars+at+Wembley+Stadium",
+          "date_info": "Sunday, October 18, 2026",
+          "urgency": "this-week",
+          "link_status": "search"
+        }
+      ]
     }
   ]
 }
