@@ -2,6 +2,6 @@
   "notified": {},
   "last_classification": "unknown",
   "last_fingerprint": "5cda9784e1aec5ab",
-  "consecutive_fetch_failures": 7,
+  "consecutive_fetch_failures": 8,
   "fetch_failure_notified": true
 }
