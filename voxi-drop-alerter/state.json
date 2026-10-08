@@ -1,9 +1,10 @@
 {
   "notified": {
-    "2026-10::changed::e34c04e937f9c624": "2026-10-08T00:15:46.304164+00:00"
+    "2026-10::changed::e34c04e937f9c624": "2026-10-08T00:15:46.304164+00:00",
+    "2026-10::changed::471a857159d8c0d1": "2026-10-08T07:15:39.166422+00:00"
   },
   "last_classification": "unknown",
-  "last_fingerprint": "e34c04e937f9c624",
+  "last_fingerprint": "471a857159d8c0d1",
   "consecutive_fetch_failures": 0,
   "fetch_failure_notified": false
 }
