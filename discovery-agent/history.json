@@ -4388,6 +4388,84 @@
           "link_status": "search"
         }
       ]
+    },
+    {
+      "date": "2026-10-08",
+      "model": "gemini-2.5-flash (legacy key, live search)",
+      "items": [
+        {
+          "title": "Godzilla Minus Zero Tickets On Sale Now",
+          "category": "film",
+          "summary": "Tickets are now available for 'Godzilla Minus Zero', a highly anticipated big-screen film event that promises monstrous action.",
+          "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQakZVX3N6cVN4QnYzbDFKZm9wU1VIQUJMOG1SRTJpZjFsTVFheTNZNjdjNHl1SExSd1l3b2libjJtV2lXTnk1UUFubE5Sb1RhYzdkQUg1YmF1X25GUGxRc3VZTWxWbUl1ZHd2RjhjUjhjY0RZelhGYnB4RkhWU0tBQmV3RTViQXB3ZHlBNDd3?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "date_info": "Tickets on sale now",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "Clayface European Premiere in London",
+          "category": "film",
+          "summary": "Catch the European Premiere of the 'true horror film' Clayface at Curzon Mayfair on October 20, with the director and cast in attendance for a special screening event.",
+          "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTFAtbDNvN3p0WERaWmRWVVVLQUhvSnQteUNvbGZpQy1YUktKbm5iY2VrZjdKeW8xY1VnZVVYMFZXallkV0lWd1VXaU9yR2xYUWMxWlE?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "date_info": "Premiere on Tuesday, October 20, 2026",
+          "urgency": "this-week",
+          "link_status": "verified"
+        },
+        {
+          "title": "WACKO MARIA x MLB™ Streetwear Collection Drops Soon",
+          "category": "drop",
+          "summary": "WACKO MARIA's first MLB™ collaboration, featuring streetwear apparel with New York Yankees, Los Angeles Dodgers, and San Diego Padres branding, is set to launch on Saturday, October 10.",
+          "url": "https://hypebeast.com/2026/10/wacko-maria-mlb-first-collabo-release-info",
+          "date_info": "Drops Saturday, October 10",
+          "urgency": "this-week",
+          "link_status": "verified"
+        },
+        {
+          "title": "SATISFY x Oakley Chapter VIII Collection: Eyewear & Apparel",
+          "category": "drop",
+          "summary": "The new 'Equipment for Our World' Chapter VIII collection from SATISFY and Oakley features performance eyewear and technical running apparel, dropping globally on October 13, 2026.",
+          "url": "https://hypebeast.com/2026/10/satisfy-oakley-equipment-for-our-world-chapter-viii-collaborative-collection-release-info",
+          "date_info": "Drops globally on October 13, 2026",
+          "urgency": "this-week",
+          "link_status": "verified"
+        },
+        {
+          "title": "Pas Normal Studios x PORTER Cycling Bag Collection",
+          "category": "drop",
+          "summary": "A new collaboration between Pas Normal Studios and PORTER offers a range of beautifully designed cycling bags, including frame and handlebar bags, available now.",
+          "url": "https://www.highsnobiety.com/p/porter-pas-normal-studios/",
+          "date_info": "Released October 2, 2026. Available now.",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "Odell Beckham Jr. Joins Minnesota Vikings Practice Squad",
+          "category": "football",
+          "summary": "In big NFL transfer news, star wide receiver Odell Beckham Jr. has officially been signed to the Minnesota Vikings practice squad.",
+          "url": "https://hypebeast.com/2026/10/nfl-minnesota-vikings-sign-odell-beckham-jr-practice-squad-news",
+          "date_info": "Announced October 8, 2026",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "Zaha Hadid's Former London HQ Reopens as Public Arts Hub",
+          "category": "event",
+          "summary": "Zaha Hadid's iconic former London headquarters has been transformed and reopened as a public hub dedicated to architecture and art, offering a new cultural destination.",
+          "url": "https://www.designboom.com/architecture/zaha-hadid-former-london-headquarters-public-hub-architecture-art/",
+          "date_info": "Reopened recently",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "Local London Food Deals: 50% Off with First Table",
+          "category": "food",
+          "summary": "Discover 50% off food deals at various restaurants in your local Bermondsey and Elephant and Castle areas by booking through First Table.",
+          "url": "https://www.google.com/search?q=Local+London+Food+Deals%3A+50%25+Off+with+First+Table",
+          "date_info": "Ongoing availability",
+          "urgency": "heads-up",
+          "link_status": "search"
+        }
+      ]
     }
   ]
 }
