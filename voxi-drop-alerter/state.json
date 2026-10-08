@@ -1,7 +1,9 @@
 {
-  "notified": {},
+  "notified": {
+    "2026-10::changed::e34c04e937f9c624": "2026-10-08T00:15:46.304164+00:00"
+  },
   "last_classification": "unknown",
-  "last_fingerprint": "5cda9784e1aec5ab",
+  "last_fingerprint": "e34c04e937f9c624",
   "consecutive_fetch_failures": 0,
   "fetch_failure_notified": false
 }
