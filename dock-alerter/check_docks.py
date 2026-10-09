@@ -1336,7 +1336,10 @@ def run(mode: str, dry_run: bool) -> None:
         else:
             parts.append(f"{dock_station}: {docks} empty dock{'s' if docks != 1 else ''}.")
 
-        title = "Route to the gym - status"
+        # Surface the reroute in the title itself (visible in the lock-screen
+        # preview without opening the notification), not just buried in the
+        # message body.
+        title = f"Reroute - {headline}" if diverted else "Route to the gym - status"
         message = headline + "\n" + " ".join(parts)
 
         if dry_run:
