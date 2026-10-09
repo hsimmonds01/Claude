@@ -42,7 +42,9 @@
       "competition": "Premier League",
       "date": "Sat 21 Nov 2026",
       "opponent": "Leeds United",
-      "windows": {}
+      "windows": {
+        "ticket-application-window": "open"
+      }
     },
     "41gAS7R1UJ8FSHlu7N4rbm": {
       "competition": "Premier League",
@@ -115,6 +117,7 @@
     "24ZDiYAPQUgqmZVb2n09Qc::new_fixture": "2026-10-01T19:01:30.357766+00:00",
     "2rON8ZQMZXmDZP3T356LnW::new_fixture": "2026-10-06T16:01:27.289850+00:00",
     "2zWm0U1dBgVxccabdkHo4I::new_fixture": "2026-10-01T19:01:30.181489+00:00",
+    "2zWm0U1dBgVxccabdkHo4I::window_open::ticket-application-window": "2026-10-09T16:01:11.213799+00:00",
     "41gAS7R1UJ8FSHlu7N4rbm::new_fixture": "2026-10-06T16:01:27.532480+00:00",
     "4YKiFTwIByKGcZiZIU1Zka::new_fixture": "2026-09-04T15:01:22.682290+00:00",
     "4YKiFTwIByKGcZiZIU1Zka::window_open::ticket-application-window-opens": "2026-09-04T15:01:22.682306+00:00",
@@ -130,6 +133,8 @@
     "7IKFpBGSMzdHCvyC40jyXM::new_fixture": "2026-10-06T16:01:27.645148+00:00",
     "LQKYY0qugPeQ6Z8BxWwnJ::new_fixture": "2026-10-06T16:01:26.627879+00:00"
   },
-  "open_since": {},
+  "open_since": {
+    "2zWm0U1dBgVxccabdkHo4I::window_open::ticket-application-window": "2026-10-09T16:01:10.505992+00:00"
+  },
   "schema_version": 1
 }
