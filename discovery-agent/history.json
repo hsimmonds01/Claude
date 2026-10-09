@@ -4466,6 +4466,75 @@
           "link_status": "search"
         }
       ]
+    },
+    {
+      "date": "2026-10-09",
+      "model": "gemini-2.5-flash (legacy key, live search)",
+      "items": [
+        {
+          "title": "Tim Walker's 'Fairyland' Exhibition Opens at National Portrait Gallery",
+          "category": "event",
+          "summary": "Step into the fantastical world of photographer Tim Walker with his new exhibition 'Fairyland: Love and Legends', exploring queer identity and community. It opens today at the National Portrait Gallery in London.",
+          "url": "https://www.designboom.com/art/tim-walker-five-decades-queer-activism-portraiture-national-portrait-gallery-london-fairyland/",
+          "date_info": "Opens today, Fri 9 Oct 2026, runs until 7 Feb 2027",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "Alpha Industries Drops 'Triple Black Pack' Flight Jackets",
+          "category": "drop",
+          "summary": "Alpha Industries has released its 'Triple Black Pack', offering iconic MA-1, B-15, and CWU-45 flight jackets in a sleek, all-black design, even ditching the signature orange lining. Available now, these are a must-have for streetwear fans.",
+          "url": "https://hypebeast.com/2026/10/alpha-industries-triple-black-pack-fall-winter-2026-collection-release-info",
+          "date_info": "Available now, launched Oct 8, 2026",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "La Marzocco and RAINS Collaborate on Limited-Edition Coffee Apron",
+          "category": "drop",
+          "summary": "The premium espresso machine company La Marzocco has teamed up with Danish rainwear brand RAINS for a limited-edition, espresso-colored coffee apron made from RAINS' signature waterproof fabric. It's a beautifully designed, functional piece for any coffee enthusiast.",
+          "url": "https://www.highsnobiety.com/p/la-marzocco-rains-coffee-apron/",
+          "date_info": "Available now, launched Oct 8, 2026",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "Jam Delish to Open Vegan Caribbean Chippie Pop-Up in London",
+          "category": "food",
+          "summary": "One of London's top vegan restaurants, Jam Delish, is launching a limited-edition 'Chippie' pop-up at Boxhall City, offering plant-based 'fish' and chips with a Caribbean twist. It's a unique food event not to be missed.",
+          "url": "https://www.timeout.com/london/news/jam-delish-best-vegan-restaurants-chip-shop-100926",
+          "date_info": "Opens Wed 14 Oct 2026, runs until 28 Nov 2026",
+          "urgency": "this-week",
+          "link_status": "verified"
+        },
+        {
+          "title": "VERDY x ER Heart-Themed Streetwear Capsule Launching This Month",
+          "category": "drop",
+          "summary": "Graphic artist VERDY and Japanese label ER are dropping their first collaborative streetwear capsule. This nine-piece collection features heart graphics and streetwear essentials, launching in Japan later this month.",
+          "url": "https://hypebeast.com/2026/10/verdy-er-first-capsule-collaboration-release-info",
+          "date_info": "Launches Fri 24 Oct 2026 in Japan",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "London Streetwear Market - Autumn 2026 Announced",
+          "category": "event",
+          "summary": "Discover the next wave of London streetwear at the Autumn 2026 market, featuring 35+ independent brands, exclusive drops, and limited pieces. Tickets are limited for this one-day event.",
+          "url": "https://www.google.com/search?q=London+Streetwear+Market+-+Autumn+2026+Announced",
+          "date_info": "Sat 7 Nov 2026, 11am - 6pm",
+          "urgency": "heads-up",
+          "link_status": "search"
+        },
+        {
+          "title": "Mondo Sando to Launch Pizza Menu in South London",
+          "category": "food",
+          "summary": "South London's beloved sandwich spot, Mondo Sando, is expanding its offerings with a new 'Oven Pizza' menu at Cafe Mondo in Camberwell, serving thick, airy square slices with creative toppings inspired by British comforts.",
+          "url": "https://www.timeout.com/london/news/mondo-sando-launching-oven-pizza-november-2026-100926",
+          "date_info": "Launching November 2026, from Thu 5 Nov",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        }
+      ]
     }
   ]
 }
