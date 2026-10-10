@@ -4535,6 +4535,48 @@
           "link_status": "verified"
         }
       ]
+    },
+    {
+      "date": "2026-10-10",
+      "model": "gemini-2.5-flash (legacy key, live search)",
+      "items": [
+        {
+          "title": "New Era x Takehiko Inoue 'Real' 9TWENTY Caps Drop",
+          "category": "drop",
+          "summary": "A limited-edition collaboration has dropped between New Era and renowned manga artist Takehiko Inoue, featuring three distinct 9TWENTY cap designs inspired by his basketball series 'Real'. These are a must-grab for fans and streetwear enthusiasts alike.",
+          "url": "https://hypebeast.com/2026/10/takehiko-inoue-real-manga-new-era-9twenty-capsule-collaboration-release-info",
+          "date_info": "Released in October 2026",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "Sci-Fi Fantasy and Come Tees Hand-Painted Capsule Collection",
+          "category": "drop",
+          "summary": "Sci-Fi Fantasy and Come Tees have teamed up for a unique capsule collection featuring hand-painted pieces. This collaboration offers genuinely limited and artistic streetwear, perfect for those seeking one-of-a-kind items.",
+          "url": "https://hypebeast.com/2026/10/sci-fi-fantasy-and-come-tees-team-up-for-a-hand-painted-capsule-collection-info",
+          "date_info": "Released in October 2026",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "KidSuper x DC Comics Super Villains Collaboration",
+          "category": "drop",
+          "summary": "KidSuper is bringing DC Comics' most notorious villains into its unique universe with a new, highly anticipated capsule collection. Expect bold designs and limited quantities from this exciting streetwear collaboration.",
+          "url": "https://hypebeast.com/2026/10/kidsuper-dc-comics-super-villains-collaboration",
+          "date_info": "Released in October 2026",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "Playfool Game Installation: 'The Server' at V&A South Kensington",
+          "category": "event",
+          "summary": "Step into the role of a data center cleaner in 'The Server', a free interactive game installation by Playfool at the V&A South Kensington. This immersive experience explores the often-overlooked physical labor behind our digital world and is part of the V&A's Emerging Designer Commission.",
+          "url": "https://www.designboom.com/art/playfool-game-installation-va-museum-data-center-cleaner-server/",
+          "date_info": "On now until Sunday, October 18, 2026",
+          "urgency": "this-week",
+          "link_status": "verified"
+        }
+      ]
     }
   ]
 }
