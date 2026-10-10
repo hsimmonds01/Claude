@@ -52,12 +52,6 @@
       "opponent": "Everton",
       "windows": {}
     },
-    "4YKiFTwIByKGcZiZIU1Zka": {
-      "competition": "Premier League",
-      "date": "Sat 10 Oct 2026",
-      "opponent": "Bournemouth",
-      "windows": {}
-    },
     "4rGsJmZ2g7cozXvyNPBoMG": {
       "competition": "Premier League",
       "date": "Sat 20 Feb 2027",
@@ -119,8 +113,6 @@
     "2zWm0U1dBgVxccabdkHo4I::new_fixture": "2026-10-01T19:01:30.181489+00:00",
     "2zWm0U1dBgVxccabdkHo4I::window_open::ticket-application-window": "2026-10-09T16:01:11.213799+00:00",
     "41gAS7R1UJ8FSHlu7N4rbm::new_fixture": "2026-10-06T16:01:27.532480+00:00",
-    "4YKiFTwIByKGcZiZIU1Zka::new_fixture": "2026-09-04T15:01:22.682290+00:00",
-    "4YKiFTwIByKGcZiZIU1Zka::window_open::ticket-application-window-opens": "2026-09-04T15:01:22.682306+00:00",
     "4rGsJmZ2g7cozXvyNPBoMG::new_fixture": "2026-10-06T16:01:26.880310+00:00",
     "4tilDETKaf3gXP8adbEsza::new_fixture": "2026-09-18T17:31:04.815848+00:00",
     "4tilDETKaf3gXP8adbEsza::window_open::ticket-application-window-opens-pm": "2026-09-18T17:31:04.815862+00:00",
