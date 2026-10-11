@@ -4577,6 +4577,48 @@
           "link_status": "verified"
         }
       ]
+    },
+    {
+      "date": "2026-10-11",
+      "model": "gemini-flash-lite-latest",
+      "items": [
+        {
+          "title": "Houseplant x Droplet Scent Burner Drop",
+          "category": "drop",
+          "summary": "Seth Rogen's Houseplant has teamed up with Droplet for a hand-blown amber glass scent burner that suspends dramatically over a tealight—pure design cred for your shelf.",
+          "url": "https://hypebeast.com/2026/10/droplet-seth-rogen-houseplant-scent-burner-release-info",
+          "date_info": "Available now",
+          "urgency": "this-week",
+          "link_status": "verified"
+        },
+        {
+          "title": "Mondo Sando Launching South London Pizza Menu",
+          "category": "event",
+          "summary": "South London's legendary sandwich shop Mondo Sando is expanding its prowess by launching an oven pizza menu, right on your doorstep.",
+          "url": "https://www.timeout.com/london/news/mondo-sando-launching-oven-pizza-november-2026-100926",
+          "date_info": "Launching November 2026",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "Playfool's 'The Server' Installation at the V&A",
+          "category": "event",
+          "summary": "Put yourself in the shoes of a data center cleaner in this clever, playful new game installation running at the V&A in South Kensington.",
+          "url": "https://www.designboom.com/art/playfool-game-installation-va-museum-data-center-cleaner-server/",
+          "date_info": "Open now",
+          "urgency": "this-week",
+          "link_status": "verified"
+        },
+        {
+          "title": "Wasted Paris x Clarks Originals Wallabee Lite",
+          "category": "drop",
+          "summary": "A heavyweight collab packing Britpop memorabilia straight into a customizable Wallabee Lite design.",
+          "url": "https://hypebeast.com/2026/10/wasted-paris-clarks-wallabee-lite-release-info",
+          "date_info": "Out now",
+          "urgency": "this-week",
+          "link_status": "verified"
+        }
+      ]
     }
   ]
 }
