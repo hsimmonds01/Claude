@@ -4619,6 +4619,39 @@
           "link_status": "verified"
         }
       ]
+    },
+    {
+      "date": "2026-10-13",
+      "model": "gemini-2.5-flash (legacy key, live search)",
+      "items": [
+        {
+          "title": "Tickets on Sale Today for Quentin Tarantino's West End Play 'The Popinjay Cavalier' Starring Sacha Baron Cohen",
+          "category": "event",
+          "summary": "A major London West End event, this play marks Quentin Tarantino's stage debut as writer and director, starring Sacha Baron Cohen. Tickets go on sale today for this highly anticipated production.",
+          "url": "https://www.google.com/search?q=Tickets+on+Sale+Today+for+Quentin+Tarantino%27s+West+End+Play+%27The+Popinjay+Cavalier%27+Starring+Sacha+Baron+Cohen",
+          "date_info": "Tickets on sale today, Oct 13, 12pm BST",
+          "urgency": "act-fast",
+          "link_status": "search"
+        },
+        {
+          "title": "AURALEE x SALON C. LUNDMAN Debut Capsule Collection Announced",
+          "category": "drop",
+          "summary": "This first-ever collaborative capsule collection from AURALEE and SALON C. LUNDMAN, known for fusing tailoring and fine materials, is set to launch exclusively at Dover Street Market Ginza later this month.",
+          "url": "https://www.google.com/search?q=AURALEE+x+SALON+C.+LUNDMAN+Debut+Capsule+Collection+Announced",
+          "date_info": "Launching October 24, 2026",
+          "urgency": "heads-up",
+          "link_status": "search"
+        },
+        {
+          "title": "Citroën Revives Iconic 2 CV as an Electric Concept Car",
+          "category": "product",
+          "summary": "Citroën has unveiled a compact, affordable electric concept car, reimagining the classic 2 CV with clever design details like egg holders and turtle pedals. A production model is targeted for 2028 with an estimated price of €15,000.",
+          "url": "https://www.designboom.com/technology/citroen-iconic-2-cv-compact-electric-concept-roll-up-fabric-roof-paris-motor-show-mondial/",
+          "date_info": "Unveiled October 11, 2026; production model targeted for 2028",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        }
+      ]
     }
   ]
 }
