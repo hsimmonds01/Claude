@@ -4652,6 +4652,57 @@
           "link_status": "verified"
         }
       ]
+    },
+    {
+      "date": "2026-10-14",
+      "model": "gemini-2.5-flash (legacy key, live search)",
+      "items": [
+        {
+          "title": "Godzilla Minus Zero: Early IMAX Screenings in London",
+          "category": "film",
+          "summary": "Catch early IMAX screenings of the highly anticipated sequel, Godzilla Minus Zero, in London. Tickets are now on sale for 'Godzilla Day' on November 3rd, three days before the wider cinematic release, offering a prime opportunity to experience the film as it was shot for IMAX.",
+          "url": "https://whatson.bfi.org.uk/imax/Online/default.asp?BOparam::WScontent::loadArticle::permalink=godzilla-minus-zero-imax-preview",
+          "date_info": "Early IMAX screenings on Sun 3 Nov 2026",
+          "urgency": "this-week",
+          "link_status": "verified"
+        },
+        {
+          "title": "TOGA x Wrangler Second Collaborative Collection",
+          "category": "drop",
+          "summary": "Japanese fashion label TOGA and denim icon Wrangler have reunited for their second collaborative collection in eight years. This limited-edition drop features five new styles that blend TOGA's unique design with Wrangler's classic denim pieces.",
+          "url": "https://hypebeast.com/2026/10/toga-wrangler-the-second-time-in-8-years-collabo-collection-release-info",
+          "date_info": "Pre-sale on Wed 21 Oct, general release Fri 23 Oct",
+          "urgency": "this-week",
+          "link_status": "verified"
+        },
+        {
+          "title": "Rochelle Canteen's Covent Garden Residency",
+          "category": "food",
+          "summary": "One of London's best restaurants, Rochelle Canteen, is bringing its acclaimed seasonal cooking to Covent Garden for a three-month residency at NoMad London's Twenty8 NoMad. This is a rare chance to experience their highly sought-after dishes in a new central London location.",
+          "url": "https://www.timeout.com/london/news/one-of-londons-best-restaurants-is-staging-a-covent-garden-residency-101326",
+          "date_info": "Starts Thu 15 Oct 2026, runs until 15 Jan 2027",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "Apple Debuts HomeView Smart Display",
+          "category": "product",
+          "summary": "Apple has unveiled its first smart display, HomeView, priced at an affordable £299. Powered by Apple Intelligence with a 7-inch Liquid Retina touchscreen, it offers a clever way to control your smart home, access apps, and get personalized Siri AI responses. Pre-orders are open now.",
+          "url": "https://www.t3.com/home-living/smart-home/apples-gbp299-homeview-hub-is-officially-here-with-two-designs-and-four-colour-options",
+          "date_info": "Pre-orders open Wed 14 Oct, shipping Fri 13 Nov 2026",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "Immersive Line of Duty Experience: Operation Echo",
+          "category": "event",
+          "summary": "Step into the world of AC-12 with 'Line of Duty: Operation Echo,' a new immersive investigation experience coming to the streets of London. Teams will solve escape room-style puzzles and decipher riddles across a 4-5km route. Sign up now to join the waitlist and be notified when tickets are released.",
+          "url": "https://www.google.com/search?q=Immersive+Line+of+Duty+Experience%3A+Operation+Echo",
+          "date_info": "Launching early 2027 (waitlist open now)",
+          "urgency": "heads-up",
+          "link_status": "search"
+        }
+      ]
     }
   ]
 }
