@@ -1,3 +1,22 @@
+# VOXI Drop watch -- RETIRED (Oct 2026)
+
+**Status: switched off.** The workflow was removed because the approach cannot
+work: the public Drop page is identical whether or not a drop is live (same
+copy, same permanent "Sign in to claim rewards" button; the page's own CMS
+content hadn't been edited since Dec 2025), and the page exposes no
+"drop is live" feature switch or API (`enableVoxiDropLandingPage` is
+permanently on). The real claim state is behind the VOXI login, so any
+logged-out check -- including the "page changed" fingerprint -- is blind to
+drops. Of the announcement channels, only the r/VOXI RSS feed was readable
+from a GitHub runner, and it rate-limited repeat requests.
+
+The code is kept for reference/reuse (`discover.py` is a handy read-only probe
+of what a page exposes). To revive, restore `.github/workflows/voxi-drop-watch.yml`
+from git history. Lesson: before building a watcher, confirm from real
+before/after evidence that the watched signal actually changes.
+
+---
+
 # VOXI Drop watch
 
 Watches the [VOXI Drop page](https://www.voxi.co.uk/voxi-drop) for the
