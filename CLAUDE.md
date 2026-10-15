@@ -278,3 +278,12 @@
   numbered instructions for third-party site setup (Google AI Studio,
   Resend, GitHub secrets, cron-job.org) and has an existing cron-job.org
   account already used for the dock-alerter.
+
+## Watcher/alerter projects (ticket-alerter, voxi-drop-alerter)
+- Before building a page-watching alerter, verify the watched signal really
+  changes between "before" and "after" states (e.g. fetch it logged-out vs the
+  state the user actually sees). The VOXI Drop watcher (retired Oct 2026) ran
+  for months but could never fire: the public page is identical whether or not
+  a drop is live and the real state is behind login. "Runs green" is not "works".
+- Prefer an alert path whose firing has been observed end to end at least once
+  (real event or faithful replay), not just a synthetic test notification.
