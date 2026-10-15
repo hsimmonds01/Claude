@@ -23,6 +23,7 @@ on:
           - dry_run
           - recon
           - test_notification
+          - discover
         default: check
 
 permissions:
@@ -59,6 +60,10 @@ jobs:
           NTFY_TOPIC: ${{ secrets.NTFY_TOPIC || vars.NTFY_TOPIC }}
           MODE: ${{ inputs.mode || 'check' }}
         run: |
+          if [ "${MODE}" = "discover" ]; then
+            python discover.py
+            exit 0
+          fi
           ARGS=""
           if [ "${MODE}" = "dry_run" ]; then
             ARGS="--dry-run"
