@@ -1,10 +1,11 @@
 {
   "notified": {
     "2026-10::changed::e34c04e937f9c624": "2026-10-08T00:15:46.304164+00:00",
-    "2026-10::changed::471a857159d8c0d1": "2026-10-08T07:15:39.166422+00:00"
+    "2026-10::changed::471a857159d8c0d1": "2026-10-08T07:15:39.166422+00:00",
+    "2026-10::changed::b0d51c6bac4fef5b": "2026-10-15T20:01:22.388410+00:00"
   },
   "last_classification": "unknown",
-  "last_fingerprint": "471a857159d8c0d1",
+  "last_fingerprint": "b0d51c6bac4fef5b",
   "consecutive_fetch_failures": 0,
   "fetch_failure_notified": false
 }
