@@ -132,6 +132,23 @@ def check_sources() -> None:
             say(f"    drop/reward URLs in sitemap ({len(hits)}): {hits[:10]}")
 
 
+def reddit_history() -> None:
+    """Dump recent public r/VOXI post titles with timestamps, to judge whether
+    community posts reliably mark drop days (and how soon after release)."""
+    say("== r/VOXI recent posts (public titles, newest first) ==")
+    resp = get("https://www.reddit.com/r/VOXI/new.rss?limit=100")
+    if resp is None or resp.status_code != 200:
+        say(f"could not read the feed (HTTP {resp.status_code if resp else 'none'})")
+        return
+    entries = re.findall(r"<entry>(.*?)</entry>", resp.text, re.DOTALL)
+    say(f"{len(entries)} posts in feed")
+    for entry in entries:
+        title = re.search(r"<title>(.*?)</title>", entry, re.DOTALL)
+        when = re.search(r"<updated>(.*?)</updated>", entry)
+        if title and when:
+            say(f"  {when.group(1)[:16]}  {' '.join(title.group(1).split())[:100]}")
+
+
 def main() -> None:
     resp = get(DROP_URL)
     if resp is None or resp.status_code != 200:
@@ -142,6 +159,7 @@ def main() -> None:
     feature_flags(html)
     scan_bundles(html)
     check_sources()
+    reddit_history()
 
 
 if __name__ == "__main__":
