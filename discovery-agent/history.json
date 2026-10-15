@@ -4703,6 +4703,84 @@
           "link_status": "search"
         }
       ]
+    },
+    {
+      "date": "2026-10-15",
+      "model": "gemini-2.5-flash (legacy key, live search)",
+      "items": [
+        {
+          "title": "Lidl's Energy-Efficient LED Night Light Drops Today",
+          "category": "product",
+          "summary": "Lidl is releasing a new, budget-friendly LIVARNO LED Night Light today for just £6.99. This clever gadget costs less than 1p-a-day to run, offering an affordable way to brighten your home.",
+          "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQMUtkV3pqaFh1WF90SUxRUzRfT0VBQlJIb211VWlyeFN2bjVnLTJSNVRvRGdJR2dheXo0alM0SkJrUkl5bU11eE9KR0hwekNGVzM0dGRWb2d2aTVFZUxSMWdRdmFLLXpxcmpBWXJZVTJZcURDS2dtVmczMVFFNThxcmV3SFDSAYoBQVVfeXFMTjMzcVcyaEtqSGZoM0xMTDI2bXNQVnA1dVNLWkNpdU54R09oYjF0SlZwV0ZUMzFwdUpocGlocTg2TkxDQlA4b2NJMjZkOFNDX2pUMzhyWmNGV25VZWdkaG1YalA5eDNEbEdMcUJtak9ncFR4VmxnRHlaRXA0R0poTGNVTmVDNG91OEZn?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "date_info": "Available in stores from Thursday, October 15, 2026.",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "Last Chance: £25 'The Afronauts' Tickets for Under-35s at Royal Court",
+          "category": "event",
+          "summary": "Time Out is offering an exclusive deal of £25 tickets for under-35s to see 'The Afronauts' at the Royal Court. Sign up before next Wednesday to receive your booking code for this anticipated London play, running from November 14 to December 19.",
+          "url": "https://www.timeout.com/london/news/time-out-exclusive-under-35-tickets-the-afronauts-101426",
+          "date_info": "Sign up before midnight on Wednesday, October 21, 2026, for booking code.",
+          "urgency": "this-week",
+          "link_status": "verified"
+        },
+        {
+          "title": "BigBang x Dover Street Market Collection Expands to Singapore Tomorrow",
+          "category": "drop",
+          "summary": "Following a successful London debut, the exclusive limited-edition collaboration collection from global icon BigBang and Dover Street Market launches tomorrow. The drop at Dover Street Market Singapore includes hoodies, caps, and Singapore-exclusive items.",
+          "url": "https://www.google.com/search?q=BigBang+x+Dover+Street+Market+Collection+Expands+to+Singapore+Tomorrow",
+          "date_info": "Launching in-store at Dover Street Market Singapore on Friday, October 16, 2026.",
+          "urgency": "act-fast",
+          "link_status": "search"
+        },
+        {
+          "title": "Eufy's New Budget Window Security Camera Shipping Soon in UK",
+          "category": "product",
+          "summary": "Eufy has launched its affordable E10 Window Camera, an indoor security camera designed to stick discreetly to your window for outdoor monitoring. Priced at £69.99, UK pre-orders are set to ship from November 6.",
+          "url": "https://www.google.com/search?q=Eufy%27s+New+Budget+Window+Security+Camera+Shipping+Soon+in+UK",
+          "date_info": "UK pre-orders shipping from November 6, 2026.",
+          "urgency": "heads-up",
+          "link_status": "search"
+        },
+        {
+          "title": "Aldi's £44.99 Dehumidifier Returns This Sunday",
+          "category": "product",
+          "summary": "Aldi is bringing back its popular Ambiano dehumidifier for £44.99, launching in stores this Sunday. It's a clever and affordable gadget to improve airflow, reduce moisture, and help dry laundry during the colder months.",
+          "url": "https://www.google.com/search?q=Aldi%27s+%C2%A344.99+Dehumidifier+Returns+This+Sunday",
+          "date_info": "Available in stores from Sunday, October 18, 2026.",
+          "urgency": "heads-up",
+          "link_status": "search"
+        },
+        {
+          "title": "$39 Touchscreen Development Board with ESP32-S31 Chip Released",
+          "category": "product",
+          "summary": "A highly interesting and affordable piece of tech, a $38.99 touchscreen development board featuring the new ESP32-S31 chip, offers Wi-Fi 6, Bluetooth 5.4, Zigbee, and Thread connectivity for DIY enthusiasts and smart home projects.",
+          "url": "https://www.google.com/search?q=%2439+Touchscreen+Development+Board+with+ESP32-S31+Chip+Released",
+          "date_info": "",
+          "urgency": "heads-up",
+          "link_status": "search"
+        },
+        {
+          "title": "Isaac Pelayo and Shepard Fairey 'GIGANTE' Streetwear Collection Available Online",
+          "category": "drop",
+          "summary": "Renowned artists Isaac Pelayo and Shepard Fairey have launched a limited-edition 'GIGANTE' streetwear collection, including T-shirts, hoodies, and skate decks. The online drop, featuring additional colorways, was released last week.",
+          "url": "https://www.google.com/search?q=Isaac+Pelayo+and+Shepard+Fairey+%27GIGANTE%27+Streetwear+Collection+Available+Online",
+          "date_info": "Released October 9, 2026, with additional colorways online.",
+          "urgency": "this-week",
+          "link_status": "search"
+        },
+        {
+          "title": "Chelsea FC Champions League Tickets for Shakhtar Donetsk Matches",
+          "category": "event",
+          "summary": "Tickets are available for FC Shakhtar Donetsk's upcoming Champions League home matches at Stamford Bridge in London. Fans can purchase tickets, initially as a four-match bundle, for games through January 2027.",
+          "url": "https://www.google.com/search?q=Chelsea+FC+Champions+League+Tickets+for+Shakhtar+Donetsk+Matches",
+          "date_info": "Tickets available for upcoming Champions League matches (e.g., November 3, November 25, January 27).",
+          "urgency": "this-week",
+          "link_status": "search"
+        }
+      ]
     }
   ]
 }
