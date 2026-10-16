@@ -4781,6 +4781,75 @@
           "link_status": "search"
         }
       ]
+    },
+    {
+      "date": "2026-10-16",
+      "model": "gemini-2.5-flash (legacy key, live search)",
+      "items": [
+        {
+          "title": "Tickets for Almeida Theatre's New Season On Sale Soon",
+          "category": "event",
+          "summary": "Dominic Cooke's inaugural season at the Almeida Theatre, featuring new plays by Caryl Churchill and Alexander Zeldin's 'The Inequalities' trilogy, has been announced. Tickets for 'Three and a Bit' and 'The Inequalities' go on sale October 27 at noon, offering a chance to see highly anticipated London theatre.",
+          "url": "https://www.timeout.com/london/news/dominic-cooke-first-season-almeida-theatre-david-tennant-caryl-churchill-101526",
+          "date_info": "Tickets on sale Oct 27, noon",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "COMME des GARÇONS Revives Cult Magazine 'Six' with London Installation & Tees",
+          "category": "drop",
+          "summary": "Comme des Garçons has brought back its influential cult magazine 'Six' with a special installation by Rei Kawakubo at Dover Street Market London, running until November 13. Limited edition T-shirts featuring artworks from the magazine launched yesterday, offering a unique piece of design history.",
+          "url": "https://www.google.com/search?q=COMME+des+GAR%C3%87ONS+Revives+Cult+Magazine+%27Six%27+with+London+Installation+%26+Tees",
+          "date_info": "T-shirts launched Oct 15; installation until Nov 13",
+          "urgency": "this-week",
+          "link_status": "search"
+        },
+        {
+          "title": "LOEWE x On Fall/Winter 2026 Collection Drops",
+          "category": "drop",
+          "summary": "LOEWE and On have unveiled their Fall/Winter 2026 collection, which includes new performance-minded apparel alongside footwear. This collaboration blends On's Swiss performance engineering with LOEWE's Spanish craftsmanship, offering a range of technical outerwear and utility-focused trousers.",
+          "url": "https://www.google.com/search?q=LOEWE+x+On+Fall%2FWinter+2026+Collection+Drops",
+          "date_info": "Released Oct 15",
+          "urgency": "act-fast",
+          "link_status": "search"
+        },
+        {
+          "title": "Tesla Unveils Flying Roadster with Space-Age Features",
+          "category": "product",
+          "summary": "Tesla has revealed a redesigned, next-generation Roadster that boasts 'flying-car-like features,' including built-in thrusters and the ability to perform mid-air maneuvers. While production is targeted for 2028, this marks a significant and genuinely interesting tech announcement.",
+          "url": "https://hypebeast.com/2026/10/tesla-roadster-unveils-second-gen-flying-car-spacex-thrusters-revealed",
+          "date_info": "Revealed Oct 15",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "Futurewave's Arc Silver Bracelet to Disconnect You from Your Phone",
+          "category": "product",
+          "summary": "Belgian design studio Futurewave has unveiled 'Arc,' an attention-aware silver bracelet that uses discreet vibrations to remind you to put down your phone. This beautifully designed object offers a unique approach to managing screen time.",
+          "url": "https://www.designboom.com/technology/futurewave-arc-silver-bracelet-jewelry-phone-connected-devices-argentium-silver/",
+          "date_info": "Concept revealed Sep 2026 (no production date yet)",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "Public Consultation for Ladywell Playtower Restoration in Lewisham",
+          "category": "event",
+          "summary": "Residents in South-East London can participate in a public consultation to shape the future of the Grade II-listed Ladywell Playtower in Lewisham. Four proposals for its restoration are open for review and feedback online until November 16.",
+          "url": "https://www.google.com/search?q=Public+Consultation+for+Ladywell+Playtower+Restoration+in+Lewisham",
+          "date_info": "Consultation open until Nov 16",
+          "urgency": "this-week",
+          "link_status": "search"
+        },
+        {
+          "title": "Unique TUPI Lamp by Estudio Gris Now Available",
+          "category": "product",
+          "summary": "Medellín-based Estudio Gris has launched the TUPI lamp, a beautifully crafted table lamp made from dual-tone solid oak. Its design, resembling a bird at rest, is a subtle yet striking addition to any space, with each lamp made to order.",
+          "url": "https://www.designboom.com/design/dual-tone-solid-oak-tupi-lamp-estudio-gris-bird-rest/",
+          "date_info": "Available to order (revealed Oct 15)",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        }
+      ]
     }
   ]
 }
