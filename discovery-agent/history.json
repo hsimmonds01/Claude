@@ -4850,6 +4850,75 @@
           "link_status": "verified"
         }
       ]
+    },
+    {
+      "date": "2026-10-17",
+      "model": "gemini-2.5-flash (legacy key, live search)",
+      "items": [
+        {
+          "title": "Baracuta x WILD THINGS x WACKO MARIA FW26 Collection Drops Today",
+          "category": "drop",
+          "summary": "The highly anticipated Fall/Winter 2026 outerwear collection from Baracuta, WILD THINGS, and WACKO MARIA is available starting today. This limited-edition drop features reversible jackets and furry vests, perfect for those seeking unique streetwear collaborations.",
+          "url": "https://hypebeast.com/2026/10/baracuta-wild-things-wacko-maria-fall-winter-2026-fw26-collaboration-collection-release-info",
+          "date_info": "Available now, released October 17, 2026",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "Build Your Own Anti-Distraction 'Brick Phone' with Kevin Noki's DIY Files",
+          "category": "product",
+          "summary": "Step back to simpler times with Kevin Noki's ADHD ONE, a 3D-printed retro brick phone designed to minimize distractions by connecting to your smartphone via Bluetooth for calls only. The digital DIY build files are available now for purchase, letting you create this clever gadget yourself.",
+          "url": "https://kevinnoki.com/shop/",
+          "date_info": "Digital files available now for €24.99",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "Dorothy's: New Lesbian Pub Opens in Camberwell, South London",
+          "category": "food",
+          "summary": "A new lesbian and sapphic pub, Dorothy's, has opened its doors in Camberwell, South London, promising a welcoming community space with queer-owned drinks, supper clubs, rotating kitchen residencies, and women's sports screenings. This is a fantastic new local spot in the client's area.",
+          "url": "https://www.timeout.com/london/news/new-lesbian-pub-dorothys-opening-southeast-london-101626",
+          "date_info": "Opened early October 2026",
+          "urgency": "this-week",
+          "link_status": "verified"
+        },
+        {
+          "title": "The Savoy Unveils Luxurious Beaufort Wine Bar",
+          "category": "food",
+          "summary": "London's iconic Savoy Hotel has launched its new Beaufort Wine Bar, offering an extensive collection of over 250 wines from 18 countries, with many available by the glass, alongside sharing plates and live music. It opened on October 13th, making it a fresh and glamorous dining experience.",
+          "url": "https://www.timeout.com/london/news/savoy-hotel-opens-new-wine-bar-101626",
+          "date_info": "Opened October 13, 2026",
+          "urgency": "this-week",
+          "link_status": "verified"
+        },
+        {
+          "title": "Last Chance for BFI London Film Festival Tickets (Ends Tomorrow!)",
+          "category": "film",
+          "summary": "The 70th BFI London Film Festival is wrapping up tomorrow, October 18th. Standby tickets for screenings today and tomorrow may still be available directly at venues or by checking the official website each morning for last-minute releases.",
+          "url": "https://www.google.com/search?q=Last+Chance+for+BFI+London+Film+Festival+Tickets+%28Ends+Tomorrow%21%29",
+          "date_info": "Festival runs until October 18, 2026; check daily for standby tickets",
+          "urgency": "act-fast",
+          "link_status": "search"
+        },
+        {
+          "title": "Score 50% Off Food at London Restaurants with TheFork Festival",
+          "category": "food",
+          "summary": "TheFork Festival 2026 is currently running, offering 50% off food bills at a wide selection of London restaurants. This deal is active now and continues until November 26th, providing a great opportunity to explore new food spots and enjoy significant discounts.",
+          "url": "https://www.google.com/search?q=Score+50%25+Off+Food+at+London+Restaurants+with+TheFork+Festival",
+          "date_info": "Ongoing until November 26, 2026",
+          "urgency": "this-week",
+          "link_status": "search"
+        },
+        {
+          "title": "Discover Unique Finds at the London Pop Up Vendor and Artisans Market",
+          "category": "event",
+          "summary": "The 2026 London Pop Up Vendor and Artisans Market is happening this weekend at Battersea Park, running today and tomorrow. This is a prime opportunity to discover unique handmade products, one-of-a-kind gifts, and support independent businesses.",
+          "url": "https://www.google.com/search?q=Discover+Unique+Finds+at+the+London+Pop+Up+Vendor+and+Artisans+Market",
+          "date_info": "October 16-18, 2026 (running today and tomorrow)",
+          "urgency": "act-fast",
+          "link_status": "search"
+        }
+      ]
     }
   ]
 }
