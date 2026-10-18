@@ -4919,6 +4919,48 @@
           "link_status": "search"
         }
       ]
+    },
+    {
+      "date": "2026-10-18",
+      "model": "gemini-2.5-flash (legacy key, live search)",
+      "items": [
+        {
+          "title": "London New Year's Eve Fireworks Tickets Go On Sale Next Week",
+          "category": "event",
+          "summary": "Tickets for London's iconic New Year's Eve fireworks display are released next week. This is a major London event that sells out quickly, offering a spectacular welcome to 2027 along the River Thames.",
+          "url": "https://www.google.com/search?q=London+New+Year%27s+Eve+Fireworks+Tickets+Go+On+Sale+Next+Week",
+          "date_info": "Tickets on sale Fri 23 Oct, midday (UK time)",
+          "urgency": "act-fast",
+          "link_status": "search"
+        },
+        {
+          "title": "BABY MILO® Drops '12 Zodiac Blind Box Series'",
+          "category": "drop",
+          "summary": "A BATHING APE®'s lifestyle brand, BABY MILO®, is launching its first-ever '12 Zodiac Blind Box Series' of collectible figurines, alongside new zodiac-themed streetwear and accessories. This limited-edition drop is perfect for collectors and streetwear fans.",
+          "url": "https://www.google.com/search?q=BABY+MILO%C2%AE+Drops+%2712+Zodiac+Blind+Box+Series%27",
+          "date_info": "Launches Thu 22 Oct, 2026",
+          "urgency": "this-week",
+          "link_status": "search"
+        },
+        {
+          "title": "MAAP x Mental Athletic Capsule Collection Released",
+          "category": "drop",
+          "summary": "Cycling apparel brand MAAP and sports culture platform Mental Athletic have released a limited-edition capsule collection featuring both technical cycling gear and 'off-bike' lifestyle staples, including graphic streetwear, hoodies, tees, and caps. This collaboration merges performance with contemporary fashion.",
+          "url": "https://www.google.com/search?q=MAAP+x+Mental+Athletic+Capsule+Collection+Released",
+          "date_info": "Released Wed 15 Oct, 2026",
+          "urgency": "this-week",
+          "link_status": "search"
+        },
+        {
+          "title": "Golden Union Fish Bar: Top-Rated Fish & Chips in Soho",
+          "category": "food",
+          "summary": "Golden Union Fish Bar in Soho has been crowned one of the best fish and chip restaurants in the UK. This retro-style chippie offers sustainably sourced fish, hand-cut chips, and homemade pies in a fun, bustling environment.",
+          "url": "https://www.google.com/search?q=Golden+Union+Fish+Bar%3A+Top-Rated+Fish+%26+Chips+in+Soho",
+          "date_info": "",
+          "urgency": "heads-up",
+          "link_status": "search"
+        }
+      ]
     }
   ]
 }
