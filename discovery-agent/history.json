@@ -4961,6 +4961,39 @@
           "link_status": "search"
         }
       ]
+    },
+    {
+      "date": "2026-10-19",
+      "model": "gemini-flash-lite-latest",
+      "items": [
+        {
+          "title": "Supreme x Timberland Fall 2026 Collection",
+          "category": "drop",
+          "summary": "Supreme and Timberland are back at it with a fresh heavy-duty collaboration for Fall 2026. Perfect limited-edition outerwear/streetwear drop to keep on your radar.",
+          "url": "https://hypebeast.com/2026/10/supreme-timberland-fall-2026-collaboration-release-info",
+          "date_info": "Dropping this season",
+          "urgency": "this-week",
+          "link_status": "verified"
+        },
+        {
+          "title": "London Korean Film Festival Highlights",
+          "category": "film",
+          "summary": "Time Out has dropped its curated guide to the 7 must-see films at this year's London Korean Film Festival, a brilliant shout for special-screenings fans.",
+          "url": "https://www.timeout.com/london/news/london-korean-film-festival-7-films-you-need-to-see-at-this-years-festival-101926",
+          "date_info": "Screening this festival season",
+          "urgency": "this-week",
+          "link_status": "verified"
+        },
+        {
+          "title": "Bon Jovi at BST Hyde Park 2027",
+          "category": "event",
+          "summary": "BST Hyde Park has locked in Bon Jovi for summer 2027, with presale and ticket details just announced. A massive London music event to prep for early.",
+          "url": "https://www.timeout.com/london/news/bon-jovi-bst-hyde-park-2027-dates-tickets-presale-101926",
+          "date_info": "Presale details out now",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        }
+      ]
     }
   ]
 }
