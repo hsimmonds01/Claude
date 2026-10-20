@@ -4994,6 +4994,75 @@
           "link_status": "verified"
         }
       ]
+    },
+    {
+      "date": "2026-10-20",
+      "model": "gemini-2.5-flash (legacy key, live search)",
+      "items": [
+        {
+          "title": "Advance Tickets for 'Everest: The Other Side' at BFI IMAX",
+          "category": "film",
+          "summary": "Advance tickets are now on sale for 'Everest: The Other Side,' a new film from Oscar®-winning filmmakers Elizabeth Chai Vasarhelyi and Jimmy Chin, showing at BFI IMAX. This is a big-screen event from acclaimed directors, perfect for a film buff.",
+          "url": "https://www.google.com/search?q=Advance+Tickets+for+%27Everest%3A+The+Other+Side%27+at+BFI+IMAX",
+          "date_info": "Advance tickets on sale now; film from October 30, 2026",
+          "urgency": "act-fast",
+          "link_status": "search"
+        },
+        {
+          "title": "Technics, PaRappa the Rapper, and WIND AND SEA Triple Collaboration",
+          "category": "drop",
+          "summary": "A unique three-way collaboration has dropped between Technics, 'PaRappa the Rapper,' and streetwear brand WIND AND SEA. This capsule collection is right up your alley for limited-edition designer streetwear.",
+          "url": "https://hypebeast.com/2026/10/technics-parappa-the-rapper-wind-and-sea-collaboration-capsule-collection-shibuya-parco-store-opening-release-info",
+          "date_info": "Recently announced/released (October 2026)",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "MAMMUT and BEAMS Revive Limited-Edition 'Serac Extreme Jacket'",
+          "category": "drop",
+          "summary": "MAMMUT and BEAMS have teamed up to re-release the expedition-proven 'Serac Extreme Jacket' in a limited run. This is a classic example of a small-brand limited-edition drop that sells out quickly.",
+          "url": "https://hypebeast.com/2026/10/beams-mammut-limited-edition-serac-extreme-jacket-re-release-info",
+          "date_info": "Recently released (October 2026)",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "New 5,000-Capacity Open-Air Venue Coming to Charlton Riverside",
+          "category": "event",
+          "summary": "Greenwich Council has licensed a massive new 5,000-capacity open-air venue in Charlton Riverside, near the Thames Barrier. It's set to host a diverse range of events from concerts to food festivals, making it a significant new London spot to watch, especially given its proximity to Bermondsey.",
+          "url": "https://www.timeout.com/london/news/massive-5000-capacity-open-air-venue-river-thames-102026",
+          "date_info": "License granted end of August 2026; limited events in 2026, more in 2027",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "Belkin Launches Affordable Bluetooth Trackers",
+          "category": "product",
+          "summary": "Belkin has introduced three new affordable and device-agnostic Bluetooth trackers. These clever gadgets are genuinely interesting tech that can help you keep tabs on your belongings.",
+          "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE5tYW9pRzVxVGNuSG0wLVlJTHZGclRlcXc1TXE1eVU4YTgyVk5mN1VROS00MjBUaWFxLTktY1FDVHBiSl8xYlJNMzdtOVRScVhVZ1pKb190Z0REUTdZZDhGZkcwcFFRRU9rM3JFcEY3cVhHMDVUOW9yRDVqM2JIUQ?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "date_info": "Recently launched",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "Clever 'Tiny Backpack' Expandable Phone Case Revealed",
+          "category": "product",
+          "summary": "Check out this genuinely clever new gadget: an expandable phone case that functions like a 'tiny backpack,' designed to hold cards, AirPods, keys, and other small essentials. It's definitely in the 'how did I not know this existed' category.",
+          "url": "https://www.designboom.com/design/backpack-phone-ninja-labs-stretchy-magsafe-flex-pouch-smartphone-pocket/",
+          "date_info": "Recently revealed",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "Free UK Competitions with Genuine Prizes",
+          "category": "other",
+          "summary": "Several low-effort, free-to-enter UK competitions are currently active with genuine perks. You can enter to win an Avant Skincare Autumn Rituals Bundle (worth £388, closes Oct 30), a Clarins Skincare Advent Calendar (5 winners, closes Nov 2), or a substantial £1,000 Aldi Voucher (closes Dec 25).",
+          "url": "https://www.google.com/search?q=Free+UK+Competitions+with+Genuine+Prizes",
+          "date_info": "Various closing dates, from Oct 30 to Dec 25, 2026",
+          "urgency": "act-fast",
+          "link_status": "search"
+        }
+      ]
     }
   ]
 }
