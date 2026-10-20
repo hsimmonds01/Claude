@@ -64,3 +64,4 @@ predicted_at_utc,target_date,window,metric,anchor_at,anchor_value,predicted_low,
 2026-10-15T07:10:38.681576+00:00,2026-10-15,morning,empty_docks,08:10,6,3,08:30,60,6,1,08:35,-2
 2026-10-19T16:15:37.990274+00:00,2026-10-19,evening,available_bikes,17:15,6,4,17:40,56,6,0,17:30,-4
 2026-10-19T07:10:38.459954+00:00,2026-10-19,morning,empty_docks,08:10,2,0,08:20,61,6,0,08:40,0
+2026-10-20T07:10:40.579585+00:00,2026-10-20,morning,empty_docks,08:10,5,1,08:30,62,6,,,
