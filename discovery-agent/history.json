@@ -5063,6 +5063,66 @@
           "link_status": "search"
         }
       ]
+    },
+    {
+      "date": "2026-10-21",
+      "model": "gemini-flash-latest",
+      "items": [
+        {
+          "title": "BFI IMAX: 'Dune: Part Three' 70mm IMAX Tickets Hit London",
+          "category": "film",
+          "summary": "Tickets for Denis Villeneuve's 'Dune: Part Three' on the UK's biggest screen have just gone live, sparking massive virtual queues at Waterloo's BFI IMAX. Essential booking if you want proper 70mm IMAX ratio seats before they're entirely wiped out.",
+          "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE9CMVZhZVBZNWM5S3lyNGxZXzZsUmRrRkFHTGtHNzhZUjA0dFhmdTI3X0N0OGZNRjZzNXd6OUVTWkpEV0RNUUxPdDJPY29JeXQ2Rk1lOGtBSlJ5YkJPVk43MDhBN3RZVEE?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "date_info": "Tickets live now",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "Needles x A Tribe Called Quest FW26 Capsule",
+          "category": "drop",
+          "summary": "Needles has teamed up with hip-hop icons A Tribe Called Quest for an exclusive capsule, reworkings its signature tracksuits, mohair knits, and headwear featuring classic ATCQ iconography and colourways.",
+          "url": "https://www.highsnobiety.com/p/needles-tribe-atcq-new-fw26/",
+          "date_info": "Dropping this week",
+          "urgency": "this-week",
+          "link_status": "verified"
+        },
+        {
+          "title": "Kenko Pieni III Ultra-Tiny Screenless Toy Camera",
+          "category": "product",
+          "summary": "Japanese optics maker Kenko has released the Pieni III, a matchbox-sized retro digital camera that captures dreamy, lo-fi stills and video without an LCD screen, packing magnetic mounting and micro-SD storage into a genuinely fun pocket design.",
+          "url": "https://www.designboom.com/technology/pieni-iii-kenko-tiny-digital-camera-without-screen/",
+          "date_info": "Available now",
+          "urgency": "this-week",
+          "link_status": "verified"
+        },
+        {
+          "title": "FKA twigs to Curate Meltdown Festival at Southbank Centre",
+          "category": "event",
+          "summary": "Just up the road at Southbank Centre, FKA twigs has been revealed as the curator for next summer's Meltdown Festival alongside a headline live performance. Meltdown curation gigs sell out almost immediately once individual tickets drop.",
+          "url": "https://www.timeout.com/london/news/fka-twigs-meltdown-festival-southbank-centre-2027-102126",
+          "date_info": "Lineup announced today; presales coming soon",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "GALA Festival Reveals 2027 Lineup in South London",
+          "category": "event",
+          "summary": "South London's marquee electronic weekender in nearby Peckham Rye has dropped its next lineup featuring Four Tet, HAAi, and Shy FX. First-release ticket tiers sell out quickly upon public on-sale.",
+          "url": "https://www.timeout.com/london/news/south-london-music-festival-gala-has-revealed-its-lineup-for-2027-with-four-tet-haai-shy-fx-and-more-102126",
+          "date_info": "Tickets on sale this week",
+          "urgency": "this-week",
+          "link_status": "verified"
+        },
+        {
+          "title": "OutKast x Atlanta Falcons 30th Anniversary 'ATLiens' Capsule",
+          "category": "drop",
+          "summary": "To celebrate 30 years of 'ATLiens', OutKast and the NFL's Atlanta Falcons have launched a collaborative streetwear collection including custom caps, coach jackets, and graphic tees blending classic alien iconography with retro gridiron aesthetics.",
+          "url": "https://hypebeast.com/2026/10/outkast-atlanta-falcons-30th-anniversary-atliens-collection-release-info",
+          "date_info": "Available now in limited quantities",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        }
+      ]
     }
   ]
 }
