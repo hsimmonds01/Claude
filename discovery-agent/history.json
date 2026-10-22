@@ -5123,6 +5123,75 @@
           "link_status": "verified"
         }
       ]
+    },
+    {
+      "date": "2026-10-22",
+      "model": "gemini-2.5-flash (legacy key, live search)",
+      "items": [
+        {
+          "title": "New Era Unveils New York Knicks 2026 NBA Ring Ceremony Collection",
+          "category": "drop",
+          "summary": "New Era has released a limited-edition collection of caps and apparel celebrating the New York Knicks' 2026 NBA Ring Ceremony, perfect for fans of exclusive headwear and streetwear.",
+          "url": "https://hypebeast.com/2026/10/new-era-new-york-knicks-2026-nba-ring-ceremony-collection-release-info",
+          "date_info": "Released recently (2026 NBA Ring Ceremony Collection)",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "GUESS JEANS Announces Capsule Collection with VERDY's Wasted Youth",
+          "category": "drop",
+          "summary": "GUESS JEANS is collaborating with VERDY's Wasted Youth on a new capsule collection, offering a fresh limited-edition drop for those into designer streetwear collabs.",
+          "url": "https://hypebeast.com/2026/10/guess-jeans-wasted-youth-release-info",
+          "date_info": "Announced recently",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "Fear of God ESSENTIALS Unifies NFL and NBA Lines for Fall 2026",
+          "category": "drop",
+          "summary": "Fear of God's popular ESSENTIALS line is unifying its signature collection with NFL and NBA lines for Fall 2026, promising new streetwear collaborations to look out for.",
+          "url": "https://hypebeast.com/2026/10/fear-of-god-essentials-nfl-nba-fall-2026-collection-release-info",
+          "date_info": "Fall 2026 collection",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "GALA Festival 2027 Lineup Revealed for South London",
+          "category": "event",
+          "summary": "South London's GALA Festival has announced its 2027 lineup, featuring Four Tet, HAAi, and Shy FX. Tickets for this popular local music event are expected to sell out quickly once released.",
+          "url": "https://www.timeout.com/london/news/south-london-music-festival-gala-has-revealed-its-lineup-for-2027-with-four-tet-haai-shy-fx-and-more-102126",
+          "date_info": "2027 festival, tickets likely on sale soon",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "London Museums Partner for Huge Free Festival Next Summer",
+          "category": "event",
+          "summary": "Several of London's biggest museums are collaborating on a massive free festival scheduled for June 2027, offering a high-value cultural experience without the ticket price.",
+          "url": "https://www.timeout.com/london/news/great-exhibition-road-south-asia-arts-festival-june-2027-102126",
+          "date_info": "June 2027",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "Studio Thusthat Transforms Aluminum Waste into Delicate Ceramics",
+          "category": "product",
+          "summary": "Studio Thusthat is creating beautiful and sustainable delicate ceramics by repurposing the rusty-red waste of aluminum production, offering genuinely interesting and artfully designed objects.",
+          "url": "https://www.designboom.com/design/studio-thusthat-rusty-red-waste-aluminum-production-delicate-ceramics/",
+          "date_info": "",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "Bread Ahead Confirms Stay at Borough Market",
+          "category": "food",
+          "summary": "Great news for South East London foodies: popular bakery Bread Ahead has confirmed its continued presence at Borough Market, ensuring your access to their renowned baked goods.",
+          "url": "https://www.timeout.com/london/news/bread-ahead-lease-extended-borough-market-102126",
+          "date_info": "",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        }
+      ]
     }
   ]
 }
