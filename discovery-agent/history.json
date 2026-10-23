@@ -5192,6 +5192,57 @@
           "link_status": "verified"
         }
       ]
+    },
+    {
+      "date": "2026-10-23",
+      "model": "gemini-2.5-flash (legacy key, live search)",
+      "items": [
+        {
+          "title": "Aimé Leon Dore x Olympiacos F.C. Second Collaborative Capsule Available Now",
+          "category": "drop",
+          "summary": "Aimé Leon Dore has launched its second streetwear capsule collection with Greek football club Olympiacos F.C., available now online and in their London flagship store. Expect limited-edition apparel from this sought-after designer collaboration.",
+          "url": "https://hypebeast.com/2026/10/aime-leon-dore-olympiacos-fc-second-collaborative-capsule-release-info",
+          "date_info": "Available now (released Oct 23)",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "Diljit Dosanjh London Wembley Stadium Tickets On Sale",
+          "category": "event",
+          "summary": "Tickets are currently on sale for Diljit Dosanjh's concert at Wembley Stadium in London. This is a significant gig by a popular artist at a major London venue, and tickets are likely to sell out quickly.",
+          "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNb3BjYjNHaE1qSUNlNy1HWnNpWEhCbzlmRE5sajVxNC1UQXNkU3E2WDFrMHREQVUxSnJVanNxZ1QtYXgwQk50aEI4cFFUcDlwS0xXTUxSZ1NWNW5HbzhyMlRoMGg4OVp2NC14VExHdUtCT3laZHhoTUYzbGpGTTh2ZzlHdF9XSEpLcFo1aGFOOXZYTk9SRmVOV29MZw?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "date_info": "Tickets on sale now",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "Theo’s Pizza Parlour Opening New Location in Peckham",
+          "category": "food",
+          "summary": "Much-loved South London pizza spot, Theo's, is expanding its presence with a new location opening in Peckham. This is excellent news for local food enthusiasts looking for quality pizza near Bermondsey and Elephant & Castle.",
+          "url": "https://www.timeout.com/london/news/theos-pizza-parlour-new-location-peckham-102226",
+          "date_info": "Opening announced recently",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "Insta360 Launches Cheaper Wireless Mics with Color Screens",
+          "category": "product",
+          "summary": "Insta360 has released a more affordable version of its wireless microphones, now enhanced with convenient color screens. This represents a genuinely clever and accessible tech gadget, perfect for creators or anyone needing quality audio on the go.",
+          "url": "https://www.google.com/search?q=Insta360+Launches+Cheaper+Wireless+Mics+with+Color+Screens",
+          "date_info": "Released recently",
+          "urgency": "heads-up",
+          "link_status": "search"
+        },
+        {
+          "title": "Préssec's Tune X3 Headphones with Vintage Studio Design",
+          "category": "product",
+          "summary": "Préssec has unveiled the new Tune X3 headphones, featuring a distinctive design inspired by vintage studio equipment. These offer a blend of cool aesthetics and interesting audio tech, appealing to those who appreciate beautiful design objects.",
+          "url": "https://www.designboom.com/technology/tune-x3-headphones-pressec-vintage-studio-equipment/",
+          "date_info": "New release",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        }
+      ]
     }
   ]
 }
