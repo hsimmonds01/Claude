@@ -5243,6 +5243,30 @@
           "link_status": "verified"
         }
       ]
+    },
+    {
+      "date": "2026-10-24",
+      "model": "gemini-2.5-flash (legacy key, live search)",
+      "items": [
+        {
+          "title": "Marmot x CITY COUNTRY CITY “Everywhere” Capsule Drops Today",
+          "category": "drop",
+          "summary": "The sixth collaboration between Marmot and CITY COUNTRY CITY, this 'Everywhere' capsule collection features technical outerwear, pants, and caps made from Polartec fleece and PrimaLoft insulation, designed for winter layering. It drops today, so be quick for these limited-edition pieces.",
+          "url": "https://hypebeast.com/2026/10/marmot-city-country-city-fall-winter-2026-fw26-everywhere-capsule-release-info",
+          "date_info": "Drops today, Sat 24 Oct 2026",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "Berryman's: New Oyster and Martini Bar from Three Sheets Founders",
+          "category": "food",
+          "summary": "The acclaimed founders of London's 'Three Sheets' bar are opening a new martini, wine, and oyster bar called Berryman's in Dalston. This exciting new food and drink spot will feature Cornish oysters, a rotating martini selection, and a seafood-heavy menu.",
+          "url": "https://www.timeout.com/london/news/the-founders-of-one-of-londons-finest-bars-are-launching-an-oyster-bar-102326",
+          "date_info": "Opens Fri 13 Nov 2026, 5pm. Walk-ins only.",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        }
+      ]
     }
   ]
 }
