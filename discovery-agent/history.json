@@ -5267,6 +5267,57 @@
           "link_status": "verified"
         }
       ]
+    },
+    {
+      "date": "2026-10-25",
+      "model": "gemini-2.5-flash (legacy key, live search)",
+      "items": [
+        {
+          "title": "NEEDLES x Pendleton Collection Drops",
+          "category": "drop",
+          "summary": "The highly anticipated first-ever collaboration between Japanese cult brand NEEDLES and American heritage brand Pendleton dropped yesterday. The collection features six pieces of archival wool, reimagined into distinctive streetwear.",
+          "url": "https://hypebeast.com/2026/10/needles-pendleton-first-collaboration-collection-release-info",
+          "date_info": "Released Sat 24 Oct 2026, 11:30am JST.",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "White Mountaineering x Alpha Industries Hybrid Jackets",
+          "category": "drop",
+          "summary": "A new limited-edition collaboration between White Mountaineering and Alpha Industries is set to release, showcasing two hybrid jackets that expertly splice military classics with technical fabrics.",
+          "url": "https://hypebeast.com/2026/10/white-mountaineering-alpha-industries-collaboration-collection-release-info",
+          "date_info": "Drops Fri 31 Oct 2026.",
+          "urgency": "this-week",
+          "link_status": "verified"
+        },
+        {
+          "title": "Drake's OVO x Better World Fragrance House 'DoSayDo' Eau De Parfum",
+          "category": "drop",
+          "summary": "Drake's Better World Fragrance House and OVO have launched 'DoSayDo,' an exclusive new eau de parfum created to celebrate Drake's 40th birthday.",
+          "url": "https://hypebeast.com/2026/10/drake-40th-birthday-exclusive-better-world-fragrance-house-ovo-dosaydo-eau-de-parfum-release-info",
+          "date_info": "Official launch Sat 24 Oct 2026.",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "'The Notebook' Musical Tickets for London's West End",
+          "category": "event",
+          "summary": "Tickets are now on sale for the highly anticipated UK premiere of 'The Notebook' musical, adapted from Nicholas Sparks' beloved novel. Previews for the romantic stage production begin in March 2027 at the newly named Judi Dench Theatre.",
+          "url": "https://www.timeout.com/london/news/the-musical-adaptation-of-the-notebook-is-coming-to-londons-west-end-102326",
+          "date_info": "Tickets on sale Fri 23 Oct 2026, 10am UK. Previews from 10 Mar 2027.",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "Lost Nightclub Finds New Central London Home",
+          "category": "event",
+          "summary": "The enigmatic, no-phones London nightclub 'Lost' is set to return in November, taking over the massive former London College of Fashion building on Oxford Street. Sign up for updates to be among the first to experience this unique clubbing experience.",
+          "url": "https://www.timeout.com/london/news/enigmatic-central-london-nightclub-lost-is-returning-at-a-new-location-102326",
+          "date_info": "Returning Nov 2026 (no specific date). Sign up for updates.",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        }
+      ]
     }
   ]
 }
