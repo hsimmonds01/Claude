@@ -5318,6 +5318,48 @@
           "link_status": "verified"
         }
       ]
+    },
+    {
+      "date": "2026-10-26",
+      "model": "gemini-2.5-flash (legacy key, live search)",
+      "items": [
+        {
+          "title": "E. Pellicci x Selfridges Christmas Pop-up & Merch Drop",
+          "category": "food event",
+          "summary": "Legendary East End cafe E. Pellicci is collaborating with Selfridges for a festive pop-up at The Brass Rail, bringing their classic Italian dishes and desserts to the West End. The collaboration also includes exclusive E. Pellicci pantry items, 'East End meets West End' caps, and tees available at Selfridges Foodhall.",
+          "url": "https://www.timeout.com/london/news/legendary-cafe-london-selfridges-collaboration-christmas-102626",
+          "date_info": "Launching Monday, November 2, until Christmas",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "NEEDLES x Pendleton Fall/Winter 2026 Collection",
+          "category": "drop",
+          "summary": "NEEDLES and Pendleton join forces for a six-piece capsule, reinterpreting Pendleton's heritage plaids and wool cloth across shirting, outerwear, trousers, and knitwear. Available at Nepenthes stores and online.",
+          "url": "https://www.google.com/search?q=NEEDLES+x+Pendleton+Fall%2FWinter+2026+Collection",
+          "date_info": "Dropped October 24",
+          "urgency": "this-week",
+          "link_status": "search"
+        },
+        {
+          "title": "Doc'n Roll Film Festival London 2026",
+          "category": "film",
+          "summary": "The Doc'n Roll Film Festival is currently running in London, focusing on music documentaries. Explore a diverse program of films for music lovers.",
+          "url": "https://www.timeout.com/london/news/film-festivals-in-london-this-autumn-102626",
+          "date_info": "Running October 22 - November 8",
+          "urgency": "this-week",
+          "link_status": "verified"
+        },
+        {
+          "title": "Oppo Launches Affordable 10,000mAh Power Bank with Built-in Cable",
+          "category": "product",
+          "summary": "Oppo has released a new, affordable 10,000mAh power bank that features fast charging and a clever built-in cable, making it a convenient gadget to keep your devices powered on the go.",
+          "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxOSVRXWi16ZG9ZNk05ZkVmT0N1aHNISlZlb2tBOHBzdWhPa3lrdTF1N0JPZ1NnSTBPZzhqX3ZpdXctYmVuU2RtaS1CUVIxcV9UY1ZnTVRyRXB4Z2RGaHhoaV9rTTRIdmZVSnh0U3k1cnlOM3lOUnphWFpVUmpyWnkyNGVwbWE2M1MtektWSnE1U0dBMFVBVUh4QlV0cVhvRVdyM3dNNW5SUlByRDdZUzFjRUp3TFE2SGJIbk9ueGlIRWFLckJNSEFF?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "date_info": "Recently launched",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        }
+      ]
     }
   ]
 }
