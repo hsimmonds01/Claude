@@ -5360,6 +5360,84 @@
           "link_status": "verified"
         }
       ]
+    },
+    {
+      "date": "2026-10-27",
+      "model": "gemini-2.5-flash (legacy key, live search)",
+      "items": [
+        {
+          "title": "London New Year’s Eve Fireworks 2026: Second Ticket Batch Incoming",
+          "category": "event",
+          "summary": "While the first batch of tickets for London's iconic New Year's Eve Fireworks on December 31, 2026, has already gone on sale, a final, smaller batch will be released later this year. Keep an eye out for the announcement of the on-sale date for these highly sought-after tickets.",
+          "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxPTHNETGJldXJYWk13enMtNXJNMzNUUElMVXVna3JodFhNckcyRzFlcG5KR2FhZ2RzTlpxUVU5NlJUMHBTbzF0UjM4R0x0VG9Eb1J3TTVPVFJySUlrTkM4cVdqLWR2b2ZRb0txd1ljdjN1ZzVzd1JhMTFtSFplSEprSU10bjlkdw?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "date_info": "Final, smaller batch to be announced later in the year.",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "Ramayana IMAX Release and Early Access Screenings",
+          "category": "film",
+          "summary": "The highly anticipated Bollywood epic 'Ramayana' is set for a worldwide IMAX release on November 6, 2026, with early access screenings potentially starting November 4 or 5. Tickets are reportedly selling fast for this big-screen event in London and globally.",
+          "url": "https://www.google.com/search?q=Ramayana+IMAX+Release+and+Early+Access+Screenings",
+          "date_info": "Opens November 6, 2026; early access potentially November 4 or 5.",
+          "urgency": "act-fast",
+          "link_status": "search"
+        },
+        {
+          "title": "Final Hours for The Great British Giveaway",
+          "category": "other",
+          "summary": "This is your last chance to enter The Great British Giveaway, a free-to-enter promotion offering genuine perks. Act fast before the entry window closes.",
+          "url": "https://www.google.com/search?q=Final+Hours+for+The+Great+British+Giveaway",
+          "date_info": "Final hours",
+          "urgency": "act-fast",
+          "link_status": "search"
+        },
+        {
+          "title": "Vectrex Mini Launch Event in London Next Month",
+          "category": "event",
+          "summary": "A launch event for the retro-inspired Vectrex Mini is taking place in London next month, with tickets available now. This is a chance to experience a cool new tech gadget firsthand.",
+          "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxNQm5rRG5tZFhnU3M2Si03RmpZQ1NCNVI3X01aNmtDekpSZkNwbEFNa2hFazFxT3hZZ2FzWXl5MFNpX3pPX0dZSG1YRTM4Q2Z6TWhJZHhOZktFN18xSS1PYUpUUHlvWkt2QTY4clBwcmF6TkJPUk9mOFVxQ2oxZkJ3ejZxeEhiT0dZN2FCNDNCRkpMTTl1RGhQMVhYMmN1THN6eS1DZ1JuZHkway05YV82cFFMUnFmSm1zWDEwSkwtNHQtSjNjYUc2R2xLSUp6Zw?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "date_info": "Next Month, Tickets Are Available Now",
+          "urgency": "this-week",
+          "link_status": "verified"
+        },
+        {
+          "title": "Phoebe Bridgers to Headline All Points East Festival 2027",
+          "category": "event",
+          "summary": "Indie favorite Phoebe Bridgers has been announced as a headliner for London’s All Points East festival in 2027. Keep an eye out for presale and ticket information for this major London gig, as tickets are expected to sell out.",
+          "url": "https://www.timeout.com/london/news/all-points-east-festival-2027-headliner-phoebe-bridgers-102626",
+          "date_info": "2027 festival, presale info expected soon",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "Ozzy's Declared Best Pizza in London by Time Out",
+          "category": "food",
+          "summary": "Time Out has officially named Ozzy's as the best pizza in London right now. This makes it a must-visit spot for anyone looking for genuinely good food.",
+          "url": "https://www.timeout.com/london/news/best-pizza-right-now-ozzys-102626",
+          "date_info": "",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "BAPE by Kazuki Kuraishi FW26 Collection Incoming",
+          "category": "drop",
+          "summary": "BAPE is gearing up for its Fall/Winter 2026 collection, 'Expedition on Spaceship Earth,' a limited-edition streetwear collaboration with designer Kazuki Kuraishi. Expect unique pieces from this designer collaboration.",
+          "url": "https://hypebeast.com/2026/10/bape-kazuki-kuraishi-fall-winter-2026-expedition-on-spaceship-earth-collection-release-info",
+          "date_info": "FW26 collection",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "Gramicci x nonnative Fleece Pants Return for the Season",
+          "category": "drop",
+          "summary": "The popular Gramicci x nonnative fleece pants collaboration is making a return for the season. This limited-edition streetwear item is now available for those looking for cool, small-brand runs.",
+          "url": "https://hypebeast.com/2026/10/gramicci-nonnative-polartec-wind-pro-collabo-release-info",
+          "date_info": "Return for the Season (October 2026)",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        }
+      ]
     }
   ]
 }
