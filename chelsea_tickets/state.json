@@ -124,8 +124,6 @@
     "7IKFpBGSMzdHCvyC40jyXM::new_fixture": "2026-10-06T16:01:27.645148+00:00",
     "LQKYY0qugPeQ6Z8BxWwnJ::new_fixture": "2026-10-06T16:01:26.627879+00:00"
   },
-  "open_since": {
-    "1ZGBkB6Ud3StnSV8BK85GH::window_open::ticket-application-window-loyalty-points": "2026-10-27T15:30:58.780371+00:00"
-  },
+  "open_since": {},
   "schema_version": 1
 }
