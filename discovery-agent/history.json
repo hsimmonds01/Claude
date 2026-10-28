@@ -5438,6 +5438,48 @@
           "link_status": "verified"
         }
       ]
+    },
+    {
+      "date": "2026-10-28",
+      "model": "gemini-flash-lite-latest",
+      "items": [
+        {
+          "title": "Alley Cats Pizza Expands to Battersea",
+          "category": "other",
+          "summary": "The hyped New York-style pizza joint is opening its fifth London location, bringing its legendary thin-crust pies south of the river.",
+          "url": "https://www.timeout.com/london/news/alley-cats-pizza-new-restaurant-battersea-102826",
+          "date_info": "Opening soon",
+          "urgency": "this-week",
+          "link_status": "verified"
+        },
+        {
+          "title": "Persephone Books Returns to London",
+          "category": "event",
+          "summary": "After a five-year hiatus, the much-loved independent publisher and bookshop is making its triumphant return to London this November.",
+          "url": "https://www.timeout.com/london/news/much-loved-persephone-books-returns-november-2026-102826",
+          "date_info": "Opening November 2026",
+          "urgency": "this-week",
+          "link_status": "verified"
+        },
+        {
+          "title": "Royal Court Theatre 2027 Season",
+          "category": "event",
+          "summary": "The Royal Court has dropped its stacked 2027 programme featuring Jessie Buckley, Branden Jacobs-Jenkins, and Complicité.",
+          "url": "https://www.timeout.com/london/news/royal-court-theatre-announces-2027-programme-102826",
+          "date_info": "2027 Season",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "London Christmas Markets Opening Dates Announced",
+          "category": "event",
+          "summary": "Time Out has mapped out when every major London festive market opens for 2026, ideal for planning winter food and wander trips.",
+          "url": "https://www.timeout.com/london/news/london-christmas-markets-opening-dates-2026-102826",
+          "date_info": "Opening across winter 2026",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        }
+      ]
     }
   ]
 }
