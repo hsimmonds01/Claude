@@ -5480,6 +5480,66 @@
           "link_status": "verified"
         }
       ]
+    },
+    {
+      "date": "2026-10-29",
+      "model": "gemini-2.5-flash (legacy key, live search)",
+      "items": [
+        {
+          "title": "W50 Live: Williams F1 Exhibition Tickets On Sale in London Today",
+          "category": "event",
+          "summary": "Tickets are on general sale today for 'W50 Live', a ticketed exhibition celebrating 50 years of Williams F1. This immersive event, featuring historic cars and memorabilia, will run from February 11-28, 2027, at Leake Street in Waterloo, London, making it a must-attend for any F1 fan.",
+          "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNZlJackIyZkFESkZJTWRmNXpfalE2QnpYQnNUNXhfNTlhclF3RUxtU1dsYmNtSHJkNGh3WHgxcnNpSDVad1hnYW42UWlrQ2tUUVJ2dVhLZmpmWS1xZE52bzYtYzh5LUlTWDBzOXNhUUdoNWdpcmVqelFBUGduMWlfTmRlYWlqcFRIdDVGTk03aVlHdHQzN0FBUUhmbG9WcFluSW5JQnhJRzhrblVGS0E?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "date_info": "Tickets on general sale today, October 29, 2026. Exhibition runs Feb 11-28, 2027.",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "Last Chance: Barbican Greenhouse Plant Giveaway Registration Opens Today",
+          "category": "other",
+          "summary": "Don't miss the final opportunity to adopt a free plant cutting from the Barbican Conservatory before its temporary closure for refurbishment. Registration for the last plant adoption ballot opens today, October 29, at 2 PM on the Barbican's website, for the event on December 2, 2026.",
+          "url": "https://www.timeout.com/london/news/barbican-greenhouse-plant-giveaway-last-date-december-102926",
+          "date_info": "Registration opens today, October 29, 2026, 2 PM. Event on December 2, 2026.",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "Duran Duran Brings Halloween 'Danse Macabre' Special to The O2 London",
+          "category": "event",
+          "summary": "Catch Duran Duran live at The O2 in London for a special Halloween 'Danse Macabre' show this Saturday, October 31. Fans are encouraged to dress up for a night of twisted hits and surprises. Tickets are currently available.",
+          "url": "https://www.google.com/search?q=Duran+Duran+Brings+Halloween+%27Danse+Macabre%27+Special+to+The+O2+London",
+          "date_info": "Saturday, October 31, 2026 (Doors 6:30 PM)",
+          "urgency": "this-week",
+          "link_status": "search"
+        },
+        {
+          "title": "Tickets Now On Sale for ‘The Hunger Games: Sunrise On The Reaping’ in UK IMAX",
+          "category": "film",
+          "summary": "Tickets are officially on sale across the UK for the highly anticipated new film, ‘The Hunger Games: Sunrise On The Reaping’, with IMAX screenings available. Secure your seats now for this big-screen event.",
+          "url": "https://www.google.com/search?q=Tickets+Now+On+Sale+for+%E2%80%98The+Hunger+Games%3A+Sunrise+On+The+Reaping%E2%80%99+in+UK+IMAX",
+          "date_info": "Tickets now on sale",
+          "urgency": "act-fast",
+          "link_status": "search"
+        },
+        {
+          "title": "Rogbid Model R5: Affordable Smartwatch with SIM Slot, Camera, and AMOLED Screen",
+          "category": "product",
+          "summary": "Check out the newly announced Rogbid Model R5, an affordable smartwatch featuring a 2.4-inch AMOLED display, a SIM card slot for standalone use, and a 5MP camera. It's currently available for $129.99 as part of an 11.11 shopping festival promotion.",
+          "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxOWDlpaEVvdVBxU056RmFTOVVpMVR4WHJiQWhwZWNmTWtlb0M5SDhmMHpuVk9SZll0RngyRW1nRFAtV3VpekhYc0w0NnVQc0JqMl9xR0hSR3MxYUtNdHNyWEFXaFhwcG96WXJ0emVvN0xXRS1kbTVfWHh0b2tHYWZMWUxLQ1UtWVU5ZmVfZWViM0oxMWE2U1JVSmVTYnNVdUtKVDYwQzlYWmdpNmlnVXlkWlpQLTB3R0FxMGRCNEttTlVGN1EtRTgtOWdR?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "date_info": "Currently on promotion",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "Toklas Bakery to Open Second London Location in Chelsea",
+          "category": "food",
+          "summary": "One of London's highly-rated bakeries, Toklas, is expanding with a second location set to open in Chelsea on Pavilion Road. While an exact opening date has yet to be announced, it's exciting news for fans of their exceptional sourdough and pastries.",
+          "url": "https://www.timeout.com/london/news/toklas-bakery-second-location-chelsea-102926",
+          "date_info": "Opening date TBC",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        }
+      ]
     }
   ]
 }
