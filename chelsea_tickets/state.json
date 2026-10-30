@@ -31,7 +31,7 @@
       "date": "Sat 24 Apr 2027",
       "opponent": "Manchester City",
       "windows": {
-        "ticket-application-window-loyalty-points-basis": "open"
+        "ticket-application-window": "open"
       }
     },
     "24ZDiYAPQUgqmZVb2n09Qc": {
@@ -87,7 +87,7 @@
       "date": "Sat 13 Mar 2027",
       "opponent": "Arsenal",
       "windows": {
-        "ticket-application-window-loyalty-points-basis": "open"
+        "ticket-application-window": "open"
       }
     },
     "6gPnhKBYOObsKpzuyv9a5s": {
@@ -111,7 +111,7 @@
       "date": "Sun 30 May 2027",
       "opponent": "Brentford",
       "windows": {
-        "ticket-application-window-loyalty-points-basis": "open"
+        "ticket-application-window": "open"
       }
     },
     "LQKYY0qugPeQ6Z8BxWwnJ": {
@@ -133,6 +133,7 @@
     "1ZGBkB6Ud3StnSV8BK85GH::window_open::ticket-application-window-loyalty-points": "2026-10-27T15:30:59.908963+00:00",
     "1ZGBkB6Ud3StnSV8BK85GH::window_open::ticket-application-window-pm": "2026-10-23T16:30:58.094543+00:00",
     "1bc3YN3tt0O633R6Y2wULu::new_fixture": "2026-10-06T16:01:27.415123+00:00",
+    "1bc3YN3tt0O633R6Y2wULu::window_open::ticket-application-window": "2026-10-30T12:01:12.759060+00:00",
     "1bc3YN3tt0O633R6Y2wULu::window_open::ticket-application-window-loyalty-points-basis": "2026-10-30T11:31:04.896541+00:00",
     "24ZDiYAPQUgqmZVb2n09Qc::new_fixture": "2026-10-01T19:01:30.357766+00:00",
     "24ZDiYAPQUgqmZVb2n09Qc::window_open::ticket-application-window": "2026-10-30T11:01:10.078950+00:00",
@@ -147,12 +148,14 @@
     "4tilDETKaf3gXP8adbEsza::new_fixture": "2026-09-18T17:31:04.815848+00:00",
     "4tilDETKaf3gXP8adbEsza::window_open::ticket-application-window-opens-pm": "2026-09-18T17:31:04.815862+00:00",
     "537eXyxK47nfbH15dsq5t7::new_fixture": "2026-10-06T16:01:27.157095+00:00",
+    "537eXyxK47nfbH15dsq5t7::window_open::ticket-application-window": "2026-10-30T12:01:12.198882+00:00",
     "537eXyxK47nfbH15dsq5t7::window_open::ticket-application-window-loyalty-points-basis": "2026-10-30T11:31:04.513132+00:00",
     "6gPnhKBYOObsKpzuyv9a5s::new_fixture": "2026-10-01T19:01:30.220732+00:00",
     "6gPnhKBYOObsKpzuyv9a5s::window_open::ticket-application-window": "2026-10-16T15:01:10.142848+00:00",
     "7De8xGXpuVZY8CT1LKHCGV::new_fixture": "2026-10-01T19:01:30.312848+00:00",
     "7De8xGXpuVZY8CT1LKHCGV::window_open::ticket-application-window": "2026-10-28T10:01:15.088921+00:00",
     "7IKFpBGSMzdHCvyC40jyXM::new_fixture": "2026-10-06T16:01:27.645148+00:00",
+    "7IKFpBGSMzdHCvyC40jyXM::window_open::ticket-application-window": "2026-10-30T12:01:12.975466+00:00",
     "7IKFpBGSMzdHCvyC40jyXM::window_open::ticket-application-window-loyalty-points-basis": "2026-10-30T11:31:05.282550+00:00",
     "LQKYY0qugPeQ6Z8BxWwnJ::new_fixture": "2026-10-06T16:01:26.627879+00:00",
     "LQKYY0qugPeQ6Z8BxWwnJ::window_open::ticket-application-window": "2026-10-30T11:31:03.756159+00:00"
@@ -160,13 +163,13 @@
   "open_since": {
     "16TraUTlMFnPzPnvRTZPHq::window_open::ticket-application-window": "2026-10-30T11:31:00.450237+00:00",
     "1CTJGlOsVK7SPgEFvlhFJd::window_open::ticket-application-window": "2026-10-30T11:31:00.450237+00:00",
-    "1bc3YN3tt0O633R6Y2wULu::window_open::ticket-application-window-loyalty-points-basis": "2026-10-30T11:31:00.450237+00:00",
+    "1bc3YN3tt0O633R6Y2wULu::window_open::ticket-application-window": "2026-10-30T12:01:10.184126+00:00",
     "24ZDiYAPQUgqmZVb2n09Qc::window_open::ticket-application-window": "2026-10-30T11:01:09.642512+00:00",
     "2rON8ZQMZXmDZP3T356LnW::window_open::ticket-application-window": "2026-10-30T11:31:00.450237+00:00",
     "41gAS7R1UJ8FSHlu7N4rbm::window_open::ticket-application-window": "2026-10-30T11:31:00.450237+00:00",
     "4rGsJmZ2g7cozXvyNPBoMG::window_open::ticket-application-window": "2026-10-30T11:31:00.450237+00:00",
-    "537eXyxK47nfbH15dsq5t7::window_open::ticket-application-window-loyalty-points-basis": "2026-10-30T11:31:00.450237+00:00",
-    "7IKFpBGSMzdHCvyC40jyXM::window_open::ticket-application-window-loyalty-points-basis": "2026-10-30T11:31:00.450237+00:00",
+    "537eXyxK47nfbH15dsq5t7::window_open::ticket-application-window": "2026-10-30T12:01:10.184126+00:00",
+    "7IKFpBGSMzdHCvyC40jyXM::window_open::ticket-application-window": "2026-10-30T12:01:10.184126+00:00",
     "LQKYY0qugPeQ6Z8BxWwnJ::window_open::ticket-application-window": "2026-10-30T11:31:00.450237+00:00"
   },
   "schema_version": 1
