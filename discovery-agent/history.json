@@ -5540,6 +5540,66 @@
           "link_status": "verified"
         }
       ]
+    },
+    {
+      "date": "2026-10-30",
+      "model": "gemini-2.5-flash (legacy key, live search)",
+      "items": [
+        {
+          "title": "Dune: Part One & Two Return to IMAX with Part Three Sneak Peek",
+          "category": "film",
+          "summary": "The first two 'Dune' films are returning to IMAX for a special one-week run starting November 13th, offering a chance to see them on the big screen again, plus an exclusive sneak peek of 'Dune: Part Three'. Tickets go on sale today, October 30th, so act fast to secure your spot.",
+          "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE9WZWgtemdkcnBhemJrNl9kOVQ2R0ZKSXIxa2o3bDY1Zjdkc0FqQVFwM1QyWWNRc0pXQWg1S25KQnJrdkVhNDU5MzZ2MS01djBfRFhkaDZfLXRjS1pHdlNTQ1c0MTJ4emtmWWZoVlgtaXdmc1k?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "date_info": "Tickets on sale Friday 30 October 2026, screenings from 13 November 2026",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "'Everest: The Other Side' Opens in IMAX Today",
+          "category": "film",
+          "summary": "Experience the breathtaking documentary 'Everest: The Other Side' as it opens exclusively in theaters and IMAX worldwide today, October 30th. This intimate portrait follows a mountaineering couple's ambition to climb and ski the most difficult face of Everest.",
+          "url": "https://www.google.com/search?q=%27Everest%3A+The+Other+Side%27+Opens+in+IMAX+Today",
+          "date_info": "Opens Friday 30 October 2026",
+          "urgency": "act-fast",
+          "link_status": "search"
+        },
+        {
+          "title": "MR. BATHING APE x Nigel Cabourn FW26 Collection Drops Tomorrow",
+          "category": "drop",
+          "summary": "The first collaboration between MR. BATHING APE and British heritage brand Nigel Cabourn, inspired by Antarctic missions, releases tomorrow, October 31st. Expect premium menswear designed for extreme weather with unique camo linings and shearling details.",
+          "url": "https://hypebeast.com/2026/10/mr-bathing-ape-nigel-cabourn-fall-winter-fw-2026-collaboration-collection-release-info",
+          "date_info": "Releases Saturday 31 October 2026",
+          "urgency": "this-week",
+          "link_status": "verified"
+        },
+        {
+          "title": "Apple Unveils First Touchscreen MacBook Pro, Pre-orders Open",
+          "category": "product",
+          "summary": "Apple has announced its first-ever touchscreen MacBook Pro, featuring a new PROLED XDR display and M5 Pro/Max chips. Pre-orders opened on October 28th, with retail availability and first deliveries scheduled for November 6th. Prices start from $2,899.",
+          "url": "https://mashable.com/tech/apple-oled-macbook-pro-touchscreen-price-specs-release-date",
+          "date_info": "Pre-orders open, deliveries from 6 November 2026",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "Thom Browne x Globe-Trotter Luggage Collection Available Now",
+          "category": "drop",
+          "summary": "A new collaboration between Thom Browne and Globe-Trotter brings beautifully designed, handcrafted luggage. Each piece is made in England using traditional techniques, featuring custom Thom Browne leatherwork and signature RWB accents.",
+          "url": "https://www.google.com/search?q=Thom+Browne+x+Globe-Trotter+Luggage+Collection+Available+Now",
+          "date_info": "",
+          "urgency": "heads-up",
+          "link_status": "search"
+        },
+        {
+          "title": "London Christmas Lights Switch-On Dates Announced for Early November",
+          "category": "event",
+          "summary": "Get ready for the festive season! Key London Christmas lights switch-on dates have been announced, with Carnaby Street lighting up on November 4th (free tickets via sign-up), Regent Street on November 5th, Marylebone on November 11th, and Covent Garden and Bond Street on November 12th. Leicester Square's lights turn on even earlier, on November 1st.",
+          "url": "https://www.timeout.com/london/news/every-major-christmas-light-displays-switch-on-dates-2026-102626",
+          "date_info": "Various dates from 1 November 2026",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        }
+      ]
     }
   ]
 }
