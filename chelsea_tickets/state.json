@@ -32,7 +32,9 @@
       "competition": "Premier League",
       "date": "Sun 03 Jan 2027",
       "opponent": "Newcastle United",
-      "windows": {}
+      "windows": {
+        "ticket-application-window": "open"
+      }
     },
     "2rON8ZQMZXmDZP3T356LnW": {
       "competition": "Premier League",
@@ -112,6 +114,7 @@
     "1ZGBkB6Ud3StnSV8BK85GH::window_open::ticket-application-window-pm": "2026-10-23T16:30:58.094543+00:00",
     "1bc3YN3tt0O633R6Y2wULu::new_fixture": "2026-10-06T16:01:27.415123+00:00",
     "24ZDiYAPQUgqmZVb2n09Qc::new_fixture": "2026-10-01T19:01:30.357766+00:00",
+    "24ZDiYAPQUgqmZVb2n09Qc::window_open::ticket-application-window": "2026-10-30T11:01:10.078950+00:00",
     "2rON8ZQMZXmDZP3T356LnW::new_fixture": "2026-10-06T16:01:27.289850+00:00",
     "2zWm0U1dBgVxccabdkHo4I::new_fixture": "2026-10-01T19:01:30.181489+00:00",
     "2zWm0U1dBgVxccabdkHo4I::window_open::ticket-application-window": "2026-10-09T16:01:11.213799+00:00",
@@ -127,6 +130,8 @@
     "7IKFpBGSMzdHCvyC40jyXM::new_fixture": "2026-10-06T16:01:27.645148+00:00",
     "LQKYY0qugPeQ6Z8BxWwnJ::new_fixture": "2026-10-06T16:01:26.627879+00:00"
   },
-  "open_since": {},
+  "open_since": {
+    "24ZDiYAPQUgqmZVb2n09Qc::window_open::ticket-application-window": "2026-10-30T11:01:09.642512+00:00"
+  },
   "schema_version": 1
 }
