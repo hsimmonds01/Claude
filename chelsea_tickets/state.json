@@ -74,14 +74,6 @@
         "ticket-application-window": "open"
       }
     },
-    "4tilDETKaf3gXP8adbEsza": {
-      "competition": "Premier League",
-      "date": "Sat 31 Oct 2026",
-      "opponent": "Manchester United",
-      "windows": {
-        "ticket-application-window": "closed"
-      }
-    },
     "537eXyxK47nfbH15dsq5t7": {
       "competition": "Premier League",
       "date": "Sat 13 Mar 2027",
@@ -145,8 +137,6 @@
     "41gAS7R1UJ8FSHlu7N4rbm::window_open::ticket-application-window": "2026-10-30T11:31:05.093944+00:00",
     "4rGsJmZ2g7cozXvyNPBoMG::new_fixture": "2026-10-06T16:01:26.880310+00:00",
     "4rGsJmZ2g7cozXvyNPBoMG::window_open::ticket-application-window": "2026-10-30T11:31:04.137593+00:00",
-    "4tilDETKaf3gXP8adbEsza::new_fixture": "2026-09-18T17:31:04.815848+00:00",
-    "4tilDETKaf3gXP8adbEsza::window_open::ticket-application-window-opens-pm": "2026-09-18T17:31:04.815862+00:00",
     "537eXyxK47nfbH15dsq5t7::new_fixture": "2026-10-06T16:01:27.157095+00:00",
     "537eXyxK47nfbH15dsq5t7::window_open::ticket-application-window": "2026-10-30T12:01:12.198882+00:00",
     "537eXyxK47nfbH15dsq5t7::window_open::ticket-application-window-loyalty-points-basis": "2026-10-30T11:31:04.513132+00:00",
