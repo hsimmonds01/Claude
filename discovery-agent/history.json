@@ -5600,6 +5600,84 @@
           "link_status": "verified"
         }
       ]
+    },
+    {
+      "date": "2026-10-31",
+      "model": "gemini-2.5-flash (legacy key, live search)",
+      "items": [
+        {
+          "title": "U2 'The Greatest Show On Earth' Tour at Tottenham Hotspur Stadium",
+          "category": "event",
+          "summary": "U2 is bringing their 'The Greatest Show On Earth' tour to London's Tottenham Hotspur Stadium for two dates in June 2027. General sale for tickets begins Friday, November 6, 2026, at 10 AM, with various presale options available earlier in the week, including an Artist Presale sign-up deadline of Sunday, November 1.",
+          "url": "https://www.timeout.com/london/news/u2-tottenham-stadium-june-2027-dates-tickets-prices-presale-103026",
+          "date_info": "General sale Fri Nov 6, 2026, 10am; Artist Presale sign-up by Sun Nov 1, 10:59pm GMT",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "Pokémon Night Out at London's O2 Arena",
+          "category": "event",
+          "summary": "A unique, first-of-its-kind EDM concert featuring world-renowned artists like Marshmello and Alison Wonderland, with custom Pokémon visuals, is happening at The O2 Arena in London on November 10, 2026. Tickets are on sale now.",
+          "url": "https://www.google.com/search?q=Pok%C3%A9mon+Night+Out+at+London%27s+O2+Arena",
+          "date_info": "Tue, Nov 10, 2026, 7:30 PM. Tickets on sale now.",
+          "urgency": "act-fast",
+          "link_status": "search"
+        },
+        {
+          "title": "WACKO MARIA x NANGA FW26 Collection Drops Today",
+          "category": "drop",
+          "summary": "The highly anticipated WACKO MARIA x NANGA Fall/Winter 2026 outerwear collection, featuring leopard print and down-filled pieces, is dropping today in stores and online.",
+          "url": "https://hypebeast.com/2026/10/wacko-maria-nanga-fall-winter-fw-2026-collaboration-collection-release-info",
+          "date_info": "Drops today, Oct 31, 2026",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "Oscar-Winning 'Godzilla Minus One' Now Showing in London IMAX",
+          "category": "film",
+          "summary": "The critically acclaimed, Oscar-winning Japanese blockbuster 'Godzilla Minus One' is currently showing on big screens in London, including a run at the BFI IMAX, offering a terrifying and visually spectacular cinematic experience.",
+          "url": "https://www.google.com/search?q=Oscar-Winning+%27Godzilla+Minus+One%27+Now+Showing+in+London+IMAX",
+          "date_info": "Currently showing",
+          "urgency": "this-week",
+          "link_status": "search"
+        },
+        {
+          "title": "Pre-order GTA 6 and Limited-Edition Soundtrack on Vinyl",
+          "category": "other",
+          "summary": "Get ready to pre-order the highly anticipated Grand Theft Auto 6, with Rockstar Games also announcing a limited-edition soundtrack release on vinyl, a perfect collectible for fans.",
+          "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxOZGFIME9kRGVBNDdDZ2xQVnd4NUYwMlJPUVNlamx3cEhjTzI5UXZSdnRITjlaNi13Qll3VXd5QWZxQWM1ZXVycVZ1Y29ZR20waW93OU9DMGxJdXNTUlYtUHZKcHpWZm5xcjFGXzB5Y01pNGZ6UWpiTXAyTzhoeHJzSmtlOU9BWHJVdVh3S1hjbE1TZTR6QUVrN2lFYXdyX2dnekFlazM5eGV2UzYza1g1OHE5MG1rZV9qUDY3cDByMjBrNnA2WDM0?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "date_info": "Pre-orders available now",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "Tiny iFi Gadget Adds Bluetooth to Old iPods and In-Flight Entertainment",
+          "category": "product",
+          "summary": "Discover a clever and affordable iFi gadget that brings modern convenience to older tech, enabling Bluetooth support for your old iPod and wireless headphone use with in-flight entertainment systems or in the car.",
+          "url": "https://www.google.com/search?q=Tiny+iFi+Gadget+Adds+Bluetooth+to+Old+iPods+and+In-Flight+Entertainment",
+          "date_info": "",
+          "urgency": "heads-up",
+          "link_status": "search"
+        },
+        {
+          "title": "15 Best New London Restaurants Opening in November",
+          "category": "food",
+          "summary": "Time Out has compiled a list of 15 exciting new restaurants set to open across London in November 2026, perfect for discovering new food spots in the city.",
+          "url": "https://www.timeout.com/london/news/best-new-restaurants-november-2026-103126",
+          "date_info": "Opening in November 2026",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "Leicester Square Christmas Lights Switch-On This Weekend",
+          "category": "event",
+          "summary": "London's first major Christmas lights display in Leicester Square is being switched on this weekend, offering a festive and free event to kick off the holiday season.",
+          "url": "https://www.timeout.com/london/news/leicester-square-christmas-lights-switch-on-date-103026",
+          "date_info": "This weekend (Oct 31 - Nov 1, 2026)",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        }
+      ]
     }
   ]
 }
