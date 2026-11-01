@@ -5678,6 +5678,57 @@
           "link_status": "verified"
         }
       ]
+    },
+    {
+      "date": "2026-11-01",
+      "model": "gemini-2.5-flash (legacy key, live search)",
+      "items": [
+        {
+          "title": "Palace x Burberry Limited-Edition Collection Drop",
+          "category": "drop",
+          "summary": "The highly anticipated Palace x Burberry collaboration is dropping exclusively at Palace's new Soho store in London. This limited-edition collection features apparel, outerwear, and accessories blending Burberry's iconic check with Palace's streetwear aesthetic, and is expected to sell out fast.",
+          "url": "https://www.google.com/search?q=Palace+x+Burberry+Limited-Edition+Collection+Drop",
+          "date_info": "Drops Thursday 5 November 2026, exclusively in-store at 8 Poland Street, Soho, London.",
+          "urgency": "act-fast",
+          "link_status": "search"
+        },
+        {
+          "title": "50% Off Dinner Deals in Bermondsey & Elephant & Castle with First Table",
+          "category": "food",
+          "summary": "Score 50% off your food bill at various top-rated restaurants in Bermondsey and Elephant & Castle by booking through First Table. This is a brilliant way to try new spots or revisit favourites in your local area for half the price.",
+          "url": "https://www.google.com/search?q=50%25+Off+Dinner+Deals+in+Bermondsey+%26+Elephant+%26+Castle+with+First+Table",
+          "date_info": "Ongoing, check website for daily availability and participating restaurants.",
+          "urgency": "act-fast",
+          "link_status": "search"
+        },
+        {
+          "title": "WOLOLOW 2.0 Reimagines Space Age Design in a Bedside Light",
+          "category": "product",
+          "summary": "Check out WOLOLOW 2.0, an elliptical bedside light that cleverly reinterprets 1960s space age architecture. This beautifully designed object is a genuinely interesting new release for those who appreciate clever gadgets and aesthetics.",
+          "url": "https://www.designboom.com/design/wololow-2-0-1960s-space-age-architecture-elliptical-bedside-light-arthur-koshatahyan-kostya-trunov/",
+          "date_info": "Recently revealed (October 31, 2026).",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "Uber Eats Morsel Marathon: A Unique London Running & Food Event",
+          "category": "event",
+          "summary": "Uber Eats is hosting its first-ever 'Morsel Marathon' in London this weekend, combining a running event with unique food experiences. This is a cool and unusual pop-up event to check out.",
+          "url": "https://www.timeout.com/london/news/uber-eats-morsel-marathon-november-2026-110126",
+          "date_info": "This weekend (November 1-2, 2026).",
+          "urgency": "this-week",
+          "link_status": "verified"
+        },
+        {
+          "title": "Gear Patrol's Best New Gadgets and Hi-Fi Releases of 2026 Guide",
+          "category": "product",
+          "summary": "Stay plugged into the world of genuinely interesting tech with Gear Patrol's continuously updated guide to the best new gadgets and hi-fi releases of 2026, featuring clever devices and design objects.",
+          "url": "https://windowsforum.com/news/gear-patrol-2026-gadget-guide-usb-c-hi-fi-and-physical-media-return.436930/",
+          "date_info": "Continuously updated throughout 2026.",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        }
+      ]
     }
   ]
 }
