@@ -5729,6 +5729,84 @@
           "link_status": "verified"
         }
       ]
+    },
+    {
+      "date": "2026-11-02",
+      "model": "gemini-2.5-flash (legacy key, live search)",
+      "items": [
+        {
+          "title": "Dune: Part One & Part Two Return to IMAX for One Week Only",
+          "category": "film",
+          "summary": "Tickets are on sale now for a limited one-week re-release of both 'Dune' films in IMAX. This is an essential big-screen event for fans of the epic sci-fi saga.",
+          "url": "https://www.google.com/search?q=Dune%3A+Part+One+%26+Part+Two+Return+to+IMAX+for+One+Week+Only",
+          "date_info": "Tickets on sale now for one week only (starting November)",
+          "urgency": "act-fast",
+          "link_status": "search"
+        },
+        {
+          "title": "ENGINEERED GARMENTS x CHROME Collaboration Bag Drops",
+          "category": "drop",
+          "summary": "A new limited-edition bag has been released as part of a collaboration between Engineered Garments and Chrome, perfect for clients interested in designer streetwear collabs.",
+          "url": "https://hypebeast.com/2026/11/engineered-garments-x-chrome-collaboration-bag-info",
+          "date_info": "Released November 2026",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "ARKnets Drops Exclusive Carhartt WIP Santa Fe OG Jacket",
+          "category": "drop",
+          "summary": "ARKnets has released an exclusive version of the Carhartt WIP Santa Fe OG Jacket, offering a limited-run piece for those keen on unique streetwear drops.",
+          "url": "https://hypebeast.com/2026/11/arknets-carhartt-wip-santa-fe-og-jacket-exclusive-model-release-info",
+          "date_info": "Released November 2026",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "New Balance x USM Modular Cold Plunge Tanks Revealed",
+          "category": "product",
+          "summary": "New Balance's latest collaboration introduces modular cold plunge tanks, presenting a genuinely interesting and cleverly designed new product that fits the 'how did I not know this existed' category.",
+          "url": "https://www.highsnobiety.com/p/new-balance-usm-dover-street-market/",
+          "date_info": "Revealed November 2026",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "HP Elite Board G1a: A Full PC Built into a Keyboard",
+          "category": "product",
+          "summary": "The HP Elite Board G1a is a full Windows computer ingeniously built into a keyboard, weighing only 1.5 lbs. This clever gadget offers a unique and practical solution for hot-desking or minimalist setups.",
+          "url": "https://www.google.com/search?q=HP+Elite+Board+G1a%3A+A+Full+PC+Built+into+a+Keyboard",
+          "date_info": "HP launched the G2a successor on October 13, 2026, making the G1a still relevant and recently updated.",
+          "urgency": "heads-up",
+          "link_status": "search"
+        },
+        {
+          "title": "Anker Prime Charger (160W) with Smart Color Display",
+          "category": "product",
+          "summary": "The Anker Prime Charger (160W, 3 Ports) features a smart 1.3-inch color screen that displays real-time power delivery to each port, making it a genuinely clever and affordable gadget for managing multiple devices, especially for travelers.",
+          "url": "https://www.google.com/search?q=Anker+Prime+Charger+%28160W%29+with+Smart+Color+Display",
+          "date_info": "Launched late 2025, recognized as one of TIME's Best Inventions of 2026.",
+          "urgency": "heads-up",
+          "link_status": "search"
+        },
+        {
+          "title": "EFG London Jazz Festival Kicks Off This Week",
+          "category": "event",
+          "summary": "The EFG London Jazz Festival runs from November 13-22, featuring over 300 shows across the city, including free concerts and ticketed events at various venues. Tickets for many performances are still available.",
+          "url": "https://www.google.com/search?q=EFG+London+Jazz+Festival+Kicks+Off+This+Week",
+          "date_info": "Festival runs November 13-22, 2026. Tickets on sale now.",
+          "urgency": "this-week",
+          "link_status": "search"
+        },
+        {
+          "title": "Win a Green People Family Suncare Bundle Worth £117.50",
+          "category": "other",
+          "summary": "Enter a low-effort, free-to-enter promotion for a chance to win one of three Green People Family Suncare Bundles, each valued at £117.50, offering genuine value for signing up.",
+          "url": "https://www.google.com/search?q=Win+a+Green+People+Family+Suncare+Bundle+Worth+%C2%A3117.50",
+          "date_info": "Entry open now (article dated November 2, 2026)",
+          "urgency": "this-week",
+          "link_status": "search"
+        }
+      ]
     }
   ]
 }
