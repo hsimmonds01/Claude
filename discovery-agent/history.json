@@ -5807,6 +5807,84 @@
           "link_status": "search"
         }
       ]
+    },
+    {
+      "date": "2026-11-03",
+      "model": "gemini-2.5-flash (legacy key, live search)",
+      "items": [
+        {
+          "title": "RAYE to Headline BST Hyde Park 2027: Amex Presale TODAY!",
+          "category": "event",
+          "summary": "Tickets for RAYE's headline show at BST Hyde Park on July 10, 2027, go on Amex presale today, November 3, at 10am GMT. General sale follows on November 10. This is a major London gig expected to sell out quickly.",
+          "url": "https://www.google.com/search?q=RAYE+to+Headline+BST+Hyde+Park+2027%3A+Amex+Presale+TODAY%21",
+          "date_info": "Amex Presale Tue 3 Nov, 10am GMT; General Sale Tue 10 Nov, 10am GMT",
+          "urgency": "act-fast",
+          "link_status": "search"
+        },
+        {
+          "title": "Capital's Jingle Bell Ball 2026 Tickets On Sale This Week",
+          "category": "event",
+          "summary": "The highly anticipated Capital's Jingle Bell Ball returns to The O2 in London on December 5 and 6. Presale tickets open on Thursday, November 5, at 9am, with general sale starting Friday, November 6, at 9am.",
+          "url": "https://www.google.com/search?q=Capital%27s+Jingle+Bell+Ball+2026+Tickets+On+Sale+This+Week",
+          "date_info": "Presale Thu 5 Nov, 9am; General Sale Fri 6 Nov, 9am",
+          "urgency": "this-week",
+          "link_status": "search"
+        },
+        {
+          "title": "Santana's Planet of Free Will Global Tour 2027 London Tickets",
+          "category": "event",
+          "summary": "Tickets are now on sale for Santana's Planet of Free Will Global Tour 2027, kicking off at London's O2 Arena on June 30, 2027. This is a major gig for a legendary artist.",
+          "url": "https://www.google.com/search?q=Santana%27s+Planet+of+Free+Will+Global+Tour+2027+London+Tickets",
+          "date_info": "Tickets on sale since Fri 30 Oct, 10am",
+          "urgency": "act-fast",
+          "link_status": "search"
+        },
+        {
+          "title": "Palace and Burberry Announce Limited-Edition Capsule Collection",
+          "category": "drop",
+          "summary": "A limited-edition capsule collection from Palace and Burberry has been announced, coinciding with the opening of a London flagship. Keep an eye out for this designer collaboration, as limited drops tend to sell out quickly.",
+          "url": "https://www.google.com/search?q=Palace+and+Burberry+Announce+Limited-Edition+Capsule+Collection",
+          "date_info": "Announcement for London flagship opening, drop details expected soon",
+          "urgency": "heads-up",
+          "link_status": "search"
+        },
+        {
+          "title": "Dune: Part One & Part Two IMAX Re-release Tickets On Sale",
+          "category": "film",
+          "summary": "Catch 'Dune: Part One' and 'Dune: Part Two' back on the big screen in IMAX this November. Tickets are now on sale for this special re-release, a perfect opportunity to experience these films as intended.",
+          "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxQUXA1dC1lamhpRERMUG40cFZlMldKYmFIRlFVS2tXYzRWYnBqWWpYRGYtYVByTGdjeFBCM3I5WUNUd1ZtU2h6R3ZVWHd0ZzZrbk9Sbnd3WFBBbThZY0RMSWRmSGRnWDBIWVZyWVA1VWJoLUk4cHM3eEdlWmtEUG9NQ1JvakdGUEU?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "date_info": "Tickets on sale now for November screenings",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "The Further Mis-Adventures of Cliff Booth IMAX Tickets On Sale",
+          "category": "film",
+          "summary": "IMAX tickets have gone on sale for 'The Further Mis-Adventures of Cliff Booth', offering another big-screen event for film enthusiasts.",
+          "url": "https://www.google.com/search?q=The+Further+Mis-Adventures+of+Cliff+Booth+IMAX+Tickets+On+Sale",
+          "date_info": "Tickets on sale now",
+          "urgency": "act-fast",
+          "link_status": "search"
+        },
+        {
+          "title": "Casio CT-FS1 Keyboard: Play Any Song Without Wrong Notes",
+          "category": "product",
+          "summary": "Casio has unveiled the CT-FS1, a $400 USD keyboard with 'Feel Sync' technology that allows anyone to play any song without hitting wrong notes. This is a genuinely clever and affordable new gadget.",
+          "url": "https://hypebeast.com/2026/11/casio-unveils-the-ct-fs1-keyboard-with-feel-sync-tech",
+          "date_info": "Recently unveiled",
+          "urgency": "this-week",
+          "link_status": "verified"
+        },
+        {
+          "title": "Tottenham Hotspur vs Fulham Tickets on General Sale",
+          "category": "football",
+          "summary": "Tickets for Tottenham Hotspur's Premier League home game against Fulham on December 3 are now on general sale. This is a good opportunity to catch a London football match at the Tottenham Hotspur Stadium.",
+          "url": "https://www.google.com/search?q=Tottenham+Hotspur+vs+Fulham+Tickets+on+General+Sale",
+          "date_info": "Match on Thu 3 Dec, tickets on general sale now",
+          "urgency": "act-fast",
+          "link_status": "search"
+        }
+      ]
     }
   ]
 }
