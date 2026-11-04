@@ -5885,6 +5885,75 @@
           "link_status": "search"
         }
       ]
+    },
+    {
+      "date": "2026-11-04",
+      "model": "gemini-2.5-flash (legacy key, live search)",
+      "items": [
+        {
+          "title": "AVIREX x bal x BEAMS T Triple Collaboration",
+          "category": "drop",
+          "summary": "A new triple collaboration celebrating BEAMS' 50th Anniversary, bringing together AVIREX, bal, and BEAMS T for a limited-edition collection. It will be available this Saturday.",
+          "url": "https://hypebeast.com/2026/11/beams-50-aniversaly-avirex-bal-beams-t-touriple-collabo-release-info",
+          "date_info": "Drops Saturday, November 7",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "Vaquera x Supreme FW26 Collaboration",
+          "category": "drop",
+          "summary": "Highsnobiety reports on a new collaboration between Vaquera and streetwear giant Supreme for their Fall/Winter 2026 collection.",
+          "url": "https://www.highsnobiety.com/p/vaquera-supreme-new-collab-fw26/",
+          "date_info": "Fall/Winter 2026",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "Win Tesco Vouchers with Quality Street Monopoly",
+          "category": "other",
+          "summary": "Quality Street is giving away 1 million Tesco vouchers through its Monopoly promotion, which runs until the end of December 2026. It's a low-effort, free-to-enter promo with genuine perks.",
+          "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE0xOFgxMWY5bWc0WXZKR0J3Um84TlEtOVJ0UDBscENfaXVuTmJMU2c2S3IxaWJLa1ZDU0ZSa01mMmdwaVFkWTFMRnF3VVRMMTdpalREUm14RUpmNE1ia2VYdWE4WjlMZVJvdENMSmRfTHlFaTMwUkE?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "date_info": "Ends 31 December 2026",
+          "urgency": "this-week",
+          "link_status": "verified"
+        },
+        {
+          "title": "Casio Unveils Affordable Retro LF-40W Digital Watches",
+          "category": "product",
+          "summary": "Casio has unveiled new affordable retro LF-40W digital watches in three colorways, offering a blend of clever gadgetry and beautiful design.",
+          "url": "https://www.google.com/search?q=Casio+Unveils+Affordable+Retro+LF-40W+Digital+Watches",
+          "date_info": "",
+          "urgency": "heads-up",
+          "link_status": "search"
+        },
+        {
+          "title": "Affordable Garmin Descent X10 Smartwatch Launches",
+          "category": "product",
+          "summary": "Garmin has launched the affordable Descent X10, a new smartwatch featuring a MiP display and long battery life, making it a genuinely interesting tech release.",
+          "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNaWppaTdSUW1mLWlWNmNKWktJajdtTi13eFhVTWpIWGVXRFkwdmt1UmRxNkx3OUdEMTZaa3oyVloyX2lOUXkzUXdBVzZhYVFaWW9Lc0JsNnQ5U3JLdTlVRDhuNXJwb05uYTRnTUxDb0JEc3ctMHFHNUNJVXphSmRUcXhBVDEwbDFtQ2dLWW13R1dlZzloa1BSSDI5OVVhb3NMaXJzV3hZWTNsZUMwZEpCWHlWejZMa3pDT3U2aE5KYw?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "date_info": "",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "Whole Beast in Brixton Crowned London's Best Burger",
+          "category": "food",
+          "summary": "Time Out has declared the burger from Whole Beast in Brixton as officially the best in London right now, making it a must-try for food enthusiasts.",
+          "url": "https://www.timeout.com/london/news/best-burger-2026-whole-beast-brixton-110326",
+          "date_info": "",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "5 Affordable Home Security Gadgets",
+          "category": "product",
+          "summary": "A new article highlights five affordable gadgets that can help set up an effective home security system, fitting the 'clever gadgets' and 'affordable tech' criteria.",
+          "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE9qbnNPaGRrTlZVM00zc2d0TlN3cVlDLWZVX2UybnRQN185SmNaRGs4U2dVdUNpTV9vRFJsU0hrblBvY3M4ZDNSNHhIRlQ0V0NiaUdHV2JTYTNmOXJIdjBjbTFSSUhCWGFlbW5pM2lB?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "date_info": "",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        }
+      ]
     }
   ]
 }
