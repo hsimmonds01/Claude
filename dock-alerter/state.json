@@ -1,6 +1,6 @@
 {
-  "alerted": false,
-  "last_alert_time": null,
+  "alerted": true,
+  "last_alert_time": "2026-11-05T08:20:34.329617+00:00",
   "evening_alerted": true,
   "evening_critical_alerted": true,
   "evening_last_alert_time": "2026-11-04T17:50:36.972118+00:00"
