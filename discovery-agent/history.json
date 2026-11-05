@@ -5954,6 +5954,66 @@
           "link_status": "verified"
         }
       ]
+    },
+    {
+      "date": "2026-11-05",
+      "model": "gemini-2.5-flash (legacy key, live search)",
+      "items": [
+        {
+          "title": "Rollme AuraCam Headphones with Built-in 8MP Camera",
+          "category": "product",
+          "summary": "Rollme has launched the AuraCam, an affordable pair of over-ear wireless headphones featuring a built-in 8MP camera with electronic image stabilization, AI-powered recognition, and real-time translation. They are available now for $89.99 as part of an 11.11 promotion.",
+          "url": "https://www.google.com/search?q=Rollme+AuraCam+Headphones+with+Built-in+8MP+Camera",
+          "date_info": "Available now as part of an 11.11 promotion",
+          "urgency": "act-fast",
+          "link_status": "search"
+        },
+        {
+          "title": "Carpet Company's S-Tool: Limited Edition Stackable Design Object",
+          "category": "drop",
+          "summary": "Carpet Company has released 'Batch 2' of its S-Tool, a unique 12-inch, 20-pound stackable fiberglass stool that doubles as a collectible design object. These extremely limited-quantity pieces are available in new colorways including Navy, Clementine, Rose, Slime, and Jet Black.",
+          "url": "https://hypebeast.com/2026/11/carpet-company-s-tool-release-info",
+          "date_info": "Available now, limited quantities",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "Dune: Part One & Two Double Feature with Part Three Sneak Peek in IMAX",
+          "category": "film",
+          "summary": "Don't miss a special 'Dune: Part One & Part Two Double Feature' in IMAX on November 13, which also includes an exclusive sneak peek of 'Dune: Part Three'.",
+          "url": "https://www.imax.com/special-events",
+          "date_info": "November 13",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "Shakhtar vs Fenerbahçe Football Tickets at Stamford Bridge",
+          "category": "football",
+          "summary": "Tickets are now on sale for the Shakhtar vs Fenerbahçe football match, taking place at Stamford Bridge on December 9, 2026.",
+          "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxQbWVSNGJwbVJ0REdzc3E4d1M0bzdaeWZwTk5yT2lqTE1lNUlqbmpRZFF1bHd1X0dma0dVc01QUGRCT0lPTzlvX3F4RC1xSVVtWkd4U25rWVIxQjJ2cmpmNGNmeU1LRHlqRDBBMldjVmN4ZmI0ekdQNHh1bVNBclVLVDQ4WEd6MWs?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "date_info": "Tickets on sale now for December 9, 2026",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "UNDERCOVER x Studio Valentin Loellmann Workwear Collection",
+          "category": "drop",
+          "summary": "Japanese designer Jun Takahashi's UNDERCOVER has launched a new workwear collection in collaboration with Studio Valentin Loellmann, specifically designed for furniture craftspeople. The collection features durable, tear-resistant cotton duck and reinforced elements, blending high fashion with genuine utility.",
+          "url": "https://www.highsnobiety.com/p/this-japanese-workwear-is-for-actual-furniture-designers/",
+          "date_info": "Recently released (article published Nov 4, 2026)",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "PP-2 Turntable by Waiting For Ideas: Tonearm-less Vinyl Player",
+          "category": "product",
+          "summary": "Waiting For Ideas has unveiled the PP-2, a second-generation, minimalist aluminum turntable that reads vinyl with light and features no visible tonearm. This beautifully designed object offers a unique way to experience analog sound, and you can request access to pre-order it now.",
+          "url": "https://www.designboom.com/technology/pp-2-turntable-reads-vinyls-without-tonearm-glass-listening-room-tokyo-waiting-for-ideas/",
+          "date_info": "Pre-order access available now",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        }
+      ]
     }
   ]
 }
