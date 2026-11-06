@@ -6014,6 +6014,48 @@
           "link_status": "verified"
         }
       ]
+    },
+    {
+      "date": "2026-11-06",
+      "model": "gemini-flash-lite-latest",
+      "items": [
+        {
+          "title": "Jet Lag: The Game Season 20 Theatrical Screenings",
+          "category": "film",
+          "summary": "Nebula's hit creator travel game is hitting the big screen for its season 20 'Hide and Seek: Italy' premiere with an international theatrical event across the UK.",
+          "url": "https://news.google.com/rss/articles/CBMi9AFBVV95cUxNdFV2Tk03ZlYybi1CRmhTaFQzX1dwZ2hIb0lGZlBCY3hhWVhIUWpPT21sUmgzZU1nMUdKb000aUpqMFp4TWpqdm00N2JnU0ZmYW1jTElqWjd4TUpmcloxT1k3dGlweFpZRHFvSW5zTjAweVBkOGZDbEFCZ3lVNmd5bkNleHFsWmZzYnJJbzBoQUZPejZKWXdpcDVYNzlfNm9BeVVZR2drN0hzU1A2T3Z3dGdOZU43Qy1Idms4TEdYUmVZSzFkVVRrU25LS1c1TUlrb0RtZ0JubFZTVktHMWM2elVyTDU4SVpEVFN4dHgwQjdvYjhr?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "date_info": "Screening details just announced",
+          "urgency": "this-week",
+          "link_status": "verified"
+        },
+        {
+          "title": "New Era Pokémon 30th Anniversary Collection",
+          "category": "drop",
+          "summary": "New Era has dropped a special limited-edition collection celebrating Pokémon's milestone 30th anniversary, perfect for fans of premium headwear drops.",
+          "url": "https://hypebeast.com/2026/11/new-era-pokemon-30-collaboration-info",
+          "date_info": "Available now",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "WACKO MARIA x Lee & Wrangler Leopard Jackets",
+          "category": "drop",
+          "summary": "WACKO MARIA is back at it, giving classic Lee and Wrangler workwear jackets their signature wild leopard print makeover for the winter season.",
+          "url": "https://hypebeast.com/2026/11/lee-wrangler-wacko-maria-fall-winter-f-2026-collaboration-collection-release-info",
+          "date_info": "Just dropped",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "Modular Audio Player Built From Repurposed CD-ROM Drives",
+          "category": "product",
+          "summary": "A brilliant DIY-meets-design object: 'DAS POD' is a modular aluminum audio player constructed using upcycled CD-ROM drives.",
+          "url": "https://www.designboom.com/technology/used-cd-rom-drives-modular-aluminum-audio-player-das-pod/",
+          "date_info": "Revealed this week",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        }
+      ]
     }
   ]
 }
