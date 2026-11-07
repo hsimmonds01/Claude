@@ -6056,6 +6056,75 @@
           "link_status": "verified"
         }
       ]
+    },
+    {
+      "date": "2026-11-07",
+      "model": "gemini-2.5-flash (legacy key, live search)",
+      "items": [
+        {
+          "title": "Alexandra Palace Fireworks Display This Weekend",
+          "category": "event",
+          "summary": "Tickets are likely to sell out for the Alexandra Palace fireworks display happening this weekend in London. Essential information on key times, travel, and road closures is available now.",
+          "url": "https://www.google.com/search?q=Alexandra+Palace+Fireworks+Display+This+Weekend",
+          "date_info": "This weekend (November 7-8, 2026)",
+          "urgency": "act-fast",
+          "link_status": "search"
+        },
+        {
+          "title": "Barbour x Paraboot FW26 Collaboration Drops",
+          "category": "drop",
+          "summary": "A new collaboration between heritage brands Barbour and Paraboot has launched for Fall/Winter 2026, featuring waxed canvas and French leather goods, including jackets and derby shoes – a perfect non-sneaker designer collab.",
+          "url": "https://hypebeast.com/2026/11/barbour-paraboot-chambord-derby-bedale-jacket-collaboration-collection-release-info",
+          "date_info": "Fall/Winter 2026 collection",
+          "urgency": "this-week",
+          "link_status": "verified"
+        },
+        {
+          "title": "Bottega Veneta x Moomin Merchandise",
+          "category": "drop",
+          "summary": "Luxury fashion house Bottega Veneta has dropped a unique collaboration with the beloved Moomin characters, offering distinctive merchandise that blends high fashion with playful design.",
+          "url": "https://www.highsnobiety.com/p/bottega-veneta-moomin-new-collab/",
+          "date_info": "New collaboration",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "Free Champions League Tickets from Bet365",
+          "category": "other",
+          "summary": "Bet365 is running a low-effort, free-to-enter promotion offering free Champions League tickets every matchday, a genuine perk for any football fan.",
+          "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxNeWMyVkN6NnVpclZhbGo5SjlDcE0wR3BTUFp2UjhKMWp0cXc5cWg3OGVrc1g4ZU5nMHZkeXJyakY5SDFoQzdwUVZ4QldrTl92Q3pIUHRKakNGQzVPRm5pQUVTOFpCZ1NuRmFJRW5wMWVPRGNFb1dZSi1JT3JTOXVmTDNiOWdqNmFWd2ZlaWtyeWJ3MmNEdE5ZUGhVQlpHUFFOYVBla1pWT3hvbjM4cktpMHFCNE1BaU1nUnV2RVdHMFUwN2c?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "date_info": "Ongoing, every matchday",
+          "urgency": "this-week",
+          "link_status": "verified"
+        },
+        {
+          "title": "Jamiroquai Live at London's O2 Arena in 2027",
+          "category": "event",
+          "summary": "Jamiroquai has announced a London O2 Arena show for July 2027, with presale and ticket price information now available for what will undoubtedly be a sell-out gig.",
+          "url": "https://www.timeout.com/london/news/jamiroquai-o2-arena-july-2027-dates-tickets-prices-presale-110626",
+          "date_info": "July 2027, presale/tickets likely soon",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "Clive Christian 'Uncovered' Limited Edition Perfume",
+          "category": "drop",
+          "summary": "Clive Christian has unveiled 'Uncovered,' a new limited-edition fragrance that promises a warm heart beneath an icy exterior, perfect for those seeking a unique designer scent.",
+          "url": "https://hypebeast.com/2026/11/clive-christian-transparent-limited-edition-fragrance-release-info",
+          "date_info": "Recently released",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "Ondu Wonderland's 3D Printed Design Objects",
+          "category": "product",
+          "summary": "Discover Ondu Wonderland's new collection of beautifully designed 3D printed lamps, vases, and candle holders, featuring distinctive ruffled collars and checkerboard patterns – a truly interesting design release.",
+          "url": "https://www.designboom.com/design/3d-printed-ruffled-collars-top-checkerboard-lamps-vases-and-candle-holders-in-ondu-wonderland-gliese-design/",
+          "date_info": "New release",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        }
+      ]
     }
   ]
 }
