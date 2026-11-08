@@ -6125,6 +6125,75 @@
           "link_status": "verified"
         }
       ]
+    },
+    {
+      "date": "2026-11-08",
+      "model": "gemini-2.5-flash (legacy key, live search)",
+      "items": [
+        {
+          "title": "Nothing Teases Screen-Free AI Gadget for December Launch",
+          "category": "product",
+          "summary": "Nothing, the London-based tech brand, has confirmed its first AI-native hardware product will launch in December 2026. This screen-free device is being positioned as a productivity tool rather than a mainstream consumer gadget, aiming to bridge AI's 'context gap' by capturing real-world interactions without disrupting the moment.",
+          "url": "https://gadgets.beebom.com/news/nothing-first-ai-device-screenless-december-2026-launch-confirmed",
+          "date_info": "Launching December 2026",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "Huawei Launches Affordable Earbuds with 80-Hour Battery Life",
+          "category": "product",
+          "summary": "Huawei has introduced its new FreeBuds SE 5 Max earbuds, offering an impressive 80 hours of battery life with the charging case, 52dB active noise cancellation, and LDAC audio support for just approximately $56. The earbuds, launched in Japan on November 6, are also listed on Huawei's UK website, with a promotional price of €49 announced for Germany from November 10-30.",
+          "url": "https://www.notebookcheck.net/Huawei-launches-56-earbuds-with-80-hour-battery-life-and-LDAC-support.1444772.0.html",
+          "date_info": "Launched November 6 in Japan; UK availability confirmed; €49 promo in Germany Nov 10-30",
+          "urgency": "this-week",
+          "link_status": "verified"
+        },
+        {
+          "title": "Amazon's Early Black Friday Deals Are Live",
+          "category": "other",
+          "summary": "Amazon has kicked off its early Black Friday deals, with discounts across various product categories including tech, beauty, and home essentials. While Black Friday officially falls on November 27, Amazon's sale has already begun, and deals are expected to run through Cyber Monday on November 30.",
+          "url": "https://www.aboutamazon.com.au/news/retail/when-is-black-friday-2026-heres-everything-aussies-need-to-know",
+          "date_info": "Deals live now through November 30",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "Gorsch's FW26 'The Dancing People' Collection Drops",
+          "category": "drop",
+          "summary": "Iwate designer Eiichi Suzuki's Gorsch FW26 'The Dancing People' collection has been unveiled, featuring garments crafted for movement from rare fabrics. The collection is available to shop on HBX.",
+          "url": "https://hypebeast.com/2026/11/gorsch-fw-fall-winter-2026-collection-release-info",
+          "date_info": "Available now for Fall/Winter 2026",
+          "urgency": "this-week",
+          "link_status": "verified"
+        },
+        {
+          "title": "BEAMS x 2026 MAMA AWARDS 'DEAR VINTAGE COLLECTION' Released",
+          "category": "drop",
+          "summary": "BEAMS has collaborated with the 2026 MAMA AWARDS to release the 'DEAR VINTAGE COLLECTION,' a line of official merchandise inspired by the graphic styles of vintage band and festival tees. The collection includes apparel and accessories and is available via the BEAMS official online store and at the MAMA AWARDS MD booth.",
+          "url": "https://hypebeast.com/2026/11/2026-mama-awards-beams-collaboration-collection-release-info",
+          "date_info": "Available now; MAMA AWARDS on November 20-21",
+          "urgency": "this-week",
+          "link_status": "verified"
+        },
+        {
+          "title": "Alpha Industries x No Problemo CWU-45 Jacket Available",
+          "category": "drop",
+          "summary": "Alpha Industries has teamed up with No Problemo for the CWU-45 Jacket, the second chapter of their collaboration. This military-inspired flight jacket features a distinctive Mount Kailash map graphic and is available online and at select retailers, including Aries Soho in London.",
+          "url": "https://hypebeast.com/2026/11/alpha-industries-no-problemo-cwu-45-jacket-release-info",
+          "date_info": "Available now for FW26",
+          "urgency": "this-week",
+          "link_status": "verified"
+        },
+        {
+          "title": "Trafalgar Square Christmas Tree Arrives December 3",
+          "category": "event",
+          "summary": "The iconic Trafalgar Square Christmas tree, a gift from Norway, is set to arrive in London on Thursday, December 3, 2026. The official lighting ceremony is scheduled for the same day, marking the start of London's festive season.",
+          "url": "https://www.timeout.com/london/news/trafalgar-square-christmas-tree-arrival-date-2026-110626",
+          "date_info": "Arrives and lights up Thursday, December 3, 2026",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        }
+      ]
     }
   ]
 }
