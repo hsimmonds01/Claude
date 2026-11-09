@@ -6194,6 +6194,75 @@
           "link_status": "verified"
         }
       ]
+    },
+    {
+      "date": "2026-11-09",
+      "model": "gemini-2.5-flash (legacy key, live search)",
+      "items": [
+        {
+          "title": "LOEWE x Tim Burton's 'The Nightmare Before Christmas' Holiday Collection Drops Soon",
+          "category": "drop",
+          "summary": "LOEWE has unveiled a limited-edition holiday collection inspired by Tim Burton's 'The Nightmare Before Christmas,' featuring bags, accessories, ready-to-wear, and scented candles. This designer collaboration is set to launch on November 12, so mark your calendar to act fast.",
+          "url": "https://hypebeast.com/2026/11/loewe-tim-burton-the-nightmare-before-christmas-holiday-collection-release-info",
+          "date_info": "Launches November 12, 2026",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "Oxford Street Christmas Lights Switch-On Today with Harry Potter Theme",
+          "category": "event",
+          "summary": "Oxford Street's 2026 Christmas lights are switching on today, November 9, with a magical Harry Potter theme. Festivities begin at 4:30 PM, transforming the West End with themed designs and entertainment.",
+          "url": "https://www.timeout.com/london/news/oxford-street-christmas-lights-2026-switch-on-date-harry-potter-110326",
+          "date_info": "Today, November 9, 2026, from 4:30 PM",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "Meute, the Viral Techno Brass Band, Announces London Show for 2027",
+          "category": "event",
+          "summary": "Viral techno marching band Meute has tickets on sale for their London show at Troxy in Limehouse, East London, on May 1, 2027. Secure your tickets now for what's expected to be a quickly selling-out event.",
+          "url": "https://www.google.com/search?q=Meute%2C+the+Viral+Techno+Brass+Band%2C+Announces+London+Show+for+2027",
+          "date_info": "Tickets on sale for May 1, 2027",
+          "urgency": "this-week",
+          "link_status": "search"
+        },
+        {
+          "title": "'Larger Than Life: Starring Wallace & Gromit, Shaun and More' Immersive Exhibition in London",
+          "category": "event",
+          "summary": "Experience the world of Aardman with an immersive 360° exhibition, 'Larger Than Life,' at Lightroom in King's Cross. Featuring Wallace & Gromit, Shaun the Sheep, and more, the show runs until January 4, 2027, with tickets available now.",
+          "url": "https://www.google.com/search?q=%27Larger+Than+Life%3A+Starring+Wallace+%26+Gromit%2C+Shaun+and+More%27+Immersive+Exhibition+in+London",
+          "date_info": "Ongoing until January 4, 2027",
+          "urgency": "heads-up",
+          "link_status": "search"
+        },
+        {
+          "title": "Moncler and André 3000 Collaborate for 'Pioneers in Moncler' Re/Icons Campaign",
+          "category": "drop",
+          "summary": "Moncler has teamed up with André 3000 for a new 'Pioneers in Moncler' Re/Icons campaign. This designer collaboration is expected to feature limited-edition items launching this November.",
+          "url": "https://hypebeast.com/2026/11/andre-3000-new-pioneers-moncler-re-icons-campaign-release-info",
+          "date_info": "Launching in November",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "HOORSENBUHS Unveils New Ring Collections",
+          "category": "product",
+          "summary": "HOORSENBUHS has introduced new ring collections, presenting unique design objects inspired by hexagonal bolts and their signature motifs. These new pieces are available now, offering a fresh take on modern jewelry.",
+          "url": "https://hypebeast.com/2026/11/hoorsenbuhs-hexagon-bolt-frangments-info",
+          "date_info": "Available now",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "Goldwin Releases Premium 'OYABE Skiwear Winter 2026' Collection",
+          "category": "product",
+          "summary": "Goldwin has unveiled its 'OYABE Skiwear Winter 2026' collection, featuring premium skiwear. This new release could be a limited-run for those seeking high-quality, design-focused winter gear.",
+          "url": "https://hypebeast.com/2026/11/goldwin-oyabe-skiwear-winter2026-info",
+          "date_info": "Winter 2026 release",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        }
+      ]
     }
   ]
 }
