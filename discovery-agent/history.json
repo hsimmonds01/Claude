@@ -6263,6 +6263,84 @@
           "link_status": "verified"
         }
       ]
+    },
+    {
+      "date": "2026-11-10",
+      "model": "gemini-2.5-flash (legacy key, live search)",
+      "items": [
+        {
+          "title": "Grand Theft Auto 6 Real-Life Vice City Pop-Up Shop Opening at Selfridges",
+          "category": "event",
+          "summary": "Step into the world of Vice City with a real-life pop-up shop for Grand Theft Auto 6 opening at Selfridges in London this month. This immersive experience is a perfect catch for fans of unique pop-ups and gaming culture.",
+          "url": "https://www.timeout.com/london/news/grand-theft-auto-6-vice-city-shop-selfridges-november-2026-111026",
+          "date_info": "Opening this month (November 2026)",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "RALLY 2027 South London Festival Reveals Lineup; Tickets On Sale This Friday",
+          "category": "event",
+          "summary": "The highly-regarded RALLY festival in Southwark Park has announced its 2027 lineup, featuring Kelela and other exciting acts. Presale registration is open now, with tickets going on general sale this Friday, November 13, at 10 am, making it a must-catch London event that will sell out.",
+          "url": "https://www.timeout.com/london/news/rally-festival-2027-kelela-lineup-tickets-111026",
+          "date_info": "Tickets on sale Fri 13 Nov, 10am",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "Muse to Headline BST Hyde Park 2027; General Sale Tickets This Friday",
+          "category": "event",
+          "summary": "Global rock giants Muse have been announced as the latest headliner for BST Hyde Park in 2027, with general sale tickets becoming available on Friday, November 13, at 10 am GMT. This is a big-ticket London gig that's sure to sell out quickly, with artist and AEG presales also happening this week.",
+          "url": "https://www.google.com/search?q=Muse+to+Headline+BST+Hyde+Park+2027%3B+General+Sale+Tickets+This+Friday",
+          "date_info": "General sale Fri 13 Nov, 10am GMT",
+          "urgency": "act-fast",
+          "link_status": "search"
+        },
+        {
+          "title": "Rupert Goold's Inaugural Old Vic Season Announced; Public Booking Opens Nov 16",
+          "category": "event",
+          "summary": "The highly anticipated first season under new Artistic Director Rupert Goold at London's iconic Old Vic theatre has been revealed, featuring Damian Lewis in 'Henry V' and Milly Alcock in 'Julie'. Public booking for these major productions opens on Monday, November 16, with members having priority access from today.",
+          "url": "https://www.timeout.com/london/news/old-vic-2027-rupert-goold-first-season-programme-111026",
+          "date_info": "Public booking opens Mon 16 Nov",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "Santa Steam Express 2026 Tickets Now Available for Festive London Journeys",
+          "category": "event",
+          "summary": "Experience a magical Christmas adventure aboard the Santa Steam Express, departing from London Victoria on December 12 and 19. Tickets for this popular festive immersive experience sell out fast, so book your spot now to meet Santa and his elves.",
+          "url": "https://www.timeout.com/london/news/santa-steam-express-2026-dates-tickets-guide-111026",
+          "date_info": "Runs Sat 12 Dec & Sat 19 Dec; tickets selling fast",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "Arsenal Women's North London Derby Early Bird Tickets & Prize Draw",
+          "category": "football",
+          "summary": "Secure your early bird tickets for the Arsenal Women vs. Tottenham Hotspur Women's North London Derby in March 2027 by November 16 and enter a free prize draw to win a premium hospitality experience and a player meet-and-greet.",
+          "url": "https://www.google.com/search?q=Arsenal+Women%27s+North+London+Derby+Early+Bird+Tickets+%26+Prize+Draw",
+          "date_info": "Early bird window closes Mon 16 Nov, 11:59pm UK",
+          "urgency": "act-fast",
+          "link_status": "search"
+        },
+        {
+          "title": "Chelsea Women Open Early Bird Ticket Sales for Three Stamford Bridge Games in 2027",
+          "category": "football",
+          "summary": "Chelsea Women have opened early bird ticket sales for three upcoming Barclays Women's Super League home fixtures at Stamford Bridge in 2027, including matches against Charlton Athletic, Crystal Palace, and Liverpool. Bundle packages are also available, offering a saving for these London games.",
+          "url": "https://www.google.com/search?q=Chelsea+Women+Open+Early+Bird+Ticket+Sales+for+Three+Stamford+Bridge+Games+in+2027",
+          "date_info": "Early-bird tickets on sale from Tue 10 Nov, 2pm",
+          "urgency": "act-fast",
+          "link_status": "search"
+        },
+        {
+          "title": "Yo-Chi to Open Second Hyped Frozen Yoghurt Location in Clapham",
+          "category": "food",
+          "summary": "The popular Australian frozen yoghurt brand, Yo-Chi, is set to open its second London location in Clapham before the end of 2026. Following huge queues at its Notting Hill debut, this new South London spot promises more delicious self-serve frozen yoghurt and extensive toppings.",
+          "url": "https://www.timeout.com/london/news/yo-chi-frozen-yoghurt-second-location-clapham-111026",
+          "date_info": "Opening late 2026 (exact date TBC)",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        }
+      ]
     }
   ]
 }
