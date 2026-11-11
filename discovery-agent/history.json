@@ -6341,6 +6341,75 @@
           "link_status": "verified"
         }
       ]
+    },
+    {
+      "date": "2026-11-11",
+      "model": "gemini-2.5-flash (legacy key, live search)",
+      "items": [
+        {
+          "title": "Rogbid Launches VitalRing: Titanium Smart Ring with ECG Monitoring",
+          "category": "product",
+          "summary": "Rogbid has just launched the VitalRing, a new titanium smart ring that offers advanced health tracking, including ECG monitoring, sleep analysis, and activity tracking, all in a discreet and comfortable design. It's available now for $129.99, making it an affordable and genuinely clever gadget for continuous wellness monitoring.",
+          "url": "https://www.google.com/search?q=Rogbid+Launches+VitalRing%3A+Titanium+Smart+Ring+with+ECG+Monitoring",
+          "date_info": "Available now",
+          "urgency": "act-fast",
+          "link_status": "search"
+        },
+        {
+          "title": "Baseus Unveils New High-Capacity Power Bank with Dual Built-in USB-C Cables",
+          "category": "product",
+          "summary": "Baseus has released a new 20,000 mAh power bank that supports up to 100W fast charging and features two integrated USB-C cables, including a retractable one. This makes it a highly convenient and powerful gadget for charging multiple devices on the go, priced at $79.99.",
+          "url": "https://www.google.com/search?q=Baseus+Unveils+New+High-Capacity+Power+Bank+with+Dual+Built-in+USB-C+Cables",
+          "date_info": "Available now",
+          "urgency": "act-fast",
+          "link_status": "search"
+        },
+        {
+          "title": "ARTIST PROOF x fragment design x nonnative Drop Third 'Trooper Coat' Collab",
+          "category": "drop",
+          "summary": "The highly anticipated third 'Trooper Collaboration' from ARTIST PROOF, fragment design, and nonnative is dropping soon. This limited-edition GORE-TEX WINDSTOPPER coat blends tactical military styling with urban fashion, featuring hidden branding and a removable double-layered structure.",
+          "url": "https://hypebeast.com/2026/11/artist-proof-x-fragment-design-x-nonnative-reunite-for-their-third-trooper-collaboration",
+          "date_info": "Drops November 14, 2026 (Japan exclusive)",
+          "urgency": "this-week",
+          "link_status": "verified"
+        },
+        {
+          "title": "Rockstar Confirms GTA VI Will Run at 30 FPS on Current-Gen Consoles",
+          "category": "product",
+          "summary": "Rockstar Games has confirmed that Grand Theft Auto VI will target 30 frames per second on current-generation consoles (PS5 and Xbox Series X|S) at launch, with the game set to release on November 19, 2026. This technical detail is significant news ahead of one of the biggest game launches of the year.",
+          "url": "https://www.google.com/search?q=Rockstar+Confirms+GTA+VI+Will+Run+at+30+FPS+on+Current-Gen+Consoles",
+          "date_info": "Launches November 19, 2026",
+          "urgency": "this-week",
+          "link_status": "search"
+        },
+        {
+          "title": "Time Out Crowns Nunhead's Skehans as London's Best Irish Pub",
+          "category": "food",
+          "summary": "Time Out has recognized Skehans in Nunhead, a legendary boozer located in South East London, as the city's best Irish pub. This is a great local find for anyone looking for an authentic and highly-rated pub experience near Bermondsey and Elephant and Castle.",
+          "url": "https://www.timeout.com/london/news/best-irish-pub-2026-skehans-111126",
+          "date_info": "",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "Datecrete Wins Award for Transforming Date Pits into Sustainable Design",
+          "category": "product",
+          "summary": "A truly innovative design, 'Datecrete' has won a special prize at the Seoul Design Award 2026 for its ingenious method of turning date pits into a new, sustainable design material. This is a brilliant example of beautiful and clever design using repurposed materials.",
+          "url": "https://www.designboom.com/design/datecrete-date-pits-design-designboom-special-prize-seoul-design-award-2026/",
+          "date_info": "",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "David Rule's 'Tinytanic': A Miniature Solar-Powered Houseboat Maximizing Small Spaces",
+          "category": "product",
+          "summary": "Discover the 'Tinytanic,' a miniature solar-powered houseboat designed by David Rule that cleverly maximizes living space despite its tiny footprint. This innovative design is a perfect example of a 'how did I not know this existed' product, showcasing ingenious compact living.",
+          "url": "https://www.designboom.com/technology/david-rule-tinytanic-eight-foot-solar-houseboat/",
+          "date_info": "",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        }
+      ]
     }
   ]
 }
