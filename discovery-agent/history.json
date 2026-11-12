@@ -6410,6 +6410,84 @@
           "link_status": "verified"
         }
       ]
+    },
+    {
+      "date": "2026-11-12",
+      "model": "gemini-2.5-flash (legacy key, live search)",
+      "items": [
+        {
+          "title": "Stray Kids Announce London Stadium Show, Tickets On Sale Next Week",
+          "category": "event",
+          "summary": "K-pop superstars Stray Kids are set to play their only UK date of the RUN IT world tour at Tottenham Hotspur Stadium on July 13, 2027. Presale sign-up closes this Sunday, November 15, with general sale tickets available from November 19.",
+          "url": "https://www.google.com/search?q=Stray+Kids+Announce+London+Stadium+Show%2C+Tickets+On+Sale+Next+Week",
+          "date_info": "Presale sign-up closes Sun 15 Nov, 8pm GMT; General sale Thu 19 Nov, 3pm",
+          "urgency": "heads-up",
+          "link_status": "search"
+        },
+        {
+          "title": "Kurono Tokyo 'Structure' Chronograph S1 Drops Online Next Week",
+          "category": "drop",
+          "summary": "Hajime Asaoka's Kurono Tokyo is launching the limited-production 'Structure' Chronograph S1, a beautifully designed tool watch. It will be available for purchase online worldwide for a single order window next Thursday.",
+          "url": "https://hypebeast.com/2026/11/kurono-tokyo-structure-chronograph-s1-release-info",
+          "date_info": "Online purchase Thu 19 Nov 2026",
+          "urgency": "this-week",
+          "link_status": "verified"
+        },
+        {
+          "title": "RIMOWA Debuts Grooved Aluminum Passport Holder",
+          "category": "product",
+          "summary": "RIMOWA has shrunk its iconic grooved aluminum design into a minimalist passport holder, featuring a hidden stainless steel clamp and RFID/NFC shielding. This unique design object is available now.",
+          "url": "https://hypebeast.com/2026/11/rimowa-shrinks-its-grooved-aluminum-original-into-a-passport-holder",
+          "date_info": "Available now",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "Sony Reissues Classic 1979 Walkman Headphones with Modern USB-C",
+          "category": "product",
+          "summary": "Sony is bringing back its iconic MDR-3 headphones, originally bundled with the 1979 Walkman, now updated with USB-C connectivity and an inline microphone. These retro-cool, affordable on-ear headphones are available this month.",
+          "url": "https://www.designboom.com/technology/sony-1979-walkman-headphones-retro-foam-ear-pads-mdr-3r/",
+          "date_info": "Available from November 2026",
+          "urgency": "this-week",
+          "link_status": "verified"
+        },
+        {
+          "title": "Takashi Murakami Launches New Watch Brand 'Time Objects' with Skull Flowers Tourbillon",
+          "category": "drop",
+          "summary": "Contemporary artist Takashi Murakami is entering the world of haute horlogerie with his new brand, 'Time Objects,' debuting the extraordinary Skull Flowers Cylindrical Jumping Hours Tourbillon. This limited-edition art piece is scheduled for release in January 2027.",
+          "url": "https://hypebeast.com/2026/11/takashi-murakami-time-objects-skull-flowers-cylindrical-jumping-hours-tourbillon-limited-editions-release-info",
+          "date_info": "Scheduled for January 2027 release",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "Iceland's £5,000 Christmas Giveaway Closes This Sunday",
+          "category": "free sign-up stuff",
+          "summary": "Enter for free to win a Christmas prize package worth up to £5,000, including food shopping vouchers and gift cards. The competition closes at the end of this weekend, so act fast to participate.",
+          "url": "https://www.google.com/search?q=Iceland%27s+%C2%A35%2C000+Christmas+Giveaway+Closes+This+Sunday",
+          "date_info": "Entries close Sun 15 Nov 2026, 11:59pm",
+          "urgency": "act-fast",
+          "link_status": "search"
+        },
+        {
+          "title": "Experience '90s Nightlife at Tate Britain's Free Friday Late",
+          "category": "event",
+          "summary": "Tate Britain is hosting a free '90s nightlife-themed Friday Late this weekend, featuring a rave, dance performances, film screenings, talks, and workshops. It's a low-effort, high-value cultural event in London.",
+          "url": "https://www.timeout.com/london/news/best-free-things-to-do-this-weekend-november-13-15-2026-111226",
+          "date_info": "This Friday, 13 Nov 2026",
+          "urgency": "this-week",
+          "link_status": "verified"
+        },
+        {
+          "title": "Adult Panto 'Jack OFF The Beanstalk' Coming to King's Cross This December",
+          "category": "event",
+          "summary": "For those seeking a more risqué festive experience, the adults-only pantomime 'Jack OFF The Beanstalk' is playing at Scala in King's Cross from mid-December. Tickets are on sale now for this raucous Christmas night out.",
+          "url": "https://www.google.com/search?q=Adult+Panto+%27Jack+OFF+The+Beanstalk%27+Coming+to+King%27s+Cross+This+December",
+          "date_info": "Performances from Mon 14 Dec 2026 – Sun 3 Jan 2027",
+          "urgency": "heads-up",
+          "link_status": "search"
+        }
+      ]
     }
   ]
 }
