@@ -6488,6 +6488,84 @@
           "link_status": "search"
         }
       ]
+    },
+    {
+      "date": "2026-11-13",
+      "model": "gemini-2.5-flash (legacy key, live search)",
+      "items": [
+        {
+          "title": "Kith x New York Knicks 2026-27 Collection Drop",
+          "category": "drop",
+          "summary": "Kith continues its partnership with the reigning NBA champions, the New York Knicks, with a new collection spanning outerwear, tailoring, and player tops. It features a capsule celebrating legendary player Walt “Clyde” Frazier.",
+          "url": "https://hypebeast.com/2026/11/kith-new-york-knicks-2026-27-collection-closer-look-release-info",
+          "date_info": "Drops today, November 13, at 11am local time (New York, London, Paris, Tokyo).",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "Billie Eilish x BAPE Limited-Edition Collection",
+          "category": "drop",
+          "summary": "Billie Eilish brings her streetwear affinity full circle with a limited-edition BAPE collection, featuring apparel and accessories inspired by her early wardrobe. The capsule includes hoodies, t-shirts, and a varsity jacket with orange and blue camo.",
+          "url": "https://hypebeast.com/2026/11/billie-eilish-bape-bathing-ape-collaborative-collection-release-info",
+          "date_info": "Drops November 13 (PST) / November 14 (EST/UK) via BAPE stores and online.",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "Alpha Industries MA-1 Reimagined by Tsuyoshi Noguchi & V.A.",
+          "category": "drop",
+          "summary": "Stylist Tsuyoshi Noguchi and V.A. have reconstructed Alpha Industries' iconic MA-1 flight jacket, with tweaked coloring, reduced weight, and an adjusted silhouette for modern styling.",
+          "url": "https://hypebeast.com/2026/11/v-a-alpha-industries-ma-1-tsuyoshi-noguchi-collaboration-info",
+          "date_info": "Available today, November 13, at V.A. and official online store.",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "Samsung Intelligent Eyewear Pre-orders Open",
+          "category": "product",
+          "summary": "Samsung's new camera-equipped, Gemini-powered smart glasses, developed with Gentle Monster and Warby Parker, are now available for pre-order. They feature open-ear speakers and integrate Google Gemini for visual AI.",
+          "url": "https://www.google.com/search?q=Samsung+Intelligent+Eyewear+Pre-orders+Open",
+          "date_info": "Pre-orders opened November 12, shipping December 10.",
+          "urgency": "this-week",
+          "link_status": "search"
+        },
+        {
+          "title": "Birkenstock x Etro Chapter 2: Shearling Bostons & Arizona Sandals",
+          "category": "drop",
+          "summary": "Birkenstock and Etro unveil their second footwear collaboration, introducing shearling-lined Boston clogs and the first-ever Arizona sandal with Etro's Western-inspired detailing.",
+          "url": "https://hypebeast.com/2026/11/birkenstock-x-etro-collaboration-vol2-boston-arizona-info",
+          "date_info": "Launches globally on November 19, 2026.",
+          "urgency": "this-week",
+          "link_status": "verified"
+        },
+        {
+          "title": "Colbo x Artforum Limited-Edition Menswear Capsule",
+          "category": "drop",
+          "summary": "Menswear brand Colbo has released a limited-edition capsule collection with legacy art publication Artforum, featuring T-shirts, long-sleeves, hats, and totes with a hand-drawn logo.",
+          "url": "https://www.highsnobiety.com/p/menswear-art-colbo-artforum-new-collab/",
+          "date_info": "Just released, available online and at select physical locations during NYC Art Week (November 11-15).",
+          "urgency": "this-week",
+          "link_status": "verified"
+        },
+        {
+          "title": "London New Year's Eve Fireworks Tickets",
+          "category": "event",
+          "summary": "Tickets for London's iconic New Year's Eve fireworks display are highly sought after. The first batch was released on October 23, and a final smaller batch is expected in November.",
+          "url": "https://www.google.com/search?q=London+New+Year%27s+Eve+Fireworks+Tickets",
+          "date_info": "Final batch of tickets expected in November. First batch released Oct 23 and may still be available via Ticketmaster.",
+          "urgency": "heads-up",
+          "link_status": "search"
+        },
+        {
+          "title": "Hyped Steak Restaurant Swiss Butter Opens New London Locations",
+          "category": "food",
+          "summary": "Swiss Butter, known for its secret sauce and simple menu, has recently opened a new restaurant in South Kensington and plans another in Shoreditch before the end of 2026.",
+          "url": "https://www.timeout.com/london/news/steak-butter-new-locations-shoreditch-south-kensington-111226",
+          "date_info": "South Kensington soft launched November 7-8, official opening early December. Shoreditch opening expected late 2026.",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        }
+      ]
     }
   ]
 }
