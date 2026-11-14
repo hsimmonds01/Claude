@@ -6566,6 +6566,84 @@
           "link_status": "verified"
         }
       ]
+    },
+    {
+      "date": "2026-11-14",
+      "model": "gemini-2.5-flash (legacy key, live search)",
+      "items": [
+        {
+          "title": "Final Tickets Released for London New Year's Eve Fireworks",
+          "category": "event",
+          "summary": "Your last chance to secure a spot for London's spectacular New Year's Eve celebrations has arrived, with the final batch of tickets going on sale yesterday. These highly sought-after tickets sell out fast for one of the city's biggest events.",
+          "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxPc3l1SUJtbGo4YmM4akZOaHVsOVlVZlQ2c0JVNWRfYldIZ3NIZkxHSy1WbkRwdHlPMXdtTmRNUGQtQWJNQXdGU2U2Vm1MRk1nOHBkdHptVnpfZHdSM2U0SkF3eEE0eFB0MnM2N3lCTk92VnF6NHd1R1pRekFSVjhKVHU2SGRNdw?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "date_info": "Tickets went on sale Friday, November 13th",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "Win Two Tickets to a UEFA Champions League Match",
+          "category": "other",
+          "summary": "Enter a free prize draw for the chance to win two tickets to a UEFA Champions League match of your choice. This is a low-effort, high-value promo for any football fan.",
+          "url": "https://www.google.com/search?q=Win+Two+Tickets+to+a+UEFA+Champions+League+Match",
+          "date_info": "",
+          "urgency": "this-week",
+          "link_status": "search"
+        },
+        {
+          "title": "New Affordable Logitech MX Ergo Alternative Trackball Mouse",
+          "category": "product",
+          "summary": "A genuinely clever and affordable new gadget has launched, serving as an alternative to the popular Logitech MX Ergo. It boasts on-board memory, an adjustable trackball, and magnetic switches for superior control.",
+          "url": "https://www.google.com/search?q=New+Affordable+Logitech+MX+Ergo+Alternative+Trackball+Mouse",
+          "date_info": "",
+          "urgency": "heads-up",
+          "link_status": "search"
+        },
+        {
+          "title": "Affordable Gaming Monitor Debuts with 360 Hz and 0.03 ms Response",
+          "category": "product",
+          "summary": "A new affordable gaming monitor has hit the market, offering impressive specs like a 360 Hz refresh rate and an ultra-fast 0.03 ms response time. This is genuinely interesting tech at an accessible price point.",
+          "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxPTHdpUjMtUy1aR2NZZzNXUjg0bzVjT2lLRFZzZ2t6a2JRdVFqblFITHlXeEl2TlVYak5MN3BQTENXdzdXTDVCbDlhQlBNREM0cFFHNER5Z2lmZ2tlXzQ2SkMxSTlUZnQxb1BYcHNVeWhRM3RZN2tlWHVDd1hRNTdsWm1wVllRamdoNU9RSlZZNzk0bUJ1R3FFT20tM0l5SUR2MmFibzBQNlRpRkljZzI0UFJvenREMkZNSHBTTGN6Q1dGVDdOTlQzV0ktR1E?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "date_info": "",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "Globe-Trotter x YOSHIROTTEN 'SUPERNOVA' Luggage Collaboration",
+          "category": "drop",
+          "summary": "Luxury travel brand Globe-Trotter has released a limited-edition 'SUPERNOVA' luggage collection in collaboration with acclaimed Japanese artist YOSHIROTTEN. This designer drop offers unique and beautiful design objects for the discerning traveller.",
+          "url": "https://hypebeast.com/2026/11/globe-trotter-yoshirotten-supernova-luggage-collaboration-collection-release-info",
+          "date_info": "",
+          "urgency": "this-week",
+          "link_status": "verified"
+        },
+        {
+          "title": "Rimowa and Maison Margiela Unveil Unique Luggage Collaboration",
+          "category": "drop",
+          "summary": "A new designer collaboration sees Rimowa team up with Maison Margiela to create a unique luggage collection. The pieces are designed to evolve with each journey, making them a truly interesting and collectible drop.",
+          "url": "https://www.highsnobiety.com/p/margiela-x-rimowa/",
+          "date_info": "",
+          "urgency": "this-week",
+          "link_status": "verified"
+        },
+        {
+          "title": "Legendary Spanish Galleon Docks in London This Weekend",
+          "category": "event",
+          "summary": "A rare opportunity to explore a legendary Spanish galleon is available as it docks in London this weekend. It's a unique cultural event offering a fascinating glimpse into maritime history.",
+          "url": "https://www.timeout.com/london/news/galeon-andalucia-winter-2026-tickets-information-111326",
+          "date_info": "This weekend (November 14-15)",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "matsuri London Debut: Hitsujibungaku, Kyary Pamyu Pamyu, Otoboke Beaver",
+          "category": "event",
+          "summary": "Tickets are now on sale for the highly anticipated London debut of three exciting Japanese acts: Hitsujibungaku, Kyary Pamyu Pamyu, and Otoboke Beaver. Catch this unique triple-bill gig on December 14th.",
+          "url": "https://www.google.com/search?q=matsuri+London+Debut%3A+Hitsujibungaku%2C+Kyary+Pamyu+Pamyu%2C+Otoboke+Beaver",
+          "date_info": "Tickets on sale now for December 14th debut",
+          "urgency": "heads-up",
+          "link_status": "search"
+        }
+      ]
     }
   ]
 }
