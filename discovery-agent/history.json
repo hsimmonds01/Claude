@@ -6644,6 +6644,84 @@
           "link_status": "search"
         }
       ]
+    },
+    {
+      "date": "2026-11-15",
+      "model": "gemini-2.5-flash (legacy key, live search)",
+      "items": [
+        {
+          "title": "Leica Revives Rare Hammertone Finish for M-A and M11-P Cameras",
+          "category": "product",
+          "summary": "Leica has released special editions of its M-A (film) and M11-P (digital) cameras featuring a distinctive, rare hammertone finish. These are premium, limited-availability design objects that are available now, perfect for clients interested in unique tech and beautiful design.",
+          "url": "https://hypebeast.com/2026/11/leica-m-a-m11-p-hammertone-finish-release-info",
+          "date_info": "Available worldwide from November 12, 2026",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "KidSuper x Mercedes-Benz Football Capsule Collection Drops",
+          "category": "drop",
+          "summary": "A new limited-edition streetwear collaboration between KidSuper and Mercedes-Benz, inspired by football history and iconic cars, has just launched. The collection includes jackets, apparel, and accessories, perfect for fans of designer streetwear and football.",
+          "url": "https://hypebeast.com/2026/11/kidsuper-mercedes-benz-football-capsule-fall-winter-2026",
+          "date_info": "Launched Saturday, November 14, 2026",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "Apple HomeView Smart Display Now Available",
+          "category": "product",
+          "summary": "Apple's first smart display, HomeView, is now available in the UK. Featuring a 7-inch Liquid Retina display, Siri AI, and face recognition for personalized content, it's a clever new gadget designed to be the center of your smart home.",
+          "url": "https://www.google.com/search?q=Apple+HomeView+Smart+Display+Now+Available",
+          "date_info": "Available from Friday, November 13, 2026",
+          "urgency": "this-week",
+          "link_status": "search"
+        },
+        {
+          "title": "matsuri '26 Japanese Music Experience Comes to London",
+          "category": "event",
+          "summary": "The first European edition of the famous Japanese music festival, matsuri '26, is happening in London this December. Catch artists like Kyary Pamyu Pamyu, Hitsujibungaku, and Otoboke Beaver at Outernet Live, with tickets on sale now.",
+          "url": "https://www.google.com/search?q=matsuri+%2726+Japanese+Music+Experience+Comes+to+London",
+          "date_info": "Monday, December 14, 2026, at 7:00 PM",
+          "urgency": "heads-up",
+          "link_status": "search"
+        },
+        {
+          "title": "National Theatre Presents 'The Jungle Book' with Spectacular Puppetry",
+          "category": "event",
+          "summary": "Experience Rudyard Kipling's 'The Jungle Book' reimagined at the National Theatre's Olivier stage. This new production features extraordinary puppetry and is now open, running through February 2027.",
+          "url": "https://www.google.com/search?q=National+Theatre+Presents+%27The+Jungle+Book%27+with+Spectacular+Puppetry",
+          "date_info": "Opened Friday, November 13, 2026. Previews until November 19, 2026.",
+          "urgency": "this-week",
+          "link_status": "search"
+        },
+        {
+          "title": "Win £100 Lidl Vouchers for Christmas Shopping",
+          "category": "free sign-up stuff",
+          "summary": "Lidl is giving away 250 x £100 Lidl Plus coupons to help with Christmas shopping. Enter for free by signing up for their Lidl Plus loyalty scheme and submitting your details online.",
+          "url": "https://www.google.com/search?q=Win+%C2%A3100+Lidl+Vouchers+for+Christmas+Shopping",
+          "date_info": "Entries close 23:59 on Tuesday, December 1, 2026",
+          "urgency": "this-week",
+          "link_status": "search"
+        },
+        {
+          "title": "John Goldberger’s ‘100 Superlative Rolex Watches’ Returns in Revised Edition",
+          "category": "product",
+          "summary": "A fully revised edition of John Goldberger's iconic reference book, '100 Superlative Rolex Watches,' is now available for order. Featuring new photography and updated research on 100 of the rarest Rolex references, it's a must-have for watch enthusiasts and collectors.",
+          "url": "https://hypebeast.com/2026/11/john-goldberger-damiani-books-100-superlative-rolex-watches-revised-edition-book-release-info",
+          "date_info": "Available to order now. Physical copies arrive in European bookstores December 1, 2026.",
+          "urgency": "this-week",
+          "link_status": "verified"
+        },
+        {
+          "title": "BBC Children in Need Ultimate Christmas Text to Win Prize Draw",
+          "category": "free sign-up stuff",
+          "summary": "Enter the BBC Children in Need Ultimate Christmas Text to Win Prize Draw for a chance to win a bundle of prizes including DFS vouchers, Cineworld memberships, a tech bundle, and more. Text 'SANTA' to 81155 to enter.",
+          "url": "https://www.google.com/search?q=BBC+Children+in+Need+Ultimate+Christmas+Text+to+Win+Prize+Draw",
+          "date_info": "Opens 12:00 on November 13, 2026, closes 10:00 on Wednesday, November 25, 2026",
+          "urgency": "this-week",
+          "link_status": "search"
+        }
+      ]
     }
   ]
 }
