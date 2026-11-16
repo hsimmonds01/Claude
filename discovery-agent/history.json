@@ -6722,6 +6722,84 @@
           "link_status": "search"
         }
       ]
+    },
+    {
+      "date": "2026-11-16",
+      "model": "gemini-2.5-flash (legacy key, live search)",
+      "items": [
+        {
+          "title": "GTA 6 Launches Next Week, Pre-Load Available Now",
+          "category": "product",
+          "summary": "The highly anticipated Grand Theft Auto VI is set to launch on November 19, 2026, and you can already pre-load the game on PlayStation 5 and Xbox Series X|S. This ensures you're ready to play the moment it's released.",
+          "url": "https://blog.playstation.com/2026/11/10/pre-load-grand-theft-auto-vi-on-ps5-starting-today/",
+          "date_info": "Pre-loading began November 10, 2026. Launches November 19, 2026.",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "Kith for PROLETA RE ART Apparel Collection Drops",
+          "category": "drop",
+          "summary": "Kith has collaborated with Japanese artist PROLETA RE ART on an exclusive apparel collection, launched today, November 16, 2026. This limited-edition drop celebrates Kith's 15th anniversary and is available online and via the Kith app.",
+          "url": "https://hypebeast.com/2026/11/kith-proleta-re-art-clarks-originals-wallabees-apparel-collaboration-collection-release-info",
+          "date_info": "Released November 16, 2026, 11 AM EST",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "Rowing Blazers x Grateful Dead Capsule Collection Available Now",
+          "category": "drop",
+          "summary": "The new Rowing Blazers x Grateful Dead capsule collection, featuring a sherpa pullover and Stealie crewneck sweaters, is now available online. The collection also includes other apparel like rugby shirts, polos, t-shirts, and caps.",
+          "url": "https://www.google.com/search?q=Rowing+Blazers+x+Grateful+Dead+Capsule+Collection+Available+Now",
+          "date_info": "Available now",
+          "urgency": "act-fast",
+          "link_status": "search"
+        },
+        {
+          "title": "G-Star and Wu-Tang Clan 'Code to Code' Raw Denim Drop",
+          "category": "drop",
+          "summary": "G-Star and the iconic Wu-Tang Clan have launched their 'Code to Code' collaboration, featuring raw denim apparel. This limited-edition collection blends Wu-Tang's Shaolin discipline aesthetic with G-Star's denim craftsmanship.",
+          "url": "https://hypebeast.com/2026/11/wu-tang-clan-g-star-raw-collaboration-collection-release-info",
+          "date_info": "Released November 16, 2026",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "BFI IMAX Special Film Screenings This November",
+          "category": "film",
+          "summary": "BFI IMAX has several special film events this month, including exclusive screenings of 'The Further Mis-Adventures of Cliff Booth' starting November 25, 2026. Also coming up are 'Everest: The Other Side + Q&A' on November 17, and 'Godzilla Minus One' on November 22.",
+          "url": "https://whatson.bfi.org.uk/imax/Online/default.asp?BOparam::WScontent::loadArticle::permalink=special-screenings-events",
+          "date_info": "Various dates: Nov 17, Nov 22, Nov 25",
+          "urgency": "this-week",
+          "link_status": "verified"
+        },
+        {
+          "title": "Fulvio's Focacceria Grand Opening Deal in Soho",
+          "category": "food event",
+          "summary": "Fulvio's Focacceria is celebrating its grand opening today, November 16, 2026, in Soho, London. Be among the first 100 customers to receive a free filled focaccia, plus enjoy 50% off all food and drinks.",
+          "url": "https://londonpopupcalendar.com/",
+          "date_info": "Monday, November 16, 2026",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "New Era Limited Edition Cap Drops for 59FIFTY Day",
+          "category": "drop",
+          "summary": "New Era is releasing limited-edition caps to celebrate the 30th anniversary of its iconic 59FIFTY silhouette. Keep an eye out for these exclusive drops. Hatstore.co.uk also lists upcoming limited-edition snapback releases, including the 'Dark Afterlife Snapback' on November 20 and 'Hollow Souls Snapback' on November 27.",
+          "url": "https://www.google.com/search?q=New+Era+Limited+Edition+Cap+Drops+for+59FIFTY+Day",
+          "date_info": "Ongoing for 59FIFTY Day; specific drops Nov 20 & Nov 27",
+          "urgency": "this-week",
+          "link_status": "search"
+        },
+        {
+          "title": "OrigamiSwift Folding Mouse: A Clever Portable Gadget",
+          "category": "product",
+          "summary": "Discover the OrigamiSwift Folding Mouse, a clever new gadget that folds flat for easy portability, making it perfect for those on the go. It boasts a beautiful design, connects via Bluetooth 5.2, and offers up to three months of battery life.",
+          "url": "https://www.yankodesign.com/2026/11/03/the-8-best-tech-gadgets-of-november-2026/",
+          "date_info": "Featured in November 2026 releases",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        }
+      ]
     }
   ]
 }
