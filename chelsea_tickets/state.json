@@ -7,7 +7,7 @@
       "date": "Sat 30 Jan 2027",
       "opponent": "Nottingham Forest",
       "windows": {
-        "ticket-application-window": "open"
+        "ticket-application-window": "scheduled"
       }
     },
     "1CTJGlOsVK7SPgEFvlhFJd": {
@@ -15,7 +15,7 @@
       "date": "Wed 03 Mar 2027",
       "opponent": "Coventry City",
       "windows": {
-        "ticket-application-window": "open"
+        "ticket-application-window": "scheduled"
       }
     },
     "1ZGBkB6Ud3StnSV8BK85GH": {
@@ -31,7 +31,7 @@
       "date": "Sat 24 Apr 2027",
       "opponent": "Manchester City",
       "windows": {
-        "ticket-application-window": "open"
+        "ticket-application-window": "scheduled"
       }
     },
     "24ZDiYAPQUgqmZVb2n09Qc": {
@@ -39,7 +39,7 @@
       "date": "Sun 03 Jan 2027",
       "opponent": "Newcastle United",
       "windows": {
-        "ticket-application-window": "open"
+        "ticket-application-window": "scheduled"
       }
     },
     "2rON8ZQMZXmDZP3T356LnW": {
@@ -47,7 +47,7 @@
       "date": "Sat 10 Apr 2027",
       "opponent": "Fulham",
       "windows": {
-        "ticket-application-window": "open"
+        "ticket-application-window": "scheduled"
       }
     },
     "2zWm0U1dBgVxccabdkHo4I": {
@@ -63,7 +63,7 @@
       "date": "Sat 15 May 2027",
       "opponent": "Everton",
       "windows": {
-        "ticket-application-window": "open"
+        "ticket-application-window": "scheduled"
       }
     },
     "4rGsJmZ2g7cozXvyNPBoMG": {
@@ -71,7 +71,7 @@
       "date": "Sat 20 Feb 2027",
       "opponent": "Ipswich Town",
       "windows": {
-        "ticket-application-window": "open"
+        "ticket-application-window": "scheduled"
       }
     },
     "537eXyxK47nfbH15dsq5t7": {
@@ -79,7 +79,7 @@
       "date": "Sat 13 Mar 2027",
       "opponent": "Arsenal",
       "windows": {
-        "ticket-application-window": "open"
+        "ticket-application-window": "scheduled"
       }
     },
     "6gPnhKBYOObsKpzuyv9a5s": {
@@ -103,7 +103,7 @@
       "date": "Sun 30 May 2027",
       "opponent": "Brentford",
       "windows": {
-        "ticket-application-window": "open"
+        "ticket-application-window": "scheduled"
       }
     },
     "LQKYY0qugPeQ6Z8BxWwnJ": {
@@ -111,7 +111,7 @@
       "date": "Sat 16 Jan 2027",
       "opponent": "Sunderland",
       "windows": {
-        "ticket-application-window": "open"
+        "ticket-application-window": "scheduled"
       }
     }
   },
