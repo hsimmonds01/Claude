@@ -10,6 +10,7 @@ import pytest
 from chelsea.model import (
     CLOSED,
     OPEN,
+    SCHEDULED,
     SOLD_OUT,
     UNKNOWN,
     FeedError,
@@ -80,7 +81,9 @@ class TestHomeFiltering:
 class TestWindowState:
     def test_missing_status_means_the_window_is_open(self):
         # Arrange -- Chelsea attaches no status object while a window is live
-        feed = make_feed(make_entry(tickets=[{"title": "Ticket Application Window Open"}]))
+        feed = make_feed(make_entry(tickets=[
+            {"title": "Ticket Application Window Open", "label": "On-sale: Aug 21, 2026"},
+        ]))
 
         # Act
         window = parse_home_fixtures(feed)[0].windows[0]
@@ -88,6 +91,46 @@ class TestWindowState:
         # Assert
         assert window.state == OPEN
         assert window.is_open
+
+    @pytest.mark.parametrize("label", ["On-sale: Now", "On-sale: Nov 09, 2026"])
+    def test_a_real_on_sale_label_is_open(self, label):
+        # "On-sale: <date>" appears while the window is still about to open
+        # (seen 30 minutes before a 12pm start), and "On-sale: Now" once live.
+        feed = make_feed(make_entry(tickets=[
+            {"title": "Ticket Application Window", "label": label},
+        ]))
+
+        assert parse_home_fixtures(feed)[0].windows[0].state == OPEN
+
+    @pytest.mark.parametrize("label", ["", "   ", "TO BE ANNOUNCED", "To Be Confirmed", "TBA"])
+    def test_a_placeholder_window_is_scheduled_not_open(self, label):
+        # Regression: Chelsea lists a placeholder window on every future
+        # fixture. It has no status object either, so it used to read as OPEN:
+        # ~10 false "applications OPEN" alerts fired at once, and the real
+        # opening later was OPEN -> OPEN and so never alerted.
+        feed = make_feed(make_entry(tickets=[
+            {"title": "Ticket Application Window", "label": label},
+        ]))
+
+        window = parse_home_fixtures(feed)[0].windows[0]
+
+        assert window.state == SCHEDULED
+        assert not window.is_open
+
+    def test_a_missing_label_is_a_placeholder_too(self):
+        feed = make_feed(make_entry(tickets=[{"title": "Ticket Application Window"}]))
+
+        assert parse_home_fixtures(feed)[0].windows[0].state == SCHEDULED
+
+    def test_a_closed_window_stays_closed_whatever_its_label(self):
+        # Closed windows really do carry a blank label (seen live), and must not
+        # be reclassified as scheduled.
+        feed = make_feed(make_entry(tickets=[
+            {"title": "Ticket Application Window", "label": "",
+             "status": {"text": "Off Sale", "colour": "grey"}},
+        ]))
+
+        assert parse_home_fixtures(feed)[0].windows[0].state == CLOSED
 
     def test_off_sale_status_means_closed(self):
         # Arrange

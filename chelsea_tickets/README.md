@@ -43,6 +43,11 @@ work, and both are easy to get backwards:
 - **A sale window with no `status` object at all is OPEN.** Chelsea only
   attaches a status once a window has shut (`Off Sale`) or the allocation has
   gone (`Sold Out`).
+- **...unless its label has no date.** Chelsea lists a placeholder window
+  (blank label, later `TO BE ANNOUNCED`) on every future fixture, and it has
+  no `status` either. Those are **scheduled**, not open. A real window's label
+  names a date (`On-sale: Nov 09, 2026`, then `On-sale: Now`), and the
+  scheduled → open change is what alerts.
 - **Fixtures are keyed by their CMS `id`**, never by team name, so
   "Brighton" vs "Brighton & Hove Albion" never matters.
 
@@ -107,6 +112,13 @@ python -m pytest -q                          # offline tests
 membership number, no login, no personal data — the design never needs any.
 
 ## Gotchas worth knowing
+
+- **A placeholder window must never count as open.** It used to, and it failed
+  in both directions: when Chelsea added placeholders to every future fixture
+  (30 Oct 2026) about ten false "applications OPEN" alerts fired at once, each
+  starting a 6-hour reminder clock; and because the placeholder was already
+  "open", a window's *real* opening was open → open and never alerted (Aston
+  Villa's, 9 Nov, produced nothing). `model._is_placeholder_label` decides it.
 
 - **Window titles can embed a running count in words, not just digits** —
   Chelsea's "additional tickets" route reads "...purchase an additional

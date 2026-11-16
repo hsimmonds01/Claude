@@ -11,7 +11,7 @@ from datetime import datetime, timedelta, timezone
 import pytest
 
 from chelsea.detect import REMINDER_AFTER, detect, due_reminders, window_alert_key
-from chelsea.model import CLOSED, OPEN, SOLD_OUT, HomeFixture, SaleWindow
+from chelsea.model import CLOSED, OPEN, SCHEDULED, SOLD_OUT, HomeFixture, SaleWindow
 
 
 def window(key: str = "ticket-application-window-open", state: str = OPEN) -> SaleWindow:
@@ -177,6 +177,49 @@ class TestWindowOpening:
         alerts = detect(before, current, seeded=True)
 
         assert "Applications close: Wednesday 26 August 12pm" in alerts[0].message
+
+
+class TestScheduledPlaceholderWindows:
+    """Chelsea lists a dateless placeholder window on every future fixture."""
+
+    def test_placeholder_becoming_a_real_open_window_alerts(self):
+        # Arrange -- the case the old OPEN -> OPEN diff could never see
+        before = snapshot(fixture(windows=(window(state=SCHEDULED),)))
+        current = [fixture(windows=(window(state=OPEN),))]
+
+        # Act
+        alerts = detect(before, current, seeded=True)
+
+        # Assert
+        assert len(alerts) == 1
+        assert alerts[0].priority == "urgent"
+        assert "applications OPEN" in alerts[0].title
+
+    def test_a_new_fixture_with_only_a_placeholder_is_a_heads_up_not_an_open_alert(self):
+        # Arrange -- ten of these arrived at once and each fired "OPEN"
+        before = snapshot(fixture(entry_id="other"))
+        current = [fixture(windows=(window(state=SCHEDULED),))]
+
+        # Act
+        alerts = detect(before, current, seeded=True)
+
+        # Assert
+        assert len(alerts) == 1
+        assert alerts[0].newly_open == ()
+        assert alerts[0].priority == "default"
+        assert "New home fixture listed" in alerts[0].title
+
+    def test_placeholder_staying_scheduled_is_silent(self):
+        before = snapshot(fixture(windows=(window(state=SCHEDULED),)))
+        current = [fixture(windows=(window(state=SCHEDULED),))]
+        assert detect(before, current, seeded=True) == []
+
+    def test_open_window_reverting_to_a_placeholder_is_silent(self):
+        # Also covers the first run after this change, when every placeholder
+        # already stored as "open" is re-read as "scheduled".
+        before = snapshot(fixture(windows=(window(state=OPEN),)))
+        current = [fixture(windows=(window(state=SCHEDULED),))]
+        assert detect(before, current, seeded=True) == []
 
 
 class TestNewFixtureArrivingAlreadyOpen:
