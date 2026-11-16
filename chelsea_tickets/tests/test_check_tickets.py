@@ -246,6 +246,62 @@ class TestFeedShapeChange:
         assert "needs attention" in watcher.sent[0]["title"]
 
 
+class TestPlaceholderWindows:
+    """End to end: a dateless placeholder must not look like an open ballot."""
+
+    def placeholder(self, feed, label):
+        entry = find_entry(feed, HULL_ID)
+        for ticket in entry["tickets"]:
+            ticket.pop("status", None)
+            ticket["label"] = label
+        return feed
+
+    def test_placeholder_stays_silent_then_the_real_opening_alerts(self, watcher, feed):
+        # --- Run 1: baseline with Hull listed as a dateless placeholder ----
+        watcher.set_feed(self.placeholder(copy.deepcopy(feed), "TO BE ANNOUNCED"))
+        watcher.run()
+        assert watcher.sent == []
+
+        # --- Run 2: nothing changed -- a placeholder is not an open ballot -
+        watcher.run()
+        assert watcher.sent == [], "a placeholder must not read as OPEN"
+
+        # --- Run 3: Chelsea gives the window a real date and it goes live --
+        # (regression: with the placeholder stored as OPEN this was OPEN ->
+        #  OPEN, so the real opening never alerted)
+        watcher.set_feed(self.placeholder(copy.deepcopy(feed), "On-sale: Now"))
+        watcher.run()
+        assert len(watcher.sent) == 1
+        assert watcher.sent[0]["priority"] == "urgent"
+        assert "applications OPEN" in watcher.sent[0]["title"]
+
+    def test_a_fixture_first_listed_as_a_placeholder_is_only_a_heads_up(self, watcher, feed):
+        # Arrange -- baseline without Hull, then Hull appears as a placeholder
+        watcher.set_feed(drop_entry(copy.deepcopy(feed), HULL_ID))
+        watcher.run()
+
+        # Act
+        watcher.set_feed(self.placeholder(copy.deepcopy(feed), ""))
+        watcher.run()
+
+        # Assert
+        assert len(watcher.sent) == 1
+        assert watcher.sent[0]["priority"] == "default"
+        assert "New home fixture listed" in watcher.sent[0]["title"]
+
+    def test_placeholders_never_trigger_a_reminder(self, watcher, feed):
+        # Arrange
+        t0 = datetime(2026, 11, 16, 9, 0, tzinfo=timezone.utc)
+        watcher.set_feed(self.placeholder(copy.deepcopy(feed), "TO BE ANNOUNCED"))
+        watcher.run(now=t0)
+
+        # Act -- long after the reminder threshold
+        watcher.run(now=t0 + REMINDER_AFTER + timedelta(hours=1))
+
+        # Assert
+        assert watcher.sent == []
+
+
 class TestReminders:
     """The one-off 6h follow-up in case the primary alert gets missed."""
 

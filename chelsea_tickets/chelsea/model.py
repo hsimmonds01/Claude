@@ -14,8 +14,15 @@ import html
 import re
 from dataclasses import dataclass, field
 
-# Window states, derived from the feed's `status` object.
+# Window states, derived from the feed's `status` object and `label`.
 OPEN = "open"
+# Listed, but with no on-sale date yet. Chelsea publishes a placeholder window
+# ("TO BE ANNOUNCED", or a blank label) on every future fixture, and like a
+# genuinely open window it carries no `status` object -- so the status alone
+# cannot tell them apart. Treating a placeholder as OPEN meant the real
+# opening later was OPEN -> OPEN, i.e. invisible to the diff, while the
+# placeholders themselves fired a burst of false "applications OPEN" alerts.
+SCHEDULED = "scheduled"
 CLOSED = "closed"
 SOLD_OUT = "sold_out"
 UNKNOWN = "unknown"
@@ -124,6 +131,17 @@ def _window_state(status: object) -> tuple[str, str]:
     return UNKNOWN, text
 
 
+# A real window's label always names a date ("On-sale: Nov 09, 2026") and then
+# "On-sale: Now" once live. A placeholder's label is blank or says it is yet to
+# be announced.
+_PLACEHOLDER_LABEL_RE = re.compile(r"to be (?:announced|confirmed)|\btba\b|\btbc\b", re.IGNORECASE)
+
+
+def _is_placeholder_label(label: str) -> bool:
+    cleaned = label.strip()
+    return not cleaned or bool(_PLACEHOLDER_LABEL_RE.search(cleaned))
+
+
 def is_relevant_window(title: str, is_club_chelsea: bool) -> bool:
     lowered = title.lower()
     if is_club_chelsea or any(word in lowered for word in EXCLUDED_WINDOW_WORDS):
@@ -147,12 +165,15 @@ def _parse_windows(raw_tickets: object) -> tuple[SaleWindow, ...]:
             continue
         seen.add(key)
         state, status_text = _window_state(raw.get("status"))
+        label = str(raw.get("label") or "").strip()
+        if state == OPEN and _is_placeholder_label(label):
+            state = SCHEDULED
         link = raw.get("moreInfoLink")
         windows.append(
             SaleWindow(
                 key=key,
                 title=title,
-                on_sale_label=str(raw.get("label") or "").strip(),
+                on_sale_label=label,
                 state=state,
                 status_text=status_text,
                 info_url=str(link.get("url") or "") if isinstance(link, dict) else "",
