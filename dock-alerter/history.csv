@@ -1302,3 +1302,4 @@ timestamp_utc,mode,metric,value,station,temp_c,precip_mm
 2026-11-16T08:01:14.763815+00:00,check,empty_docks,0,"Tooley Street, Bermondsey",4.5,0.0
 2026-11-16T08:05:32.322591+00:00,check,empty_docks,0,"Tooley Street, Bermondsey",4.5,0.0
 2026-11-16T08:10:39.764983+00:00,summary,empty_docks,0,"Tooley Street, Bermondsey",4.5,0.0
+2026-11-16T08:15:37.959824+00:00,check,empty_docks,0,"Tooley Street, Bermondsey",4.5,0.0
