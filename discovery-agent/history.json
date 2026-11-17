@@ -6800,6 +6800,75 @@
           "link_status": "verified"
         }
       ]
+    },
+    {
+      "date": "2026-11-17",
+      "model": "gemini-2.5-flash (legacy key, live search)",
+      "items": [
+        {
+          "title": "Leadenhall Market Christmas Lights Switch-On This Week",
+          "category": "event",
+          "summary": "One of London's most beautiful Christmas neighbourhoods, Leadenhall Market, will be switching on its festive lights this week, offering a magical experience right in the heart of the city.",
+          "url": "https://www.timeout.com/london/news/leadenhall-market-christmas-lights-market-switch-on-2026-111726",
+          "date_info": "Switch-on this week",
+          "urgency": "this-week",
+          "link_status": "verified"
+        },
+        {
+          "title": "Meta Launches More Affordable AI Smart Glasses",
+          "category": "product",
+          "summary": "Meta has released new, more affordable AI smart glasses, offering an intriguing blend of clever tech and stylish design that promises to turn heads.",
+          "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQLUVKMVhDa0w2WkttdzB0RVN0dW5GNkY5Q3dfUy1QWnZPZ0IwenhMYmIyZnIzanN2ck1FUDVBTGx3OUY1a2k1VWlZR3dnQVBDZHdYMHp5OXpERWFqUjFlQW1SdGt1SE9EY0hOc0hhU1NfNlc2UWx4ZTlYMGRDYkp2dTNVdmdhMzNPRGU1cl9RQW9PMFE3WjVpOUxkdlHSAaIBQVVfeXFMT3RneG5NRzEyRUpHN0hlRmpmU1lueHZnQkxDMU80VHdhUzMzaVJFSXY3cGg0aTVqMGVocDh6ZDR1T2ttZndxOWpPZjN4cnBFNVI2SE83bFBvQ2hCMExYQ21weUJKeTY2cFE3aFdLVGoxQnRGdUY5QUtuSUZZTkZvUVZQU0MtWHdnNFFjVkZ2S2lvbzBVWjZVcVdUVTJEUFBPRFJR?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "date_info": "Available now",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "Slam Jam and Levi’s Reunite for Custom Denim Collection",
+          "category": "drop",
+          "summary": "Slam Jam and Levi’s have reunited for a new 'star-studded' custom denim collection, a limited-edition designer collaboration that's sure to be a sought-after drop.",
+          "url": "https://hypebeast.com/2026/11/slam-jam-levis-star-studded-custom-denim-collaboration-collection-release-info",
+          "date_info": "New release",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "New Rick Owens Arrivals on HBX",
+          "category": "drop",
+          "summary": "Fresh new arrivals from acclaimed designer Rick Owens have just dropped on HBX, perfect for those seeking cutting-edge streetwear and high-fashion collaborations.",
+          "url": "https://hypebeast.com/2026/11/new-arrivals-from-hbx-rick-owens-6",
+          "date_info": "Available now",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "Xiaomi's Affordable New Fitness Tracker Arrives in Europe",
+          "category": "product",
+          "summary": "Xiaomi's latest affordable fitness tracker is now available in more European markets, offering a clever and budget-friendly gadget for tracking your health and activity.",
+          "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOcG1ueTlEYVpQRjRBblJYZ050bEpKanExU1pLQlJaMkZMQ0xqUGkxNVpCVkx3eFpBZHJINUhIU0FjU05nODlWMkxIOV9ZeEMzRmtnUnc3RWtxZ0VCa0wwdnBFTXhUMkd0aXIxaS1GeGlqTW5lSUxlNFpoZ2cxYnpmeFptUkVSMmpqVmNXVS1iR2R6SURQdFFGUzBaZkJONF9qS1dCc1FQQUkxSUlSNzZURlc1UU00MkpR?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "date_info": "Available now",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "Octopus Energy's 'Pink Friday' Deals",
+          "category": "other",
+          "summary": "Octopus Energy is running its 'Pink Friday' event, promising genuine perks and potential savings on energy, a valuable promotion worth checking out.",
+          "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTFBHM1lUNUdscWF5dHcyeTlzVVNMZUNRR2V4Mk5jNjJwUUo3NFF2d21RUXdLSW1sQVlVNXFnZEZwVnNQaHpSUlBHMHNaWU03dTlNanc?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "date_info": "Pink Friday 2026",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "AAPE x LNGSHOT FW26 'AAPE UNDERGROUND' Collection",
+          "category": "drop",
+          "summary": "AAPE has once again teamed up with LNGSHOT for their Fall/Winter 2026 'AAPE UNDERGROUND' collection, delivering new limited-edition streetwear pieces for your wardrobe.",
+          "url": "https://hypebeast.com/2026/11/aape-taps-lngshot-again-for-its-fw26-aape-underground-collection",
+          "date_info": "FW26 Collection release",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        }
+      ]
     }
   ]
 }
