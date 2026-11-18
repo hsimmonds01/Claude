@@ -6869,6 +6869,66 @@
           "link_status": "verified"
         }
       ]
+    },
+    {
+      "date": "2026-11-18",
+      "model": "gemini-2.5-flash (legacy key, live search)",
+      "items": [
+        {
+          "title": "RAYE Adds Second BST Hyde Park 2027 Date",
+          "category": "event",
+          "summary": "Due to phenomenal demand, South London star RAYE has added a second headline show at BST Hyde Park on Sunday, July 11, 2027. General sale tickets for this highly anticipated gig go live this Friday.",
+          "url": "https://www.google.com/search?q=RAYE+Adds+Second+BST+Hyde+Park+2027+Date",
+          "date_info": "General sale Fri Nov 20, 10am GMT for Sun Jul 11, 2027 show. Amex presale today, Wed Nov 18, 1pm.",
+          "urgency": "act-fast",
+          "link_status": "search"
+        },
+        {
+          "title": "Palace x BAPE Winter 2026 Collection Drops",
+          "category": "drop",
+          "summary": "London streetwear brand Palace is releasing its Winter 2026 collaboration with A BATHING APE (BAPE), featuring stacked outerwear and reworked denim. The collection drops in the UK and Europe this Friday.",
+          "url": "https://www.google.com/search?q=Palace+x+BAPE+Winter+2026+Collection+Drops",
+          "date_info": "Available from Fri Nov 20 in UK and Europe.",
+          "urgency": "act-fast",
+          "link_status": "search"
+        },
+        {
+          "title": "A-COLD-WALL* x BACARDÍ Capsule Launch with Overmono DJ Set",
+          "category": "event",
+          "summary": "A-COLD-WALL* and BACARDÍ are collaborating on a new capsule collection, celebrating its launch with a special night at Village Underground in Shoreditch. The event will feature a live DJ set by Overmono, and limited free tickets are available via DICE.",
+          "url": "https://www.google.com/search?q=A-COLD-WALL%2A+x+BACARD%C3%8D+Capsule+Launch+with+Overmono+DJ+Set",
+          "date_info": "Wed Nov 25.",
+          "urgency": "heads-up",
+          "link_status": "search"
+        },
+        {
+          "title": "Raising Cane’s Opens First London Restaurant",
+          "category": "food",
+          "summary": "Popular American fast-food chain Raising Cane’s is set to open its inaugural London location, taking over an iconic old Angus Steakhouse. This marks the brand's first foray into the city, bringing its famous chicken fingers to a new audience.",
+          "url": "https://www.timeout.com/london/news/raising-canes-first-london-location-first-look-111826",
+          "date_info": "Opening soon (announced Nov 18).",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "Rooftop Christmas Movie Pop-Up & Dinner at JOIA",
+          "category": "food, film",
+          "summary": "Experience a magical Christmas movie screening and a three-course dinner on JOIA's rooftop, offering stunning views of Battersea Power Station. Guests will enjoy blankets, complimentary popcorn, and festive films, with tickets available for this pop-up starting tomorrow.",
+          "url": "https://www.google.com/search?q=Rooftop+Christmas+Movie+Pop-Up+%26+Dinner+at+JOIA",
+          "date_info": "From Thu Nov 19.",
+          "urgency": "this-week",
+          "link_status": "search"
+        },
+        {
+          "title": "Alice Immersive Wonderland Opens in London",
+          "category": "event",
+          "summary": "Step into the whimsical world of Lewis Carroll's classic story at this new immersive experience at Dock X, Canada Water. The attraction features ten distinct immersive spaces, live performances, and a breathtaking 360° projection-mapped finale.",
+          "url": "https://www.google.com/search?q=Alice+Immersive+Wonderland+Opens+in+London",
+          "date_info": "Opened from Nov 13, ongoing.",
+          "urgency": "heads-up",
+          "link_status": "search"
+        }
+      ]
     }
   ]
 }
