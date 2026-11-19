@@ -6929,6 +6929,84 @@
           "link_status": "search"
         }
       ]
+    },
+    {
+      "date": "2026-11-19",
+      "model": "gemini-2.5-flash (legacy key, live search)",
+      "items": [
+        {
+          "title": "Kith x Star Wars Sith Collection Drops Early in London",
+          "category": "drop",
+          "summary": "A limited-edition collection of apparel, figures, and accessories inspired by the dark side of Star Wars is dropping early at Kith London. This is a perfect catch for client interested in streetwear and limited-edition collabs.",
+          "url": "https://hypebeast.com/2026/11/kith-star-wars-sith-apparel-collection-toys-figurines-hasbro-collaboration-release-info-teaser",
+          "date_info": "Early release at Kith London on November 20, 2026. Global release on November 25, 2026, at 11 a.m. EST.",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "Win a Free Copy of GTA 6 via Kick and Twitch Giveaways",
+          "category": "other",
+          "summary": "Kick and Twitch are running promotions offering free Grand Theft Auto 6 Ultimate Edition codes. On Kick, you can unlock a reward case daily by watching any stream for three hours. Twitch will also have daily code drops starting today. This is a low-effort, free-to-enter promo with a genuine perk.",
+          "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxPbWJfSXdpaUtvdndfTm04QXI5a0t5bmpXTnJLRnJvQm41cllDQkhEbkt0VzdxU3JoMlJyLVNtbGNKNTBZWVlycnhWc0t6Z2ZWTzRYT3BDdHRfel9FRHRFQ2lvT1p2RHJlR19yS3gxWEVjejNCRDU0QUR2OWttSk1XVW4yV2RoSmM?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "date_info": "Kick promotion runs until December 7, 2026. Twitch giveaway starts November 19, 2026, and runs until November 30, 2026.",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "Ann Demeulemeester x Billy Idol Capsule Collection Released",
+          "category": "drop",
+          "summary": "Designer Ann Demeulemeester has collaborated with Billy Idol on a graphic-heavy, ten-piece capsule collection, celebrating Idol's induction into the Rock & Roll Hall of Fame. It features his iconic lyrics, song titles, and photographs, and is available now.",
+          "url": "https://hypebeast.com/2026/11/ann-demeulemeester-billy-idol-collaborative-capsule-collection",
+          "date_info": "Available now.",
+          "urgency": "this-week",
+          "link_status": "verified"
+        },
+        {
+          "title": "G-SHOCK and HIDDEN.NY Unveil Collaborative Watch",
+          "category": "drop",
+          "summary": "G-SHOCK has teamed up with HIDDEN.NY for a new limited-edition watch, drawing inspiration from 90s/2000s street culture. The GM-2110HDN-8A model features HIDDEN.NY's green accents, 'h' logo, and Statue of Liberty engravings, making it a cool limited-edition accessory.",
+          "url": "https://hypebeast.com/2026/11/g-shock-hidden-ny-collaborative-gm-2110hdn-watch-release-info",
+          "date_info": "Available starting November 25, 2026.",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "NORQAIN Debuts Arctic Blue Independence Skeleton Watch",
+          "category": "product",
+          "summary": "NORQAIN has released a new Independence Skeleton 40mm watch featuring a stunning Arctic Blue translucent dial that reveals the movement, paired with a redesigned semi-integrated steel bracelet. This is a genuinely interesting new release for those appreciating beautiful design objects.",
+          "url": "https://hypebeast.com/2026/11/norqain-skeleton-40mm-independence-redesigned-bracelet-release-info",
+          "date_info": "Available for preorder now.",
+          "urgency": "this-week",
+          "link_status": "verified"
+        },
+        {
+          "title": "Rivian x Aether Limited-Edition Outerwear Collection",
+          "category": "drop",
+          "summary": "Electric vehicle manufacturer Rivian has collaborated with Los Angeles apparel brand Aether to launch a limited-edition outerwear collection. The three-piece collection blends Rivian's design aesthetics with Aether's functional utility, including pockets sized for a Rivian key fob.",
+          "url": "https://www.highsnobiety.com/p/rivian-aether-collab/",
+          "date_info": "Announced November 18, 2026. Available now.",
+          "urgency": "this-week",
+          "link_status": "verified"
+        },
+        {
+          "title": "Southbank Centre's Winter Light Returns Next Week",
+          "category": "event",
+          "summary": "The Southbank Centre's annual Winter Light art trail is returning next week with a brand-new display of illuminated public art installations. It's a free outdoor event in London, perfect for a cool evening out.",
+          "url": "https://www.timeout.com/london/news/southbank-centre-winter-lights-2026-return-date-111926",
+          "date_info": "Returns November 24, 2026, and runs until January 10, 2027.",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "Subwhere AR App: See London Tube Trains in Real-Time Beneath Your Feet",
+          "category": "product",
+          "summary": "A clever new augmented reality app, Subwhere AR, lets you point your phone at the pavement and see London Underground trains moving beneath you in real-time, complete with their depth, speed, and any delays. It's available for £3.99.",
+          "url": "https://www.timeout.com/london/news/subwhere-ar-app-tube-trains-real-time-launch-london-111926",
+          "date_info": "Available now.",
+          "urgency": "this-week",
+          "link_status": "verified"
+        }
+      ]
     }
   ]
 }
