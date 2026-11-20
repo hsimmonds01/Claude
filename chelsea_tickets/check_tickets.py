@@ -102,7 +102,7 @@ def run(dry_run: bool = False, recon: bool = False, now: datetime | None = None)
 
     try:
         payload = fetch_ticket_feed()
-        fixtures = parse_home_fixtures(payload)
+        fixtures = parse_home_fixtures(payload, now)
     except FetchError as exc:
         if recon:
             print(f"RECON: fetch FAILED -- {exc}")
