@@ -7007,6 +7007,66 @@
           "link_status": "verified"
         }
       ]
+    },
+    {
+      "date": "2026-11-20",
+      "model": "gemini-2.5-flash (legacy key, live search)",
+      "items": [
+        {
+          "title": "Levi's x L'Art de L'Automobile Denim Collection Drops This Weekend",
+          "category": "drop",
+          "summary": "This new ten-piece capsule collection from Levi's and Parisian automotive lifestyle brand L'Art de L'Automobile fuses heritage denim with car culture, featuring custom patches and automotive graphics. Selected pieces will be available online in Europe tomorrow.",
+          "url": "https://hypebeast.com/2026/11/levis-lart-de-lautomobile-new-capsule-release-info",
+          "date_info": "Drops online in Europe Saturday, November 21, 2026",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "Paws at the Pictures: Dog-Friendly Live Orchestra Cinema",
+          "category": "event",
+          "summary": "Experience a world-first live orchestra cinema screening of 'The Snowman and the Snowdog' at Battersea Arts Centre, where you can bring your dog along. All ticket sales go to Battersea Dogs & Cats Home.",
+          "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxOb1o3VTRrNi0zSWdSM1gtSk1iQ0hwNWtxMkE2UG1ZdFBvblFvcmw3Undyek5VMlIya0Fxa3liMzJqUTYxTmNyWVVLNU1WbnVKZUoxU3ZnYTF4S1hFNFkyZjZZUEFyMEQxdW1GNXJZZDBDcF8zS1VLby1CdktpRVFKMUtn?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "date_info": "Saturday, November 21, 2026 (2pm, 4pm, 7pm showings)",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "Aldi's Black Friday Specialbuys Bring Affordable Tech & Home Gadgets",
+          "category": "product",
+          "summary": "Aldi's Black Friday Specialbuys, including affordable smart home tech, beauty gadgets, and kitchen upgrades like a Sharp Soundbar and Dual Zone Air Fryer, hit stores next week. These limited-quantity items are known to sell out quickly.",
+          "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPYVk2NDZqX0pKa1V1Y3ZUNlhTc0Jxb3V3a29oZG1jYnZwUk1FQUh3Q3pObkxxSHZmLWlBN2lfYmNESHRfbUZLNGJUWk51YUxJUWVmc28wczczSlFxS2hNYnB2U1c0b2NmTVJGVG5GN1VmMDRKSm15TktudTY3bEM4V3FoVFRiMWQxU1BRYlhxY3ZQdFZJNWh2aXptYjRMdGpudm1MSFhRVndxZFVPdEtyMDVLY09OWkU?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "date_info": "In stores from Thursday, November 26, 2026",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "Bunso: New Filipino Bakery & Pizzeria in Kentish Town",
+          "category": "food",
+          "summary": "Omar Shah, founder of the acclaimed Maginhawa Group, has opened Bunso in Kentish Town. This all-day spot offers Filipino-inspired pastries and coffee by day, transforming into a pizzeria and bar by night with unique pizzas and pastas, all set to a hi-fi soundtrack.",
+          "url": "https://www.timeout.com/london/restaurants/bunso",
+          "date_info": "Opened October 13, 2026",
+          "urgency": "this-week",
+          "link_status": "verified"
+        },
+        {
+          "title": "Black Friday London Theatre Deals Announced",
+          "category": "event",
+          "summary": "Time Out has compiled a list of the best London theatre deals for Black Friday 2026. This is a great opportunity to snag tickets for popular shows that often sell out.",
+          "url": "https://www.timeout.com/london/news/black-friday-theatre-sale-2026-best-deals-112026",
+          "date_info": "Deals expected around Black Friday, November 27, 2026",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "North London's Macintosh Ale House Crowned City's Best Micropub",
+          "category": "food",
+          "summary": "Time Out has named Macintosh Ale House in North London as the city's best micropub, celebrated for its unique focus on just two beers. It's a prime spot for discovering interesting drinks.",
+          "url": "https://www.timeout.com/london/news/best-micropub-london-2026-macintosh-ale-house-111926",
+          "date_info": "",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        }
+      ]
     }
   ]
 }
