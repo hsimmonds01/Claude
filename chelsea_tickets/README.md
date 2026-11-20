@@ -12,8 +12,10 @@ Built for a **True Blue member**, all competitions, men's team only.
 | Notification | Priority | When |
 |---|---|---|
 | **New home fixture listed** | default | A Stamford Bridge fixture appears on the ticket page. Chelsea only lists a game once ticket info exists, so this means a sale window is coming. Includes the application dates if they're already published. |
-| **Ticket applications OPEN** | urgent | A members' application window (the ballot) opens. Includes the closing deadline. |
-| **New fixture + applications OPEN** | urgent | Both at once — a fixture first seen with its ballot already live. Sent as **one** notification, not two. |
+| **Early look** | default | The match details already hint at when applications will open, though the ticket page still says "to be announced". Not official, but enough to set a reminder. |
+| **Dates confirmed** | default | Chelsea gave the window a real date. Says plainly that it is **not open yet**, with the opening and closing times. |
+| **Ticket applications OPEN** | urgent | The window has actually opened (its opening time has passed). Includes the closing deadline. |
+| **New fixture + applications OPEN** | urgent | A fixture first seen with its window already live. Sent as **one** notification, not two. |
 | **Reminder: still OPEN** | urgent | A one-off follow-up, sent once, exactly 6 hours after an "applications OPEN" alert, if that window is still open — in case the original got missed. Never repeats beyond that single nudge. |
 | **Watch can't reach the site** | high | 3 runs in a row failed to load the feed, i.e. the watch is blind rather than quiet. |
 | **Watch needs attention** | high | Chelsea changed the feed's shape and the watcher can no longer read it. |
@@ -43,11 +45,16 @@ work, and both are easy to get backwards:
 - **A sale window with no `status` object at all is OPEN.** Chelsea only
   attaches a status once a window has shut (`Off Sale`) or the allocation has
   gone (`Sold Out`).
-- **...unless its label has no date.** Chelsea lists a placeholder window
-  (blank label, later `TO BE ANNOUNCED`) on every future fixture, and it has
-  no `status` either. Those are **scheduled**, not open. A real window's label
-  names a date (`On-sale: Nov 09, 2026`, then `On-sale: Now`), and the
-  scheduled → open change is what alerts.
+- **...but "no status" covers four different stages**, because Chelsea attaches
+  nothing to a window until it has shut. They are told apart by the label and
+  the fixture's details text, and each move up the ladder alerts once:
+
+  | Stage | What the feed shows | Alert |
+  |---|---|---|
+  | scheduled | placeholder label (blank / `TO BE ANNOUNCED`), no dates anywhere | none |
+  | preview | placeholder label, but the details name a future opening time | Early look |
+  | announced | a dated label (`OPEN: NOV 23. 2026`) before the opening time | Dates confirmed |
+  | open | `On-sale: Now`, or the opening time (London time) has passed | **OPEN** |
 - **Fixtures are keyed by their CMS `id`**, never by team name, so
   "Brighton" vs "Brighton & Hove Albion" never matters.
 
@@ -113,13 +120,15 @@ membership number, no login, no personal data — the design never needs any.
 
 ## Gotchas worth knowing
 
-- **A placeholder window must never count as open.** It used to, and it failed
-  in both directions: when Chelsea added placeholders to every future fixture
-  (30 Oct 2026) about ten false "applications OPEN" alerts fired at once, each
-  starting a 6-hour reminder clock; and because the placeholder was already
-  "open", a window's *real* opening was open → open and never alerted (Aston
-  Villa's, 9 Nov, produced nothing). `model._is_placeholder_label` decides it.
-
+- **Never call a window open just because it has no status.** Two real
+  failures, both fixed. (1) Chelsea lists a dateless placeholder on every future
+  fixture: counted as open, ~10 false alerts fired at once (30 Oct 2026) and a
+  window's *real* opening was open → open, so Aston Villa's (9 Nov) never
+  alerted. (2) A window labelled `OPEN: NOV 23. 2026` on Fri 20 Nov was counted
+  as open, sending an urgent "OPEN" alert — and a false 6-hour reminder — three
+  days before it opened. The label says "OPEN" because it is *the* open date,
+  not because it is open. `model._stage` decides, using the label, the details
+  text and the clock.
 - **Window titles can embed a running count in words, not just digits** —
   Chelsea's "additional tickets" route reads "...purchase an additional
   **two** tickets (maximum of **three**...)" and later "...**four**...

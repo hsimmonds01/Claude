@@ -11,7 +11,7 @@ from datetime import datetime, timedelta, timezone
 import pytest
 
 from chelsea.detect import REMINDER_AFTER, detect, due_reminders, window_alert_key
-from chelsea.model import CLOSED, OPEN, SCHEDULED, SOLD_OUT, HomeFixture, SaleWindow
+from chelsea.model import ANNOUNCED, CLOSED, OPEN, PREVIEW, SCHEDULED, SOLD_OUT, HomeFixture, SaleWindow
 
 
 def window(key: str = "ticket-application-window-open", state: str = OPEN) -> SaleWindow:
@@ -220,6 +220,62 @@ class TestScheduledPlaceholderWindows:
         before = snapshot(fixture(windows=(window(state=OPEN),)))
         current = [fixture(windows=(window(state=SCHEDULED),))]
         assert detect(before, current, seeded=True) == []
+
+
+class TestStageLadder:
+    """preview -> announced -> open: an alert each time a window moves up a rung."""
+
+    def alerts(self, before, after):
+        return detect(snapshot(fixture(windows=(window(state=before),))),
+                      [fixture(windows=(window(state=after),))], seeded=True)
+
+    def test_scheduled_to_preview_is_an_early_look(self):
+        [alert] = self.alerts(SCHEDULED, PREVIEW)
+        assert "Early look" in alert.title
+        assert alert.priority == "default"
+        assert "not official yet" in alert.message
+        assert "Friday 21 August 12pm" in alert.message
+
+    def test_preview_to_announced_is_dates_confirmed_and_not_urgent(self):
+        [alert] = self.alerts(PREVIEW, ANNOUNCED)
+        assert "Dates confirmed" in alert.title
+        assert alert.priority == "default"
+        assert "NOT OPEN YET" in alert.message
+        assert "OPEN NOW" not in alert.message
+
+    def test_announced_to_open_is_the_urgent_alert(self):
+        [alert] = self.alerts(ANNOUNCED, OPEN)
+        assert "applications OPEN" in alert.title
+        assert alert.priority == "urgent"
+
+    def test_jumping_straight_to_open_gives_one_alert_not_several(self):
+        [alert] = self.alerts(SCHEDULED, OPEN)
+        assert alert.newly_open and not alert.newly_announced and not alert.newly_preview
+
+    def test_each_stage_alerts_once(self):
+        for stage in (PREVIEW, ANNOUNCED, OPEN):
+            assert self.alerts(stage, stage) == []
+
+    def test_moving_back_down_is_silent(self):
+        # Also the migration: Newcastle was stored "open" by the old, wrong rule
+        # and is now read as "announced".
+        assert self.alerts(OPEN, ANNOUNCED) == []
+        assert self.alerts(ANNOUNCED, PREVIEW) == []
+        assert self.alerts(PREVIEW, SCHEDULED) == []
+
+    def test_a_second_batch_after_closing_alerts_at_each_stage(self):
+        assert len(self.alerts(CLOSED, ANNOUNCED)) == 1
+        assert len(self.alerts(CLOSED, OPEN)) == 1
+
+    def test_a_new_fixture_arriving_already_announced_says_so(self):
+        before = snapshot(fixture(entry_id="other"))
+        [alert] = detect(before, [fixture(windows=(window(state=ANNOUNCED),))], seeded=True)
+        assert alert.is_new and "Dates confirmed" in alert.title
+        assert "Just added to the ticket page" in alert.message
+
+    def test_audit_keys_name_the_stage(self):
+        [alert] = self.alerts(PREVIEW, ANNOUNCED)
+        assert alert.keys == ("hull1::window_announced::ticket-application-window-open",)
 
 
 class TestNewFixtureArrivingAlreadyOpen:

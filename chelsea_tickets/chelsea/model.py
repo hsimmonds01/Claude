@@ -13,16 +13,31 @@ from __future__ import annotations
 import html
 import re
 from dataclasses import dataclass, field
+from datetime import date, datetime, timezone
+from zoneinfo import ZoneInfo
 
-# Window states, derived from the feed's `status` object and `label`.
+# Window states, derived from the feed's `status` object, `label` and dates.
+#
+# A window with no `status` object can be in any of four stages, and the status
+# alone cannot tell them apart -- so the label and the fixture's own details
+# text are read as well. In the order a window moves through them:
+#
+#   SCHEDULED  Chelsea lists a placeholder on every future fixture ("TO BE
+#              ANNOUNCED", or a blank label). No dates anywhere. Treating this
+#              as open fired ~10 false alerts at once, and made a real opening
+#              open -> open, i.e. invisible.
+#   PREVIEW    Label still a placeholder, but the details text already names
+#              an opening time in the future. Early information.
+#   ANNOUNCED  The label carries a real date and the window has not yet
+#              opened ("OPEN: NOV 23. 2026" three days before it does).
+#   OPEN       Genuinely live ("On-sale: Now", or its opening time has passed).
+#
+# Calling ANNOUNCED "open" sent an urgent "applications OPEN" alert three days
+# early, and started the 6-hour reminder clock for a window nobody could use.
 OPEN = "open"
-# Listed, but with no on-sale date yet. Chelsea publishes a placeholder window
-# ("TO BE ANNOUNCED", or a blank label) on every future fixture, and like a
-# genuinely open window it carries no `status` object -- so the status alone
-# cannot tell them apart. Treating a placeholder as OPEN meant the real
-# opening later was OPEN -> OPEN, i.e. invisible to the diff, while the
-# placeholders themselves fired a burst of false "applications OPEN" alerts.
 SCHEDULED = "scheduled"
+PREVIEW = "preview"
+ANNOUNCED = "announced"
 CLOSED = "closed"
 SOLD_OUT = "sold_out"
 UNKNOWN = "unknown"
@@ -131,15 +146,89 @@ def _window_state(status: object) -> tuple[str, str]:
     return UNKNOWN, text
 
 
-# A real window's label always names a date ("On-sale: Nov 09, 2026") and then
-# "On-sale: Now" once live. A placeholder's label is blank or says it is yet to
-# be announced.
+# A real window's label names a date ("On-sale: Nov 09, 2026", "OPEN: NOV 23.
+# 2026") and then "On-sale: Now" once live. A placeholder's is blank or says it
+# is yet to be announced.
 _PLACEHOLDER_LABEL_RE = re.compile(r"to be (?:announced|confirmed)|\btba\b|\btbc\b", re.IGNORECASE)
+_NOW_RE = re.compile(r"\bnow\b", re.IGNORECASE)
+_LABEL_DATE_RE = re.compile(r"\b([A-Za-z]{3,9})\.?\s+(\d{1,2})\b\W{0,3}(\d{4})")
+_DETAILS_DATETIME_RE = re.compile(
+    r"(\d{1,2})\s+([A-Za-z]{3,9})(?:\s+(\d{4}))?\s*,?\s*(?:at\s+)?"
+    r"(\d{1,2})(?::(\d{2}))?\s*([ap])\.?m",
+    re.IGNORECASE,
+)
+_MONTHS = {m: i for i, m in enumerate(
+    ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"], 1)}
+
+LONDON = ZoneInfo("Europe/London")
 
 
 def _is_placeholder_label(label: str) -> bool:
     cleaned = label.strip()
     return not cleaned or bool(_PLACEHOLDER_LABEL_RE.search(cleaned))
+
+
+def parse_label_date(label: str) -> date | None:
+    """The date named in a window label, e.g. "OPEN: NOV 23. 2026" -> 2026-11-23."""
+    match = _LABEL_DATE_RE.search(label or "")
+    if not match:
+        return None
+    month = _MONTHS.get(match.group(1)[:3].lower())
+    if not month:
+        return None
+    try:
+        return date(int(match.group(3)), month, int(match.group(2)))
+    except ValueError:
+        return None
+
+
+def parse_opening_time(text: str, now: datetime, year_hint: int | None = None) -> datetime | None:
+    """A details-text datetime like "Monday 23 November 12:00pm", in London time.
+
+    Chelsea omits the year, so it comes from the text, else `year_hint`, else the
+    current year -- rolled forward one year if that would put it long in the past.
+    """
+    match = _DETAILS_DATETIME_RE.search(text or "")
+    if not match:
+        return None
+    day, month_name, year, hour, minute, meridiem = match.groups()
+    month = _MONTHS.get(month_name[:3].lower())
+    if not month:
+        return None
+    hour_24 = int(hour) % 12 + (12 if meridiem.lower() == "p" else 0)
+    explicit = int(year) if year else year_hint
+    try:
+        result = datetime(explicit or now.year, month, int(day), hour_24, int(minute or 0), tzinfo=LONDON)
+        if explicit is None and (now - result).days > 180:
+            result = result.replace(year=result.year + 1)
+    except ValueError:
+        return None
+    return result
+
+
+def _is_ballot_title(title: str) -> bool:
+    return "application" in title.lower()
+
+
+def _stage(label: str, title: str, opens_text: str, now: datetime) -> str:
+    """Which of the four stages a window with no `status` object is in."""
+    label_date = parse_label_date(label)
+    year_hint = label_date.year if label_date else None
+    # Opening time is only known for the ballot: the details text describes that
+    # window, not any other route on the fixture.
+    opens_at = parse_opening_time(opens_text, now, year_hint) if _is_ballot_title(title) else None
+
+    if _is_placeholder_label(label):
+        return PREVIEW if opens_at and opens_at > now else SCHEDULED
+    if _NOW_RE.search(label):
+        return OPEN
+    if label_date:
+        today = now.astimezone(LONDON).date()
+        if label_date > today:
+            return ANNOUNCED
+        if label_date == today and opens_at and opens_at.date() == label_date:
+            return OPEN if opens_at <= now else ANNOUNCED
+    return OPEN
 
 
 def is_relevant_window(title: str, is_club_chelsea: bool) -> bool:
@@ -149,7 +238,7 @@ def is_relevant_window(title: str, is_club_chelsea: bool) -> bool:
     return any(word in lowered for word in RELEVANT_WINDOW_WORDS)
 
 
-def _parse_windows(raw_tickets: object) -> tuple[SaleWindow, ...]:
+def _parse_windows(raw_tickets: object, opens_text: str, now: datetime) -> tuple[SaleWindow, ...]:
     if not isinstance(raw_tickets, list):
         return ()
     windows: list[SaleWindow] = []
@@ -166,8 +255,8 @@ def _parse_windows(raw_tickets: object) -> tuple[SaleWindow, ...]:
         seen.add(key)
         state, status_text = _window_state(raw.get("status"))
         label = str(raw.get("label") or "").strip()
-        if state == OPEN and _is_placeholder_label(label):
-            state = SCHEDULED
+        if state == OPEN:
+            state = _stage(label, title, opens_text, now)
         link = raw.get("moreInfoLink")
         windows.append(
             SaleWindow(
@@ -258,8 +347,12 @@ def _is_home(fixture: dict) -> bool:
     return str(fixture.get("venue") or "").strip().lower() == STAMFORD_BRIDGE
 
 
-def parse_home_fixtures(payload: object) -> list[HomeFixture]:
-    """Extract home fixtures from a `/en/api/fixtures/tickets` response."""
+def parse_home_fixtures(payload: object, now: datetime | None = None) -> list[HomeFixture]:
+    """Extract home fixtures from a `/en/api/fixtures/tickets` response.
+
+    `now` decides whether a dated window has opened yet; it defaults to the clock.
+    """
+    now = (now or datetime.now(timezone.utc)).astimezone(LONDON)
     if not isinstance(payload, dict) or "items" not in payload:
         raise FeedError("ticket feed has no 'items' key - the API shape has changed")
     groups = payload.get("items")
@@ -289,7 +382,7 @@ def parse_home_fixtures(payload: object) -> list[HomeFixture]:
                     date=str(fixture.get("date") or "").strip(),
                     time=str(fixture.get("time") or "").strip(),
                     venue=str(fixture.get("venue") or "").strip(),
-                    windows=_parse_windows(entry.get("tickets")),
+                    windows=_parse_windows(entry.get("tickets"), opens, now),
                     application_opens=opens,
                     application_closes=closes,
                 )

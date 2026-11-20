@@ -3,13 +3,16 @@
 from __future__ import annotations
 
 import json
+from datetime import datetime, timezone
 from pathlib import Path
 
 import pytest
 
 from chelsea.model import (
+    ANNOUNCED,
     CLOSED,
     OPEN,
+    PREVIEW,
     SCHEDULED,
     SOLD_OUT,
     UNKNOWN,
@@ -160,6 +163,72 @@ class TestWindowState:
 
         # Act / Assert
         assert parse_home_fixtures(feed)[0].windows[0].state == UNKNOWN
+
+
+def utc(*args) -> datetime:
+    return datetime(*args, tzinfo=timezone.utc)
+
+
+class TestWindowStages:
+    """Four stages for a window with no status: scheduled, preview, announced, open."""
+
+    OPENS = "Ticket application window opens - Monday 23 November 12:00pm "
+    CLOSES = "Ticket application window closes - Thursday 26 November 12:00pm"
+
+    def stage(self, label, now, details=True, title="Ticket Application Window"):
+        feed = make_feed(make_entry(
+            tickets=[{"title": title, "label": label}],
+            info=(self.OPENS + self.CLOSES) if details else "",
+        ))
+        return parse_home_fixtures(feed, now)[0].windows[0].state
+
+    def test_placeholder_with_nothing_else_is_scheduled(self):
+        assert self.stage("TO BE ANNOUNCED", utc(2026, 11, 20, 15), details=False) == SCHEDULED
+
+    def test_placeholder_whose_details_name_a_future_opening_is_a_preview(self):
+        # The feed can know the date before the label does.
+        assert self.stage("TO BE ANNOUNCED", utc(2026, 11, 20, 15)) == PREVIEW
+
+    def test_a_dated_label_before_the_opening_time_is_announced_not_open(self):
+        # The real Newcastle case: label "OPEN: NOV 23. 2026" on Friday 20 Nov,
+        # three days before it opened. It used to fire an urgent "OPEN" alert.
+        assert self.stage("OPEN: NOV 23. 2026", utc(2026, 11, 20, 16)) == ANNOUNCED
+
+    def test_announced_until_the_opening_time_then_open(self):
+        # The real Aston Villa case: still dated 30 minutes before the 12pm start.
+        label = "OPEN: NOV 23. 2026"
+        assert self.stage(label, utc(2026, 11, 23, 11, 59)) == ANNOUNCED
+        assert self.stage(label, utc(2026, 11, 23, 12, 0)) == OPEN
+        assert self.stage(label, utc(2026, 11, 23, 12, 30)) == OPEN
+
+    def test_on_sale_now_is_open(self):
+        assert self.stage("On-sale: Now", utc(2026, 11, 20, 16)) == OPEN
+
+    def test_a_label_date_in_the_past_is_open(self):
+        assert self.stage("On-sale: Aug 21, 2026", utc(2026, 11, 20, 16), details=False) == OPEN
+
+    def test_opening_time_is_london_time_not_utc(self):
+        # 12pm on 14 June is 11:00 UTC (BST); the window must not read as open an hour early.
+        feed = make_feed(make_entry(
+            tickets=[{"title": "Ticket Application Window", "label": "OPEN: JUN 14. 2027"}],
+            info="Ticket application window opens - Monday 14 June 12pm ",
+        ))
+        assert parse_home_fixtures(feed, utc(2027, 6, 14, 10, 30))[0].windows[0].state == ANNOUNCED
+        assert parse_home_fixtures(feed, utc(2027, 6, 14, 11, 1))[0].windows[0].state == OPEN
+
+    def test_another_route_is_not_held_back_by_the_ballots_opening_time(self):
+        # The details text describes the ballot, not the "additional tickets" route.
+        state = self.stage("On-sale: Now", utc(2026, 11, 20, 16),
+                           title="Season ticket holders & Members can purchase an additional two tickets")
+        assert state == OPEN
+
+    def test_a_closed_window_is_still_closed_whatever_the_dates(self):
+        feed = make_feed(make_entry(
+            tickets=[{"title": "Ticket Application Window", "label": "OPEN: NOV 23. 2026",
+                      "status": {"text": "Off Sale"}}],
+            info=self.OPENS + self.CLOSES,
+        ))
+        assert parse_home_fixtures(feed, utc(2026, 11, 20, 16))[0].windows[0].state == CLOSED
 
 
 class TestWindowRelevance:

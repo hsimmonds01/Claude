@@ -302,6 +302,92 @@ class TestPlaceholderWindows:
         assert watcher.sent == []
 
 
+class TestNewcastleLifecycle:
+    """Replays the real Newcastle sequence: TBA -> early hint -> dated -> open -> reminder."""
+
+    OPENS = "Monday 23 November 12:00pm"
+
+    def setup_window(self, feed, label, hint=False):
+        entry = find_entry(feed, HULL_ID)
+        entry["tickets"] = [{"title": "Ticket Application Window", "label": label}]
+        blob = ""
+        if hint:
+            blob = (f"Ticket application window opens - {self.OPENS} "
+                    "Ticket application window closes - Thursday 26 November 12:00pm")
+        entry["fullTicketInfoLink"] = {"content": blob}
+        return feed
+
+    def test_every_stage_is_surfaced_once_and_only_the_last_is_urgent(self, watcher, feed):
+        fri = datetime(2026, 11, 20, 15, 0, tzinfo=timezone.utc)
+        mon = datetime(2026, 11, 23, 11, 30, tzinfo=timezone.utc)
+        tba = lambda hint=False: self.setup_window(copy.deepcopy(feed), "TO BE ANNOUNCED", hint)
+        dated = lambda: self.setup_window(copy.deepcopy(feed), "OPEN: NOV 23. 2026", hint=True)
+
+        # --- Baseline: placeholder, nothing known -------------------------
+        watcher.set_feed(tba())
+        watcher.run(now=fri)
+        assert watcher.sent == []
+
+        # --- The details start hinting at a date before the label does -----
+        watcher.set_feed(tba(hint=True))
+        watcher.run(now=fri)
+        assert len(watcher.sent) == 1
+        assert "Early look" in watcher.sent[0]["title"]
+        assert watcher.sent[0]["priority"] == "default"
+        watcher.run(now=fri + timedelta(minutes=30))
+        assert len(watcher.sent) == 1, "a hint must not repeat"
+
+        # --- Chelsea gives the window a real date (the alert that used to lie)
+        watcher.set_feed(dated())
+        watcher.run(now=fri + timedelta(hours=1))
+        assert len(watcher.sent) == 2
+        assert "Dates confirmed" in watcher.sent[1]["title"]
+        assert watcher.sent[1]["priority"] == "default", "not open yet, so not urgent"
+        assert "OPEN NOW" not in watcher.sent[1]["message"]
+
+        # --- Six hours on, still not open: no reminder, nothing to remind about
+        watcher.run(now=fri + timedelta(hours=8))
+        assert len(watcher.sent) == 2
+
+        # --- Monday, just before noon: still silent -------------------------
+        watcher.run(now=mon)
+        assert len(watcher.sent) == 2
+
+        # --- Monday 12:01: it opens -----------------------------------------
+        opened = datetime(2026, 11, 23, 12, 1, tzinfo=timezone.utc)
+        watcher.run(now=opened)
+        assert len(watcher.sent) == 3
+        assert "applications OPEN" in watcher.sent[2]["title"]
+        assert watcher.sent[2]["priority"] == "urgent"
+
+        # --- No repeat on the next poll, then the one 6-hour reminder -------
+        watcher.run(now=opened + timedelta(minutes=30))
+        assert len(watcher.sent) == 3
+        watcher.run(now=opened + REMINDER_AFTER)
+        assert len(watcher.sent) == 4
+        assert "still OPEN" in watcher.sent[3]["title"]
+        watcher.run(now=opened + REMINDER_AFTER + timedelta(hours=1))
+        assert len(watcher.sent) == 4
+
+    def test_state_stored_as_open_by_the_old_rule_migrates_silently(self, watcher, feed, tmp_path):
+        # Newcastle was saved as "open" when it was really only dated.
+        fri = datetime(2026, 11, 20, 16, 0, tzinfo=timezone.utc)
+        watcher.set_feed(self.setup_window(copy.deepcopy(feed), "OPEN: NOV 23. 2026", hint=True))
+        watcher.run(now=fri)
+        state = json.loads((tmp_path / "state.json").read_text(encoding="utf-8"))
+        for fixture_state in state["fixtures"].values():
+            fixture_state["windows"] = {k: "open" for k in fixture_state["windows"]}
+        (tmp_path / "state.json").write_text(json.dumps(state), encoding="utf-8")
+        watcher.sent.clear()
+
+        watcher.run(now=fri + timedelta(minutes=30))
+
+        assert watcher.sent == []
+        monday = datetime(2026, 11, 23, 12, 1, tzinfo=timezone.utc)
+        watcher.run(now=monday)
+        assert len(watcher.sent) == 1 and watcher.sent[0]["priority"] == "urgent"
+
+
 class TestReminders:
     """The one-off 6h follow-up in case the primary alert gets missed."""
 

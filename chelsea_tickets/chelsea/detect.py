@@ -1,16 +1,22 @@
 """Work out what changed since the last run.
 
-Two things are worth waking Harry for, and only two:
+Harry wants to hear about each step a members' ticket application window takes,
+as soon as the data shows it -- not only when it is live and not only when the
+website does:
 
 1. A new home fixture appearing on the ticket page -- Chelsea only lists a
    fixture once ticket info exists, so its arrival means a sale is coming.
-2. A members' application window (the ballot) becoming open.
+2. PREVIEW: the match details already hint at an opening time, though the
+   window still says "to be announced". Early information.
+3. ANNOUNCED: the window gets a real date but is not open yet.
+4. OPEN: the window genuinely opens (then one follow-up reminder, see
+   `due_reminders`).
 
-Everything else -- windows closing, selling out, away games, Ticket Exchange,
-hospitality -- is tracked in state but stays silent by design.
+Windows closing, selling out, away games, Ticket Exchange and hospitality are
+tracked in state but stay silent by design.
 
 Alerts are grouped per fixture rather than per event, so a fixture that
-appears with its ballot already open produces one notification, not two.
+appears with its window already open produces one notification, not two.
 """
 
 from __future__ import annotations
@@ -18,10 +24,21 @@ from __future__ import annotations
 from dataclasses import dataclass
 from datetime import datetime, timedelta
 
-from .model import OPEN, HomeFixture, SaleWindow
+from .model import ANNOUNCED, OPEN, PREVIEW, SCHEDULED, HomeFixture, SaleWindow
 
 NEW_FIXTURE = "new_fixture"
 WINDOW_OPEN = "window_open"
+WINDOW_ANNOUNCED = "window_announced"
+WINDOW_PREVIEW = "window_preview"
+
+# How far along a window is. An alert fires when a window moves *up* this
+# ladder; anything not on it (closed, sold out, unknown, never seen) counts as
+# the bottom, so a second batch re-opening from "closed" alerts again.
+_PROGRESS = {SCHEDULED: 0, PREVIEW: 1, ANNOUNCED: 2, OPEN: 3}
+
+
+def _progress(state: str | None) -> int:
+    return _PROGRESS.get(state or "", 0)
 
 # How long after the primary "applications OPEN" alert to send one follow-up
 # nudge if the window is still open -- in case the first alert got missed.
@@ -30,8 +47,8 @@ WINDOW_OPEN = "window_open"
 REMINDER_AFTER = timedelta(hours=6)
 
 
-def window_alert_key(fixture_id: str, window_key: str) -> str:
-    return f"{fixture_id}::{WINDOW_OPEN}::{window_key}"
+def window_alert_key(fixture_id: str, window_key: str, kind: str = WINDOW_OPEN) -> str:
+    return f"{fixture_id}::{kind}::{window_key}"
 
 
 def _is_ballot_window(window: SaleWindow) -> bool:
@@ -57,30 +74,56 @@ class FixtureAlert:
     is_new: bool
     newly_open: tuple[SaleWindow, ...]
     keys: tuple[str, ...]
+    newly_announced: tuple[SaleWindow, ...] = ()
+    newly_preview: tuple[SaleWindow, ...] = ()
 
     @property
     def priority(self) -> str:
-        # An open ballot is time-boxed and needs action; a newly listed
-        # fixture is a heads-up that can wait until the phone is next picked up.
+        # An open window is time-boxed and needs action. Everything earlier is
+        # information for planning, which can wait until the phone is next
+        # picked up.
         return "urgent" if self.newly_open else "default"
 
     @property
     def tags(self) -> str:
-        return "rotating_light,soccer" if self.newly_open else "soccer"
+        if self.newly_open:
+            return "rotating_light,soccer"
+        if self.newly_announced or self.newly_preview:
+            return "calendar,soccer"
+        return "soccer"
 
     @property
     def title(self) -> str:
-        opponent = self.fixture.opponent
+        fixture = self.fixture
+        opponent = fixture.opponent
         if self.newly_open and self.is_new:
             return f"New fixture + applications OPEN: Chelsea v {opponent}"
         if self.newly_open:
             return f"Ticket applications OPEN: Chelsea v {opponent}"
+        when = f" {fixture.application_opens}" if fixture.application_opens else ""
+        if self.newly_announced:
+            return f"Dates confirmed - applications open{when}: Chelsea v {opponent}"
+        if self.newly_preview:
+            return f"Early look - applications look set to open{when}: Chelsea v {opponent}"
         return f"New home fixture listed: Chelsea v {opponent}"
+
+    def _dates(self) -> list[str]:
+        fixture = self.fixture
+        lines = []
+        if fixture.application_opens:
+            lines.append(f"Applications open: {fixture.application_opens}")
+        if fixture.application_closes:
+            lines.append(f"Applications close: {fixture.application_closes}")
+        return lines
 
     @property
     def message(self) -> str:
         fixture = self.fixture
         lines = [fixture.describe]
+        staged = self.newly_open or self.newly_announced or self.newly_preview
+
+        if self.is_new and staged:
+            lines.append("\nJust added to the ticket page.")
 
         if self.newly_open:
             for window in self.newly_open:
@@ -89,6 +132,21 @@ class FixtureAlert:
                     lines.append(window.on_sale_label)
             if fixture.application_closes and any(_is_ballot_window(w) for w in self.newly_open):
                 lines.append(f"\nApplications close: {fixture.application_closes}")
+        elif self.newly_announced:
+            lines.append("\nNOT OPEN YET - Chelsea has now given the window a date:")
+            for window in self.newly_announced:
+                lines.append(f"{window.title.strip()}")
+                if window.on_sale_label:
+                    lines.append(window.on_sale_label)
+            lines.extend(self._dates())
+            lines.append("You'll get another alert the moment it opens.")
+        elif self.newly_preview:
+            lines.append(
+                "\nEARLY LOOK - not official yet. The ticket page still says 'to be "
+                "announced', but the match details already point to:"
+            )
+            lines.extend(self._dates())
+            lines.append("Worth setting a reminder. You'll hear again when it's confirmed.")
         elif self.is_new:
             lines.append("\nJust added to the ticket page - a sale window is coming.")
             if fixture.application_opens:
@@ -124,24 +182,40 @@ def detect(
         if isinstance(before, dict) and isinstance(before.get("windows"), dict):
             previous_windows = before["windows"]
 
-        # On a brand-new fixture every open window counts as newly open --
-        # there is no prior state, and an already-open ballot is the single
-        # most important thing to say.
-        newly_open = tuple(
-            window
-            for window in fixture.windows
-            if window.state == OPEN and previous_windows.get(window.key) != OPEN
-        )
+        def risen(state: str) -> tuple[SaleWindow, ...]:
+            # A window is reported only at the highest stage it has reached, so
+            # one that jumps straight to open does not also announce itself.
+            return tuple(
+                w for w in fixture.windows
+                if w.state == state and _progress(previous_windows.get(w.key)) < _progress(state)
+            )
 
-        if not is_new and not newly_open:
+        # On a brand-new fixture every window counts as risen -- there is no
+        # prior state, and a window already open is the most important thing
+        # to say.
+        newly_open = risen(OPEN)
+        newly_announced = risen(ANNOUNCED)
+        newly_preview = risen(PREVIEW)
+
+        if not is_new and not (newly_open or newly_announced or newly_preview):
             continue
 
-        keys = tuple(
-            [f"{fixture.id}::{NEW_FIXTURE}"] if is_new else []
-        ) + tuple(window_alert_key(fixture.id, w.key) for w in newly_open)
+        keys = (
+            ([f"{fixture.id}::{NEW_FIXTURE}"] if is_new else [])
+            + [window_alert_key(fixture.id, w.key, WINDOW_OPEN) for w in newly_open]
+            + [window_alert_key(fixture.id, w.key, WINDOW_ANNOUNCED) for w in newly_announced]
+            + [window_alert_key(fixture.id, w.key, WINDOW_PREVIEW) for w in newly_preview]
+        )
 
         alerts.append(
-            FixtureAlert(fixture=fixture, is_new=is_new, newly_open=newly_open, keys=keys)
+            FixtureAlert(
+                fixture=fixture,
+                is_new=is_new,
+                newly_open=newly_open,
+                keys=tuple(keys),
+                newly_announced=newly_announced,
+                newly_preview=newly_preview,
+            )
         )
     return alerts
 
