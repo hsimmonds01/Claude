@@ -7067,6 +7067,75 @@
           "link_status": "verified"
         }
       ]
+    },
+    {
+      "date": "2026-11-21",
+      "model": "gemini-2.5-flash (legacy key, live search)",
+      "items": [
+        {
+          "title": "Billie Eilish to Headline BST Hyde Park 2027",
+          "category": "event",
+          "summary": "Pop superstar Billie Eilish is confirmed to headline BST Hyde Park on Saturday, July 3, 2027. General sale tickets go live at 10am on Thursday, November 26, with several presales happening now and through next week, so act fast to secure your spot for this major London gig.",
+          "url": "https://www.timeout.com/london/news/billie-eilish-bst-hyde-park-2027-tickets-prices-guide-112026",
+          "date_info": "General sale: Thu 26 Nov, 10am. Various presales active now.",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "Engineered Garments x NANGA FW26 Down Collection Drops",
+          "category": "drop",
+          "summary": "The highly anticipated fourth collaboration between Engineered Garments and Japanese down specialist NANGA has just dropped. Featuring a Zip Jacket, Down Field Vest, and Down Hoody in iconic Engineered Garments fabrics, this limited-edition outerwear is available now online and at select physical locations worldwide.",
+          "url": "https://hypebeast.com/2026/11/engineered-garments-nanga-fall-winter-fw-2026-collaboration-collection-release-info",
+          "date_info": "Released Fri 20 Nov / Sat 21 Nov",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "Sony World Photography Awards 2027: Free Entry with Upcoming Deadlines",
+          "category": "other",
+          "summary": "Enter the prestigious Sony World Photography Awards 2027 for free across four competitions, offering incredible prizes including cash and Sony digital imaging equipment. The Student Competition deadline is Friday, November 27, 2026, so aspiring photographers should act quickly. Other categories (Single Image, Youth, Series) have deadlines in early January 2027.",
+          "url": "https://www.google.com/search?q=Sony+World+Photography+Awards+2027%3A+Free+Entry+with+Upcoming+Deadlines",
+          "date_info": "Student deadline: Fri 27 Nov, 16:00 GMT. Other deadlines: Jan 2027.",
+          "urgency": "act-fast",
+          "link_status": "search"
+        },
+        {
+          "title": "Apple TV+ Half-Price for 6 Months: Black Friday Deal Ends Soon",
+          "category": "other",
+          "summary": "Grab an incredible deal on Apple TV+ with 50% off your subscription for six months, bringing the cost down to just £4.99/month. This Black Friday offer is available to new and eligible returning subscribers in the UK and ends on Monday, November 30.",
+          "url": "https://www.google.com/search?q=Apple+TV%2B+Half-Price+for+6+Months%3A+Black+Friday+Deal+Ends+Soon",
+          "date_info": "Offer ends Mon 30 Nov",
+          "urgency": "act-fast",
+          "link_status": "search"
+        },
+        {
+          "title": "ERCOLE Studio's FW26 'Holy Water' Collection Lands",
+          "category": "drop",
+          "summary": "London-based ERCOLE Studio has released its Fall/Winter 2026 'Holy Water' collection, inspired by Victorian spirits and the sea. This limited-edition drop features gothic, weathered pieces like studded Japanese denim and graphic jersey, available now via the brand's website and select stockists.",
+          "url": "https://hypebeast.com/2026/11/ercole-studio-fw26-holy-water-collection-release",
+          "date_info": "Available now",
+          "urgency": "this-week",
+          "link_status": "verified"
+        },
+        {
+          "title": "Hypebeast x Formula 1 x ODITI Grand Prix Poster Collection Available",
+          "category": "drop",
+          "summary": "A cool, limited-edition art print collection from London-based publisher ODITI, Hypebeast, and Formula 1 is now available. The five-piece range reimagines the Las Vegas Grand Prix through the eyes of various artists, with giclée prints available in multiple sizes and priced from $108 to $328 USD.",
+          "url": "https://hypebeast.com/2026/11/oditi-formula-1-hypebeast-las-vegas-print-edition-collaboration",
+          "date_info": "Available now",
+          "urgency": "this-week",
+          "link_status": "verified"
+        },
+        {
+          "title": "'The Odyssey' IMAX 70mm Screenings: New Tickets on Sale Soon",
+          "category": "film",
+          "summary": "Christopher Nolan's epic 'The Odyssey', shot entirely on IMAX 70mm film, is returning to select IMAX cinemas. While initial tickets went on sale last year, new tickets will be released starting December 11, 2026, for screenings throughout December and January at venues like BFI IMAX in London.",
+          "url": "https://www.google.com/search?q=%27The+Odyssey%27+IMAX+70mm+Screenings%3A+New+Tickets+on+Sale+Soon",
+          "date_info": "New tickets on sale from Fri 11 Dec",
+          "urgency": "heads-up",
+          "link_status": "search"
+        }
+      ]
     }
   ]
 }
