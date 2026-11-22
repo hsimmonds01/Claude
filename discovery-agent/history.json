@@ -7136,6 +7136,48 @@
           "link_status": "search"
         }
       ]
+    },
+    {
+      "date": "2026-11-22",
+      "model": "gemini-2.5-flash (legacy key, live search)",
+      "items": [
+        {
+          "title": "Billie Eilish to Headline BST Hyde Park 2027 – Presales This Week!",
+          "category": "event",
+          "summary": "Pop superstar Billie Eilish has been confirmed to headline BST Hyde Park on Saturday, July 3, 2027. General sale tickets go live on Thursday, November 26, but you can get ahead with various presales starting as early as Monday, November 23. Tickets for these major London gigs sell out fast, so act quickly to secure your spot.",
+          "url": "https://www.google.com/search?q=Billie+Eilish+to+Headline+BST+Hyde+Park+2027+%E2%80%93+Presales+This+Week%21",
+          "date_info": "Artist presale Mon 23 Nov, 10 am; BST presale Tue 24 Nov, 10 am; AEG presale Wed 25 Nov, 10 am; General sale Thu 26 Nov, 10 am",
+          "urgency": "this-week",
+          "link_status": "search"
+        },
+        {
+          "title": "Lewis Hamilton's +44 Unveils 'Area +44' Streetwear Collection",
+          "category": "drop",
+          "summary": "Lewis Hamilton's lifestyle brand +44 has dropped its new 'Area +44' collection, inspired by mystery and restricted access. The streetwear capsule includes technical outerwear, utility-inspired silhouettes, and introduces knitwear for the first time. It launched on November 18, so it's available now online for those looking for limited-edition designer collaborations.",
+          "url": "https://hypebeast.com/2026/11/lewis-hamilton-plus-44-las-vegas-grand-prix-area-44-collection-release-info",
+          "date_info": "Available now, launched November 18, 2026",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "Cuktech 5 Air: Ultra-Thin Magnetic Power Bank",
+          "category": "product",
+          "summary": "Cuktech has announced the 5 Air, an incredibly thin (7.7 mm) 5,000 mAh magnetic power bank. This clever and affordable gadget is perfect for on-the-go charging. It's set to go on sale in China on November 27, with international availability yet to be confirmed.",
+          "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxNUl9vbl81YWlFdmhCdTc4TWJNMVdwLTdOZGdLa0c1VDhPUWxqT3lXNFI3RFNYMmVBTFVLc1JtaURuaFBYNFM1TnlmMG43c3drVm1JaFJzOVJTaEJMVVVGLUZ5c3BGdDlEakJNYzdfSTRXQmcxSEVpZnB2cXVKQmFtVHY4d192SnczdDZnMk9jYjV6WTVRNGplZUl6ZVZWSW9vY3ZBRHVacXFZSC0wYWxITFJNWllXbmdST1ZGWU5MeTNDTUNWdUt3U3p5UQ?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "date_info": "On sale November 27, 2026 in China; UK availability TBC",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "Hidisc Launches Affordable Open-Ear Audio Glasses",
+          "category": "product",
+          "summary": "Japanese brand Hidisc has released new Sound Glasses for approximately $25, offering a simple and affordable way to listen to audio while remaining aware of your surroundings. These lightweight (31g) glasses feature open-ear speakers, Bluetooth 6.0, and blue light filtering. They launched in Japan on November 20, with no confirmed international release yet.",
+          "url": "https://www.google.com/search?q=Hidisc+Launches+Affordable+Open-Ear+Audio+Glasses",
+          "date_info": "Released November 20, 2026 in Japan; international availability TBC",
+          "urgency": "heads-up",
+          "link_status": "search"
+        }
+      ]
     }
   ]
 }
