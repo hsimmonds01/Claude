@@ -7178,6 +7178,39 @@
           "link_status": "search"
         }
       ]
+    },
+    {
+      "date": "2026-11-23",
+      "model": "gemini-2.5-flash (legacy key, live search)",
+      "items": [
+        {
+          "title": "WE11DONE x Dune Capsule Collection Drops This Week",
+          "category": "drop",
+          "summary": "WE11DONE is releasing a collaborative 'Dune' capsule collection, featuring distressed, punk-inspired apparel and a re-released Dune house-crest ring. The collection drops this Friday, November 27th, and includes a 3D-printed crysknife gift for visitors to their Seoul pop-up.",
+          "url": "https://hypebeast.com/2026/11/dune-we11done-collaboration-collection-release-info",
+          "date_info": "Drops Friday, November 27",
+          "urgency": "this-week",
+          "link_status": "verified"
+        },
+        {
+          "title": "Brain Dead's Third FW26 Drop Now Available",
+          "category": "drop",
+          "summary": "Brain Dead's 'Cyber Primitivism' Fall/Winter 2026 Drop 3, featuring brushed alpaca and merino knits alongside their Brooks Brothers California collection, was released on Friday, November 20th and is available now. The collection includes unique knitwear pieces and collaborative items.",
+          "url": "https://www.google.com/search?q=Brain+Dead%27s+Third+FW26+Drop+Now+Available",
+          "date_info": "Released Friday, November 20",
+          "urgency": "this-week",
+          "link_status": "search"
+        },
+        {
+          "title": "Sony World Photography Awards 2027: Free Entry & Cash Prizes",
+          "category": "other",
+          "summary": "Enter the free-to-enter Sony World Photography Awards 2027 for a chance to win significant cash prizes, including $5,000 for the Single Image winner and $25,000 for the Photographer of the Year. The Student competition deadline is this week, November 27th, while other categories close in January 2027.",
+          "url": "https://www.google.com/search?q=Sony+World+Photography+Awards+2027%3A+Free+Entry+%26+Cash+Prizes",
+          "date_info": "Student competition deadline: November 27, 2026",
+          "urgency": "this-week",
+          "link_status": "search"
+        }
+      ]
     }
   ]
 }
