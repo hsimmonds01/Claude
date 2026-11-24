@@ -7211,6 +7211,57 @@
           "link_status": "search"
         }
       ]
+    },
+    {
+      "date": "2026-11-24",
+      "model": "gemini-flash-lite-latest",
+      "items": [
+        {
+          "title": "Super Bowl LXI is Heading to IMAX Cinemas",
+          "category": "film",
+          "summary": "For the first time ever, the Super Bowl and JAY-Z's halftime show are heading to the big screen in IMAX. Tickets go on sale in January for the February 2027 cinematic broadcast.",
+          "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxNMVREYlFCdU1tUHhoYWppVHNzUWVfM1NaUmd1WjluekNxSGdnV2xhVmVDdHBRV0F3dmFrT25vZnkxRi0yaFhUZEltWHpseUZ1cVktakRtYXJ6ejVLa3hFNmJsbXBCMlozQlowclB6ZjFVQjRfNnRDX1RlSnI1RFVBc01ZQThmZWx6TjNDc3pfd0RhWDA?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "date_info": "Tickets on sale January 2027",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "Digimon x Tamagotchi 30th Anniversary Celebration Set",
+          "category": "drop",
+          "summary": "A heavyweight nostalgic crossover brings Digimon and Tamagotchi together for a special 30th-anniversary limited release combining two absolute virtual-pet icons.",
+          "url": "https://hypebeast.com/2026/11/digimon-tamagotchi-special-30th-anniversary-celebration-set-first-look-release-info",
+          "date_info": "First look & release info announced",
+          "urgency": "this-week",
+          "link_status": "verified"
+        },
+        {
+          "title": "Snow Peak Arma Wood-Burning Stove",
+          "category": "product",
+          "summary": "Outdoor design favourite Snow Peak has introduced the Arma Stove, a clever new wood-burning stove engineered to let you admire the flames from literally any angle.",
+          "url": "https://hypebeast.com/2026/11/snow-peak-alma-stove-release-info",
+          "date_info": "Just announced",
+          "urgency": "this-week",
+          "link_status": "verified"
+        },
+        {
+          "title": "Hidisc $25 Open-Ear Audio Glasses",
+          "category": "product",
+          "summary": "A seriously affordable entry into smart audio eyewear, featuring a featherlight 31g frame and open-ear sound tech for just $25.",
+          "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPLS1kLTJIa0p5cTNRWG5zMXV3TFdBU3VFY1I5ZE8zSVlES0d0eTVvaGxhZnhhZFZZeTlTb3dibjJURHNTRG5fOS10SzBUd2s0T0RHdVBWZDBoWGI3OVN5eXRKWHpTcXEzcGVzRVRuSlE4LTZZS2p4bjlIbU5nNXJlWUZnNHY5YnVwTV9RNzh4ZkZ5M0pyeXpmcGY4Y0tOT0NuTlRVcEhvUUlEbU9VX0pTRQ?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "date_info": "Available now",
+          "urgency": "this-week",
+          "link_status": "verified"
+        },
+        {
+          "title": "Compton Arms Welcomes 'Okka' for New Kitchen Residency",
+          "category": "event",
+          "summary": "Islington's beloved Compton Arms has just announced its latest exciting kitchen residency with Okka, making it prime material for your next food-out plan in north-central London.",
+          "url": "https://www.timeout.com/london/news/compton-arms-new-kitchen-residency-okka-112326",
+          "date_info": "Opening this week",
+          "urgency": "this-week",
+          "link_status": "verified"
+        }
+      ]
     }
   ]
 }
