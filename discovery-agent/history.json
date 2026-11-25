@@ -7262,6 +7262,84 @@
           "link_status": "verified"
         }
       ]
+    },
+    {
+      "date": "2026-11-25",
+      "model": "gemini-2.5-flash (legacy key, live search)",
+      "items": [
+        {
+          "title": "Aimé Leon Dore x Porsche Holiday Capsule Collection",
+          "category": "drop",
+          "summary": "Aimé Leon Dore and Porsche have teamed up for a new holiday capsule collection, a perfect blend of high-end streetwear and automotive design for a limited drop that's sure to sell out fast.",
+          "url": "https://hypebeast.com/2026/11/aime-leon-dore-porsche-2026-capsule-collection-collab-release-info",
+          "date_info": "Available for the holidays",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "UNDERCOVER x fragment design Mohair Knit Cardigan Drop",
+          "category": "drop",
+          "summary": "UNDERCOVER and fragment design have dropped a new mohair knit cardigan collaboration, focusing on unique textures and two distinct necklines in this limited streetwear release.",
+          "url": "https://hypebeast.com/2026/11/undercover-fragment-design-drop-2-collaboration-collection-release-infp",
+          "date_info": "Recently dropped",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "PORTER PX TANKER Line Remade in Plant-Derived Nylon",
+          "category": "drop",
+          "summary": "PORTER has remade its exclusive PX TANKER line using 100% plant-derived nylon, offering a new, sustainable, and limited-run take on their iconic bags.",
+          "url": "https://hypebeast.com/2026/11/porter-px-tanker-2026-redesign-release-info",
+          "date_info": "Recently released",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "Y-3 x Mercedes-AMG PETRONAS F1 Team x Jeff Hamilton Collab",
+          "category": "drop",
+          "summary": "Y-3 and Mercedes-AMG PETRONAS F1 Team have collaborated with Jeff Hamilton to celebrate their Constructors' Title, releasing a limited-edition capsule that's a cool F1-related streetwear drop.",
+          "url": "https://hypebeast.com/2026/11/y-3-and-mercedes-amg-petronas-f1-team-celebrate-constructors-title-with-jeff-hamilton",
+          "date_info": "Recently released",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "Teenage Engineering's First CD Player",
+          "category": "product",
+          "summary": "Teenage Engineering has unveiled its first-ever CD player, designed to put the spinning disc on full display, offering a beautifully designed and clever new gadget from a cult tech brand.",
+          "url": "https://www.designboom.com/technology/teenage-engineering-first-cd-player-spinning-disc-display-ep-bc-1/",
+          "date_info": "Recently unveiled",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "Loyle Carner Confirmed for Cross the Tracks 2027",
+          "category": "event",
+          "summary": "Loyle Carner is confirmed to play Cross the Tracks 2027 in London, with presale and ticket information now available, giving you a heads-up to secure tickets for this potentially sold-out gig.",
+          "url": "https://www.timeout.com/london/news/loyle-carner-cross-the-tracks-2027-tickets-prices-guide-112426",
+          "date_info": "Cross the Tracks 2027; check link for presale/on-sale dates",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "Nine-Metre Sun Sculpture Coming to East London",
+          "category": "event",
+          "summary": "A vast nine-metre sculpture of the Sun, 'Helios' by Luke Jerram, is coming to UCL East in east London next week, promising a unique and immersive exhibition experience.",
+          "url": "https://www.timeout.com/london/news/sun-sculpture-helios-luke-jerram-ucl-east-112426",
+          "date_info": "Opening next week at UCL East",
+          "urgency": "this-week",
+          "link_status": "verified"
+        },
+        {
+          "title": "Forno Bakery Opens in Cool Soho Fashion Shop",
+          "category": "food",
+          "summary": "Forno Bakery, one of London's hottest bakeries, has just opened a new location inside a cool Soho fashion shop, offering an interesting new food spot to check out.",
+          "url": "https://www.timeout.com/london/news/forno-bakery-aries-flagship-soho-112426",
+          "date_info": "Just opened in Soho",
+          "urgency": "this-week",
+          "link_status": "verified"
+        }
+      ]
     }
   ]
 }
