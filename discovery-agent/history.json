@@ -7340,6 +7340,66 @@
           "link_status": "verified"
         }
       ]
+    },
+    {
+      "date": "2026-11-26",
+      "model": "gemini-2.5-flash (legacy key, live search)",
+      "items": [
+        {
+          "title": "Aldi Black Friday Smart Gadgets & Deals Available Now",
+          "category": "product",
+          "summary": "Aldi's Black Friday Specialbuys are in stores from today, November 26, offering genuinely interesting and affordable tech gadgets. Highlights include a Sharp Soundbar for £79.99 and a Premium LED Face / Neck Mask for £39.99, which is significantly cheaper than branded alternatives. Stock is limited, so act fast.",
+          "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQMTNkZVhSdmtMNVd0SzV2Z2JtVFA1UjZqRVVXM3BqRV9SaFJnNF96Vl96WjFIaGNQSE1EaDNzVlgtbFYyUVNtSVZ1alJTMnJwNEkwWjRCZmNLdm1TcUd5Q0xieC02RVZmdmUwbUZjMm12bFNRc19yNDJMbFltaHZma1pzRjdCdFdVSVFVR1lUeXVMQm5haWNJVXRzb3kzeXV1WHh6Z2tDYWVMWW5xYkdQU0tlT2IxVGEwZUJr?oc=5&hl=en-US&gl=US&ceid=US:en",
+          "date_info": "In stores from November 26 (today), while stocks last",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "Maison Kitsuné x Paraboot Chambord Derby Drop",
+          "category": "drop",
+          "summary": "Maison Kitsuné and Paraboot have reunited for a limited-edition collaboration, reinterpreting the classic Chambord derby. The stylish non-sneaker drop, featuring glossy brown leather with distinctive white stitching, launches in limited quantities this Saturday.",
+          "url": "https://hypebeast.com/2026/11/maison-kitsune-paraboot-collab-release-info",
+          "date_info": "Launches November 28",
+          "urgency": "act-fast",
+          "link_status": "verified"
+        },
+        {
+          "title": "Moncler x Rick Owens FW26 Outerwear Collection Now Available",
+          "category": "drop",
+          "summary": "The Fall/Winter 2026 collaboration between luxury brands Moncler and Rick Owens, featuring quilted outerwear with studs and straps, is now available. This high-end designer drop combines Owens' subversive aesthetic with Moncler's technical expertise.",
+          "url": "https://hypebeast.com/2026/11/moncler-rick-owens-fall-winter-fw-2026-collaboration-collection-release-info",
+          "date_info": "Available now",
+          "urgency": "this-week",
+          "link_status": "verified"
+        },
+        {
+          "title": "Panini to Release Real-World 'GTA VI' Sports Trading Cards",
+          "category": "product",
+          "summary": "Panini and Rockstar Games are launching an officially licensed 'GTA VI' Sports Trading Card Collection, bringing the game's in-world collectibles to life. This unique collection is scheduled for release in December 2026, offering a new way for fans to collect.",
+          "url": "https://hypebeast.com/2026/11/panini-rockstar-games-grand-theft-auto-gta-vi-trading-cards-announcement-info",
+          "date_info": "Releases December 2026 (exact date TBC)",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "Y-3 x Mercedes-AMG PETRONAS F1 Team x Jeff Hamilton Capsule Collection Pre-Orders Open",
+          "category": "drop",
+          "summary": "A limited-edition capsule collection, featuring a jacket and cap designed by Y-3 and Jeff Hamilton, celebrates the Mercedes-AMG PETRONAS F1 Team's 2026 Constructors' Championship. Pre-orders for this exclusive F1-themed streetwear are open now, with a broader release set for early December.",
+          "url": "https://www.google.com/search?q=Y-3+x+Mercedes-AMG+PETRONAS+F1+Team+x+Jeff+Hamilton+Capsule+Collection+Pre-Orders+Open",
+          "date_info": "Pre-orders from November 23; broader release early December 2026",
+          "urgency": "act-fast",
+          "link_status": "search"
+        },
+        {
+          "title": "Dina Foods Crowned UK's Best Craft Bakery of 2026",
+          "category": "food",
+          "summary": "Dina Foods, a west London craft bakery specialising in handcrafted Mediterranean products like baklava and Lebanese flatbreads, has been crowned the best in the UK for 2026 at the prestigious Baking Industry Awards. It's an interesting spot to discover high-quality, award-winning food.",
+          "url": "https://www.timeout.com/london/news/west-london-craft-bakery-crowned-best-uk-2026-112626",
+          "date_info": "Awarded November 25, 2026",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        }
+      ]
     }
   ]
 }
