@@ -7400,6 +7400,75 @@
           "link_status": "verified"
         }
       ]
+    },
+    {
+      "date": "2026-11-27",
+      "model": "gemini-2.5-flash (legacy key, live search)",
+      "items": [
+        {
+          "title": "Win a Custom Warhammer 40,000: Dawn of War 4 PC",
+          "category": "other",
+          "summary": "Enter a free giveaway to win a high-spec, custom-built gaming PC inspired by the Adeptus Mechanicus, tied to the upcoming launch of Warhammer 40,000: Dawn of War 4. Open to UK readers, it's a genuine high-value perk for signing up to PC Gamer.",
+          "url": "https://www.google.com/search?q=Win+a+Custom+Warhammer+40%2C000%3A+Dawn+of+War+4+PC",
+          "date_info": "Enter by 10 AM Central, December 18th",
+          "urgency": "act-fast",
+          "link_status": "search"
+        },
+        {
+          "title": "The Waldorf Project: Chapter Five/KAIHOGYO Immersive Experience",
+          "category": "event",
+          "summary": "Experience 'KAIHOGYO', a three-and-a-half-hour immersive art event at a secret London location, guiding 40 guests nightly through a labyrinth of sound, scent, light, and movement. Tickets are available now for this intense, sell-out experience running through early January.",
+          "url": "https://www.google.com/search?q=The+Waldorf+Project%3A+Chapter+Five%2FKAIHOGYO+Immersive+Experience",
+          "date_info": "Runs until January 10, 2027 (Opened November 19, 2026)",
+          "urgency": "this-week",
+          "link_status": "search"
+        },
+        {
+          "title": "TOGA x Champion Limited-Edition Reverse Weave Sweatshirts",
+          "category": "drop",
+          "summary": "A new limited-edition collaboration drops, featuring Champion's iconic Reverse Weave sweatshirts and hoodies reimagined with bold TOGA logos and unique cropped silhouettes. A pre-sale starts December 2nd, with a wider launch on December 4th.",
+          "url": "https://www.google.com/search?q=TOGA+x+Champion+Limited-Edition+Reverse+Weave+Sweatshirts",
+          "date_info": "Pre-sale Wed, December 2; Official launch Fri, December 4",
+          "urgency": "heads-up",
+          "link_status": "search"
+        },
+        {
+          "title": "HUGO x Entire Studios Capsule Collection",
+          "category": "drop",
+          "summary": "Explore the new menswear and womenswear capsule collection, a collaboration between HUGO and Entire Studios, blending HUGO's tailoring expertise with Entire Studios' luxury streetwear aesthetic for sculptural silhouettes and statement outerwear. Ten men's pieces are already available online.",
+          "url": "https://www.google.com/search?q=HUGO+x+Entire+Studios+Capsule+Collection",
+          "date_info": "Available now (launched October 21, 2026)",
+          "urgency": "act-fast",
+          "link_status": "search"
+        },
+        {
+          "title": "Madhappy x Disney 'Mickey & Friends' Collection",
+          "category": "drop",
+          "summary": "Madhappy and Disney have teamed up for a new apparel and accessories collection featuring vintage-inspired Mickey Mouse and Pluto graphics on fleece, knits, and a 'Dad Hat'. Prices range from $55 to $275, but sizes may not last long.",
+          "url": "https://www.google.com/search?q=Madhappy+x+Disney+%27Mickey+%26+Friends%27+Collection",
+          "date_info": "Launched November 20, 2026",
+          "urgency": "act-fast",
+          "link_status": "search"
+        },
+        {
+          "title": "POP MART DIMOO's Flying Fantasia Series with Carbon Utilization Tech",
+          "category": "product",
+          "summary": "Discover POP MART's new DIMOO's Flying Fantasia Series collectibles, featuring innovative materials made using captured carbon dioxide. This collection offers beautiful design objects that also showcase emerging sustainable technology.",
+          "url": "https://www.google.com/search?q=POP+MART+DIMOO%27s+Flying+Fantasia+Series+with+Carbon+Utilization+Tech",
+          "date_info": "Available in POP MART stores worldwide and online from November 2026",
+          "urgency": "this-week",
+          "link_status": "search"
+        },
+        {
+          "title": "Decadent Studio's 'Chubby' Dessert-Inspired Lighting Collection",
+          "category": "product",
+          "summary": "Illuminate your space with 'Chubby', a new lighting collection from Decadent Studio. Inspired by desserts like pavlova and cherry pie, these lamps feature rounded volumes and sweet color palettes, made to order from plant-based biopolymer.",
+          "url": "https://www.google.com/search?q=Decadent+Studio%27s+%27Chubby%27+Dessert-Inspired+Lighting+Collection",
+          "date_info": "Newly launched (article Nov 27, 2026), made to order",
+          "urgency": "heads-up",
+          "link_status": "search"
+        }
+      ]
     }
   ]
 }
