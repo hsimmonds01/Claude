@@ -7469,6 +7469,66 @@
           "link_status": "search"
         }
       ]
+    },
+    {
+      "date": "2026-11-28",
+      "model": "gemini-2.5-flash (legacy key, live search)",
+      "items": [
+        {
+          "title": "Aldi is Giving Away 100 Bottles of Champagne",
+          "category": "other",
+          "summary": "Aldi is running a free-to-enter promotion giving away 100 bottles of its best-selling champagne, offering a genuine perk for those who sign up.",
+          "url": "https://www.google.com/search?q=Aldi+is+Giving+Away+100+Bottles+of+Champagne",
+          "date_info": "Currently running (announced Nov 28, 2026)",
+          "urgency": "act-fast",
+          "link_status": "search"
+        },
+        {
+          "title": "Iconic Train Emergency Hammers Reimagined as Home Decor",
+          "category": "product",
+          "summary": "Designer Jean Couvreur is transforming iconic TGV train emergency hammers into unique and beautifully designed bookends, wall hooks, and candlesticks, fitting the 'how did I not know this existed' category.",
+          "url": "https://www.designboom.com/design/jean-couvreur-iconic-tgv-train-emergency-hammers-bookends-wall-hooks-candlesticks/",
+          "date_info": "Announced Nov 28, 2026",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "Pliavo's Portable Piano Folds into a Compact Block",
+          "category": "product",
+          "summary": "A genuinely clever new gadget, Pliavo's portable piano features 84 keys that fold accordion-style into a compact block, making it an interesting tech release currently available on Kickstarter.",
+          "url": "https://www.designboom.com/technology/pliavo-folding-piano-84-keys-accordion-style-compact-kickstarter/",
+          "date_info": "Currently on Kickstarter (announced Nov 28, 2026)",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "The Weeknd's 'Starboy' 10th Anniversary Collection Announced",
+          "category": "drop",
+          "summary": "A new collection celebrating 10 years of The Weeknd's 'Starboy' album has been announced, likely featuring limited-edition streetwear and collectibles for fans.",
+          "url": "https://hypebeast.com/2026/11/the-weeknd-starboy-decade-collection-announcement-release-info",
+          "date_info": "Announced Nov 26, 2026",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "G-SHOCK Unveils New Watches with Beetle Exoskeleton Design",
+          "category": "product",
+          "summary": "G-SHOCK has announced new GMC-2500 and GAC-2500 models, featuring an innovative and beautiful design inspired by a beetle's exoskeleton, perfect for those interested in genuinely interesting tech and design objects.",
+          "url": "https://hypebeast.com/2026/11/casio-g-shock-gmc-2500-yosuke-nagayama-interview",
+          "date_info": "Announced Nov 26, 2026",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        },
+        {
+          "title": "Two London Pizza Chains Named World's Second-Best",
+          "category": "food",
+          "summary": "Big Mamma and Da Michele, both with locations in London, have been jointly recognised as the second-best pizza chains in the world, making them excellent choices for a nice meal out.",
+          "url": "https://www.timeout.com/london/news/world-best-pizza-chains-2026-big-mamma-da-michele-112726",
+          "date_info": "Announced Nov 27, 2026",
+          "urgency": "heads-up",
+          "link_status": "verified"
+        }
+      ]
     }
   ]
 }
